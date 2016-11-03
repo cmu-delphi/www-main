@@ -1,0 +1,97 @@
+{
+  "type": "delphi deploy config",
+  "version": 1,
+  "actions": [
+    {
+      "type": "copy",
+      "src": "site/bibliography.html",
+      "dst": "/var/www/html/bibliography.html",
+      "add-header-comment": true
+    },
+    {
+      "type": "copy",
+      "src": "site/favicon.ico",
+      "dst": "/var/www/html/favicon.ico",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/delphi_static.png",
+      "dst": "/var/www/html/images/delphi_static.png",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/email_david.png",
+      "dst": "/var/www/html/images/email_david.png",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/email_justin.png",
+      "dst": "/var/www/html/images/email_justin.png",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/email_logan.png",
+      "dst": "/var/www/html/images/email_logan.png",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/fv.png",
+      "dst": "/var/www/html/images/fv.png",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/pic_david.png",
+      "dst": "/var/www/html/images/pic_david.png",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/pic_justin.jpg",
+      "dst": "/var/www/html/images/pic_justin.jpg",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/pic_logan.jpg",
+      "dst": "/var/www/html/images/pic_logan.jpg",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/pic_roni.jpg",
+      "dst": "/var/www/html/images/pic_roni.jpg",
+    },
+    {
+      "type": "copy",
+      "src": "site/images/pic_ryan.png",
+      "dst": "/var/www/html/images/pic_ryan.png",
+    },
+    {
+      "type": "copy",
+      "src": "site/index.html",
+      "dst": "/var/www/html/index.html",
+      "add-header-comment": true
+    },
+    {
+      "type": "copy",
+      "src": "site/style.css",
+      "dst": "/var/www/html/style.css",
+      "add-header-comment": true
+    },
+    {
+      "type": "copy",
+      "src": "site/systems/archefilter.html",
+      "dst": "/var/www/html/systems/archefilter.html",
+      "add-header-comment": true
+    },
+    {
+      "type": "copy",
+      "src": "site/systems/epicast.html",
+      "dst": "/var/www/html/systems/epicast.html",
+      "add-header-comment": true
+    },
+    {
+      "type": "copy",
+      "src": "site/systems/stat.html",
+      "dst": "/var/www/html/systems/stat.html",
+      "add-header-comment": true
+    }
+  ]
+}
