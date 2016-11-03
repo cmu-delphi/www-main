@@ -11,57 +11,57 @@
     {
       "type": "copy",
       "src": "site/favicon.ico",
-      "dst": "/var/www/html/favicon.ico",
+      "dst": "/var/www/html/favicon.ico"
     },
     {
       "type": "copy",
       "src": "site/images/delphi_static.png",
-      "dst": "/var/www/html/images/delphi_static.png",
+      "dst": "/var/www/html/images/delphi_static.png"
     },
     {
       "type": "copy",
       "src": "site/images/email_david.png",
-      "dst": "/var/www/html/images/email_david.png",
+      "dst": "/var/www/html/images/email_david.png"
     },
     {
       "type": "copy",
       "src": "site/images/email_justin.png",
-      "dst": "/var/www/html/images/email_justin.png",
+      "dst": "/var/www/html/images/email_justin.png"
     },
     {
       "type": "copy",
       "src": "site/images/email_logan.png",
-      "dst": "/var/www/html/images/email_logan.png",
+      "dst": "/var/www/html/images/email_logan.png"
     },
     {
       "type": "copy",
       "src": "site/images/fv.png",
-      "dst": "/var/www/html/images/fv.png",
+      "dst": "/var/www/html/images/fv.png"
     },
     {
       "type": "copy",
       "src": "site/images/pic_david.png",
-      "dst": "/var/www/html/images/pic_david.png",
+      "dst": "/var/www/html/images/pic_david.png"
     },
     {
       "type": "copy",
       "src": "site/images/pic_justin.jpg",
-      "dst": "/var/www/html/images/pic_justin.jpg",
+      "dst": "/var/www/html/images/pic_justin.jpg"
     },
     {
       "type": "copy",
       "src": "site/images/pic_logan.jpg",
-      "dst": "/var/www/html/images/pic_logan.jpg",
+      "dst": "/var/www/html/images/pic_logan.jpg"
     },
     {
       "type": "copy",
       "src": "site/images/pic_roni.jpg",
-      "dst": "/var/www/html/images/pic_roni.jpg",
+      "dst": "/var/www/html/images/pic_roni.jpg"
     },
     {
       "type": "copy",
       "src": "site/images/pic_ryan.png",
-      "dst": "/var/www/html/images/pic_ryan.png",
+      "dst": "/var/www/html/images/pic_ryan.png"
     },
     {
       "type": "copy",
