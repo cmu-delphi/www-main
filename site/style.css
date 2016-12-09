@@ -107,6 +107,7 @@ div.box_title_content:hover {
 }
 div.box_profile {
    display: inline-block;
+   font-size: 14px;
    width: 170px;
    padding: 0px;
    margin: 10px;
@@ -114,6 +115,7 @@ div.box_profile {
 div.box_profiles {
    text-align: center;
 }
+
 
 /*** Paragraphs ***/
 p {
