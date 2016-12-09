@@ -107,7 +107,7 @@ div.box_title_content:hover {
 }
 div.box_profile {
    display: inline-block;
-   width: 200px;
+   width: 170px;
    padding: 0px;
    margin: 10px;
 }
@@ -199,6 +199,9 @@ li {
 img.img_profile {
    width: 150px;
    height: 150px;
+}
+img.img_email {
+   
 }
 
 /*** Mobile Tweaks (or very small screens) ***/
