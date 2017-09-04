@@ -150,10 +150,12 @@ p.text_header {
    font-weight: bold;
    border-bottom: 1px dotted #464646;
    margin-bottom: 5px;
+   text-align: left;
 }
 p.text_content {
    font-size: 1.0em;
    margin-bottom: 15px;
+   text-align: left;
 }
 p.text_bib {
    font-size: 0.7em;
