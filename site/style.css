@@ -2,7 +2,7 @@
 -CMU Web Colors: (https://www.cmu.edu/marcom/brand-guidelines/print-web-products/web/index.html)
   red:        [#990000]
   light grey: [#d4d4d4]
-  dark grey:  [#464646]	
+  dark grey:  [#464646]
   light tan:  [#f3f0e9]
   violet:     [#674c56]
   blue:       [#7493a2]
@@ -105,17 +105,27 @@ div.box_title_content:hover {
    box-shadow: 0px 4px 10px -2px #990000;
    transition: box-shadow 0.5s ease 0.0s;
 }
-div.box_profile {
+.main .box_profile {
    display: inline-block;
    font-size: 14px;
    width: 170px;
-   padding: 0px;
+   height: 210px;
    margin: 10px;
-}
-div.box_profiles {
-    /* text-align: cente; */
+   padding: 0px;
+   text-align: center;
+   overflow-y: hidden;
 }
 
+.page .box_profile {
+   display: inline-block;
+   font-size: 14px;
+   width: 170px;
+   height: 250px;
+   margin: 10px;
+   padding: 0px;
+   text-align: center;
+   overflow-y: hidden;
+}
 
 /*** Paragraphs ***/
 p {
@@ -205,7 +215,7 @@ img.img_profile {
    height: 150px;
 }
 img.img_email {
-   
+
 }
 
 /*** Mobile Tweaks (or very small screens) ***/
