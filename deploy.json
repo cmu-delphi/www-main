@@ -2,14 +2,14 @@
   "type": "delphi deploy config",
   "version": 1,
   "actions": [
-    
+
     "// site-wide favicon",
     {
       "type": "move",
       "src": "site/favicon.ico",
       "dst": "/var/www/html/favicon.ico"
     },
-    
+
     "// web sources",
      {
       "type": "move",
@@ -18,7 +18,7 @@
       "match": "^.*\\.(html|css)$",
       "add-header-comment": true
     },
-    
+
     "// images",
     {
       "type": "move",
@@ -26,7 +26,16 @@
       "dst": "/var/www/html/images/",
       "match": "^.+\\.(jpg|png)$"
     },
-    
+
+
+    "// team images",
+    {
+      "type": "move",
+      "src": "site/images/team/",
+      "dst": "/var/www/html/images/team/",
+      "match": "^.+\\.(jpg|png)$"
+    },
+
     "// landing pages for forecasting systems",
     {
       "type": "move",
@@ -35,6 +44,6 @@
       "match": "^.*\\.html$",
       "add-header-comment": true
     }
-    
+
   ]
 }
