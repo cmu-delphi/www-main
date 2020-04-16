@@ -109,7 +109,8 @@ div.box_title_content:hover {
    display: inline-block;
    font-size: 14px;
    width: 170px;
-   height: 210px;
+   vertical-align: top;
+   /* height: 210px; */
    margin: 10px;
    padding: 0px;
    text-align: center;
@@ -120,11 +121,16 @@ div.box_title_content:hover {
    display: inline-block;
    font-size: 14px;
    width: 170px;
-   height: 250px;
+   vertical-align: top;
+   /* height: 250px; */
    margin: 10px;
    padding: 0px;
    text-align: center;
    overflow-y: hidden;
+}
+
+.page .img_email, .page .box_link {
+    display: none;
 }
 
 /*** Paragraphs ***/
