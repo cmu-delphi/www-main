@@ -1,586 +1,540 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <title>DELPHI - Epi Forecasting</title>
-        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Alegreya+SC" rel="stylesheet" type="text/css">
-        <link href="style.css" rel="stylesheet">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Developing the Theory and Practice of Epidemiological Forecasting">
-        <meta name="keywords" content="forecasting,epi-forecasting,epiforecasting,influenza,dengue">
-        <!-- Analytics -->
-        <script>
-            (function(i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function() {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }
-                ,
-                i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            }
-            )(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-            ga('create', 'UA-88748454-1', 'auto');
-            ga('send', 'pageview');
-        </script>
-    </head>
-    <!-- Body -->
-    <body class="main">
-        <header>
-
+   <head>
+      <title>DELPHI - Epi Forecasting</title>
+      <link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Alegreya+SC" rel="stylesheet" type="text/css">
+      <link href="style.css" rel="stylesheet">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Developing the Theory and Practice of Epidemiological Forecasting">
+      <meta name="keywords" content="forecasting,epi-forecasting,epiforecasting,influenza,dengue">
+      <!-- Analytics -->
+      <script>
+         (function(i, s, o, g, r, a, m) {
+             i['GoogleAnalyticsObject'] = r;
+             i[r] = i[r] || function() {
+                 (i[r].q = i[r].q || []).push(arguments)
+             }
+             ,
+             i[r].l = 1 * new Date();
+             a = s.createElement(o),
+             m = s.getElementsByTagName(o)[0];
+             a.async = 1;
+             a.src = g;
+             m.parentNode.insertBefore(a, m)
+         }
+         )(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+         ga('create', 'UA-88748454-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+   </head>
+   <!-- Body -->
+   <body class="main">
+      <header>
          <div class="box_main box_centered">
-           <a class="wordmark" href="https://www.cmu.edu/">Carnegie Mellon University</a>
-           </div>
-
-        </header>
-        <div class="box_main box_centered">
-            <!-- Header -->
-            <div class="box_title box_centered">
-                <a class="title" href="index.html">
-                    <div class="box_title_content">
-                        <p class="text_title">
-                        <!-- DELPHI -->
-                        <!-- <span class="effect_logo1">D</span><span class="effect_logo2">E</span><span class="effect_logo1">L</span><span class="effect_logo2">P</span><span class="effect_logo1">H</span><span class="effect_logo2">I</span> -->
-                        </p>
-                        <p class="text_tagline">
-                        <!-- Tagline -->
-                        Developing the Theory and Practice of Epidemiological Forecasting
-                  </p>
-                    </div>
-                </a>
+            <a class="wordmark" href="https://www.cmu.edu/" target="_blank" rel="noopener">Carnegie Mellon University</a>
+         </div>
+      </header>
+      <div class="box_main box_centered">
+      <!-- Header -->
+      <div class="box_title box_centered">
+         <a class="title" href="index.html">
+            <div class="box_title_content">
+               <p class="text_title">
+                  <!-- DELPHI -->
+                  <!-- <span class="effect_logo1">D</span><span class="effect_logo2">E</span><span class="effect_logo1">L</span><span class="effect_logo2">P</span><span class="effect_logo1">H</span><span class="effect_logo2">I</span> -->
+               </p>
+               <p class="text_tagline">
+                  <!-- Tagline -->
+                  Developing the Theory and Practice of Epidemiological Forecasting
+               </p>
             </div>
-            <!-- Content -->
-</p>
-<p class="text_content">
-    <i>
-        <b>Our mission.</b>
-    </i>
-    Epidemiological forecasting is critically needed for decision making
-	    by public health officials, commercial and non-commercial
-	    institutions, and the general public. The Delphi group at Carnegie
-	    Mellon University focuses on developing the technological capability
-	    of epi-forecasting, and its role in decision making, both public and
-	    private. Our long term vision is to make epidemiological forecasting
-	    as universally accepted and useful as weather forecasting is today.
-
-</p>
-
-<p class="text_header">
-    <i class="fa fa-info-circle"></i>
-    News
-</p>
-<p class="text_content">
-<ul>
-   <li>
-        <p>March 2020: we are focusing our efforts at this point on COVID-19 nowcasting
-  and forecasting. We are adapting our existing systems, and developing new
-  ones. Some of our regular activities may be halted as a result.
-  </p>
-    </li>
-    <li>
-        <p>
-            October 2019: <a target="_blank" rel="noopener" rel="noopener" href="https://www.ml.cmu.edu/news/news-archive/2019/october/machine-learning-delphi-research-group-funded-by-centers-for-disease-control-cdc.html">CDC
-  has just named us "National Center of Excellence for Influenza
-  Forecasting"</a>
-            (one of two nationally).
-
-        </p>
-    </li>
-    <li>
-        <p>
-            October 2018: and yet again! Our forecasting systems took the top
-  spot each of the three separate flu forecasting challenges of
-  2017-2018 (out of up to 30 submissions).
-  (<a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202017-2018%20Results.pdf">Results
-  summary.</a>
-            )
-
-        </p>
-    </li>
-    <li>
-        <p>
-            October 2017: We did it again! <a target="_blank" rel="noopener" href="https://www.cmu.edu/news/stories/archives/2017/september/flu-forecasts.html">Our
-  two systems took the top two spots in the 2016-2017 flu forecasting
-  challenge (out of 28 submissions).</a>
-            (<a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202016-2017%20Results.pdf">Results
-  summary.</a>
-            )
-
-        </p>
-    </li>
-    <li>
-        <p>
-            December 2016: <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/spotlights/flu-activity-forecasts-2016-2017.htm">Our
-  system took the top stop in the 2015-2016 flu forecasting challenge.</a>
-            (<a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202015-2016%20Results.pdf">Results
-  summary.</a>
-            )
-
-        </p>
-    </li>
-</ul>
-</p>
-<p class="text_header">
-    <i class="fa fa-desktop"></i>
-    Operational Systems
-
-
-</p>
-<p class="text_content">
-<ul>
-    <li>
-        <p>
-            "Wisdom-of-Crowds" forecasting of ILI: <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/crowdcast/">Crowdcast</a>
-            .
-  <br>
-            <i>
-                <b>Note:</b>
-                This system is up and running to forecast ILI during the
-  COVID-19 pandemic.
-            </i>
-        </p>
-    </li>
-    <li>
-        <p>
-            State-level real-time estimates (nowcasts) of ILI (influenza-like
-  illness): <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/nowcast/">ILI
-  Nearby</a>
-            .
-  <br>
-            <i>
-                <b>Note:</b>
-                This system is designed to nowcast ILI driven by seasonal
-  influenza and is NOT designed to nowcast ILI during the COVID-19 pandemic. We
-  are only keeping it running as others may be relying on it. We are working on
-  a new system for COVID-19.
-            </i>
-        </p>
-    </li>
-    <li>
-        <p>
-            State-level weekly forecasts of ILI (influenza-like
-  illness).
-  <br>
-            <i>
-                <b>Note:</b>
-                This system is designed to forecast ILI driven by seasonal
-  influenza and is NOT designed to forecast ILI during the COVID-19 pandemic. We
-  have temporarily shut it down to focus on COVID-19. We are working on
-  a new system for COVID-19.
-            </i>
-        </p>
-    </li>
-</ul>
-</p>
-<p class="text_header">
-    <i class="fa fa-clock-o"></i>
-    Activities
-
-
-</p>
-<p class="text_content">
-    We have participated, and <a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf">have done very well</a>
-    , in all epidemiological forecasting challenges organized by the US government to date:
-
-
-</p>
-<p class="text_content">
-<ul>
-    <li>
-        <p>
-            <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/weekly/flusight/">Forecasting Seasonal Influenza in the US</a> (by <a target="_blank" rel="noopener" href="https://www.cdc.gov">CDC</a>): 2013 -- current
-            <!--            : 2013--2014, 2014--2015 (winner),
-               <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/spotlights/flu-activity-forecasts-2016-2017.htm">2015--2016 (winner)</a>
-            ,
-               <a target="_blank" rel="noopener" href="https://predict.phiresearchlab.org/post/57f3f440123b0f563ece2576">2016--2017 (winner)</a>
-            <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/weekly/flusight/index.html#nav-group-aeff9">2017--2018 (winner)</a>-->
-        </p>
-    </li>
-    <li>
-        <p>
-            <a target="_blank" rel="noopener" href="https://predict.cdc.gov/post/5a4fcc3e2c1b1669c22aa261">Forecasting Dengue in Puerto Rico and Peru</a>
-            (by the
+         </a>
+      </div>
+      <!-- Content -->
+      </p>
+      <p class="text_content">
+         <i>
+         <b>Our mission.</b>
+         </i>
+         Epidemiological forecasting is critically needed for decision making
+         by public health officials, commercial and non-commercial
+         institutions, and the general public. The Delphi group at Carnegie
+         Mellon University focuses on developing the technological capability
+         of epi-forecasting, and its role in decision making, both public and
+         private. Our long term vision is to make epidemiological forecasting
+         as universally accepted and useful as weather forecasting is today.
+      </p>
+      <p class="text_header">
+         <i class="fa fa-info-circle"></i>
+         News
+      </p>
+      <p class="text_content">
+      <ul>
+         <li>
+            <p>March 2020: we are focusing our efforts at this point on COVID-19 nowcasting
+               and forecasting. We are adapting our existing systems, and developing new
+               ones. Some of our regular activities may be halted as a result.
+            </p>
+         </li>
+         <li>
+            <p>
+               October 2019: <a target="_blank" rel="noopener" rel="noopener" href="https://www.ml.cmu.edu/news/news-archive/2019/october/machine-learning-delphi-research-group-funded-by-centers-for-disease-control-cdc.html">CDC
+               has just named us "National Center of Excellence for Influenza
+               Forecasting"</a> (one of two nationally.)
+            </p>
+         </li>
+         <li>
+            <p>
+               October 2018: and yet again! Our forecasting systems took the top
+               spot each of the three separate flu forecasting challenges of
+               2017-2018 (out of up to 30 submissions).
+               (<a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202017-2018%20Results.pdf">Results
+               summary.</a>)
+            </p>
+         </li>
+         <li>
+            <p>
+               October 2017: We did it again! <a target="_blank" rel="noopener" href="https://www.cmu.edu/news/stories/archives/2017/september/flu-forecasts.html">Our
+               two systems took the top two spots in the 2016-2017 flu forecasting
+               challenge (out of 28 submissions).</a>
+               (<a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202016-2017%20Results.pdf">Results
+               summary.</a>)
+            </p>
+         </li>
+         <li>
+            <p>
+               December 2016: <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/spotlights/flu-activity-forecasts-2016-2017.htm">Our
+               system took the top stop in the 2015-2016 flu forecasting challenge.</a>
+               (<a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202015-2016%20Results.pdf">Results
+               summary.</a>)
+            </p>
+         </li>
+      </ul>
+      </p>
+      <p class="text_header">
+         <i class="fa fa-desktop"></i>
+         Operational Systems
+      </p>
+      <p class="text_content">
+      <ul>
+         <li>
+            <p>
+               "Wisdom-of-Crowds" forecasting of ILI: <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/crowdcast/">Crowdcast</a>.
+               <br>
+               <i>
+               <b>Note:</b>
+               This system is up and running to forecast ILI during the
+               COVID-19 pandemic.
+               </i>
+            </p>
+         </li>
+         <li>
+            <p>
+               State-level real-time estimates (nowcasts) of ILI (influenza-like
+               illness): <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/nowcast/">ILI
+               Nearby</a>.
+               <br>
+               <i>
+               <b>Note:</b>
+               This system is designed to nowcast ILI driven by seasonal
+               influenza and is NOT designed to nowcast ILI during the COVID-19 pandemic. We
+               are only keeping it running as others may be relying on it. We are working on
+               a new system for COVID-19.
+               </i>
+            </p>
+         </li>
+         <li>
+            <p>
+               State-level weekly forecasts of ILI (influenza-like
+               illness).
+               <br>
+               <i>
+               <b>Note:</b>
+               This system is designed to forecast ILI driven by seasonal
+               influenza and is NOT designed to forecast ILI during the COVID-19 pandemic. We
+               have temporarily shut it down to focus on COVID-19. We are working on
+               a new system for COVID-19.
+               </i>
+            </p>
+         </li>
+      </ul>
+      </p>
+      <p class="text_header">
+         <i class="fa fa-clock-o"></i>
+         Activities
+      </p>
+      <p class="text_content">
+         We have participated, and <a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf">have done very well</a>, in all epidemiological forecasting challenges organized by the US government to date:
+      </p>
+      <p class="text_content">
+      <ul>
+         <li>
+            <p>
+               <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/weekly/flusight/">Forecasting Seasonal Influenza in the US</a> (by <a target="_blank" rel="noopener" href="https://www.cdc.gov">CDC</a>): 2013 -- current
+               <!--            : 2013--2014, 2014--2015 (winner),
+                  <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/spotlights/flu-activity-forecasts-2016-2017.htm">2015--2016 (winner)</a>
+                  ,
+                  <a target="_blank" rel="noopener" href="https://predict.phiresearchlab.org/post/57f3f440123b0f563ece2576">2016--2017 (winner)</a>
+                  <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/weekly/flusight/index.html#nav-group-aeff9">2017--2018 (winner)</a>-->
+            </p>
+         </li>
+         <li>
+            <p>
+               <a target="_blank" rel="noopener" href="https://predict.cdc.gov/post/5a4fcc3e2c1b1669c22aa261">Forecasting Dengue in Puerto Rico and Peru</a>
+               (by the
                <a target="_blank" rel="noopener" href="https://www.whitehouse.gov/">White House</a>
-            <a target="_blank" rel="noopener" href="https://www.whitehouse.gov/administration/eop/ostp">OSTP</a>
-            )
-        </p>
-    </li>
-    <li>
-        <p>
-            <a target="_blank" rel="noopener" href="https://www.innocentive.com/ar/challenge/9933617">Forecasting the Chikungunya invasion of the Americas</a>
-            (by
-               <a target="_blank" rel="noopener" href="http://www.darpa.mil/">DARPA</a>
-            )
-        </p>
-    </li>
-</ul>
-</p>
-<p class="text_header">
-    <i class="fa fa-users"></i>
-    Members
-
-
-</p>
-<div class="box_profiles">
-    <div class="box_profile">
-        <img class="img_profile" src="images/team/roni-rosenfeld.jpg"></img>
-        <br>
-        <p>
+               <a target="_blank" rel="noopener" href="https://www.whitehouse.gov/administration/eop/ostp">OSTP</a>)
+            </p>
+         </li>
+         <li>
+            <p>
+               <a target="_blank" rel="noopener" href="https://www.innocentive.com/ar/challenge/9933617">Forecasting the Chikungunya invasion of the Americas</a>
+               (by
+               <a target="_blank" rel="noopener" href="http://www.darpa.mil/">DARPA</a>)
+            </p>
+         </li>
+      </ul>
+      </p>
+      <p class="text_header">
+         <i class="fa fa-users"></i>
+         Members
+      </p>
+      <div class="box_profiles">
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/roni-rosenfeld.jpg"></img>
+         <br>
+         <p>
             Roni Rosenfeld<br>
             <a href="http://www.cs.cmu.edu/~roni" target="_blank" rel="noopener">Homepage</a>
-        </p>
-    </div>
-    <div class="box_profile">
-        <img class="img_profile" src="images/team/pic_ryan.jpg"></img>
-        <br>
-        <p>
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/pic_ryan.jpg"></img>
+         <br>
+         <p>
             Ryan Tibshirani<br>
             <a href="http://www.stat.cmu.edu/~ryantibs/" target="_blank" rel="noopener">Homepage</a>
-        </p>
-    </div>
-    <div class="box_profile">
-        <img class="img_profile" src="images/team/pic_logan.jpg"></img>
-        <br>
-        <p>
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/pic_logan.jpg"></img>
+         <br>
+         <p>
             Logan Brooks<br>
             <img class="img_email" src="images/email_logan.png"></img>
-        </p>
-    </div>
-    <div class="box_profile">
-        <img class="img_profile" src="images/team/pic_david.jpg"></img>
-        <br>
-        <p>
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/pic_david.jpg"></img>
+         <br>
+         <p>
             David Farrow<br>
             <img class="img_email" src="images/email_david.png"></img>
-        </p>
-    </div>
-    <div class="box_profile">
-        <img class="img_profile" src="images/team/pic_maria.jpg"></img>
-        <br>
-        <p>
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/pic_maria.jpg"></img>
+         <br>
+         <p>
             Maria Jahja<br>
             <a href="http://www.stat.cmu.edu/~maria/" target="_blank" rel="noopener">Homepage</a>
-        </p>
-    </div>
-    <div class="box_profile">
-        <img class="img_profile" src="images/team/pic_aaron.jpg"></img>
-        <br>
-        <p>
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/pic_aaron.jpg"></img>
+         <br>
+         <p>
             Aaron Rumack<br>
             <img class="img_email" src="images/email_aaron_small.png"></img>
-        </p>
-    </div>
-    <div class="box_profile">
-        <img class="img_profile" src="images/team/jingjing-tang.jpg"></img>
-        <br>
-        <p>
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/jingjing-tang.jpg"></img>
+         <br>
+         <p>
             Jingjing Tang<br>
             <a href="https://www.linkedin.com/in/jingjing-tang-856539163/" target="_blank" rel="noopener" rel="noopener">Homepage</a>
-        </p>
-    </div>
-    <div class="box_profile">
-        <img class="img_profile" src="images/team/pic_brian.jpg"></img>
-        <br>
-        <p>
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/pic_brian.jpg"></img>
+         <br>
+         <p>
             Brian Clark<br>
             <a href="https://www.linkedin.com/in/clarkbg/" target="_blank" rel="noopener">Homepage</a>
-        </p>
-    </div>
-    <p class="text_content">
-        We are faculty, students, and staff at Carnegie Mellon University (some <a href="https://delphi.cmu.edu/alumni.html">alumni</a>). We are also part of a larger, University of Pittsburgh-based <a href="https://www.midas.pitt.edu/" target="_blank" rel="noopener">MIDAS National Center of Excellence</a>, which includes epidemiologists, virologists, public health experts, infectious disease MDs, legal and economic experts, and other computationalists.
-    </p>
-    <p class="text_header">
-        <i class="fa fa-users"></i>
-        Additional volunteer members of the Delphi COVID-19 Pandemic Response Team
-    </p>
-    <div class="box_profiles">
-        <div class="box_profile">
-            <img class="img_profile" src="images/team/addison-hu.jpg"></img>
-            <br>
-            <p>
-                Addison Hu<br>CMU/Stat
-            </p>
-        </div>
-        <div class="box_profile">
-            <img class="img_profile" src="images/team/pic_jiaxian.jpg"></img>
-            <br>
-            <p>
-                Jiaxian (Chris) Sheng<br>CMU/MLD
-            </p>
-        </div>
-        <div class="box_profile">
-            <img class="img_profile" src="images/team/jimi-kim-3.jpg"></img>
-            <br>
-            <p>
-                Jimi Kim<br>CMU/LTI
-            </p>
-        </div>
-        <div class="box_profile">
-            <img class="img_profile" src="images/team/katie-mazaitis.jpg"></img>
-            <br>
-            <p>
-                Kathryn Mazaitis<br>CMU/MLD
-            </p>
-        </div>
-        <div class="box_profile">
-            <img class="img_profile" src="images/team/larry-wasserman.jpg"></img>
-            <br>
-            <p>
-                Larry Wasserman<br>CMU/Stat
-            </p>
-        </div>
-        <div class="box_profile">
-            <img class="img_profile" src="images/team/natalia-lombardi-2.jpg"></img>
-            <br>
-            <p>
-                Natalia Lombardi de Oliveira<br>CMU/Stat
-            </p>
-        </div>
-        <div class="box_profile">
-            <img class="img_profile" src="images/team/rob-tibshirani.jpg"></img>
-            <br>
-            <p>
-                Rob Tibshirani<br>Stanford
-            </p>
-        </div>
-        <div class="box_profile">
-            <img class="img_profile" src="images/team/sangwon-justin-hyun.jpg"></img>
-            <br>
-            <p>
-                Sangwon (Justin) Hyun<br>USC
-            </p>
-        </div>
-        <div class="box_profile">
-            <img class="img_profile" src="images/team/valerie-ventura.jpg"></img>
-            <br>
-            <p>
-                Valérie Ventura<br>CMU/Stat
-            </p>
-        </div>
-</p>
-<p class="text_header">
-    <i class="fa fa-wrench"></i>
-    Publicly Available Tools
-</p>
-<ul>
-    <li>
-        <p>
-            Epidemiological forecasting R package: <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/epiforecast-R">epiforecast</a>
-        </p>
-    </li>
-    <li>
-        <p>
-            Epidemiological nowcasting via sensor fusion: <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/nowcast">nowcast</a>
-        </p>
-    </li>
-    <li>
-        <p>
-            Epidemiological time series visualizer: <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/epivis/epivis.html">EpiVis</a>
-        </p>
-    </li>
-    <li>
-        <p>
-            API for getting up-to-date epidemiological data: <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/delphi-epidata">EpiData</a>
-            (also available via a web interface through <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/epivis/epivis.html">EpiVis</a>
-            )
-        </p>
-    </li>
-    <li>
-        <p>
-            Visual comparison of scored submissions to CDC Flu Forecasting
-      Challenge: <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/misc/fluscores/">FluScores</a>
-            (provide
-      your own score files)
-
-        </p>
-    </li>
-    <li>
-        <p>
-            Epidemiological modeling utilities (e.g., date/epi-weeks
-      conversions): <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/utils">utils</a>
-        </p>
-    </li>
-    <!--<li>
-      <p>
-      <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/www-forecast">Flu
-    forecast visualizer</a>
+         </p>
+      </div>
+      <p class="text_content">
+         We are faculty, students, and staff at Carnegie Mellon University (some <a href="https://delphi.cmu.edu/alumni.html">alumni</a>). We are also part of a larger, University of Pittsburgh-based <a href="https://www.midas.pitt.edu/" target="_blank" rel="noopener">MIDAS National Center of Excellence</a>, which includes epidemiologists, virologists, public health experts, infectious disease MDs, legal and economic experts, and other computationalists.
       </p>
-      </li>-->
-</ul>
-</p>
-<p class="text_content">
-    All source code is freely available on <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/">GitHub</a>
-    .
+      <p class="text_header">
+         <i class="fa fa-users"></i>
+         Additional volunteer members of the Delphi COVID-19 Pandemic Response Team
+      </p>
+      <div class="box_profiles">
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/addison-hu.jpg"></img>
+         <br>
+         <p>
+            Addison Hu<br>CMU/Stat
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/pic_jiaxian.jpg"></img>
+         <br>
+         <p>
+            Jiaxian (Chris) Sheng<br>CMU/MLD
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/jimi-kim-3.jpg"></img>
+         <br>
+         <p>
+            Jimi Kim<br>CMU/LTI
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/katie-mazaitis.jpg"></img>
+         <br>
+         <p>
+            Kathryn Mazaitis<br>CMU/MLD
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/larry-wasserman.jpg"></img>
+         <br>
+         <p>
+            Larry Wasserman<br>CMU/Stat
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/natalia-lombardi-2.jpg"></img>
+         <br>
+         <p>
+            Natalia Lombardi de Oliveira<br>CMU/Stat
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/rob-tibshirani.jpg"></img>
+         <br>
+         <p>
+            Rob Tibshirani<br>Stanford
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/sangwon-justin-hyun.jpg"></img>
+         <br>
+         <p>
+            Sangwon (Justin) Hyun<br>USC
+         </p>
+      </div>
+      <div class="box_profile">
+         <img class="img_profile" src="images/team/valerie-ventura.jpg"></img>
+         <br>
+         <p>
+            Valérie Ventura<br>CMU/Stat
+         </p>
+      </div>
+      </p>
+      <p class="text_header">
+         <i class="fa fa-wrench"></i>
+         Publicly Available Tools
+      </p>
+      <ul>
+         <li>
+            <p>
+               Epidemiological forecasting R package: <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/epiforecast-R">epiforecast</a>
+            </p>
+         </li>
+         <li>
+            <p>
+               Epidemiological nowcasting via sensor fusion: <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/nowcast">nowcast</a>
+            </p>
+         </li>
+         <li>
+            <p>
+               Epidemiological time series visualizer: <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/epivis/epivis.html">EpiVis</a>
+            </p>
+         </li>
+         <li>
+            <p>
+               API for getting up-to-date epidemiological data: <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/delphi-epidata">EpiData</a>
+               (also available via a web interface through <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/epivis/epivis.html">EpiVis</a>)
+            </p>
+         </li>
+         <li>
+            <p>
+               Visual comparison of scored submissions to CDC Flu Forecasting
+               Challenge: <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/misc/fluscores/">FluScores</a>
+               (provide
+               your own score files)
+            </p>
+         </li>
+         <li>
+            <p>
+               Epidemiological modeling utilities (e.g., date/epi-weeks
+               conversions): <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/utils">utils</a>
+            </p>
+         </li>
+         <!--<li>
+            <p>
+            <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/www-forecast">Flu
+            forecast visualizer</a>
+            </p>
+            </li>-->
+      </ul>
+      </p>
+      <p class="text_content">
+         All source code is freely available on <a target="_blank" rel="noopener" href="https://github.com/cmu-delphi/">GitHub</a>.
+      </p>
+      <p class="text_header">
+         <i class="fa fa-flask"></i>
+         Research and White Papers
+         <!--Ongoing Research Projects-->
+      </p>
+      <ul>
+         <li>
+            <p>
+               Brooks. <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~lcbrooks/brooks2020pancasting.pdf">Pancasting: forecasting
+               epidemics from provisional data</a>. PhD thesis, 2020.
+            </p>
+         </li>
+         <li>
+            <p>
+               Jahja, Farrow, Rosenfeld, Tibshirani. <a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights">Kalman
+               filter, sensor fusion, and constrained regression: equivalences and
+               insights</a>. Neural Information Processing Systems 2019.
+            </p>
+         </li>
+         <li>
+            <p>
+               Brooks, Farrow, Hyun, Tibshirani, Rosenfeld. <a target="_blank" rel="noopener" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006134">Nonmechanistic
+               forecasts of seasonal influenza with iterative one-week-ahead
+               distributions</a>. PLOS Computational Biology, 2018.
+            </p>
+         </li>
+         <li>
+            <p>
+               Farrow, Brooks, Hyun, Tibshirani, Burke, Rosenfeld. <a target="_blank" rel="noopener" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005248">A
+               human judgment approach to epidemiological forecasting</a>. PLOS
+               Computational Biology, 2017.
+            </p>
+         </li>
+         <li>
+            <p>
+               Farrow. <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~dfarrow/thesis.pdf">Modeling the past,
+               present, and future of influenza</a>
+               . PhD thesis, 2016.
+            </p>
+         </li>
+         <li>
+            <p>
+               Brooks, Farrow, Hyun, Tibshirani, Rosenfeld. <a target="_blank" rel="noopener" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004382">Flexible
+               modeling of epidemics with an empirical Bayes framework</a>. PLOS
+               Computational Biology, 2015.
+            </p>
+         </li>
+         <li>
+            <p>
+               Rosenfeld. <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/files/PredictingThePredictable_13-04-03.pdf">Predicting
+               the predictable</a>, presentation, 2013.
+            </p>
+         </li>
+         <li>
+            <p>
+               Rosenfeld, Grefenstette, Burke.
+               <a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/standardized-evaluation-of-epi-models-rev-09nov2012.pdf">A
+               proposal for standardized evaluation of epidemiological models</a>. White
+               paper, 2012.
+            </p>
+         </li>
+      </ul>
+      <!--<ul>
+         <li>
+             <p class="text_header">In-season epidemiological forecasting via statistical machine learning</p>
+             <p class="text_content">
+                 Our 2015 <i>PLoS Computational Biology</i>
+                 paper, <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/files/brooks2015.pdf">Flexible Modeling of Epidemics with an Empirical Bayes Framework</a>
+                 , describes the Empirical Bayes methodology we developed and its application to in-season forecasting of flu in the US.  See also our 2014 <i>PLOS Neglected Tropical Diseases</i>
+                 <a target="_blank" rel="noopener" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4120682/">paper</a>
+                 on applying this methodology to in-season forecasting of dengue in Brazil.  A manunscript describing our most recent ensemble system (#1 performer in the 2015 &#8212;2016 Predict the Flu challenge) is under preparation.
 
 
-</p>
-<p class="text_header">
-    <i class="fa fa-flask"></i>
-    Research and White Papers
-    <!--Ongoing Research Projects-->
-</p>
-<ul>
-    <li>
-        <p>
-            Brooks. <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~lcbrooks/brooks2020pancasting.pdf">Pancasting: forecasting
-    epidemics from provisional data</a>
-            . PhD thesis, 2020.
-
-        </p>
-    </li>
-    <li>
-        <p>
-            Jahja, Farrow, Rosenfeld, Tibshirani. <a target="_blank" rel="noopener" href="https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights">Kalman
-    filter, sensor fusion, and constrained regression: equivalences and
-    insights</a>
-            . Neural Information Processing Systems 2019.
-
-        </p>
-    </li>
-    <li>
-        <p>
-            Brooks, Farrow, Hyun, Tibshirani, Rosenfeld. <a target="_blank" rel="noopener" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006134">Nonmechanistic
-    forecasts of seasonal influenza with iterative one-week-ahead
-    distributions</a>
-            . PLOS Computational Biology, 2018.
-
-        </p>
-    </li>
-    <li>
-        <p>
-            Farrow, Brooks, Hyun, Tibshirani, Burke, Rosenfeld. <a target="_blank" rel="noopener" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005248">A
-    human judgment approach to epidemiological forecasting</a>
-            . PLOS
-    Computational Biology, 2017.
-
-        </p>
-    </li>
-    <li>
-        <p>
-            Farrow. <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~dfarrow/thesis.pdf">Modeling the past,
-    present, and future of influenza</a>
-            . PhD thesis, 2016.
-
-        </p>
-    </li>
-    <li>
-        <p>
-            Brooks, Farrow, Hyun, Tibshirani, Rosenfeld. <a target="_blank" rel="noopener" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004382">Flexible
-    modeling of epidemics with an empirical Bayes framework</a>
-            . PLOS
-    Computational Biology, 2015.
-
-        </p>
-    </li>
-    <li>
-        <p>
-            Rosenfeld. <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/files/PredictingThePredictable_13-04-03.pdf">Predicting
-    the predictable</a>
-            , presentation, 2013.
-
-        </p>
-    </li>
-    <li>
-        <p>
-            Rosenfeld, Grefenstette, Burke.
-      <a target="_blank" rel="noopener" href="http://www.cs.cmu.edu/~roni/standardized-evaluation-of-epi-models-rev-09nov2012.pdf">A
-    proposal for standardized evaluation of epidemiological models</a>
-            . White
-    paper, 2012.
-
-        </p>
-    </li>
-</ul>
-<!--<ul>
-    <li>
-        <p class="text_header">In-season epidemiological forecasting via statistical machine learning</p>
-        <p class="text_content">
-            Our 2015 <i>PLoS Computational Biology</i>
-            paper, <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/files/brooks2015.pdf">Flexible Modeling of Epidemics with an Empirical Bayes Framework</a>
-            , describes the Empirical Bayes methodology we developed and its application to in-season forecasting of flu in the US.  See also our 2014 <i>PLOS Neglected Tropical Diseases</i>
-            <a target="_blank" rel="noopener" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4120682/">paper</a>
-            on applying this methodology to in-season forecasting of dengue in Brazil.  A manunscript describing our most recent ensemble system (#1 performer in the 2015 &#8212;2016 Predict the Flu challenge) is under preparation.
+             </p>
+         </li>
+         <li>
+             <p class="text_header">‘Wisdom-of-crowds’ forecasting </p>
+             <p class="text_content">
+                 Another one of our goals is to establish a strong baseline forecast to which data-driven forecasts can be compared. For chikungunya (in 2015) and influenza (ongoing since 2014), we achieve this baseline through periodic collection of simple, subjective forecasts from the general public, using a graphical interface we created specifically for this purpose. With these user-submitted assessments we create aggregate, probabilistic weekly forecasts, both as a performance baseline for comparison with data-driven methods and also as a serious attempt to forecast the spread of these diseases. A manuscript describing the Epicast system was published in our 2017 <i>PLoS Computational Biology</i>
+                 paper, <a target="_blank" rel="noopener" href="http://dx.doi.org/10.1371/journal.pcbi.1005248">A human judgment approach to epidemiological forecasting</a>
+                 .  See also <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~dfarrow/thesis.pdf#page=86">this section of David Farrow's thesis</a>
+                 .
 
 
-        </p>
-    </li>
-    <li>
-        <p class="text_header">‘Wisdom-of-crowds’ forecasting </p>
-        <p class="text_content">
-            Another one of our goals is to establish a strong baseline forecast to which data-driven forecasts can be compared. For chikungunya (in 2015) and influenza (ongoing since 2014), we achieve this baseline through periodic collection of simple, subjective forecasts from the general public, using a graphical interface we created specifically for this purpose. With these user-submitted assessments we create aggregate, probabilistic weekly forecasts, both as a performance baseline for comparison with data-driven methods and also as a serious attempt to forecast the spread of these diseases. A manuscript describing the Epicast system was published in our 2017 <i>PLoS Computational Biology</i>
-            paper, <a target="_blank" rel="noopener" href="http://dx.doi.org/10.1371/journal.pcbi.1005248">A human judgment approach to epidemiological forecasting</a>
-            .  See also <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~dfarrow/thesis.pdf#page=86">this section of David Farrow's thesis</a>
-            .
+             </p>
+             <p class="text_content">
+                 <i style="color: red;" class="fa fa-chevron-right"></i>
+                 <i>
+                     <b style="color: red;">Join in!</b>
+                     We are always looking for more participants, so please check out
+
+                     <a target="_blank" rel="noopener" href="http://epicast.org">
+                         <span class="effect_delphi" style="font-size: 1.1em">Epicast</span>
+                     </a>
+                     (http://epicast.org) - and feel free to invite others to do so as well. No special skills or background are required, and the top epicasters are featured on the <a target="_blank" rel="noopener" href="http://epicast.org/scores.php">leaderboards</a>
+                     !
+
+                 </i>
+             </p>
+         </li>
+         <li>
+             <p class="text_header">Nowcasting by sensor fusion</p>
+             <p class="text_content">
+                 We use diverse sources of information about the prevalence of Influenza-Like-Illness (ILI) in various geographic areas of the US.  Our flu sensors include: Google flu-related search queries,  Twitter flu-related tweets, Wikipedia flu-related article access, and CDC flu-related web site access.   To these we add a variety of flu prediction models.   These sources (sensors and predictors) vary in their geographic granularity (metro areas, US states, multi-state regions, entire US), their temporal granularity (daily or weekly), their noise (error) characteristics, and their correlation with one another.  We use sensor fusion theory to optimally combine them in real-time.  For more details, see <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/nowcast/about.html">the "about" page</a>
+                 in <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/nowcast/">ILI-Nearby</a>
+                 .  For more mathematical detail, see the <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~dfarrow/thesis.pdf#page=49">nowcasting chapter</a>
+                 in <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~dfarrow/thesis.pdf">David Farrow’s PhD thesis</a>
+                 .
 
 
-        </p>
-        <p class="text_content">
-            <i style="color: red;" class="fa fa-chevron-right"></i>
-            <i>
-                <b style="color: red;">Join in!</b>
-                We are always looking for more participants, so please check out
+             </p>
+         </li>
+         </ul>
+         <p class="text_header">
+         <i class="fa fa-folder-open"></i>
+         Documents
 
-                <a target="_blank" rel="noopener" href="http://epicast.org">
-                    <span class="effect_delphi" style="font-size: 1.1em">Epicast</span>
-                </a>
-                (http://epicast.org) - and feel free to invite others to do so as well. No special skills or background are required, and the top epicasters are featured on the <a target="_blank" rel="noopener" href="http://epicast.org/scores.php">leaderboards</a>
-                !
-
-            </i>
-        </p>
-    </li>
-    <li>
-        <p class="text_header">Nowcasting by sensor fusion</p>
-        <p class="text_content">
-            We use diverse sources of information about the prevalence of Influenza-Like-Illness (ILI) in various geographic areas of the US.  Our flu sensors include: Google flu-related search queries,  Twitter flu-related tweets, Wikipedia flu-related article access, and CDC flu-related web site access.   To these we add a variety of flu prediction models.   These sources (sensors and predictors) vary in their geographic granularity (metro areas, US states, multi-state regions, entire US), their temporal granularity (daily or weekly), their noise (error) characteristics, and their correlation with one another.  We use sensor fusion theory to optimally combine them in real-time.  For more details, see <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/nowcast/about.html">the "about" page</a>
-            in <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/nowcast/">ILI-Nearby</a>
-            .  For more mathematical detail, see the <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~dfarrow/thesis.pdf#page=49">nowcasting chapter</a>
-            in <a target="_blank" rel="noopener" href="https://delphi.cmu.edu/~dfarrow/thesis.pdf">David Farrow’s PhD thesis</a>
-            .
-
-
-        </p>
-    </li>
-</ul>
-<p class="text_header">
-    <i class="fa fa-folder-open"></i>
-    Documents
-
-</p>-->
-<p class="text_header">
-    <i class="fa fa-rocket"></i>
-    We are thankful for generous financial support from
-
-
-</p>
-<div class="box_profiles">
-    <div class="box_profile">
-        <a target="_blank" rel="noopener" href="https://www.nigms.nih.gov/research/specificareas/MIDAS/pages/default.aspx">
+         </p>-->
+      <p class="text_header">
+         <i class="fa fa-rocket"></i>
+         We are thankful for generous financial support from
+      </p>
+      <div class="box_profiles">
+         <div class="box_profile">
+            <a target="_blank" rel="noopener" href="https://www.nigms.nih.gov/research/specificareas/MIDAS/pages/default.aspx">
             <img class="img_profile" src="images/logo_nihmidas.jpg"></img>
-        </a>
-    </div>
-    <div class="box_profile">
-        <a target="_blank" rel="noopener" href="http://www.dtra.mil/">
+            </a>
+         </div>
+         <div class="box_profile">
+            <a target="_blank" rel="noopener" href="http://www.dtra.mil/">
             <img class="img_profile" src="images/logo_dtra.png"></img>
-        </a>
-    </div>
-    <div class="box_profile">
-        <a target="_blank" rel="noopener" href="https://www.uptake.com/">
+            </a>
+         </div>
+         <div class="box_profile">
+            <a target="_blank" rel="noopener" href="https://www.uptake.com/">
             <img class="img_profile" src="images/logo_uptake_black.png"></img>
-        </a>
-    </div>
-    <div class="box_profile">
-        <a target="_blank" rel="noopener" href="https://www.cdc.gov/">
+            </a>
+         </div>
+         <div class="box_profile">
+            <a target="_blank" rel="noopener" href="https://www.cdc.gov/">
             <img class="img_profile" src="images/acknowledgment-uscdc-rev.png"></img>
-        </a>
-    </div>
-    <br>
-    <!-- Footer -->
-    <p class="text_footer">&copy; 2015 - 2020, the CMU DELPHI team.</p>
-</div>
-</body></html>
+            </a>
+         </div>
+         <br>
+         <!-- Footer -->
+         <p class="text_footer">&copy; 2015 - 2020, the CMU DELPHI team.</p>
+      </div>
+   </body>
+</html>
