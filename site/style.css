@@ -239,3 +239,24 @@ img.img_email {
 @media only screen and (max-width: 1024px), only screen and (max-device-width: 1024px) {
    /* todo */
 }
+
+header {
+  background-color:#b00;
+}
+
+.wordmark {
+    background: url(https://www.cmu.edu/common/standard-v6/images/cmu-wordmark-white.png) no-repeat left center scroll transparent;
+    background-size: contain;
+    color: #b00;
+}
+
+.wordmark {
+    border-bottom: none 0;
+    min-height: 1.6em;
+    margin: 1em 0 .65em;
+    text-indent: -9999px;
+    width: 31.333%;
+    min-width: 300px;
+    display: inline-block;
+    flex: 0 1 auto;
+}
