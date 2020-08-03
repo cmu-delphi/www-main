@@ -8,28 +8,26 @@ tags: ["COVIDcast"]
 Hello from the Delphi research group at Carnegie Mellon University!
 We're a group of faculty, students, and staff, based primarily out of CMU
 together with strong collaborators from other universities and industry.
-Our group was founded in 2012 to advance research in epidemic forecasting.
-Since March 2020, we have refocused efforts towards helping combat the COVID-19
-pandemic, by supporting informed decision making at federal, state, and local 
-levels of government and in the healthcare sector. Until now, we've been pretty 
-"heads down" with our work, and slow to communicate what we've been up to.
-But at last... Delphi finally has a blog!
-This first post serves as an introduction of sorts.
-Future posts will dive deeper into our various projects.
+Our group was founded in 2012 to advance the theory and practice of epidemic 
+forecasting. Since March 2020, we have refocused efforts towards helping combat 
+the COVID-19 pandemic, by supporting informed decision making at federal, state,
+and local levels of government and in the healthcare sector. Until now, we've
+been pretty "heads down" with our work, and slow to communicate what we've been 
+up to. But at last ... Delphi finally has a blog! This first post serves as an 
+introduction of sorts. Future posts will dive deeper into our various projects.
 
 <!--more-->
 
 Hello from the Delphi research group at Carnegie Mellon University!
 We're a group of faculty, students, and staff, based primarily out of CMU
 together with strong collaborators from other universities and industry.
-Our group was founded in 2012 to advance research in epidemic forecasting.
-Since March 2020, we have refocused efforts towards helping combat the COVID-19
-pandemic, by supporting informed decision making at federal, state, and local 
-levels of government and in the healthcare sector. Until now, we've been pretty 
-"heads down" with our work, and slow to communicate what we've been up to.
-But at last ... Delphi finally has a blog!
-This first post serves as an introduction of sorts.
-Future posts will dive deeper into our various projects.
+Our group was founded in 2012 to advance the theory and practice of epidemic 
+forecasting. Since March 2020, we have refocused efforts towards helping combat 
+the COVID-19 pandemic, by supporting informed decision making at federal, state,
+and local levels of government and in the healthcare sector. Until now, we've
+been pretty "heads down" with our work, and slow to communicate what we've been 
+up to. But at last ... Delphi finally has a blog! This first post serves as an 
+introduction of sorts. Future posts will dive deeper into our various projects.
 
 ## A Little Bit About Us
 
@@ -134,17 +132,17 @@ Here's a quick summary:
   They are designed to shed light on the current picture of COVID in the US, 
   beyond the typical publicly-available metrics like confirmed cases and deaths.
 
-- Two of our indicators are based on massive-scale surveys 
-  that we're running through partnerships with Facebook and Google
-  and others are enabled by unprecedented access 
-  to (de-identified) medical claims data, 
-  through partners like Change Healthcare.
+-  Some of our indicators are based on massive-scale surveys that we’re running 
+  through partnerships with Facebook and Google, and others are based on 
+  aggregated counts from emassive medical claims data sets through partners like
+  Change Healthcare.
 
 - We've built a [public 
   API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), 
   and [R and Python 
   packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html), 
-  to serve our indicators to researchers and the public. This API provides new data daily.
+  to serve our indicators to researchers and the public. This API provides new 
+  data daily.
 
 - We've built [interactive maps and graphics](https://covidcast.cmu.edu/) to 
   display our indicators, and better inform the public and decision-makers.
