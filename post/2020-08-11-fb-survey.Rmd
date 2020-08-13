@@ -11,28 +11,19 @@ output:
 In collaboration with Facebook, along with a consortium of universities and
 public health officials, we've been conducting surveys since April 2020 to
 monitor the spread and impact of the COVID-19 pandemic in the United States. Our
-survey is advertised through Facebook, but it's run on our own CMU-Qualtrics
-platform (Facebook never sees any of the survey responses). This is an ongoing
-operation and our survey gets about 74,000 responses every day. We believe that
-such a combination of *detail* and *scale* has never before been available via
-surveys in a public health emergency: we collect info on COVID-related symptoms,
-contacts, risk factors, and demographics all at a massive-scale (enabling us to
-look at county-level trends, with good coverage of the US). We make aggregated
-data publicly available daily through our [COVIDcast
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), and we
-make (fully de-identified) individual survey responses available to researchers
-who agree to [data use
-terms](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/).
-In this blog post, we'll explore some of our initial findings with two
-COVID-like illness indicators that are derived from our surveys. In terms of
-what these surveys have to offer, this is really just the tip of the iceberg ...
-and we'll highlight some other exciting directions that we're pursuing now.
+survey, advertised through Facebook, gets about 74,000 responses **every day.**
+Respondents provide information about COVID-related symptoms, contacts, risk
+factors, and demographics, allowing us to examine county-level trends across the
+US. We believe such a combination of *detail* and *scale* has never before been
+available in a public health emergency. In this post, we'll explore some of our
+initial survey findings, show how you can get access to the data, and highlight
+some exciting new directions we're now pursuing.
 
 <!--more-->
 
-**Credits.** *Logan Brooks and Katie Mazaitis wrote the initial codebase for
+**Credits.** *Logan Brooks and Katie Mazaitis wrote the initial code for
 processing the survey data and producing estimates. Taylor Arnold and Alex
-Reinhart provided huge help with refactoring and improving this codebase.  Logan
+Reinhart provided huge help with refactoring and improving this codebase. Logan
 Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani developed the
 statistical methodology behind the estimates computed from the survey data. The
 COVIDcast API, which serves these estimates and is updated daily, is a much
@@ -44,18 +35,19 @@ Curtiss Cobb and Jonathan McKay played a big role.*
 In collaboration with Facebook, along with a consortium of universities and
 public health officials, we've been conducting surveys since April 2020 to
 monitor the spread and impact of the COVID-19 pandemic in the United States. Our
-survey is advertised through Facebook, but it's run on our own CMU-Qualtrics
+survey is advertised through Facebook, but it's run on our own Qualtrics
 platform (Facebook never sees any of the survey responses). This is an ongoing
 operation and our survey gets about 74,000 responses every day. We believe that
 such a combination of *detail* and *scale* has never before been available via
 surveys in a public health emergency: we collect info on COVID-related symptoms,
-contacts, risk factors, and demographics all at a massive-scale (enabling us to
-look at county-level trends, with good coverage of the US). We make aggregated
-data publicly available daily through our [COVIDcast
+contacts, risk factors, and demographics, enabling us to look at county-level
+trends across the US. We make aggregated data publicly available daily through
+our [COVIDcast
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), and we
 make (fully de-identified) individual survey responses available to researchers
 who agree to [data use
 terms](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/).
+
 In this blog post, we'll explore some of our initial findings with two
 COVID-like illness indicators that are derived from our surveys. In terms of
 what these surveys have to offer, this is really just the tip of the iceberg ...
@@ -68,24 +60,24 @@ a survey, advertised through their site, to collect real-time, county-level
 information on people experiencing COVID-like symptoms. The basic premise was
 that we could use this information to construct a **leading indicator** of COVID
 activity in the US. We certainly weren't the first group to think of running
-COVID-19 symptom surveys: many groups before us had already deployed such 
+COVID-19 symptom surveys: many groups before us had already deployed such
 surveys (like CovidNearYou, COVID Symptom Study, etc.). But we sought to build a
 survey that could (a) grow to be truly massive in size and (b) be sustained at
 this size, something we felt was only possible with buy-in from a platform like
 Facebook. Fortunately for us, they agreed!
 
 We launched our survey on April 6, 2020 with Facebook. Each day since then,
-Facebook directs a random sample of its users each day to our survey, hosted on 
-a CMU-Qualtrics site (we host the survey ourselves, so we control the data
-directly, and Facebook never sees any of the survey responses). As of this 
-writing, our survey receives an average of over 74,000 responses per day;
-delivers adequate data (enough for us to create meaningful estimates) for an
-average of nearly 1000 counties per week; and has been taken by over 9 million
-Americans so far. 
+Facebook directs a random sample of its users each day to our survey, hosted on
+[Qualtrics](https://www.qualtrics.com/). As part of our agreement with Facebook,
+we receive the data directly from Qualtrics, and Facebook never sees any of the
+survey responses. As of this writing, our survey receives an average of over
+74,000 responses per day; delivers adequate data (enough for us to create
+meaningful estimates) for an average of nearly 1000 counties per week; and has
+been taken over 9 million times so far.
 
 We'll go into detail later about on our survey and our survey-based indicators,
-but for now, here's a couple quick plots. On the left is a state-level heatmap
-of the estimated percentage of people COVID symptoms, based on our survey,
+but for now, here's a couple quick maps. On the left is a state-level heatmap
+of the estimated percentage of people with COVID symptoms, based on our survey,
 averaged over June 15, 2020 to July 15, 2020. On the right is a heatmap of the
 number of daily new confirmed COVID-19 cases per 100,000 people, based on data
 from [JHU CSSE](https://github.com/CSSEGISandData/COVID-19), averaged over the
@@ -94,7 +86,9 @@ patterns, which is certainly a good sanity-check. (We did this all with our
 [covidcast R package](https://cmu-delphi.github.io/covidcast/covidcastR/)---from
 fetching the data from our API, to producing the heatmaps---and requires only
 about 15 lines of code. You can click the "code" button to reveal it. We'll
-cover our covidcast R and Python packages in a future blog post.)
+cover our covidcast [R and Python
+packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html)
+in a future blog post.)
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(fig.width=10, fig.height=5)
@@ -108,7 +102,7 @@ library(gridExtra)
 # Fetch Facebook % CLI signal and JHU confirmed case incidence
 start_date = "2020-06-15"
 end_date = "2020-07-15"
-df_fb = covidcast_signal("fb-survey", "smoothed_cli", 
+df_fb = covidcast_signal("fb-survey", "smoothed_cli",
                          start_date, end_date, geo_type = "state")
 df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
                          start_date, end_date, geo_type = "state")
@@ -121,17 +115,17 @@ df_in_avg = df_in %>% group_by(geo_value) %>% summarize(value = mean(value))
 df_fb_avg$time_value = df_in_avg$time_value = end_date
 df_fb_avg$issue = df_in_avg$issue = end_date
 df_fb_avg$direction = df_in_avg$direction = 0
-attributes(df_fb_avg)$geo_type = attributes(df_in_avg)$geo_type = "state" 
+attributes(df_fb_avg)$geo_type = attributes(df_in_avg)$geo_type = "state"
 class(df_fb_avg) = c("covidcast_signal", class(df_fb_avg))
 class(df_in_avg) = c("covidcast_signal", class(df_in_avg))
 
 # Plot choropleth maps, using the covidcast plotting functionality
 subtitle = paste("Averaged over", start_date, "to", end_date)
-p1 = plot(df_fb_avg, 
-	 	 			title = "% of people with COVID symptoms, based on Facebook surveys",
+p1 = plot(df_fb_avg,
+          title = "% of people with COVID symptoms, based on Facebook surveys",
           range=c(0,1), choro_params = list(subtitle = subtitle))
-p2 = plot(df_in_avg, 
-	 	 			title = "Daily new confirmed COVID-19 cases per 100,000 people", 
+p2 = plot(df_in_avg,
+          title = "Daily new confirmed COVID-19 cases per 100,000 people",
           range=c(0,30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)
 ```
@@ -139,32 +133,31 @@ grid.arrange(p1, p2, nrow = 1)
 ## Why Run These Surveys?
 
 Now let's unpack the main motivation behind our survey a bit: a person typically
-experiences COVID-like symptoms before they seek medical care and/or a COVID-19
+experiences COVID-like symptoms before they seek medical care or a COVID-19
 test, so data on how many people are self-reporting COVID-like symptoms in a
 given county could be used to construct a leading indicator of COVID activity in
 that county. And to be clear, it's not just the fact that we're looking at
-symptoms that's important here, it's the *way* we're measuring them: since 
+symptoms that's important here, it's the *way* we're measuring them: since
 self-reporting symptoms can be done from home, with no special equipment needed,
 the data here wouldn't be subject to the same reporting delays as formal testing
-metrics.  
+metrics.
 
 At this point it's also worth being very clear about what we're *not* able to
 say with these surveys.
 
 - Symptoms alone are not sufficient to diagnose coronavirus infections; of
 course, COVID-like symptoms can be caused by other conditions, and many true
-infections can be asymptomatic. Therefore, even if we ignore the issues brought 
-on by self-reporting and survey sampling, we can't expect the estimates we
-produce to be reflective of the true rate of COVID-19 (and they're not intended
-to).  
+infections are asymptomatic. Therefore, even if we ignore the issues brought on
+by self-reporting and survey sampling, we can't expect the estimates we produce
+to be reflective of the true rate of COVID-19 (and they're not intended to).
 
-- Our survey responses come from the population of Facebook users in the US
-(which may a sizeable fraction of the US population, but certainly not all of
-it); even then, we'll likely see survey bias due to the fact that some people on
-Facebook are more inclined to take surveys of this nature, and others aren't. We
-attempt to correct for both of these biases, using a [statistical reweighting
-scheme](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting)), 
-but these corrections aren't perfect.   
+- Our survey responses come from the population of Facebook users in the US,
+which may a sizeable fraction of the US population, but certainly not all of it.
+We'll also likely see survey bias because some people on Facebook are more
+inclined to take surveys of this nature than others. We attempt to correct for
+both of these biases using a [statistical reweighting
+scheme](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting)),
+but these corrections aren't perfect.
 
 - Our symptom data is entirely self-reported (as opposed to, for example, being
 reported by a medical professional). Some fraction of the responses could be
@@ -174,10 +167,10 @@ incorrectly.
 To summarize, our survey data can't be used to make absolute statements about
 the true prevalence of coronavirus disease in the US; in fact, it shouldn't even
 be regarded as a foolproof way of deriving unbiased estimates of the number of
-people with COVID-19 symptoms in the US (mainly due to the self-reporting
+people with COVID-19 *symptoms* in the US (mainly due to the self-reporting
 aspect). Nevertheless, as we'll see evidence of below, *changes in self-reported
 symptoms over time* can still be a meaningful reflection of the changes in
-coronavirus infections over time. (And in the best case, it'll be a reflection  
+coronavirus infections over time. (And in the best case, it'll be a reflection
 of changes to come some number of days into the future.)
 
 ## What's on the Survey?
@@ -191,16 +184,16 @@ fever of at least 100 °F, along with sore throat or cough), and is in line with
 the working definition of CLI used by the CDC.
 
 Using data from responses to the survey's first section, we can compute
-estimates of two key quantities, in a given location, on a given day:           
+estimates of two key quantities, in a given location, on a given day:
 
-- % CLI: the percentage of people with COVID-like illness; and 
+- % CLI: the percentage of people with COVID-like illness; and
 
 - % CLI-in-community: the percentage of people who *know someone in their
-community* with COVID-like illness.   
+local community* with COVID-like illness.
 
 Details on how we compute the % CLI and % CLI-in-community estimates can be
-found in our [COVIDcast signals 
-documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).  
+found in our [COVIDcast signals
+documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).
 The % CLI-in-community indicator has an interesting backstory: it was sort of a
 "happy accident" of an experiment we tried with surveys we were running in
 partnership with Google. (We'll cover our Google survey in a future blog post.)
@@ -212,35 +205,27 @@ The second section of the survey goes into more detail on symptoms, testing, and
 medical-seeking behavior. The third section gathers info on contacts and risk
 factors, and the fourth section gather info on demographics. These survey
 questions, taken altogether, provide a wealth of information that we haven't
-fully tapped into (but plan to soon, see the end this blog post). To give credit
-where it's due: it was Facebook who initially suggested we run a longer survey
-with extensive questions on contacts, risk factors, and demographics. At first,
-we wanted to run a short survey with only the questions on COVID-like illness,
-and Facebook gathered ideas for more questions from several different research
-groups in public health. They assured us that lengthening the survey wouldn't
-hurt the the completion rate too much, and they were right: of the people who
-complete the first section, over 85% go on to finish the full survey!
+fully tapped into (but plan to soon---see the end of this blog post). To give
+credit where it's due: it was Facebook who initially suggested we run a longer
+survey with extensive questions on contacts, risk factors, and demographics. At
+first, we wanted to run a short survey with only the questions on COVID-like
+illness, and Facebook gathered ideas for more questions from several different
+research groups in public health. They assured us that lengthening the survey
+wouldn't hurt the the completion rate too much, and they were right: of the
+people who complete the first section, over 85% go on to finish the full survey!
 
-Lastly, here's some other useful links: 
-the [complete text](TODO link to clean, public Google doc) of the survey
-questions;  
-a [preview version of the
-survey](https://cmu.ca1.qualtrics.com/jfe/preview/SV_cT2ri3tFp2dhJGZ?Q_SurveyVersionID=current&Q_CHL=preview), 
-which gives a fully functional click-through experience, but doesn't record
-anything;
-[information on requesting
+Our [survey documentation
+site](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/) includes more
+details about the survey, including the [full text of every survey
+version](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html).
+And yes, researchers can [request
 access](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
 to (fully de-identified) individual survey responses for research purposes.
-
-[TODO should we also link to this site?
-https://cms-staging.andrew.cmu.edu/covid/surveys.html 
-I think it's not live yet? 
-Also, what content does it offer that's not in this blog post?]
 
 ## Some Interesting Examples
 
 TODO data examples where the FB signal is a leading indicator. Start with
-Miami-Dade? Then give the top 25 sort of thing? 
+Miami-Dade? Then give the top 25 sort of thing?
 
 Should we explain that the survey bias doesn't even have to be spatially
 constant; for each county, say, the bias only has to be temporally constant or
@@ -249,7 +234,7 @@ even slowly drifting?
 ## Basic Correlation Analysis
 
 TODO Compute correlations over time at multiple lags, plot them. Hopefully
-maximized at some nonzero lag (lead). 
+maximized at some nonzero lag (lead).
 
 Maybe do it on the scale of first differences, rather than values themselves?
 
@@ -259,7 +244,8 @@ TODO Alex can you write this part?
 
 ---
 
-*[Alex Reinhart](https://www.refsmmat.com) is ... *
+*[Alex Reinhart](https://www.refsmmat.com) manages Delphi's surveys, and is an
+Assistant Teaching Professor in the Department of Statistics & Data Science.*
 
 *[Ryan Tibshirani](http://stat.cmu.edu/~ryantibs) is a lead researcher in the
 Delphi group, and an Associate Professor in the Department of Statistics & Data
