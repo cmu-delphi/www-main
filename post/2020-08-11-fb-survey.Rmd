@@ -61,34 +61,31 @@ information on people experiencing COVID-like symptoms. The basic premise was
 that we could use this information to construct a **leading indicator** of COVID
 activity in the US. We certainly weren't the first group to think of running
 COVID-19 symptom surveys: many groups before us had already deployed such
-surveys (like CovidNearYou, COVID Symptom Study, etc.). But we sought to build a
-survey that could (a) grow to be truly massive in size and (b) be sustained at
-this size, something we felt was only possible with buy-in from a platform like
+surveys (like [Covid Near You](https://covidnearyou.org/), [COVID Symptom
+Study](https://covid.joinzoe.com/us-2), etc.). But we sought to build a survey
+that could (a) grow to be truly massive in size and (b) be sustained at this
+size, something we felt was only possible with buy-in from a platform like
 Facebook. Fortunately for us, they agreed!
 
-We launched our survey on April 6, 2020 with Facebook. Each day since then,
-Facebook directs a random sample of its users each day to our survey, hosted on
+We launched our survey on April 6, 2020. Each day since then, Facebook directs a
+random sample of its users each day to our survey, hosted on
 [Qualtrics](https://www.qualtrics.com/). As part of our agreement with Facebook,
 we receive the data directly from Qualtrics, and Facebook never sees any of the
 survey responses. As of this writing, our survey receives an average of over
 74,000 responses per day; delivers adequate data (enough for us to create
 meaningful estimates) for an average of nearly 1000 counties per week; and has
-been taken over 9 million times so far.
+been taken over 9.5 million times so far. An international survey, in over 50
+languages, was [launched soon after by the University of
+Maryland](https://covidmap.umd.edu/).
 
 We'll go into detail later about on our survey and our survey-based indicators,
-but for now, here's a couple quick maps. On the left is a state-level heatmap
-of the estimated percentage of people with COVID symptoms, based on our survey,
+but for now, here's a couple quick maps. On the left is a state-level heatmap of
+the estimated percentage of people with COVID symptoms, based on our survey,
 averaged over June 15, 2020 to July 15, 2020. On the right is a heatmap of the
 number of daily new confirmed COVID-19 cases per 100,000 people, based on data
 from [JHU CSSE](https://github.com/CSSEGISandData/COVID-19), averaged over the
-same period. We can see some clear similarities in terms of the itensity
-patterns, which is certainly a good sanity-check. (We did this all with our
-[covidcast R package](https://cmu-delphi.github.io/covidcast/covidcastR/)---from
-fetching the data from our API, to producing the heatmaps---and requires only
-about 15 lines of code. You can click the "code" button to reveal it. We'll
-cover our covidcast [R and Python
-packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html)
-in a future blog post.)
+same period. We can see some clear similarities in the intensity patterns, which
+is certainly a good sanity-check.
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(fig.width=10, fig.height=5)
@@ -130,6 +127,14 @@ p2 = plot(df_in_avg,
 grid.arrange(p1, p2, nrow = 1)
 ```
 
+(We did this all with our [covidcast R
+package](https://cmu-delphi.github.io/covidcast/covidcastR/)---from fetching the
+data from our API, to producing the heatmaps---and requires only about 15 lines
+of code. You can click the "code" button to reveal it. We'll cover our covidcast
+[R and Python
+packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html)
+in a future blog post.)
+
 ## Why Run These Surveys?
 
 Now let's unpack the main motivation behind our survey a bit: a person typically
@@ -142,8 +147,8 @@ self-reporting symptoms can be done from home, with no special equipment needed,
 the data here wouldn't be subject to the same reporting delays as formal testing
 metrics.
 
-At this point it's also worth being very clear about what we're *not* able to
-say with these surveys.
+It's also worth being very clear about what we're *not* able to say with these
+surveys:
 
 - Symptoms alone are not sufficient to diagnose coronavirus infections; of
 course, COVID-like symptoms can be caused by other conditions, and many true
@@ -154,8 +159,8 @@ to be reflective of the true rate of COVID-19 (and they're not intended to).
 - Our survey responses come from the population of Facebook users in the US,
 which may a sizeable fraction of the US population, but certainly not all of it.
 We'll also likely see survey bias because some people on Facebook are more
-inclined to take surveys of this nature than others. We attempt to correct for
-both of these biases using a [statistical reweighting
+inclined to take surveys than others. We attempt to correct for both of these
+biases using a [statistical reweighting
 scheme](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting)),
 but these corrections aren't perfect.
 
@@ -181,7 +186,7 @@ called **COVID-like illness** or **CLI**, which we define as *fever of at least
 100 °F, along with cough, shortness of breath, or difficulty breathing*. This
 mirrors the standard definition of influenza-like illness or ILI (defined as
 fever of at least 100 °F, along with sore throat or cough), and is in line with
-the working definition of CLI used by the CDC.
+the working definition of CLI used by the Centers for Disease Control.
 
 Using data from responses to the survey's first section, we can compute
 estimates of two key quantities, in a given location, on a given day:
@@ -194,6 +199,7 @@ local community* with COVID-like illness.
 Details on how we compute the % CLI and % CLI-in-community estimates can be
 found in our [COVIDcast signals
 documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).
+
 The % CLI-in-community indicator has an interesting backstory: it was sort of a
 "happy accident" of an experiment we tried with surveys we were running in
 partnership with Google. (We'll cover our Google survey in a future blog post.)
@@ -203,7 +209,7 @@ initial launch.
 
 The second section of the survey goes into more detail on symptoms, testing, and
 medical-seeking behavior. The third section gathers info on contacts and risk
-factors, and the fourth section gather info on demographics. These survey
+factors, and the fourth section gathers info on demographics. These survey
 questions, taken altogether, provide a wealth of information that we haven't
 fully tapped into (but plan to soon---see the end of this blog post). To give
 credit where it's due: it was Facebook who initially suggested we run a longer
