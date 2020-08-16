@@ -91,7 +91,7 @@ is certainly a good sanity-check.
 knitr::opts_chunk$set(fig.width=10, fig.height=5)
 ```
 
-```{r, cache = TRUE, message = FALSE}
+```{r, echo = FALSE, cache = TRUE, message = FALSE}
 library(covidcast)
 library(dplyr)
 library(gridExtra)
@@ -129,9 +129,8 @@ grid.arrange(p1, p2, nrow = 1)
 
 (We did this all with our [covidcast R
 package](https://cmu-delphi.github.io/covidcast/covidcastR/)---from fetching the
-data from our API, to producing the heatmaps---and requires only about 15 lines
-of code. You can click the "code" button to reveal it. We'll cover our covidcast
-[R and Python
+data from our API, to producing the heatmaps---and it requires only about 15
+lines of code. We'll cover our covidcast [R and Python
 packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html)
 in a future blog post.)
 
