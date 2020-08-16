@@ -246,12 +246,62 @@ Maybe do it on the scale of first differences, rather than values themselves?
 
 ## What's Next with the Surveys
 
-TODO Alex can you write this part?
+You might expect that a survey that reaches tens of thousands of respondents
+within the United States daily---and has done so for months during a major
+pandemic---could have *many* possible uses beyond simply surveying symptoms. You
+would be right. With questions on testing, behavior, medical care, mental
+health, and related topics, plus the ability to track changes over time and
+across the United States, there are numerous possible research questions.
+
+This is why Delphi and the University of Maryland (for the international
+version) offer direct access to the survey data to academic and non-profit
+researchers. Any researcher need only submit a one-page description of their
+project to a [form managed by
+Facebook](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/),
+and once approved, Delphi and the University of Maryland grant access. The data
+is, of course, protected by use agreements requiring that researchers not
+attempt to identify respondents and not release individual survey responses,
+only averages and other aggregates.
+
+So far, over a dozen university research teams have access to Delphi's survey
+data, and are using it to study various aspects of the pandemic. We are actively
+seeking researchers studying important public health problems to [apply for
+access](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/),
+and our goal is to build a network of researchers studying the pandemic through
+our survey data.
+
+To aid this effort, we're currently releasing a new version of the survey. Based
+on feedback from researchers, public health agencies, the University of Maryland
+international survey team, and Facebook, we've added items asking about
+
+- COVID testing (in more detail than the current version---including whether the
+  respondent tried to get a test but could not)
+- mask wearing
+- the types of activities the respondent has done with other people
+- mental health and social isolation
+- employment
+- demographics, including race and education
+
+These items will give us an unprecedented view into how people have responded to
+the pandemic, how they have been affected by the pandemic and the resulting
+economic downturn, and how specific groups are affected. We hope the mask and
+behavior items may help researchers studying how best to prevent the spread of
+COVID-19 and help inform forecasts, while mental health and isolation items will
+help researchers understand how social distancing and recession have affected
+mental health. Together with extended demographic data, this may help inform
+policies designed to help those most affected by the pandemic.
+
+This new survey is currently being deployed, and data should become available
+in the next few weeks. Detailed data will be available to researchers, while new
+aggregates---such as of mask-wearing---will be made public through the
+[COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)
+and the [COVIDcast interactive map](https://covidcast.cmu.edu/).
 
 ---
 
 *[Alex Reinhart](https://www.refsmmat.com) manages Delphi's surveys, and is an
-Assistant Teaching Professor in the Department of Statistics & Data Science.*
+Assistant Teaching Professor in the Department of Statistics & Data Science at
+CMU.*
 
 *[Ryan Tibshirani](http://stat.cmu.edu/~ryantibs) is a lead researcher in the
 Delphi group, and an Associate Professor in the Department of Statistics & Data
