@@ -347,10 +347,8 @@ The examples above are an informal way of looking at the *recall* of the %
 CLI-in-community signal. Of course, this is only one half of the story: for the
 signal to be a useful early indicator, we'd also need to know something about
 its *precision*: we'd need to know that % CLI-in-community seldomly rises in
-periods where new COVID-19 cases remain flat. We're just beginning to rigorously
-study the idea of building an early-warning system using the % CLI-in-community
-indicator (as well as many of our other indicators), and we'll report our
-findings at a later time.
+periods where new COVID-19 cases remain flat. We'll save a formal
+precision-recall analysis for future work. 
 
 ## Basic Correlation Analysis
 
@@ -363,7 +361,7 @@ distributions of correlations.
 You might expect that a survey that reaches tens of thousands of respondents
 within the US daily---and has done so for months during a major pandemic---could
 have *many* possible uses beyond simply surveying symptoms. You would be
-right. As we acknowledged above, beyond the first section of our survey there
+right. As we explain above, beyond the first section of our survey there
 are many questions on testing, behavior, medical care, mental health, and
 related topics, leading to a multitude of possible research questions.
 
@@ -371,10 +369,10 @@ This is why Delphi and the University of Maryland (for the international
 version) offer direct access to the survey data to academic and non-profit
 researchers, who agree to data use terms (requiring, for one, that researchers
 don't attempt to identify respondents and don't release individual survey
-responses, only averages and other aggregates).  So far, over a dozen research
-groups have access to Delphi's survey data, and are using it to study various
-aspects of the pandemic. We're actively seeking researchers studying important
-public health problems to apply for access through a [form managed by
+responses, only averages and other aggregates). So far, over a dozen research
+groups have access to our survey data, and are using it to study various aspects
+of the pandemic. We're actively seeking researchers studying important public
+health problems to apply for access through a [form managed by
 Facebook](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/),
 and our goal is to build a network of researchers committed to fighting the
 pandemic through our survey data.
