@@ -43,9 +43,9 @@ surveys in a public health emergency: we collect info on COVID-related symptoms,
 contacts, risk factors, and demographics, enabling us to look at county-level
 trends across the US. We make aggregated data publicly available daily through
 our [COVIDcast
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), and 
-visualize it on our [COVIDcast interactive map](https://covidcast.cmu.edu/).
-We also make (fully de-identified) individual survey responses available to 
+API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), and
+visualize it on our [COVIDcast interactive map](https://covidcast.cmu.edu/). We
+also make (fully de-identified) individual survey responses available to
 researchers who agree to [data use
 terms](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/).
 
@@ -75,17 +75,17 @@ we receive the data directly from Qualtrics, and Facebook never sees any of the
 survey responses. As of this writing, our survey receives an average of over
 74,000 responses per day; delivers adequate data (enough for us to create
 meaningful estimates) for an average of nearly 1000 counties per week; and has
-been taken over 9.5 million times so far. An [international version of the 
+been taken over 9.5 million times so far. An [international version of the
 survey](https://covidmap.umd.edu/), available in over 50 languages, was launched
 soon after by a team at the University of Maryland.
 
 We'll go into detail later about on our survey and our survey-based indicators,
 but for now, here's a couple quick maps. On the left is a state-level heatmap of
 the estimated percentage of people with COVID symptoms, based on our survey,
-averaged over June 15 to July 15. On the right is a heatmap of the number of 
+averaged over June 15 to July 15. On the right is a heatmap of the number of
 daily new confirmed COVID-19 cases per 100,000 people, based on data from [JHU
-CSSE](https://github.com/CSSEGISandData/COVID-19), averaged over the same 
-period. We can see some clear similarities in the intensity patterns, which is 
+CSSE](https://github.com/CSSEGISandData/COVID-19), averaged over the same
+period. We can see some clear similarities in the intensity patterns, which is
 certainly a good sanity-check.
 
 ```{r, include = FALSE}
@@ -131,7 +131,7 @@ grid.arrange(p1, p2, nrow = 1)
 (We did this all with our [covidcast R
 package](https://cmu-delphi.github.io/covidcast/covidcastR/)---from fetching the
 data from our API, to producing the heatmaps---and it requires only about 15
-lines of code. You can click the "code" button to reveal it. We'll cover our 
+lines of code. You can click the "code" button to reveal it. We'll cover our
 covidcast [R and Python
 packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html)
 in a future blog post.)
@@ -146,11 +146,11 @@ activity in that county. And to be clear, it's not just the fact that we're
 looking at symptoms that's important here, it's the *way* we're measuring them:
 since self-reporting symptoms can be done from home, with no special equipment
 needed, the data here wouldn't be subject to the same reporting delays as formal
-testing metrics like confirmed COVID-19 case counts. 
+testing metrics like confirmed COVID-19 case counts.
 
 (Aside from being delayed, confirmed COVID-19 case counts are actually further
 confounded by issues like testing policy and capacity; and self-reported symptom
-data shouldn't be subject to the same problems. This is a potentially very 
+data shouldn't be subject to the same problems. This is a potentially very
 important point, but much more subtle, and we won't delve into it on this post.)
 
 It's also worth being very clear about what we're *not* able to say with these
@@ -179,9 +179,9 @@ To summarize, our survey data can't be used to make absolute statements about
 the true prevalence of coronavirus disease in the US; in fact, it shouldn't even
 be regarded as a foolproof way of deriving unbiased estimates of the number of
 people with COVID-19 *symptoms* in the US (mainly due to the self-reporting
-aspect). Nevertheless, as we'll see evidence of below, *changes in self-reported 
-symptoms over time* can still be a meaningful reflection of the changes in 
-coronavirus infections over time. (And in the best case, it'll be a reflection 
+aspect). Nevertheless, as we'll see evidence of below, *changes in self-reported
+symptoms over time* can still be a meaningful reflection of the changes in
+coronavirus infections over time. (And in the best case, it'll be a reflection
 of changes to come some number of days into the future.)
 
 ## What's on the Survey?
@@ -199,8 +199,8 @@ estimates of two key quantities, in a given location, on a given day:
 
 - % CLI: the percentage of people with COVID-like illness; and
 
-- % CLI-in-community: the percentage of people who *know someone in their
-local community* with COVID-like illness.
+- % CLI-in-community: the percentage of people who *know someone in their local
+community* with COVID-like illness.
 
 Details on how we compute the % CLI and % CLI-in-community estimates can be
 found in our [COVIDcast signals
@@ -236,17 +236,17 @@ to (fully de-identified) individual survey responses for research purposes.
 
 ## Some Interesting Examples
 
-Now we'll turn to some interesting data examples which serve as evidence that 
+Now we'll turn to some interesting data examples which serve as evidence that
 our survey-based CLI signals can be early indicators of COVID activity. We'll
 consider the % CLI-in-community indicator in particular, which tends to be more
 stable than the % CLI indicator (roughly similar, albeit noisier trends would
 show up the % CLI indicator). Let's start by looking at Miami-Dade County, which
 experienced a surge of new COVID-19 cases between June and July: below we plot
 daily new confirmed COVID-19 cases over time (using a 7-day trailing average for
-smoothing) as a blue curve. We also plot the % CLI-in-community indicator as
-a red curve. Note that these two curves, case counts and % CLI-in-community, are
+smoothing) as a blue curve. We also plot the % CLI-in-community indicator as a
+red curve. Note that these two curves, case counts and % CLI-in-community, are
 not measured in the same units, hence our use of two y-axes: one on the left for
-case counts, and one on the right for % CLI-in-community. 
+case counts, and one on the right for % CLI-in-community.
 
 ```{r, message = FALSE, fig.width = 6, fig.height = 5}
 library(ggplot2)
@@ -310,24 +310,24 @@ plot_one_cty(name_to_fips("Miami-Dade"), xlab = "Date",
              linetype = 2, color = "gray")
 ```
 
-(This example, as with all code examples in this blog post, was produced using 
+(This example, as with all code examples in this blog post, was produced using
 our [covidcast R package](https://cmu-delphi.github.io/covidcast/covidcastR/).)
 
-A first glance reveals that the % CLI-in-community indicator clearly rises 
-alongside confirmed COVID-19 cases, a reassuring sanity-check (more people 
-indeed report that others are sick in their community, at a time when COVID-19 
-tests confirm more cases). But a closer look shows something quite interesting: 
-the % CLI-in-community signal begins to rise steeply on June 19 (first dashed 
-vertical line), which *happens 6 days before* COVID-19 cases begin their steep 
-ascent on June 25 (second dashed vertical line). 
+A first glance reveals that the % CLI-in-community indicator clearly rises
+alongside confirmed COVID-19 cases, a reassuring sanity-check (more people
+indeed report that others are sick in their community, at a time when COVID-19
+tests confirm more cases). But a closer look shows something quite interesting:
+the % CLI-in-community signal begins to rise steeply on June 19 (first dashed
+vertical line), which *happens 6 days before* COVID-19 cases begin their steep
+ascent on June 25 (second dashed vertical line).
  
-This is just one county; to investigate further, we pulled the 20 counties with 
-the biggest increase in new COVID-19 cases between June 1 and July 15, and 
-produced analogous plots below, with COVID-19 cases in red and the 
-% CLI-in-community indicator in blue. We can see that the % CLI-in-community 
-indicator is (a) never lagging and (b) again leading in many counties, for 
+This is just one county; to investigate further, we pulled the 20 counties with
+the biggest increase in new COVID-19 cases between June 1 and July 15, and
+produced analogous plots below, with COVID-19 cases in red and the %
+CLI-in-community indicator in blue. We can see that the % CLI-in-community
+indicator is (a) never lagging and (b) again leading in many counties, for
 example, Dallas County, Orange County, Hidalgo County, and Nueces County are a
-few notable examples. 
+few notable examples.
 
 ```{r, message = FALSE, fig.width = 10, fig.height = 10}
 num = 20
@@ -343,74 +343,69 @@ for (i in 1:num) {
 do.call(grid.arrange, c(p_list, nrow = 5, ncol = 4))
 ```
 
-The examples above are an informal way of looking at the *recall* of the % 
+The examples above are an informal way of looking at the *recall* of the %
 CLI-in-community signal. Of course, this is only one half of the story: for the
-signal to be a useful early indicator, we'd also need to know something about 
-its *precision*: we'd need to know that % CLI-in-community seldomly rises in 
-periods where new COVID-19 cases remain flat. We're just beginning to rigorously 
-study the idea of building an early-warning system using the % CLI-in-community 
+signal to be a useful early indicator, we'd also need to know something about
+its *precision*: we'd need to know that % CLI-in-community seldomly rises in
+periods where new COVID-19 cases remain flat. We're just beginning to rigorously
+study the idea of building an early-warning system using the % CLI-in-community
 indicator (as well as many of our other indicators), and we'll report our
-findings at a later time. 
+findings at a later time.
 
 ## Basic Correlation Analysis
 
-TODO Compute correlations over time at multiple lags, plot them. Hopefully
-maximized at some nonzero lag (lead).
-
-Maybe do it on the scale of first differences, rather than values themselves?
+TODO Compute correlations two ways: per time (binned over a week), over all
+counties; per county, over all time. Do this at multiple lags. Plot
+distributions of correlations. 
 
 ## What's Next with the Surveys
 
 You might expect that a survey that reaches tens of thousands of respondents
-within the United States daily---and has done so for months during a major
-pandemic---could have *many* possible uses beyond simply surveying symptoms. You
-would be right. With questions on testing, behavior, medical care, mental
-health, and related topics, plus the ability to track changes over time and
-across the United States, there are numerous possible research questions.
+within the US daily---and has done so for months during a major pandemic---could
+have *many* possible uses beyond simply surveying symptoms. You would be
+right. As we acknowledged above, beyond the first section of our survey there
+are many questions on testing, behavior, medical care, mental health, and
+related topics, leading to a multitude of possible research questions.
 
 This is why Delphi and the University of Maryland (for the international
 version) offer direct access to the survey data to academic and non-profit
-researchers. Any researcher need only submit a one-page description of their
-project to a [form managed by
+researchers, who agree to data use terms (requiring, for one, that researchers
+don't attempt to identify respondents and don't release individual survey
+responses, only averages and other aggregates).  So far, over a dozen research
+groups have access to Delphi's survey data, and are using it to study various
+aspects of the pandemic. We're actively seeking researchers studying important
+public health problems to apply for access through a [form managed by
 Facebook](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/),
-and once approved, Delphi and the University of Maryland grant access. The data
-is, of course, protected by use agreements requiring that researchers not
-attempt to identify respondents and not release individual survey responses,
-only averages and other aggregates.
+and our goal is to build a network of researchers committed to fighting the
+pandemic through our survey data.
 
-So far, over a dozen university research teams have access to Delphi's survey
-data, and are using it to study various aspects of the pandemic. We are actively
-seeking researchers studying important public health problems to [apply for
-access](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/),
-and our goal is to build a network of researchers studying the pandemic through
-our survey data.
+To aid this effort, we're soon releasing a new version of the survey. Based on
+feedback from other researchers, public health agencies, the University of
+Maryland, and Facebook, we've added items asking about: 
 
-To aid this effort, we're currently releasing a new version of the survey. Based
-on feedback from researchers, public health agencies, the University of Maryland
-international survey team, and Facebook, we've added items asking about
-
-- COVID testing (in more detail than the current version---including whether the
-  respondent tried to get a test but could not)
-- mask wearing
-- the types of activities the respondent has done with other people
-- mental health and social isolation
-- employment
-- demographics, including race and education
+- more details on COVID testing (including whether the respondent tried to get a
+test but could not); 
+- mask wearing;
+- the types of activities the respondent has done with other people;
+- mental health and social isolation;
+- employment;
+- more details on demographics (including race and education).
 
 These items will give us an unprecedented view into how people have responded to
 the pandemic, how they have been affected by the pandemic and the resulting
 economic downturn, and how specific groups are affected. We hope the mask and
-behavior items may help researchers studying how best to prevent the spread of
-COVID-19 and help inform forecasts, while mental health and isolation items will
-help researchers understand how social distancing and recession have affected
-mental health. Together with extended demographic data, this may help inform
-policies designed to help those most affected by the pandemic.
+behavior items can help researchers studying how best to prevent the spread of
+COVID-19, and can even help inform forecasts, while mental health and isolation
+items will help researchers understand how social distancing and recession have 
+affected mental health. Together with extended demographic data, this may help
+inform policies designed to help those most affected by the pandemic.
 
 This new survey is currently being deployed, and data should become available
 in the next few weeks. Detailed data will be available to researchers, while new
-aggregates---such as of mask-wearing---will be made public through the
-[COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)
-and the [COVIDcast interactive map](https://covidcast.cmu.edu/).
+aggregates---such as of mask-wearing---will be made public, as usual, through
+our [COVIDcast
+API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) and
+[COVIDcast interactive map](https://covidcast.cmu.edu/).  
 
 ---
 
