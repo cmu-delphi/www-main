@@ -72,12 +72,14 @@ We launched our survey on April 6, 2020. Each day since then, Facebook directs a
 random sample of its users each day to our survey, hosted on
 [Qualtrics](https://www.qualtrics.com/). As part of our agreement with Facebook,
 we receive the data directly from Qualtrics, and Facebook never sees any of the
-survey responses. As of this writing, our survey receives an average of over
-74,000 responses per day; delivers adequate data (enough for us to create
-meaningful estimates) for an average of nearly 1000 counties per week; and has
-been taken over 9.5 million times so far. An [international version of the
-survey](https://covidmap.umd.edu/), available in over 50 languages, was launched
-soon after by a team at the University of Maryland.
+survey responses. We use the data only for research purposes, and only
+aggregated data is ever released publicly. As of this writing, our survey
+receives an average of over 74,000 responses per day; delivers adequate data
+(enough for us to create meaningful estimates) for an average of nearly 1000
+counties per week; and has been taken over 9.5 million times so far. An
+[international version of the survey](https://covidmap.umd.edu/), available in
+over 50 languages, was launched soon after by a team at the University of
+Maryland.
 
 We'll go into detail later about on our survey and our survey-based indicators,
 but for now, here's a couple quick maps. On the left is a state-level heatmap of
@@ -131,7 +133,7 @@ grid.arrange(p1, p2, nrow = 1)
 (We did this all with our [covidcast R
 package](https://cmu-delphi.github.io/covidcast/covidcastR/)---from fetching the
 data from our API, to producing the heatmaps---and it requires only about 15
-lines of code. You can click the "code" button to reveal it. We'll cover our
+lines of code. You can click the "Code" button to reveal it. We'll cover our
 covidcast [R and Python
 packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html)
 in a future blog post.)
@@ -156,11 +158,11 @@ important point, but much more subtle, and we won't delve into it on this post.)
 It's also worth being very clear about what we're *not* able to say with these
 surveys:
 
-- Symptoms alone are not sufficient to diagnose coronavirus infections; of
+- Symptoms alone are not sufficient to diagnose coronavirus infections: of
 course, COVID-like symptoms can be caused by other conditions, and many true
 infections are asymptomatic. Therefore, even if we ignore the issues brought on
 by self-reporting and survey sampling, we can't expect the estimates we produce
-to be reflective of the true rate of COVID-19 (and they're not intended to).
+to be reflective of the true rate of COVID-19 (and they're not intended to be).
 
 - Our survey responses come from the population of Facebook users in the US,
 which may a sizeable fraction of the US population, but certainly not all of it.
@@ -240,15 +242,16 @@ Now we'll turn to some interesting data examples which serve as evidence that
 our survey-based CLI signals can be early indicators of COVID activity. We'll
 consider the % CLI-in-community indicator in particular, which tends to be more
 stable than the % CLI indicator (roughly similar, albeit noisier trends would
-show up the % CLI indicator). Let's start by looking at Miami-Dade County, which
-experienced a surge of new COVID-19 cases between June and July: below we plot
-daily new confirmed COVID-19 cases over time (using a 7-day trailing average for
-smoothing) as a blue curve. We also plot the % CLI-in-community indicator as a
-red curve. Note that these two curves, case counts and % CLI-in-community, are
-not measured in the same units, hence our use of two y-axes: one on the left for
-case counts, and one on the right for % CLI-in-community.
+show up in the % CLI indicator). Let's start by looking at Miami-Dade County,
+which experienced a surge of new COVID-19 cases between June and July: below we
+plot daily new confirmed COVID-19 cases over time (using a 7-day trailing
+average for smoothing) as a blue curve. We also plot the % CLI-in-community
+indicator as a red curve. Note that these two curves, case counts and %
+CLI-in-community, are not measured in the same units, hence our use of two
+y-axes: one on the left for case counts, and one on the right for %
+CLI-in-community.
 
-```{r, message = FALSE, fig.width = 6, fig.height = 5}
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 library(ggplot2)
 
 # Fetch Facebook % CLI-in-community signal and JHU confirmed case incidence, 
@@ -305,9 +308,9 @@ plot_one_cty(name_to_fips("Miami-Dade"), xlab = "Date",
              ylab1 = "Daily new confirmed COVID-19 cases",
              ylab2 = "% of people who know someone with CLI") +
   geom_vline(xintercept = as.numeric(as.Date("2020-06-19")), 
-             linetype = 2, color = "gray") + 
+             linetype = 2, size = 1, color = "gray") + 
   geom_vline(xintercept = as.numeric(as.Date("2020-06-25")), 
-             linetype = 2, color = "gray")
+             linetype = 2, size = 1, color = "gray")
 ```
 
 (This example, as with all code examples in this blog post, was produced using
