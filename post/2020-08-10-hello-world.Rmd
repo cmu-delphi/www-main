@@ -1,7 +1,7 @@
 ---
 title: "Hello World!"
 author: "Roni Rosenfeld and Ryan Tibshirani"
-date: 2020-07-28
+date: 2020-08-10
 tags: ["COVIDcast"]
 ---
 
@@ -134,7 +134,7 @@ Here's a quick summary:
 
 -  Some of our indicators are based on massive-scale surveys that we’re running 
   through partnerships with Facebook and Google, and others are based on 
-  aggregated counts from emassive medical claims data sets through partners like
+  aggregated counts from massive medical claims data sets through partners like
   Change Healthcare.
 
 - We've built a [public 
