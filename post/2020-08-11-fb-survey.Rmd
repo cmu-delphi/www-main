@@ -94,39 +94,40 @@ certainly a good sanity-check.
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
 ```
 
-```{r, message = FALSE, fig.width = 10, fig.height = 5}
+```{r, message = FALSE, fig.width = 10, fig.height = 4}
 library(covidcast)
 library(dplyr)
 library(gridExtra)
 
-# Fetch Facebook % CLI signal and JHU confirmed case incidence
-start_date = "2020-06-15"
-end_date = "2020-07-15"
+# Fetch Facebook % CLI signal and JHU confirmed case incidence proportion at 
+# the state level
+start_day = "2020-06-15"
+end_day = "2020-07-15"
 df_fb = covidcast_signal("fb-survey", "smoothed_cli",
-                         start_date, end_date, geo_type = "state")
+                         start_day, end_day, geo_type = "state")
 df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
-                         start_date, end_date, geo_type = "state")
+                         start_day, end_day, geo_type = "state")
 
 # For each state, average the signals over all available times
 df_fb_avg = df_fb %>% group_by(geo_value) %>% summarize(value = mean(value))
 df_in_avg = df_in %>% group_by(geo_value) %>% summarize(value = mean(value))
 
 # Set a bunch of fields so that the data frames know how to plot themselves
-df_fb_avg$time_value = df_in_avg$time_value = end_date
-df_fb_avg$issue = df_in_avg$issue = end_date
+df_fb_avg$time_value = df_in_avg$time_value = start_day
+df_fb_avg$issue = df_in_avg$issue = start_day
 df_fb_avg$direction = df_in_avg$direction = 0
 attributes(df_fb_avg)$geo_type = attributes(df_in_avg)$geo_type = "state"
 class(df_fb_avg) = c("covidcast_signal", class(df_fb_avg))
 class(df_in_avg) = c("covidcast_signal", class(df_in_avg))
 
 # Plot choropleth maps, using the covidcast plotting functionality
-subtitle = paste("Averaged over", start_date, "to", end_date)
+subtitle = paste("Averaged over", start_day, "to", end_day)
 p1 = plot(df_fb_avg,
           title = "% of people with COVID symptoms, based on Facebook surveys",
-          range=c(0,1), choro_params = list(subtitle = subtitle))
+          range=c(0, 1), choro_params = list(subtitle = subtitle))
 p2 = plot(df_in_avg,
           title = "Daily new confirmed COVID-19 cases per 100,000 people",
-          range=c(0,30), choro_params = list(subtitle = subtitle))
+          range=c(0, 30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)
 ```
 
@@ -254,14 +255,14 @@ CLI-in-community.
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 library(ggplot2)
 
-# Fetch Facebook % CLI-in-community signal and JHU confirmed case incidence, 
-# now at the county level, which is the default in covidcast_signal()
-start_date = "2020-06-01"
-end_date = "2020-07-15"
-df_fb_cty = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli",
-                             start_date, end_date, geo_type = "county")
-df_in_cty = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_num",
-                             start_date, end_date, geo_type = "county")
+# Fetch Facebook % CLI-in-community signal and JHU confirmed case incidence
+# numbers at the county level
+start_day = "2020-06-01"
+end_day = "2020-07-15"
+df_fb = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli",
+                         start_day, end_day, geo_type = "county")
+df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_num",
+                         start_day, end_day, geo_type = "county")
 
 # Function to transform from one range to another
 trans = function(x, from_range, to_range) {
@@ -270,12 +271,12 @@ trans = function(x, from_range, to_range) {
 }
 
 # Function to produce a plot comparing the signals for one county
-plot_one_cty = function(geo_value, title = fips_to_name(geo_value), xlab = NULL, 
-                        ylab1 = NULL, ylab2 = NULL, legend = TRUE) {
+plot_one = function(geo_value, title = fips_to_name(geo_value), xlab = NULL,
+                    ylab1 = NULL, ylab2 = NULL, legend = TRUE) {
   # Filter down the signal data frames
   given_geo_value = geo_value
-  df_fb_one = df_fb_cty %>% filter(geo_value == given_geo_value)
-  df_in_one = df_in_cty %>% filter(geo_value == given_geo_value)
+  df_fb_one = df_fb %>% filter(geo_value == given_geo_value)
+  df_in_one = df_in %>% filter(geo_value == given_geo_value)
 
   # Compute ranges of the two signals 
   range1 = df_in_one %>% select("value") %>% range
@@ -295,18 +296,17 @@ plot_one_cty = function(geo_value, title = fips_to_name(geo_value), xlab = NULL,
   # Finally, plot both signals
   pos = ifelse(legend, "bottom", "none")
   return(ggplot(df, aes(x = time_value, y = value)) +
-           labs(x = xlab, title = title) +
            geom_line(aes(color = signal)) +
            scale_y_continuous(name = ylab1, limits = range1,
                               sec.axis = sec_axis(trans = trans12, 
                                                   name = ylab2)) + 
-           theme_bw() +
+           labs(x = xlab, title = title) + theme_bw() +
            theme(legend.position = pos, legend.title = element_blank()))
 }
 
-plot_one_cty(name_to_fips("Miami-Dade"), xlab = "Date",
-             ylab1 = "Daily new confirmed COVID-19 cases",
-             ylab2 = "% of people who know someone with CLI") +
+plot_one(name_to_fips("Miami-Dade"), xlab = "Date",
+         ylab1 = "Daily new confirmed COVID-19 cases",
+         ylab2 = "% of people who know someone with CLI") +
   geom_vline(xintercept = as.numeric(as.Date("2020-06-19")), 
              linetype = 2, size = 1, color = "gray") + 
   geom_vline(xintercept = as.numeric(as.Date("2020-06-25")), 
@@ -334,13 +334,13 @@ few notable examples.
 
 ```{r, message = FALSE, fig.width = 10, fig.height = 10}
 num = 20
-geo_values = df_in_cty %>% group_by(geo_value) %>% 
+geo_values = df_in %>% group_by(geo_value) %>% 
   summarize(diff = last(value) - first(value)) %>% 
   arrange(desc(diff)) %>% head(num) %>% pull(geo_value) 
 
 p_list = vector("list", num)
 for (i in 1:num) {
-  p_list[[i]] = plot_one_cty(geo_values[i], legend = FALSE)
+  p_list[[i]] = plot_one(geo_values[i], legend = FALSE)
 }
 
 do.call(grid.arrange, c(p_list, nrow = 5, ncol = 4))
@@ -355,9 +355,81 @@ precision-recall analysis for future work.
 
 ## Basic Correlation Analysis
 
-TODO Compute correlations two ways: per time (binned over a week), over all
-counties; per county, over all time. Do this at multiple lags. Plot
-distributions of correlations. 
+To complement the more exploratory, qualitative analysis of the last section, 
+we'll conduct a very simple quantitative analysis here, by computing some basic
+measures of correlation between our survey-based indicators and confirmed 
+COVID-19 case rates. There are a couple of ways to slice the data---by day and 
+by county---and we'll consider both ways here.
+
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
+# Fetch Facebook % CLI signal, % CLI-in-community signal and JHU confirmed case 
+# incidence proportions, all at the county level, over a long time period
+start_day = "2020-04-15"
+end_day = NULL 
+df_fb1 = covidcast_signal("fb-survey", "smoothed_cli",
+                          start_day, end_day, geo_type = "county")
+df_fb2 = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli",
+                          start_day, end_day, geo_type = "county")
+df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
+                         start_day, end_day, geo_type = "county")
+
+# Consider only "active" counties with at least 500 cumulative cases so far
+case_num = 500
+geo_values = covidcast_signal("jhu-csse", "confirmed_cumulative_num",
+                              max(df_in$time_value), max(df_in$time_value),
+                              geo_type = "county") %>%
+  group_by(geo_value) %>% summarize(total = sum(value)) %>% 
+  filter(total >= case_num) %>% pull(geo_value)
+df_fb1_act = df_fb1 %>% filter(geo_value %in% geo_values)
+df_fb2_act = df_fb2 %>% filter(geo_value %in% geo_values)
+df_in_act = df_in %>% filter(geo_value %in% geo_values)
+
+# Compute correlations, per time, over all counties
+df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "time_value")
+df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "time_value")
+
+# Stack rowwise into one data frame, then plot
+df_cor = rbind(df_cor1, df_cor2)
+df_cor$signal = c(rep("% CLI", nrow(df_cor1)), 
+                  rep("% CLI-in-community", nrow(df_cor2)))
+ggplot(df_cor, aes(x = time_value, y = value)) + 
+  geom_line(aes(color = signal)) + 
+  labs(x = "Date", y = "Correlation", 
+       title = "Correlation per time, over all counties") + theme_bw() +
+  theme(legend.position = "bottom", legend.title  = element_blank())
+```
+
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
+# Compute correlations, per county, over all time
+df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "geo_value")
+df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "geo_value")
+
+# Stack rowwise into one data frame, then plot a histogram
+df_cor = rbind(df_cor1, df_cor2)
+df_cor$signal = c(rep("% CLI", nrow(df_cor1)), 
+                  rep("% CLI-in-community", nrow(df_cor2)))
+ggplot(df_cor, aes(value)) + 
+  geom_density(aes(color = signal, fill = signal), alpha = 0.5) + 
+  labs(x = "Correlation", y = "Density", 
+       title = "Correlation per county, over all time") + theme_bw() +
+  theme(legend.position = "bottom", legend.title = element_blank())
+```
+
+```{r, fig.width = 10, fig.height = 4}
+# Set a bunch of fields so that the data frames know how to plot themselves
+df_cor1$time_value = df_cor2$time_value = start_day
+df_cor1$issue = df_cor2$issue = start_day
+df_cor1$direction = df_cor2$direction = 0
+attributes(df_cor1)$geo_type = attributes(df_cor2)$geo_type = "county"
+class(df_cor1) = class(df_cor2) = c("covidcast_signal", "data.frame")
+
+# Plot choropleth maps, using the covidcast plotting functionality
+p1 = plot(df_cor1, title = "Correlation for % CLI signal", range = c(-1, 1),
+          choro_col = cm.colors(10))
+p2 = plot(df_cor2, title = "Correlation for % CLI-in-community signal", 
+          range = c(-1, 1), choro_col = cm.colors(10))
+grid.arrange(p1, p2, nrow = 1)
+```
 
 ## What's Next with the Surveys
 
