@@ -22,15 +22,15 @@ some exciting new directions we're now pursuing.
 <!--more-->
 
 **Credits.** *Logan Brooks and Katie Mazaitis wrote the initial code for
-processing the survey data and producing estimates. Taylor Arnold and Alex
-Reinhart provided huge help with refactoring and improving this codebase. Logan
-Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani developed the
-statistical methodology behind the estimates computed from the survey data. The
-COVIDcast API, which serves these estimates and is updated daily, is a much
-larger effort run by the Delphi group; and our entire engineering team is owed a
-lot of credit here. Ryan Tibshirani came up with the idea of running the
-surveys, and worked with Facebook to make this a reality. On the Facebook side,
-Curtiss Cobb and Jonathan McKay played big roles.*
+processing the survey data and producing estimates. Taylor Arnold, Alex
+Reinhart, and Amartya Basu provided huge help with refactoring and improving
+this codebase. Logan Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani
+developed the statistical methodology behind the estimates computed from the
+survey data. The COVIDcast API, which serves these estimates and is updated
+daily, is a much larger effort run by the Delphi group; and our entire
+engineering team is owed a lot of credit here. Ryan Tibshirani came up with the
+idea of running the surveys, and worked with Facebook to make this a reality. On
+the Facebook side, Curtiss Cobb and Jonathan McKay played big roles.*
 
 In collaboration with Facebook, along with a consortium of universities and
 public health officials, we've been conducting surveys since April 2020 to
@@ -169,7 +169,7 @@ which may a sizeable fraction of the US population, but certainly not all of it.
 We'll also likely see survey bias because some people on Facebook are more
 inclined to take surveys than others. We attempt to correct for both of these
 biases using a [statistical reweighting
-scheme](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting)),
+scheme](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting),
 but these corrections aren't perfect.
 
 - Our symptom data is entirely self-reported (as opposed to, for example, being
