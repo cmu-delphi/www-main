@@ -115,7 +115,6 @@ df_in_avg = df_in %>% group_by(geo_value) %>% summarize(value = mean(value))
 # Set a bunch of fields so that the data frames know how to plot themselves
 df_fb_avg$time_value = df_in_avg$time_value = start_day
 df_fb_avg$issue = df_in_avg$issue = start_day
-df_fb_avg$direction = df_in_avg$direction = 0
 attributes(df_fb_avg)$geo_type = attributes(df_in_avg)$geo_type = "state"
 class(df_fb_avg) = c("covidcast_signal", class(df_fb_avg))
 class(df_in_avg) = c("covidcast_signal", class(df_in_avg))
@@ -300,7 +299,7 @@ plot_one = function(geo_value, title = fips_to_name(geo_value), xlab = NULL,
            scale_y_continuous(name = ylab1, limits = range1,
                               sec.axis = sec_axis(trans = trans12, 
                                                   name = ylab2)) + 
-           labs(x = xlab, title = title) + theme_bw() +
+           labs(title = title, x = xlab) + theme_bw() +
            theme(legend.position = pos, legend.title = element_blank()))
 }
 
@@ -325,12 +324,11 @@ vertical line), which *happens 6 days before* COVID-19 cases begin their steep
 ascent on June 25 (second dashed vertical line).
  
 This is just one county; to investigate further, we pulled the 20 counties with
-the biggest increase in new COVID-19 cases between June 1 and July 15, and
-produced analogous plots below, with COVID-19 cases in red and the %
-CLI-in-community indicator in blue. We can see that the % CLI-in-community
-indicator is (a) never lagging and (b) again leading in many counties, for
-example, Dallas County, Orange County, Hidalgo County, and Nueces County are a
-few notable examples.
+the biggest increase in new COVID-19 cases between June 1 and July 15, and made
+analogous plots below, with COVID-19 cases in red and the % CLI-in-community 
+indicator in blue. We can see that the % CLI-in-community indicator is (a) never
+lagging and (b) again leading in many counties, for example, Dallas County, 
+Orange County, Hidalgo County, and Nueces County are a few notable examples.
 
 ```{r, message = FALSE, fig.width = 10, fig.height = 10}
 num = 20
@@ -350,22 +348,37 @@ The examples above are an informal way of looking at the *recall* of the %
 CLI-in-community signal. Of course, this is only one half of the story: for the
 signal to be a useful early indicator, we'd also need to know something about
 its *precision*: we'd need to know that % CLI-in-community seldomly rises in
-periods where new COVID-19 cases remain flat. We'll save a formal
-precision-recall analysis for future work. 
+periods where new COVID-19 cases remain flat. We save a formal precision-recall 
+analysis for future work. 
 
 ## Basic Correlation Analysis
 
 To complement the more exploratory, qualitative analysis of the last section, 
-we'll conduct a very simple quantitative analysis here, by computing some basic
-measures of correlation between our survey-based indicators and confirmed 
+we'll conduct a pretty simple quantitative analysis here, by computing some 
+basic measures of correlation between our survey-based indicators and confirmed 
 COVID-19 case rates. There are a couple of ways to slice the data---by day and 
-by county---and we'll consider both ways here.
+by county---and we'll consider both ways here. 
+
+First we compute, for each day between April 15 and August 15, the Spearman
+correlation between the % CLI indicator and COVID-19 case rates, across all
+"active" counties, defined to have had at least 500 confirmed COVID-19 cases in 
+total. The Spearman correlation between two vectors is just the usual (Pearson)
+applied to the vectors of their ranks. (Spearman correlation is invariant to 
+monotone transformations; we can think of it as assessing whether one variable 
+is high when another is high, without relying on any particular functional 
+form for the dependence between the two variables.) We do the same for the % 
+CLI-in-community indicator, and plot the results below, with the % CLI indicator
+correlations in red, and the % CLI-in-community correlations in blue. We can see
+clearly that the % CLI-in-community indicator produces, consistently across all 
+time, *much* higher correlations. Even in an absolute sense, the correlations
+from the % CLI-in-community are worth noting: it reaches over 0.8 for a period
+between July and August.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 # Fetch Facebook % CLI signal, % CLI-in-community signal and JHU confirmed case 
 # incidence proportions, all at the county level, over a long time period
 start_day = "2020-04-15"
-end_day = NULL 
+end_day = "2020-08-15" 
 df_fb1 = covidcast_signal("fb-survey", "smoothed_cli",
                           start_day, end_day, geo_type = "county")
 df_fb2 = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli",
@@ -378,8 +391,7 @@ case_num = 500
 geo_values = covidcast_signal("jhu-csse", "confirmed_cumulative_num",
                               max(df_in$time_value), max(df_in$time_value),
                               geo_type = "county") %>%
-  group_by(geo_value) %>% summarize(total = sum(value)) %>% 
-  filter(total >= case_num) %>% pull(geo_value)
+  filter(value >= case_num) %>% pull(geo_value)
 df_fb1_act = df_fb1 %>% filter(geo_value %in% geo_values)
 df_fb2_act = df_fb2 %>% filter(geo_value %in% geo_values)
 df_in_act = df_in %>% filter(geo_value %in% geo_values)
@@ -388,38 +400,75 @@ df_in_act = df_in %>% filter(geo_value %in% geo_values)
 df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "time_value")
 df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "time_value")
 
-# Stack rowwise into one data frame, then plot
+# Stack rowwise into one data frame, then plot time series
 df_cor = rbind(df_cor1, df_cor2)
 df_cor$signal = c(rep("% CLI", nrow(df_cor1)), 
                   rep("% CLI-in-community", nrow(df_cor2)))
 ggplot(df_cor, aes(x = time_value, y = value)) + 
   geom_line(aes(color = signal)) + 
-  labs(x = "Date", y = "Correlation", 
-       title = "Correlation per time, over all counties") + theme_bw() +
+  labs(title = "Correlation per time, over all counties",
+       x = "Date", y = "Correlation") + theme_bw() +
   theme(legend.position = "bottom", legend.title  = element_blank())
 ```
+
+Another interesting observation is that the correlations from either indicator
+witness huge increases sometime around mid June. One explanation: this could
+be due to the fact that many counties saw big surges in COVID-19 activity around
+that time. These surges created a large spread between the COVID-19 case rates 
+across the country, and so county-to-county differences started to become easier
+to track with the indicators, as the magnitude of these differences started to 
+swamp the noise. Of course, this is really just speculation, and we can't say 
+for certain what the real cause is. Some decent empirical evidence for our 
+explanation, however, is to look at the median absolute deviation of COVID-19 
+case rates as a function of time, as we do below. We can see a very similar 
+trend: the median absolute deviation (a robust measure of spread) starts to rise
+sharply sometime around mid June.
+
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
+ggplot(df_in_act %>% group_by(time_value) %>% 
+         summarize(mad = mad(value, na.rm = TRUE)),
+       aes(x = time_value, y = mad)) + geom_line() + 
+  labs(title = "Median absolute deviation in COVID-19 case rates",
+       x = "Date", y = "Median absolute deviation") + theme_bw() +
+  theme(legend.position = "bottom", legend.title  = element_blank())
+```
+
+Next we compute, for each "active" county (with at least 500 total cases), the
+Spearman correlations between each of our indicators and COVID-19 case rates,
+across all time. We can visualize this in a few different ways. Below we plot
+(estimated) densities from these two sets of correlations: from the % CLI 
+indicator in red, and the % CLI-in-community indicator in blue. With this slice
+of the data (computing correlations by county, rather than by day), we again see
+that the % CLI-in-community indicator produces *much* higher correlations.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 # Compute correlations, per county, over all time
 df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "geo_value")
 df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "geo_value")
 
-# Stack rowwise into one data frame, then plot a histogram
+# Stack rowwise into one data frame, then plot densities
 df_cor = rbind(df_cor1, df_cor2)
 df_cor$signal = c(rep("% CLI", nrow(df_cor1)), 
                   rep("% CLI-in-community", nrow(df_cor2)))
 ggplot(df_cor, aes(value)) + 
   geom_density(aes(color = signal, fill = signal), alpha = 0.5) + 
-  labs(x = "Correlation", y = "Density", 
-       title = "Correlation per county, over all time") + theme_bw() +
+  labs(title = "Correlation per county, over all time",
+       x = "Correlation", y = "Density") + theme_bw() +
   theme(legend.position = "bottom", legend.title = element_blank())
 ```
+
+Finally, we can create choropleth maps of these correlations to learn where
+(geographically speaking) they're high and where they're not. As we can see, the
+% CLI-in-community indicator yields high correlations pretty much throughout the
+US, whereas the % CLI indicator is a bit more spotty. (Note that here a gray
+color denotes a missing value: either that county had below 500 total COVID-19
+cases and was deemed "inactive", or we didn't have enough data from the surveys
+in order to estimate % CLI and % CLI-in-community signals there.)
 
 ```{r, fig.width = 10, fig.height = 4}
 # Set a bunch of fields so that the data frames know how to plot themselves
 df_cor1$time_value = df_cor2$time_value = start_day
 df_cor1$issue = df_cor2$issue = start_day
-df_cor1$direction = df_cor2$direction = 0
 attributes(df_cor1)$geo_type = attributes(df_cor2)$geo_type = "county"
 class(df_cor1) = class(df_cor2) = c("covidcast_signal", "data.frame")
 
