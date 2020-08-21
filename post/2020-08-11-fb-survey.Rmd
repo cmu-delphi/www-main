@@ -359,6 +359,8 @@ basic measures of correlation between our survey-based indicators and confirmed
 COVID-19 case rates. There are a couple of ways to slice the data---by day and 
 by county---and we'll consider both ways here. 
 
+### Correlations Sliced by Time
+
 First we compute, for each day between April 15 and August 15, the Spearman
 correlation between the % CLI indicator and COVID-19 case rates, across all
 "active" counties, defined to have had at least 500 confirmed COVID-19 cases in 
@@ -397,8 +399,10 @@ df_fb2_act = df_fb2 %>% filter(geo_value %in% geo_values)
 df_in_act = df_in %>% filter(geo_value %in% geo_values)
 
 # Compute correlations, per time, over all counties
-df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "time_value")
-df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "time_value")
+df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "time_value",
+                        method = "spearman")
+df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "time_value",
+                        method = "spearman")
 
 # Stack rowwise into one data frame, then plot time series
 df_cor = rbind(df_cor1, df_cor2)
@@ -406,32 +410,36 @@ df_cor$signal = c(rep("% CLI", nrow(df_cor1)),
                   rep("% CLI-in-community", nrow(df_cor2)))
 ggplot(df_cor, aes(x = time_value, y = value)) + 
   geom_line(aes(color = signal)) + 
-  labs(title = "Correlation per time, over all counties",
+  labs(title = "Correlation between CLI signals and cases",
+       subtitle = sprintf("Over all counties with at least %i cases", case_num),
        x = "Date", y = "Correlation") + theme_bw() +
   theme(legend.position = "bottom", legend.title  = element_blank())
 ```
 
 Another interesting observation is that the correlations from either indicator
-witness huge increases sometime around mid June. One explanation: this could
-be due to the fact that many counties saw big surges in COVID-19 activity around
-that time. These surges created a large spread between the COVID-19 case rates 
-across the country, and so county-to-county differences started to become easier
-to track with the indicators, as the magnitude of these differences started to 
-swamp the noise. Of course, this is really just speculation, and we can't say 
-for certain what the real cause is. Some decent empirical evidence for our 
-explanation, however, is to look at the median absolute deviation of COVID-19 
-case rates as a function of time, as we do below. We can see a very similar 
-trend: the median absolute deviation (a robust measure of spread) starts to rise
-sharply sometime around mid June.
+witness huge increases sometime around mid June. This could be due to the fact 
+that many counties saw big surges in COVID-19 activity around that time. These
+surges created a larger spread between the COVID-19 case rates across the 
+country, and so county-to-county differences started to become easier to track 
+with the indicators, as the magnitude of these differences started to swamp the
+noise. Of course, this is really just speculation, and we can't say for certain
+that this is the cause. Some decent empirical evidence for our explanation, 
+however, is to look at the median absolute deviation of COVID-19 case rates as a
+function of time, as we do below. We can see a very similar trend: the median 
+absolute deviation (a robust measure of spread) starts to rise sharply sometime 
+around mid June.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 ggplot(df_in_act %>% group_by(time_value) %>% 
          summarize(mad = mad(value, na.rm = TRUE)),
        aes(x = time_value, y = mad)) + geom_line() + 
   labs(title = "Median absolute deviation in COVID-19 case rates",
+       subtitle = sprintf("Over all counties with at least %i cases", case_num),
        x = "Date", y = "Median absolute deviation") + theme_bw() +
   theme(legend.position = "bottom", legend.title  = element_blank())
 ```
+
+### Correlations Sliced by County
 
 Next we compute, for each "active" county (with at least 500 total cases), the
 Spearman correlations between each of our indicators and COVID-19 case rates,
@@ -452,18 +460,20 @@ df_cor$signal = c(rep("% CLI", nrow(df_cor1)),
                   rep("% CLI-in-community", nrow(df_cor2)))
 ggplot(df_cor, aes(value)) + 
   geom_density(aes(color = signal, fill = signal), alpha = 0.5) + 
-  labs(title = "Correlation per county, over all time",
+  labs(title = "Correlation between CLI signals and cases",
+       subtitle = sprintf("Over all counties with at least %i cases", case_num),
        x = "Correlation", y = "Density") + theme_bw() +
   theme(legend.position = "bottom", legend.title = element_blank())
 ```
 
-Finally, we can create choropleth maps of these correlations to learn where
-(geographically speaking) they're high and where they're not. As we can see, the
-% CLI-in-community indicator yields high correlations pretty much throughout the
-US, whereas the % CLI indicator is a bit more spotty. (Note that here a gray
-color denotes a missing value: either that county had below 500 total COVID-19
-cases and was deemed "inactive", or we didn't have enough data from the surveys
-in order to estimate % CLI and % CLI-in-community signals there.)
+We can also examine choropleth maps of these correlations to learn where 
+(geographically speaking) they're high and where they're not. As we can see from
+the maps below, the % CLI-in-community indicator yields high correlations pretty 
+much throughout the US, whereas the % CLI indicator is a bit more spotty. (Note 
+that here a gray color denotes a missing value: either that county had below 500 
+total COVID-19 cases and was deemed "inactive", or we didn't have enough data 
+from the surveys in order to estimate % CLI and % CLI-in-community signals 
+there.)
 
 ```{r, fig.width = 10, fig.height = 4}
 # Set a bunch of fields so that the data frames know how to plot themselves
@@ -473,9 +483,9 @@ attributes(df_cor1)$geo_type = attributes(df_cor2)$geo_type = "county"
 class(df_cor1) = class(df_cor2) = c("covidcast_signal", "data.frame")
 
 # Plot choropleth maps, using the covidcast plotting functionality
-p1 = plot(df_cor1, title = "Correlation for % CLI signal", range = c(-1, 1),
-          choro_col = cm.colors(10))
-p2 = plot(df_cor2, title = "Correlation for % CLI-in-community signal", 
+p1 = plot(df_cor1, title = "Correlation between % CLI and cases", 
+          range = c(-1, 1), choro_col = cm.colors(10))
+p2 = plot(df_cor2, title = "Correlation between % CLI-in-community and cases", 
           range = c(-1, 1), choro_col = cm.colors(10))
 grid.arrange(p1, p2, nrow = 1)
 ```
