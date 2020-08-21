@@ -27,7 +27,7 @@ Reinhart, and Amartya Basu provided huge help with refactoring and improving
 this codebase. Logan Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani
 developed the statistical methodology behind the estimates computed from the
 survey data. The COVIDcast API, which serves these estimates and is updated
-daily, is a much larger effort run by the Delphi group; and our entire
+daily, is a much larger effort run by the Delphi group, and our entire
 engineering team is owed a lot of credit here. Ryan Tibshirani came up with the
 idea of running the surveys, and worked with Facebook to make this a reality. On
 the Facebook side, Curtiss Cobb and Jonathan McKay played big roles.*
@@ -75,7 +75,7 @@ we receive the data directly from Qualtrics, and Facebook never sees any of the
 survey responses. We use the data only for research purposes, and only
 aggregated data is ever released publicly. As of this writing, our survey
 receives an average of over 74,000 responses per day; delivers adequate data
-(enough for us to create meaningful estimates) for an average of nearly 1000
+(enough for us to create meaningful estimates) for an average of nearly 1,000
 counties per week; and has been taken over 9.5 million times so far. An
 [international version of the survey](https://covidmap.umd.edu/), available in
 over 50 languages, was launched soon after by a team at the University of
@@ -144,16 +144,16 @@ Now let's unpack the main motivation behind our survey a bit: a person typically
 experiences COVID-like symptoms before they seek medical care or a COVID-19
 test, so data on how many people are self-reporting COVID-like symptoms in a
 given county could be used to construct a **leading indicator** of COVID
-activity in that county. And to be clear, it's not just the fact that we're
-looking at symptoms that's important here, it's the *way* we're measuring them:
-since self-reporting symptoms can be done from home, with no special equipment
-needed, the data here wouldn't be subject to the same reporting delays as formal
-testing metrics like confirmed COVID-19 case counts.
+activity in that county. And to be clear, it's not just that we're looking at
+symptoms that's important here, it's the *way* we're measuring them: since
+symptoms can be reported from home, with no special equipment needed, the data
+here isn't subject to the same reporting delays as formal testing metrics like
+confirmed COVID-19 case counts.
 
-(Aside from being delayed, confirmed COVID-19 case counts are actually further
-confounded by issues like testing policy and capacity; and self-reported symptom
-data shouldn't be subject to the same problems. This is a potentially very
-important point, but much more subtle, and we won't delve into it on this post.)
+(Aside from being delayed, confirmed COVID-19 case counts are further confounded
+by issues like testing policy and capacity; while self-reported symptom data
+shouldn't be subject to the same problems. This is a potentially very important
+point, but much more subtle, and we won't delve into it on this post.)
 
 It's also worth being very clear about what we're *not* able to say with these
 surveys:
@@ -166,9 +166,9 @@ to be reflective of the true rate of COVID-19 (and they're not intended to be).
 
 - Our survey responses come from the population of Facebook users in the US,
 which may a sizeable fraction of the US population, but certainly not all of it.
-We'll also likely see survey bias because some people on Facebook are more
-inclined to take surveys than others. We attempt to correct for both of these
-biases using a [statistical reweighting
+We'll also likely see bias because some people on Facebook are more inclined to
+take surveys than others. We attempt to correct for both of these biases using a
+[statistical reweighting
 scheme](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting),
 but these corrections aren't perfect.
 
@@ -183,8 +183,8 @@ be regarded as a foolproof way of deriving unbiased estimates of the number of
 people with COVID-19 *symptoms* in the US (mainly due to the self-reporting
 aspect). Nevertheless, as we'll see evidence of below, *changes in self-reported
 symptoms over time* can still be a meaningful reflection of the changes in
-coronavirus infections over time. (And in the best case, it'll be a reflection
-of changes to come some number of days into the future.)
+coronavirus infections over time. And in the best case, it can help predict
+changes to come some days into the future.
 
 ## What's on the Survey?
 
@@ -234,7 +234,8 @@ details about the survey, including the [full text of every survey
 version](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html).
 And yes, researchers can [request
 access](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
-to (fully de-identified) individual survey responses for research purposes.
+to (fully de-identified) individual survey responses for research purposes,
+provided they agree to keep data from individual respondents confidential.
 
 ## Some Interesting Examples
 
@@ -325,10 +326,10 @@ ascent on June 25 (second dashed vertical line).
  
 This is just one county; to investigate further, we pulled the 20 counties with
 the biggest increase in new COVID-19 cases between June 1 and July 15, and made
-analogous plots below, with COVID-19 cases in red and the % CLI-in-community 
-indicator in blue. We can see that the % CLI-in-community indicator is (a) never
-lagging and (b) again leading in many counties, for example, Dallas County, 
-Orange County, Hidalgo County, and Nueces County are a few notable examples.
+the plots below, with COVID-19 cases in red and the % CLI-in-community indicator
+in blue. We can see that the % CLI-in-community indicator is (a) never lagging
+and (b) again leading in many counties; for example, Dallas County, Orange
+County, Hidalgo County, and Nueces County are a few notable examples.
 
 ```{r, message = FALSE, fig.width = 10, fig.height = 10}
 num = 20
@@ -347,9 +348,9 @@ do.call(grid.arrange, c(p_list, nrow = 5, ncol = 4))
 The examples above are an informal way of looking at the *recall* of the %
 CLI-in-community signal. Of course, this is only one half of the story: for the
 signal to be a useful early indicator, we'd also need to know something about
-its *precision*: we'd need to know that % CLI-in-community seldomly rises in
-periods where new COVID-19 cases remain flat. We save a formal precision-recall 
-analysis for future work. 
+its *precision*: we'd need to know that % CLI-in-community seldom rises in
+periods where new COVID-19 cases remain flat. We save a formal precision-recall
+analysis for future work.
 
 ## Basic Correlation Analysis
 
@@ -363,18 +364,15 @@ by county---and we'll consider both ways here.
 
 First we compute, for each day between April 15 and August 15, the Spearman
 correlation between the % CLI indicator and COVID-19 case rates, across all
-"active" counties, defined to have had at least 500 confirmed COVID-19 cases in 
-total. The Spearman correlation between two vectors is just the usual (Pearson)
-applied to the vectors of their ranks. (Spearman correlation is invariant to 
-monotone transformations; we can think of it as assessing whether one variable 
-is high when another is high, without relying on any particular functional 
-form for the dependence between the two variables.) We do the same for the % 
-CLI-in-community indicator, and plot the results below, with the % CLI indicator
-correlations in red, and the % CLI-in-community correlations in blue. We can see
-clearly that the % CLI-in-community indicator produces, consistently across all 
-time, *much* higher correlations. Even in an absolute sense, the correlations
-from the % CLI-in-community are worth noting: it reaches over 0.8 for a period
-between July and August.
+counties with at least 500 confirmed COVID-19 cases in total. (The Spearman
+correlation assesses whether one variable is high when another is high, even if
+their relationship is not linear.) We do the same for the % CLI-in-community
+indicator, and plot the results below, with the % CLI indicator correlations in
+red, and the % CLI-in-community correlations in blue. We can see clearly that
+the % CLI-in-community indicator produces, consistently across all time, *much*
+higher correlations. Even in an absolute sense, the correlations from the %
+CLI-in-community are worth noting: it reaches over 0.8 for a period between July
+and August.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 # Fetch Facebook % CLI signal, % CLI-in-community signal and JHU confirmed case 
@@ -388,7 +386,7 @@ df_fb2 = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli",
 df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
                          start_day, end_day, geo_type = "county")
 
-# Consider only "active" counties with at least 500 cumulative cases so far
+# Consider only counties with at least 500 cumulative cases so far
 case_num = 500
 geo_values = covidcast_signal("jhu-csse", "confirmed_cumulative_num",
                               max(df_in$time_value), max(df_in$time_value),
@@ -417,17 +415,18 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
 ```
 
 Another interesting observation is that the correlations from either indicator
-witness huge increases sometime around mid June. This could be due to the fact 
-that many counties saw big surges in COVID-19 activity around that time. These
-surges created a larger spread between the COVID-19 case rates across the 
-country, and so county-to-county differences started to become easier to track 
-with the indicators, as the magnitude of these differences started to swamp the
-noise. Of course, this is really just speculation, and we can't say for certain
-that this is the cause. Some decent empirical evidence for our explanation, 
-however, is to look at the median absolute deviation of COVID-19 case rates as a
-function of time, as we do below. We can see a very similar trend: the median 
-absolute deviation (a robust measure of spread) starts to rise sharply sometime 
-around mid June.
+increase dramatically sometime around mid June. This could be because many
+counties saw big surges in COVID-19 activity around that time. These surges
+created a larger spread between the COVID-19 case rates across the country, and
+so county-to-county differences started to become easier to track with the
+indicators, as the magnitude of these differences started to swamp the noise.
+
+Of course, this is really just speculation, and we can't say for certain that
+this is the cause. Some decent empirical evidence for our explanation, however,
+is to look at how COVID-19 case rates vary between counties over time, as we do
+below. The median absolute deviation (a robust measure of spread) between
+counties rises sharply sometime around mid-June, around the same time as the
+correlations increased.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 ggplot(df_in_act %>% group_by(time_value) %>% 
@@ -441,7 +440,7 @@ ggplot(df_in_act %>% group_by(time_value) %>%
 
 ### Correlations Sliced by County
 
-Next we compute, for each "active" county (with at least 500 total cases), the
+Next we compute, for each county with at least 500 total cases, the
 Spearman correlations between each of our indicators and COVID-19 case rates,
 across all time. We can visualize this in a few different ways. Below we plot
 (estimated) densities from these two sets of correlations: from the % CLI 
