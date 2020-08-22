@@ -82,8 +82,8 @@ over 50 languages, was launched soon after by a team at the University of
 Maryland.
 
 We'll go into detail later about on our survey and our survey-based indicators,
-but for now, here's a couple quick maps. On the left is a state-level heatmap of
-the estimated percentage of people with COVID symptoms, based on our survey,
+but for now, here's a couple of quick maps. On the left is a state-level heatmap
+of the estimated percentage of people with COVID symptoms, based on our survey,
 averaged over June 15 to July 15. On the right is a heatmap of the number of
 daily new confirmed COVID-19 cases per 100,000 people, based on data from [JHU
 CSSE](https://github.com/CSSEGISandData/COVID-19), averaged over the same
