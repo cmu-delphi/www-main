@@ -272,8 +272,8 @@ trans = function(x, from_range, to_range) {
 }
 
 # Function to produce a plot comparing the signals for one county
-plot_one = function(geo_value, title = fips_to_name(geo_value), xlab = NULL,
-                    ylab1 = NULL, ylab2 = NULL, legend = TRUE) {
+plot_one = function(geo_value, title = NULL, xlab = NULL, 
+                    ylab1 = NULL, ylab2 = NULL, legend =  TRUE) {
   # Filter down the signal data frames
   given_geo_value = geo_value
   df_fb_one = df_fb %>% filter(geo_value == given_geo_value)
@@ -286,7 +286,14 @@ plot_one = function(geo_value, title = fips_to_name(geo_value), xlab = NULL,
   # Convenience functions for our two signal ranges
   trans12 = function(x) trans(x, range1, range2)
   trans21 = function(x) trans(x, range2, range1)
-
+  
+  # First find the state, find abbreviation, then set title
+  state_name = state_census %>% 
+    filter(STATE == as.numeric(substr(geo_value, 1, 2))) %>%
+    pull(NAME)
+  state_abb = state.abb[state.name == state_name]
+  title = paste0(fips_to_name(geo_value), ", ", state_abb)
+  
   # Transform the combined signal to the incidence range, then stack
   # these rowwise into one data frame
   df = select(rbind(df_fb_one %>% mutate_at("value", trans21),
