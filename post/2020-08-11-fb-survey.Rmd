@@ -485,7 +485,7 @@ We can also examine choropleth maps of these correlations to learn where
 the maps below, the % CLI-in-community indicator yields high correlations pretty 
 much throughout the US, whereas the % CLI indicator is a bit more spotty. (Note 
 that here a gray color denotes a missing value: either that county had below 500 
-cumulative COVID-19 cases, or we didn't have enough datafrom the surveys in 
+cumulative COVID-19 cases, or we didn't have enough data from the surveys in
 order to estimate % CLI and % CLI-in-community signals there.)
 
 ```{r, fig.width = 10, fig.height = 4}
@@ -508,7 +508,7 @@ grid.arrange(p1, p2, nrow = 1)
 You might expect that a survey that reaches tens of thousands of respondents
 within the US daily---and has done so for months during a major pandemic---could
 have *many* possible uses beyond simply surveying symptoms. You would be right. 
-As we explain above, beyond the first section, the survey contains many 
+As we explain above, beyond its first section, the survey contains many
 questions on testing, behavior, medical care, mental health, and related topics, 
 leading to a multitude of possible research questions.
 
