@@ -30,7 +30,9 @@ survey data. The COVIDcast API, which serves these estimates and is updated
 daily, is a much larger effort run by the Delphi group, and our entire
 engineering team is owed a lot of credit here. Ryan Tibshirani came up with the
 idea of running the surveys, and worked with Facebook to make this a reality. On
-the Facebook side, Curtiss Cobb and Jonathan McKay played big roles.*
+the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
+University of Maryland team, including Adrianne Bradford and Samantha Chiu and
+led by Frauke Kreuter, made many contributions to the survey design.*
 
 In collaboration with Facebook, along with a consortium of universities and
 public health officials, we've been conducting surveys since April 2020 to
@@ -56,13 +58,13 @@ and we'll highlight some other exciting directions that we're pursuing now.
 
 ## Short Background
 
-Back in March 2020, we began discussions with Facebook about the idea of running
-a survey, advertised through their site, to collect real-time, county-level
-information on people experiencing COVID-like symptoms. The basic premise was
-that we could use this information to construct a leading indicator of COVID
-activity in the US. We certainly weren't the first group to think of running
-COVID-19 symptom surveys: many groups before us had already deployed such
-surveys (like [Covid Near You](https://covidnearyou.org/), [COVID Symptom
+Back in March 2020, we began discussions with Facebook about running a survey,
+advertised through their site, to collect real-time, county-level information on
+people experiencing COVID-like symptoms. The basic premise was that we could use
+this information to construct a leading indicator of COVID activity in the US.
+We certainly weren't the first group to think of running COVID-19 symptom
+surveys: many groups before us had already deployed such surveys (like [Covid
+Near You](https://covidnearyou.org/), [COVID Symptom
 Study](https://covid.joinzoe.com/us-2), etc.). But we sought to build a survey
 that could (a) grow to be truly massive in size and (b) be sustained at this
 size, something we felt was only possible with buy-in from a platform like
@@ -76,7 +78,7 @@ survey responses. We use the data only for research purposes, and only
 aggregated data is ever released publicly. As of this writing, our survey
 receives an average of over 74,000 responses per day; delivers adequate data
 (enough for us to create meaningful estimates) for an average of nearly 1,000
-counties per week; and has been taken over 9.5 million times so far. An
+counties per week; and has been taken over 10 million times so far. An
 [international version of the survey](https://covidmap.umd.edu/), available in
 over 50 languages, was launched soon after by a team at the University of
 Maryland.
@@ -151,8 +153,8 @@ here isn't subject to the same reporting delays as formal testing metrics like
 confirmed COVID-19 case counts.
 
 (Aside from being delayed, confirmed COVID-19 case counts are further confounded
-by issues like testing policy and capacity; while self-reported symptom data
-shouldn't be subject to the same problems. This is a potentially very important
+by issues like testing policy and capacity, while self-reported symptom data
+shouldn't be subject to the same problems. This is potentially a very important
 point, but much more subtle, and we won't delve into it on this post.)
 
 It's also worth being very clear about what we're *not* able to say with these
@@ -162,7 +164,7 @@ surveys:
 course, COVID-like symptoms can be caused by other conditions, and many true
 infections are asymptomatic. Therefore, even if we ignore the issues brought on
 by self-reporting and survey sampling, we can't expect the estimates we produce
-to be reflective of the true rate of COVID-19 (and they're not intended to be).
+to reflect the true rate of COVID-19 (and they're not intended to).
 
 - Our survey responses come from the population of Facebook users in the US,
 which may a sizeable fraction of the US population, but certainly not all of it.
@@ -177,14 +179,14 @@ reported by a medical professional). Some fraction of the responses could be
 erroneous, either because a person misunderstood the question or chose to answer
 incorrectly.
 
-To summarize, our survey data can't be used to make absolute statements about
-the true prevalence of coronavirus disease in the US; in fact, it shouldn't even
-be regarded as a foolproof way of deriving unbiased estimates of the number of
+To summarize, our survey can't be used to make absolute statements about the
+true prevalence of coronavirus disease in the US; in fact, it shouldn't even be
+regarded as a foolproof way of deriving unbiased estimates of the number of
 people with COVID-19 *symptoms* in the US (mainly due to the self-reporting
-aspect). Nevertheless, as we'll see evidence of below, *changes in self-reported
-symptoms over time* can still be a meaningful reflection of the changes in
-coronavirus infections over time. And in the best case, it can help predict
-changes to come some days into the future.
+aspect). Nevertheless, as we'll see below, *changes in self-reported symptoms
+over time* can still be a meaningful reflection of the changes in coronavirus
+infections over time. And in the best case, it can help predict changes to come
+some days into the future.
 
 ## What's on the Survey?
 
@@ -209,7 +211,7 @@ found in our [COVIDcast signals
 documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).
 
 The % CLI-in-community indicator has an interesting backstory: it was sort of a
-"happy accident" of an experiment we tried with surveys we were running in
+"happy accident" from an experiment we tried with surveys we were running in
 partnership with Google. (We'll cover our Google survey in a future blog post.)
 The preliminary results from this experiment were exciting enough that we
 decided to add a similar question to our Facebook survey about a week after its
@@ -218,15 +220,15 @@ initial launch.
 The second section of the survey goes into more detail on symptoms, testing, and
 medical-seeking behavior. The third section gathers info on contacts and risk
 factors, and the fourth section gathers info on demographics. These survey
-questions, taken altogether, provide a wealth of information that we haven't
-fully tapped into (but plan to soon---see the end of this blog post). To give
-credit where it's due: it was Facebook who initially suggested we run a longer
-survey with extensive questions on contacts, risk factors, and demographics. At
-first, we wanted to run a short survey with only the questions on COVID-like
-illness, and Facebook gathered ideas for more questions from several different
-research groups in public health. They assured us that lengthening the survey
-wouldn't hurt the the completion rate too much, and they were right: of the
-people who complete the first section, over 85% go on to finish the full survey!
+questions provide a wealth of information that we haven't fully tapped into (but
+plan to soon---see the end of this blog post). To give credit where it's due: it
+was Facebook who initially suggested we run a longer survey with extensive
+questions on contacts, risk factors, and demographics. At first, we wanted to
+run a short survey with only the questions on COVID-like illness, and Facebook
+gathered ideas for more questions from several different research groups in
+public health. They assured us that lengthening the survey wouldn't hurt the the
+completion rate too much, and they were right: of the people who complete the
+first section, over 85% go on to finish the full survey!
 
 Our [survey documentation
 site](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/) includes more
@@ -241,18 +243,17 @@ provided they agree to keep data from individual respondents confidential.
 
 Now we'll turn to some interesting data examples which serve as evidence that
 our survey-based CLI signals can be early indicators of COVID activity. We'll
-consider the % CLI-in-community indicator in particular, which tends to be more
-stable than the % CLI indicator (roughly similar, albeit noisier trends would
-show up in the % CLI indicator). Let's start by looking at Miami-Dade County,
-which experienced a surge of new COVID-19 cases between June and July: below we
-plot daily new confirmed COVID-19 cases over time (using a 7-day trailing
-average for smoothing) as a blue curve. We also plot the % CLI-in-community
-indicator as a red curve. Note that these two curves, case counts and %
-CLI-in-community, are not measured in the same units, hence our use of two
-y-axes: one on the left for case counts, and one on the right for %
-CLI-in-community.
+consider the % CLI-in-community indicator, which tends to be more stable than
+the % CLI indicator (which would show roughly similar, albeit noisier, trends).
+Let's start by looking at Miami-Dade County, which experienced a surge of new
+COVID-19 cases between June and July: below we plot daily new confirmed COVID-19
+cases over time (using a 7-day trailing average for smoothing) as a blue curve.
+We also plot the % CLI-in-community indicator as a red curve. Note that these
+two curves, case counts and % CLI-in-community, are not measured in the same
+units, hence our use of two y-axes: one on the left for case counts, and one on
+the right for % CLI-in-community.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
 library(ggplot2)
 
 # Fetch Facebook % CLI-in-community signal and JHU confirmed case incidence
@@ -321,13 +322,13 @@ alongside confirmed COVID-19 cases, a reassuring sanity-check (more people
 indeed report that others are sick in their community, at a time when COVID-19
 tests confirm more cases). But a closer look shows something quite interesting:
 the % CLI-in-community signal begins to rise steeply on June 19 (first dashed
-vertical line), which *happens 6 days before* COVID-19 cases begin their steep
+vertical line), which happens *6 days before* COVID-19 cases begin their steep
 ascent on June 25 (second dashed vertical line).
  
 This is just one county; to investigate further, we pulled the 20 counties with
 the biggest increase in new COVID-19 cases between June 1 and July 15, and made
-the plots below, with COVID-19 cases in red and the % CLI-in-community indicator
-in blue. We can see that the % CLI-in-community indicator is (a) never lagging
+the plots below, with COVID-19 cases in blue and the % CLI-in-community indicator
+in red. We can see that the % CLI-in-community indicator is (a) never lagging
 and (b) again leading in many counties; for example, Dallas County, Orange
 County, Hidalgo County, and Nueces County are a few notable examples.
 
@@ -428,7 +429,7 @@ below. The median absolute deviation (a robust measure of spread) between
 counties rises sharply sometime around mid-June, around the same time as the
 correlations increased.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
 ggplot(df_in_act %>% group_by(time_value) %>% 
          summarize(mad = mad(value, na.rm = TRUE)),
        aes(x = time_value, y = mad)) + geom_line() + 
@@ -448,7 +449,7 @@ indicator in red, and the % CLI-in-community indicator in blue. With this slice
 of the data (computing correlations by county, rather than by day), we again see
 that the % CLI-in-community indicator produces *much* higher correlations.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
 # Compute correlations, per county, over all time
 df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "geo_value")
 df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "geo_value")
