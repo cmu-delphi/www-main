@@ -11,7 +11,7 @@ output:
 In collaboration with Facebook, along with a consortium of universities and
 public health officials, we've been conducting surveys since April 2020 to
 monitor the spread and impact of the COVID-19 pandemic in the United States. Our
-survey, advertised through Facebook, gets about 74,000 responses every day.
+survey, advertised through Facebook, is taken by about 74,000 people every day.
 Respondents provide information about COVID-related symptoms, contacts, risk
 factors, and demographics, allowing us to examine county-level trends across the
 US. We believe such a combination of *detail* and *scale* has never before been
@@ -22,9 +22,9 @@ some exciting new directions we're now pursuing.
 <!--more-->
 
 **Credits.** *Logan Brooks and Katie Mazaitis wrote the initial code for
-processing the survey data and producing estimates. Taylor Arnold, Alex
-Reinhart, and Amartya Basu provided huge help with refactoring and improving
-this codebase. Logan Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani
+processing the survey data and producing estimates. Taylor Arnold, Amartya Basu,
+and Alex Reinhart provided huge help with refactoring and improving this 
+codebase. Logan Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani 
 developed the statistical methodology behind the estimates computed from the
 survey data. The COVIDcast API, which serves these estimates and is updated
 daily, is a much larger effort run by the Delphi group, and our entire
@@ -39,20 +39,20 @@ public health officials, we've been conducting surveys since April 2020 to
 monitor the spread and impact of the COVID-19 pandemic in the United States. Our
 survey is advertised through Facebook, but it's run on our own Qualtrics
 platform (Facebook never sees any of the survey responses). This is an ongoing
-operation and our survey gets about 74,000 responses every day. We believe that
-such a combination of *detail*, *scale* and *timeliness* <!--- alt. *promptness* ---> has never before been available via
-surveys in a public health emergency: we collect information on COVID-related symptoms,
-contacts, risk factors, and demographics, enabling us to look at county-level
-trends across the US. We make aggregated data publicly available daily through
-our [COVIDcast
+operation and our survey is taken by about 74,000 people every day. We believe 
+that such a combination of *detail* and *scale* has never before been available 
+via surveys in a public health emergency: we collect information on 
+COVID-related symptoms, contacts, risk factors, and demographics, enabling us to
+look at county-level trends across the US. We make aggregated data publicly 
+available daily through our [COVIDcast
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), and
 visualize it on our [COVIDcast interactive map](https://covidcast.cmu.edu/). We
 also make (fully de-identified) individual survey responses available to
 researchers who agree to [data use
 terms](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/).
 
-In this blog post, we'll explore some of our initial findings with two
-indicators of COVID-like illness <!--- CLI has not yet been technically defined ---> that are derived from our surveys. In terms of
+In this blog post, we'll explore some of our initial findings with two 
+indicators of COVID-like illness that are derived from our surveys. In terms of
 what these surveys have to offer, this is really just the tip of the iceberg ...
 and we'll highlight some other exciting directions that we're pursuing now.
 
@@ -71,21 +71,20 @@ size, something we felt was only possible with buy-in from a platform like
 Facebook. Fortunately for us, they agreed!
 
 We launched our survey on April 6, 2020. Each day since then, Facebook directs a
-random sample of its users to our survey, hosted on
+random sample of its users to our survey, hosted on 
 [Qualtrics](https://www.qualtrics.com/). As part of our agreement with Facebook,
 we receive the data directly from Qualtrics, and Facebook never sees any of the
-survey responses. We use the data only for research purposes, and only
-aggregated data is ever released publicly. As of this writing, our survey
-receives responses from an average of over 74,000 users per day<!--- 'responses' is ambigupus and coudl mean answers to individual questions --->; delivers adequate data
-(enough for us to create meaningful estimates) for an average of nearly 1,000
-counties per week; and has been taken over 10 million times so far. An
-[international version of the survey](https://covidmap.umd.edu/), available in
-over 50 languages, was launched soon after by a team at the University of
-Maryland.
+survey responses. We use the data only for research purposes, and only 
+aggregated data is ever released publicly. As of this writing, our survey is
+taken by an average of 74,000 people per day; delivers adequate data (enough for 
+us to create meaningful estimates) for an average of nearly 1,000 counties per 
+week; and has been taken over 10 million times so far. An [international version
+of the survey](https://covidmap.umd.edu/), available in over 50 languages, was 
+launched soon after by a team at the University of Maryland.
 
-We'll go into detail later about our survey and our survey-based indicators,
-but for now, here's a couple of quick maps. On the left is a state-level heatmap
-of the estimated percentage of people with COVID symptoms, based on our survey,
+We'll go into detail later about our survey and our survey-based indicators, but 
+for now, here's a couple of quick maps. On the left is a state-level heatmap of 
+the estimated percentage of people with COVID symptoms, based on our survey, 
 averaged over June 15 to July 15. On the right is a heatmap of the number of
 daily new confirmed COVID-19 cases per 100,000 people, based on data from [JHU
 CSSE](https://github.com/CSSEGISandData/COVID-19), averaged over the same
@@ -167,10 +166,10 @@ by self-reporting and survey sampling, we can't expect the estimates we produce
 to reflect the true rate of COVID-19 (and they're not intended to).
 
 - Our survey responses come from the population of Facebook users in the US,
-which may be a sizeable fraction of the US population, but certainly not all of it.
-We'll also likely see bias because some people on Facebook are more inclined to
-take surveys than others. We attempt to correct for both of these biases using a
-[statistical reweighting
+which may be a sizeable fraction of the US population, but certainly not all of 
+it. We'll also likely see bias because some people on Facebook are more inclined 
+to take surveys than others. We attempt to correct for both of these biases 
+using a [statistical reweighting
 scheme](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting),
 but these corrections aren't perfect.
 
@@ -188,18 +187,19 @@ over time* can still be a meaningful reflection of the changes in coronavirus
 infections over time. And in the best case, it can help predict changes to come
 some days into the future.
 
-## What's in the Survey?
+## What's on the Survey?
 
 Our survey has 4 sections and is about 35 questions long. The first section is
-short and gathers information on a core set of symptoms used to define a condition
-called **COVID-like illness** or **CLI**, which we define as *fever of at least
-100 °F, along with cough, shortness of breath, or difficulty breathing*. This
-mirrors the standard definition of influenza-like illness or ILI (defined as
-fever of at least 100 °F, along with sore throat or cough), and is in line with
-the working definition of CLI used by the U.S. Centers for Disease Control and Prevention (CDC).
+short and gathers information on a core set of symptoms used to define a 
+condition called **COVID-like illness** or **CLI**, which we define as *fever of
+at least 100 °F, along with cough, shortness of breath, or difficulty 
+breathing*. This mirrors the standard definition of influenza-like illness or 
+ILI (defined as fever of at least 100 °F, along with sore throat or cough), and 
+is in line with the working definition of CLI used by the US Centers for Disease 
+Control and Prevention (CDC).
 
-Using data from responses to the survey's first section, we can 
-estimate two key quantities, in a given location, on a given day:
+Using data from responses to the survey's first section, we can estimate two key
+quantities, in a given location, on a given day:
 
 - % CLI: the percentage of people with COVID-like illness; and
 
@@ -218,16 +218,16 @@ decided to add a similar question to our Facebook survey about a week after its
 initial launch.
 
 The second section of the survey goes into more detail on symptoms, testing, and
-medical-seeking behavior. The third section gathers information on contacts and risk
-factors, and the fourth section gathers information on demographics. These survey
-questions provide a wealth of information that we haven't fully tapped into (but
-plan to soon---see the end of this blog post). To give credit where it's due: it
-was Facebook who initially suggested we run a longer survey with extensive
-questions on contacts, risk factors, and demographics. At first, we wanted to
-run a short survey with only the questions on COVID-like illness, and Facebook
-gathered ideas for more questions from several different research groups in
-public health. They assured us that lengthening the survey wouldn't hurt the
-completion rate too much, and they were right: of the people who complete the
+medical-seeking behavior. The third section gathers info on contacts and risk 
+factors, and the fourth section gathers info on demographics. These survey 
+questions provide a wealth of information that we haven't fully tapped into (but 
+plan to soon---see the end of this blog post). To give credit where it's due: it 
+was Facebook who initially suggested we run a longer survey with extensive 
+questions on contacts, risk factors, and demographics. At first, we wanted to 
+run a short survey with only the questions on COVID-like illness, and Facebook 
+gathered ideas for more questions from several different research groups in 
+public health. They assured us that lengthening the survey wouldn't hurt the 
+completion rate too much, and they were right: of the people who complete the 
 first section, over 85% go on to finish the full survey!
 
 Our [survey documentation
@@ -252,8 +252,6 @@ We also plot the % CLI-in-community indicator as a red curve. Note that these
 two curves, case counts and % CLI-in-community, are not measured in the same
 units, hence our use of two y-axes: one on the left for case counts, and one on
 the right for % CLI-in-community. 
-<!--- if you use red font for the right-side (%CLI) Y-axis label, and blue font for the left-side (Cases) Y-axis label,
-it will help parse the picture more quickly.  You could also use these colors for the vertical dashed lines. --->
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
 library(ggplot2)
@@ -272,6 +270,9 @@ trans = function(x, from_range, to_range) {
   (x - from_range[1]) / (from_range[2] - from_range[1]) *
     (to_range[2] - to_range[1]) + to_range[1]
 }
+
+# Red, blue (similar to ggplot defaults), then yellow
+ggplot_colors = c("#FC4E07", "#00AFBB", "#E7B800")
 
 # Function to produce a plot comparing the signals for one county
 plot_one = function(geo_value, title = NULL, xlab = NULL, 
@@ -307,20 +308,21 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
   pos = ifelse(legend, "bottom", "none")
   return(ggplot(df, aes(x = time_value, y = value)) +
            geom_line(aes(color = signal)) +
+           scale_color_manual(values = ggplot_colors[1:2]) +
            scale_y_continuous(name = ylab1, limits = range1,
                               sec.axis = sec_axis(trans = trans12, 
                                                   name = ylab2)) + 
            labs(title = title, x = xlab) + theme_bw() +
-           theme(legend.position = pos, legend.title = element_blank()))
+           theme(legend.pos = pos, legend.title = element_blank()))
 }
 
 plot_one(name_to_fips("Miami-Dade"), xlab = "Date",
          ylab1 = "Daily new confirmed COVID-19 cases",
          ylab2 = "% of people who know someone with CLI") +
   geom_vline(xintercept = as.numeric(as.Date("2020-06-19")), 
-             linetype = 2, size = 1, color = "gray") + 
+             linetype = 2, size = 1, color = ggplot_colors[1]) + 
   geom_vline(xintercept = as.numeric(as.Date("2020-06-25")), 
-             linetype = 2, size = 1, color = "gray")
+             linetype = 2, size = 1, color = ggplot_colors[2])
 ```
 
 (This example, as with all code examples in this blog post, was produced using
@@ -336,9 +338,9 @@ ascent on June 25 (second dashed vertical line).
  
 This is just one county; to investigate further, we pulled the 20 counties with
 the biggest increase in new COVID-19 cases between June 1 and July 15, and made
-the plots below, with COVID-19 cases in blue and the % CLI-in-community indicator
-in red. We can see that the % CLI-in-community indicator is (a) never lagging
-and (b) leading in many counties; for example, Dallas County, Orange
+the plots below, with COVID-19 cases in blue and the % CLI-in-community 
+indicator in red. We can see that the % CLI-in-community indicator is (a) never 
+lagging and (b) leading in many counties; for example, Dallas County, Orange 
 County, Hidalgo County, and Nueces County are a few notable examples.
 
 ```{r, message = FALSE, fig.width = 10, fig.height = 10}
@@ -373,8 +375,8 @@ by county---and we'll consider both ways here.
 ### Correlations Sliced by Time
 
 First we compute, for each day between April 15 and August 15, the Spearman
-correlation between the % CLI indicator and COVID-19 case rates, across the NUMBER <!--- provide number here --->
-counties that had at least 500 confirmed COVID-19 cases in total. (The Spearman
+correlation between the % CLI indicator and COVID-19 case rates, across the
+counties that had at least 500 cumulative confirmed COVID-19 cases. (Spearman
 correlation assesses whether one variable is high when another is high, even if
 their relationship is not linear.) We do the same for the % CLI-in-community
 indicator, and plot the results below, with the % CLI indicator correlations in
@@ -383,7 +385,6 @@ the % CLI-in-community indicator produces, consistently across all time, *much*
 higher correlations. Even in an absolute sense, the correlations from the %
 CLI-in-community are noteworthy: they reach over 0.8 for a period between July
 and August.
-<!--- since you used these particular red and blue colors for %CLI-in-community vs. Confired Cases, it may be better to use a different color scheme to compare %CLI to %CLI-in-community, in the section below.  Or, in the above analysis, use black for Confirmed Cases, and keep chromatic colors for our indicators.  --->   
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 # Fetch Facebook % CLI signal, % CLI-in-community signal and JHU confirmed case 
@@ -419,10 +420,11 @@ df_cor$signal = c(rep("% CLI", nrow(df_cor1)),
                   rep("% CLI-in-community", nrow(df_cor2)))
 ggplot(df_cor, aes(x = time_value, y = value)) + 
   geom_line(aes(color = signal)) + 
+  scale_color_manual(values = ggplot_colors[c(3, 1)]) +
   labs(title = "Correlation between CLI signals and cases",
-       subtitle = sprintf("Over the NUMBER counties with at least %i cumulative cases", case_num),
-       x = "Date", y = "Correlation") + theme_bw() +
-  theme(legend.position = "bottom", legend.title  = element_blank())
+       subtitle = sprintf("Over all counties with at least %i cumulative cases",
+                          case_num), x = "Date", y = "Correlation") + 
+    theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
 ```
 
 Another interesting observation is that the correlations from either indicator
@@ -444,16 +446,14 @@ ggplot(df_in_act %>% group_by(time_value) %>%
          summarize(mad = mad(value, na.rm = TRUE)),
        aes(x = time_value, y = mad)) + geom_line() + 
   labs(title = "Median absolute deviation in COVID-19 case rates",
-       subtitle = sprintf("Over all counties with at least %i cumulative cases", case_num),
-       x = "Date", y = "Median absolute deviation") + theme_bw() +
-  theme(legend.position = "bottom", legend.title  = element_blank())
+       subtitle = sprintf("Over all counties with at least %i cumulative cases", 
+                          case_num), x = "Date", y = "Median abs deviation") + 
+  theme_bw() + theme(legend.pos = "bottom", legend.title  = element_blank())
 ```
 
 ### Correlations Sliced by County
 
-Next we compute, for each county with at least 500 cumulative cases, 
-<!--- 'cumulative' might be slightly preferred to 'total'.  Either is fine, but you should stick to just one of them throughout --->
-the
+Next we compute, for each county with at least 500 cumulative cases, the
 Spearman correlations between each of our indicators and COVID-19 case rates,
 across all time. We can visualize this in a few different ways. Below we plot
 estimated densities from these two sets of correlations: from the % CLI 
@@ -472,10 +472,12 @@ df_cor$signal = c(rep("% CLI", nrow(df_cor1)),
                   rep("% CLI-in-community", nrow(df_cor2)))
 ggplot(df_cor, aes(value)) + 
   geom_density(aes(color = signal, fill = signal), alpha = 0.5) + 
+  scale_color_manual(values = ggplot_colors[c(3,1)]) +
+  scale_fill_manual(values = ggplot_colors[c(3,1)]) +
   labs(title = "Correlation between CLI signals and cases",
-       subtitle = sprintf("Over the NUMBER counties with at least %i cumulative cases", case_num),
-       x = "Correlation", y = "Density") + theme_bw() +
-  theme(legend.position = "bottom", legend.title = element_blank())
+       subtitle = sprintf("Over all counties with at least %i cumulative cases",
+                          case_num), x = "Correlation", y = "Density") + 
+  theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
 ```
 
 We can also examine choropleth maps of these correlations to learn where 
@@ -483,9 +485,8 @@ We can also examine choropleth maps of these correlations to learn where
 the maps below, the % CLI-in-community indicator yields high correlations pretty 
 much throughout the US, whereas the % CLI indicator is a bit more spotty. (Note 
 that here a gray color denotes a missing value: either that county had below 500 
-total COVID-19 cases, or we didn't have enough data 
-from the surveys in order to estimate % CLI and % CLI-in-community signals 
-there.)
+cumulative COVID-19 cases, or we didn't have enough datafrom the surveys in 
+order to estimate % CLI and % CLI-in-community signals there.)
 
 ```{r, fig.width = 10, fig.height = 4}
 # Set a bunch of fields so that the data frames know how to plot themselves
@@ -506,19 +507,19 @@ grid.arrange(p1, p2, nrow = 1)
 
 You might expect that a survey that reaches tens of thousands of respondents
 within the US daily---and has done so for months during a major pandemic---could
-have *many* possible uses beyond simply surveying symptoms. You would be
-right. As we explain above, beyond the first section, the survey contains
-many questions on testing, behavior, medical care, mental health, and
-related topics, leading to a multitude of possible research questions.
+have *many* possible uses beyond simply surveying symptoms. You would be right. 
+As we explain above, beyond the first section, the survey contains many 
+questions on testing, behavior, medical care, mental health, and related topics, 
+leading to a multitude of possible research questions.
 
 This is why Delphi and the University of Maryland (for the international
 version) offer direct access to the survey data to academic and non-profit
 researchers, who agree to data use terms (requiring, for one, that researchers
 don't attempt to identify respondents and don't release individual survey
 responses, only averages and other aggregates). So far, over a dozen research
-groups sought and received access to our survey data, and are using it to study various aspects
-of the pandemic. We're actively seeking researchers studying important public
-health problems to apply for access through a [form managed by
+groups sought and received access to our survey data, and are using it to study 
+various aspects of the pandemic. We're actively seeking researchers studying 
+important public health problems to apply for access through a [form managed by
 Facebook](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/),
 and our goal is to build a network of researchers committed to fighting the
 pandemic through our survey data.
@@ -527,7 +528,7 @@ To aid this effort, we're soon releasing a new version of the survey. Based on
 feedback from other researchers, public health agencies, the University of
 Maryland, and Facebook, we've added items asking about: 
 
-- more details on COVID testing (including whether the respondent tried to get
+- more details on COVID testing (including whether the respondent tried to get 
 tested but could not); 
 - mask wearing;
 - the types of activities the respondent has done with other people;
