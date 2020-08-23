@@ -159,7 +159,7 @@ before they seek medical care or a COVID-19 test,
 so data on how many people are self-reporting COVID-like symptoms in a
 given county could potentially give us an **early indicator** 
 of COVID activity in a particular region. 
-And to be clear, it's not just that we're looking at symptoms that's important here, 
+And to be clear, it's not just *that* we're looking at symptoms that's important here, 
 it's the *way* we're measuring them: 
 since symptoms can be reported from home, 
 with no special equipment needed, 
@@ -557,11 +557,13 @@ how social distancing and recession have affected mental health.
 Together with extended demographic data, this may help to inform policies 
 designed to help those most affected by the pandemic.
 
-This new survey is currently being deployed, and data should become available in the next few weeks. 
-Detailed data will be available to researchers, while new aggregates---such as of mask-wearing---will be made public, 
-as usual, through our [COVIDcast
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) and
-[COVIDcast interactive map](https://covidcast.cmu.edu/).
+This new survey is currently being deployed, 
+and data should become available in the next few weeks. 
+Detailed data will be available to researchers,
+while new aggregates---such as of mask-wearing---will 
+be made public, as usual, through our [COVIDcast
+API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) 
+and [COVIDcast interactive map](https://covidcast.cmu.edu/).
 
 **Credits.** *Logan Brooks and Katie Mazaitis
 wrote the initial code for processing
