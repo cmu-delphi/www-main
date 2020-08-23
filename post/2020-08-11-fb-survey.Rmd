@@ -12,7 +12,7 @@ Since April 2020, in collaboration with Facebook,
 partner universities, and public health officials,
 we've been conducting a massive daily survey to monitor
 the spread and impact of the COVID-19 pandemic in the United States.
-Disseminated by Facebook, our survey reaches roughly 74,000 people every day.
+Our survey, advertised by Facebook, is taken by about 74,000 people each day.
 Respondents provide information about COVID-related
 symptoms, contacts, risk factors, and demographics,
 allowing us to examine county-level trends across the US.
@@ -20,7 +20,7 @@ We believe that this combination of *detail* and *scale*
 has never before been available in a public health emergency.
 In this post, we'll share some of our initial survey findings,
 show you how to access the data, and highlight
-some of the exciting new directions that we are pursuing.
+some of the exciting new directions that we're pursuing.
 
 <!--more-->
 
@@ -30,8 +30,8 @@ we've been conducting a massive daily survey to monitor
 the spread and impact of the COVID-19 pandemic in the United States.
 Our survey is advertised through Facebook, but it's run on our own Qualtrics
 platform (Facebook never sees any of the survey responses).
-This is an ongoing operation and our survey reaches 74,000 respondents every day.
-Respondents provide information about COVID-related
+This is an ongoing operation and our survey is taken by about 74,000 people 
+each day. Respondents provide information about COVID-related
 symptoms, contacts, risk factors, and demographics,
 allowing us to examine county-level trends across the US.
 We believe that this combination of *detail* and *scale*
@@ -52,15 +52,13 @@ in demonstrating what these surveys have to offer,
 and we'll close the post by highlighting
 some of the exciting new directions that we're pursuing now.
 
-
 ## Short Background
 
-Back in March 2020, as Coronavirus were first spiking across the country,
-we launched discussions with Facebook about running a survey,
-advertised through their site, to collect real-time,
+Back in March 2020, we began discussions with Facebook about running a 
+survey, advertised through their site, to collect real-time,
 county-level information on people experiencing COVID-like symptoms.
 The basic premise was that we could use this information
-to construct a early indicator of COVID activity in the US.
+to construct an early indicator of COVID activity in the US.
 To be sure, we weren't the first group
 to think of running COVID-19 symptom surveys.
 Several others had already been deployed,
@@ -75,8 +73,8 @@ with buy-in from a platform like Facebook.
 Fortunately for us, they agreed!
 
 We launched our survey on April 6, 2020.
-Every day since, Facebook directs a random sample of its users to our survey,
-hosted on [Qualtrics](https://www.qualtrics.com/).
+Every day since, Facebook directs a random sample of its users 
+to our survey, hosted on [Qualtrics](https://www.qualtrics.com/).
 As part of our agreement with Facebook,
 we receive the data directly from Qualtrics,
 and Facebook never sees any of the survey responses.
@@ -86,22 +84,22 @@ with fully de-identified individual survey responses
 available only to researchers who agree to our
 [data use terms](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/).
 
-
-As of this writing, our survey reaches 74,000 respondents per day,
-delivering enough data for us to create meaningful estimates
+As of this writing, our survey is taken by an average of 74,000 people per 
+day, delivering enough data for us to create meaningful estimates
 for an average of nearly 1,000 counties per week.
-Over the course of the survey, we have already collected over 10 million responses!
-An [international version of the survey](https://covidmap.umd.edu/),
-available in over 50 languages, was launched soon after by a team at the University of Maryland.
+Over the course of the survey so far, we have already collected over 10 million 
+responses! An [international version of the survey](https://covidmap.umd.edu/),
+available in over 50 languages, was launched soon after by a team at the 
+University of Maryland.
 
-Before going into detail later about our survey and our survey-based indicators,
-here are a couple maps to ground your intuition.
+Before going into detail later about our survey and our survey-based 
+indicators, here are a couple maps to ground your intuition.
 On the left is a state-level heatmap of
 the estimated percentage of people with COVID symptoms,
 based on our survey, averaged over June 15 to July 15.
 On the right is a heatmap of the number of
 daily new confirmed COVID-19 cases per 100,000 people,
-based on data from [JHUCSSE](https://github.com/CSSEGISandData/COVID-19),
+based on data from [JHU CSSE](https://github.com/CSSEGISandData/COVID-19),
 averaged over the same period.
 We can see some clear similarities in the intensity patterns,
 which already provides a nice sanity check.
@@ -114,6 +112,7 @@ knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
 library(covidcast)
 library(dplyr)
 library(gridExtra)
+
 # Fetch Facebook % CLI signal and JHU confirmed case incidence proportion at
 # the state level
 start_day = "2020-06-15"
@@ -122,15 +121,18 @@ df_fb = covidcast_signal("fb-survey", "smoothed_cli",
                          start_day, end_day, geo_type = "state")
 df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
                          start_day, end_day, geo_type = "state")
+
 # For each state, average the signals over all available times
 df_fb_avg = df_fb %>% group_by(geo_value) %>% summarize(value = mean(value))
 df_in_avg = df_in %>% group_by(geo_value) %>% summarize(value = mean(value))
+
 # Set a bunch of fields so that the data frames know how to plot themselves
 df_fb_avg$time_value = df_in_avg$time_value = start_day
 df_fb_avg$issue = df_in_avg$issue = start_day
 attributes(df_fb_avg)$geo_type = attributes(df_in_avg)$geo_type = "state"
 class(df_fb_avg) = c("covidcast_signal", class(df_fb_avg))
 class(df_in_avg) = c("covidcast_signal", class(df_in_avg))
+
 # Plot choropleth maps, using the covidcast plotting functionality
 subtitle = paste("Averaged over", start_day, "to", end_day)
 p1 = plot(df_fb_avg,
@@ -158,17 +160,18 @@ a person typically experiences COVID-like symptoms
 before they seek medical care or a COVID-19 test, 
 so data on how many people are self-reporting COVID-like symptoms in a
 given county could potentially give us an **early indicator** 
-of COVID activity in a particular region. 
-And to be clear, it's not just *that* we're looking at symptoms that's important here, 
+of COVID activity in that county. And to be clear, it's not just 
+*that* we're looking at symptoms that's important here, 
 it's the *way* we're measuring them: 
 since symptoms can be reported from home, 
 with no special equipment needed, 
 this data isn't subject to the same reporting delays 
 as formal testing metrics like confirmed COVID-19 case counts.
-Note that confirmed COVID-19 case counts aren't just delayed,
-they are confounded by issues like testing policy and capacity.
-We expect that self-reported symptom data 
-shouldn't be subject to the same problems. 
+(Note that confirmed COVID-19 case counts aren't just delayed,
+they are confounded by issues like testing policy and capacity,
+while self-reported symptom data shouldn't be subject to the same problems. 
+This is potentially a very important point, but much more subtle, and we 
+won't delve into it in this post.)
 
 It's also worth being clear about what we're *not* able to say with these
 surveys:
@@ -187,7 +190,7 @@ using a [statistical reweighting
 scheme](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting),
 but these corrections aren't perfect.
 
-- Our symptom data is entirely self-reported, (in ccontrast to data
+- Our symptom data is entirely self-reported, in contrast to data
 reported by medical professionals. Some fraction of the responses could be
 erroneous, either because a person misunderstood the question or chose to answer
 incorrectly.
@@ -203,7 +206,7 @@ some days into the future.
 
 ## What's in the Survey?
 
-Our survey has 4 sections and is 35 questions long. The first section is
+Our survey has 4 sections and is about 35 questions long. The first section is
 short and gathers information on a core set of symptoms used to define a
 condition called **COVID-like illness** or **CLI**, which we define as *fever of
 at least 100 °F, along with cough, shortness of breath, or difficulty
@@ -255,10 +258,10 @@ provided they agree to keep data from individual respondents confidential.
 
 ## Some Interesting Examples
 
-Now we'll turn to some suggestive data analaysis that provides evidence
-that our survey-based CLI signals might be early indicators of COVID activity. 
-We'll consider the % CLI-in-community indicator, which tends to be more stable than
-the % CLI indicator (which shows similar, but noisier, trends).
+Now we'll turn to some interesting data examples that provide evidence
+that our survey-based CLI signals can be early indicators of COVID activity. 
+We'll consider the % CLI-in-community indicator, which tends to be more stable 
+than the % CLI indicator (which shows similar, but noisier, trends).
 Let's start by looking at Miami-Dade County, 
 which experienced a surge of new COVID-19 cases 
 between June and July: below we plot daily new confirmed COVID-19
@@ -278,13 +281,16 @@ df_fb = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli",
                          start_day, end_day, geo_type = "county")
 df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_num",
                          start_day, end_day, geo_type = "county")
+
 # Function to transform from one range to another
 trans = function(x, from_range, to_range) {
   (x - from_range[1]) / (from_range[2] - from_range[1]) *
     (to_range[2] - to_range[1]) + to_range[1]
 }
+
 # Red, blue (similar to ggplot defaults), then yellow
 ggplot_colors = c("#FC4E07", "#00AFBB", "#E7B800")
+
 # Function to produce a plot comparing the signals for one county
 plot_one = function(geo_value, title = NULL, xlab = NULL,
                     ylab1 = NULL, ylab2 = NULL, legend =  TRUE) {
@@ -292,9 +298,11 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
   given_geo_value = geo_value
   df_fb_one = df_fb %>% filter(geo_value == given_geo_value)
   df_in_one = df_in %>% filter(geo_value == given_geo_value)
+  
   # Compute ranges of the two signals
   range1 = df_in_one %>% select("value") %>% range
   range2 = df_fb_one %>% select("value") %>% range
+  
   # Convenience functions for our two signal ranges
   trans12 = function(x) trans(x, range1, range2)
   trans21 = function(x) trans(x, range2, range1)
@@ -312,6 +320,7 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
                     df_in_one), c("time_value", "value"))
   df$signal = c(rep("% CLI-in-community", nrow(df_fb_one)),
                 rep("New COVID-19 cases", nrow(df_in_one)))
+  
   # Finally, plot both signals
   pos = ifelse(legend, "bottom", "none")
   return(ggplot(df, aes(x = time_value, y = value)) +
@@ -323,6 +332,8 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
            labs(title = title, x = xlab) + theme_bw() +
            theme(legend.pos = pos, legend.title = element_blank()))
 }
+
+# Produce a plot for Miami-Dade, and add vertical lines
 plot_one(name_to_fips("Miami-Dade"), xlab = "Date",
          ylab1 = "Daily new confirmed COVID-19 cases",
          ylab2 = "% of people who know someone with CLI") +
@@ -337,7 +348,7 @@ our [covidcast R package](https://cmu-delphi.github.io/covidcast/covidcastR/).
 
 A first glance reveals that the % CLI-in-community indicator
 clearly rises alongside confirmed COVID-19 cases, 
-a reassuring sanity-check: more people indeed report 
+a reassuring sanity check: more people indeed report 
 that others are sick in their community at times 
 when COVID-19 tests confirm more cases.
 But a closer look shows something quite interesting:
@@ -357,6 +368,7 @@ num = 20
 geo_values = df_in %>% group_by(geo_value) %>%
   summarize(diff = last(value) - first(value)) %>%
   arrange(desc(diff)) %>% head(num) %>% pull(geo_value)
+
 p_list = vector("list", num)
 for (i in 1:num) {
   p_list[[i]] = plot_one(geo_values[i], legend = FALSE)
@@ -380,22 +392,22 @@ we'll conduct a simple quantitative analysis here,
 by computing some basic measures of correlation 
 between our survey-based indicators and confirmed COVID-19 case rates. 
 There are a couple of ways to slice the data---by day and
-by county---and we'll consider both ways here.
+by county---and we'll consider both ways in what follows.
 
 ### Correlations Sliced by Time
 
 First we compute, for each day between April 15 and August 15, 
 the Spearman correlation between the % CLI indicator and COVID-19 case rates, 
 across the counties that had at least 500 cumulative confirmed COVID-19 cases. 
-(Spearman correlation assesses whether one variable is high when another is high, 
-even if their relationship is not linear.) 
+(Spearman correlation assesses whether one variable is high when another is 
+high, even if their relationship is not linear.) 
 We do the same for the % CLI-in-community indicator, 
 and plot the results below, with the % CLI indicator correlations in
 red, and the % CLI-in-community correlations in blue. 
 We can see clearly that the % CLI-in-community indicator produces, 
 consistently across all time, *much* higher correlations. 
-Even in an absolute sense, the correlations from the % CLI-in-community are noteworthy: 
-they reach over 0.8 for a period between July and August.
+Even in an absolute sense, the correlations from the % CLI-in-community are 
+noteworthy: they reach over 0.8 for a period between July and August.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 # Fetch Facebook % CLI signal, % CLI-in-community signal and JHU confirmed case
@@ -408,6 +420,7 @@ df_fb2 = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli",
                           start_day, end_day, geo_type = "county")
 df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
                          start_day, end_day, geo_type = "county")
+
 # Consider only counties with at least 500 cumulative cases so far
 case_num = 500
 geo_values = covidcast_signal("jhu-csse", "confirmed_cumulative_num",
@@ -417,11 +430,13 @@ geo_values = covidcast_signal("jhu-csse", "confirmed_cumulative_num",
 df_fb1_act = df_fb1 %>% filter(geo_value %in% geo_values)
 df_fb2_act = df_fb2 %>% filter(geo_value %in% geo_values)
 df_in_act = df_in %>% filter(geo_value %in% geo_values)
+
 # Compute correlations, per time, over all counties
 df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "time_value",
                         method = "spearman")
 df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "time_value",
                         method = "spearman")
+
 # Stack rowwise into one data frame, then plot time series
 df_cor = rbind(df_cor1, df_cor2)
 df_cor$signal = c(rep("% CLI", nrow(df_cor1)),
@@ -437,17 +452,18 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
 
 Another interesting observation is that the correlations from either indicator
 increase dramatically sometime around mid June. 
-This could be because many counties saw big surges in COVID-19 activity around that time. 
-These surges created a larger spread between the COVID-19 case rates across the country,
-and so county-to-county differences started to become easier to track 
-with the indicators, as the magnitude of these differences started to swamp the noise.
+This could be because many counties saw big surges in COVID-19 activity around 
+that time. These surges created a larger spread between the COVID-19 case rates 
+across the country, and so county-to-county differences started to become easier
+to track with the indicators, as the magnitude of these differences started to 
+swamp the noise.
 
 Of course, this is really just speculation, 
 and we can't say for certain that this is the cause. 
 Some decent empirical evidence for our explanation, however, can be found 
-by looking at how COVID-19 case rates vary between counties over time (see below). 
-The median absolute deviation (a robust measure of spread) between counties 
-rises sharply sometime around mid-June, 
+by looking at how COVID-19 case rates vary between counties over time, as shown 
+below. The median absolute deviation (a robust measure of spread) between 
+counties rises sharply sometime around mid-June, 
 around the same time as the correlations increased.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
@@ -463,17 +479,19 @@ ggplot(df_in_act %>% group_by(time_value) %>%
 ### Correlations Sliced by County
 
 Next we compute, for each county with at least 500 cumulative cases,
-the Spearman correlations between each of our indicators and COVID-19 case rates, across all time. 
-We can visualize this in a few different ways.
+the Spearman correlations between each of our indicators and COVID-19 case 
+rates, across all time. We can visualize this in a few different ways.
 Below we plot estimated densities from these two sets of correlations: 
 from the % CLI indicator in red, and the % CLI-in-community indicator in blue. 
 With this slice of the data (correlations by county, rather than by day), 
-we again see that the % CLI-in-community indicator produces *much* higher correlations.
+we again see that the % CLI-in-community indicator produces *much* higher 
+correlations.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
 # Compute correlations, per county, over all time
 df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "geo_value")
 df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "geo_value")
+
 # Stack rowwise into one data frame, then plot densities
 df_cor = rbind(df_cor1, df_cor2)
 df_cor$signal = c(rep("% CLI", nrow(df_cor1)),
@@ -504,6 +522,7 @@ df_cor1$time_value = df_cor2$time_value = start_day
 df_cor1$issue = df_cor2$issue = start_day
 attributes(df_cor1)$geo_type = attributes(df_cor2)$geo_type = "county"
 class(df_cor1) = class(df_cor2) = c("covidcast_signal", "data.frame")
+
 # Plot choropleth maps, using the covidcast plotting functionality
 p1 = plot(df_cor1, title = "Correlation between % CLI and cases",
           range = c(-1, 1), choro_col = cm.colors(10))
@@ -517,8 +536,8 @@ grid.arrange(p1, p2, nrow = 1)
 You might expect that a survey that reaches tens of thousands of respondents
 within the US daily---and has done so for months during a major pandemic---could
 have *many* possible uses beyond simply surveying symptoms. You would be right.
-In other sections, our survey contains questions on testing, 
-behavior, medical care, mental health, and related topics,
+Beyond the first section on the core COVID symptoms, our survey contains 
+questions on testing, behavior, medical care, mental health, and related topics, 
 opening a multitude of possible research questions up to empirical inquiry.
 
 This is why Delphi and the University of Maryland (for the international
@@ -533,9 +552,9 @@ Facebook](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-da
 and our goal is to build a network of researchers committed to fighting the
 pandemic through our survey data.
 
-To take these efforts to the next level, we will soon release a new version of the survey. 
-Based on feedback from other researchers, public health agencies, the University of
-Maryland, and Facebook, we've added items asking about:
+To take these efforts to the next level, we'll soon release a new version of the 
+survey. Based on feedback from other researchers, public health agencies, the 
+University of Maryland, and Facebook, we've added items asking about:
 
 - More details on COVID testing (including whether the respondent tried to get
 tested but could not).
@@ -570,13 +589,13 @@ wrote the initial code for processing
 the survey data and producing estimates.
 Taylor Arnold, Amartya Basu, and Alex Reinhart
 provided huge help with refactoring and improving this codebase.
- Logan Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani
+Logan Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani
 developed the statistical methodology behind the estimates computed from the
 survey data. The COVIDcast API, which serves these estimates and is updated
 daily, is a much larger effort run by the Delphi group, and our entire
 engineering team is owed a lot of credit here. Ryan Tibshirani came up with the
-idea of running the surveys, and worked with Facebook to make this a reality. On
-the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
+idea of running the surveys, and worked with Facebook to make this a reality. 
+On the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
 University of Maryland team, including Adrianne Bradford and Samantha Chiu and
 led by Frauke Kreuter, made many contributions to the survey design.*
 
