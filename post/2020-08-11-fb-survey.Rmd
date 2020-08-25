@@ -1,7 +1,7 @@
 ---
 title: "COVID-19 Symptom Surveys through Facebook"
 author: "Alex Reinhart and Ryan Tibshirani"
-date: 2020-08-11
+date: 2020-08-26
 tags: ["symptom surveys"]
 output:
   html_document:
@@ -444,7 +444,7 @@ df_cor$signal = c(rep("% CLI", nrow(df_cor1)),
 ggplot(df_cor, aes(x = time_value, y = value)) +
   geom_line(aes(color = signal)) +
   scale_color_manual(values = ggplot_colors[c(3, 1)]) +
-  labs(title = "Correlation between CLI signals and cases",
+  labs(title = "Correlation between CLI signals and case rates",
        subtitle = sprintf("Over all counties with at least %i cumulative cases",
                           case_num), x = "Date", y = "Correlation") +
     theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
@@ -500,7 +500,7 @@ ggplot(df_cor, aes(value)) +
   geom_density(aes(color = signal, fill = signal), alpha = 0.5) +
   scale_color_manual(values = ggplot_colors[c(3,1)]) +
   scale_fill_manual(values = ggplot_colors[c(3,1)]) +
-  labs(title = "Correlation between CLI signals and cases",
+  labs(title = "Correlation between CLI signals and case rates",
        subtitle = sprintf("Over all counties with at least %i cumulative cases",
                           case_num), x = "Correlation", y = "Density") +
   theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
@@ -524,9 +524,9 @@ attributes(df_cor1)$geo_type = attributes(df_cor2)$geo_type = "county"
 class(df_cor1) = class(df_cor2) = c("covidcast_signal", "data.frame")
 
 # Plot choropleth maps, using the covidcast plotting functionality
-p1 = plot(df_cor1, title = "Correlation between % CLI and cases",
+p1 = plot(df_cor1, title = "Correlation between % CLI and case rates",
           range = c(-1, 1), choro_col = cm.colors(10))
-p2 = plot(df_cor2, title = "Correlation between % CLI-in-community and cases",
+p2 = plot(df_cor2, title = "Correlation between % CLI-in-community and case rates",
           range = c(-1, 1), choro_col = cm.colors(10))
 grid.arrange(p1, p2, nrow = 1)
 ```
