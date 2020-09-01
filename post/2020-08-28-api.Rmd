@@ -1,8 +1,8 @@
 ---
 title: "COVIDcast Data API"
-author: "Alex Reinhart and Katie Mazaitis"
+author: "Alex Reinhart and Kathryn Mazaitis"
 date: 2015-09-07
-tags: ["api", "api client"]
+tags: ["COVIDcast API", "packages"]
 draft: true
 ---
 
@@ -14,14 +14,97 @@ A teaser paragraph about the API
 
 <!--more-->
 
-* Our open source philosophy
-* The purpose of the API
-* Our unique data sources
-* The data schema
-* The clients and their features
-* The backend
-* A short note on Epidata history
-* Conclude somehow
+## Our open source philosophy
+
+In 2012, we formed Delphi to “develop the theory and practice of epidemic forecasting, and its role in decision-making.” Led by Roni Rosenfeld and Ryan Tibshirani, with several participating faculty and graduate students, we participated in annual CDC flu forecasting challenges starting in 2013, earning top placements in several. We were named a CDC Center of Excellence for flu forecasting in 2019. Throughout our _, we have been dedicated to  making our code and data available to the public, including numerous influenza surveillance streams. This policy continues with our COVIDcast API.
+
+## The purpose of the API
+
+The COVID-19 pandemic is so hard a problem that our best weapon is a diversity of data sources. This caused a shift in Delphi's attention: before adequate forecasting could take place, we needed to rapidly develop relevant data streams. This effort became the COVIDcast project.
+
+The COVIDcast project has many parts:
+* Unique relationships with partners in tech and healthcare granting us to access to data on pandemic activity
+* Code and infrastructure to build COVID-19 indicators, continuously-updated and geographically comprehensive within the USA
+* A historical database of all indicators, including revision tracking, with over 500 million observations to-date
+* A public API serving new indicators daily, with R and Python packages for client support
+* Interactive maps and graphics to display our indicators
+* Forecasting and modeling work building on the indicators
+
+The data streams we are interested in can be roughly mapped to the severity pyramid [citation needed]. For example:
+
+1. General population: public behavior, mobility, and attitudes
+2. Infected: 
+3. Symptomatic: web searches, symptoms surveys
+4. Outpatient visit: medical records, insurance claims
+5. Ascertained (confirmed case): public health reports, lab test reports
+6. Hospitalized and ICU: medical records, insurance claims, public health reports
+7. Dead: public health reports
+
+The closer to 1, the earlier or more leading the indicator; the closer to 7, the later or more lagging the indicator. As we move from level 1 to level 7, the data get more specific, as we become more and more sure that the people included in that level are actually suffering from COVID-19 and not some other disease.
+
+Levels 4-7 are medically attended, and can take advantage of electronic medial records of various kinds. 
+
+Before test results occur at level 5, indicators cannot provide true case data; any symptom data they can provide is considered "syndromic".
+
+Data streams that are organized in this way can be used for many possible purposes, including:
+
+* Forecasting, e.g. case incidence (for vaccine trial site selection) and hospitalizations (for planning and preparedness)
+* Nowcasting, e.g. situational awareness (for testing and resource allocation) and decision-making (for _ re-opening criteria, closures, and cancellations)
+* General epidemiological research, e.g. what behaviors are linked to spread? What symptoms are linked to cases?
+
+## Our unique data sources
+
+Delphi has leveraged its history and reputation in influenza forecasting to secure several sources of pandemic data which are unavailable anywhere else. Our DUAs permit us to publish aggregated data which is useful to forecasting, and these data streams are included in the COVIDcast API.
+
+* Massive surveys through Facebook - General population; Symptomatic - Facebook has been sending a random sample of users to Delphi's symptoms and behavior survey since April 6. We average 70k responses each day, making it, and its international sister survey run by University of Maryland, the largest public health survey ever _ed. More details, including a full list of questions, are available in our documentation [link needed].
+* Large surveys through Google - Symptomatic - From [start] to [end], Delphi conducted a single-question symptoms survey through Google [product]. It reached [count] respondents, and was a surprisingly effective measure of pandemic activity preceding medical contact. 
+* Google search trends -
+* Medical records - Outpatient visit; Hospitalized; ICU - several partners
+* Insurance claims - Outpatient visit; Hospitalized; ICU - several partners
+* Quidel antigen tests - Ascertained - 
+
+All of the above are available through the COVIDcast API and updated daily. We also host the following more widely-available signals for the convenience of the forecasting community and to provide revision tracking:
+
+* JHU CSSE confirmed cases and deaths
+* USAFacts confirmed cases and deaths
+* SafeGraph mobility data
+
+Nearly all data streams are available at the county level.
+
+For a full list of all data streams, see the COVIDcast documentation [link].
+
+## The data schema
+
+Each record in the API is an observation covering a set of events aggregated by time and by region. Most signals in the API aggregate daily, but some aggregate weekly, so we tend to keep the official definitions general. Each observation thus includes:
+
+* `time_value` - The time period when the events occurred
+* `geo_value` - The geographic region where the events occurred
+* `value` - The aggregate value
+* `stderr` - The standard error
+* `sample_size` - The number of events making up the aggregation
+* `issue` - The time period when this observation became known / was published
+* `lag` - The time delay between when the events occurred and when this observation was published
+
+For example, a number of COVID-19 antigen tests were performed in Pittsburgh, PA on June 1. Depending on the testing site, information about those tests might take between four days and six weeks to reach us, depending on the technology and staff available at each site. We publish our first estimate for June 1st's percent test positivity rate in Pittsburgh on June 5. When more data about June 1st's tests arrive the next day, we issue a new estimate. This continues over subsequent days, refining the estimate over time.
+
+[table]
+
+Many other data sources are also subject to revisions:
+* Case and death counts are frequently corrected/adjusted by authorities
+* Medical claims data can take weeks to be submitted and/or processed
+* Lab tests and medical records can be backlogged for a variety of reasons
+* Surveys are not always completed promptly
+
+An accurate revision log is crucial for forecasting. A forecast that is made today can only rely on information we have access to today. When a forecaster is trained, it must be given data that was accessible on the forecast date, not the updates that would arrive later.
+
+## The clients and their features
+
+## The backend
+
+
+
+## A short note on Epidata history
+## Conclude somehow
 
 ---
 
