@@ -1,9 +1,8 @@
 ---
-title: "COVIDcast Data API"
+title: "Sharing Open COVID-19 Data with the COVIDcast API"
 author: "Alex Reinhart and Kathryn Mazaitis"
-date: 2015-09-07
+date: 2020-09-02
 tags: ["COVIDcast API", "packages"]
-draft: true
 ---
 
 ```{r setup, include=FALSE}
@@ -14,15 +13,27 @@ A teaser paragraph about the API
 
 <!--more-->
 
-## Our open source philosophy
+In 2012, we formed Delphi to “develop the theory and practice of epidemic
+forecasting, and its role in decision-making.” Led by Roni Rosenfeld and Ryan
+Tibshirani, with several participating faculty and graduate students, we
+participated in annual CDC flu forecasting challenges starting in 2013, earning
+top placements in several. We were named a CDC Center of Excellence for flu
+forecasting in 2019. Throughout our history, we have been dedicated to  making
+our code and data available to the public, including numerous influenza
+surveillance streams.
 
-In 2012, we formed Delphi to “develop the theory and practice of epidemic forecasting, and its role in decision-making.” Led by Roni Rosenfeld and Ryan Tibshirani, with several participating faculty and graduate students, we participated in annual CDC flu forecasting challenges starting in 2013, earning top placements in several. We were named a CDC Center of Excellence for flu forecasting in 2019. Throughout our _, we have been dedicated to  making our code and data available to the public, including numerous influenza surveillance streams. This policy continues with our COVIDcast API.
+This policy continues with our COVIDcast API, which we make freely available to
+the community. Containing numerous COVID-19 data streams, including some
+exclusively available from Delphi's partners in technology and healthcare, the
+COVIDcast API provides researchers and decision-makers with the data they need
+to conduct their work.
 
 ## The purpose of the API
 
 The COVID-19 pandemic is so hard a problem that our best weapon is a diversity of data sources. This caused a shift in Delphi's attention: before adequate forecasting could take place, we needed to rapidly develop relevant data streams. This effort became the COVIDcast project.
 
 The COVIDcast project has many parts:
+
 * Unique relationships with partners in tech and healthcare granting us to access to data on pandemic activity
 * Code and infrastructure to build COVID-19 indicators, continuously-updated and geographically comprehensive within the USA
 * A historical database of all indicators, including revision tracking, with over 500 million observations to-date
@@ -163,6 +174,15 @@ Picking up the next phase of the ETL procedure, once an hour, the acquisition:co
 ## A short note on Epidata history
 ## Conclude somehow
 
+[Probably good to show off who uses our API. Anthem's [C19
+Explorer](https://c19explorer.io/) lists us as a source too, but I can't figure
+out what data they use from us...]
+
+For example, [COVID Exit Strategy](https://www.covidexitstrategy.org/) uses
+symptom survey data from the COVIDcast API as part of its dashboard to track
+state COVID-19 response efforts. Aledade's [COVID-19 Interactive
+Map](https://covidmap.aledade.com/) uses COVIDcast data to automatically detect
+emerging hotspots.
 
 ## I wrote up this glossary for Engineering onboarding; should we include it here?
 
@@ -173,8 +193,21 @@ Picking up the next phase of the ETL procedure, once an hour, the acquisition:co
 * geo id, region id - an alphanumeric code identifying a particular state, county, hrr, msa, or dma. For example, the geo id of a state might be 'pa', 'ca', 'oh'; the geo id of a county might be '15215', '02492', '94301'.
 * issue - like a magazine issue; a collection of data that was published together. For daily signals, the issue date is a day. For weekly signals, the issue date is an epidemiological week ("epiweek"). In COVIDcast we use a diff-based issue that includes only the rows that changed during the time period covered by the issue. Rows that stayed the same are not explicitly confirmed. Rows that were removed are not currently distinguished from rows that stayed the same; this will be addressed in a missingness encoding scheme TBD.
 
----
+**Credits.** *The COVIDcast API builds on the Epidata API, built by Delphi
+founding member David Farrow. Kathryn Mazaitis leads Delphi's engineering team.
+Brian Clark manages the API infrastructure, with significant help from Wael Al
+Saeed, George Haff, Eu Jing Chua, and Samuel Gratzl. Alex Reinhart maintains the
+COVIDcast API clients, with major contributions from Ryan Tibshirani and Andrew
+Chin. Ryan Tibshirani and Roni Rosenfeld secured many data partnerships, with
+significant support from CMU's legal team. Many Delphi team members contributed
+code and expertise to ingest data into the COVIDcast API, including Aaron
+Rumack, Addison Hu, Eu Jing Chua, James Sharpnack, Jeremy Weiss, Jimi Kim,
+Jingjing Tang, Sangwon Hyun, Larry Wasserman, Lester Mackey, Logan Brooks, Maria
+Jahja, Natalia Lombardi de Oliveira, Noah Simon, Pratik Patil, Robert
+Tibshirani, Roni Rosenfeld, Samyak Rajanala, Valérie Ventura, and Zachary
+Lipton.*
 
+---
 
 *[Alex Reinhart](https://www.refsmmat.com) manages Delphi's surveys, and is an
 Assistant Teaching Professor in the Department of Statistics & Data Science at
@@ -183,75 +216,3 @@ CMU.*
 *[Kathryn Mazaitis](https://cs.cmu.edu/~krivard) leads Delphi's
 engineering team, and is a Senior Research Programmer in the Machine
 Learning Department at CMU.*
-
----
-
-Remaining template content for instructive purposes:
-
-You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-fit <- lm(dist ~ speed, data = cars)
-fit
-```
-
-## Including Plots
-
-You can also embed plots. See Figure \@ref(fig:pie) for example:
-
-```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
-par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
-  col = c('#0292D8', '#F7EA39', '#C4B632'),
-  init.angle = -50, border = NA
-)
-```
-
-For posts where we're using our public data and showing it off, including some
-of the code chunks would be great so that readers see how easy it is to use our
-data. But for other audiences, it's probably best to use the `echo=FALSE` chunk
-option so the code is not included in the post.
-
-## Including Math
-
-You can embed mathematics by using dollar signs for inline math and double
-dollars for display math: $x = \sum_{i=1}^n i$,
-
-$$
-\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-$$
-
-## Metadata
-
-Each post has a title, author, date, and tags. The `draft` attribute marks a
-post that should not be included in the rendered and published site, such as
-this one. Choose bold, active titles, like "Delphi releases new survey data",
-rather than boring titles like "New survey aggregates".
-
-The author metadata should credit the post author or authors; as shown at the
-end of this example post, you should also include a block about the authors and
-linking to their home pages. But in the post text, you should also generously
-name anyone who helped with parts of your post, e.g. the team members who
-obtained data or set up a server or developed a package you use.
-
-### Tags
-
-Each post can be tagged, as you can see in the metadata block at the top. I
-suggest we consider the following tags as base tags:
-
-* forecasting
-* symptom surveys
-* COVIDcast API
-* COVIDcast map
-* nowcasting
-* data sources
-* news (for announcements of new features, new models, etc.)
-* packages (for R and Python packages)
-
----
-
-*[Frida Gomam](https://example.com) is a member of the Delphi group and a Ph.D.
-student in data wrangling at the University of Southern North Dakota at Hoople.*
