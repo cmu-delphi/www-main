@@ -137,6 +137,67 @@ ingest, allowing users to request the data as it was known on a specific date.
 
 ## The clients and their features
 
+A massive database of COVID-19 data is, of course, of no use if nobody can get
+access to it. We make the COVIDcast API available publicly with no registration
+required; users can simply make requests to a specific query URL and receive
+data back in JSON form. Query syntax is defined on our [API documentation
+site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+
+We also provide R and Python packages to make access to the data easy for anyone
+already conducting data analysis in either language. For example, an R user can
+install our [covidcast
+package](https://cmu-delphi.github.io/covidcast/covidcastR/) and then quickly
+plot the percentage of hospital admissions are due to COVID-19 in several
+states. (Click the Code button to see full code.)
+
+```{r dv-graph, message=FALSE, cache=TRUE}
+library(covidcast)
+hosp <- covidcast_signal(
+    data_source = "hospital-admissions", signal = "smoothed_adj_covid19",
+    start_day = "2020-03-01", end_day = "2020-08-30",
+    geo_type = "state", geo_values = c("pa", "ny", "tx")
+)
+
+plot(hosp, plot_type = "line",
+     title = "% of hospital admissions due to COVID-19")
+```
+
+Since the packages also support mapping, we can also examine, say, the
+percentage of outpatient doctor visits due to COVID-like illnesses in the south:
+
+```{r dv-maps, message=FALSE, cache=TRUE, fig.width=10}
+library(gridExtra)
+dv <- covidcast_signal(
+    data_source = "doctor-visits", signal = "smoothed_adj_cli",
+    start_day = "2020-07-15", end_day = "2020-08-24")
+
+south <- c("md", "de", "va", "wv", "ky", "tn", "nc", "sc", "fl", "ga", "al",
+           "ms", "la", "ar", "tx", "ok")
+g1 <- plot(dv, time_value = "2020-07-15", include = south,
+           title = "% of doctor's visits due to CLI on July 15")
+
+g2 <- plot(dv, time_value = "2020-08-24", include = south,
+           title = "% of doctor's visits due to CLI on Aug 24")
+
+grid.arrange(g1, g2, nrow = 1)
+```
+
+In Python, fetching data requires installation of the [covidcast
+package](https://cmu-delphi.github.io/covidcast/covidcast-py/html/), which can
+quickly produce a Pandas data frame. For example, here we fetch data the
+estimated percentage of people in Pennsylvania experiencing COVID-like symptoms
+in May 2020, based on Delphi's symptom surveys. (Again, click Code to see the
+code required to produce this example.)
+
+```{python python-data}
+import covidcast
+from datetime import date
+pa_data = covidcast.signal("fb-survey", "smoothed_cli",
+                           date(2020, 5, 1), date(2020, 5, 31),
+                           geo_type="state", geo_values="pa")
+pa_data.head()
+```
+
 ## How a dataset becomes an indicator
 
 This is the general extract-transform-load procedure used by all COVIDcast indicators.
