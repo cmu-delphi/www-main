@@ -40,28 +40,28 @@ The data streams we are interested in can be roughly mapped to the severity pyra
 6. Hospitalized and ICU: medical records, insurance claims, public health reports
 7. Dead: public health reports
 
-The closer to 1, the earlier or more leading the indicator; the closer to 7, the later or more lagging the indicator. As we move from level 1 to level 7, the data get more specific, as we become more and more sure that the people included in that level are actually suffering from COVID-19 and not some other disease.
+The closer to 1, the earlier or more leading the indicator; the closer to 7, the later or more lagging the indicator. As we move from level 1 to level 7, the data get more specific, as the pool of people included in that level grows smaller, and we become more and more confident that they are actually suffering from COVID-19 and not some other disease.
 
-Levels 4-7 are medically attended, and can take advantage of electronic medial records of various kinds. 
+Levels 4-7 are medically attended, and can take advantage of electronic medical records of various kinds. 
 
-Before test results occur at level 5, indicators cannot provide true case data; any symptom data they can provide is considered "syndromic".
+Before test results become available at level 5, indicators cannot provide true case data; any symptom data they can provide is considered "syndromic".
 
 Data streams that are organized in this way can be used for many possible purposes, including:
 
 * Forecasting, e.g. case incidence (for vaccine trial site selection) and hospitalizations (for planning and preparedness)
-* Nowcasting, e.g. situational awareness (for testing and resource allocation) and decision-making (for _ re-opening criteria, closures, and cancellations)
+* Nowcasting, e.g. situational awareness (for testing and resource allocation) and decision-making (for re-opening criteria, closures, and cancellations)
 * General epidemiological research, e.g. what behaviors are linked to spread? What symptoms are linked to cases?
 
 ## Our unique data sources
 
 Delphi has leveraged its history and reputation in influenza forecasting to secure several sources of pandemic data which are unavailable anywhere else. Our DUAs permit us to publish aggregated data which is useful to forecasting, and these data streams are included in the COVIDcast API.
 
-* Massive surveys through Facebook - General population; Symptomatic - Facebook has been sending a random sample of users to Delphi's symptoms and behavior survey since April 6. We average 70k responses each day, making it, and its international sister survey run by University of Maryland, the largest public health survey ever _ed. More details, including a full list of questions, are available in our documentation [link needed].
+* Massive surveys through Facebook - General population; Symptomatic - Facebook has been sending a random sample of its users to Delphi's symptoms and behavior survey since April 6. We average 70k responses each day, making this survey, and its international sister survey run by University of Maryland, the largest public health survey ever _ed. More details, including a full list of questions, are available in our documentation [link needed].
 * Large surveys through Google - Symptomatic - From [start] to [end], Delphi conducted a single-question symptoms survey through Google [product]. It reached [count] respondents, and was a surprisingly effective measure of pandemic activity preceding medical contact. 
-* Google search trends -
-* Medical records - Outpatient visit; Hospitalized; ICU - several partners
-* Insurance claims - Outpatient visit; Hospitalized; ICU - several partners
-* Quidel antigen tests - Ascertained - 
+* Google search trends - Symptomatic - We query the Google Health Trends API for overall searcher interest in a set of COVID-19 related terms about anosmia (lack of smell or taste), which emerged as a symptom of the coronavirus. More details, including the specific search terms and topics we analyze, are available in our documentation [link needed].
+* Medical records - Outpatient visit; Hospitalized; ICU - Electronic medical records include diagnostic codes, complaint notes, and lab results which can be used to estimate COVID-19 activity in a region. We have several partners who provide us with these records, strictly de-identified to protect privacy.
+* Insurance claims - Outpatient visit; Hospitalized; ICU - Medical insurance claims include diagnostic codes, lab orders, and charge codes which can be used to estimate COVID-19 activity in a region. We have several partners who provide us with aggregate and line-level claims data, strictly de-identified to protect privacy.
+* Quidel antigen tests - Ascertained - Quidel is a national provider of networked lab testing devices, and began _ us with   de-identified records on COVID-19 antigen tests in early May. Testing volume grew to statistically meaningful levels in July, with backfilled records meeting our thresholds going back to May 26th.
 
 All of the above are available through the COVIDcast API and updated daily. We also host the following more widely-available signals for the convenience of the forecasting community and to provide revision tracking:
 
@@ -99,12 +99,52 @@ An accurate revision log is crucial for forecasting. A forecast that is made tod
 
 ## The clients and their features
 
-## The backend
+## How a dataset becomes an indicator
 
+This is the general extract-transform-load procedure used by all COVIDcast indicators.
+
+First, an indicator module in the covidcast-indicators codebase (currently closed-source; slated to be released open-source later this fall) does the following:
+
+1. Download data from the source. This could be via an API query, scraping a website, an SFTP dropbox, or an email attachment.
+2. Process the source data to extract one or more signals. A signal includes a value, standard error, and sample size for each region on each unit of time (a day, or an epidemiological week "epiweek").
+3. Aggregate each signal to higher geographic levels. For example, we generate data at the state level by combining data at the county level.
+4. Format each signal into a set of CSV files with a fixed format, and deliver those files to a drop-off directory on the API server.
+
+Different sources publish their data at different times of day, so to minimize lag, each indicator is run as soon as new files become available.
+
+Picking up the next phase of the ETL procedure, once an hour, the acquisition:covidcast component of the delphi-epidata codebase [link] does the following:
+
+1. Look in the drop-off folder to see if any new data files are available. If there are, then:
+2. Import the new data into the covidcast table of the epidata database, filling in the columns as follows:
+- source: parsed from the name of the subdirectory of receiving/
+- signal: parsed from the filename
+- time_type: parsed from the filename
+- time_value: parsed from the filename
+- geo_type: parsed from the filename
+- geo_value: parsed from each row of the csv file
+- value: parsed from each row of the csv file
+- se: parsed from each row of the csv file
+- sample_size: parsed from each row of the csv file
+- issue: whatever now is in time_type units
+- lag: the difference in time_type units from now to time_value
+- value_updated_timestamp: now
+- direction_updated_timestamp: null
+3. Update the is_latest_issue column of the just-added rows and the previously-latest rows.
+4. Update the metadata cache: For every (source, signal, time_type, geo_type) tuple, compute the minimum and maximum time_value, value, issue, and lag, the number of regions with data, and the total mean and stdev, and cache them in a JSON string.
 
 
 ## A short note on Epidata history
 ## Conclude somehow
+
+
+## I wrote up this glossary for Engineering onboarding; should we include it here?
+
+* indicator - a loose term variously referring to a single data stream, or to a set of data streams sharing some characteristics. For example, "the combination indicator" typically refers to the `nmf_day_doc_fbc_fbs_ght` signal currently shown in the COVIDcast map; "the JHU indicator" typically refers to all signals generated using the cases and deaths data published by Johns Hopkins University's Center for Systems Science and Engineering
+* source - for most indicators, this is the name of the organization that provided the source dataset. This includes `jhu-csse`, `safegraph`, and `quidel`. Exceptions: The source data for `doctor-visits` and `hospital-admissions` is provided to us by health system partners who wish to remain uncredited. The source data for `indicator-combination` comes from our own API.
+* signal - In technical conversations, this means a single metric under a single configuration. For example, in doctor-visits, `smoothed_cli` and `smoothed_adj_cli` both measure COVID-like illness, but one of them is transformed to remove weekday variations. They are separate signals. More casually, we sometimes talk about e.g. "the community CLI signal" from fb-survey, even though four variations are available (raw vs smoothed; weighted vs unweighted). Even more casually, 'signal' is sometimes used as a synonym for 'indicator', e.g. "the cases and deaths signal".
+* geo level, geo type, regional level - usually one of: state, county (fips), hospital referral region (hrr), metropolitan statistical area (metro area; msa), designated market area (dma).
+* geo id, region id - an alphanumeric code identifying a particular state, county, hrr, msa, or dma. For example, the geo id of a state might be 'pa', 'ca', 'oh'; the geo id of a county might be '15215', '02492', '94301'.
+* issue - like a magazine issue; a collection of data that was published together. For daily signals, the issue date is a day. For weekly signals, the issue date is an epidemiological week ("epiweek"). In COVIDcast we use a diff-based issue that includes only the rows that changed during the time period covered by the issue. Rows that stayed the same are not explicitly confirmed. Rows that were removed are not currently distinguished from rows that stayed the same; this will be addressed in a missingness encoding scheme TBD.
 
 ---
 
