@@ -9,7 +9,11 @@ tags: ["COVIDcast API", "packages"]
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-A teaser paragraph about the API
+We make our COVIDcast API freely available to
+the community. Containing numerous COVID-19 data streams, including some
+exclusively available from Delphi's partners in technology and healthcare, the
+COVIDcast API provides researchers and decision-makers with the data they need
+to conduct their work.
 
 <!--more-->
 
@@ -89,12 +93,12 @@ include:
   this survey, and its [international sister survey](https://covidmap.umd.edu/)
   run by University of Maryland, the largest public health survey ever
   conducted. More details, including a full list of questions, are available in
-  our documentation [link needed].
-* Large surveys through Google: From [start] to [end], Delphi conducted a single-question symptoms survey through Google [product]. It reached [count] respondents, and was a surprisingly effective measure of pandemic activity preceding medical contact.
-* Google search trends: - We query the Google Health Trends API for overall searcher interest in a set of COVID-19 related terms about anosmia (loss of smell or taste), which emerged as a symptom of the coronavirus. More details, including the specific search terms and topics we analyze, are available in our documentation [link needed].
+  [our documentation](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/).
+* [Large surveys through Google](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-survey.html): From April 11 to May 14, Delphi conducted a single-question symptoms survey through Google. It reached 100k respondents daily during its short run, and was a surprisingly effective measure of pandemic activity preceding medical contact.
+* [Google search trends](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html): We query the Google Health Trends API for overall searcher interest in a set of COVID-19 related terms about anosmia (loss of smell or taste), which emerged as a symptom of the coronavirus. More details, including the specific search terms and topics we analyze, are available in [our documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html#estimation).
 * Medical records: Electronic medical records include diagnostic codes, complaint notes, and lab results which can be used to estimate COVID-19 activity in a region. We have several partners who provide us with these records, strictly de-identified to protect privacy.
-* Insurance claims - Outpatient visit; Hospitalized; ICU - Medical insurance claims include diagnostic codes, lab orders, and charge codes which can be used to estimate COVID-19 activity in a region. We have several partners who provide us with aggregate and line-level claims data, strictly de-identified to protect privacy.
-* Quidel antigen tests - Ascertained - Quidel is a national provider of networked lab testing devices, and began _ us with   de-identified records on COVID-19 antigen tests in early May. Testing volume grew to statistically meaningful levels in July, with backfilled records meeting our thresholds going back to May 26th.
+* Insurance claims: Medical insurance claims include diagnostic codes, lab orders, and charge codes which can be used to estimate COVID-19 activity in a region. We have several partners who provide us with aggregate and line-level claims data, strictly de-identified to protect privacy.
+* [Quidel antigen tests](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/quidel.html#covid-19-tests): Quidel is a national provider of networked lab testing devices, and began making de-identified records on COVID-19 antigen tests available to us in early May. Testing volume grew to statistically meaningful levels in July, with backfilled records meeting our thresholds going back to May 26th.
 
 All of the above are available through the COVIDcast API and updated daily. We also host the following more widely-available signals for the convenience of the forecasting community and to provide revision tracking:
 
@@ -119,11 +123,25 @@ Each record in the API is an observation covering a set of events aggregated by 
 * `issue` - The time period when this observation became known / was published
 * `lag` - The time delay between when the events occurred and when this observation was published
 
-For example, a number of COVID-19 antigen tests were performed in Pittsburgh, PA on June 1. Depending on the testing site, information about those tests might take between four days and six weeks to reach us, depending on the technology and staff available at each site. We publish our first estimate for June 1st's percent test positivity rate in Pittsburgh on June 5. When more data about June 1st's tests arrive the next day, we issue a new estimate. This continues over subsequent days, refining the estimate over time.
+For example, a number of COVID-19 antigen tests were performed in the state of New York on August 1. Depending on the testing site, information about those tests might take between four days and six weeks to reach us, depending on the technology and staff available at each site. We publish our first estimate for August 1st's percent test positivity rate in the state of New York on August 6th. When more data about August 1st's tests arrive the next day, we issue a new estimate. This continues over subsequent days, refining the estimate over time.
 
-[table]
+```{r q-versioning, message=FALSE, cache=TRUE}
+library(covidcast)
+library(dplyr)
+query_date <- "2020-08-01"
+df <- covidcast_signal(
+  data_source = "quidel", 
+  signal = "covid_ag_raw_pct_positive", 
+  start_day = query_date, 
+  end_day = query_date,
+  geo_type = "state", 
+  geo_value = "ny", 
+  issues = c(query_date, "2020-09-04"))
+select(df, time_value, value, issue) %>% distinct(value, .keep_all=TRUE)
+```
 
 Many other data sources are also subject to revisions:
+
 * Case and death counts are frequently corrected/adjusted by authorities
 * Medical claims data can take weeks to be submitted and/or processed
 * Lab tests and medical records can be backlogged for a variety of reasons
@@ -200,7 +218,7 @@ pa_data.head()
 
 ## How a dataset becomes an indicator
 
-This is the general extract-transform-load procedure used by all COVIDcast indicators.
+The following general extract-transform-load procedure is used by all COVIDcast indicators.
 
 First, an indicator module in the covidcast-indicators codebase (currently closed-source; slated to be released open-source later this fall) does the following:
 
@@ -211,11 +229,11 @@ First, an indicator module in the covidcast-indicators codebase (currently close
 
 Different sources publish their data at different times of day, so to minimize lag, each indicator is run as soon as new files become available.
 
-Picking up the next phase of the ETL procedure, once an hour, the acquisition:covidcast component of the delphi-epidata codebase [link] does the following:
+Picking up the next phase of the ETL procedure, once an hour, the acquisition:covidcast component of the [delphi-epidata codebase](https://github.com/cmu-delphi/delphi-epidata) does the following:
 
 1. Look in the drop-off folder to see if any new data files are available. If there are, then:
 2. Import the new data into the covidcast table of the epidata database, filling in the columns as follows:
-- source: parsed from the name of the subdirectory of receiving/
+- source: parsed from the name of the subdirectory of the drop-off folder
 - signal: parsed from the filename
 - time_type: parsed from the filename
 - time_value: parsed from the filename
@@ -231,8 +249,6 @@ Picking up the next phase of the ETL procedure, once an hour, the acquisition:co
 3. Update the is_latest_issue column of the just-added rows and the previously-latest rows.
 4. Update the metadata cache: For every (source, signal, time_type, geo_type) tuple, compute the minimum and maximum time_value, value, issue, and lag, the number of regions with data, and the total mean and stdev, and cache them in a JSON string.
 
-
-## A short note on Epidata history
 ## Conclude somehow
 
 [Probably good to show off who uses our API. Anthem's [C19
@@ -251,8 +267,8 @@ emerging hotspots.
 * source - for most indicators, this is the name of the organization that provided the source dataset. This includes `jhu-csse`, `safegraph`, and `quidel`. Exceptions: The source data for `doctor-visits` and `hospital-admissions` is provided to us by health system partners who wish to remain uncredited. The source data for `indicator-combination` comes from our own API.
 * signal - In technical conversations, this means a single metric under a single configuration. For example, in doctor-visits, `smoothed_cli` and `smoothed_adj_cli` both measure COVID-like illness, but one of them is transformed to remove weekday variations. They are separate signals. More casually, we sometimes talk about e.g. "the community CLI signal" from fb-survey, even though four variations are available (raw vs smoothed; weighted vs unweighted). Even more casually, 'signal' is sometimes used as a synonym for 'indicator', e.g. "the cases and deaths signal".
 * geo level, geo type, regional level - usually one of: state, county (fips), hospital referral region (hrr), metropolitan statistical area (metro area; msa), designated market area (dma).
-* geo id, region id - an alphanumeric code identifying a particular state, county, hrr, msa, or dma. For example, the geo id of a state might be 'pa', 'ca', 'oh'; the geo id of a county might be '15215', '02492', '94301'.
-* issue - like a magazine issue; a collection of data that was published together. For daily signals, the issue date is a day. For weekly signals, the issue date is an epidemiological week ("epiweek"). In COVIDcast we use a diff-based issue that includes only the rows that changed during the time period covered by the issue. Rows that stayed the same are not explicitly confirmed. Rows that were removed are not currently distinguished from rows that stayed the same; this will be addressed in a missingness encoding scheme TBD.
+* geo id, region id - an alphanumeric code identifying a particular state, county, hrr, msa, or dma. For example, the geo id of a state might be 'pa', 'ca', 'oh', 'pr'; the geo id of a county might be '15215', '02492', '94301'.
+* issue - like a magazine issue; a collection of data that was published together. For daily signals, the issue date is a day. For weekly signals, the issue date is an epidemiological week ("epiweek"). In COVIDcast we use a diff-based issue that includes only the rows that changed during the time period covered by the issue. Rows that stayed the same are not explicitly confirmed. Rows that were removed are not currently distinguished from rows that stayed the same; this will be addressed in a missingness encoding scheme under development.
 
 **Credits.** *The COVIDcast API builds on the Epidata API, built by Delphi
 founding member David Farrow. Kathryn Mazaitis leads Delphi's engineering team.
@@ -261,8 +277,8 @@ Saeed, George Haff, Eu Jing Chua, and Samuel Gratzl. Alex Reinhart maintains the
 COVIDcast API clients, with major contributions from Ryan Tibshirani and Andrew
 Chin. Ryan Tibshirani and Roni Rosenfeld secured many data partnerships, with
 significant support from CMU's legal team. Many Delphi team members contributed
-code and expertise to ingest data into the COVIDcast API, including Aaron
-Rumack, Addison Hu, Eu Jing Chua, James Sharpnack, Jeremy Weiss, Jimi Kim,
+code and expertise to ingest and serve data for the COVIDcast API, including 
+Aaron Rumack, Addison Hu, Eu Jing Chua, James Sharpnack, Jeremy Weiss, Jimi Kim,
 Jingjing Tang, Sangwon Hyun, Larry Wasserman, Lester Mackey, Logan Brooks, Maria
 Jahja, Natalia Lombardi de Oliveira, Noah Simon, Pratik Patil, Robert
 Tibshirani, Roni Rosenfeld, Samyak Rajanala, Valérie Ventura, and Zachary
