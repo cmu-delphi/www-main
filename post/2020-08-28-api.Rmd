@@ -142,8 +142,8 @@ select(df, time_value, value, issue) %>% distinct(value, .keep_all=TRUE)
 
 Many other data sources are also subject to revisions:
 
-* Case and death counts are frequently corrected/adjusted by authorities
-* Medical claims data can take weeks to be submitted and/or processed
+* Case and death counts are frequently corrected or adjusted by authorities
+* Medical claims data can take weeks to be submitted and processed
 * Lab tests and medical records can be backlogged for a variety of reasons
 * Surveys are not always completed promptly
 
