@@ -271,7 +271,7 @@ Note that these two curves, case counts and % CLI-in-community,
 are not measured in the same units, hence our use of two y-axes: 
 one on the left for case counts, and one on the right for % CLI-in-community.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 library(ggplot2)
 # Fetch Facebook % CLI-in-community signal and JHU confirmed case incidence
 # numbers at the county level
@@ -307,12 +307,10 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
   trans12 = function(x) trans(x, range1, range2)
   trans21 = function(x) trans(x, range2, range1)
 
-  # First find the state, find abbreviation, then set title
-  state_name = state_census %>%
-    filter(STATE == as.numeric(substr(geo_value, 1, 2))) %>%
-    pull(NAME)
-  state_abb = state.abb[state.name == state_name]
-  title = paste0(fips_to_name(geo_value), ", ", state_abb)
+  # Find state name, find abbreviation, then set title
+  state_name = fips_to_name(paste0(substr(geo_value, 1, 2), "000"))
+  state_abbr = name_to_abbr(state_name)
+  title = paste0(fips_to_name(geo_value), ", ", state_abbr)
 
   # Transform the combined signal to the incidence range, then stack
   # these rowwise into one data frame
@@ -473,7 +471,7 @@ ggplot(df_in_act %>% group_by(time_value) %>%
   labs(title = "Median absolute deviation in COVID-19 case rates",
        subtitle = sprintf("Over all counties with at least %i cumulative cases",
                           case_num), x = "Date", y = "Median abs deviation") +
-  theme_bw() + theme(legend.pos = "bottom", legend.title  = element_blank())
+  theme_bw() 
 ```
 
 ### Correlations Sliced by County
@@ -487,7 +485,7 @@ With this slice of the data (correlations by county, rather than by day),
 we again see that the % CLI-in-community indicator produces *much* higher 
 correlations.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 # Compute correlations, per county, over all time
 df_cor1 = covidcast_cor(df_fb1_act, df_in_act, by = "geo_value")
 df_cor2 = covidcast_cor(df_fb2_act, df_in_act, by = "geo_value")
