@@ -348,9 +348,9 @@ we could then deploy our Google survey in select counties---using
 it like a **survey microscope** (credit to Hal Varian for inventing the 
 terminology!). This could be done automatically 
 (it would be a pretty big, nonstationary multi-armed bandit problem) 
-or manually (in collaboration with partners in public health or data 
-journalists). Either way, we have our work cut out for us!
-TODO: scrap or change last line?
+or manually (in collaboration with partners in public health and/or data journalists). 
+To stay in the loop on our coronavirus response efforts,
+stay tuned to the Delphi blog.
 
 **Credits.** *Ryan Tibshirani wrote the initial code for producing estimates
 from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de Oliveira, and
@@ -361,6 +361,7 @@ to make this a reality. On the Google side, Brett Slatkin and Hal Varian have
 been key collaborators; Brett Slatkin wrote the code to get daily survey data 
 over to Delphi's estimation pipeline; and both contributed numerous important 
 ideas at various stages of the project.*
+
 
 ---
 
