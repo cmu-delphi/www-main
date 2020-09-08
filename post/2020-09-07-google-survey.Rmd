@@ -338,8 +338,8 @@ in that we can pick the counties we want to sample from ahead of time.
 As we can see from the above summary, the two survey schemes are complementary, 
 and could be used synergistically. 
 Our Facebook survey is a continuously-running, wide-reaching instrument 
-that provides answers to a [rich set of questions](TODO: link to full question
-coding?)
+that provides answers to a [rich set of
+questions](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html)
 (beyond COVID-related symptoms, it asks about 
 contacts, risk factors, behavior, and demographics). 
 When we find something interesting that warrants follow-up 
