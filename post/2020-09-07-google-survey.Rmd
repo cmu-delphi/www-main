@@ -46,7 +46,7 @@ and shares some of our thinking about next steps for the Google survey.
 Back in March 2020, around the time we began discussions with Facebook about 
 COVID-19 symptom surveys, we pitched the same idea to Google. 
 Our motivation, [as we explained in our last 
-post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys) 
+post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys), 
 has been to produce real-time, county-level data streams of self-reported COVID 
 symptoms that can potentially serve as **early indicators** of COVID activity in 
 the US. As we noted in that post, we weren't the only data scientists
@@ -54,7 +54,7 @@ who thought of running COVID-19 symptom surveys, and several
 other groups had deployed surveys before us. 
 What distinguished our strategy from others' 
 was the pursuit of a giant like Google to achieve widespread and continuous 
-dissemination (well beyond what we could do onurselves). 
+dissemination (well beyond what we could do ourselves). 
 Google's willingness to help was a *huge* win for us. 
 Of all the partnerships we formed to create new COVID-19 indicators, 
 our deal with Google was the first to come through. 
@@ -66,7 +66,9 @@ Google's contributions didn't stop there---they have been helping us in
 
 Our initial survey with Google launched in late March, 
 deployed through various websites and apps (with whom Google partners
-to run questionnaires). It asked just a single question: 
+to run questionnaires). Each respondent opted-in to answering the survey and 
+agreed to legal disclosures about how the data would be used. The survey asked
+just a single question: 
 
 > Do you or anyone in your household have a fever of at least 100 °F, along 
 with cough, shortness of breath, or difficulty breathing?
@@ -77,11 +79,12 @@ A respondent could reply "Yes", "No", or "Prefer not to say".
 We're also given the respondent's (inferred) county from IP address lookup. 
 At the start, this survey data allowed us to estimate the daily % CLI, 
 the percentage of people with COVID-like illness, in over 1,000 counties across 
-the US. After about 2 weeks, we paused the survey.
-One concern on Google's side was whether we can get equally useful
-information without asking a question of such a sensitive nature.
-In general, asking a person about their health (or their family's health) 
-is not common practice on Google's survey platform.
+the US. After about 2 weeks, we stopped the survey.
+Google wondered whether we could get equally useful information without asking
+a question of such a sensitive nature. In general, asking a person about their
+health (or their family’s health) is not common practice on Google’s survey 
+platform. The hope was that asking a broader question might also improve 
+response rates, reduce costs, and increase the number of potential respondents. 
 
 ## CLI-in-Community 
 
@@ -314,9 +317,9 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
 
 Now let's consider the differences between the surveys. Here's a summary:
 
-- Our Facebook survey is *advertised by Facebook* but *run on our own Qualtrics
-platform*; this means that we receive all the individual survey responses 
-directly (and Facebook never sees any of the data).
+- Our Facebook survey is *advertised by Facebook* but *run by us*, on our own 
+Qualtrics platform; this means that we receive all the individual survey 
+responses directly (and Facebook never sees any of the data).
 
 - On the other hand, our Google survey is *deployed directly by Google* through 
 partner websites and apps they use to run questionnaires;
