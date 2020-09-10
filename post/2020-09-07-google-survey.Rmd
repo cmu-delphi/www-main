@@ -62,8 +62,7 @@ This gave us an invaluable confidence boost,
 and taught us the silver lining of this pandemic: 
 that many people are truly generous and willing to help.
 Google's contributions didn't stop there---they have been helping us in
-[various ways ever since](TODO: hopefully we 
-can link here to an announcement about the gift and the Google Fellows?).
+[various ways ever since](https://blog.google/outreach-initiatives/google-org/google-supports-covid-19-ai-and-data-analytics-projects).
 
 Our initial survey with Google launched in late March, 
 deployed through various websites and apps (with whom Google partners
@@ -348,9 +347,8 @@ we could then deploy our Google survey in select counties---using
 it like a **survey microscope** (credit to Hal Varian for inventing the 
 terminology!). This could be done automatically 
 (it would be a pretty big, nonstationary multi-armed bandit problem) 
-or manually (in collaboration with partners in public health and/or data journalists). 
-To stay in the loop on our coronavirus response efforts,
-stay tuned to the Delphi blog.
+or manually (in collaboration with partners in public health and/or data 
+journalists). Stay tuned to the Delphi blog for updates.
 
 **Credits.** *Ryan Tibshirani wrote the initial code for producing estimates
 from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de Oliveira, and
