@@ -222,6 +222,8 @@ To state the obvious, both ask the same question:
 whether a person knows someone in their community with COVID-like illness, 
 and both lead to an estimate of % CLI-in-community. 
 
+### Correlation Comparisons
+
 Below we assess the numerical similarity of these estimates via correlations: 
 we correlate them against each other, and for reference, 
 correlate each against COVID-19 case rates. 
@@ -315,11 +317,32 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
     theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
 ```
 
-Now let's consider the differences between the surveys. Here's a summary:
+### Forecasting Comparisons
 
-- Our Facebook survey is *advertised by Facebook* but *run by us*, on our own 
-Qualtrics platform; this means that we receive all the individual survey 
-responses directly (and Facebook never sees any of the data).
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
+library(quantgen)
+
+dates = seq.Date(as.Date(start_day), as.Date(end_day), by = "day")
+geo_values_complete = intersect(intersect(df_in_act$geo_value,
+                                          df_go_act$geo_value),
+                                df_fb_act$geo_value)
+
+y = df_in_act %>% select(time_value, geo_value, value) %>% 
+  filter(geo_value %in% geo_values_complete)
+x = df_go_act %>% select(time_value, geo_value, value) %>% 
+  filter(geo_value %in% geo_values_complete)
+z = df_fb_act %>% select(time_value, geo_value, value) %>% 
+  filter(geo_value %in% geo_values_complete)
+
+```
+
+# Summary of Differences
+
+Lastly, let's consider the differences between the surveys. Here's a summary:
+
+- Our Facebook survey is *advertised by Facebook* but *run by us* (on a 
+CMU-licensed Qualtrics platform); this means that we receive all the 
+individual survey responses directly (and Facebook never sees any of the data).
 
 - On the other hand, our Google survey is *deployed directly by Google* through 
 partner websites and apps they use to run questionnaires;
