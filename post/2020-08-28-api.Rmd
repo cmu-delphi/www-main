@@ -2,7 +2,7 @@
 title: "Sharing Open COVID-19 Data with the COVIDcast API"
 author: "Alex Reinhart and Kathryn Mazaitis"
 date: 2020-09-02
-tags: ["COVIDcast API", "packages"]
+tags: ["COVIDcast API", "packages", "COVIDcast"]
 ---
 
 ```{r setup, include=FALSE}
