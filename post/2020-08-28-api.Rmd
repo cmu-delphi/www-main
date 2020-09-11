@@ -34,7 +34,10 @@ to conduct their work.
 
 ## The purpose of the API
 
-The COVID-19 pandemic is so hard a problem that our best weapon is a diversity of data sources. This caused a shift in Delphi's attention: before adequate forecasting could take place, we needed to rapidly develop relevant data streams. This effort became the COVIDcast project.
+The COVID-19 pandemic is so hard a problem that our best weapon is a diversity
+of data sources. This caused a shift in Delphi's attention: before we could
+build forecasts, we needed to rapidly develop relevant data streams. This effort
+became the COVIDcast project.
 
 The COVIDcast project has many parts:
 
@@ -68,9 +71,9 @@ are also reported through local and state health authorities.
 As we move from level 1 to level 7, the data become more specific, since each
 level includes fewer and fewer people. The data also become less timely: level 1
 can be a *leading indicator* of illness, since behavior can predict spread, but
-level 7 data only occurs after patients have already been infected and died.
-
-Before test results become available at level 5, indicators cannot provide true case data; any symptom data they can provide is considered "syndromic".
+level 7 data only occurs after patients have already been infected and died. But
+only at level 5 do we actually gain data about diagnoses -- data before level 5
+is "syndromic", meaning it can only relate to symptoms and behaviors.
 
 Data streams that are organized in this way can be used for many possible purposes, including:
 
@@ -81,10 +84,10 @@ Data streams that are organized in this way can be used for many possible purpos
 ## Our unique data sources
 
 Delphi has leveraged its history and reputation in influenza forecasting to
-secure several sources of pandemic data which are unavailable anywhere else.
+secure several sources of pandemic data that are unavailable anywhere else.
 Agreements with our partners permit us to publish aggregated data, and these
-data streams are included in the COVIDcast API. Some of our data sources
-include:
+data streams are included in the COVIDcast API. These data sources cover most
+levels of the severity pyramid, and include:
 
 * [Massive surveys we conduct through
   Facebook](https://covidcast.cmu.edu/surveys.html): Facebook has been sending a
@@ -117,8 +120,10 @@ include:
   orders, and charge codes which can be used to estimate COVID-19 activity in a
   region. We have several partners who provide us with aggregate and line-level
   claims data, strictly de-identified to protect privacy. We use this data to
-  construct signals reflecting COVID activity in outpatient doctor's visits and
-  in hospital admissions.
+  construct signals reflecting COVID activity in [outpatient doctor's
+  visits](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html)
+  and in [hospital
+  admissions](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html).
 * [Quidel COVID antigen
   tests](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/quidel.html#covid-19-tests):
   Quidel is a national provider of networked lab testing devices, and began
@@ -126,14 +131,17 @@ include:
   early May. Testing volume grew to statistically meaningful levels in July,
   with backfilled records meeting our thresholds going back to May 26th.
 
-We also host the following more widely-available signals for the convenience of
-the forecasting community and to provide revision tracking:
+We also host the following more widely-available signals in our API for the
+convenience of the forecasting community and to provide revision tracking:
 
-* JHU CSSE confirmed cases and deaths
-* USAFacts confirmed cases and deaths
-* SafeGraph mobility data
+* Confirmed cases and deaths as [reported by JHU CSSE](https://github.com/CSSEGISandData/COVID-19)
+* Confirmed cases and deaths as [reported by USAFacts](https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/)
+* [SafeGraph mobility
+  data](https://docs.safegraph.com/docs/social-distancing-metrics); SafeGraph
+  makes detailed data available to researchers, and by agreement with SafeGraph,
+  we make county-level aggregates publicly available
 
-Nearly all data streams are available at the county level across the United
+Nearly all our data streams are available at the county level across the United
 States. We also aggregate most signals to metropolitan statistical areas and
 states. For a full list of all data streams, see the [COVIDcast signal
 documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html).
@@ -146,7 +154,7 @@ the data is stored and how you can get access.
 
 ## The data schema
 
-Each record in the API is an observation covering a set of events aggregated by time and by region. Most signals in the API aggregate daily, but some aggregate weekly, so we tend to keep the official definitions general. Each observation thus includes:
+Each record in our API is an observation covering a set of events aggregated by time and by region. Most signals in the API aggregate daily, but some aggregate weekly, so we tend to keep the official definitions general. Each observation thus includes:
 
 * `time_value`: The time period when the events occurred
 * `geo_value`: The geographic region where the events occurred
@@ -177,10 +185,10 @@ covidcast_signal(
   geo_type = "state",
   geo_value = "ny",
   issues = c(query_date, "2020-09-04")) %>%
-    select(time_value, value, issue) %>%
+    select(time_value, value, issue, lag) %>%
     distinct(value, .keep_all=TRUE) %>%
     knitr::kable("html", digits = 2,
-                 col.names = c("Test date", "Positivity rate (%)", "Issued on"))
+                 col.names = c("Test date", "Positivity rate (%)", "Issued on", "Lag (days)"))
 ```
 
 Many other data sources are also subject to revisions:
@@ -245,21 +253,23 @@ g2 <- plot(dv, time_value = "2020-08-24", include = south,
 grid.arrange(g1, g2, nrow = 1)
 ```
 
-In Python, fetching data requires installation of the [covidcast
+In Python, fetching data requires the [covidcast
 package](https://cmu-delphi.github.io/covidcast/covidcast-py/html/), which can
 quickly produce a Pandas data frame. For example, here we fetch the estimated
-percentage of people in Pennsylvania experiencing COVID-like symptoms in May
-2020, based on Delphi's [symptom
+percentage of people in each state who know someone who is sick, based on
+Delphi's [symptom
 surveys](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/).
 (Again, click Code to see the code required to produce this example.)
 
-```{python python-data}
+```{python python-data, dev='svg'}
 import covidcast
 from datetime import date
-pa_data = covidcast.signal("fb-survey", "smoothed_cli",
-                           date(2020, 5, 1), date(2020, 5, 31),
-                           geo_type="state", geo_values="pa")
-pa_data.head()
+import matplotlib.pyplot as plt
+data = covidcast.signal("fb-survey", "smoothed_hh_cmnty_cli",
+                        date(2020, 9, 8), date(2020, 9, 8),
+                        geo_type="state")
+covidcast.plot_choropleth(data, figsize=(12, 10))
+plt.title("% who know someone who is sick, Sept 8, 2020")
 ```
 
 Each package's documentation gives numerous other examples of pulling, plotting,
@@ -315,15 +325,28 @@ following:
 
 ## Conclude somehow
 
-[Probably good to show off who uses our API. Anthem's [C19
-Explorer](https://c19explorer.io/) lists us as a source too, but I can't figure
-out what data they use from us...]
+The COVIDcast API provides unified access to numerous COVID data streams, which
+can be browsed with an [interactive map](https://covidcast.cmu.edu/) and easily
+accessed through R and Python packages. Unlike most other sources of COVID data,
+it tracks the complete revision history of every signal, allowing historical
+reconstructions of what information was available at specific times. And many of
+its data streams simply aren't available anywhere else.
 
-For example, [COVID Exit Strategy](https://www.covidexitstrategy.org/) uses
-symptom survey data from the COVIDcast API as part of its dashboard to track
-state COVID-19 response efforts. Aledade's [COVID-19 Interactive
-Map](https://covidmap.aledade.com/) uses COVIDcast data to automatically detect
-emerging hotspots.
+We invite you to put the API to use for your own purposes. Building a dashboard
+for your community? Testing out forecasting methods? Studying how the pandemic
+evolves? We have data that could be useful for you.
+
+Many of our data streams are already being used to inform decision-making. For
+example, [COVID Exit Strategy](https://www.covidexitstrategy.org/) tracks the
+pandemic and whether states are ready to reopen, and uses symptom survey data
+from the COVIDcast API as a key data source. Anthem's [C19
+Explorer](https://c19explorer.io/) presents a comprehensive community picture of
+the pandemic, using outpatient doctor's visit data from COVIDcast. Aledade's
+[COVID-19 Interactive Map](https://covidmap.aledade.com/) applies scan
+statistics algorithms to COVIDcast survey data to detect statistically
+significant clusters.
+
+We hope to see you join this list soon!
 
 ## I wrote up this glossary for Engineering onboarding; should we include it here?
 
