@@ -72,7 +72,7 @@ As we move from level 1 to level 7, the data become more specific, since each
 level includes fewer and fewer people. The data also become less timely: level 1
 can be a *leading indicator* of illness, since behavior can predict spread, but
 level 7 data only occurs after patients have already been infected and died. But
-only at level 5 do we actually gain data about diagnoses -- data before level 5
+only at level 5 do we actually gain data about diagnoses---data before level 5
 is "syndromic", meaning it can only relate to symptoms and behaviors.
 
 Data streams that are organized in this way can be used for many possible purposes, including:
@@ -80,6 +80,9 @@ Data streams that are organized in this way can be used for many possible purpos
 * Forecasting, e.g. case incidence (for vaccine trial site selection) and hospitalizations (for planning and preparedness)
 * Nowcasting, e.g. situational awareness (for testing and resource allocation) and decision-making (for re-opening criteria, closures, and cancellations)
 * General epidemiological research, e.g. what behaviors are linked to spread? What symptoms are linked to cases?
+
+For each use case, researchers need quick access to reliable, up-to-date data
+streams---access the COVIDcast API is designed to provide.
 
 ## Our unique data sources
 
@@ -104,7 +107,7 @@ levels of the severity pyramid, and include:
   From April 11 to May 14, Delphi conducted a single-question symptoms survey
   through Google. It reached 100,000 respondents daily during its short run, and
   was a surprisingly effective measure of pandemic activity preceding medical
-  contact.
+  contact. Delphi is currently considering new uses for these surveys.
 * [Google search
   trends](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html):
   We query the Google Health Trends API for overall searcher interest in a set
@@ -147,7 +150,7 @@ states. For a full list of all data streams, see the [COVIDcast signal
 documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html).
 
 All of the above data streams are made publicly available through our COVIDcast
-API -- if you're interested in using these signals for research or to understand
+API---if you're interested in using these signals for research or to understand
 trends in your area, pulling the data is only a moment's work. Let's discuss how
 the data is stored and how you can get access.
 
@@ -201,7 +204,7 @@ Many other data sources are also subject to revisions:
 An accurate revision log is crucial for researchers building forecasts of
 COVID-19 cases or outcomes. A forecast that is made today can only rely on
 information we have access to today. Forecasting models are often developed by
-building them to predict cases using historical data -- but to do so, the model
+building them to predict cases using historical data---but to do so, the model
 must use only data that was available on the forecast date, not the updates that
 would only arrive later. We track all revisions to all data sources we ingest,
 allowing users to request the data as it was known on a specific date.
@@ -273,57 +276,11 @@ plt.title("% who know someone who is sick, Sept 8, 2020")
 ```
 
 Each package's documentation gives numerous other examples of pulling, plotting,
-and mapping data from our API.
+and mapping data from our API. Both package support querying the latest version
+of data---as shown above---but can also fetch prior revisions or only the
+information that was available on a certain date.
 
-## How a dataset becomes an indicator
-
-Now that we've seen how easy it is to get data from the COVIDcast API, let's see
-how data gets into the API in the first place. The following general
-extract-transform-load procedure is used by all COVIDcast indicators.
-
-First, our custom code (slated to be released open-source later this fall) does
-the following:
-
-1. Download data from the source. This could be via an API query, scraping a
-   website, an SFTP dropbox, or an email attachment.
-2. Process the source data to extract one or more signals. A signal includes a
-   value, standard error, and sample size for each region on each unit of time.
-3. Aggregate each signal to higher geographic levels. For example, we generate
-   data at the state level by combining data at the county level.
-4. Format each signal into a set of CSV files with a fixed format, and deliver
-   those files to a drop-off directory on our API server.
-
-Different sources publish their data at different times of day, so to minimize
-lag, each indicator is run as soon as new files become available.
-
-Picking up the next phase of the ETL procedure, once an hour, our
-[delphi-epidata codebase](https://github.com/cmu-delphi/delphi-epidata) does the
-following:
-
-1. Look in the drop-off folder to see if any new data files are available. If there are, then:
-2. Import the new data into the covidcast table of the epidata database, filling
-   in the columns as follows:
-   - source: parsed from the name of the subdirectory of the drop-off folder
-   - signal: parsed from the filename
-   - time_type: parsed from the filename
-   - time_value: parsed from the filename
-   - geo_type: parsed from the filename
-   - geo_value: parsed from each row of the csv file
-   - value: parsed from each row of the csv file
-   - se: parsed from each row of the csv file
-   - sample_size: parsed from each row of the csv file
-   - issue: whatever now is in time_type units
-   - lag: the difference in time_type units from now to time_value
-   - value_updated_timestamp: now
-   - direction_updated_timestamp: null
-3. Update the is_latest_issue column of the just-added rows and the
-   previously-latest rows.
-4. Update the metadata cache: For every (source, signal, time_type, geo_type)
-   tuple, compute the minimum and maximum time_value, value, issue, and lag, the
-   number of regions with data, and the total mean and stdev, and cache them in
-   a JSON string.
-
-## Conclude somehow
+## Putting the API to work
 
 The COVIDcast API provides unified access to numerous COVID data streams, which
 can be browsed with an [interactive map](https://covidcast.cmu.edu/) and easily
@@ -338,24 +295,16 @@ evolves? We have data that could be useful for you.
 
 Many of our data streams are already being used to inform decision-making. For
 example, [COVID Exit Strategy](https://www.covidexitstrategy.org/) tracks the
-pandemic and whether states are ready to reopen, and uses symptom survey data
-from the COVIDcast API as a key data source. Anthem's [C19
+pandemic and whether states are ready to reopen, using symptom survey data from
+the COVIDcast API as a key data source. Anthem's [C19
 Explorer](https://c19explorer.io/) presents a comprehensive community picture of
-the pandemic, using outpatient doctor's visit data from COVIDcast. Aledade's
+the pandemic, including outpatient doctor's visit data from COVIDcast. Aledade's
 [COVID-19 Interactive Map](https://covidmap.aledade.com/) applies scan
 statistics algorithms to COVIDcast survey data to detect statistically
 significant clusters.
 
 We hope to see you join this list soon!
 
-## I wrote up this glossary for Engineering onboarding; should we include it here?
-
-* indicator - a loose term variously referring to a single data stream, or to a set of data streams sharing some characteristics. For example, "the combination indicator" typically refers to the `nmf_day_doc_fbc_fbs_ght` signal currently shown in the COVIDcast map; "the JHU indicator" typically refers to all signals generated using the cases and deaths data published by Johns Hopkins University's Center for Systems Science and Engineering
-* source - for most indicators, this is the name of the organization that provided the source dataset. This includes `jhu-csse`, `safegraph`, and `quidel`. Exceptions: The source data for `doctor-visits` and `hospital-admissions` is provided to us by health system partners who wish to remain uncredited. The source data for `indicator-combination` comes from our own API.
-* signal - In technical conversations, this means a single metric under a single configuration. For example, in doctor-visits, `smoothed_cli` and `smoothed_adj_cli` both measure COVID-like illness, but one of them is transformed to remove weekday variations. They are separate signals. More casually, we sometimes talk about e.g. "the community CLI signal" from fb-survey, even though four variations are available (raw vs smoothed; weighted vs unweighted). Even more casually, 'signal' is sometimes used as a synonym for 'indicator', e.g. "the cases and deaths signal".
-* geo level, geo type, regional level - usually one of: state, county (fips), hospital referral region (hrr), metropolitan statistical area (metro area; msa), designated market area (dma).
-* geo id, region id - an alphanumeric code identifying a particular state, county, hrr, msa, or dma. For example, the geo id of a state might be 'pa', 'ca', 'oh', 'pr'; the geo id of a county might be '15215', '02492', '94301'.
-* issue - like a magazine issue; a collection of data that was published together. For daily signals, the issue date is a day. For weekly signals, the issue date is an epidemiological week ("epiweek"). In COVIDcast we use a diff-based issue that includes only the rows that changed during the time period covered by the issue. Rows that stayed the same are not explicitly confirmed. Rows that were removed are not currently distinguished from rows that stayed the same; this will be addressed in a missingness encoding scheme under development.
 
 **Credits.** *The COVIDcast API builds on the Epidata API, built by Delphi
 founding member David Farrow. Kathryn Mazaitis leads Delphi's engineering team.

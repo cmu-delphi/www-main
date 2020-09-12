@@ -1,0 +1,80 @@
+---
+title: "Behind the Scenes: The COVIDcast Infrastructure"
+author: "Kathryn Mazaitis and Brian Clark"
+date: 2020-09-12
+tags: ["COVIDcast API", "COVIDcast"]
+draft: true
+---
+
+Behind our COVIDcast API, serving numerous COVID-19 data streams to researchers
+and the public, there is complex infrastructure that helps us ingest and serve
+data daily.
+
+<!--more-->
+
+## How a dataset becomes an indicator
+
+Now that we've seen how easy it is to get data from the COVIDcast API, let's see
+how data gets into the API in the first place. The following general
+extract-transform-load procedure is used by all COVIDcast indicators.
+
+First, our custom code (slated to be released open-source later this fall) does
+the following:
+
+1. Download data from the source. This could be via an API query, scraping a
+   website, an SFTP dropbox, or an email attachment.
+2. Process the source data to extract one or more signals. A signal includes a
+   value, standard error, and sample size for each region on each unit of time.
+3. Aggregate each signal to higher geographic levels. For example, we generate
+   data at the state level by combining data at the county level.
+4. Format each signal into a set of CSV files with a fixed format, and deliver
+   those files to a drop-off directory on our API server.
+
+Different sources publish their data at different times of day, so to minimize
+lag, each indicator is run as soon as new files become available.
+
+Picking up the next phase of the ETL procedure, once an hour, our
+[delphi-epidata codebase](https://github.com/cmu-delphi/delphi-epidata) does the
+following:
+
+1. Look in the drop-off folder to see if any new data files are available. If there are, then:
+2. Import the new data into the covidcast table of the epidata database, filling
+   in the columns as follows:
+   - source: parsed from the name of the subdirectory of the drop-off folder
+   - signal: parsed from the filename
+   - time_type: parsed from the filename
+   - time_value: parsed from the filename
+   - geo_type: parsed from the filename
+   - geo_value: parsed from each row of the csv file
+   - value: parsed from each row of the csv file
+   - se: parsed from each row of the csv file
+   - sample_size: parsed from each row of the csv file
+   - issue: whatever now is in time_type units
+   - lag: the difference in time_type units from now to time_value
+   - value_updated_timestamp: now
+   - direction_updated_timestamp: null
+3. Update the is_latest_issue column of the just-added rows and the
+   previously-latest rows.
+4. Update the metadata cache: For every (source, signal, time_type, geo_type)
+   tuple, compute the minimum and maximum time_value, value, issue, and lag, the
+   number of regions with data, and the total mean and stdev, and cache them in
+   a JSON string.
+
+## I wrote up this glossary for Engineering onboarding; should we include it here?
+
+* indicator - a loose term variously referring to a single data stream, or to a set of data streams sharing some characteristics. For example, "the combination indicator" typically refers to the `nmf_day_doc_fbc_fbs_ght` signal currently shown in the COVIDcast map; "the JHU indicator" typically refers to all signals generated using the cases and deaths data published by Johns Hopkins University's Center for Systems Science and Engineering
+* source - for most indicators, this is the name of the organization that provided the source dataset. This includes `jhu-csse`, `safegraph`, and `quidel`. Exceptions: The source data for `doctor-visits` and `hospital-admissions` is provided to us by health system partners who wish to remain uncredited. The source data for `indicator-combination` comes from our own API.
+* signal - In technical conversations, this means a single metric under a single configuration. For example, in doctor-visits, `smoothed_cli` and `smoothed_adj_cli` both measure COVID-like illness, but one of them is transformed to remove weekday variations. They are separate signals. More casually, we sometimes talk about e.g. "the community CLI signal" from fb-survey, even though four variations are available (raw vs smoothed; weighted vs unweighted). Even more casually, 'signal' is sometimes used as a synonym for 'indicator', e.g. "the cases and deaths signal".
+* geo level, geo type, regional level - usually one of: state, county (fips), hospital referral region (hrr), metropolitan statistical area (metro area; msa), designated market area (dma).
+* geo id, region id - an alphanumeric code identifying a particular state, county, hrr, msa, or dma. For example, the geo id of a state might be 'pa', 'ca', 'oh', 'pr'; the geo id of a county might be '15215', '02492', '94301'.
+* issue - like a magazine issue; a collection of data that was published together. For daily signals, the issue date is a day. For weekly signals, the issue date is an epidemiological week ("epiweek"). In COVIDcast we use a diff-based issue that includes only the rows that changed during the time period covered by the issue. Rows that stayed the same are not explicitly confirmed. Rows that were removed are not currently distinguished from rows that stayed the same; this will be addressed in a missingness encoding scheme under development.
+
+**Credits.** TODO Acknowledge AWS, Google, infra team, CMU IT, etc.
+
+---
+
+*[Kathryn Mazaitis](https://cs.cmu.edu/~krivard) leads Delphi's
+engineering team, and is a Senior Research Programmer in the Machine
+Learning Department at CMU.*
+
+*Brian Clark TODO.*
