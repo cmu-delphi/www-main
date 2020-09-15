@@ -88,8 +88,8 @@ response rates, reduce costs, and increase the number of potential respondents.
 
 ## CLI-in-Community 
 
-Working with Brett Slatkin (head of Google Surveys) 
-and Hal Varian (Google's Chief Economist), we looked for a new question. 
+Working with Brett Slatkin (engineering lead of Google Surveys) 
+and Hal Varian (Google's chief economist), we looked for a new question. 
 Brett came up with a list of questions that were passable,
 and the most promising among them was:
 
@@ -119,14 +119,7 @@ versus the estimated % CLI-in-community from our Google survey,
 at the state level, averaged over April 11 to mid May. 
 This is shown on the left, and on the right, 
 we reproduce this with the estimated % CLI-in-community from our Facebook 
-survey. In both plots, we see a reassuring trend, 
-but the trend on the left is noticeably stronger. 
-Indeed, the correlation here between the Google signal and case rates is 0.84, 
-while that between the Facebook signal and case rates is 0.64. 
-To be fair, we should note that the Google signal is comprised of a much 
-larger number of survey samples (as we'll emphasize next), 
-and the Facebook signal's correlations to case rates shot up in mid June 
-(as we saw last time and we'll revisit, shortly).
+survey.
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
@@ -157,8 +150,6 @@ df1 = inner_join(df_go %>% group_by(geo_value) %>% summarize(x = mean(value)),
 df2 = inner_join(df_fb %>% group_by(geo_value) %>% summarize(x = mean(value)),
                  df_in %>% group_by(geo_value) %>% summarize(y = mean(value)), 
                  by = "geo_value") 
-# cor(df1$x, df1$y) # 0.8385958
-# cor(df2$x, df2$y) # 0.6391016
 
 # Join again to get state populations
 df1 = inner_join(df1, state_census %>% mutate(ABBR = tolower(ABBR)),
@@ -194,6 +185,17 @@ p2 = ggplot(df2, aes(x = x, y = y, label = toupper(geo_value))) +
   theme_bw() + theme(legend.position = "bottom")
 grid.arrange(p1, p2, nrow = 1)
 ```
+
+In both plots, we see a reassuring trend, 
+but the trend on the left is noticeably stronger. 
+Indeed, the correlation here between the Google signal and case rates is 
+`r round(cor(df1$x, df1$y), 2)`, 
+while that between the Facebook signal and case rates is 
+`r round(cor(df2$x, df2$y), 2)`.
+To be fair, we should note that the Google signal is comprised of a much 
+larger number of survey samples (as we'll emphasize next), 
+and the Facebook signal's correlations to case rates shot up in mid June 
+(as we saw last time and we'll revisit, shortly).
 
 From April 11 through May 14, we ran Google surveys in over 600 counties 
 per day, with a target of at least 1,000 responses per county. 
@@ -259,17 +261,16 @@ about an additional symptom (sore throat); they reach different subpopulations
 of the US; and in fact, the estimation procedures behind the surveys handle 
 missingness differently. But as far as we can tell, none of this can really 
 explain why the Facebook numbers are over twice as large as the Google ones, a 
-trend that is pretty consistent across location and time. We'll save further 
-analysis for when we work on deploying these two surveys in tandem 
-(understanding the differences in scale would be a critical step before we could
-draw any joint inferences). But for now, we'll emphasize that this observation 
-reiterates the importance of focusing on *time-varying trends* in the survey 
-signals, and not the signal values themselves (a point we [made in our last 
+trend that seems pretty consistent across location and time. We'll save rigorous 
+analysis for when we work on deploying these two surveys in tandem; for now, we
+emphasize that this observation reiterates the importance of focusing on 
+*time-varying trends* in the survey signals, not the signal values themselves 
+(a point we [made in our last 
 post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys)). 
-Somehow the self-reporting aspect must be creating greatly different levels of 
-bias in the two surveys; in an absolute sense, the subsequent estimates of 
-% CLI-in-community strongly disagree, so both can't be right, and this casts 
-doubt on the idea that either could be bias-free. 
+Here, the self-reporting aspect must somehow be creating greatly different 
+levels of bias in the two surveys; in an absolute sense, the subsequent 
+estimates of % CLI-in-community strongly disagree, so both can't be right, and 
+this casts doubt on the idea that either could be bias-free. 
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 # Fetch county-level Google % CLI-in-community signal
@@ -284,7 +285,7 @@ df_fb = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli",
 df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
                          start_day, end_day, geo_type = "county")
 
-# Consider only counties with at least 200 cumulative cases Google's end
+# Consider only counties with at least 200 cumulative cases by Google's end
 case_num = 200
 geo_values = covidcast_signal("jhu-csse", "confirmed_cumulative_num",
                               max(df_go$time_value), max(df_go$time_value),
@@ -319,21 +320,218 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
 
 ### Forecasting Comparisons
 
-```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
-library(quantgen)
+Blah
 
-dates = seq.Date(as.Date(start_day), as.Date(end_day), by = "day")
-geo_values_complete = intersect(intersect(df_in_act$geo_value,
-                                          df_go_act$geo_value),
-                                df_fb_act$geo_value)
+```{r, message = FALSE, warning = FALSE}
+# Function to append shift values (lags or leads) to data frame
+append_shifts = function(df, shifts) {
+  # Make sure that we have a complete record of dates for each geo_value (fill
+  # with NAs as necessary)
+  df_all = df %>% group_by(geo_value) %>%
+    summarize(time_value = seq.Date(as.Date(min(time_value)),
+                                    as.Date(max(time_value)),
+                                    by = "day")) %>% ungroup()
+  df = full_join(df, df_all, by = c("geo_value", "time_value"))
+  
+  # Group by geo value, sort rows by increasing time
+  df = df %>% group_by(geo_value) %>% arrange(time_value) 
+  
+  # Load over shifts, and add lag value or lead value
+  for (shift in shifts) {
+    fun = ifelse(shift < 0, lag, lead)
+    varname = sprintf("value%+d", shift)
+    df = mutate(df, !!varname := fun(value, n = abs(shift)))
+  }
+  
+  # Ungroup and return
+  return(ungroup(df))
+}
 
-y = df_in_act %>% select(time_value, geo_value, value) %>% 
-  filter(geo_value %in% geo_values_complete)
-x = df_go_act %>% select(time_value, geo_value, value) %>% 
-  filter(geo_value %in% geo_values_complete)
-z = df_fb_act %>% select(time_value, geo_value, value) %>% 
-  filter(geo_value %in% geo_values_complete)
+# Find counties present in all three data signals
+geo_values_complete = intersect(intersect(df_go_act$geo_value,
+                                          df_fb_act$geo_value),
+                                df_in_act$geo_value)
 
+# Append 1-2 week lags to (log-transformed) Google, Facebook signals
+lags = -1:-2 * 7
+g = df_go_act %>% select(geo_value, time_value, value) %>%
+  filter(geo_value %in% geo_values_complete) %>% 
+  mutate(value = log(value + 1)) %>% 
+  append_shifts(shifts = lags) 
+f = df_fb_act %>% select(geo_value, time_value, value) %>%
+  filter(geo_value %in% geo_values_complete) %>% 
+  mutate(value = log(value + 1)) %>% 
+  append_shifts(shifts = lags) 
+
+# Append 1-2 week lags and 1-2 week leads to (log-transformed) cases
+leads = 1:2 * 7
+c = df_in_act %>% select(geo_value, time_value, value) %>%
+  filter(geo_value %in% geo_values_complete) %>%
+  mutate(value = log(value + 1)) %>% 
+  append_shifts(shifts = c(lags, leads))
+
+# Rename columns
+colnames(g) = sub("^value", "goog", colnames(g))
+colnames(f) = sub("^value", "fb", colnames(f))
+colnames(c) = sub("^value", "case", colnames(c))
+
+# Make one big matrix by joining these three data frames
+z = full_join(full_join(g, f, by = c("geo_value", "time_value")),
+              c, by = c("geo_value", "time_value"))
+
+# Use quantgen for LAD regression (this package is much more general; you can
+# find it here: https://github.com/ryantibs/quantgen)
+library(quantgen) 
+
+res_list = vector("list", length = length(leads)) 
+n = 14 # Number of trailing days to use for training set
+verbose = FALSE # Print intermediate progress to console?
+
+# Loop over lead, forecast dates, build models and record errors (warning: this
+# computation takes a while)
+for (i in 1:length(leads)) { 
+  lead = leads[i]; if (verbose) cat("***", lead, "***\n")
+  
+  # Create a data frame to store our results. Code below populates its rows in a
+  # way that breaks from typical dplyr operations, done for efficiency
+  res_list[[i]] = z %>% 
+    filter(between(time_value, as.Date(start_day) - min(lags) + lead, 
+                   as.Date(end_day) - lead)) %>%
+    select(geo_value, time_value) %>%
+    mutate(err0 = as.double(NA), err1 = as.double(NA), err2 = as.double(NA), 
+           err3 = as.double(NA), err4 = as.double(NA), lead = lead) 
+  valid_dates = unique(res_list[[i]]$time_value)
+  
+  for (j in 1:length(valid_dates)) {
+    date = valid_dates[j]; if (verbose) cat(format(date), "... ")
+    
+    # Filter down to training set and test set
+    z_tr = z %>% filter(between(time_value, date - lead - n, date - lead))
+    z_te = z %>% filter(time_value == date)
+    inds = which(res_list[[i]]$time_value == date)
+    
+    # Create training and test responses
+    y_tr = z_tr %>% pull(paste0("case+", lead))
+    y_te = z_te %>% pull(paste0("case+", lead))
+    
+    # Strawman model
+    if (verbose) cat("0")
+    y_hat = z_te %>% pull(case)
+    res_list[[i]][inds,]$err0 = abs(exp(y_hat) - exp(y_te))
+    
+    # Cases only model
+    if (verbose) cat("1")
+    x_tr_case = z_tr %>% select(starts_with("case") & !contains("+"))
+    x_te_case = z_te %>% select(starts_with("case") & !contains("+"))
+    x_tr = x_tr_case; x_te = x_te_case # For symmetry wrt what follows 
+    ok = complete.cases(x_tr, y_tr)
+    if (sum(ok) > 0) {
+      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
+                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
+      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
+      res_list[[i]][inds,]$err1 = abs(exp(y_hat) - exp(y_te)) 
+    }
+    
+    # Cases and Google model
+    if (verbose) cat("2")
+    x_tr_goog = z_tr %>% select(starts_with("goog"))
+    x_te_goog = z_te %>% select(starts_with("goog"))
+    x_tr = cbind(x_tr_case, x_tr_goog)
+    x_te = cbind(x_te_case, x_te_goog)
+    ok = complete.cases(x_tr, y_tr)
+    if (sum(ok) > 0) {
+      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
+                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
+      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
+      res_list[[i]][inds,]$err2 = abs(exp(y_hat) - exp(y_te)) 
+    }
+    
+    # Cases and Facebook model
+    if (verbose) cat("3")
+    x_tr_fb = z_tr %>% select(starts_with("fb"))
+    x_te_fb = z_te %>% select(starts_with("fb"))
+    x_tr = cbind(x_tr_case, x_tr_fb)
+    x_te = cbind(x_te_case, x_te_fb)
+    ok = complete.cases(x_tr, y_tr)
+    if (sum(ok) > 0) {
+      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
+                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
+      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
+      res_list[[i]][inds,]$err3 = abs(exp(y_hat) - exp(y_te)) 
+    }
+    
+    # Cases, Google, and Facebook model
+    if (verbose) cat("4\n")
+    x_tr = cbind(x_tr_case, x_tr_goog, x_tr_fb)
+    x_te = cbind(x_te_case, x_te_goog, x_te_fb)
+    ok = complete.cases(x_tr, y_tr)
+    if (sum(ok) > 0) {
+      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
+                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
+      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
+      res_list[[i]][inds,]$err4 = abs(exp(y_hat) - exp(y_te)) 
+    }
+  }
+}
+
+# Bind results over different leads into one big data frame
+res = do.call(rbind, res_list)
+
+# Calculate the median of the scaled errors for the various model: that is, the 
+# errors relative to the strawman's error
+res_med = res %>% mutate(err1 = err1 / err0, err2 = err2 / err0,
+                         err3 = err3 / err0, err4 = err4 / err0) %>%
+  select(-err0) %>% 
+  tidyr::pivot_longer(names_to = "model", values_to = "err", 
+                      cols = -c(geo_value, time_value, lead)) %>%
+  group_by(time_value, lead, model) %>% 
+  summarize(err = median(err, na.rm = TRUE)) %>%
+  ungroup() %>% 
+  mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
+         model = factor(model, labels = c("Cases", "Cases + Google",
+                                          "Cases + Facebook", 
+                                          "Cases + Google + Facebook")))
+```
+
+blah
+
+```{r}
+# Error table for 7 days ahead forecasts, all models
+knitr::kable(res_med %>% 
+               group_by(model, lead) %>% 
+               filter(time_value <= max(g$time_value)) %>%
+               filter(lead == "7 days ahead") %>% 
+               rename(Model = model, Target = lead) %>% 
+               summarize("Scaled error" = median(err, na.rm = TRUE),
+                         "Test days" = sum(!is.na(err))))
+```
+
+blah
+
+```{r}
+# Error table for 7 and 14 days ahead forecasts, just models 1 and 3
+knitr::kable(res_med %>% 
+               group_by(model, lead) %>% 
+               filter(model %in% c("Cases", "Cases + Facebook")) %>%
+               rename(Model = model, Target = lead) %>% 
+               summarize("Scaled error" = median(err, na.rm = TRUE),
+                         "Test days" = sum(!is.na(err))) %>%
+               arrange(Target))
+```
+
+blah
+
+```{r, message = FALSE, warning = FALSE, fig.width = 8, fig.height = 5}
+ggplot(res_med %>% 
+         filter(lead == "7 days ahead" | 
+                  model %in% c("Cases", "Cases + Facebook")), 
+       aes(x = time_value, y = err)) + 
+  geom_line(aes(color = model)) + 
+  scale_color_manual(values = c("black", ggplot_colors)) +
+  geom_hline(yintercept = 1, linetype = 2, color = "gray") +
+  facet_wrap(vars(lead)) + 
+  labs(x = "Date", y = "Scaled error") +
+  theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
 ```
 
 # Summary of Differences
@@ -379,13 +577,11 @@ journalists). Stay tuned to the Delphi blog for updates.
 **Credits.** *Ryan Tibshirani wrote the initial code for producing estimates
 from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de Oliveira, and
 Lester Mackey greatly extended and improved this codebase, and they developed,
-along with Ryan Tibshirani, the underlying statistical methodology. Ryan 
-Tibshirani came up with the idea of running the surveys, and worked with Google 
-to make this a reality. On the Google side, Brett Slatkin and Hal Varian have 
-been key collaborators; Brett Slatkin wrote the code to get daily survey data 
-over to Delphi's estimation pipeline; and both contributed numerous important 
-ideas at various stages of the project.*
-
+along with Ryan, the underlying statistical methodology. Ryan came up with the 
+idea of running the surveys, and worked with Google to make this a reality. On 
+the Google side, Brett Slatkin and Hal Varian have been key collaborators; Brett
+wrote the code to get daily survey data over to Delphi's estimation pipeline; 
+and both contributed numerous important ideas at various stages of the project.*
 
 ---
 
