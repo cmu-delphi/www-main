@@ -108,7 +108,7 @@ which already provides a nice sanity check.
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
 ```
 
-```{r, message = FALSE, fig.width = 10, fig.height = 4}
+```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4}
 library(covidcast)
 library(dplyr)
 library(gridExtra)
