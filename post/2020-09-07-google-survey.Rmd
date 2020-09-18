@@ -3,6 +3,7 @@ title: "COVID-19 Symptom Surveys through Google"
 author: "Ryan Tibshirani"
 date: 2020-09-07
 tags: ["symptom surveys"]
+draft: true
 output:
   html_document:
     code_folding: hide
