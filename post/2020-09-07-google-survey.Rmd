@@ -13,13 +13,16 @@ Facebook, we've been running (even-more-massive) surveys through Google to
 track the spread of COVID-19 in the United States. 
 At its peak, our Google survey was taken by over 1.2 million people in a single 
 day, and over its first month in operation, averaged over 600,000 daily 
-respondents. In mid May, we paused daily dissemination of this survey in order 
+respondents. In mid-May, we paused daily dissemination of this survey in order 
 to focus on our (longer, more complex) survey through Facebook,
 but we plan to bring back the Google survey this fall. 
-This short post covers some key differences between our Google and Facebook 
+This blog post covers some key differences between our Google and Facebook 
 surveys, explains the backstory behind the "CLI-in-community" question
 as it arose through our collaboration with Google, 
-and shares some of our thinking about next steps for the Google survey.
+and shares some of our thinking about next steps for the Google survey. 
+We also give a forecasting demo that shows how both the Google and Facebook 
+survey data can be used to improve accuracy in short-term (1-2 weeks ahead) 
+county-level COVID-19 case forecasts. 
 
 <!--more-->
 
@@ -36,10 +39,13 @@ In mid-May, we decided to pause daily dissemination of this survey in order to
 focus on our (longer, more complex) survey through Facebook, 
 but we plan to bring back the Google survey this fall. 
 The two surveys are, in fact, quite different and complement each other nicely. 
-This short post covers some key differences between our Google and Facebook 
+This blog post covers some key differences between our Google and Facebook 
 surveys, explains the backstory behind the "CLI-in-community" question
 as it arose through our collaboration with Google's team, 
 and shares some of our thinking about next steps for the Google survey.
+We also give a forecasting demo that shows how both the Google and Facebook 
+survey data can be used to improve accuracy in short-term (1-2 weeks ahead) 
+county-level COVID-19 case forecasts. 
 
 ## Short Background
 
@@ -116,7 +122,7 @@ with case rates than the direct (non-proxy) question.
 To give you a feel for the data, below we plot 
 the daily new COVID-19 cases per 100,000 people 
 versus the estimated % CLI-in-community from our Google survey, 
-at the state level, averaged over April 11 to mid May. 
+at the state level, averaged over April 11 to mid-May. 
 This is shown on the left, and on the right, 
 we reproduce this with the estimated % CLI-in-community from our Facebook 
 survey.
@@ -224,8 +230,6 @@ To state the obvious, both ask the same question:
 whether a person knows someone in their community with COVID-like illness, 
 and both lead to an estimate of % CLI-in-community. 
 
-### Correlation Comparisons
-
 Below we assess the numerical similarity of these estimates via correlations: 
 we correlate them against each other, and for reference, 
 correlate each against COVID-19 case rates. 
@@ -235,7 +239,7 @@ and for each day that we have data available,
 we compute the Spearman correlation across all counties 
 that had at least 200 cumulative COVID-19 cases
 by May 14 (the end of Google survey data). 
-Over the first month of data, from mid April to mid May, 
+Over the first month of data, from mid-April to mid-May, 
 we can see that the highest correlations clearly belong to 
 those between the two survey signals. 
 This is as expected, since in principle, 
@@ -249,7 +253,7 @@ that the Google correlations would have only improved later in
 the year (as did the Facebook correlations, which we [previously 
 suggested](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#basic-correlation-analysis)
 could have been due to the increase in the diversity of county-level
-case rates around mid-June.)
+case rates around mid-June).
 
 [^2]: A closer look reveals that the relationship between the Google 
 % CLI-in-community and Facebook % CLI-in-community signals is not 1:1. For 
@@ -272,23 +276,20 @@ estimates of % CLI-in-community strongly disagree, so both can't be right, and
 this casts doubt on the idea that either could be bias-free. 
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
-# Fetch county-level Google % CLI-in-community signal
-df_go = covidcast_signal("google-survey", "smoothed_cli", geo_type = "county")
-
-# Fetch county-level Facebook % CLI-in-community signal and JHU confirmed case 
-# incidence proportion
-start_day = min(df_go$time_value)
+# Fetch county-level Google and Facebook % CLI-in-community signals, and JHU
+# confirmed case incidence proportion
+start_day = "2020-04-11"
 end_day = "2020-09-01"
+df_go = covidcast_signal("google-survey", "smoothed_cli")
 df_fb = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli", 
-                         start_day, end_day, geo_type = "county")
+                         start_day, end_day)
 df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
-                         start_day, end_day, geo_type = "county")
+                         start_day, end_day)
 
 # Consider only counties with at least 200 cumulative cases by Google's end
 case_num = 200
 geo_values = covidcast_signal("jhu-csse", "confirmed_cumulative_num",
-                              max(df_go$time_value), max(df_go$time_value),
-                              geo_type = "county") %>%
+                              max(df_go$time_value), max(df_go$time_value)) %>%
   filter(value >= case_num) %>% pull(geo_value)
 df_go_act = df_go %>% filter(geo_value %in% geo_values)
 df_fb_act = df_fb %>% filter(geo_value %in% geo_values)
@@ -317,225 +318,7 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
     theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
 ```
 
-### Forecasting Comparisons
-
-Blah
-
-```{r, message = FALSE, warning = FALSE}
-# Function to append shift values (lags or leads) to data frame
-append_shifts = function(df, shifts) {
-  # Make sure that we have a complete record of dates for each geo_value (fill
-  # with NAs as necessary)
-  df_all = df %>% group_by(geo_value) %>%
-    summarize(time_value = seq.Date(as.Date(min(time_value)),
-                                    as.Date(max(time_value)),
-                                    by = "day")) %>% ungroup()
-  df = full_join(df, df_all, by = c("geo_value", "time_value"))
-  
-  # Group by geo value, sort rows by increasing time
-  df = df %>% group_by(geo_value) %>% arrange(time_value) 
-  
-  # Load over shifts, and add lag value or lead value
-  for (shift in shifts) {
-    fun = ifelse(shift < 0, lag, lead)
-    varname = sprintf("value%+d", shift)
-    df = mutate(df, !!varname := fun(value, n = abs(shift)))
-  }
-  
-  # Ungroup and return
-  return(ungroup(df))
-}
-
-# Find counties present in all three data signals
-geo_values_complete = intersect(intersect(df_go_act$geo_value,
-                                          df_fb_act$geo_value),
-                                df_in_act$geo_value)
-
-# Append 1-2 week lags to (log-transformed) Google, Facebook signals
-lags = -1:-2 * 7
-g = df_go_act %>% select(geo_value, time_value, value) %>%
-  filter(geo_value %in% geo_values_complete) %>% 
-  mutate(value = log(value + 1)) %>% 
-  append_shifts(shifts = lags) 
-f = df_fb_act %>% select(geo_value, time_value, value) %>%
-  filter(geo_value %in% geo_values_complete) %>% 
-  mutate(value = log(value + 1)) %>% 
-  append_shifts(shifts = lags) 
-
-# Append 1-2 week lags and 1-2 week leads to (log-transformed) cases
-leads = 1:2 * 7
-c = df_in_act %>% select(geo_value, time_value, value) %>%
-  filter(geo_value %in% geo_values_complete) %>%
-  mutate(value = log(value + 1)) %>% 
-  append_shifts(shifts = c(lags, leads))
-
-# Rename columns
-colnames(g) = sub("^value", "goog", colnames(g))
-colnames(f) = sub("^value", "fb", colnames(f))
-colnames(c) = sub("^value", "case", colnames(c))
-
-# Make one big matrix by joining these three data frames
-z = full_join(full_join(g, f, by = c("geo_value", "time_value")),
-              c, by = c("geo_value", "time_value"))
-
-# Use quantgen for LAD regression (this package is much more general; you can
-# find it here: https://github.com/ryantibs/quantgen)
-library(quantgen) 
-
-res_list = vector("list", length = length(leads)) 
-n = 14 # Number of trailing days to use for training set
-verbose = FALSE # Print intermediate progress to console?
-
-# Loop over lead, forecast dates, build models and record errors (warning: this
-# computation takes a while)
-for (i in 1:length(leads)) { 
-  lead = leads[i]; if (verbose) cat("***", lead, "***\n")
-  
-  # Create a data frame to store our results. Code below populates its rows in a
-  # way that breaks from typical dplyr operations, done for efficiency
-  res_list[[i]] = z %>% 
-    filter(between(time_value, as.Date(start_day) - min(lags) + lead, 
-                   as.Date(end_day) - lead)) %>%
-    select(geo_value, time_value) %>%
-    mutate(err0 = as.double(NA), err1 = as.double(NA), err2 = as.double(NA), 
-           err3 = as.double(NA), err4 = as.double(NA), lead = lead) 
-  valid_dates = unique(res_list[[i]]$time_value)
-  
-  for (j in 1:length(valid_dates)) {
-    date = valid_dates[j]; if (verbose) cat(format(date), "... ")
-    
-    # Filter down to training set and test set
-    z_tr = z %>% filter(between(time_value, date - lead - n, date - lead))
-    z_te = z %>% filter(time_value == date)
-    inds = which(res_list[[i]]$time_value == date)
-    
-    # Create training and test responses
-    y_tr = z_tr %>% pull(paste0("case+", lead))
-    y_te = z_te %>% pull(paste0("case+", lead))
-    
-    # Strawman model
-    if (verbose) cat("0")
-    y_hat = z_te %>% pull(case)
-    res_list[[i]][inds,]$err0 = abs(exp(y_hat) - exp(y_te))
-    
-    # Cases only model
-    if (verbose) cat("1")
-    x_tr_case = z_tr %>% select(starts_with("case") & !contains("+"))
-    x_te_case = z_te %>% select(starts_with("case") & !contains("+"))
-    x_tr = x_tr_case; x_te = x_te_case # For symmetry wrt what follows 
-    ok = complete.cases(x_tr, y_tr)
-    if (sum(ok) > 0) {
-      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
-      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
-      res_list[[i]][inds,]$err1 = abs(exp(y_hat) - exp(y_te)) 
-    }
-    
-    # Cases and Google model
-    if (verbose) cat("2")
-    x_tr_goog = z_tr %>% select(starts_with("goog"))
-    x_te_goog = z_te %>% select(starts_with("goog"))
-    x_tr = cbind(x_tr_case, x_tr_goog)
-    x_te = cbind(x_te_case, x_te_goog)
-    ok = complete.cases(x_tr, y_tr)
-    if (sum(ok) > 0) {
-      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
-      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
-      res_list[[i]][inds,]$err2 = abs(exp(y_hat) - exp(y_te)) 
-    }
-    
-    # Cases and Facebook model
-    if (verbose) cat("3")
-    x_tr_fb = z_tr %>% select(starts_with("fb"))
-    x_te_fb = z_te %>% select(starts_with("fb"))
-    x_tr = cbind(x_tr_case, x_tr_fb)
-    x_te = cbind(x_te_case, x_te_fb)
-    ok = complete.cases(x_tr, y_tr)
-    if (sum(ok) > 0) {
-      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
-      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
-      res_list[[i]][inds,]$err3 = abs(exp(y_hat) - exp(y_te)) 
-    }
-    
-    # Cases, Google, and Facebook model
-    if (verbose) cat("4\n")
-    x_tr = cbind(x_tr_case, x_tr_goog, x_tr_fb)
-    x_te = cbind(x_te_case, x_te_goog, x_te_fb)
-    ok = complete.cases(x_tr, y_tr)
-    if (sum(ok) > 0) {
-      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
-      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
-      res_list[[i]][inds,]$err4 = abs(exp(y_hat) - exp(y_te)) 
-    }
-  }
-}
-
-# Bind results over different leads into one big data frame
-res = do.call(rbind, res_list)
-
-# Calculate the median of the scaled errors for the various model: that is, the 
-# errors relative to the strawman's error
-res_med = res %>% mutate(err1 = err1 / err0, err2 = err2 / err0,
-                         err3 = err3 / err0, err4 = err4 / err0) %>%
-  select(-err0) %>% 
-  tidyr::pivot_longer(names_to = "model", values_to = "err", 
-                      cols = -c(geo_value, time_value, lead)) %>%
-  group_by(time_value, lead, model) %>% 
-  summarize(err = median(err, na.rm = TRUE)) %>%
-  ungroup() %>% 
-  mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
-         model = factor(model, labels = c("Cases", "Cases + Google",
-                                          "Cases + Facebook", 
-                                          "Cases + Google + Facebook")))
-```
-
-blah
-
-```{r}
-# Error table for 7 days ahead forecasts, all models
-knitr::kable(res_med %>% 
-               group_by(model, lead) %>% 
-               filter(time_value <= max(g$time_value)) %>%
-               filter(lead == "7 days ahead") %>% 
-               rename(Model = model, Target = lead) %>% 
-               summarize("Scaled error" = median(err, na.rm = TRUE),
-                         "Test days" = sum(!is.na(err))))
-```
-
-blah
-
-```{r}
-# Error table for 7 and 14 days ahead forecasts, just models 1 and 3
-knitr::kable(res_med %>% 
-               group_by(model, lead) %>% 
-               filter(model %in% c("Cases", "Cases + Facebook")) %>%
-               rename(Model = model, Target = lead) %>% 
-               summarize("Scaled error" = median(err, na.rm = TRUE),
-                         "Test days" = sum(!is.na(err))) %>%
-               arrange(Target))
-```
-
-blah
-
-```{r, message = FALSE, warning = FALSE, fig.width = 8, fig.height = 5}
-ggplot(res_med %>% 
-         filter(lead == "7 days ahead" | 
-                  model %in% c("Cases", "Cases + Facebook")), 
-       aes(x = time_value, y = err)) + 
-  geom_line(aes(color = model)) + 
-  scale_color_manual(values = c("black", ggplot_colors)) +
-  geom_hline(yintercept = 1, linetype = 2, color = "gray") +
-  facet_wrap(vars(lead)) + 
-  labs(x = "Date", y = "Scaled error") +
-  theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
-```
-
-# Summary of Differences
-
-Lastly, let's consider the differences between the surveys. Here's a summary:
+Now let's consider the differences between the surveys. Here's a summary:
 
 - Our Facebook survey is *advertised by Facebook* but *run by us* (on a 
 CMU-licensed Qualtrics platform); this means that we receive all the 
@@ -557,9 +340,7 @@ geographic distribution of the survey samples: on our Facebook survey, we have
 no control over this, but on our Google survey we have full control,
 in that we can pick the counties we want to sample from ahead of time. 
 
-## Google Survey Redux
-
-As we can see from the above summary, the two survey schemes are complementary, 
+As we can see, the two survey schemes are complementary, 
 and could be used synergistically. 
 Our Facebook survey is a continuously-running, wide-reaching instrument 
 that provides answers to a [rich set of
@@ -575,14 +356,386 @@ terminology!). This could be done automatically
 or manually (in collaboration with partners in public health and/or data 
 journalists). Stay tuned to the Delphi blog for updates.
 
-**Credits.** *Ryan Tibshirani wrote the initial code for producing estimates
-from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de Oliveira, and
-Lester Mackey greatly extended and improved this codebase, and they developed,
-along with Ryan, the underlying statistical methodology. Ryan came up with the 
-idea of running the surveys, and worked with Google to make this a reality. On 
-the Google side, Brett Slatkin and Hal Varian have been key collaborators; Brett
-wrote the code to get daily survey data over to Delphi's estimation pipeline; 
-and both contributed numerous important ideas at various stages of the project.*
+## Forecasting Demo
+
+We finish by showing how the % CLI-in-community indicators from our Google and 
+Facebook surveys can be used to improve the accuracy of short-term forecasts of 
+county-level COVID-19 case incidence rates. Forecasting is one of Delphi's main 
+initiatives (in the past for flu, and currently for COVID-19), and each week 
+since mid-July we've been submitting forecasts to the [COVID Forecast 
+Hub](https://covid19forecasthub.org), which serves as the official data source 
+for the [CDC's communications on COVID-19
+forecasts](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-modeling.html).
+To be clear, what follows is meant as a demo, and *not* an authoritative report 
+on cutting-edge forecasting. The purpose is to study whether the Google and
+Facebook % CLI-in-community signals provide value, when used as features, on 
+top of what we can get from fairly simple time series models that use case rates 
+alone. We'll follow up in a future blog post with details on our forecasters "in 
+production".
+
+Next we explain the setup and results in detail; some parts may get a bit 
+technical, but you should be able to glean the main results even if you skip 
+over the details.
+
+### Problem Setup 
+
+We consider predicting county-level COVID-19 case incidence rates, 1 and 2 weeks
+ahead, that is, we consider predicting the number of new COVID-19 cases per 
+capita, over the next 1-7 days and over the next 8-14 days. An equivalent way to
+phrase this problem (which happens to be more convenient for us) is to predict
+the *smoothed* COVID-19 case incidence rate 7 days ahead and 14 days ahead, 
+where the smoothing is done via a 7 day trailing average. We restrict our 
+attention to the 440 counties that had at least 200 confirmed cases by May 14,
+and in which both the Google and Facebook % CLI-in-community signals are 
+available (there were 604 counties in total with at least 200 confirmed cases by
+May 14, and we dropped 164 of them due to a lack of Google or Facebook survey 
+data).
+
+To fix notation, let $Y_{\ell,t}$ denote the smoothed COVID-19 case incidence 
+rate for location (county) $\ell$ and time (day) $t$. Let $F_{\ell,t}$ and 
+$G_{\ell,t}$ denote the Facebook and Google % CLI-in-community signals, 
+respectively, for location $\ell$ and time $t$. (We rescale all these signals 
+from their given values in our API so that they are true proportions: between 0 
+and 1.) We evaluate the following four models:
+\begin{alignat*}{2}
+&\text{"Cases"}: \quad && h(Y_{\ell,t+d}) 
+\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
+&\text{"Cases + Google"}: \quad && h(Y_{\ell,t+d}) 
+\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
+\sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
+&\text{"Cases + Facebook"}: \quad && h(Y_{\ell,t+d}) 
+\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
+\sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
+&\text{"Cases + Google + Facebook"}: \quad && h(Y_{\ell,t+d}) 
+\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
+\sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) + \sum_{j=0}^2 \tau_j h(F_{\ell,t-7j}).
+\end{alignat*}
+Here $d=7$ or $d=14$, depending on the target value (number of days we predict
+ahead), and $h$ is a transformation to be specified later. In words, in the 
+first model we're using current COVID-19 case rates, as well as those 1 and 2 
+weeks back, in order to predict future case rates; in the second, we're 
+additionally using the current Google signal, and this signal 1 and 2 weeks 
+back; in the third, it's the same but with the Facebook signal instead of the
+Google one; and in the fourth, we use both Google and Facebook signals. For 
+each model, in order to make a forecast at time $t_0$ (to predict case rates 
+for time $t_0+d$), we fit the model using least absolute deviations (LAD) 
+regression, training over all $\ell$ (all 440 counties), and all $t$ that are 
+within the most recent 14 days of data available up to and including time $t_0$. 
+
+Forecasts are transformed back to the original scale (we apply $h^{-1}$ to the
+predictions from the fitted LAD model), and denoted $\hat{Y}_{\ell,t_0+d}$. For 
+an error metric, we consider scaled (absolute) error:
+$$
+\frac{|\hat{Y}_{\ell,t_0+d} - Y_{\ell,t_0+d}|}
+{|Y_{\ell,t_0} - Y_{\ell,t_0+d}|},
+$$
+where the error in the denominator is the error of the "strawman" model, which
+for any target always just predicts the most recent available case rate. 
+
+### Transformations
+
+We investigated three transformations $h$: identity, log, and logit (the latter 
+two being common variance-stabilizing transforms for proportions). The results 
+in all three cases were quite similar and the qualitative conclusions don't 
+change at all (the code below supports all three, so you can check this for 
+yourself). For brevity, we'll just show the results for the logit transform 
+(actually, a "padded" version $h(x) = \log\big(\frac{x+a}{1-x+a}\big)$, where 
+the numerator and denominator are pushed away from zero by a small constant, 
+which we took to be $a=0.01$). 
+
+### Forecasting Code
+
+The code below marches the forecast date $t_0$ forward, one day at a time (from
+April 11 to September 1) fits the four models, makes 7 and 14 day ahead 
+predictions, and records errors. It actually takes a little while to run, the
+culprit being LAD regression: here the training sets get moderately large
+(aggregating the data over 440 counties and 14 days results in over 6000 
+training samples), and at this scale LAD regression is much slower than (say) 
+least squares regression. We ran this R code separately and saved the results in
+an RData file; you can find this in the [same GitHub repo as that containing the
+Rmd source for this blog
+post](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post).
+
+```{r, eval = FALSE, code = readLines("google-fb-forecast-demo/demo.R")}
+```
+
+### Caveats
+
+Before diving into the results, we emphasize once more that this is just a demo;
+our analysis is pretty simple and lacks a few qualities that a truly 
+comphrensive, realistic forecasting analysis should possess. To name three: 
+
+1. The models we consider are simple autoregressive structures from standard 
+time series, and could be improved (including, considering other relevant
+dimensions like mobility measures, county health metrics, etc.).
+
+2. The forecasts we produce are *point* rather than *distributional* forecasts
+(that is, we predict a single number, rather than an entire distribution, for
+what happens 7 and 14 days ahead). Distributional forecasts portray uncertainty 
+in a transparent way, which is hugely important in practice.
+
+3. The way we train our forecasts does *not* account for data latency and data
+revisions, which are critical issues. For each (restrospective) forecast date 
+$t_0$, we construct forecasts by training on data that we fetched from the API 
+today, "as of" the day we wrote this blog post, and not "as of" the forecast 
+date $t_0$. This matters because nearly all signals are subject to latency (they
+are only available at some number of days lag) and go through multiple revisions 
+(past data values get updated as time goes on).
+
+On the flip side, our example here is not that "far away" from being realistic.
+First, the models we consider are actually not too different from Delphi's 
+forecasters "in production".[^3] Second, the way we're fitting LAD regression 
+models in the code extends immediately to multiple quantile regression (just 
+requires changing the parameter `tau` in the call to `quantile_lasso()`), which 
+would give us distributional forecasts. And third, it's fairly easy to change 
+the data acquisition step in the code so that data gets pulled "as of" the 
+forecast date (requires specifying the parameter `as_of` in the call to
+`covidcast_signal()`).
+
+[^3]: Delphi's forecasters "in production" are still based on relatively simple
+times series models, though to be clear they're distributional, and we add a 
+couple of extra layers of complexity on top of standard structures. For 
+short-term forecasts, we've actually found that simple statistical models can be 
+competitive with compartmental models (like SIR and its many variants), even 
+fairly complicated ones. Being statisticians and computer scientists, we find
+these statistical models are easier to build, debug, and most importantly,
+calibrate. More on this in a future blog post. 
+
+### Results: All Four Models
+
+We first compare the results across all four models. For this analysis, we 
+filter down to common forecast dates available for the four models (to set an
+even footing for the comparison), which ends up being May 6 through May 14 for 
+7 day ahead forecasts, and only May 13 through May 14 for 14 day ahead 
+forecasts. Hence we skip studying the 14 day ahead forecasts results (in this 
+four-way model discussion) as they're only based on 2 days of test data.
+
+Below we compute and print the median scaled errors for each of the four models 
+over the 9 day test period (recall that the scaled error is the absolute error 
+of the model's forecast relative to that of the strawman; and each test day 
+actually comprises 440 forecasts, over the 440 counties being considered). We 
+can see that adding either or both of the survey signals improves on the median 
+scaled error of the model that uses cases only, with the biggest gain achieved 
+by the "Cases + Google" model. We can also see that the median scaled errors are
+all close to 1 (with all but that from "Cases + Google" model exceeding 1),
+which speaks to the difficulty of the forecasting problem.
+
+```{r, message = FALSE, warning = FALSE}
+load("google-fb-forecast-demo/demo.rda")
+
+# Restrict to common period for all 4 models, then calculate the scaled errors 
+# for each model, that is, the error relative to the strawman's error
+res_all4 = res %>%
+  tidyr::drop_na() %>%                                # Restrict to common time
+  mutate(err1 = err1 / err0, err2 = err2 / err0,      # Compute relative error
+         err3 = err3 / err0, err4 = err4 / err0) %>%  # to strawman model
+  mutate(dif12 = err1 - err2, dif13 = err1 - err3,    # Compute differences
+         dif14 = err1 - err4) %>%                     # relative to cases model
+  ungroup() %>%
+  select(-err0) 
+         
+# Calculate and print median errors, for all 4 models, and just 7 days ahead
+res_err4 = res_all4 %>% 
+  select(-starts_with("dif")) %>%
+  tidyr::pivot_longer(names_to = "model", values_to = "err",
+                      cols = -c(geo_value, time_value, lead)) %>%
+  mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
+         model = factor(model, 
+                        labels = c("Cases", "Cases + Google",
+                                   "Cases + Facebook", 
+                                   "Cases + Google + Facebook")))
+
+knitr::kable(res_err4 %>% 
+               group_by(model, lead) %>%
+               summarize(err = median(err), n = length(unique(time_value))) %>% 
+               arrange(lead) %>% ungroup() %>%
+               rename("Model" = model, "Median scaled error" = err, 
+                      "Target" = lead, "Test days" = n) %>%
+               filter(Target == "7 days ahead"), 
+             caption = paste("Test period:", min(res_err4$time_value), "to",
+                             max(res_err4$time_value)),
+             format = "html", table.attr = "style='width:70%;'")
+```
+
+<br>
+
+Are these differences in median scaled errors significant? It's hard to say,
+but some basic statistical inference (testing for equality of medians) suggests 
+that they probably are.[^4]
+
+### Results: "Cases + Facebook"
+
+Next we focus on comparing results between the "Cases" and "Cases + Facebook" 
+models only. Restricting to a common available forecast dates yields a much 
+longer test period, May 6 through August 25 for 7 day ahead forecasts, and May
+13 through August 18 for 14 day ahead forecasts. The median scaled errors over
+the test period are computed and reported below. Now we see a decent improvement
+in median scaled error for the "Cases + Facebook" model, and this is true for
+both 7 and 14 day ahead forecasts.
+
+```{r, message = FALSE, warning = FALSE}
+# Restrict to common period for just models 1 and 3, then calculate the scaled 
+# errors, that is, the error relative to the strawman's error
+res_all2 = res %>%
+  select(-c(err2, err4)) %>%
+  tidyr::drop_na() %>%                                # Restrict to common time
+  mutate(err1 = err1 / err0, err3 = err3 / err0) %>%  # Compute relative error
+                                                      # to strawman model
+  mutate(dif13 = err1 - err3) %>%                     # Compute differences
+                                                      # relative to cases model
+  ungroup() %>%
+  select(-err0) 
+         
+# Calculate and print median errors, for just models 1 and 3, and both 7 and 14 
+# days ahead
+res_err2 = res_all2 %>% 
+  select(-starts_with("dif")) %>%
+  tidyr::pivot_longer(names_to = "model", values_to = "err",
+                      cols = -c(geo_value, time_value, lead)) %>%
+  mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
+         model = factor(model, labels = c("Cases", "Cases + Facebook")))
+  
+knitr::kable(res_err2 %>% 
+               select(-starts_with("dif")) %>%
+               group_by(model, lead) %>%
+               summarize(err = median(err), n = length(unique(time_value))) %>% 
+               arrange(lead) %>% ungroup() %>%
+               rename("Model" = model, "Median scaled error" = err, 
+                      "Target" = lead, "Test days" = n),
+             caption = paste("Test period:", min(res_err2$time_value), "to",
+                             max(res_err2$time_value)),
+             format = "html", table.attr = "style='width:70%;'")
+```
+
+<br> 
+
+Thanks to the extended length of the test period, we can also "unravel" these 
+median scaled errors over time and plot their trajectories, as we do below,
+with the left plot concerning 7 day ahead forecasts, and the right 14 day ahead 
+forecasts. These plots reveal something quite interesting (and bothersome): the
+median scaled errors are actually quite volatile over time, and for some periods
+in July, forecasting became much "harder", with the scaled errors reaching above 
+1.25 for 7 day ahead forecasts, and above 1.5 for 14 day ahead forecasts. 
+Furthermore, towards the positive, we can see a clear visual difference 
+between the median scaled errors from the "Cases + Facebook" model in red and 
+the "Cases" model in black. The former appears to be below the latter pretty
+consistently over time, with the possible exception of periods where 
+forecasting becomes "hard" and the scaled errors shoot above 1. Again, basic
+statistical inference (testing for equality of medians) suggests that the 
+results we're seeing here are likely significant, though it's hard to say
+definitively given the complicated dependence structure present in the data.[^5]
+
+```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 5}
+# Plot median errors as a function of time, for models 1 and 3, and both 7 and
+# 14 days ahead
+ggplot(res_err2 %>% 
+         group_by(model, lead, time_value) %>%
+         summarize(err = median(err)),
+       aes(x = time_value, y = err)) + 
+  geom_line(aes(color = model)) + 
+  scale_color_manual(values = c("black", ggplot_colors)) +
+  geom_hline(yintercept = 1, linetype = 2, color = "gray") +
+  facet_wrap(vars(lead)) + 
+  labs(x = "Date", y = "Median scaled error") +
+  theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
+```
+
+[^4]: For the analysis of the four models, we conduct a sign test below for 
+equality of medians of scaled errors from each model against the "Cases" model.
+The sign test is run on the 9 test days x 440 counties = 3960 pairs of scaled 
+errors. The p-values for the "Cases" versus "Cases + Google" and the "Cases" 
+versus "Cases + Facebook" comparisons are tiny; the p-value for the "Cases" 
+versus "Cases + Google + Facebook" comparison is much bigger but still
+significant. However, the sign test here assumes independence of observations, 
+which clearly can't be true, given the spatiotemporal nature of our problem. To
+mitigate the dependence across time (which intuitively seems to matter more than
+that across space), we recomputed these tests in a stratified way, where for 
+each day we run a sign test on the scaled errors between two models over all 
+440 counties. The results are plotted as histograms below; the "Cases + Google"
+and "Cases + Facebook" models appear to deliver some decently small p-values,
+but the story is not as clear with the "Cases + Google + Facebook" model. 
+
+    ```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 3.75}
+    # Compute p-values using the sign test against a one-sided alternative, for
+    # all models, and just 7 days ahead
+    res_dif4 = res_all4 %>%
+      select(-starts_with("err")) %>%
+      tidyr::pivot_longer(names_to = "model", values_to = "dif",
+                          cols = -c(geo_value, time_value, lead)) %>%
+      mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
+             model = factor(model, 
+                            labels = c("Cases > Cases + Google",
+                                       "Cases > Cases + Facebook",
+                                       "Cases > Cases + Google + Facebook"))) 
+  
+    knitr::kable(res_dif4 %>%
+                   group_by(model, lead) %>%
+                   summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE), 
+                                            n = n(), alt = "greater")$p.val) %>%
+                   ungroup() %>% filter(lead == "7 days ahead") %>%
+                   rename("Comparison" = model, "Target" = lead, "P-value" = p), 
+                 format = "html", table.attr = "style='width:50%;'")
+    
+    ggplot(res_dif4 %>% 
+             group_by(model, lead, time_value) %>%
+             summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE), 
+                                      n = n(), alt = "greater")$p.val) %>%
+             ungroup() %>% filter(lead == "7 days ahead"), aes(p)) +
+      geom_histogram(aes(color = model, fill = model), alpha = 0.4) + 
+      scale_color_manual(values = ggplot_colors) +
+      scale_fill_manual(values = ggplot_colors) +
+      facet_wrap(vars(lead, model)) + 
+      labs(x = "P-value", y = "Count") +
+      theme_bw() + theme(legend.pos = "none")
+    ```
+
+[^5]: This is as just as above, but now only comparing "Cases" and "Cases +
+Facebook", which gives us many more common test days: 112 for 7 day ahead
+forecasts and 98 for 14 day ahead forecasts. The p-values below, for the sign
+test in batch mode, computed over all test days at once, are absolutely tiny; 
+the histograms below, of p-values stratified by forecast date, still show a 
+bulk of small p-values. 
+
+    ```{r, message = FALSE, warning = FALSE, fig.width = 7, fig.height = 4}
+    # Compute p-values using the sign test against a one-sided alternative, just 
+    # for models 1 and 3, and both 7 and 14 days ahead
+    res_dif2 = res_all2 %>%
+      select(-starts_with("err")) %>%
+      tidyr::pivot_longer(names_to = "model", values_to = "dif",
+                          cols = -c(geo_value, time_value, lead)) %>%
+      mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
+             model = factor(model, labels = "Cases > Cases + Facebook"))
+
+    knitr::kable(res_dif2 %>% 
+                   group_by(model, lead) %>%
+                   summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE),
+                                            n = n(), alt = "greater")$p.val) %>% 
+                   ungroup() %>% 
+                   rename("Comparison" = model, "Target" = lead, "P-value" = p), 
+                 format = "html", table.attr = "style='width:50%;'")
+    
+    ggplot(res_dif2 %>% 
+             group_by(model, lead, time_value) %>%
+             summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE), 
+                                      n = n(), alt = "greater")$p.val) %>%
+             ungroup(), aes(p)) +
+      geom_histogram(aes(color = model, fill = model), alpha = 0.4) + 
+      scale_color_manual(values = ggplot_colors) +
+      scale_fill_manual(values = ggplot_colors) +
+      facet_wrap(vars(lead, model)) + 
+      labs(x = "P-value", y = "Count") +
+      theme_bw() + theme(legend.pos = "none")
+    ```
+
+**Acknowledgements.** *Ryan Tibshirani wrote the initial code for producing 
+estimates from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de 
+Oliveira, and Lester Mackey greatly extended and improved this codebase, and
+they developed, along with Ryan, the underlying statistical methodology. Ryan 
+came up with the idea of running the surveys, and worked with Google to make 
+this a reality. On the Google side, Brett Slatkin and Hal Varian have been key 
+collaborators; Brett wrote the code to get daily survey data over to Delphi's 
+estimation pipeline; and both contributed numerous important ideas at various 
+stages of the project.*
 
 ---
 
