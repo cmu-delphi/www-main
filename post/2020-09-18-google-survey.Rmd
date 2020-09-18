@@ -192,9 +192,9 @@ Indeed, the correlation here between the Google signal and case rates is
 `r round(cor(df1$x, df1$y), 2)`, 
 while that between the Facebook signal and case rates is 
 `r round(cor(df2$x, df2$y), 2)`.
-To be fair, we should note that the Google signal is comprised of a much 
+To be fair, we should note that the Google signal comprises a much
 larger number of survey samples (as we'll emphasize next), 
-and the Facebook signal's correlations to case rates shot up in mid June 
+and the Facebook signal's correlations to case rates shot up in mid-June
 (as we saw last time and we'll revisit, shortly).
 
 From April 11 through May 14, we ran Google surveys in over 600 counties 
@@ -337,20 +337,20 @@ in that we can pick the counties we want to sample from ahead of time.
 ## Google Survey Redux
 
 As we can see from the above summary, 
-the two survey schemes are complementary, 
-and could be used synergistically. 
-Our Facebook survey is a continuously-running, wide-reaching instrument 
+the two survey schemes are complementary,
+and could be used synergistically.
+Our Facebook survey is a continuously-running, wide-reaching instrument
 that provides answers to a [rich set of
 questions](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html)
-(beyond COVID-related symptoms, it asks about 
-contacts, risk factors, behavior, and demographics). 
-When we find something interesting that warrants follow-up 
-and/or generalization to unseen locations, 
-we could then deploy our Google survey in select counties---using 
-it like a **survey microscope** (credit to Hal Varian for inventing the 
-terminology!). This could be done automatically 
-(it would be a pretty big, nonstationary multi-armed bandit problem) 
-or manually (in collaboration with partners in public health and/or data 
+(beyond COVID-related symptoms, it asks about
+contacts, risk factors, behavior, and demographics).
+When we find something interesting that warrants follow-up
+and/or generalization to unseen locations,
+we could then deploy our Google survey in select counties---using
+it like a **survey microscope** (credit to Hal Varian for inventing the
+terminology!). This could be done automatically
+(it would be a pretty big, nonstationary [multi-armed bandit problem](https://en.wikipedia.org/wiki/Multi-armed_bandit))
+or manually (in collaboration with partners in public health and/or data
 journalists). Stay tuned to the Delphi blog for updates.
 
 **Acknowledgements.** *Ryan Tibshirani wrote the initial code for producing 
