@@ -1,0 +1,745 @@
+---
+title: "COVID-19 Symptom Surveys through Google"
+author: "Ryan Tibshirani"
+date: 2020-09-07
+tags: ["symptom surveys"]
+output:
+  html_document:
+    code_folding: hide
+---
+
+Since April 2020, in addition to our massive daily survey advertised on 
+Facebook, we've been running (even-more-massive) surveys through Google 
+to track the spread of COVID-19 in the United States. 
+At its peak, our Google survey was taken by over 1.2 million people in a single 
+day, and over its first month in operation, averaged over 600,000 daily 
+respondents. In mid-May, we paused daily dissemination of this survey in order 
+to focus on our (longer, more complex) survey through Facebook,
+but we plan to bring back the Google survey this fall. 
+This blog post covers some key differences between our Google and Facebook 
+surveys, explains the backstory behind the "CLI-in-community" question
+as it arose through our collaboration with Google, 
+and shares some of our thinking about next steps for the Google survey. 
+We also give a forecasting demo that shows how both the Google and Facebook 
+survey data can be used to improve accuracy in short-term (1-2 weeks ahead) 
+county-level COVID-19 case forecasts. 
+
+<!--more-->
+
+Since April 2020, in addition to our [massive daily survey advertised on
+Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/), 
+we've been running (even-more-massive) surveys through Google to track the 
+spread of COVID-19 in the United States. At its peak, our Google survey was 
+taken by over 1.2 million people in a single day, and over its first month in 
+operation, averaged about 600,000 daily respondents. As usual, we make
+aggregated data from this survey available through our [COVIDcast
+API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+
+In mid-May, we decided to pause daily dissemination of this survey in order to
+focus on our (longer, more complex) survey through Facebook, 
+but we plan to bring back the Google survey this fall. 
+The two surveys are, in fact, quite different and complement each other nicely. 
+This blog post covers some key differences between our Google and Facebook 
+surveys, explains the backstory behind the "CLI-in-community" question
+as it arose through our collaboration with Google's team, 
+and shares some of our thinking about next steps for the Google survey.
+We also give a forecasting demo that shows how both the Google and Facebook 
+survey data can be used to improve accuracy in short-term (1-2 weeks ahead) 
+county-level COVID-19 case forecasts. 
+
+## Short Background
+
+Back in March 2020, around the time we began discussions with Facebook about 
+COVID-19 symptom surveys, we pitched the same idea to Google. 
+Our motivation, [as we explained in our last 
+post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys), 
+has been to produce real-time, county-level data streams of self-reported COVID 
+symptoms that can potentially serve as **early indicators** of COVID activity in the US. 
+As we noted in that post, we weren't the only data scientists
+who thought of running COVID-19 symptom surveys, and several 
+other groups had deployed surveys before us. 
+What distinguished our strategy from others' 
+was the pursuit of a giant like Google to achieve widespread and continuous 
+dissemination (well beyond what we could do ourselves). 
+Google's willingness to help was a *huge* win for us. 
+Of all the partnerships we formed to create new COVID-19 indicators, 
+our deal with Google was the first to come through. 
+This gave us an invaluable confidence boost, 
+and taught us the silver lining of this pandemic: 
+that many people are truly generous and willing to help.
+Google's contributions didn't stop there---they have been helping us in
+[various ways ever since](https://blog.google/outreach-initiatives/google-org/google-supports-covid-19-ai-and-data-analytics-projects).
+
+Our initial survey with Google launched in late March, 
+deployed through various websites and apps (with whom Google partners
+to run questionnaires). Each respondent opted-in to answering the survey and 
+agreed to legal disclosures about how the data would be used. The survey asked
+just a single question: 
+
+> Do you or anyone in your household have a fever of at least 100 °F, along 
+with cough, shortness of breath, or difficulty breathing?
+
+This pattern of symptoms defines a condition called 
+**COVID-like illness** or **CLI**. 
+A respondent could reply "Yes", "No", or "Prefer not to say". 
+We're also given the respondent's (inferred) county from IP address lookup. 
+At the start, this survey data allowed us to estimate the daily % CLI, 
+the percentage of people with COVID-like illness, in over 1,000 counties across 
+the US. After about 2 weeks, we stopped the survey.
+Google wondered whether we could get equally useful information without asking
+a question of such a sensitive nature. In general, asking a person about their
+health (or their family’s health) is not common practice on Google’s survey 
+platform. The hope was that asking a broader question might also improve 
+response rates, reduce costs, and increase the number of potential respondents. 
+
+## CLI-in-Community 
+
+Working with Brett Slatkin (engineering lead of Google Surveys) 
+and Hal Varian (Google's chief economist), we looked for a new question. 
+Brett came up with a list of questions that were acceptable,
+and the most promising among them was:
+
+> Do you know of someone in your community who is sick with a fever, along with
+cough, shortness of breath, or difficulty breathing right now?
+
+We decided to deploy this proxy question[^1] on April 11, 2020. 
+We narrowed our focus to fewer counties: 
+roughly the top 600 in terms of population, 
+and estimated the daily % CLI-in-community, 
+the percentage of people who *know someone in their community* with COVID-like 
+illness. The initial results far exceeded our expectations, 
+and were promising enough that within days we added 
+this CLI-in-community question to our survey through Facebook. 
+
+[^1]: In the survey methodology literature, a "proxy question" is one in which
+the subject is asked to report on someone else. The traditional view seems to
+be that proxy questions can undermine survey data quality, but in our setting 
+it's critical: not only does it provide a safeguard against revealing personal
+health information, it turned out to deliver [much higher
+correlations](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#basic-correlation-analysis) 
+with case rates than the direct (non-proxy) question.
+
+To give you a feel for the data, below we plot 
+the daily new COVID-19 cases per 100,000 people 
+versus the estimated % CLI-in-community from our Google survey, 
+at the state level, averaged over April 11 to mid-May. 
+This is shown on the left, and on the right, 
+we reproduce this with the estimated % CLI-in-community from our Facebook 
+survey. In both plots, we see a reassuring trend, 
+but the trend on the left is noticeably stronger. 
+Indeed, the correlation here between the Google signal and case rates is 0.84, 
+while that between the Facebook signal and case rates is 0.64. 
+To be fair, we should note that the Google signal comprises a much
+larger number of survey respondents (as we'll emphasize next),
+and the Facebook signal's correlations to case rates shot up in mid-June
+(as we saw last time and we'll revisit, shortly).
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
+```
+
+```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 5}
+library(covidcast)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+
+# Fetch state-level Google % CLI-in-community signal
+df_go = covidcast_signal("google-survey", "smoothed_cli", geo_type = "state")
+
+# Fetch state-level Facebook % CLI-in-community signal and JHU confirmed case 
+# incidence proportion, restricted to the Google signal's time range
+start_day = min(df_go$time_value)
+end_day = max(df_go$time_value)
+df_fb = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli", 
+                         start_day, end_day, geo_type = "state")
+df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
+                         start_day, end_day, geo_type = "state")
+
+# Join by state, average signals, compute correlations 
+df1 = inner_join(df_go %>% group_by(geo_value) %>% summarize(x = mean(value)),
+                 df_in %>% group_by(geo_value) %>% summarize(y = mean(value)),
+                 by = "geo_value") 
+df2 = inner_join(df_fb %>% group_by(geo_value) %>% summarize(x = mean(value)),
+                 df_in %>% group_by(geo_value) %>% summarize(y = mean(value)), 
+                 by = "geo_value") 
+# round(cor(df1$x, df1$y), 2) # 0.84
+# round(cor(df2$x, df2$y), 2) # 0.64
+
+# Join again to get state populations
+df1 = inner_join(df1, state_census %>% mutate(ABBR = tolower(ABBR)),
+                 by = c("geo_value" = "ABBR"))
+df2 = inner_join(df2, state_census %>% mutate(ABBR = tolower(ABBR)),
+                 by = c("geo_value" = "ABBR"))
+
+# Red, blue (similar to ggplot defaults), then yellow
+ggplot_colors = c("#FC4E07", "#00AFBB", "#E7B800")
+
+# Now make plots
+subtitle = paste("Averaged over", start_day, "to", end_day)
+p1 = ggplot(df1, aes(x = x, y = y, label = toupper(geo_value))) + 
+  geom_smooth(method = "lm", col = ggplot_colors[2], se = FALSE) +
+  geom_point(aes(size = POPESTIMATE2019), color = ggplot_colors[2], 
+             alpha = 0.5) + 
+  scale_size(name = "Population", range = c(1, 10)) + 
+  geom_text(alpha = 0.5) +
+  labs(x = "% CLI-in-community from Google surveys", 
+       y = "Daily new confirmed COVID-19 cases per 100,000 people",
+       title = "COVID-19 case rates vs Google % CLI-in-community",
+       subtitle = subtitle) +
+  theme_bw() + theme(legend.position = "bottom")
+p2 = ggplot(df2, aes(x = x, y = y, label = toupper(geo_value))) + 
+  geom_smooth(method = "lm", col = ggplot_colors[1], se = FALSE) +
+  geom_point(aes(size = POPESTIMATE2019), color = ggplot_colors[1], 
+             alpha = 0.5) + 
+  scale_size(name = "Population", range = c(1, 10)) + 
+  geom_text(alpha = 0.5) +
+  labs(x = "% CLI-in-community from Facebook surveys", y = "",
+       title = "COVID-19 case rates vs Facebook % CLI-in-community",
+       subtitle = subtitle) +
+  theme_bw() + theme(legend.position = "bottom")
+grid.arrange(p1, p2, nrow = 1)
+```
+
+From April 11 through May 14, we ran Google surveys in over 600 counties 
+per day, with a target of at least 1,000 responses per county. 
+The average number of responses per day was over 600,000,
+and at its peak, over 1.2 million! 
+(By comparison, our survey through Facebook averages 
+about 74,000 responses per day.) 
+The actual sampling scheme behind our Google survey is more complicated, 
+and involves two-level stratification, across both counties and states.
+For details, including those on statistical estimation, 
+visit our [COVIDcast signals 
+documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-survey.html).
+On May 15, we paused our Google survey to focus on our Facebook survey, 
+which is both longer and more complex. 
+Importantly, the latter is *not* a replacement for the former, 
+and our two surveys have different and complementary use cases. 
+
+## Our Two Surveys
+
+We discuss some similarities and differences 
+between the Google and Facebook surveys.
+Starting with similarities, both have been deployed at a massive scale, 
+reaching tens of thousands of people per day, 
+and covering much of the US at the county level. 
+To state the obvious, both ask the same question: 
+whether a person knows someone in their community with COVID-like illness, 
+and both lead to an estimate of % CLI-in-community. 
+
+Below we assess the numerical similarity of these estimates via correlations: 
+we correlate them against each other, and for reference, 
+correlate each against COVID-19 case rates. 
+To be more specific, for each pair of the following:
+Google signal, Facebook signal, and COVID-19 case rates,
+and for each day that we have data available, 
+we compute the Spearman correlation across all counties 
+that had at least 200 cumulative COVID-19 cases
+by May 14 (the end of Google survey data). 
+Over the first month of data, from mid-April to mid-May, 
+we can see that the highest correlations clearly belong to 
+those between the two survey signals. 
+This is as expected, since in principle, 
+these two surveys are measuring the same underlying quantity.[^2] 
+The next largest correlations over the first month 
+belong to those between the Google signal and case rates, 
+which for the most part holds a substantial gap over the 
+correlations between the Facebook signal and case rates. 
+This is no doubt encouraging, especially because we'd hope
+that the Google correlations would have only improved later in
+the year (as did the Facebook correlations, which we [previously 
+suggested](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#basic-correlation-analysis)
+could have been due to the increase in the diversity of county-level
+case rates around mid-June).
+
+[^2]: A closer look reveals that the relationship between the Google 
+% CLI-in-community and Facebook % CLI-in-community signals is not 1:1. For 
+example, you can check the x-axes in the first example in this blog post: the 
+range of the Facebook signal is over twice that of the Google signal. There
+are differences in the setups we can point to: the two surveys phrase the 
+CLI-in-community question slightly differently; they reach different subpopulations
+of the US; and the estimation procedures behind the surveys handle
+missing responses differently. But as far as we can tell, none of this can really
+explain why the Facebook numbers are over twice as large as the Google ones, a 
+trend that seems pretty consistent across location and time. We'll save rigorous 
+analysis for when we work on deploying these two surveys in tandem; for now, we
+emphasize that this observation reiterates the importance of focusing on 
+*time-varying trends* in the survey signals, not the signal values themselves 
+(a point we [made in our last 
+post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys)). 
+Here, the self-reporting aspect must somehow be creating greatly different 
+levels of bias in the two surveys; in an absolute sense, the subsequent 
+estimates of % CLI-in-community strongly disagree, so both can't be right, and 
+this casts doubt on the idea that either could be bias-free. 
+
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
+# Fetch county-level Google and Facebook % CLI-in-community signals, and JHU
+# confirmed case incidence proportion
+start_day = "2020-04-11"
+end_day = "2020-09-01"
+df_go = covidcast_signal("google-survey", "smoothed_cli")
+df_fb = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli", 
+                         start_day, end_day)
+df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
+                         start_day, end_day)
+
+# Consider only counties with at least 200 cumulative cases by Google's end
+case_num = 200
+geo_values = covidcast_signal("jhu-csse", "confirmed_cumulative_num",
+                              max(df_go$time_value), max(df_go$time_value)) %>%
+  filter(value >= case_num) %>% pull(geo_value)
+df_go_act = df_go %>% filter(geo_value %in% geo_values)
+df_fb_act = df_fb %>% filter(geo_value %in% geo_values)
+df_in_act = df_in %>% filter(geo_value %in% geo_values)
+
+# Compute correlations, per time, over all counties
+df_cor1 = covidcast_cor(df_go_act, df_in_act, by = "time_value",
+                        method = "spearman")
+df_cor2 = covidcast_cor(df_fb_act, df_in_act, by = "time_value",
+                        method = "spearman")
+df_cor3 = covidcast_cor(df_go_act, df_fb_act, by = "time_value",
+                        method = "spearman")
+
+# Stack rowwise into one data frame, then plot time series
+df_cor = rbind(df_cor1, df_cor2, df_cor3)
+df_cor$what = c(rep("Google and case rates", nrow(df_cor1)),
+                rep("Facebook and case rates", nrow(df_cor2)),
+                rep("Google and Facebook", nrow(df_cor3)))
+ggplot(df_cor, aes(x = time_value, y = value)) +
+  geom_line(aes(color = what)) +
+  scale_color_manual(values = ggplot_colors) +
+  labs(title = "Correlation between survey signals and case rates",
+       subtitle = sprintf("Over all counties with at least %i cumulative cases",
+                          case_num, max(df_go$time_value)), 
+       x = "Date", y = "Correlation") +
+    theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
+```
+
+Now let's consider the differences between the surveys. Here's a summary:
+
+- Our Facebook survey is *advertised by Facebook* but *run by us* (on a 
+CMU-licensed Qualtrics platform); this means that we receive all the 
+individual survey responses directly (and Facebook never sees any of the data).
+
+- On the other hand, our Google survey is *deployed directly by Google* through 
+partner websites and apps they use to run questionnaires;
+this means that we don't see individual survey responses, 
+but receive aggregated survey data from Google. 
+
+- This makes a big difference as to how much (and what questions) we can ask on
+the survey: our Google survey is just a single question long, and our Facebook 
+survey is much longer and more detailed, currently over 35 questions. This
+allows us (and other researchers) to study many more questions about how the
+pandemic has affected society.
+
+- Finally, there's a big difference in how much we control with respect to the 
+geographic distribution of the survey samples: on our Facebook survey, we have 
+no control over this, but on our Google survey we have full control,
+in that we can pick the counties we want to sample from ahead of time. 
+
+As we can see, the two survey schemes are complementary, 
+and could be used synergistically. 
+Our Facebook survey is a continuously-running, wide-reaching instrument 
+that provides answers to a [rich set of
+questions](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html)
+(beyond COVID-related symptoms, it asks about 
+contacts, risk factors, behavior, and demographics). 
+When we find something interesting that warrants follow-up 
+and/or generalization to unseen locations, 
+we could then deploy our Google survey in select counties---using 
+it like a **survey microscope** (credit to Hal Varian for inventing the 
+terminology!). This could be done automatically 
+(it would be a pretty big, nonstationary multi-armed bandit problem) 
+or manually (in collaboration with partners in public health and/or data 
+journalists). Stay tuned to the Delphi blog for updates.
+
+## Forecasting Demo
+
+We finish by showing how the % CLI-in-community indicators from our Google and Facebook surveys 
+can be used to improve the accuracy of short-term forecasts 
+of county-level COVID-19 case incidence rates. 
+Forecasting is one of Delphi's main initiatives 
+(in the past for flu, and currently for COVID-19), 
+and each week since mid-July we've been submitting forecasts 
+to the [COVID Forecast Hub](https://covid19forecasthub.org), 
+which serves as the official data source for the 
+[CDC's communications on COVID-19 forecasts](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-modeling.html).
+To be clear, what follows is meant as a demo, 
+and *not* an authoritative report on cutting-edge forecasting. 
+The purpose is to study whether the Google and Facebook % CLI-in-community signals provide value, 
+when used as features, on top of what we can get 
+from fairly simple time series models that use case rates alone.
+We'll follow up in a future blog post with details on our forecasters "in production".
+
+Next we explain the setup and results in detail; some parts may get a bit 
+technical, but you should be able to glean the main results even if you skip 
+over the details.
+
+### Problem Setup 
+
+We consider predicting county-level COVID-19 case incidence rates, 1 and 2 weeks
+ahead, that is, we consider predicting the number of new COVID-19 cases per capita, 
+over the next 1-7 days and over the next 8-14 days. 
+An equivalent way to phrase this problem 
+(which happens to be more convenient for us) 
+is to predict the *smoothed* COVID-19 case incidence rate 7 days ahead and 14 days ahead, 
+where the smoothing is done via a 7 day trailing average.
+We restrict our attention to the 440 counties that had at least 200 confirmed cases by May 14,
+and in which both the Google and Facebook % CLI-in-community signals are available 
+(there were 604 counties in total with at least 200 confirmed cases by May 14, 
+and we dropped 164 of them due to a lack of Google or Facebook survey data).
+
+To fix notation, let $Y_{\ell,t}$ denote the smoothed COVID-19 case incidence 
+rate for location (county) $\ell$ and time (day) $t$. Let $F_{\ell,t}$ and 
+$G_{\ell,t}$ denote the Facebook and Google % CLI-in-community signals, 
+respectively, for location $\ell$ and time $t$. (We rescale all these signals 
+from their given values in our API so that they are true proportions: between 0 
+and 1.) We evaluate the following four models:
+\begin{alignat*}{2}
+&\text{"Cases"}: \quad && h(Y_{\ell,t+d}) 
+\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
+&\text{"Cases + Google"}: \quad && h(Y_{\ell,t+d}) 
+\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
+\sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
+&\text{"Cases + Facebook"}: \quad && h(Y_{\ell,t+d}) 
+\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
+\sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
+&\text{"Cases + Google + Facebook"}: \quad && h(Y_{\ell,t+d}) 
+\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
+\sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) + \sum_{j=0}^2 \tau_j h(F_{\ell,t-7j}).
+\end{alignat*}
+Here $d=7$ or $d=14$, depending on the target value (number of days we predict
+ahead), and $h$ is a transformation to be specified later. In words, in the 
+first model we're using current COVID-19 case rates, as well as those 1 and 2 
+weeks back, in order to predict future case rates; in the second, we're 
+additionally using the current Google signal, and this signal 1 and 2 weeks 
+back; in the third, it's the same but with the Facebook signal instead of the
+Google one; and in the fourth, we use both Google and Facebook signals. For 
+each model, in order to make a forecast at time $t_0$ (to predict case rates 
+for time $t_0+d$), we fit the model using least absolute deviations (LAD) 
+regression, training over all $\ell$ (all 440 counties), and all $t$ that are 
+within the most recent 14 days of data available up to and including time $t_0$. 
+
+Forecasts are transformed back to the original scale (we apply $h^{-1}$ to the
+predictions from the fitted LAD model), and denoted $\hat{Y}_{\ell,t_0+d}$. For 
+an error metric, we consider scaled (absolute) error:
+$$
+\frac{|\hat{Y}_{\ell,t_0+d} - Y_{\ell,t_0+d}|}
+{|Y_{\ell,t_0} - Y_{\ell,t_0+d}|},
+$$
+where the error in the denominator is the error of the "strawman" model, which
+for any target always just predicts the most recent available case rate. 
+
+### Transformations
+
+We investigated three transformations $h$: identity, log, and logit (the latter 
+two being common variance-stabilizing transforms for proportions). 
+The results in all three cases were quite similar 
+and the qualitative conclusions don't change at all 
+(the code below supports all three, so you can check this for yourself). 
+For brevity, we'll just show the results for the logit transform 
+(actually, a "padded" version $h(x) = \log\big(\frac{x+a}{1-x+a}\big)$, where 
+the numerator and denominator are pushed away from zero by a small constant, 
+which we took to be $a=0.01$). 
+
+### Forecasting Code
+
+The code below marches the forecast date $t_0$ forward, one day at a time (from
+April 11 to September 1) fits the four models, makes 7 and 14 day ahead 
+predictions, and records errors. It actually takes a little while to run, the
+culprit being LAD regression: here the training sets get moderately large
+(aggregating the data over 440 counties and 14 days results in over 6000 
+training samples), and at this scale LAD regression is much slower than (say) 
+least squares regression. We ran this R code separately and saved the results in
+an RData file; you can find this in the [same GitHub repo as that containing the
+Rmd source for this blog
+post](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post).
+
+```{r, eval = FALSE, code = readLines("google-fb-forecast-demo/demo.R")}
+```
+
+### Caveats
+
+Before diving into the results, we emphasize once more that this is just a demo;
+our analysis is pretty simple and lacks a few qualities that a truly 
+comphrensive, realistic forecasting analysis should possess. To name three: 
+
+1. The models we consider are simple autoregressive structures from standard 
+time series, and could be improved (including, considering other relevant
+dimensions like mobility measures, county health metrics, etc.).
+
+2. The forecasts we produce are *point* rather than *distributional* forecasts
+(that is, we predict a single number, rather than an entire distribution, for
+what happens 7 and 14 days ahead). Distributional forecasts portray uncertainty 
+in a transparent way, which is hugely important in practice.
+
+3. The way we train our forecasts does *not* account for data latency and data
+revisions, which are critical issues. For each (restrospective) forecast date 
+$t_0$, we construct forecasts by training on data that we fetched from the API 
+today, "as of" the day we wrote this blog post, and not "as of" the forecast 
+date $t_0$. This matters because nearly all signals are subject to latency (they
+are only available at some number of days lag) and go through multiple revisions 
+(past data values get updated as time goes on).
+
+On the flip side, our example here is not that "far away" from being realistic.
+First, the models we consider are actually not too different from Delphi's 
+forecasters "in production".[^3] Second, the way we're fitting LAD regression 
+models in the code extends immediately to multiple quantile regression (just 
+requires changing the parameter `tau` in the call to `quantile_lasso()`), which 
+would give us distributional forecasts. And third, it's fairly easy to change 
+the data acquisition step in the code so that data gets pulled "as of" the 
+forecast date (requires specifying the parameter `as_of` in the call to
+`covidcast_signal()`).
+
+[^3]: Delphi's forecasters "in production" are still based on relatively simple
+times series models, though to be clear they're distributional, 
+and we add a couple of extra layers of complexity on top of standard structures. 
+For short-term forecasts, we've actually found that simple statistical models 
+can be competitive with compartmental models (like SIR and its many variants), 
+even fairly complicated ones. Being statisticians and computer scientists, 
+we find these statistical models are easier to build, debug, 
+and most importantly, calibrate. More on this in a future blog post. 
+
+### Results: All Four Models
+
+We first compare the results across all four models. For this analysis, we 
+filter down to common forecast dates available for the four models (to set an
+even footing for the comparison), which ends up being May 6 through May 14 for 
+7 day ahead forecasts, and only May 13 through May 14 for 14 day ahead 
+forecasts. Hence we skip studying the 14 day ahead forecasts results (in this 
+four-way model discussion) as they're only based on 2 days of test data.
+
+Below we compute and print the median scaled errors for each of the four models 
+over the 9 day test period (recall that the scaled error is the absolute error 
+of the model's forecast relative to that of the strawman; and each test day 
+actually comprises 440 forecasts, over the 440 counties being considered). We 
+can see that adding either or both of the survey signals improves on the median 
+scaled error of the model that uses cases only, with the biggest gain achieved 
+by the "Cases + Google" model. We can also see that the median scaled errors are
+all close to 1 (with all but that from "Cases + Google" model exceeding 1),
+which speaks to the difficulty of the forecasting problem.
+
+```{r, message = FALSE, warning = FALSE}
+load("google-fb-forecast-demo/demo.rda")
+
+# Restrict to common period for all 4 models, then calculate the scaled errors 
+# for each model, that is, the error relative to the strawman's error
+res_all4 = res %>%
+  tidyr::drop_na() %>%                                # Restrict to common time
+  mutate(err1 = err1 / err0, err2 = err2 / err0,      # Compute relative error
+         err3 = err3 / err0, err4 = err4 / err0) %>%  # to strawman model
+  mutate(dif12 = err1 - err2, dif13 = err1 - err3,    # Compute differences
+         dif14 = err1 - err4) %>%                     # relative to cases model
+  ungroup() %>%
+  select(-err0) 
+         
+# Calculate and print median errors, for all 4 models, and just 7 days ahead
+res_err4 = res_all4 %>% 
+  select(-starts_with("dif")) %>%
+  tidyr::pivot_longer(names_to = "model", values_to = "err",
+                      cols = -c(geo_value, time_value, lead)) %>%
+  mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
+         model = factor(model, 
+                        labels = c("Cases", "Cases + Google",
+                                   "Cases + Facebook", 
+                                   "Cases + Google + Facebook")))
+
+knitr::kable(res_err4 %>% 
+               group_by(model, lead) %>%
+               summarize(err = median(err), n = length(unique(time_value))) %>% 
+               arrange(lead) %>% ungroup() %>%
+               rename("Model" = model, "Median scaled error" = err, 
+                      "Target" = lead, "Test days" = n) %>%
+               filter(Target == "7 days ahead"), 
+             caption = paste("Test period:", min(res_err4$time_value), "to",
+                             max(res_err4$time_value)),
+             format = "html", table.attr = "style='width:70%;'")
+```
+
+<br>
+
+Are these differences in median scaled errors significant? It's hard to say,
+but some basic statistical inference (testing for equality of medians) suggests 
+that they probably are.[^4]
+
+### Results: "Cases + Facebook"
+
+Next we focus on comparing results between the "Cases" and "Cases + Facebook" 
+models only. Restricting to a common available forecast dates yields a much 
+longer test period, May 6 through August 25 for 7 day ahead forecasts, and May
+13 through August 18 for 14 day ahead forecasts. The median scaled errors over
+the test period are computed and reported below. Now we see a decent improvement
+in median scaled error for the "Cases + Facebook" model, and this is true for
+both 7 and 14 day ahead forecasts.
+
+```{r, message = FALSE, warning = FALSE}
+# Restrict to common period for just models 1 and 3, then calculate the scaled 
+# errors, that is, the error relative to the strawman's error
+res_all2 = res %>%
+  select(-c(err2, err4)) %>%
+  tidyr::drop_na() %>%                                # Restrict to common time
+  mutate(err1 = err1 / err0, err3 = err3 / err0) %>%  # Compute relative error
+                                                      # to strawman model
+  mutate(dif13 = err1 - err3) %>%                     # Compute differences
+                                                      # relative to cases model
+  ungroup() %>%
+  select(-err0) 
+         
+# Calculate and print median errors, for just models 1 and 3, and both 7 and 14 
+# days ahead
+res_err2 = res_all2 %>% 
+  select(-starts_with("dif")) %>%
+  tidyr::pivot_longer(names_to = "model", values_to = "err",
+                      cols = -c(geo_value, time_value, lead)) %>%
+  mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
+         model = factor(model, labels = c("Cases", "Cases + Facebook")))
+  
+knitr::kable(res_err2 %>% 
+               select(-starts_with("dif")) %>%
+               group_by(model, lead) %>%
+               summarize(err = median(err), n = length(unique(time_value))) %>% 
+               arrange(lead) %>% ungroup() %>%
+               rename("Model" = model, "Median scaled error" = err, 
+                      "Target" = lead, "Test days" = n),
+             caption = paste("Test period:", min(res_err2$time_value), "to",
+                             max(res_err2$time_value)),
+             format = "html", table.attr = "style='width:70%;'")
+```
+
+<br> 
+
+Thanks to the extended length of the test period, we can also "unravel" these 
+median scaled errors over time and plot their trajectories, as we do below,
+with the left plot concerning 7 day ahead forecasts, and the right 14 day ahead 
+forecasts. These plots reveal something quite interesting (and bothersome): the
+median scaled errors are actually quite volatile over time, and for some periods
+in July, forecasting became much "harder", with the scaled errors reaching above 
+1.25 for 7 day ahead forecasts, and above 1.5 for 14 day ahead forecasts. 
+Furthermore, towards the positive, we can see a clear visual difference 
+between the median scaled errors from the "Cases + Facebook" model in red and 
+the "Cases" model in black. The former appears to be below the latter pretty
+consistently over time, with the possible exception of periods where 
+forecasting becomes "hard" and the scaled errors shoot above 1. Again, basic
+statistical inference (testing for equality of medians) suggests that the 
+results we're seeing here are likely significant, though it's hard to say
+definitively given the complicated dependence structure present in the data.[^5]
+
+```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 5}
+# Plot median errors as a function of time, for models 1 and 3, and both 7 and
+# 14 days ahead
+ggplot(res_err2 %>% 
+         group_by(model, lead, time_value) %>%
+         summarize(err = median(err)),
+       aes(x = time_value, y = err)) + 
+  geom_line(aes(color = model)) + 
+  scale_color_manual(values = c("black", ggplot_colors)) +
+  geom_hline(yintercept = 1, linetype = 2, color = "gray") +
+  facet_wrap(vars(lead)) + 
+  labs(x = "Date", y = "Median scaled error") +
+  theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
+```
+
+[^4]: For the analysis of the four models, we conduct a sign test below for 
+equality of medians of scaled errors from each model against the "Cases" model.
+The sign test is run on the 9 test days x 440 counties = 3960 pairs of scaled 
+errors. The p-values for the "Cases" versus "Cases + Google" and the "Cases" 
+versus "Cases + Facebook" comparisons are tiny; the p-value for the "Cases" 
+versus "Cases + Google + Facebook" comparison is much bigger but still
+significant. However, the sign test here assumes independence of observations, 
+which clearly can't be true, given the spatiotemporal nature of our problem. To
+mitigate the dependence across time (which intuitively seems to matter more than
+that across space), we recomputed these tests in a stratified way, where for 
+each day we run a sign test on the scaled errors between two models over all 
+440 counties. The results are plotted as histograms below; the "Cases + Google"
+and "Cases + Facebook" models appear to deliver some decently small p-values,
+but the story is not as clear with the "Cases + Google + Facebook" model. 
+
+    ```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 3.75}
+    # Compute p-values using the sign test against a one-sided alternative, for
+    # all models, and just 7 days ahead
+    res_dif4 = res_all4 %>%
+      select(-starts_with("err")) %>%
+      tidyr::pivot_longer(names_to = "model", values_to = "dif",
+                          cols = -c(geo_value, time_value, lead)) %>%
+      mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
+             model = factor(model, 
+                            labels = c("Cases > Cases + Google",
+                                       "Cases > Cases + Facebook",
+                                       "Cases > Cases + Google + Facebook"))) 
+  
+    knitr::kable(res_dif4 %>%
+                   group_by(model, lead) %>%
+                   summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE), 
+                                            n = n(), alt = "greater")$p.val) %>%
+                   ungroup() %>% filter(lead == "7 days ahead") %>%
+                   rename("Comparison" = model, "Target" = lead, "P-value" = p), 
+                 format = "html", table.attr = "style='width:50%;'")
+    
+    ggplot(res_dif4 %>% 
+             group_by(model, lead, time_value) %>%
+             summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE), 
+                                      n = n(), alt = "greater")$p.val) %>%
+             ungroup() %>% filter(lead == "7 days ahead"), aes(p)) +
+      geom_histogram(aes(color = model, fill = model), alpha = 0.4) + 
+      scale_color_manual(values = ggplot_colors) +
+      scale_fill_manual(values = ggplot_colors) +
+      facet_wrap(vars(lead, model)) + 
+      labs(x = "P-value", y = "Count") +
+      theme_bw() + theme(legend.pos = "none")
+    ```
+
+[^5]: This is as just as above, but now only comparing "Cases" and "Cases +
+Facebook", which gives us many more common test days: 112 for 7 day ahead
+forecasts and 98 for 14 day ahead forecasts. The p-values below, for the sign
+test in batch mode, computed over all test days at once, are absolutely tiny; 
+the histograms below, of p-values stratified by forecast date, still show a 
+bulk of small p-values. 
+
+    ```{r, message = FALSE, warning = FALSE, fig.width = 7, fig.height = 4}
+    # Compute p-values using the sign test against a one-sided alternative, just 
+    # for models 1 and 3, and both 7 and 14 days ahead
+    res_dif2 = res_all2 %>%
+      select(-starts_with("err")) %>%
+      tidyr::pivot_longer(names_to = "model", values_to = "dif",
+                          cols = -c(geo_value, time_value, lead)) %>%
+      mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
+             model = factor(model, labels = "Cases > Cases + Facebook"))
+
+    knitr::kable(res_dif2 %>% 
+                   group_by(model, lead) %>%
+                   summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE),
+                                            n = n(), alt = "greater")$p.val) %>% 
+                   ungroup() %>% 
+                   rename("Comparison" = model, "Target" = lead, "P-value" = p), 
+                 format = "html", table.attr = "style='width:50%;'")
+    
+    ggplot(res_dif2 %>% 
+             group_by(model, lead, time_value) %>%
+             summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE), 
+                                      n = n(), alt = "greater")$p.val) %>%
+             ungroup(), aes(p)) +
+      geom_histogram(aes(color = model, fill = model), alpha = 0.4) + 
+      scale_color_manual(values = ggplot_colors) +
+      scale_fill_manual(values = ggplot_colors) +
+      facet_wrap(vars(lead, model)) + 
+      labs(x = "P-value", y = "Count") +
+      theme_bw() + theme(legend.pos = "none")
+    ```
+
+**Acknowledgements.** *Ryan Tibshirani wrote the initial code for producing 
+estimates from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de 
+Oliveira, and Lester Mackey greatly extended and improved this codebase, and
+they developed, along with Ryan, the underlying statistical methodology. Ryan 
+came up with the idea of running the surveys, and worked with Google to make 
+this a reality. On the Google side, Brett Slatkin and Hal Varian have been key 
+collaborators; Brett wrote the code to get daily survey data over to Delphi's 
+estimation pipeline; and both contributed numerous important ideas at various 
+stages of the project.*
+
+---
+
+*[Ryan Tibshirani](http://stat.cmu.edu/~ryantibs) is a lead researcher in the
+Delphi group, and an Associate Professor in the Department of Statistics & Data
+Science and the Machine Learning Department at CMU. He is also an Amazon
+Scholar.*
