@@ -34,7 +34,9 @@ Exp = function(y, a = 0.01) exp(y) - a
 Logit = function(x, a = 0.01) log((x + a) / (1 - x + a))
 Sigmd = function(y, a = 0.01) (exp(y) * (1 + a) - a) / (1 + exp(y))
 Id = function(x) x
- 
+
+#### Parameters #####
+
 # Transforms to consider, in what follows
 trans = Logit
 inv_trans = Sigmd
@@ -44,6 +46,9 @@ inv_trans = Sigmd
 rescale_g = 1e-2 # Originally a percentage
 rescale_f = 1e-2 # Originally a percentage
 rescale_c = 1e-5 # Originally a count per 100,000 people
+
+n = 14 # Number of trailing days to use for training set
+verbose = TRUE # Print intermediate progress to console?
 
 #### Data #####
 
@@ -103,8 +108,6 @@ z = full_join(full_join(g, f, by = c("geo_value", "time_value")),
 library(quantgen) 
 
 res_list = vector("list", length = length(leads)) 
-n = 14 # Number of trailing days to use for training set
-verbose = TRUE # Print intermediate progress to console?
 
 # Loop over lead, forecast dates, build models and record errors (warning: this
 # computation takes a while)
@@ -151,22 +154,8 @@ for (i in 1:length(leads)) {
       res_list[[i]][inds,]$err1 = abs(inv_trans(y_hat) - inv_trans(y_te)) 
     }
     
-    # Cases and Google model
-    if (verbose) cat("2")
-    x_tr_goog = z_tr %>% select(starts_with("goog"))
-    x_te_goog = z_te %>% select(starts_with("goog"))
-    x_tr = cbind(x_tr_case, x_tr_goog)
-    x_te = cbind(x_te_case, x_te_goog)
-    ok = complete.cases(x_tr, y_tr)
-    if (sum(ok) > 0) {
-      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
-      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
-      res_list[[i]][inds,]$err2 = abs(inv_trans(y_hat) - inv_trans(y_te)) 
-    }
-    
     # Cases and Facebook model
-    if (verbose) cat("3")
+    if (verbose) cat("2")
     x_tr_fb = z_tr %>% select(starts_with("fb"))
     x_te_fb = z_te %>% select(starts_with("fb"))
     x_tr = cbind(x_tr_case, x_tr_fb)
@@ -176,13 +165,27 @@ for (i in 1:length(leads)) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
                            lambda = 0, stand = FALSE, lp_solver = "gurobi")
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
+      res_list[[i]][inds,]$err2 = abs(inv_trans(y_hat) - inv_trans(y_te)) 
+    }
+
+    # Cases and Google model
+    if (verbose) cat("3")
+    x_tr_goog = z_tr %>% select(starts_with("goog"))
+    x_te_goog = z_te %>% select(starts_with("goog"))
+    x_tr = cbind(x_tr_case, x_tr_goog)
+    x_te = cbind(x_te_case, x_te_goog)
+    ok = complete.cases(x_tr, y_tr)
+    if (sum(ok) > 0) {
+      obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
+                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
+      y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err3 = abs(inv_trans(y_hat) - inv_trans(y_te)) 
     }
     
-    # Cases, Google, and Facebook model
+    # Cases, Facebook, and Google model
     if (verbose) cat("4\n")
-    x_tr = cbind(x_tr_case, x_tr_goog, x_tr_fb)
-    x_te = cbind(x_te_case, x_te_goog, x_te_fb)
+    x_tr = cbind(x_tr_case, x_tr_fb, x_tr_goog)
+    x_te = cbind(x_te_case, x_te_fb, x_te_goog)
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) > 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
@@ -193,5 +196,6 @@ for (i in 1:length(leads)) {
   }
 }
 
-# Bind results over different leads into one big data frame
+# Bind results over different leads into one big data frame, and save 
 res = do.call(rbind, res_list)
+save(list = ls(), file = "demo.rda")
