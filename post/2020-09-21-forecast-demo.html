@@ -491,7 +491,7 @@ summary {
 </div>
 <div id="forecasting-code" class="section level2">
 <h2>Forecasting Code</h2>
-<p>The code below marches the forecast date <span class="math inline">\(t_0\)</span> forward, one day at a time (from April 11 to September 1), fits the four models, makes 7 and 14 day ahead predictions, and records errors. It takes a little while to run, the culprit being LAD regression: here the training sets get moderately large (aggregating the data over 440 counties and 14 days results in over 6000 training samples), and at this scale LAD regression is much slower than (say) least squares regression. We ran this R code separately and saved the results in an RData file; you can find this in the <a href="https://github.com/cmu-delphi/delphi-blog/tree/main/content/post">same GitHub repo as that containing the Rmd source for this blog post</a>.</p>
+<p>The code below marches the forecast date <span class="math inline">\(t_0\)</span> forward, one day at a time (from April 11 to September 1), fits the four models, makes 7 and 14 day ahead predictions, and records errors. It takes a little while to run, the culprit being LAD regression: here the training sets get moderately large (aggregating the data over 440 counties and 14 days results in over 6000 training samples), and at this scale LAD regression is much slower than (say) least squares regression. We ran this R code separately and saved the results in an RData file; you can find this in the <a href="https://github.com/cmu-delphi/delphi-blog/tree/main/content/post">same GitHub repo</a> as that containing the Rmd source for this blog post.</p>
 <pre class="r"><code>library(covidcast)
 library(dplyr)
 library(tidyr)

@@ -146,9 +146,9 @@ being LAD regression: here the training sets get moderately large (aggregating
 the data over 440 counties and 14 days results in over 6000 training samples), 
 and at this scale LAD regression is much slower than (say) least squares
 regression. We ran this R code separately and saved the results in an RData 
-file; you can find this in the [same GitHub repo as that containing the Rmd 
-source for this blog
-post](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post).
+file; you can find this in the [same GitHub 
+repo](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post) as that
+containing the Rmd source for this blog post.
 
 ```{r, eval = FALSE, code = readLines("forecast-demo/demo.R")}
 ```
