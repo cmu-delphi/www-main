@@ -120,7 +120,7 @@ This normalization helps for two reasons. First, it gives us an interpretable
 scale, as we can understand the scaled error as a fraction improvement over 
 the strawman's error (so numbers like 0.8 or 0.9 would be favorable, and 
 numbers like 2 or 5 or 10 would be increasingly disastrous). Second, in our
-forecasting problem there turns out to a considerable amount county-to-county
+forecasting problem there turns out to a considerable amount of county-to-county
 of variability in forecasting difficulty, and normalizing by the strawman's
 error helps adjust for this (so that the aggregate results aren't dominated
 by county-to-county differences).
