@@ -349,7 +349,8 @@ and/or generalization to unseen locations,
 we could then deploy our Google survey in select counties---using
 it like a **survey microscope** (credit to Hal Varian for inventing the
 terminology!). This could be done automatically
-(it would be a pretty big, nonstationary [multi-armed bandit problem](https://en.wikipedia.org/wiki/Multi-armed_bandit))
+(it would be a pretty big, nonstationary [multi-armed bandit
+problem](https://en.wikipedia.org/wiki/Multi-armed_bandit))
 or manually (in collaboration with partners in public health and/or data
 journalists). Stay tuned to the Delphi blog for updates.
 
