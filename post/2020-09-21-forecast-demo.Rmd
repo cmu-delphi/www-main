@@ -1,9 +1,8 @@
 ---
 title: "Can Symptoms Surveys Improve COVID-19 Forecasts?"
 author: "Ryan Tibshirani"
-date: 2020-09-21
+date: 2020-09-19
 tags: ["symptom surveys"]
-draft: true
 output:
   html_document:
     code_folding: hide
@@ -18,7 +17,7 @@ we dive a bit deeper in terms of empirical analysis, and examine whether the
 % CLI-in-community indicators from our two surveys can be used to improve the 
 accuracy of short-term forecasts of county-level COVID-19 case rates.
 
-<!-- more --> 
+<!--more-->
 
 Following up on our last two posts, which covered our COVID-19 symptom surveys 
 through 
@@ -78,20 +77,22 @@ $G_{\ell,t}$ denote the Facebook and Google % CLI-in-community signals,
 respectively, for location $\ell$ and time $t$. (We rescale all these signals 
 from their given values in our API so that they are true proportions: between 0 
 and 1.) We evaluate the following four models:
-\begin{alignat*}{2}
-&\text{"Cases"}: \quad && h(Y_{\ell,t+d}) 
+$$
+\begin{aligned}
+&\text{Cases:} \quad && h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
-&\text{"Cases + Facebook"}: \quad && h(Y_{\ell,t+d}) 
+&\text{Cases + Facebook:} \quad && h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
-&\text{"Cases + Google"}: \quad && h(Y_{\ell,t+d}) 
+&\text{Cases + Google:} \quad && h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
-&\text{"Cases + Facebook + Google"}: \quad && h(Y_{\ell,t+d}) 
+&\text{Cases + Facebook + Google:} \quad && h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) +
 \sum_{j=0}^2 \tau_j h(G_{\ell,t-7j}).
-\end{alignat*}
+\end{aligned}
+$$
 Here $d=7$ or $d=14$, depending on the target value (number of days we predict
 ahead), and $h$ is a transformation to be specified later. In words, in the 
 first model we're using current COVID-19 case rates, as well as those 1 and 2 
@@ -132,7 +133,7 @@ The results in all three cases were quite similar
 and the qualitative conclusions don't change at all 
 (the code below supports all three, so you can check this for yourself). 
 For brevity, we'll just show the results for the logit transform 
-(actually, a "padded" version $h(x) = \log\big(\frac{x+a}{1-x+a}\big)$, where 
+(actually, a "padded" version $h(x) = \log\left(\frac{x+a}{1-x+a}\right)$, where
 the numerator and denominator are pushed away from zero by a small constant, 
 which we took to be $a=0.01$). 
 
@@ -143,7 +144,7 @@ April 11 to September 1), fits the four models, makes 7 and 14 day ahead
 predictions, and records errors. It takes a little while to run, the culprit 
 being LAD regression: here the training sets get moderately large (aggregating 
 the data over 440 counties and 14 days results in over 6000 training samples), 
-and at this scale LAD regression is much slower than (say)least squares 
+and at this scale LAD regression is much slower than (say) least squares
 regression. We ran this R code separately and saved the results in an RData 
 file; you can find this in the [same GitHub repo as that containing the Rmd 
 source for this blog
@@ -215,8 +216,6 @@ knitr::kable(res_err4 %>%
              format = "html", table.attr = "style='width:70%;'")
 ```
 
-<br>
-
 Are these differences in median scaled errors significant? It's hard to say, but
 some basic hypothesis testing suggests that they probably are: below we conduct 
 a [sign test](https://en.wikipedia.org/wiki/Sign_test)[^1] for whether the 
@@ -256,8 +255,6 @@ knitr::kable(res_dif4 %>%
                rename("Comparison" = model, "Target" = lead, "P-value" = p), 
              format = "html", table.attr = "style='width:50%;'")
 ```
-
-<br>
 
 However, we should read these with a grain of salt: the sign test here assumes
 independence of observations, which clearly can't be true, given the 
@@ -330,9 +327,7 @@ knitr::kable(res_err2 %>%
              format = "html", table.attr = "style='width:70%;'")
 ```
 
-<br> 
-
-Thanks to the extended length of the test period, we can also "unravel" these 
+Thanks to the extended length of the test period, we can also "unravel" these
 median scaled errors over time and plot their trajectories, as we do below,
 with the left plot concerning 7 day ahead forecasts, and the right 14 day ahead 
 forecasts. These plots reveal something quite interesting (and bothersome): the
@@ -387,9 +382,7 @@ knitr::kable(res_dif2 %>%
              format = "html", table.attr = "style='width:50%;'")
 ```
 
-<br>
-
-Once we stratify and recompute p-values by forecast date, as shown in the 
+Once we stratify and recompute p-values by forecast date, as shown in the
 histograms below, the bulk of p-values are still quite small.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 7, fig.height = 4}
