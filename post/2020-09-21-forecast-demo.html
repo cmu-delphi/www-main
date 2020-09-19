@@ -11,7 +11,7 @@
 
 <meta name="author" content="Ryan Tibshirani" />
 
-<meta name="date" content="2020-09-21" />
+<meta name="date" content="2020-09-19" />
 
 <title>Can Symptoms Surveys Improve COVID-19 Forecasts?</title>
 
@@ -449,34 +449,36 @@ summary {
 
 <h1 class="title toc-ignore">Can Symptoms Surveys Improve COVID-19 Forecasts?</h1>
 <h4 class="author">Ryan Tibshirani</h4>
-<h4 class="date">2020-09-21</h4>
+<h4 class="date">2020-09-19</h4>
 
 </div>
 
 
-<p>Following up on our last two posts, which covered our COVID-19 symptom surveys through <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">Facebook</a> and <a href="https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/">Google</a>, we dive a bit deeper in terms of empirical analysis, and examine whether the % CLI-in-community indicators from our two surveys can be used to improve the accuracy of short-term forecasts of county-level COVID-19 case rates.</p>
-<!-- more -->
-<p>Following up on our last two posts, which covered our COVID-19 symptom surveys through <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">Facebook</a> and <a href="https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/">Google</a>, we dive a bit deeper in terms of empirical analysis, and examine whether the % CLI-in-community indicators from our two surveys can be used to improve the accuracy of short-term forecasts of county-level COVID-19 case rates.</p>
+<p>Following up on our last two posts, which covered our COVID-19 symptom surveys through <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">Facebook</a> and <a href="https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/">Google</a>, we take a deeper technical dive into empirical analysis, and examine whether the % CLI-in-community indicators from our two surveys can be used to improve the accuracy of short-term forecasts of county-level COVID-19 case rates.</p>
+<!--more-->
+<p>Following up on our last two posts, which covered our COVID-19 symptom surveys through <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">Facebook</a> and <a href="https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/">Google</a>, we take a deeper technical dive into empirical analysis, and examine whether the % CLI-in-community indicators from our two surveys can be used to improve the accuracy of short-term forecasts of county-level COVID-19 case rates.</p>
 <p><strong>Forecasting</strong> is one of Delphi’s main initiatives (in the past for flu, and currently for COVID-19), and each week since mid-July we’ve been submitting forecasts to the <a href="https://covid19forecasthub.org">COVID Forecast Hub</a>, which serves as the official data source for the <a href="https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-modeling.html">CDC’s communications on COVID-19 forecasts</a>. To be clear, what follows is meant as a <em>demo</em>, and not an authoritative report on cutting-edge forecasting. The purpose is to study whether the Facebook and Google % CLI-in-community signals provide value, when used as features, on top of what we can get from fairly simple time series models that use case rates alone. We’ll follow up in a future blog post with details on our forecasters “in production”.</p>
 <p>We’re also working on a complementary problem to forecasting, which may be dubbed <strong>hotspot detection</strong>: the goal here is to predict whether case rates will rise significantly in the coming weeks, rather than predict the future case rates directly, as in forecasting. Some of our <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#some-interesting-examples">previous exploratory investigations</a> suggested that our survey signals could serve as <strong>early indicators</strong> of COVID-19 activity, and hence could help with hotspot detection. Stay tuned into the Delphi blog for a post on hotspot detection soon.</p>
 <p>Next we explain the forecasting setup and results in detail; some parts may get a bit technical, but you should be able to glean the main results even if you skip over the details.</p>
 <div id="problem-setup" class="section level2">
 <h2>Problem Setup</h2>
 <p>We consider predicting county-level COVID-19 case incidence rates, 1 and 2 weeks ahead, that is, we consider predicting the number of new COVID-19 cases per capita, over the next 1-7 days and over the next 8-14 days. An equivalent way to phrase this problem (which happens to be more convenient for us) is to predict the <em>smoothed</em> COVID-19 case incidence rate 7 days ahead and 14 days ahead, where the smoothing is done via a 7 day trailing average. We restrict our attention to the 440 counties that had at least 200 confirmed cases by May 14, 2020 (the end of the Google survey data) and in which both the Facebook and Google % CLI-in-community signals are available (there were 604 counties in total with at least 200 confirmed cases by May 14, and we dropped 164 of them due to a lack of Facebook or Google survey data).</p>
-<p>To fix notation, let <span class="math inline">\(Y_{\ell,t}\)</span> denote the smoothed COVID-19 case incidence rate for location (county) <span class="math inline">\(\ell\)</span> and time (day) <span class="math inline">\(t\)</span>. Let <span class="math inline">\(F_{\ell,t}\)</span> and <span class="math inline">\(G_{\ell,t}\)</span> denote the Facebook and Google % CLI-in-community signals, respectively, for location <span class="math inline">\(\ell\)</span> and time <span class="math inline">\(t\)</span>. (We rescale all these signals from their given values in our API so that they are true proportions: between 0 and 1.) We evaluate the following four models: <span class="math display">\[\begin{alignat*}{2}
-&amp;\text{&quot;Cases&quot;}: \quad &amp;&amp; h(Y_{\ell,t+d}) 
+<p>To fix notation, let <span class="math inline">\(Y_{\ell,t}\)</span> denote the smoothed COVID-19 case incidence rate for location (county) <span class="math inline">\(\ell\)</span> and time (day) <span class="math inline">\(t\)</span>. Let <span class="math inline">\(F_{\ell,t}\)</span> and <span class="math inline">\(G_{\ell,t}\)</span> denote the Facebook and Google % CLI-in-community signals, respectively, for location <span class="math inline">\(\ell\)</span> and time <span class="math inline">\(t\)</span>. (We rescale all these signals from their given values in our API so that they are true proportions: between 0 and 1.) We evaluate the following four models: <span class="math display">\[
+\begin{aligned}
+&amp;\text{Cases:} \quad &amp;&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
-&amp;\text{&quot;Cases + Facebook&quot;}: \quad &amp;&amp; h(Y_{\ell,t+d}) 
+&amp;\text{Cases + Facebook:} \quad &amp;&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
-&amp;\text{&quot;Cases + Google&quot;}: \quad &amp;&amp; h(Y_{\ell,t+d}) 
+&amp;\text{Cases + Google:} \quad &amp;&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
-&amp;\text{&quot;Cases + Facebook + Google&quot;}: \quad &amp;&amp; h(Y_{\ell,t+d}) 
+&amp;\text{Cases + Facebook + Google:} \quad &amp;&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) +
 \sum_{j=0}^2 \tau_j h(G_{\ell,t-7j}).
-\end{alignat*}\]</span> Here <span class="math inline">\(d=7\)</span> or <span class="math inline">\(d=14\)</span>, depending on the target value (number of days we predict ahead), and <span class="math inline">\(h\)</span> is a transformation to be specified later. In words, in the first model we’re using current COVID-19 case rates, as well as those 1 and 2 weeks back, in order to predict future case rates; in the second, we’re additionally using the current Facebook signal, and this signal 1 and 2 weeks back; in the third, it’s the same but with the Google signal instead of the Facebook one; and in the fourth, we use both Facebook and Google signals. For each model, in order to make a forecast at time <span class="math inline">\(t_0\)</span> (to predict case rates for time <span class="math inline">\(t_0+d\)</span>), we fit the model using least absolute deviations (LAD) regression, training over all <span class="math inline">\(\ell\)</span> (all 440 counties), and all <span class="math inline">\(t\)</span> that are within the most recent 14 days of data available up to and including time <span class="math inline">\(t_0\)</span>.</p>
+\end{aligned}
+\]</span> Here <span class="math inline">\(d=7\)</span> or <span class="math inline">\(d=14\)</span>, depending on the target value (number of days we predict ahead), and <span class="math inline">\(h\)</span> is a transformation to be specified later. In words, in the first model we’re using current COVID-19 case rates, as well as those 1 and 2 weeks back, in order to predict future case rates; in the second, we’re additionally using the current Facebook signal, and this signal 1 and 2 weeks back; in the third, it’s the same but with the Google signal instead of the Facebook one; and in the fourth, we use both Facebook and Google signals. For each model, in order to make a forecast at time <span class="math inline">\(t_0\)</span> (to predict case rates for time <span class="math inline">\(t_0+d\)</span>), we fit the model using least absolute deviations (LAD) regression, training over all <span class="math inline">\(\ell\)</span> (all 440 counties), and all <span class="math inline">\(t\)</span> that are within the most recent 14 days of data available up to and including time <span class="math inline">\(t_0\)</span>.</p>
 <p>Forecasts are transformed back to the original scale (we apply <span class="math inline">\(h^{-1}\)</span> to the predictions from the fitted LAD model), and denoted <span class="math inline">\(\hat{Y}_{\ell,t_0+d}\)</span>. For an error metric, we consider <strong>scaled absolute error</strong> (or just scaled error for short): <span class="math display">\[
 \frac{|\hat{Y}_{\ell,t_0+d} - Y_{\ell,t_0+d}|}
 {|Y_{\ell,t_0} - Y_{\ell,t_0+d}|},
@@ -485,11 +487,11 @@ summary {
 </div>
 <div id="transformations" class="section level2">
 <h2>Transformations</h2>
-<p>We investigated three transformations <span class="math inline">\(h\)</span>: identity, log, and logit (the latter two being common variance-stabilizing transforms for proportions). The results in all three cases were quite similar and the qualitative conclusions don’t change at all (the code below supports all three, so you can check this for yourself). For brevity, we’ll just show the results for the logit transform (actually, a “padded” version <span class="math inline">\(h(x) = \log\big(\frac{x+a}{1-x+a}\big)\)</span>, where the numerator and denominator are pushed away from zero by a small constant, which we took to be <span class="math inline">\(a=0.01\)</span>).</p>
+<p>We investigated three transformations <span class="math inline">\(h\)</span>: identity, log, and logit (the latter two being common variance-stabilizing transforms for proportions). The results in all three cases were quite similar and the qualitative conclusions don’t change at all (the code below supports all three, so you can check this for yourself). For brevity, we’ll just show the results for the logit transform (actually, a “padded” version <span class="math inline">\(h(x) = \log\left(\frac{x+a}{1-x+a}\right)\)</span>, where the numerator and denominator are pushed away from zero by a small constant, which we took to be <span class="math inline">\(a=0.01\)</span>).</p>
 </div>
 <div id="forecasting-code" class="section level2">
 <h2>Forecasting Code</h2>
-<p>The code below marches the forecast date <span class="math inline">\(t_0\)</span> forward, one day at a time (from April 11 to September 1), fits the four models, makes 7 and 14 day ahead predictions, and records errors. It takes a little while to run, the culprit being LAD regression: here the training sets get moderately large (aggregating the data over 440 counties and 14 days results in over 6000 training samples), and at this scale LAD regression is much slower than (say)least squares regression. We ran this R code separately and saved the results in an RData file; you can find this in the <a href="https://github.com/cmu-delphi/delphi-blog/tree/main/content/post">same GitHub repo as that containing the Rmd source for this blog post</a>.</p>
+<p>The code below marches the forecast date <span class="math inline">\(t_0\)</span> forward, one day at a time (from April 11 to September 1), fits the four models, makes 7 and 14 day ahead predictions, and records errors. It takes a little while to run, the culprit being LAD regression: here the training sets get moderately large (aggregating the data over 440 counties and 14 days results in over 6000 training samples), and at this scale LAD regression is much slower than (say) least squares regression. We ran this R code separately and saved the results in an RData file; you can find this in the <a href="https://github.com/cmu-delphi/delphi-blog/tree/main/content/post">same GitHub repo as that containing the Rmd source for this blog post</a>.</p>
 <pre class="r"><code>library(covidcast)
 library(dplyr)
 library(tidyr)
@@ -812,7 +814,6 @@ Cases + Facebook + Google
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <p>Are these differences in median scaled errors significant? It’s hard to say, but some basic hypothesis testing suggests that they probably are: below we conduct a <a href="https://en.wikipedia.org/wiki/Sign_test">sign test</a><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> for whether the difference in the “Cases” model’s scaled error and each other model’s scaled error is centered at zero. The sign test is run on the 9 test days x 440 counties = 3960 pairs of scaled errors. The p-values from the “Cases” versus “Cases + Facecbook” and the “Cases” versus “Cases + Google” tests are tiny; the p-value from the “Cases” versus “Cases + Facebook + Google” test is much bigger but still below 0.01.</p>
 <pre class="r"><code># Compute p-values using the sign test against a one-sided alternative, for
 # all models, and just 7 days ahead
@@ -883,7 +884,6 @@ Cases vs Cases + Facebook + Google
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <p>However, we should read these with a grain of salt: the sign test here assumes independence of observations, which clearly can’t be true, given the spatiotemporal structure of our forecasting problem. To mitigate the dependence across time (which intuitively seems to matter more than that across space), we recomputed these tests in a stratified way, where for each day we run a sign test on the scaled errors between two models over all 440 counties. The results are plotted as histograms below; the “Cases + Facebook” and “Cases + Google” models appear to deliver some decently small p-values, but the story is not as clear with the “Cases + Facebook + Google” model.</p>
 <pre class="r"><code># Red, blue (similar to ggplot defaults), then yellow
 ggplot_colors = c(&quot;#FC4E07&quot;, &quot;#00AFBB&quot;, &quot;#E7B800&quot;)
@@ -1014,7 +1014,6 @@ Cases + Facebook
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <p>Thanks to the extended length of the test period, we can also “unravel” these median scaled errors over time and plot their trajectories, as we do below, with the left plot concerning 7 day ahead forecasts, and the right 14 day ahead forecasts. These plots reveal something quite interesting (and bothersome): the median scaled errors are quite volatile over time, and for some periods in July, forecasting became much “harder”, with the scaled errors reaching above 1.25 for 7 day ahead forecasts, and above 1.5 for 14 day ahead forecasts. Furthermore, towards the positive, we can see a clear visual difference between the median scaled errors from the “Cases + Facebook” model in red and the “Cases” model in black. The former appears to be below the latter pretty consistently over time, with the possible exception of periods where forecasting becomes “hard” and the scaled errors shoot above 1.</p>
 <pre class="r"><code># Plot median errors as a function of time, for models 1 and 2, and both 7 and
 # 14 days ahead
@@ -1085,7 +1084,6 @@ Cases &gt; Cases + Facebook
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <p>Once we stratify and recompute p-values by forecast date, as shown in the histograms below, the bulk of p-values are still quite small.</p>
 <pre class="r"><code>ggplot(res_dif2 %&gt;% 
          group_by(model, lead, time_value) %&gt;%
