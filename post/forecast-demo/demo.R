@@ -154,7 +154,7 @@ for (i in 1:length(leads)) {
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) > 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
+                           lambda = 0, stand = FALSE, lp_solver = "glpk")
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err1 = abs(inv_trans(y_hat) - inv_trans(y_te))
       mod_list[[i]][[1]][[k]] = coef(obj)
@@ -170,7 +170,7 @@ for (i in 1:length(leads)) {
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) > 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
+                           lambda = 0, stand = FALSE, lp_solver = "glpk")
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err2 = abs(inv_trans(y_hat) - inv_trans(y_te))
       mod_list[[i]][[2]][[k]] = coef(obj)
@@ -186,7 +186,7 @@ for (i in 1:length(leads)) {
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) > 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
+                           lambda = 0, stand = FALSE, lp_solver = "glpk")
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err3 = abs(inv_trans(y_hat) - inv_trans(y_te))
       mod_list[[i]][[3]][[k]] = coef(obj)
@@ -200,7 +200,7 @@ for (i in 1:length(leads)) {
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) > 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "gurobi")
+                           lambda = 0, stand = FALSE, lp_solver = "glpk")
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err4 = abs(inv_trans(y_hat) - inv_trans(y_te))
       mod_list[[i]][[4]][[k]] = coef(obj)
