@@ -48,6 +48,7 @@ rescale_f = 1e-2 # Originally a percentage
 rescale_c = 1e-5 # Originally a count per 100,000 people
 
 n = 14 # Number of trailing days to use for training set
+lp_solver = "glpk" # LP solver to use in quantile_lasso()
 verbose = TRUE # Print intermediate progress to console?
 
 #### Data #####
@@ -108,7 +109,6 @@ z = full_join(full_join(g, f, by = c("geo_value", "time_value")),
 library(quantgen) 
 
 res_list = vector("list", length = length(leads))
-mod_list = vector("list", length = length(leads))
 
 # Loop over lead, forecast dates, build models and record errors (warning: this
 # computation takes a while)
@@ -124,10 +124,6 @@ for (i in 1:length(leads)) {
     mutate(err0 = as.double(NA), err1 = as.double(NA), err2 = as.double(NA), 
            err3 = as.double(NA), err4 = as.double(NA), lead = lead) 
   valid_dates = unique(res_list[[i]]$time_value)
-
-  # Create a list to store our fitted forecast models 
-  mod_list[[i]] = vector("list", length = 4)
-  for (j in 1:4) mod_list[[i]][[j]] = as.list(rep(NA, length(valid_dates)))
   
   for (k in 1:length(valid_dates)) {
     date = valid_dates[k]; if (verbose) cat(format(date), "... ")
@@ -154,11 +150,9 @@ for (i in 1:length(leads)) {
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) > 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "glpk")
+                           lambda = 0, lp_solver = lp_solver)
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err1 = abs(inv_trans(y_hat) - inv_trans(y_te))
-      mod_list[[i]][[1]][[k]] = coef(obj)
-      names(mod_list[[i]][[1]][[k]]) = c("intercept", names(x_tr))
     }
     
     # Cases and Facebook model
@@ -170,11 +164,9 @@ for (i in 1:length(leads)) {
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) > 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "glpk")
+                           lambda = 0, lp_solver = lp_solver)
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err2 = abs(inv_trans(y_hat) - inv_trans(y_te))
-      mod_list[[i]][[2]][[k]] = coef(obj)
-      names(mod_list[[i]][[2]][[k]]) = c("intercept", names(x_tr))
     }
 
     # Cases and Google model
@@ -186,11 +178,9 @@ for (i in 1:length(leads)) {
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) > 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "glpk")
+                           lambda = 0, lp_solver = lp_solver)
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err3 = abs(inv_trans(y_hat) - inv_trans(y_te))
-      mod_list[[i]][[3]][[k]] = coef(obj)
-      names(mod_list[[i]][[3]][[k]]) = c("intercept", names(x_tr))
     }
     
     # Cases, Facebook, and Google model
@@ -200,21 +190,13 @@ for (i in 1:length(leads)) {
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) > 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
-                           lambda = 0, stand = FALSE, lp_solver = "glpk")
+                           lambda = 0, lp_solver = lp_solver)
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err4 = abs(inv_trans(y_hat) - inv_trans(y_te))
-      mod_list[[i]][[4]][[k]] = coef(obj)
-      names(mod_list[[i]][[4]][[k]]) = c("intercept", names(x_tr))
     }
-  }
-
-  # Bind fitted models over forecast dates into one big matrix
-  for (j in 1:4) {
-    mod_list[[i]][[j]] = do.call(rbind, mod_list[[i]][[j]])
-    rownames(mod_list[[i]][[j]]) = as.character(valid_dates)
   }
 }
 
 # Bind results over different leads into one big data frame, and save 
 res = do.call(rbind, res_list)
-save(list = ls(), file = "demo-new.rda")
+save(list = ls(), file = "demo.rda")

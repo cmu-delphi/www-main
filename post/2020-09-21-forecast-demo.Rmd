@@ -141,7 +141,7 @@ which we took to be $a=0.01$).
 
 The code below marches the forecast date $t_0$ forward, one day at a time (from 
 April 11 to September 1), fits the four models, makes 7 and 14 day ahead 
-predictions, and records errors. It takes a little while to run, the culprit 
+predictions, and records errors. It takes a little while to run[^1], the culprit 
 being LAD regression: here the training sets get moderately large (aggregating 
 the data over 440 counties and 14 days results in over 6000 training samples), 
 and at this scale LAD regression is much slower than (say) least squares
@@ -149,6 +149,12 @@ regression. We ran this R code separately and saved the results in an RData
 file; you can find this in the [same GitHub 
 repo](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post) as that
 containing the Rmd source for this blog post.
+
+[^1]: The R package [quantgen](https://github.com/ryantibs/quantgen) allows you 
+to choose between Gurobi or GLPK as the underlying LP solver. The default is 
+GLPK, since it's open source; but if you can use Gurobi (which is [free for 
+academic use](https://www.gurobi.com/academia/academic-program-and-licenses/)), 
+then this forecast demo will run much faster. 
 
 ```{r, eval = FALSE, code = readLines("forecast-demo/demo.R")}
 ```
@@ -182,6 +188,9 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 
+model_names = c("Cases", "Cases + Facebook", "Cases + Google",
+                "Cases + Facebook + Google")
+
 # Restrict to common period for all 4 models, then calculate the scaled errors 
 # for each model, that is, the error relative to the strawman's error
 res_all4 = res %>%
@@ -199,10 +208,7 @@ res_err4 = res_all4 %>%
   pivot_longer(names_to = "model", values_to = "err",
                cols = -c(geo_value, time_value, lead)) %>%
   mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
-         model = factor(model, 
-                        labels = c("Cases", "Cases + Facebook", 
-                                   "Cases + Google",
-                                   "Cases + Facebook + Google")))
+         model = factor(model, labels = model_names))
 
 knitr::kable(res_err4 %>% 
                group_by(model, lead) %>%
@@ -218,7 +224,7 @@ knitr::kable(res_err4 %>%
 
 Are these differences in median scaled errors significant? It's hard to say, but
 some basic hypothesis testing suggests that they probably are: below we conduct 
-a [sign test](https://en.wikipedia.org/wiki/Sign_test)[^1] for whether the 
+a [sign test](https://en.wikipedia.org/wiki/Sign_test)[^2] for whether the 
 difference in the "Cases" model's scaled error and each other model's scaled 
 error is centered at zero. The sign test is run on the 9 test days x 440 
 counties = 3960 pairs of scaled errors. The p-values from the "Cases" versus 
@@ -226,7 +232,7 @@ counties = 3960 pairs of scaled errors. The p-values from the "Cases" versus
 p-value from the "Cases" versus "Cases + Facebook + Google" test is much bigger
 but still below 0.01. 
 
-[^1]: As far as nonparametric tests of medians go, [Wilcoxon's signed-rank 
+[^2]: As far as nonparametric tests of medians go, [Wilcoxon's signed-rank 
 test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test) (for paired data, 
 as we have here) is more popular, because it tends to be more powerful than the 
 sign test. Applied here, it does indeed give smaller p-values pretty much across
@@ -313,7 +319,7 @@ res_err2 = res_all2 %>%
   pivot_longer(names_to = "model", values_to = "err",
                cols = -c(geo_value, time_value, lead)) %>%
   mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
-         model = factor(model, labels = c("Cases", "Cases + Facebook")))
+         model = factor(model, labels = model_names[1:2]))
   
 knitr::kable(res_err2 %>% 
                select(-starts_with("dif")) %>%
@@ -345,7 +351,7 @@ scaled errors shoot above 1.
 # 14 days ahead
 ggplot(res_err2 %>% 
          group_by(model, lead, time_value) %>%
-         summarize(err = median(err)),
+         summarize(err = median(err)) %>% ungroup(),
        aes(x = time_value, y = err)) + 
   geom_line(aes(color = model)) + 
   scale_color_manual(values = c("black", ggplot_colors)) +
@@ -432,20 +438,23 @@ are only available at some number of days lag) and go through multiple revisions
 
 On the flip side, our example here was not that "far away" from being realistic.
 The models we examined are actually not too different from Delphi's forecasters
-"in production".[^2] Also, the way we fit LAD regression models in the code 
+"in production".[^3] Also, the way we fit LAD regression models in the code 
 extends immediately to multiple quantile regression (just requires changing the 
 parameter `tau` in the call to `quantile_lasso()`), which would give us 
 distributional forecasts. And lastly, it's fairly easy to change the data 
 acquisition step in the code so that data gets pulled "as of" the forecast date
 (requires specifying the parameter `as_of` in the call to `covidcast_signal()`).
 
-[^2]: Delphi's forecasters "in production" are still based on relatively simple
+[^3]: Delphi's forecasters "in production" are still based on relatively simple
 times series models, though to be clear they're distributional, 
 and we add a couple of extra layers of complexity on top of standard structures. 
 For short-term forecasts, we've found that simple statistical models can be 
-competitive with compartmental models (like SIR and its many variants), even 
-fairly complicated ones. Being statisticians and computer scientists, we find
-these statistical models are easier to build, debug, and most importantly, 
+competitive with compartmental models (like
+[SIR](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model) 
+and its [many 
+variants](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#Variations_on_the_basic_SIR_model)),
+even fairly complicated ones. Being statisticians and computer scientists, we 
+find these statistical models are easier to build, debug, and most importantly, 
 calibrate. More on this in a future blog post. 
 
 **Acknowledgements.** *Delphi's forecasting effort involves many people from our
