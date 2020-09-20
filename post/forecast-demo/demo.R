@@ -63,24 +63,24 @@ geo_values = covidcast_signal("jhu-csse", "confirmed_cumulative_num",
 start_day = "2020-04-11"
 end_day = "2020-09-01"
 g = covidcast_signal("google-survey", "smoothed_cli") %>%
-  select(geo_value, time_value, value) %>%
-  filter(geo_value %in% geo_values) 
+  filter(geo_value %in% geo_values) %>% 
+  select(geo_value, time_value, value) 
 f = covidcast_signal("fb-survey", "smoothed_hh_cmnty_cli", 
                      start_day, end_day) %>%
-  select(geo_value, time_value, value) %>%
-  filter(geo_value %in% geo_values) 
+  filter(geo_value %in% geo_values) %>% 
+  select(geo_value, time_value, value) 
 c = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
                      start_day, end_day) %>%
-  select(geo_value, time_value, value) %>%
-  filter(geo_value %in% geo_values) 
+  filter(geo_value %in% geo_values) %>% 
+  select(geo_value, time_value, value)
 
-# Find "complete" counties, present in all three data signals
+# Find "complete" counties, present in all three data signals at all times 
 geo_values_complete = intersect(intersect(g$geo_value, f$geo_value),
                                 c$geo_value)
 
 # Filter to complete counties, transform the signals, append 1-2 week lags to 
 # all three, and also 1-2 week leads to case rates
-lags = -1:-2 * 7
+lags = 1:2 * -7 
 leads = 1:2 * 7
 g = g %>% filter(geo_value %in% geo_values_complete) %>% 
   mutate(value = trans(value * rescale_g)) %>% 
@@ -107,15 +107,16 @@ z = full_join(full_join(g, f, by = c("geo_value", "time_value")),
 # more; you can find it on GitHub here: https://github.com/ryantibs/quantgen)
 library(quantgen) 
 
-res_list = vector("list", length = length(leads)) 
+res_list = vector("list", length = length(leads))
+mod_list = vector("list", length = length(leads))
 
 # Loop over lead, forecast dates, build models and record errors (warning: this
 # computation takes a while)
 for (i in 1:length(leads)) { 
   lead = leads[i]; if (verbose) cat("***", lead, "***\n")
   
-  # Create a data frame to store our results. Code below populates its rows in a
-  # way that breaks from typical dplyr operations, done for efficiency
+  # Create a data frame to store our forecast results. Code below populates its
+  # rows in a way that breaks from typical dplyr operations, done for efficiency 
   res_list[[i]] = z %>% 
     filter(between(time_value, as.Date(start_day) - min(lags) + lead, 
                    as.Date(end_day) - lead)) %>%
@@ -123,9 +124,13 @@ for (i in 1:length(leads)) {
     mutate(err0 = as.double(NA), err1 = as.double(NA), err2 = as.double(NA), 
            err3 = as.double(NA), err4 = as.double(NA), lead = lead) 
   valid_dates = unique(res_list[[i]]$time_value)
+
+  # Create a list to store our fitted forecast models 
+  mod_list[[i]] = vector("list", length = 4)
+  for (j in 1:4) mod_list[[i]][[j]] = as.list(rep(NA, length(valid_dates)))
   
-  for (j in 1:length(valid_dates)) {
-    date = valid_dates[j]; if (verbose) cat(format(date), "... ")
+  for (k in 1:length(valid_dates)) {
+    date = valid_dates[k]; if (verbose) cat(format(date), "... ")
     
     # Filter down to training set and test set
     z_tr = z %>% filter(between(time_value, date - lead - n, date - lead))
@@ -151,7 +156,9 @@ for (i in 1:length(leads)) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
                            lambda = 0, stand = FALSE, lp_solver = "gurobi")
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
-      res_list[[i]][inds,]$err1 = abs(inv_trans(y_hat) - inv_trans(y_te)) 
+      res_list[[i]][inds,]$err1 = abs(inv_trans(y_hat) - inv_trans(y_te))
+      mod_list[[i]][[1]][[k]] = coef(obj)
+      names(mod_list[[i]][[1]][[k]]) = c("intercept", names(x_tr))
     }
     
     # Cases and Facebook model
@@ -165,7 +172,9 @@ for (i in 1:length(leads)) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
                            lambda = 0, stand = FALSE, lp_solver = "gurobi")
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
-      res_list[[i]][inds,]$err2 = abs(inv_trans(y_hat) - inv_trans(y_te)) 
+      res_list[[i]][inds,]$err2 = abs(inv_trans(y_hat) - inv_trans(y_te))
+      mod_list[[i]][[2]][[k]] = coef(obj)
+      names(mod_list[[i]][[2]][[k]]) = c("intercept", names(x_tr))
     }
 
     # Cases and Google model
@@ -179,7 +188,9 @@ for (i in 1:length(leads)) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
                            lambda = 0, stand = FALSE, lp_solver = "gurobi")
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
-      res_list[[i]][inds,]$err3 = abs(inv_trans(y_hat) - inv_trans(y_te)) 
+      res_list[[i]][inds,]$err3 = abs(inv_trans(y_hat) - inv_trans(y_te))
+      mod_list[[i]][[3]][[k]] = coef(obj)
+      names(mod_list[[i]][[3]][[k]]) = c("intercept", names(x_tr))
     }
     
     # Cases, Facebook, and Google model
@@ -191,11 +202,19 @@ for (i in 1:length(leads)) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
                            lambda = 0, stand = FALSE, lp_solver = "gurobi")
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
-      res_list[[i]][inds,]$err4 = abs(inv_trans(y_hat) - inv_trans(y_te)) 
+      res_list[[i]][inds,]$err4 = abs(inv_trans(y_hat) - inv_trans(y_te))
+      mod_list[[i]][[4]][[k]] = coef(obj)
+      names(mod_list[[i]][[4]][[k]]) = c("intercept", names(x_tr))
     }
+  }
+
+  # Bind fitted models over forecast dates into one big matrix
+  for (j in 1:4) {
+    mod_list[[i]][[j]] = do.call(rbind, mod_list[[i]][[j]])
+    rownames(mod_list[[i]][[j]]) = as.character(valid_dates)
   }
 }
 
 # Bind results over different leads into one big data frame, and save 
 res = do.call(rbind, res_list)
-save(list = ls(), file = "demo.rda")
+save(list = ls(), file = "demo-new.rda")
