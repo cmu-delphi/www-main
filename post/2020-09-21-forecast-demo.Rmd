@@ -8,48 +8,51 @@ output:
     code_folding: hide
 ---
 
-Building on our previous two posts (on our COVID-19 symptom surveys 
-through [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
-and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)),
-this post offers a more technical deep dive, including detailed empirical analysis
-and an examinination of whether the % CLI-in-community indicators from our two surveys 
-can be used to improve the accuracy of short-term forecasts of county-level COVID-19 case rates.
+Building on our previous two posts (on our COVID-19 symptom surveys through
+[Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+and 
+[Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)),
+this post offers a deeper dive into empirical analysis, examining whether the 
+% CLI-in-community indicators from our two surveys can be used to improve 
+the accuracy of short-term forecasts of county-level COVID-19 case rates.
 
 <!--more-->
 
-Building on our previous two posts (on our COVID-19 symptom surveys 
-through [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
-and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)),
-this post offers a more technical deep dive, including detailed empirical analysis
-and an examinination of whether the % CLI-in-community indicators from our two surveys 
-can be used to improve the accuracy of short-term forecasts of county-level COVID-19 case rates.
+Building on our previous two posts (on our COVID-19 symptom surveys through
+[Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+and 
+[Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)),
+this post offers a deeper dive into empirical analysis, examining whether the 
+% CLI-in-community indicators from our two surveys can be used to improve 
+the accuracy of short-term forecasts of county-level COVID-19 case rates.
 
-**Forecasting** long been a primary initiative of the Delphi project
+**Forecasting** has long been a primary initiative of the Delphi group
 (in the past for flu, and currently for COVID-19). 
 Each week since mid-July we've been submitting forecasts 
 to the [COVID Forecast Hub](https://covid19forecasthub.org), 
 which serves as the official data source for the 
 [CDC's communications on COVID-19 forecasts](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-modeling.html).
-At the outset, we should state that this post is neither a demo 
-of our current forecasters no an authoritative take on cutting-edge forecasting. 
-Instead, our purpose here to study the Facebook and Google % CLI-in-community signals,
-demonstrating their value, when used as features, to add predictive power
-beyond what we can achieve with (fairly simple) time series models trained on case rates alone.
-In a future blog post, we'll follow up with details on our "production" forecasters. 
 
-In this post, when we talk abotu forecasting, we mean the task of predicting future case rates directly. 
-While we focus here on forecasting, there are a number of other important prediction problems 
-that arise as part of pandemic response.
+At the outset, we should state that this post is neither a report on Delphi's 
+current COVID-19 forecasters nor an authoritative take on cutting-edge 
+COVID-19 forecasting. Instead, our purpose here to study the Facebook and 
+Google % CLI-in-community signals, and demonstrate their value, when used as 
+features, to add predictive power beyond what we can achieve with (fairly 
+simple) time series models trained on case rates alone. In a future blog post, 
+we'll follow up with details on our "production" forecasters. 
+
+While we focus here on forecasting, there are a number of other important 
+prediction problems that arise as part of the pandemic response.
 For example, we also work on **hotspot detection**,
-where the goal is to predict *whether case rates will rise significantly*,
-rather than to predict the future case rates directly. 
-Stay tuned into the Delphi blog for a post on hotspot detection soon.
-
+where the goal is to predict whether case rates will rise significantly,
+rather than to predict the future case rates directly, as in forecasting.
 To motivate why we might be optimistic about the utility of our survey signals
-as incorporated into forecasting models, you might want to furst check out
-our [previous exploratory investigations](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#some-interesting-examples), 
-which suggested that our survey signals might serve as **early indicators**
-of COVID-19 activity, and hence could help with hotspot detection. 
+as incorporated into forecasting or hotspot detection models, you might want to 
+first check out our [previous exploratory
+investigations](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#some-interesting-examples), 
+which suggested that they can serve as **early indicators** of COVID-19 
+activity. In addition to more posts to come on forecasting, stay tuned into 
+the Delphi blog for a post on hotspot detection soon.
 
 Next we explain the forecasting setup and results in detail.
 Some parts may get a bit technical, but we've tried to make the post 
@@ -63,8 +66,8 @@ COVID-19 case incidence rates, 1 and 2 weeks ahead.
 Specifically, we wish to predict the number of new COVID-19 cases per capita, 
 both over the next 1-7 days and over the next 8-14 days. 
 One convenient (and equivalent) way to phrase this problem 
-is to predict the *smoothed* COVID-19 case incidence rate 7 days ahead and 14 days ahead, 
-where the smoothing is performed via a 7 day trailing average.
+is to predict the *smoothed* COVID-19 case incidence rate 7 days ahead and 
+14 days ahead, where the smoothing is performed via a 7 day trailing average.
 We restrict our attention to the 440 counties 
 that had at least 200 confirmed cases by May 14, 2020 
 (the end of the Google survey data) and in which 
@@ -105,36 +108,36 @@ on the following three features:
 current COVID-19 case rates, and those 1 and 2 weeks back.
 The second model additionally incorporates the current Facebook signal,
 and the Facebook signal from 1 and 2 weeks back.
-The third model is exactly same but substituting the Google signal 
+The third model is exactly same but substitutes the Google signal 
 instead of the Facebook one.
 Finally, the fourth model uses both Facebook and Google signals. 
 For each model, in order to make a forecast at time $t_0$ 
-(to predict case rates for time $t_0+d$),
+(to predict case rates at time $t_0+d$),
 we fit a linear model using least absolute deviations (LAD) regression, 
-training over all $\ell$ (all 440 counties), 
-and all $t$ that are within the most recent 14 days of data 
+training over all locations $\ell$ (all 440 counties), 
+and all time $t$ that are within the most recent 14 days of data 
 available up to and including time $t_0$. 
 
 Forecasts are transformed back to the original scale 
 (we apply $h^{-1}$ to the predictions from the fitted LAD model), 
 and denoted $\hat{Y}_{\ell,t_0+d}$.
-For an error metric, we consider **scaled absolute error** (or just scaled error for 
-short):
+For an error metric, we consider **scaled absolute error** 
+(or just scaled error for short):
 $$
 \frac{|\hat{Y}_{\ell,t_0+d} - Y_{\ell,t_0+d}|}
 {|Y_{\ell,t_0} - Y_{\ell,t_0+d}|},
 $$
-where the error in the denominator is the error of the *straw-man* model,
+where the error in the denominator is the error of the "strawman" model,
 which for any target always simply predicts the most recent available case rate. 
 
 This normalization helps for two reasons. 
 First, it gives us an interpretable scale, 
 as we can understand the scaled error as a fraction improvement 
-over the straw man's error (so numbers like 0.8 or 0.9 would be favorable, 
+over the strawman's error (so numbers like 0.8 or 0.9 would be favorable, 
 and numbers like 2 or 5 or 10 would be increasingly disastrous). 
 Second, in our forecasting problem,
 there turns out to a considerable amount of county-to-county variability 
-in forecasting difficulty, and normalizing by the straw man's
+in forecasting difficulty, and normalizing by the strawman's
 error helps adjust for this (so that the aggregate results aren't dominated
 by county-to-county differences).
 
@@ -157,10 +160,10 @@ one day at a time (from April 11 to September 1),
 fits the four models, makes 7 and 14 day ahead predictions, and records errors. 
 It takes a little while to run[^1], the culprit being LAD regression: 
 here the training sets get moderately large 
-(aggregating the data over 440 counties and 14 days results in over 6000 training samples), 
-and at this scale LAD regression is much slower than least squares regression. 
-We ran this R code separately and saved the results in an RData file; 
-you can find this in the [same GitHub 
+(aggregating the data over 440 counties and 14 days results in over 6000 
+training samples), and at this scale LAD regression is much slower than least 
+squares regression. We ran this R code separately and saved the results in an 
+RData file; you can find this in the [same GitHub 
 repo](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post) 
 as the Rmd source for this blog post.
 
@@ -188,7 +191,7 @@ as they're only based on 2 days of test data.
 
 Below we compute and print the median scaled errors for each of the four models 
 over the 9 day test period (recall that the scaled error is the absolute error 
-of the model's forecast relative to that of the straw man; and each test day 
+of the model's forecast relative to that of the strawman; and each test day 
 actually comprises 440 forecasts, over the 440 counties being considered). 
 We can see that adding either or both of the survey signals 
 improves on the median scaled error of the model that uses cases only,
