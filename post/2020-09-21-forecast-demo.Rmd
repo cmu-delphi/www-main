@@ -247,7 +247,7 @@ test](https://en.wikipedia.org/wiki/Sign_test)[^2]
 for whether the difference in the "Cases" model's scaled error 
 and each other model's scaled error is centered at zero. 
 The sign test is run on the 9 test days x 440 counties = 3960 pairs 
-of scaled errors. The p-values from the "Cases" versus "Cases + Facecbook" 
+of scaled errors. The p-values from the "Cases" versus "Cases + Facebook"
 and the "Cases" versus "Cases + Google" tests are tiny;
 the p-value from the "Cases" versus "Cases + Facebook + Google" test 
 is much bigger but still below 0.01. 
