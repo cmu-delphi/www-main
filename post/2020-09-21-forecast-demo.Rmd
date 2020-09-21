@@ -60,7 +60,7 @@ even if you skip the technical details.
 
 ## Problem Setup 
 
-Formaly, our goal here is to predict county-level 
+Formally, our goal here is to predict county-level
 COVID-19 case incidence rates, 1 and 2 weeks ahead.
 Specifically, we wish to predict the number of new COVID-19 cases per capita, 
 both over the next 1-7 days and over the next 8-14 days. 
