@@ -265,7 +265,7 @@ than the % CLI indicator (which shows similar, but noisier, trends).
 Let's start by looking at Miami-Dade County, 
 which experienced a surge of new COVID-19 cases 
 between June and July: below we plot daily new confirmed COVID-19
-cases over time (using a 7 day trailing average for smoothing) as a blue curve.
+cases over time (using a 7-day trailing average for smoothing) as a blue curve.
 We also plot the % CLI-in-community indicator as a red curve. 
 Note that these two curves, case counts and % CLI-in-community,
 are not measured in the same units, hence our use of two y-axes: 

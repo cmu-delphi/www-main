@@ -75,7 +75,7 @@ Specifically, we wish to predict the number of new COVID-19 cases per capita,
 both over the next 1-7 days and over the next 8-14 days. 
 One convenient (and equivalent) way to phrase this problem 
 is to predict the *smoothed* COVID-19 case incidence rate 7 days ahead and 
-14 days ahead, where the smoothing is performed via a 7 day trailing average.
+14 days ahead, where the smoothing is performed via a 7-day trailing average.
 We restrict our attention to the 440 counties 
 that had at least 200 confirmed cases by May 14, 2020 
 (the end of the Google survey data) and in which 
@@ -164,8 +164,8 @@ by a small constant, which we took to be $a=0.01$).
 ## Forecasting Code
 
 The code below marches the forecast date $t_0$ forward, 
-one day at a time (from April 11 to September 1), 
-fits the four models, makes 7 and 14 day ahead predictions, and records errors. 
+one day at a time (from April 11 to September 1), fits the four models, 
+makes predictions 7 and 14 days ahead, and records errors. 
 It takes a little while to run[^1], the culprit being LAD regression: 
 the training sets in our forecasting problem get moderately large 
 (aggregating the data over 440 counties and 14 days results in over 6000 
@@ -189,17 +189,17 @@ then this forecast demo will run much faster.
 We first compare the results across all four models. 
 For this analysis, we filter down to common forecast dates 
 available for the four models (to set an even footing for the comparison), 
-which ends up being May 6 through May 14 for 7 day ahead forecasts, 
-and only May 13 through May 14 for 14 day ahead forecasts. 
+which ends up being May 6 through May 14 for 7-day-ahead forecasts, 
+and only May 13 through May 14 for 14-day-ahead forecasts. 
 (The reason for this shortened period: 
 we paused running the Google survey on May 14 so its data ends there,
 but as we explained in our last post, we [plan to bring it
 back](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/#google-survey-redux) 
-later this fall.) Hence we skip studying the 14 day ahead forecasts results 
+later this fall.) Hence we skip studying the 14-day-ahead forecasts results 
 in this four-way model discussion, as they're only based on 2 days of test data.
 
 Below we compute and print the median scaled errors for each of the four models 
-over the 9 day test period (recall that the scaled error is the absolute error 
+over the 9-day test period (recall that the scaled error is the absolute error 
 of the model's forecast relative to that of the strawman; and each test day 
 actually comprises 440 forecasts, over the 440 counties being considered). 
 We can see that adding either or both of the survey signals 
@@ -326,12 +326,12 @@ ggplot(res_dif4 %>%
 
 Next we focus on comparing results between the "Cases" and "Cases + Facebook"
 models only. Restricting to a common available forecast dates yields a much 
-longer test period, May 6 through August 25 for 7 day ahead forecasts, 
-and May 13 through August 18 for 14 day ahead forecasts. 
+longer test period, May 6 through August 25 for 7-day-ahead forecasts, 
+and May 13 through August 18 for 14-day-ahead forecasts. 
 The median scaled errors over the test period are computed and reported below. 
 Now we see a decent improvement in median scaled error for the 
-"Cases + Facebook" model, and this is true for both 7 and 14 day ahead 
-forecasts.
+"Cases + Facebook" model, and this is true for both 7-day-ahead and 
+14-day-ahead forecasts.
 
 ```{r, message = FALSE, warning = FALSE}
 # Restrict to common period for just models 1 and 2, then calculate the scaled 
@@ -370,13 +370,13 @@ knitr::kable(res_err2 %>%
 Thanks to the extended length of the test period, 
 we can also "unravel" these median scaled errors 
 over time and plot their trajectories, as we do below,
-with the left plot concerning 7 day ahead forecasts, 
-and the right 14 day ahead forecasts. 
+with the left plot concerning 7-day-ahead forecasts, 
+and the right 14-day-ahead forecasts. 
 These plots reveal something at once interesting and bothersome: 
 the median scaled errors are quite volatile over time, 
 and for some periods in July, forecasting became much "harder", 
-with the scaled errors reaching above 1.25 for 7 day ahead forecasts, 
-and above 1.5 for 14 day ahead forecasts. 
+with the scaled errors reaching above 1.25 for 7-day-ahead forecasts, 
+and above 1.5 for 14-day-ahead forecasts. 
 Furthermore, towards the positive, we can see a clear visual 
 difference between the median scaled errors from 
 the "Cases + Facebook" model in red and the "Cases" model in black. 
@@ -404,8 +404,8 @@ are likely significant, though it's hard to say definitively
 given the complicated dependence structure present in the data. 
 Below we perform a sign test for whether the difference in scaled errors 
 from the "Cases" and "Cases + Facebook" models is centered at zero. 
-Given the large sample size: 112 test days for 7 day ahead forecasts 
-and 98 test days for 14 day ahead forecasts 
+Given the large sample size: 112 test days for 7-day-ahead forecasts 
+and 98 test days for 14-day-ahead forecasts 
 (times 440 counties for each day), the p-values are basically zero. 
 
 ```{r, message = FALSE, warning = FALSE}
