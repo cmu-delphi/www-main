@@ -493,12 +493,13 @@ or [Python client](https://cmu-delphi.github.io/covidcast/covidcast-py/html/).
 And if you're feeling adventurous, consider competing in the 
 [COVID-19 Symptom Data Challenge](https://www.symptomchallenge.org/),
 and trying your hand at developing novel analytic approaches to extract 
-insights from our Facebook symptom survey data. The Challenge makes available
-extensive aggregate data from the surveys, and submissions are due September
-29th, with finalists eligible for large cash prizes. We look forward to seeing
-how you put our data to use!
+insights from our Facebook symptom survey data. We've made extensive data
+aggregate data from our survey (beyond CLI indicators) [available for
+the Challenge](https://www.symptomchallenge.org/challenge#sources), and
+submissions are due September 29, with finalists eligible for cash prizes.
+We look forward to seeing how you put our data to use!
 
-[^3]: Delphi's forecasters "in production" are still based on relatively simple
+[^3]: Delphi's "production" forecasters are still based on relatively simple
 times series models, though to be clear they're distributional, 
 and we add a couple of extra layers of complexity on top of standard structures. 
 For short-term forecasts, we've found that simple statistical models can be 
