@@ -478,6 +478,17 @@ And lastly, it's fairly easy to change the data acquisition step in the code
 so that data gets pulled "as of" the forecast date
 (requires specifying the parameter `as_of` in the call to `covidcast_signal()`).
 
+Hopefully these preliminary findings have gotten you excited 
+about the possible uses of our symptom survey data. 
+To get started playing with our data yourself,
+take a look at [our interactive COVIDcast map](https://covidcast.cmu.edu),
+play with [our COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)
+via our Python and R packages,
+and if you're feeling adventurous, 
+consider competing in the [COVID-19 Symptom Data Challenge](https://www.symptomchallenge.org/),
+and trying your hand at developing novel analytic approaches to extracting insights
+from our Facebook symptom survey data. 
+
 [^3]: Delphi's forecasters "in production" are still based on relatively simple
 times series models, though to be clear they're distributional, 
 and we add a couple of extra layers of complexity on top of standard structures. 
@@ -496,9 +507,15 @@ broader insights on forecasting shared in this post are not certainly
 attributable to Ryan's work alone, but are a reflection of the work carried out 
 by all these team members.*
 
+## Related posts
+ * [COVID-19 Symptom Surveys through Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)
+ * [COVID-19 Symptom Surveys through Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+ 
 ---
 
 *[Ryan Tibshirani](http://stat.cmu.edu/~ryantibs) is a lead researcher in the
 Delphi group, and an Associate Professor in the Department of Statistics & Data
 Science and the Machine Learning Department at CMU. He is also an Amazon
 Scholar.*
+
+
