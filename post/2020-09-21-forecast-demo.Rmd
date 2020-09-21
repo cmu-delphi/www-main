@@ -26,12 +26,13 @@ this post offers a deeper dive into empirical analysis, examining whether the
 % CLI-in-community indicators from our two surveys can be used to improve 
 the accuracy of short-term forecasts of county-level COVID-19 case rates.
 
-**Forecasting** has long been a primary initiative of the Delphi group
-(in the past for flu, and currently for COVID-19). 
+**Forecasting** has long been a primary initiative of the Delphi research 
+group (in the past for flu, and currently for COVID-19). 
 Each week since mid-July we've been submitting forecasts 
 to the [COVID Forecast Hub](https://covid19forecasthub.org), 
 which serves as the official data source for the 
-[CDC's communications on COVID-19 forecasts](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-modeling.html).
+[CDC's communications on COVID-19 
+forecasts](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-modeling.html).
 
 At the outset, we should state that this post is neither a report on Delphi's 
 current COVID-19 forecasters nor an authoritative take on cutting-edge 
@@ -46,13 +47,13 @@ prediction problems that arise as part of the pandemic response.
 For example, we also work on **hotspot detection**,
 where the goal is to predict whether case rates will rise significantly,
 rather than to predict the future case rates directly, as in forecasting.
-To motivate why we might be optimistic about the utility of our survey signals
-as incorporated into forecasting or hotspot detection models, you might want to 
-first check out our [previous exploratory
+To motivate why we might be optimistic about the utility of incorporating
+our survey signals into forecasting or hotspot detection models, you can 
+check out our [previous exploratory
 investigations](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#some-interesting-examples), 
 which suggested that they can serve as **early indicators** of COVID-19 
-activity. In addition to more posts to come on forecasting, stay tuned into 
-the Delphi blog for a post on hotspot detection soon.
+activity. Stay tuned into the Delphi blog for a post on hotspot detection
+soon.
 
 Next we explain the forecasting setup and results in detail.
 Some parts may get a bit technical, but we've tried to make the post 
@@ -75,8 +76,8 @@ both the Facebook and Google % CLI-in-community signals are available
 (there were 604 counties in total with at least 200 confirmed cases by May 14, 
 and we dropped 164 of them due to a lack of Facebook or Google survey data).
 
-To fix notation, let $Y_{\ell,t}$ denote the smoothed COVID-19 case incidence 
-rate for location (county) $\ell$ and time (day) $t$. 
+To fix notation, let $Y_{\ell,t}$ denote the smoothed COVID-19 case 
+incidence rate for location (county) $\ell$ and time (day) $t$. 
 Let $F_{\ell,t}$ and $G_{\ell,t}$ denote 
 the Facebook and Google % CLI-in-community signals, respectively, 
 for location $\ell$ and time $t$. 
@@ -159,7 +160,7 @@ The code below marches the forecast date $t_0$ forward,
 one day at a time (from April 11 to September 1), 
 fits the four models, makes 7 and 14 day ahead predictions, and records errors. 
 It takes a little while to run[^1], the culprit being LAD regression: 
-here the training sets get moderately large 
+the training sets in our forecasting problem get moderately large 
 (aggregating the data over 440 counties and 14 days results in over 6000 
 training samples), and at this scale LAD regression is much slower than least 
 squares regression. We ran this R code separately and saved the results in an 
@@ -185,9 +186,10 @@ which ends up being May 6 through May 14 for 7 day ahead forecasts,
 and only May 13 through May 14 for 14 day ahead forecasts. 
 (The reason for this shortened period: 
 we paused running the Google survey on May 14 so its data ends there,
-but as we explained in our last post,we [plan to bring it back](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/#google-survey-redux) later this fall.) 
-Hence we skip studying the 14 day ahead forecasts results in this four-way model discussion, 
-as they're only based on 2 days of test data.
+but as we explained in our last post, we [plan to bring it
+back](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/#google-survey-redux) 
+later this fall.) Hence we skip studying the 14 day ahead forecasts results 
+in this four-way model discussion, as they're only based on 2 days of test data.
 
 Below we compute and print the median scaled errors for each of the four models 
 over the 9 day test period (recall that the scaled error is the absolute error 
@@ -196,7 +198,7 @@ actually comprises 440 forecasts, over the 440 counties being considered).
 We can see that adding either or both of the survey signals 
 improves on the median scaled error of the model that uses cases only,
 with the biggest gain achieved by the "Cases + Google" model.
-We can also see that the median scaled errors areall close to 1 
+We can also see that the median scaled errors are all close to 1 
 (with all but that from "Cases + Google" model exceeding 1),
 which speaks to the difficulty of the forecasting problem.
 
@@ -242,11 +244,12 @@ knitr::kable(res_err4 %>%
 
 Are these differences in median scaled errors significant? 
 It's hard to say, but some basic hypothesis testing suggests 
-that they probably are: below we conduct a [sign test](https://en.wikipedia.org/wiki/Sign_test)[^2] 
+that they probably are: below we conduct a [sign 
+test](https://en.wikipedia.org/wiki/Sign_test)[^2] 
 for whether the difference in the "Cases" model's scaled error 
 and each other model's scaled error is centered at zero. 
-The sign test is run on the 9 test days x 440 counties = 3960 pairs of scaled errors. 
-The p-values from the "Cases" versus "Cases + Facecbook" 
+The sign test is run on the 9 test days x 440 counties = 3960 pairs 
+of scaled errors. The p-values from the "Cases" versus "Cases + Facecbook" 
 and the "Cases" versus "Cases + Google" tests are tiny;
 the p-value from the "Cases" versus "Cases + Facebook + Google" test 
 is much bigger but still below 0.01. 
@@ -258,7 +261,7 @@ because it tends to be more powerful than the sign test.
 Applied here, it does indeed give smaller p-values pretty much across the board. 
 However, it assumes symmetry of the distribution in question
 (in our case, the difference in scaled errors), 
-whereas the sign test does not, and thus we report results from the latter.
+whereas the sign test does not, and thus we show results from the latter.
 
 ```{r, message = FALSE, warning = FALSE}
 # Compute p-values using the sign test against a one-sided alternative, for
@@ -314,13 +317,14 @@ ggplot(res_dif4 %>%
 
 ## Results: First Two Models
 
-Next we focus on comparing results between the "Cases" and "Cases + Facebook" models only. 
-Restricting to a common available forecast dates yields a much longer test period, 
-May 6 through August 25 for 7 day ahead forecasts, 
+Next we focus on comparing results between the "Cases" and "Cases + Facebook"
+models only. Restricting to a common available forecast dates yields a much 
+longer test period, May 6 through August 25 for 7 day ahead forecasts, 
 and May 13 through August 18 for 14 day ahead forecasts. 
 The median scaled errors over the test period are computed and reported below. 
-Now we see a decent improvement in median scaled error for the "Cases + Facebook" model, 
-and this is true for both 7 and 14 day ahead forecasts.
+Now we see a decent improvement in median scaled error for the 
+"Cases + Facebook" model, and this is true for both 7 and 14 day ahead 
+forecasts.
 
 ```{r, message = FALSE, warning = FALSE}
 # Restrict to common period for just models 1 and 2, then calculate the scaled 
@@ -366,8 +370,8 @@ the median scaled errors are quite volatile over time,
 and for some periods in July, forecasting became much "harder", 
 with the scaled errors reaching above 1.25 for 7 day ahead forecasts, 
 and above 1.5 for 14 day ahead forecasts. 
-Furthermore, towards the positive, we can see a clear visual difference 
-between the median scaled errors from 
+Furthermore, towards the positive, we can see a clear visual 
+difference between the median scaled errors from 
 the "Cases + Facebook" model in red and the "Cases" model in black. 
 The former appears to be below the latter pretty consistently over time,
 with the possible exception of periods where forecasting 
@@ -436,18 +440,19 @@ ggplot(res_dif2 %>%
 
 ## Wrap-Up
 
-We've seen that either of the Facebook or Google % CLI-in-community signals 
-can improve the accuracy of short-term forecasts 
+We've seen that either of the Facebook or Google % CLI-in-community 
+signals can improve the accuracy of short-term forecasts 
 of county-level COVID-19 case incidence rates. 
 The statistical significance associated with these improvements 
 is more apparent with the Facebook signal, 
 thanks to the much longer test period available. 
-With either signal, of the magnitude of the improvement offered seems modest but nontrivial, 
-especially because the forecasting problem is so hard in the first place.
+With either signal, of the magnitude of the improvement offered 
+seems modest but nontrivial, especially because the forecasting problem 
+is so hard in the first place.
 
 We reiterate that this was just a demo. Our analysis was fairly simple and lacks
-a few qualities that we'd expect in a truly comprehensive, realistic forecasting analysis. 
-To name three: 
+a few qualities that we'd expect in a truly comprehensive, realistic forecasting 
+analysis. To name three: 
 
 1. The models we considered are simple autoregressive structures from standard 
 time series, and could be improved in various ways (including, considering other
@@ -458,7 +463,7 @@ relevant dimensions like mobility measures, county health metrics, etc.).
 what happens 7 and 14 days ahead). Distributional forecasts portray uncertainty 
 in a transparent way, which is important in practice.
 
-3. The way we trained our forecasts does not account 
+3. The way we trained our forecast models does not account 
 for *data latency* and *revisions*, which are critical issues.
 For each (retrospective) forecast date $t_0$, 
 we constructed forecasts by training on data 
@@ -466,7 +471,8 @@ that we fetched from the API today, "as of" the day we wrote this blog post,
 and not "as of" the forecast date $t_0$. 
 This matters because nearly all signals are subject to latency 
 (they are only available at some number of days lag) 
-and go through multiple revisions (past data values get updated as time goes on).
+and go through multiple revisions (past data values get updated as time
+goes on).
 
 On the flip side, our example here was not that "far away" from being realistic.
 The models we examined are actually not too different from Delphi's forecasters
@@ -481,13 +487,15 @@ so that data gets pulled "as of" the forecast date
 Hopefully these preliminary findings have gotten you excited 
 about the possible uses of our symptom survey data. 
 To get started playing with our data yourself,
-take a look at [our interactive COVIDcast map](https://covidcast.cmu.edu),
-play with [our COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)
-via our Python and R packages,
-and if you're feeling adventurous, 
-consider competing in the [COVID-19 Symptom Data Challenge](https://www.symptomchallenge.org/),
-and trying your hand at developing novel analytic approaches to extracting insights
-from our Facebook symptom survey data. 
+take a look at our [interactive COVIDcast map](https://covidcast.cmu.edu),
+or our [COVIDcast 
+API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html),
+through our [R client](https://cmu-delphi.github.io/covidcast/covidcastR/) 
+or [Python client](https://cmu-delphi.github.io/covidcast/covidcast-py/html/).
+And if you're feeling adventurous, consider competing in the 
+[COVID-19 Symptom Data Challenge](https://www.symptomchallenge.org/),
+and trying your hand at developing novel analytic approaches to extract 
+insights from our Facebook symptom survey data. 
 
 [^3]: Delphi's forecasters "in production" are still based on relatively simple
 times series models, though to be clear they're distributional, 
@@ -503,13 +511,16 @@ calibrate. More on this in a future blog post.
 
 **Acknowledgements.** *Delphi's forecasting effort involves many people from our
 modeling team, from forecaster design, to implementation, to evaluation. The 
-broader insights on forecasting shared in this post are not certainly 
-attributable to Ryan's work alone, but are a reflection of the work carried out 
+broader insights on forecasting shared in this post certainly cannot be
+attributable to Ryan's work alone, and are a reflection of the work carried out 
 by all these team members.*
 
-## Related posts
- * [COVID-19 Symptom Surveys through Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)
- * [COVID-19 Symptom Surveys through Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+## Related Posts
+
+- [COVID-19 Symptom Surveys through 
+Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)
+- [COVID-19 Symptom Surveys through
+Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
  
 ---
 
