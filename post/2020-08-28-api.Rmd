@@ -9,129 +9,175 @@ tags: ["COVIDcast API", "packages", "COVIDcast"]
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-We make our COVIDcast API freely available to
-the community. Containing numerous COVID-19 data streams, including some
-exclusively available from Delphi's partners in technology and healthcare, the
-COVIDcast API provides researchers and decision-makers with the data they need
-to conduct their work.
+One of our primary initiatives at the Delphi project
+has been to curate a diverse set of data streams,
+and to make them available through our freely available 
+[COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+These signals include both novel signals that we have collected, 
+such as the [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) 
+and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/) symptoms surveys,
+% of Doctors Visits due to COVID-like illness, and results from Quidel's antigen tests;
+and also familiar signals, such as the confirmed case counts
+and deaths reported by Johns Hopkins University.
+The COVIDcast API provides researchers and decision-makers
+with the data they need to conduct their work for free
+and conveniently accessible via easy-to-use [Python](https://pypi.org/project/covidcast/)
+and [R](https://github.com/cmu-delphi/delphi-epidata/blob/main/src/client/delphi_epidata.R) packages.
 
 <!--more-->
 
-In 2012, we formed Delphi to “develop the theory and practice of epidemic
-forecasting, and its role in decision-making.” Led by Roni Rosenfeld and Ryan
-Tibshirani, with several participating faculty and graduate students, we
-participated in annual CDC flu forecasting challenges starting in 2013, earning
-top placements in several. We were named a CDC Center of Excellence for flu
-forecasting in 2019. Throughout our history, we have been dedicated to  making
-our code and data available to the public, including numerous influenza
-surveillance streams.
+One of our primary initiatives at the Delphi project
+has been to curate a diverse set of data streams,
+and to make them available through our freely available 
+[COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+These signals include both novel signals that we have collected, 
+such as the [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) 
+and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/) symptoms surveys,
+% of Doctors Visits due to COVID-like illness, and results from Quidel's antigen tests;
+and also familiar signals, such as the confirmed case counts
+and deaths reported by Johns Hopkins University.
+The COVIDcast API provides researchers and decision-makers
+with the data they need to conduct their work for free
+and conveniently accessible via easy-to-use [Python](https://pypi.org/project/covidcast/)
+and [R](https://github.com/cmu-delphi/delphi-epidata/blob/main/src/client/delphi_epidata.R) packages.
 
-This policy continues with our COVIDcast API, which we make freely available to
-the community. Containing numerous COVID-19 data streams, including some
-exclusively available from Delphi's partners in technology and healthcare, the
-COVIDcast API provides researchers and decision-makers with the data they need
-to conduct their work.
+
+Since the quaint pre-COVID years, 
+when we worked primarily on flu forecasting,
+we have always made our code and data available to the public, 
+creating the [EpiData API](https://cmu-delphi.github.io/delphi-epidata/) 
+initially to share data from our numerous influenza surveillance streams.
+
+We have redoubled this commitment in our COVID-19 response efforts,
+launching the COVIDcast API. 
+Containing numerous COVID-19 data streams, 
+including a number of exclusivie signals 
+that we have either collected together with technology partners (symptoms surveys),
+and other that we have extracted in collaboration with healthcare partners (e.g., doctor visits), 
+the COVIDcast API aims to provide researchers and decision-makers 
+with the data they need to do their jobs effectively.
 
 ## The purpose of the API
 
-The COVID-19 pandemic is so hard a problem that our best weapon is a diversity
-of data sources. This caused a shift in Delphi's attention: before we could
-build forecasts, we needed to rapidly develop relevant data streams. This effort
-became the COVIDcast project.
+Making sense of the COVID-19 pandemic can be a frustratingly hard problem
+in part because each signal only tells part of the story.
+Case counts are important but confounded by testing protocols and availability.
+Deaths are accurately observed, but by then it may be too late.
+We recognized early on that to make headway,
+we require a diversity of data sources. 
+This recognition caused us to shift priorities.
+Before we could build forecasts and other statistical models,
+we needed to rapidly develop relevant data streams. 
+This effort became the COVIDcast project.
 
 The COVIDcast project has many parts:
 
-* Unique relationships with partners in tech and healthcare granting us to access to data on pandemic activity
-* Code and infrastructure to build COVID-19 indicators, continuously-updated and geographically comprehensive within the USA
+* Unique relationships with partners in tech and healthcare granting us to access to data on pandemic activity.
+* Code and infrastructure to build COVID-19 indicators, continuously-updated and geographically comprehensive within the USA.
 * A historical database of all indicators, including revision tracking, with over 500 million observations to-date
-* [A public API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) serving new indicators daily, with [R and Python packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html) for client support
-* [Interactive maps and graphics](https://covidcast.cmu.edu/) to display our indicators
-* Forecasting and modeling work building on the indicators
+* [A public API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) serving new indicators daily, with [R and Python packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html) for client support.
+* [Interactive maps and graphics](https://covidcast.cmu.edu/) to display our indicators.
+* Forecasting and modeling work building on the indicators.
 
-The data streams we are interested in can be roughly mapped to the epidemic
-severity pyramid, which matches the progression of disease in the population:
+The data streams that works with can be roughly mapped 
+to the epidemic severity pyramid,
+which follows the progression of disease:
 
-1. The **population**'s behavior, mobility, and attitudes affect disease
-   transmission
-2. Some are **infected**
-3. Some infected people show **symptoms**
-4. Some people with symptoms seek **outpatient medical care**
-5. Confirmed cases are then **ascertained**, when test results or clinical
-   diagnoses are completed
-6. Some patients are **hospitalized**
+1. The population's **behavior, mobility, and attitudes** affect disease transmission.
+2. Some are **infected**.
+3. Some infected people show **symptoms**,
+4. Some people with symptoms seek **outpatient medical care**,
+5. **Confirmed cases** are then ascertained, when test results or clinical
+   diagnoses are completed,
+6. Some patients are **hospitalized**.
 7. Finally, **deaths** due to the illness are recorded.
 
-Each level of the pyramid can be examined using different data sources. For
-example, cell phone mobility data could address population behavior, while
-volume of certain search queries might correlate with how many people have
-symptoms. Levels 4 through 7 of the pyramid are medically attended, and so can
-be examined using medical records of various kinds; confirmed cases and deaths
-are also reported through local and state health authorities.
+Each level of the pyramid can be examined 
+through many different data sources. 
+For example, cell phone mobility data 
+could address population behavior, 
+while volume of certain search queries 
+might correlate with how many people have symptoms. 
+Levels 4 through 7 of the pyramid are medically attended, 
+and so can be examined using various medical records.
+Confirmed cases and deaths are reported 
+through local and state health authorities.
 
-As we move from level 1 to level 7, the data become more specific, since each
-level includes fewer and fewer people. The data also become less timely: level 1
-can be a *leading indicator* of illness, since behavior can predict spread, but
-level 7 data only occurs after patients have already been infected and died. But
-only at level 5 do we actually gain data about diagnoses---data before level 5
-is "syndromic", meaning it can only relate to symptoms and behaviors.
+As we move from level 1 to level 7,
+the data become more specific, 
+since each level includes fewer people. 
+The data also become less timely: level 1 
+can be an *early indicator* of illness, 
+since behavior can predict spread, 
+but level 7 data only occurs after patients 
+have already been infected and died. 
+But only at level 5 do we actually 
+gain data about diagnoses---data before level 5 is "syndromic", 
+meaning it can only relate to symptoms and behaviors.
 
-Data streams that are organized in this way can be used for many possible purposes, including:
+Data streams that are organized in this way 
+can be used for many possible purposes, including:
 
-* Forecasting, e.g. case incidence (for vaccine trial site selection) and hospitalizations (for planning and preparedness)
-* Nowcasting, e.g. situational awareness (for testing and resource allocation) and decision-making (for re-opening criteria, closures, and cancellations)
-* General epidemiological research, e.g. what behaviors are linked to spread? What symptoms are linked to cases?
+* Forecasting, e.g. case incidence (for vaccine trial site selection) and hospitalizations (for planning and preparedness).
+* Nowcasting, e.g. situational awareness (for testing and resource allocation) and decision-making (for re-opening criteria, closures, and cancellations).
+* General epidemiological research, e.g., what behaviors are linked to spread? What symptoms are linked to cases?
 
-For each use case, researchers need quick access to reliable, up-to-date data
-streams---access the COVIDcast API is designed to provide.
+For each use case, researchers need quick access to reliable, 
+up-to-date data streams---access the COVIDcast API is designed to provide.
 
 ## Our unique data sources
 
-Delphi has leveraged its history and reputation in influenza forecasting to
-secure several sources of pandemic data that are unavailable anywhere else.
-Agreements with our partners permit us to publish aggregated data, and these
-data streams are included in the COVIDcast API. These data sources cover most
-levels of the severity pyramid, and include:
+Delphi has leveraged its history and reputation in influenza forecasting 
+to secure several sources of pandemic data that are unavailable anywhere else.
+Agreements with our partners permit us to publish aggregated data
+and these data streams are included in the COVIDcast API.
+These data sources cover most levels of the severity pyramid and include:
 
 * [Massive surveys we conduct through
-  Facebook](https://covidcast.cmu.edu/surveys.html): Facebook has been sending a
-  random sample of its users to Delphi's symptoms and behavior survey every day
-  since April 6. We average 70,000 responses each day, making this survey, and
-  its [international sister survey](https://covidmap.umd.edu/) run by University
-  of Maryland, the largest public health survey ever conducted. We wrote about
-  the survey in a [previous blog
-  post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/),
+  Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/): 
+  Facebook has been sending a random sample of its users 
+  to Delphi's symptoms and behavior survey every day since April 6. 
+  We average 70,000 responses each day, making this survey, 
+  and its [international sister survey](https://covidmap.umd.edu/) 
+  run by University of Maryland, 
+  the largest public health survey ever conducted. 
+  We wrote about the survey in a [previous blog post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/),
   and more details, including a full list of questions, are available in [our
   documentation](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/).
 * [Large surveys through
   Google](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-survey.html):
   From April 11 to May 14, Delphi conducted a single-question symptoms survey
-  through Google. It reached 100,000 respondents daily during its short run, and
-  was a surprisingly effective measure of pandemic activity preceding medical
-  contact. Delphi is currently considering new uses for these surveys.
-* [Google search
-  trends](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html):
-  We query the Google Health Trends API for overall searcher interest in a set
-  of COVID-19 related terms about anosmia (loss of smell or taste), which
-  emerged as a symptom of the coronavirus. More details, including the specific
-  search terms and topics we analyze, are available in [our
-  documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html#estimation).
+  through Google. It reached 100,000 respondents daily during its short run,
+  and was a surprisingly effective measure 
+  of pandemic activity preceding medical contact. 
+  Delphi is currently considering new uses for these surveys.
+* [Google search trends](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html):
+  We query the Google Health Trends API 
+  for overall searcher interest in a set 
+  of COVID-19 related terms about anosmia 
+  (loss of smell or taste), 
+  which emerged as a symptom of the coronavirus. 
+  More details, including the specific search terms and topics we analyze
+  are available in [our documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html#estimation).
 * Medical records: Electronic medical records include diagnostic codes,
-  complaint notes, and lab results which can be used to estimate COVID-19
-  activity in a region. We have several partners who provide us with these
+  complaint notes, and lab results,
+  which can be used to estimate COVID-19 activity in a region.
+  We have several partners who provide us with these
   records, strictly de-identified to protect privacy.
-* Insurance claims: Medical insurance claims include diagnostic codes, lab
-  orders, and charge codes which can be used to estimate COVID-19 activity in a
-  region. We have several partners who provide us with aggregate and line-level
-  claims data, strictly de-identified to protect privacy. We use this data to
-  construct signals reflecting COVID activity in [outpatient doctor's
-  visits](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html)
-  and in [hospital
-  admissions](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html).
-* [Quidel COVID antigen
-  tests](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/quidel.html#covid-19-tests):
-  Quidel is a national provider of networked lab testing devices, and began
-  making de-identified records on COVID-19 antigen tests available to us in
-  early May. Testing volume grew to statistically meaningful levels in July,
+* Insurance claims: Medical insurance claims include diagnostic codes, 
+  lab orders, and charge codes which can be used 
+  to estimate COVID-19 activity in a region. 
+  We have several partners who provide us with 
+  aggregate and line-level claims data, 
+  strictly de-identified to protect privacy. 
+  We use this data to construct signals 
+  reflecting COVID activity in [outpatient doctor's visits](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html)
+  and in [hospital admissions](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html).
+* [Quidel COVID antigen tests](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/quidel.html#covid-19-tests):
+  Quidel is a national provider of networked lab testing devices, 
+  and began making de-identified records on COVID-19 antigen tests 
+  available to us in early May. 
+  Testing volume grew to statistically meaningful levels in July,
   with backfilled records meeting our thresholds going back to May 26th.
 
 We also host the following more widely-available signals in our API for the
@@ -144,36 +190,49 @@ convenience of the forecasting community and to provide revision tracking:
   makes detailed data available to researchers, and by agreement with SafeGraph,
   we make county-level aggregates publicly available
 
-Nearly all our data streams are available at the county level across the United
-States. We also aggregate most signals to metropolitan statistical areas and
-states. For a full list of all data streams, see the [COVIDcast signal
-documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html).
+Nearly all our data streams are available 
+at the county level across the United States. 
+We also aggregate most signals to metropolitan statistical areas and states. 
+For a full list of all data streams, 
+see the [COVIDcast signal documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html).
 
-All of the above data streams are made publicly available through our COVIDcast
-API---if you're interested in using these signals for research or to understand
-trends in your area, pulling the data is only a moment's work. Let's discuss how
-the data is stored and how you can get access.
+All of the above data streams are made publicly available 
+through our COVIDcast API---if you're interested 
+in using these signals for research 
+or to understand trends in your area, 
+pulling the data is only a moment's work. 
+Let's discuss how the data is stored and how you can get access.
 
 
 ## The data schema
 
-Each record in our API is an observation covering a set of events aggregated by time and by region. Most signals in the API aggregate daily, but some aggregate weekly, so we tend to keep the official definitions general. Each observation thus includes:
+Each record in our API is an observation covering 
+a set of events aggregated by time and by region.
+Most signals in the API aggregate daily, 
+but some aggregate weekly, 
+so we tend to keep the official definitions general. 
+Each observation thus includes:
 
-* `time_value`: The time period when the events occurred
-* `geo_value`: The geographic region where the events occurred
-* `value`: The aggregate value
-* `stderr`: The standard error
-* `sample_size`: The number of events making up the aggregation
-* `issue`: The time period when this observation became known / was published
-* `lag`: The time delay between when the events occurred and when this observation was published
+* `time_value`: The time period when the events occurred.
+* `geo_value`: The geographic region where the events occurred.
+* `value`: The aggregate value.
+* `stderr`: The standard error.
+* `sample_size`: The number of events making up the aggregation.
+* `issue`: The time period when this observation became known / was published.
+* `lag`: The time delay between when the events occurred and when this observation was published.
 
-For example, a number of COVID-19 antigen tests were performed in the state of
-New York on August 1. Information about those tests might take between four days
-and six weeks to reach us, depending on the technology and staff available at
-each testing site. We publish our first estimate for August 1st's test
-positivity rate (the percentage of tests that were positive for COVID-19) in the
-state of New York on August 6th. When more data about August 1st's tests arrive
-the next day, we issue a new estimate. This continues over subsequent days,
+For example, a number of COVID-19 antigen tests 
+were performed in the state of New York on August 1. 
+Information about those tests might take 
+between four days and six weeks to reach us, 
+depending on the technology and staff 
+available at each testing site. 
+We publish our first estimate for August 1st's test positivity rate 
+(the percentage of tests that were positive for COVID-19) 
+in the state of New York on August 6th. 
+When more data about August 1st's tests 
+arrive the next day, we issue a new estimate. 
+This continues over subsequent days,
 refining the estimate over time:
 
 ```{r q-versioning, warning=FALSE, message=FALSE, cache=TRUE}
@@ -196,33 +255,41 @@ covidcast_signal(
 
 Many other data sources are also subject to revisions:
 
-* Case and death counts are frequently corrected or adjusted by authorities
-* Medical claims data can take weeks to be submitted and processed
-* Lab tests and medical records can be backlogged for a variety of reasons
-* Surveys are not always completed promptly
+* Case and death counts are frequently corrected or adjusted by authorities.
+* Medical claims data can take weeks to be submitted and processed.
+* Lab tests and medical records can be backlogged for a variety of reasons.
+* Surveys are not always completed promptly.
 
-An accurate revision log is crucial for researchers building forecasts of
-COVID-19 cases or outcomes. A forecast that is made today can only rely on
-information we have access to today. Forecasting models are often developed by
-building them to predict cases using historical data---but to do so, the model
-must use only data that was available on the forecast date, not the updates that
-would only arrive later. We track all revisions to all data sources we ingest,
+An accurate revision log is crucial for researchers 
+building forecasts of COVID-19 cases or outcomes. 
+A forecast that is made today can only rely 
+on information we have access to today. 
+Forecasting models are often developed by building them 
+to predict cases using historical data---but to do so, 
+the model must use only data that was available on the forecast date,
+not the updates that would only arrive later. 
+We track all revisions to all data sources we ingest,
 allowing users to request the data as it was known on a specific date.
 
 ## The clients and their features
 
-A massive database of COVID-19 data is, of course, of no use if nobody can get
-access to it. We make the COVIDcast API available publicly with no registration
-required; users can simply make requests to a specific query URL and receive
-data back in JSON form. Query syntax is defined on our [API documentation
+A massive database of COVID-19 data is, of course, 
+of no use if nobody can access it. 
+We make the COVIDcast API available publicly 
+with no registration required---users can simply make requests 
+to a specific query URL and receive data back in JSON form. 
+Query syntax is defined on our [API documentation
 site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
 
-We also provide R and Python packages to make access to the data easy for anyone
-already conducting data analysis in either language. For example, an R user can
-install our [covidcast
-package](https://cmu-delphi.github.io/covidcast/covidcastR/) and then quickly
-plot the percentage of hospital admissions are due to COVID-19 in several
-states. (Click the Code button to see full code.)
+We also provide R and Python packages 
+to make access to the data easy 
+for anyone already conducting 
+data analysis in either language. 
+For example, an R user can install our 
+[covidcast package](https://cmu-delphi.github.io/covidcast/covidcastR/) 
+and then quickly plot the percentage of hospital admissions 
+that are due to COVID-19 in several states. 
+(Click the Code button to see full code.)
 
 ```{r dv-graph, message=FALSE, cache=TRUE}
 library(covidcast)
@@ -231,38 +298,36 @@ hosp <- covidcast_signal(
     start_day = "2020-03-01", end_day = "2020-08-30",
     geo_type = "state", geo_values = c("pa", "ny", "tx")
 )
-
 plot(hosp, plot_type = "line",
      title = "% of hospital admissions due to COVID-19")
 ```
 
-Since the packages also support mapping, we can also examine, say, the
-percentage of outpatient doctor visits due to COVID-like illnesses in the south:
+Since the packages also support mapping, 
+we can also examine the percentage 
+of outpatient doctor visits 
+due to COVID-like illnesses in the South:
 
 ```{r dv-maps, message=FALSE, cache=TRUE, fig.width=10}
 library(gridExtra)
 dv <- covidcast_signal(
     data_source = "doctor-visits", signal = "smoothed_adj_cli",
     start_day = "2020-07-15", end_day = "2020-08-24")
-
 south <- c("md", "de", "va", "wv", "ky", "tn", "nc", "sc", "fl", "ga", "al",
            "ms", "la", "ar", "tx", "ok")
 g1 <- plot(dv, time_value = "2020-07-15", include = south,
            title = "% of doctor's visits due to CLI on July 15")
-
 g2 <- plot(dv, time_value = "2020-08-24", include = south,
            title = "% of doctor's visits due to CLI on Aug 24")
-
 grid.arrange(g1, g2, nrow = 1)
 ```
 
-In Python, fetching data requires the [covidcast
-package](https://cmu-delphi.github.io/covidcast/covidcast-py/html/), which can
-quickly produce a Pandas data frame. For example, here we fetch the estimated
-percentage of people in each state who know someone who is sick, based on
-Delphi's [symptom
-surveys](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/).
-(Again, click Code to see the code required to produce this example.)
+In Python, fetching data requires the 
+[covidcast package](https://cmu-delphi.github.io/covidcast/covidcast-py/html/),
+which can quickly produce a Pandas data frame. 
+For example, here we fetch the estimated percentage 
+of people in each state who know someone who is sick, 
+based on Delphi's [symptom surveys](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/).
+(Click Code to see the code required to produce this example.)
 
 ```{python python-data, dev='svg'}
 import covidcast
@@ -275,33 +340,40 @@ covidcast.plot_choropleth(data, figsize=(12, 10))
 plt.title("% who know someone who is sick, Sept 8, 2020")
 ```
 
-Each package's documentation gives numerous other examples of pulling, plotting,
-and mapping data from our API. Both package support querying the latest version
-of data---as shown above---but can also fetch prior revisions or only the
-information that was available on a certain date.
+Each package's documentation gives numerous other examples
+of pulling, plotting, and mapping data from our API. 
+Both package support querying the latest version of data---as shown above---but 
+can also fetch prior revisions or only the information 
+that was available on a certain date.
 
 ## Putting the API to work
 
-The COVIDcast API provides unified access to numerous COVID data streams, which
-can be browsed with an [interactive map](https://covidcast.cmu.edu/) and easily
-accessed through R and Python packages. Unlike most other sources of COVID data,
-it tracks the complete revision history of every signal, allowing historical
-reconstructions of what information was available at specific times. And many of
-its data streams simply aren't available anywhere else.
+The COVIDcast API provides unified access to numerous COVID data streams,
+which can be browsed with an [interactive map](https://covidcast.cmu.edu/) 
+and easily accessed through R and Python packages.
+Unlike most other sources of COVID data,
+it tracks the complete revision history of every signal, 
+allowing historical reconstructions of
+what information was available at specific times. 
+And many of its data streams simply 
+aren't available anywhere else.
 
-We invite you to put the API to use for your own purposes. Building a dashboard
-for your community? Testing out forecasting methods? Studying how the pandemic
-evolves? We have data that could be useful for you.
+We invite you to put the API to use for your own purposes. 
+Building a dashboard for your community? 
+Testing out forecasting methods? 
+Studying how the pandemic evolves? 
+We might have the data you're looking for.
 
-Many of our data streams are already being used to inform decision-making. For
-example, [COVID Exit Strategy](https://www.covidexitstrategy.org/) tracks the
-pandemic and whether states are ready to reopen, using symptom survey data from
-the COVIDcast API as a key data source. Anthem's [C19
-Explorer](https://c19explorer.io/) presents a comprehensive community picture of
-the pandemic, including outpatient doctor's visit data from COVIDcast. Aledade's
-[COVID-19 Interactive Map](https://covidmap.aledade.com/) applies scan
-statistics algorithms to COVIDcast survey data to detect statistically
-significant clusters.
+Many of our data streams are already being used to inform decision-making. 
+For example, [COVID Exit Strategy](https://www.covidexitstrategy.org/) 
+tracks the pandemic and whether states are ready to reopen, 
+using symptom survey data from the COVIDcast API as a key data source. 
+Anthem's [C19 Explorer](https://c19explorer.io/) 
+presents a comprehensive community picture of the pandemic, 
+including outpatient doctor's visit data from COVIDcast. 
+Aledade's [COVID-19 Interactive Map](https://covidmap.aledade.com/) 
+applies scan statistics algorithms to COVIDcast survey data 
+to detect statistically significant clusters.
 
 We hope to see you join this list soon!
 
@@ -313,7 +385,7 @@ Saeed, George Haff, Eu Jing Chua, and Samuel Gratzl. Alex Reinhart maintains the
 COVIDcast API clients, with major contributions from Ryan Tibshirani and Andrew
 Chin. Ryan Tibshirani and Roni Rosenfeld secured many data partnerships, with
 significant support from CMU's legal team. Many Delphi team members contributed
-code and expertise to ingest and serve data for the COVIDcast API, including 
+code and expertise to ingest and serve data for the COVIDcast API, including
 Aaron Rumack, Addison Hu, Eu Jing Chua, James Sharpnack, Jeremy Weiss, Jimi Kim,
 Jingjing Tang, Sangwon Hyun, Larry Wasserman, Lester Mackey, Logan Brooks, Maria
 Jahja, Natalia Lombardi de Oliveira, Noah Simon, Pratik Patil, Robert
