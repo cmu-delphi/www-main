@@ -2,7 +2,7 @@
 title: "Can Symptoms Surveys Improve COVID-19 Forecasts?"
 author: "Ryan Tibshirani"
 date: 2020-09-21
-tags: ["symptom surveys"]
+tags: ["symptom surveys", "forecasting"]
 output:
   html_document:
     code_folding: hide
@@ -25,7 +25,7 @@ These surveys have asked millions of people in the United States whether they
 (or people they know) are experiencing COVID-like symptoms, allowing us to
 calculate a "% CLI-in-community" signal for counties across the United States:
 an estimate of the percentage of people who know someone who is currently sick
-with COVID-like symptoms. Because these surveys run daily and aren't subject to
+with COVID-like illness. Because these surveys run daily and aren't subject to
 the reporting delays and lag that can affect other data, such as COVID test
 results, they promise to be a valuable tool to monitor the spread of COVID-19.
 This post offers a deeper dive into empirical analysis than our past posts about
@@ -305,7 +305,7 @@ the "Cases + Facebook" and "Cases + Google" models
 appear to deliver some decently small p-values, 
 but the story is not as clear with the "Cases + Facebook + Google" model. 
 
-```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 3.75}
+```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 3.5}
 # Red, blue (similar to ggplot defaults), then yellow
 ggplot_colors = c("#FC4E07", "#00AFBB", "#E7B800")
 
@@ -445,12 +445,84 @@ ggplot(res_dif2 %>%
   theme_bw() + theme(legend.pos = "none")
 ```
 
+## Varying the Number of Days Ahead\*
+
+[**\*Added September 24, 2020**]
+
+Hypothesis tests (like the sign tests conducted above) help us assess whether
+the differences in median scaled errors we're seeing between the forecasters are 
+*statistically* significant, but still don't give us a sense of the *practical*
+significance. For example, for 7-day-ahead forecasts, what does an improvement 
+of about 0.018 units on the scaled error scale really mean, from our comparison
+of the "Cases + Facebook" model to the "Cases" model (over the test period May 6
+through August 25)? Is this a meaningful gain? 
+
+To answer questions like this, we can look at the way that the median scaled 
+errors behave as a function of the number of days ahead at which we're making 
+the forecasts. Previously we considered forecasting case rates just 7 and 14 
+days ahead; now we systematically examine 5, 6, 7, etc., through 20 days ahead. 
+As before, because it takes a long time to complete, we ran the code for this 
+separately and saved the results in an RData file, which you can find in the 
+[same GitHub 
+repo](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post) 
+as the Rmd source for this blog post. (It's exactly the same code as that above,
+but with `leads = 5:20`.) 
+
+Below we compute and plot the median scaled errors for the "Cases" and "Cases +
+Facebook" models, for different number of days ahead for the forecast target.
+This includes all forecast dates common to the two models (May 6 through August 
+27, or earlier---the end date shrinks by one each time we increase the number of 
+days ahead). A first glance shows that the "Cases + Facebook" model, in red, 
+gives better median scaled errors at all ahead values, and the vertical gap 
+between the two curves is consistently in the range of what we were seeing
+before (for 7 and 14 days ahead), around 0.02 units or more on the scaled error 
+scale. 
+
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
+load("forecast-demo/demo-extended.rda")
+res_err2_ext = res %>%
+  select(-c(err3, err4)) %>%
+  drop_na() %>%                                       # Restrict to common time
+  mutate(err1 = err1 / err0, err2 = err2 / err0) %>%  # Compute relative error
+                                                      # to strawman model
+  ungroup() %>%
+  select(-err0) %>%
+  pivot_longer(names_to = "model", values_to = "err",
+               cols = -c(geo_value, time_value, lead)) %>%
+  mutate(model = factor(model, labels = model_names[1:2])) 
+
+# Compute and plot median errors as function of number of days ahead
+ggplot(res_err2_ext %>% 
+         group_by(model, lead) %>%
+         summarize(err = median(err)) %>% ungroup(), 
+       aes(x = lead, y = err)) + 
+  geom_line(aes(color = model)) + 
+  geom_point(aes(color = model)) + 
+  scale_color_manual(values = c("black", ggplot_colors)) + 
+  labs(title = "Forecasting errors by number of days ahead",
+       subtitle = sprintf("Over all counties with at least %i cumulative cases",
+                          case_num),
+       x = "Number of days ahead", y = "Median scaled error") +
+  theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
+```
+
+But if we look at it from a different angle, and consider the *horizontal* gap 
+between the curves, then we can infer something quite a bit more interesting: 
+for 7-day-ahead forecasts, the median scaled error of the "Cases" model is 
+comparable to that of 12-day-ahead forecasts from the "Cases + Facebook" model.
+So you could say that using the % CLI-in-community signal from our Facebook 
+survey buys us *5 extra days of lead time* for this forecasting problem, which 
+seems pretty nontrivial. For 14-day-ahead forecasts, it appears to be more like 
+3 or 4 days of lead time, since 17-day-ahead or 18-day-ahead forecasts from the
+"Cases + Facebook" model have comparable median scaled error to 14-day-ahead 
+forecasts from the "Cases" model. 
+ 
 ## Wrap-Up
 
 We've seen that either of the Facebook or Google % CLI-in-community 
 signals can improve the accuracy of short-term forecasts 
 of county-level COVID-19 case incidence rates. 
-The statistical significance associated with these improvements 
+The significance associated with these improvements 
 is more apparent with the Facebook signal, 
 thanks to the much longer test period available. 
 With either signal, of the magnitude of the improvement offered 
