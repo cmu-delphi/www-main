@@ -309,7 +309,7 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
   scale_color_manual(values = ggplot_colors) +
   labs(title = "Correlation between survey signals and case rates",
        subtitle = sprintf("Over all counties with at least %i cumulative cases",
-                          case_num, max(df_go$time_value)), 
+                          case_num), 
        x = "Date", y = "Correlation") +
     theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
 ```
