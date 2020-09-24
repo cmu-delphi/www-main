@@ -525,7 +525,7 @@ signal is clear throughout.
 We've seen that either of the Facebook or Google % CLI-in-community 
 signals can improve the accuracy of short-term forecasts 
 of county-level COVID-19 case incidence rates. 
-The significance associated with these improvements 
+The significance of these improvements 
 is more apparent with the Facebook signal, thanks
 to the much longer test period available. 
 With either signal, of the magnitude of the improvement offered 
