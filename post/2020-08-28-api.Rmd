@@ -341,7 +341,7 @@ that are due to COVID-19 in several states.
 ```{r dv-graph, message=FALSE, cache=TRUE}
 library(covidcast)
 hosp <- covidcast_signal(
-    data_source = "hospital-admissions", signal = "smoothed_adj_covid19",
+    data_source = "hospital-admissions", signal = "smoothed_adj_covid19_from_claims",
     start_day = "2020-03-01", end_day = "2020-08-30",
     geo_type = "state", geo_values = c("pa", "ny", "tx")
 )
