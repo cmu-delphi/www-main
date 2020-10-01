@@ -19,7 +19,8 @@ and to make them freely available through our
 These signals include both novel signals that we have collected, 
 such as the [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) 
 and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/) symptoms surveys,
-% of doctor's visits due to COVID-like illness, and results from Quidel's antigen tests;
+% of doctor's visits due to COVID-like illness, 
+and results from Quidel's antigen tests;
 and also familiar signals, such as the confirmed case counts
 and deaths reported by Johns Hopkins University.
 The COVIDcast API provides researchers and decision-makers
@@ -29,22 +30,23 @@ and [R](https://cmu-delphi.github.io/covidcast/covidcastR/) packages.
 
 <!--more-->
 
-One of our primary initiatives at the Delphi COVIDcast project ([learn more
-about the background here](https://delphi.cmu.edu/blog/2020/08/10/hello-world/))
-has been to curate a diverse set of COVID-related data streams, and to make them
-freely available through our [COVIDcast
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html). These
-signals include both novel signals that we have collected, such as the
-[Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
-and
-[Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)
-symptoms surveys, % of doctor's visits due to COVID-like illness, and results
-from Quidel's antigen tests; and also familiar signals, such as the confirmed
-case counts and deaths reported by Johns Hopkins University. The COVIDcast API
-provides researchers and decision-makers with the data they need to conduct
-their work---for free!---and is conveniently accessible via easy-to-use
-[Python](https://cmu-delphi.github.io/covidcast/covidcast-py/html/) and
-[R](https://cmu-delphi.github.io/covidcast/covidcastR/) packages.
+One of our primary initiatives at the Delphi COVIDcast project 
+([learn more about our organization here](https://delphi.cmu.edu/blog/2020/08/10/hello-world/))
+has been to curate a diverse set of COVID-related data streams, 
+and to make them freely available through our 
+[COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+These signals include both novel signals that we have collected, 
+such as the [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)
+symptoms surveys, % of doctor's visits due to COVID-like illness, 
+and results from Quidel's antigen tests; 
+and also familiar signals, such as the confirmed case counts 
+and deaths reported by Johns Hopkins University. 
+The COVIDcast API provides researchers and decision-makers 
+with the data they need to conduct their work---for free!---and 
+is conveniently accessible via easy-to-use 
+[Python](https://cmu-delphi.github.io/covidcast/covidcast-py/html/) 
+and [R](https://cmu-delphi.github.io/covidcast/covidcastR/) packages.
 
 Since the quaint pre-COVID years, 
 when our group worked primarily on flu forecasting,
@@ -65,17 +67,19 @@ with the data they need to do their jobs effectively.
 
 Making sense of the COVID-19 pandemic can be a frustratingly hard problem
 in part because each signal only tells part of the story.
-Case counts are important, but different states use different reporting criteria
-testing availability varies.
-Deaths are more accurately observed, but by then it may be too late.
+Case counts are important, but different states 
+use different reporting criteria
+and testing availability varies.
+Deaths are more accurately observed, 
+but by then it may be too late.
 We recognized early on that to make headway,
 we require a diversity of data sources. 
 This recognition caused us to shift priorities.
 Before we could build forecasts and other statistical models,
 we needed to rapidly develop new relevant data streams. 
 This effort grew into the COVIDcast project---see our [introductory
-post](https://delphi.cmu.edu/blog/2020/08/10/hello-world/) for more about our
-efforts since March.
+post](https://delphi.cmu.edu/blog/2020/08/10/hello-world/) 
+for more about our efforts since March.
 
 The data streams that we work with can be roughly mapped
 onto the epidemic severity pyramid,
@@ -124,11 +128,10 @@ can be used for many possible purposes, including:
   are linked to spread, what symptoms commonly occur, and other important
   questions to better understand the pandemic.
 
-For each use case, researchers need quick access to reliable,
-up-to-date data streams---access the COVIDcast API is designed to provide.
+For each use case, researchers need quick access to reliable, up-to-date data streams. 
+That's where the COVIDcast API comes in.
 
-<!-- RJT: this doesn't make sense as written to me ... did something get cut off? Designed to provide what? -->
-<!-- AER: makes sense to me? -->
+
 
 ## Unique Data Sources
 
@@ -142,11 +145,10 @@ These data sources cover most levels of the severity pyramid and include:
   random sample of its users to Delphi's symptoms and behavior survey every day
   since April 6. Our survey averages over 70,000 respondents each day, making
   it---along with its [international sister survey](https://covidmap.umd.edu/)
-  run by University of Maryland---the largest public health survey ever
-  conducted. Our [previous blog
-  post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
-  showed how the survey can indicate COVID-19 activity, and preliminary analysis
-  also suggests [it can help forecast COVID-19
+  run by University of Maryland---the largest public health survey ever conducted. 
+  Our [previous blog post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+  showed how the survey can indicate COVID-19 activity, 
+  and preliminary analysis also suggests [it can help forecast COVID-19
   cases](https://delphi.cmu.edu/blog/2020/09/21/can-symptoms-surveys-improve-covid-19-forecasts/).
   See our [surveys site](https://covidcast.cmu.edu/surveys.html)
   for more on the survey, its questions, and getting access to data.
@@ -234,12 +236,13 @@ Each record thus includes:
 * `stderr`: The standard error.
 * `sample_size`: The number of events making up the aggregation.
 
-For example, a number of COVID-19 antigen tests were performed in the state of
-New York on August 1. The `time_value` would be August 1, with `geo_value`
-indicating the state of New York, while the remaining fields would give the
-estimated test positivity rate (the percentage of tests that were positive for
-COVID-19), its standard error, and the number of tests used to calculate the
-estimate.
+For example, a number of COVID-19 antigen tests 
+were performed in the state of New York on August 1. 
+The `time_value` would be August 1, 
+with `geo_value` indicating the state of New York,
+while the remaining fields would give the estimated test positivity rate 
+(the percentage of tests that were positive for COVID-19), 
+its standard error, and the number of tests used to calculate the estimate.
 
 But crucially---and unlike most other sources of COVID-19 data---our API reports
 two additional fields with each record:
@@ -248,16 +251,19 @@ two additional fields with each record:
 * `lag`: The time delay between when the events occurred and when this
   observation was published.
 
-For example, results of COVID-19 antigen tests may take between four days and
-six weeks to reach us, depending on the technology and staff available at each
-testing site. We might publish our first estimate of August 1st's test
-positivity rate on August 6th, giving an issue date of August 6 and lag of five
-days.
+For example, results of COVID-19 antigen tests may take 
+between four days and six weeks to reach us, 
+depending on the technology and staff available at each testing site. 
+We might publish our first estimate 
+of August 1st's test positivity rate on August 6th,
+giving an issue date of August 6 and lag of five days.
 
-But when more data about August 1st's tests arrive the next day, we issue a
-second estimate with an issue date of August 7. Each record remains in the API,
-permitting users to see the changes and ask "What was known *as of* this date?"
-This is important because estimates can change for *weeks* as new data arrives:
+But when more data about August 1st's tests arrive the next day, 
+we issue a second estimate with an issue date of August 7. 
+Each record remains in the API, permitting users to see the changes 
+and ask "What was known *as of* this date?"
+This is important because estimates 
+can change for *weeks* as new data arrives:
 
 ```{r q-versioning, warning=FALSE, message=FALSE, cache=TRUE}
 library(covidcast)
@@ -302,14 +308,15 @@ date, and preserves the history of changes for future analysis.
 ## Accessing the API
 
 A massive database of COVID-19 data is, of course, 
-of no use if nobody can access it. We provide several ways to access COVIDcast
-data.
+of no use if nobody can access it. 
+We provide several ways to access COVIDcast data.
 
-First, the [public COVIDcast map](https://covidcast.cmu.edu/) provides a
-selection of our signals, and includes an "Export Data" tab that can pull a
-selected signal and download it as a CSV. Browse the map to choose which signal
-you are interested in, then use Export Data to obtain the data for further
-analysis.
+First, the [public COVIDcast map](https://covidcast.cmu.edu/) 
+provides a selection of our signals, 
+and includes an "Export Data" tab that can 
+pull a selected signal and download it as a CSV. 
+Browse the map to choose which signal you are interested in, 
+then use Export Data to obtain the data for further analysis.
 
 For more advanced users, we provide R and Python packages
 to make access to the data easy 
