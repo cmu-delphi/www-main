@@ -206,7 +206,11 @@ Nearly all our data streams are available
 at the county level across the United States. 
 We also aggregate our signals to metropolitan statistical areas and states. 
 For a full list of all data streams, see our 
-[COVIDcast signal documentation site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html).
+[COVIDcast signal documentation
+site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html).
+The software we've developed to obtain and aggregate this data is open-source,
+shared in our [covidcast-indicators GitHub
+repository](https://github.com/cmu-delphi/covidcast-indicators).
 
 All of the above data streams are made publicly available 
 through our COVIDcast API---if you're interested 
