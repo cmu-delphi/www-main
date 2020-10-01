@@ -298,19 +298,29 @@ date, and preserves the history of changes for future analysis.
 ## Accessing the API
 
 A massive database of COVID-19 data is, of course, 
-of no use if nobody can access it. 
-We make the COVIDcast API available publicly 
-with no registration required---users can simply make requests 
-to a specific query URL and receive data back in JSON form. 
-Query syntax is defined on our [API documentation
-site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+of no use if nobody can access it. We provide several ways to access COVIDcast
+data.
 
-<!-- RJT: instead of referring people out to it, as I said in my last comment, I'd just walk through a "boring" basic example of how to construct a query string and print the JSON object you get in return. THEN I'd discuss revisions. THEN the client packages. Or something like that. -->
+First, the [public COVIDcast map](https://covidcast.cmu.edu/) provides a
+selection of our signals, and includes an "Export Data" tab that can pull a
+selected signal and download it as a CSV. Browse the map to choose which signal
+you are interested in, then use Export Data to obtain the data for further
+analysis.
 
-We also provide R and Python packages 
+For more advanced users, we provide R and Python packages
 to make access to the data easy 
 for anyone already conducting 
-data analysis in either language. 
+data analysis in either language. Suppose, for example, that you browse the
+[COVIDcast signal
+documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html)
+and decide you would like to conduct an analysis of a Hospital Admissions
+signal. According to [its documentation
+page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html),
+this source is called `hospital-admissions`, and there are several available
+signals to choose from. Reviewing the technical details, you decide
+`smoothed_adj_covid19` fits your needs best, because it removes day-of-week
+effects. With the source and signal names in hand, you can quickly pull the data.
+
 For example, an R user can install our 
 [covidcast package](https://cmu-delphi.github.io/covidcast/covidcastR/) 
 and then quickly plot the percentage of hospital admissions 
@@ -352,7 +362,11 @@ In Python, fetching data requires the
 which can quickly produce a Pandas data frame. 
 For example, here we fetch the estimated percentage 
 of people in each state who know someone who is sick, 
-based on Delphi's [symptom surveys](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/).
+based on Delphi's [symptom
+surveys](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/).
+According to the [relevant documentation
+page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html),
+this is the `fb-survey` data source's `smoothed_hh_cmnty_cli` signal.
 (Click the "Code" button to see the Python code used to produce this example.)
 
 ```{python python-data, dev='svg'}
@@ -367,11 +381,32 @@ covidcast.plot_choropleth(data, figsize=(12, 10))
 plt.title("% who know someone who is sick, Sept 8, 2020")
 ```
 
-Each package's documentation gives numerous other examples
-of pulling, plotting, and mapping data from our API. 
-Both packages support querying the latest version of data---as shown above---but 
-can also fetch prior revisions or only the information 
-that was available on a certain date.
+Each package's documentation gives numerous other examples of pulling, plotting,
+and mapping data from our API. (Note that the Export Data feature in the map can
+also show you example R or Python code to download any signal from the map.)
+Both packages support querying the latest version of data---as shown above---but
+can also fetch prior revisions or only the information that was available on a
+certain date.
+
+But R and Python are not required for access to our data. Users can simply make
+HTTP requests to a specific query URL and receive data back in JSON form. By
+setting `data_source`, `signal`, `time_type`, `geo_type`, `time_values`, and
+`geo_value` arguments in the URL, you can select the specific data source you
+want and the regions and times you want it for. For example, the URL
+
+```
+https://api.covidcast.cmu.edu/epidata/api.php?source=covidcast&data_source=fb-survey&signal=raw_cli&time_type=day&geo_type=county&time_values=20200406-20200410&geo_value=06001
+```
+
+fetches the `raw_cli` signal from the `fb-survey` source---representing the
+estimated percent of people with COVID-like illness based on our symptom
+surveys---for one county in the United States between April 6 and April
+10, 2020. That county is Alameda County, CA, which has the FIPS code 06001.
+
+Query syntax is defined on our [API documentation
+site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), and you
+can use any programming language that supports making HTTP requests---which is
+most programming languages---to fetch up-to-date data.
 
 ## Putting the API to Work
 
