@@ -48,10 +48,18 @@ is conveniently accessible via easy-to-use
 [Python](https://cmu-delphi.github.io/covidcast/covidcast-py/html/) 
 and [R](https://cmu-delphi.github.io/covidcast/covidcastR/) packages.
 
-We have made our code and data available to the public since the quaint pre-COVID years, when our group worked primarily on flu forecasting.
-The [Epidata API](https://cmu-delphi.github.io/delphi-epidata/) 
-was initially created to share data from our numerous influenza surveillance streams. Now that COVID-19 is here, our collaborations with partner organizations in technology and healthcare enable us to include a number of exclusive signals which would not otherwise be publicly available. We have redoubled our commitment to open code and data in our COVID-19 response efforts with the launch of the COVIDcast API, providing researchers and decision-makers 
-with the data they need to do their jobs effectively.
+We have made our code and data available to the public since the
+quaint pre-COVID years, when our group worked primarily on flu
+forecasting.  The [Epidata
+API](https://cmu-delphi.github.io/delphi-epidata/) was initially
+created to share data from our numerous influenza surveillance
+streams. Now that COVID-19 is here, our collaborations with partner
+organizations in technology and healthcare enable us to include a
+number of exclusive signals which would not otherwise be publicly
+available. We have redoubled our commitment to open code and data in
+our COVID-19 response efforts with the launch of the COVIDcast API,
+providing researchers and decision-makers with the data they need to
+do their jobs effectively.
 
 ## Purpose of the API
 
@@ -111,14 +119,15 @@ can be used for many possible purposes, including:
 
 * **Forecasting.** Predicting where cases occur can help guide local responses;
   predicting hospitalization rates can help medical officials prepare.
-* **Nowcasting.** If data can provide a clear picture of what's happening *right
-  now*, this picture can be used to make decisions about re-opening criteria,
-  resource allocation, closures, and so on.
+* **Nowcasting.** If data can provide a clear picture of what's
+  happening *right now*, this picture can be used to make decisions
+  about re-opening criteria, resource allocation, closures, and so on.
 * **Epidemiological research.** The data may help us understand what behaviors
   are linked to spread, what symptoms commonly occur, and other important
   questions to better understand the pandemic.
 
-For each use case, researchers need quick access to reliable, up-to-date data streams. The COVIDcast API can provide that access.
+For each use case, researchers need quick access to reliable, up-to-date data
+streams. The COVIDcast API can provide that access.
 
 ## Unique Data Sources
 
@@ -157,12 +166,13 @@ These data sources cover most levels of the severity pyramid and include:
   We use this data to construct signals
   reflecting COVID activity in [outpatient doctor's visits](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html)
   and in [hospital admissions](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html).
-* Quidel COVID antigen tests:
-  Quidel is a national provider of networked lab testing devices,
-  and began making de-identified records on COVID-19 antigen tests
-  available to us in early May. This data source fills an important gap because many public testing data sources only include
-  PCR tests, not antigen tests.
-  Our [technical documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/quidel.html#covid-19-tests) gives more details.
+* Quidel COVID antigen tests: Quidel is a national provider of networked lab
+  testing devices, and began making de-identified records on COVID-19 antigen
+  tests available to us in early May. This data source fills an important gap
+  because many public testing data sources only include PCR tests, not antigen
+  tests.  Our [technical
+  documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/quidel.html#covid-19-tests)
+  gives more details.
 * Google search trends:
   We query the Google Health Trends API
   for overall searcher interest in a set 
@@ -309,8 +319,9 @@ to make access to the data easy
 for anyone conducting 
 data analysis in either language. 
 
-The first step of using the packages to acquire the data is to identify the source and signal name for the data you want to analyze. Suppose, for example, that you browse the
-[COVIDcast signal
+The first step of using the packages to acquire the data is to identify the
+source and signal name for the data you want to analyze. Suppose, for example,
+that you browse the [COVIDcast signal
 documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html)
 and decide you would like to conduct an analysis of a Hospital Admissions
 signal. According to [its documentation
@@ -318,7 +329,7 @@ page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital
 this source is called `hospital-admissions`, and there are several available
 signals to choose from. Reviewing the technical details, you decide
 `smoothed_adj_covid19` fits your needs best, because it removes day-of-week
-effects. 
+effects.
 
 With the source and signal names in hand, you can quickly pull the data. 
 
@@ -451,8 +462,12 @@ API clients, with major contributions from Andrew Chin and Ryan Tibshirani. Ryan
 and Roni Rosenfeld secured many data partnerships, with key support from CMU's
 legal team. Last but not least, building the COVIDcast signals themselves was
 (and still is) a huge team effort: many Delphi members contributed code and
-expertise to ingest and serve data on the COVIDcast API, including Taylor Arnold, Logan Brooks, Eu Jing Chua, Addison Hu, Sangwon Hyun, Maria Jahja, 
-Jimi Kim, Zachary Lipton, Natalia Lombardi de Oliveira, Lester Mackey, Pratik Patil, Samyak Rajanala, Roni Rosenfeld, Aaron Rumack, James Sharpnack, Noah Simon, Jingjing Tang, Robert and Ryan Tibshirani, Valérie Ventura, Larry Wasserman, and Jeremy Weiss.*
+expertise to ingest and serve data on the COVIDcast API, including Taylor
+Arnold, Logan Brooks, Eu Jing Chua, Addison Hu, Sangwon Hyun, Maria Jahja, Jimi
+Kim, Zachary Lipton, Natalia Lombardi de Oliveira, Lester Mackey, Pratik Patil,
+Samyak Rajanala, Roni Rosenfeld, Aaron Rumack, James Sharpnack, Noah Simon,
+Jingjing Tang, Robert and Ryan Tibshirani, Valérie Ventura, Larry Wasserman, and
+Jeremy Weiss.*
 
 ---
 
