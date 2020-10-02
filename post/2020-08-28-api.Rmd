@@ -389,7 +389,7 @@ import matplotlib.pyplot as plt
 data = covidcast.signal("fb-survey", "smoothed_hh_cmnty_cli",
                         date(2020, 9, 8), date(2020, 9, 8),
                         geo_type="state")
-covidcast.plot_choropleth(data, figsize=(12, 10))
+covidcast.plot_choropleth(data, figsize=(7, 5))
 plt.title("% who know someone who is sick, Sept 8, 2020")
 ```
 
