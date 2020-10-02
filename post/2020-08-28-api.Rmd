@@ -177,7 +177,6 @@ These data sources cover most levels of the severity pyramid and include:
 
 Few more comments: 
 - We were linking to the technical documentation for most of the names of the signals here. I undid this, because I think a typical user will be expecting some nice readable explanation, and what they'll get is something very technical. So whenever we link to the technical documentation, I think we should flag it as such. Does this become too repetitive? I'm not sure. If we stick with it, then for consistency, we should apply it also to the medical claims paragraph (I did this in all other cases).
-- What of the medical records paragraph? It seems odd because we're not linking or referring to any specific signals in particular. I guess primarily HealthJump data is based on medical records (perhaps entirely), but that's not online yet. Should we just cut this paragraph? 
 - Should add a line somewhere here at the end that they should look out for future blog posts where we explore in more depth the uses of all these signals ... right? We do probably plan to follow-up on each one? 
 - Finally, let's have Roni take a pass over this whole signal list and get his feedback. -->
 
