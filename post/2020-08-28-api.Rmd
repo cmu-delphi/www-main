@@ -120,7 +120,7 @@ can be used for many possible purposes, including:
 * **Forecasting.** Predicting where cases occur can help guide local responses;
   predicting hospitalization rates can help medical officials prepare.
 * **Nowcasting.** If data can provide a clear picture of what's
-  happening *right now*, this picture can be used to make decisions
+  happening *right now*, then this picture can be used to make decisions
   about re-opening criteria, resource allocation, closures, and so on.
 * **Epidemiological research.** The data may help us understand what behaviors
   are linked to spread, what symptoms commonly occur, and other important
@@ -164,8 +164,11 @@ These data sources cover most levels of the severity pyramid and include:
   aggregate and line-level claims data,
   strictly de-identified to protect privacy.
   We use this data to construct signals
-  reflecting COVID activity in [outpatient doctor's visits](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html)
-  and in [hospital admissions](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html).
+  reflecting COVID activity in both outpatient and inpatient visits; see our
+  technical documentation sites for 
+  [doctor's visits](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html)
+  and [hospital admissions](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html)
+  for more details.
 * Quidel COVID antigen tests: Quidel is a national provider of networked lab
   testing devices, and began making de-identified records on COVID-19 antigen
   tests available to us in early May. This data source fills an important gap
@@ -182,13 +185,6 @@ These data sources cover most levels of the severity pyramid and include:
   More details, including the specific search terms and topics we analyze,
   are available in our 
   [technical documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html).
-
-<!-- RJT: I'd suggest passing over this list and reorganizing it a bit. I would either do it: strictly in order of the severity pyramid, OR in order of the things we want to highlight the most. Currently it seems to do neither. If we go the latter route, I would describe the doctor's visits and hospital admissions signals RIGHT after the survey signals.
-
-Few more comments: 
-- We were linking to the technical documentation for most of the names of the signals here. I undid this, because I think a typical user will be expecting some nice readable explanation, and what they'll get is something very technical. So whenever we link to the technical documentation, I think we should flag it as such. Does this become too repetitive? I'm not sure. If we stick with it, then for consistency, we should apply it also to the medical claims paragraph (I did this in all other cases).
-- Should add a line somewhere here at the end that they should look out for future blog posts where we explore in more depth the uses of all these signals ... right? We do probably plan to follow-up on each one? 
-- Finally, let's have Roni take a pass over this whole signal list and get his feedback. -->
 
 Additionally, we host the following more widely-available signals in our API for the
 convenience of the research community, and to provide revision tracking:
@@ -293,7 +289,7 @@ A forecast that is made today can only rely
 on information we have access to today. 
 Forecasting models are often developed by building them 
 to predict cases using historical data---but to do so, 
-the model must use only data that was available on the forecast date,
+the model should use only data that was available on the forecast date,
 not the updates that would arrive later.
 
 Our engineering team has worked to enable revision tracking for all data sources
@@ -315,15 +311,14 @@ Browse the map to choose which signal you are interested in,
 then use Export Data to obtain the data for further analysis.
 
 For more advanced users, we provide R and Python packages
-to make access to the data easy 
-for anyone conducting 
+to make data access easy for anyone conducting 
 data analysis in either language. 
 
 The first step of using the packages to acquire the data is to identify the
 source and signal name for the data you want to analyze. Suppose, for example,
 that you browse the [COVIDcast signal
 documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html)
-and decide you would like to conduct an analysis of a Hospital Admissions
+and decide you would like to conduct an analysis of a hospital admissions
 signal. According to [its documentation
 page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html),
 this source is called `hospital-admissions`, and there are several available
@@ -377,7 +372,7 @@ of people in each state who know someone who is sick,
 based on Delphi's [symptom
 surveys](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/).
 According to the [relevant documentation
-page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html),
+page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html),
 this is the `fb-survey` data source's `smoothed_hh_cmnty_cli` signal.
 (Click the "Code" button to see the Python code used to produce this example.)
 
@@ -400,8 +395,8 @@ Both packages support querying the latest version of data---as shown above---but
 can also fetch prior revisions or only the information that was available on a
 certain date.
 
-R and Python are not required for access to our data; users can also make
-HTTP requests to the API directly and receive data back in JSON format. By
+Finally, R and Python are not required for access to our data; users can also 
+make HTTP requests to the API directly and receive data back in JSON format. By
 setting `data_source`, `signal`, `time_type`, `geo_type`, `time_values`, and
 `geo_value` parameters in the query URL, you can select the specific data source you
 want and the regions and times you want it for. For example, the URL
