@@ -17,9 +17,9 @@ has been to curate a diverse set of COVID-related data streams,
 and to make them freely available through our
 [COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
 These include both novel signals that we have collected and analyzed ourselves,
-such as our symptom survey which is [offered by Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) 
+such as our symptom survey [distributed by Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
 to its users, [Google's symptom survey](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/) whose results are delivered to us,
-% of doctor's visits due to COVID-like illness, 
+the percentage of doctor's visits due to COVID-like illness,
 and results from Quidel's antigen tests;
 and also existing signals, such as the confirmed case counts
 and deaths reported by USA Facts and Johns Hopkins University.
@@ -36,9 +36,9 @@ has been to curate a diverse set of COVID-related data streams,
 and to make them freely available through our 
 [COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
 These include both novel signals that we have collected and analyzed ourselves, 
-such as our symptom survey which is [offered by Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) 
+such as our symptom survey [distributed by Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
 to its users, [Google's symptom survey](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/) whose results are delivered to us,
-% of doctor's visits due to COVID-like illness, 
+the percentage of doctor's visits due to COVID-like illness,
 and results from Quidel's antigen tests;
 and also existing signals, such as the confirmed case counts 
 and deaths reported by USA Facts and Johns Hopkins University. 
