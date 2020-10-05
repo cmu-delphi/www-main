@@ -121,9 +121,9 @@ can be used for many possible purposes, including:
   about re-opening, closures, resource allocation, and so on.
 
 * **Forecasting.** Predicting the likely activity level of the pandemic in each community in the coming weeks can help guide local planning and preparations.  For example, predicting the number of upcoming cases can help public health departments hire and train the necessary contact tracers. 
-  Predicting hospitalizations can help hospitals prepare adequate supplies of PPEs, clear hospital beds, and ensure availability of appropriate staff.
+  Predicting hospitalizations can help hospitals prepare adequate supplies of PPE, clear hospital beds, and ensure availability of appropriate staff.
 
-* **Scenario projections.** While forecasting predicts what is likley to happen if current circumstances continue unchanged, scenario projections can tell us how the pandemic is likely to unfold under different assumptions, such as changes in specific government policies (e.g. opening or closing schools or businesses), specific public behavior (stay-at-home, mask usage, social distancing), or changes in the properties of the virus or the environment.  Scenation projections are most useful for contemplating various interventions.  
+* **Scenario projections.** While forecasting predicts what is likely to happen if current circumstances continue unchanged, scenario projections can tell us how the pandemic is likely to unfold under different assumptions, such as changes in specific government policies (e.g. opening or closing schools or businesses), specific public behavior (stay-at-home, mask usage, social distancing), or changes in the properties of the virus or the environment.  Scenario projections are most useful for contemplating various interventions.
 
 * **Epidemiological research.** The data may help us understand what behaviors
   are linked to spread, what symptoms commonly occur, and answer other important
@@ -137,16 +137,16 @@ streams. The COVIDcast API was designed to provide that access.
 Delphi has built on its connections and reputation in influenza forecasting
 to secure several sources of pandemic data that are not available anywhere else.
 Our partners provide us with de-identified data, and our agreements with them
-permit us to publish derived estimates and other aggregated statistics in our COVIDcast API.
+permit us to publish estimates and other aggregated statistics in our COVIDcast API.
 These data sources cover most levels of the severity pyramid and include:
 
 * Massive surveys we conduct through Facebook: Facebook has been sending a
-  random sample of its users to Delphi's Symptoms and Behavior Survey every day
+  random sample of its users to Delphi's symptoms and behavior survey every day
   since April 6. Our survey averages over 70,000 respondents each day, making
   it---along with its [international sister survey](https://covidmap.umd.edu/)
   run by University of Maryland---the largest public health survey ever conducted. 
   Our [previous blog post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
-  showed how the survey can capture COVID-19 activity, 
+  showed how the survey can indicate COVID-19 activity,
   and preliminary analysis also suggests [it can help forecast COVID-19
   cases](https://delphi.cmu.edu/blog/2020/09/21/can-symptoms-surveys-improve-covid-19-forecasts/).
   See our [surveys site](https://covidcast.cmu.edu/surveys.html)
@@ -211,7 +211,7 @@ repository](https://github.com/cmu-delphi/covidcast-indicators).
 
 All the above data streams are made publicly available 
 through our COVIDcast API---if you're interested 
-in using these signals for decision making, research, investigative jounalism   
+in using these signals for decision making, research, investigative journalism
 or simply to understand trends in your area, 
 pulling the data is only a moment's work. 
 Let's discuss how the data is stored and how you can get access.
