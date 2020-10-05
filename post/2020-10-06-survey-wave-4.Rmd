@@ -1,0 +1,264 @@
+---
+title: "New COVID Symptom Surveys Track Testing, Mask-Wearing, and Mental Health"
+author: "Alex Reinhart"
+date: 2020-10-05
+tags: ["symptom surveys"]
+---
+
+Beginning on September 8, 2020, we deployed a new version of our symptom survey.
+Facebook helps us recruit tens of thousands of respondents daily, and the new
+survey gives us unprecedented insights into the effects of COVID-19 across the
+United States. Today we release new public datasets and share maps revealing
+access to COVID testing, changes in mental health, and public use of masks.
+
+<!--more-->
+
+Beginning in early April 2020, the [Delphi group](https://delphi.cmu.edu/) has
+conducted a major survey to track COVID-19 across the United States. With the
+support of Facebook, we have been able to recruit tens of thousands of active
+Facebook users to take our voluntary survey *every day*; meanwhile, a University
+of Maryland team has conducted a [parallel international
+effort](https://covidmap.umd.edu/) covering over 100 countries worldwide. Every
+day, we aggregate our survey results to produce estimates of symptoms for
+counties and states across the United States, making these estimates available
+through our [COVIDcast map](https://covidcast.cmu.edu/) and our [public
+API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+
+In previous posts, we described how [self-reported symptoms on our survey can
+correlate strongly with COVID
+cases](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+and how [symptom survey data could improve forecasts of COVID
+cases](https://delphi.cmu.edu/blog/2020/09/21/can-symptoms-surveys-improve-covid-19-forecasts/).
+We're also part of the [COVID-19 Symptom Data
+Challenge](https://www.symptomchallenge.org/), which asked participants to use our
+symptom survey data to enable earlier detection of outbreaks and help public
+health authorities and the general public respond to the pandemic. (The first
+submissions were due on October 6th, and we look forward to sharing the results.)
+
+Beginning this summer, we began the process of revising our survey to address
+new topics that had arisen as key problems for public health:
+
+- What groups and occupations have been most affected by COVID-19?
+
+- Who is being tested for COVID-19, and what are their test results?
+
+- Do people who want COVID-19 tests have access to tests?
+
+- Are people with symptoms seeking medical care? If so, what kind of care?
+
+- Is the public following public health recommendations, such as the
+  [recommendation to wear masks in
+  public](https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/diy-cloth-face-coverings.html)
+  to reduce the spread of COVID-19?
+
+- Are people participating in activities that may spread COVID-19, such as
+  attending public events, working indoors with others, or going to school in
+  person?
+
+Some of these topics were partially addressed by our existing survey, but we
+knew that as the pandemic changes and public health priorities adapt, our survey
+must change also. We began a consultation process: In discussions with
+researchers using our data, with public health officials, and with team members
+at Carnegie Mellon and at Facebook, we established the most important topics to
+address in the new survey, and began to draft questions. Through several rounds
+of revisions, we finalized a new version of the survey that includes new
+questions on testing, mask use, activities, and demographics.
+
+(Meanwhile, questions about the public's beliefs, behaviors, and norms
+surrounding COVID-19 are being addressed by a [separate survey conducted by
+researchers at MIT](https://covidsurvey.mit.edu/), also in partnership with
+Facebook to recruit respondents.)
+
+## Insights from the New Survey Instrument
+
+The full text of the survey is [available on our documentation
+site](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html)---this
+version is Wave 4.
+
+```{r sample-size, message=FALSE, include=FALSE}
+library(covidcast)
+
+start_day <- "2020-09-08"
+end_day <- "2020-10-01"
+
+data <- covidcast_signal("fb-survey", "raw_cli", start_day, end_day,
+                         geo_type = "state")
+sample_size <- prettyNum(signif(sum(data$sample_size), 3), big.mark = ",")
+```
+
+Between the new survey's deployment on September 8, 2020, and October 1st, we
+have collected `r sample_size` valid responses from respondents across the
+United States. Each response includes questions about symptoms, mask wearing,
+testing, and the other important topics described above, along with demographic
+details about the respondent. These demographics include age, gender, race,
+occupation, and education, allowing us to understand how different groups have
+been affected and which groups are currently most vulnerable to COVID-19. (As we
+[described
+before](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/),
+Facebook does not receive any individual survey responses; we at Carnegie Mellon
+collect this data and prepare aggregate data, which does not identify any
+individual respondent, for public release.)
+
+Let's explore just a few of the questions on the survey to see what they can
+tell us. All of the plots below were made using our [covidcast R
+package](https://cmu-delphi.github.io/covidcast/covidcastR/) using data we make
+publicly available in the [COVIDcast
+API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)---click the
+Code button to see the full code for each example.
+
+### Mask Wearing
+
+First, a simple question: What percentage of respondents say that they wear a
+mask most or all of the time when they're in public?
+
+```{r mask-wearing, message=FALSE}
+library(covidcast)
+library(ggplot2)
+
+plot_label <- labs(caption = "Data from Delphi COVIDcast, covidcast.cmu.edu")
+date_label <- labs(subtitle = format(as.Date(end_day), "%B %e, %Y"))
+
+mask <- covidcast_signal("fb-survey", "wip_smoothed_wwearing_mask",
+                         start_day = end_day, end_day = end_day,
+                         geo_type = "state")
+plot(mask, range = c(55, 100),
+     title = "% wearing masks in public most or all the time") +
+    plot_label + date_label
+```
+
+Because the survey runs continuously, collecting data on mask-wearing every day,
+we will be able to track how the prevalence of mask-wearing changes over time.
+This may help public health officials target public awareness campaigns, and
+also aid researchers trying to understand where the virus is most likely to
+spread and what measures are most effective in preventing it.
+
+### Testing
+
+Access to COVID testing is important for many reasons: readily available tests
+make it possible for cases to be detected sooner, before the virus can spread,
+and help contact tracers do their work of tracking down new cases. Shortages of
+tests can impede contact tracing and can also be harmful in settings like
+nursing homes, where many residents are particularly vulnerable to COVID-19 and
+staff must be tested regularly to ensure residents aren't exposed.
+
+Testing data is published by state health authorities and aggregated by
+organizations such as the [COVID Tracking Project](https://covidtracking.com/);
+our own [COVIDcast map](https://covidcast.cmu.edu/) also includes data from
+antigen tests produced by Quidel, a major test product manufacturer. But a
+survey allows us to ask people directly whether they have been tested, and
+allows us to understand *who* has been tested.
+
+For example, we can ask: What percentage of people in each state say they were
+tested in the last 14 days?
+
+```{r pct-tested, message=FALSE}
+tested <- covidcast_signal("fb-survey", "wip_smoothed_wtested_14d",
+                           start_day = end_day, end_day = end_day,
+                           geo_type = "state")
+plot(tested, range = c(6, 25),
+     title = "% tested in the last 14 days") +
+    plot_label + date_label
+```
+
+We can see a strong variation across the country---in North Dakota, roughly a
+quarter of people were tested in the last 14 days!
+
+It's worth thinking about this result in more detail. If we take North Dakota's
+adult population, 25% of that population is roughly twice as many tests as North
+Dakota's publicly reported testing data says were conducted during that time
+period. But North Dakota's published testing figures [only include PCR tests,
+not COVID antigen
+tests](https://khn.org/news/lack-of-antigen-test-reporting-leaves-country-blind-to-the-pandemic/),
+meaning the public figures leave out an important part of testing that the
+survey data can illuminate. Antigen tests, and new rapid tests, will only become
+more important in the coming months, making it important for epidemiologists to
+have information about their use.
+
+But testing volume is only one part of the issue. Another question is how many
+people are testing positive. If a large percentage of tests have positive
+results, that suggests that tests are only being given to people at high risk of
+illness, rather than being used in mass testing campaigns. When survey
+respondents say they were tested in the past 14 days, we also ask if they tested
+positive:
+
+```{r test-positivity, message=FALSE}
+positivity <- covidcast_signal("fb-survey", "wip_smoothed_wtested_positive_14d",
+                               start_day = end_day, end_day = end_day,
+                               geo_type = "state")
+plot(positivity, range = c(4, 22),
+     title = "% of tests that were positive, last 14 days") +
+    plot_label + date_label
+```
+
+We can see quite a large variation in test positivity across the United States,
+suggesting different access to testing.
+
+But test positivity only indirectly answers a crucial question: If people *want*
+a test, can they get it? When our survey respondents say they have *not* been
+tested in the past 14 days, we ask whether they *wanted* to be tested in that
+time, then ask why they were not. This also varies across the United States:
+
+```{r wanted-test, message=FALSE}
+wanted_test <- covidcast_signal("fb-survey", "wip_smoothed_wwanted_test_14d",
+                                start_day = end_day, end_day = end_day,
+                                geo_type = "state")
+plot(wanted_test, range = c(5, 12),
+     title = "% not tested who wanted a test, last 14 days") +
+    plot_label + date_label
+```
+
+In short, while the survey data does not replace official public health
+reporting of COVID testing and case counts, it can provide insights not
+available any other way. By providing these signals to the public in the
+COVIDcast API, alongside numerous other data streams, we hope to provide
+researchers, public health officials, and journalists the information they need
+to form a more complete picture of the pandemic.
+
+
+## You Can Help Analyze This Data
+
+All of the maps and graphs above were built using data we make publicly
+available through our COVIDcast API, and the exact technical details are
+described in our [signal
+documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).
+Many of these data streams will soon be featured on our [COVIDcast interactive
+map](https://covidcast.cmu.edu/) as well.
+
+But we also know that many researchers will have questions that can't be
+answered from these simple county- and state-level averages. What occupations
+have the highest rate of COVID-19? What age groups engage in the most behavior
+at risk of transmitting COVID-19? What symptoms are most common in people who
+report testing positive for COVID-19? Many of these questions require full
+access to the survey data, including demographics about each respondent, to
+answer. That is why we share de-identified survey data with academic and
+nonprofit researchers studying the pandemic. We encourage all researchers to
+[submit a simple
+form](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
+to get access.
+
+Of course, we require all those with access to protect the confidentiality of
+survey respondents, and permit the public release of only aggregate data that
+can't be used to identify any respondent. And while Facebook supports this
+project by helping recruit participants in the survey, they never receive
+individual respondent's answers to survey questions, only aggregate data that
+does not identify any individual respondents.
+
+Between the data we make available through COVIDcast, and the many researchers
+using our raw data to answer important questions, we hope this survey can serve
+important roles informing our national pandemic response. Armed with the right
+data, we can make decisions needed to protect public health and permit safe
+reopening.
+
+**Credits.** *Many items in Wave 4 of our survey are based on work by the team
+at the Joint Program in Survey Methodology at the University of Maryland:
+Adrianne Bradford and Samantha Chiu helped design items and gave feedback, led
+by Frauke Kreuter. Facebook's survey team, including Sarah LaRocca and Katherine
+Morris, gave extensive feedback on Wave 4 of the survey and assisted in its
+deployment. Taylor Arnold, Alex Reinhart, and Kathryn Mazaitis developed the
+code needed to process Wave 4.*
+
+---
+
+*[Alex Reinhart](https://www.refsmmat.com) manages Delphi's surveys, and is an
+Assistant Teaching Professor in the Department of Statistics & Data Science at
+CMU.*
