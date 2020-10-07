@@ -118,7 +118,7 @@ library(ggplot2)
 plot_label <- labs(caption = "Data from Delphi COVIDcast, covidcast.cmu.edu")
 date_label <- labs(subtitle = format(as.Date(end_day), "%B %e, %Y"))
 
-mask <- covidcast_signal("fb-survey", "wip_smoothed_wwearing_mask",
+mask <- covidcast_signal("fb-survey", "smoothed_wwearing_mask",
                          start_day = end_day, end_day = end_day,
                          geo_type = "state")
 plot(mask, range = c(55, 100),
@@ -152,7 +152,7 @@ For example, we can ask: What percentage of people in each state say they were
 tested in the last 14 days?
 
 ```{r pct-tested, message=FALSE}
-tested <- covidcast_signal("fb-survey", "wip_smoothed_wtested_14d",
+tested <- covidcast_signal("fb-survey", "smoothed_wtested_14d",
                            start_day = end_day, end_day = end_day,
                            geo_type = "state")
 plot(tested, range = c(6, 25),
@@ -182,7 +182,7 @@ respondents say they were tested in the past 14 days, we also ask if they tested
 positive:
 
 ```{r test-positivity, message=FALSE}
-positivity <- covidcast_signal("fb-survey", "wip_smoothed_wtested_positive_14d",
+positivity <- covidcast_signal("fb-survey", "smoothed_wtested_positive_14d",
                                start_day = end_day, end_day = end_day,
                                geo_type = "state")
 plot(positivity, range = c(4, 22),
@@ -199,7 +199,7 @@ tested in the past 14 days, we ask whether they *wanted* to be tested in that
 time, then ask why they were not. This also varies across the United States:
 
 ```{r wanted-test, message=FALSE}
-wanted_test <- covidcast_signal("fb-survey", "wip_smoothed_wwanted_test_14d",
+wanted_test <- covidcast_signal("fb-survey", "smoothed_wwanted_test_14d",
                                 start_day = end_day, end_day = end_day,
                                 geo_type = "state")
 plot(wanted_test, range = c(5, 12),
