@@ -1,5 +1,5 @@
 ---
-title: "Sharing Open COVID-19 Data with the COVIDcast Epidata API"
+title: "Accessing Open COVID-19 Data via the COVIDcast Epidata API"
 author: "Kathryn Mazaitis and Alex Reinhart"
 date: 2020-10-07
 tags: ["COVIDcast API", "packages", "COVIDcast"]
