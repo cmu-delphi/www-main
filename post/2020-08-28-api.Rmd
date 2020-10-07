@@ -1,7 +1,7 @@
 ---
-title: "Sharing Open COVID-19 Data with the COVIDcast API"
+title: "Sharing Open COVID-19 Data with the COVIDcast Epidata API"
 author: "Kathryn Mazaitis and Alex Reinhart"
-date: 2020-10-05
+date: 2020-10-07
 tags: ["COVIDcast API", "packages", "COVIDcast"]
 output:
   html_document:
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 One of our primary initiatives at the Delphi COVIDcast project
 has been to curate a diverse set of COVID-related data streams,
 and to make them freely available through our
-[COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+[COVIDcast Epidata API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
 These include both novel signals that we have collected and analyzed ourselves,
 such as our symptom survey [distributed by Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
 to its users, [Google's symptom survey](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/) whose results are delivered to us,
@@ -34,7 +34,7 @@ One of our primary initiatives at the Delphi COVIDcast project
 ([learn more about our organization here](https://delphi.cmu.edu/blog/2020/08/10/hello-world/))
 has been to curate a diverse set of COVID-related data streams, 
 and to make them freely available through our 
-[COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+[COVIDcast Epidata API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
 These include both novel signals that we have collected and analyzed ourselves, 
 such as our symptom survey [distributed by Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
 to its users, [Google's symptom survey](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/) whose results are delivered to us,
@@ -49,13 +49,14 @@ is conveniently accessible via easy-to-use
 and [R](https://cmu-delphi.github.io/covidcast/covidcastR/) packages.
 
 We have always made our code, data and estimates freely and publicly available, from the very beginning of our work on flu back in 2013, well before the COVID pandemic.
-Back in 2016, we created the [Epidata
-API](https://cmu-delphi.github.io/delphi-epidata/) to share data from our numerous influenza surveillance
-streams. Now that COVID-19 is here, our collaborations with partner
+Back in 2016, Delphi member David Farrow designed and implemented the [Epidata
+API](https://cmu-delphi.github.io/delphi-epidata/) to share data from our numerous surveillance
+streams for influenza and other diseases, and pioneered many of the API concepts
+discussed below. Now that COVID-19 is here, our collaborations with partner
 organizations in technology and healthcare enable us to include a
 number of exclusive signals which would not otherwise be publicly
 available. We have redoubled our commitment to open code and data in
-our COVID-19 response efforts with the launch of the COVIDcast API,
+our COVID-19 response efforts with the launch of the COVIDcast Epidata API,
 providing researchers and decision-makers with the data they need to
 do their jobs effectively.
 
@@ -130,15 +131,16 @@ can be used for many possible purposes, including:
   questions to better understand this and future pandemics and epidemics.
 
 For each use case, researchers need quick access to relevant, reliable, geographically detailed and up-to-date data
-streams. The COVIDcast API was designed to provide that access.
+streams. The COVIDcast Epidata API was designed to provide that access.
 
 ## Unique Data Sources
 
-Delphi has built on its connections and reputation in influenza forecasting
-to secure several sources of pandemic data that are not available anywhere else.
+Delphi has built on its connections and reputation in influenza forecasting to
+secure several sources of pandemic data that are not available anywhere else.
 Our partners provide us with de-identified data, and our agreements with them
-permit us to publish estimates and other aggregated statistics in our COVIDcast API.
-These data sources cover most levels of the severity pyramid and include:
+permit us to publish estimates and other aggregated statistics in our COVIDcast
+Epidata API (often informally called the COVIDcast API). These data sources
+cover most levels of the severity pyramid and include:
 
 * Massive surveys we conduct through Facebook: Facebook has been sending a
   random sample of its users to Delphi's symptoms and behavior survey every day
