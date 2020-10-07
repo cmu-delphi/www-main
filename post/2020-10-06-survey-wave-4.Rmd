@@ -87,13 +87,12 @@ sample_size <- prettyNum(signif(sum(data$sample_size), 3), big.mark = ",")
 ```
 
 Between the new survey's deployment on September 8, 2020, and October 1st, we
-have collected `r sample_size` valid responses from respondents across the
-United States. Each response includes questions about symptoms, mask wearing,
-testing, and the other important topics described above, along with demographic
-details about the respondent. These demographics include age, gender, race,
-occupation, and education, allowing us to understand how different groups have
-been affected and which groups are currently most vulnerable to COVID-19. (As we
-[described
+collected `r sample_size` valid responses from respondents across the United
+States. Each response includes questions about symptoms, mask wearing, testing,
+and the other important topics described above, along with demographic details
+about the respondent. These demographics include age, gender, race, occupation,
+and education, allowing us to understand how different groups have been affected
+and which groups are currently most vulnerable to COVID-19. (As we [described
 before](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/),
 Facebook does not receive any individual survey responses; we at Carnegie Mellon
 collect this data and prepare aggregate data, which does not identify any
@@ -143,7 +142,7 @@ staff must be tested regularly to ensure residents aren't exposed.
 
 Testing data is published by state health authorities and aggregated by
 organizations such as the [COVID Tracking Project](https://covidtracking.com/);
-our own [COVIDcast map](https://covidcast.cmu.edu/) also includes data from
+our own [COVIDcast map](https://covidcast.cmu.edu/) also includes results from
 antigen tests produced by Quidel, a major test product manufacturer. But a
 survey allows us to ask people directly whether they have been tested, and
 allows us to understand *who* has been tested.
