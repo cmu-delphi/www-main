@@ -16,7 +16,7 @@ access to COVID testing, test results, and public use of masks.
 Beginning in early April 2020, the [Delphi group](https://delphi.cmu.edu/) has
 conducted a major survey to track COVID-19 across the United States. With the
 support of Facebook, we have been able to recruit tens of thousands of active
-Facebook users to take our voluntary survey *every day*; meanwhile, a University
+Facebook users *every day* to take our voluntary survey; meanwhile, a University
 of Maryland team has conducted a [parallel international
 effort](https://covidmap.umd.edu/) covering over 100 countries worldwide. Every
 day, we aggregate our survey results to produce estimates of symptoms for
@@ -57,7 +57,7 @@ new topics that had arisen as key problems for public health:
 
 Some of these topics were partially addressed by our existing survey, but we
 knew that as the pandemic changes and public health priorities adapt, our survey
-must change also. We began a consultation process: In discussions with
+must change also. We began a consultation process: in discussions with
 researchers using our data, with public health officials, and with team members
 at Carnegie Mellon and at Facebook, we established the most important topics to
 address in the new survey, and began to draft questions. Through several rounds
