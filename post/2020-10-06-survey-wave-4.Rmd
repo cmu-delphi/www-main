@@ -160,7 +160,7 @@ plot(tested, range = c(6, 25),
     plot_label + date_label
 ```
 
-We can see a strong variation across the country---in North Dakota, roughly a
+We can see a strong variation across the country---in North Dakota, nearly a
 quarter of people were tested in the last 14 days!
 
 It's worth thinking about this result in more detail. If we take North Dakota's
@@ -191,7 +191,10 @@ plot(positivity, range = c(4, 22),
 ```
 
 We can see quite a large variation in test positivity across the United States,
-suggesting different access to testing.
+suggesting different access to testing. (A few states, in gray, do not have a
+reported value. If fewer than 100 survey respondents in one state say they were
+tested, we do not have sufficient data to accurately estimate the test
+positivity rate, and hence do not report an estimate for that state.)
 
 But test positivity only indirectly answers a crucial question: If people *want*
 a test, can they get it? When our survey respondents say they have *not* been
