@@ -315,13 +315,15 @@ important roles informing our national pandemic response. Armed with the right
 data, we can make decisions needed to protect public health and permit safe
 reopening.
 
-**Credits.** *Many items in Wave 4 of our survey are based on work by the team
-at the Joint Program in Survey Methodology at the University of Maryland:
-Adrianne Bradford and Samantha Chiu helped design items and gave feedback, led
-by Frauke Kreuter. Facebook's survey team, including Sarah LaRocca and Katherine
-Morris, gave extensive feedback on Wave 4 of the survey and assisted in its
-deployment. Taylor Arnold, Alex Reinhart, and Kathryn Mazaitis developed the
-code needed to process Wave 4.*
+**Acknowledgments.** *Many items in Wave 4 of our survey are based on work by
+the team at the Joint Program in Survey Methodology at the University of
+Maryland led by Frauke Kreuter; Adrianne Bradford and Samantha Chiu helped
+design items and gave feedback. Facebook's survey team, including Sarah LaRocca
+and Katherine Morris, gave extensive feedback on Wave 4 of the survey and
+assisted in its deployment. Taylor Arnold, Alex Reinhart, and Kathryn Mazaitis
+developed the code needed to process Wave 4. We thank Jean Cox-Ganser, Paul
+Henneberger, Danielle Iuliano, Robert Kraut, and Jordan Weber for suggesting
+survey items and revisions for Wave 4.*
 
 ---
 
