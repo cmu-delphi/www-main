@@ -1,5 +1,5 @@
 ---
-title: "New COVID Symptom Surveys Track Testing and Mask-Wearing"
+title: "New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing"
 author: "Alex Reinhart"
 date: 2020-10-05
 tags: ["symptom surveys"]
