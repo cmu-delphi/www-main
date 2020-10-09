@@ -203,9 +203,11 @@ staff must be tested regularly to ensure residents aren't exposed.
 Testing data is published by state health authorities and aggregated by
 organizations such as the [COVID Tracking Project](https://covidtracking.com/);
 our own [COVIDcast map](https://covidcast.cmu.edu/) also includes results from
-antigen tests produced by Quidel, a major test product manufacturer. But a
-survey allows us to ask people directly whether they have been tested, and
-allows us to understand *who* has been tested.
+antigen tests produced by Quidel, a major test product manufacturer. But
+publicly reported data can be [inconsistent between states, may not include all
+tests](https://www.theatlantic.com/health/archive/2020/09/how-many-people-america-testing-coronavirus/616249/),
+and can be subject to delays or testing backlogs. A survey allows us to ask
+people directly whether they have been tested, bypassing these problems.
 
 For example, we can ask: What percentage of people in each state say they were
 tested in the last 14 days?
