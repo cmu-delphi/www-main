@@ -2,7 +2,7 @@
 title: "COVID-19 Symptom Surveys through Facebook"
 author: "Alex Reinhart and Ryan Tibshirani"
 date: 2020-08-26
-tags: ["symptom surveys"]
+tags: ["symptom surveys", "COVIDcast"]
 output:
   html_document:
     code_folding: hide
