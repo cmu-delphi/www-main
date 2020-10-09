@@ -78,13 +78,14 @@ version is Wave 4.
 ```{r sample-size, message=FALSE, include=FALSE}
 library(covidcast)
 start_day <- "2020-09-08"
-end_day <- "2020-10-01"
+end_day <- "2020-10-07"
+
 data <- covidcast_signal("fb-survey", "raw_cli", start_day, end_day,
                          geo_type = "state")
 sample_size <- prettyNum(signif(sum(data$sample_size), 3), big.mark = ",")
 ```
 
-Between the new survey's deployment on September 8, 2020, and October 1st, we
+Between the new survey's deployment on September 8, 2020, and October 7th, we
 collected `r sample_size` valid responses from respondents across the United
 States. Each response includes questions about symptoms, mask wearing, testing,
 and the other important topics described above, along with demographic details
