@@ -287,8 +287,11 @@ All of the maps and graphs above were built using data we make publicly
 available through our COVIDcast API, and the exact technical details are
 described in our [signal
 documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).
-Many of these data streams will soon be featured on our [COVIDcast interactive
-map](https://covidcast.cmu.edu/) as well.
+The symptom and mask data is already featured on our [COVIDcast interactive
+map](https://covidcast.cmu.edu/?sensor=fb-survey-smoothed_wearing_mask&level=county&signalType=value&encoding=color&mode=overview&region=42003),
+and other survey signals will soon be added as well. More information about the
+surveys, including preliminary results, is given on our [survey
+site](https://covidcast.cmu.edu/surveys.html).
 
 But we also know that many researchers will have questions that can't be
 answered from these simple county- and state-level averages. What occupations
@@ -314,6 +317,9 @@ using our raw data to answer important questions, we hope this survey can serve
 important roles informing our national pandemic response. Armed with the right
 data, we can make decisions needed to protect public health and permit safe
 reopening.
+
+*For more information about Delphi's symptom surveys, and for media contact
+details, see [our surveys page](https://covidcast.cmu.edu/surveys.html).*
 
 **Acknowledgments.** *Many items in Wave 4 of our survey are based on work by
 the team at the Joint Program in Survey Methodology at the University of
