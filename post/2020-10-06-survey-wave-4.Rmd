@@ -107,26 +107,89 @@ Code button to see the full code for each example.
 ### Mask Wearing
 
 First, a simple question: What percentage of respondents say that they wear a
-mask most or all of the time when they're in public?
+mask most or all of the time when they're in public? For comparison, we'll map
+this next to map of the percentage of respondents who personally know someone in
+their local community who is sick (with a fever and at least one other symptom,
+such as cough or difficulty breathing). This percentage [correlates very
+well](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#some-interesting-examples)
+with COVID case rates as reported by state agencies.
 
-```{r mask-wearing, message=FALSE}
+```{r mask-wearing, message=FALSE, fig.width=9}
 library(covidcast)
 library(ggplot2)
+library(grid)
+library(gridExtra)
+
+start_day <- "2020-09-08"
+end_day <- "2020-10-07"
+
+date_formatted <- format(as.Date(end_day), "%B %e, %Y")
 plot_label <- labs(caption = "Data from Delphi COVIDcast, covidcast.cmu.edu")
-date_label <- labs(subtitle = format(as.Date(end_day), "%B %e, %Y"))
+date_label <- labs(subtitle = date_formatted)
+grid_label <- textGrob("Data from Delphi COVIDcast, covidcast.cmu.edu",
+                       hjust = 1, x = 1, gp = gpar(fontsize = 9))
+
 mask <- covidcast_signal("fb-survey", "smoothed_wwearing_mask",
                          start_day = end_day, end_day = end_day,
                          geo_type = "state")
-plot(mask, range = c(55, 100),
-     title = "% wearing masks in public most or all the time") +
-    plot_label + date_label
+
+cmnty_cli <- covidcast_signal("fb-survey", "smoothed_whh_cmnty_cli",
+                              start_day = end_day, end_day = end_day,
+                              geo_type = "state")
+g1 <- plot(mask, range = c(55, 100),
+           title = "% wearing masks in public most or all the time",
+           choro_col = c("#d9f0c2", "#bfe6b5", "#1f589f")) +
+    date_label
+g2 <- plot(cmnty_cli, range = c(5, 40),
+           title = "% who know someone who is sick") +
+    date_label
+grid.arrange(g1, g2, nrow = 1, bottom = grid_label)
 ```
 
-Because the survey runs continuously, collecting data on mask-wearing every day,
-we will be able to track how the prevalence of mask-wearing changes over time.
-This may help public health officials target public awareness campaigns, and
-also aid researchers trying to understand where the virus is most likely to
-spread and what measures are most effective in preventing it.
+We see that in New England, which had numerous COVID cases during the first wave
+early in 2020, most respondents report wearing masks in public. The lowest rates
+of mask wearing are in the central United States, such as in North and South
+Dakota, where case rates are currently increasing rapidly. We can also directly
+compare the rates of mask-wearing with officially reported case counts, as
+reported by [Johns Hopkins
+University](https://github.com/CSSEGISandData/COVID-19):
+
+```{r, message=FALSE, fig.height=6, fig.width=8}
+library(ggrepel)
+library(dplyr)
+
+case_rates <- covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
+                               start_day = end_day, end_day = end_day,
+                               geo_type = "state")
+mask %>%
+    inner_join(case_rates, by = "geo_value", suffix = c(".mask", ".case")) %>%
+    ggplot(aes(x = value.case, y = value.mask, label = toupper(geo_value))) +
+    geom_text_repel() +
+    labs(x = "New cases per 100,000 people (7-day average)",
+         y = "% wearing masks",
+         title = "Current COVID case rates and mask usage, by state") +
+    theme_bw() +
+    date_label +
+    plot_label
+```
+
+The relationship is striking. Of course, to prove a causal relationship takes
+more than one graph, and we would want to both track changes over time (to see
+how mask use today relates to cases several weeks from now) and account for
+other differences between these states. (For example, people in more rural
+states may spend less time near others than people who live in cities, and hence
+feel less need to wear a mask.) Nonetheless, this data could be very useful to
+epidemiological researchers studying the public reaction to the pandemic and its
+spread.
+
+Mask-wearing surveys have been done before---for example, [the *New York Times*
+commissioned a large survey during July 2020 and produced detailed
+maps](https://www.nytimes.com/interactive/2020/07/17/upshot/coronavirus-face-mask-map.html)---but
+because our survey runs continuously, we will be able to track how the
+prevalence of mask-wearing changes over time. This may help public health
+officials target public awareness campaigns, and also aid researchers trying to
+understand where the virus is most likely to spread and what measures are most
+effective in preventing it.
 
 ### Testing
 
