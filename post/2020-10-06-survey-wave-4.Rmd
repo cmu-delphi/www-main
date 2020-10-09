@@ -24,7 +24,7 @@ counties and states across the United States, making these estimates available
 through our [COVIDcast map](https://covidcast.cmu.edu/) and our [public
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
 
-In previous posts, we demostrated how [self-reported symptoms on our survey can
+In previous posts, we demonstrated how [self-reported symptoms on our survey can
 correlate strongly with COVID
 cases](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
 and how [symptom survey data could improve forecasts of COVID
