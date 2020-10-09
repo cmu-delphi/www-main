@@ -1,7 +1,7 @@
 ---
 title: "New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing"
 author: "Alex Reinhart"
-date: 2020-10-05
+date: 2020-10-09
 tags: ["symptom surveys"]
 ---
 
@@ -15,13 +15,14 @@ access to COVID testing, test results, and public use of masks.
 
 Beginning in early April 2020, the [Delphi group](https://delphi.cmu.edu/) has
 conducted a major survey to track COVID-19 across the United States. With the
-support of Facebook, we have been able to recruit tens of thousands of active
-Facebook users *every day* to take our voluntary survey. Concurrently, a University
-of Maryland team has conducted a [parallel international
-effort](https://covidmap.umd.edu/) covering over 100 countries worldwide. Every
-day, we aggregate our survey results to produce estimates of symptoms for
-counties and states across the United States, making these estimates available
-through our [COVIDcast map](https://covidcast.cmu.edu/) and our [public
+support of Facebook Data for Good, we have been able to recruit tens of
+thousands of active Facebook users *every day* to take our voluntary survey.
+Concurrently, a University of Maryland team has conducted a [parallel
+international effort](https://covidmap.umd.edu/) covering over 100 countries
+worldwide. Every day, we aggregate our survey results to produce estimates of
+symptoms for counties and states across the United States, making these
+estimates available through our [COVIDcast map](https://covidcast.cmu.edu/) and
+our [public
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
 
 In previous posts, we demonstrated how [self-reported symptoms on our survey can
@@ -329,10 +330,11 @@ the team at the Joint Program in Survey Methodology at the University of
 Maryland led by Frauke Kreuter; Adrianne Bradford and Samantha Chiu helped
 design items and gave feedback. Facebook's survey team, including Sarah LaRocca
 and Katherine Morris, gave extensive feedback on Wave 4 of the survey and
-assisted in its deployment. Taylor Arnold, Alex Reinhart, and Kathryn Mazaitis
-developed the code needed to process Wave 4. We thank Jean Cox-Ganser, Paul
-Henneberger, Danielle Iuliano, Robert Kraut, and Jordan Weber for suggesting
-survey items and revisions for Wave 4.*
+assisted in its deployment. Kelsey Mulcahy at Facebook Data For Good helped
+coordinate data access for numerous researchers. Taylor Arnold, Alex Reinhart,
+and Kathryn Mazaitis developed the code needed to process Wave 4. We thank Jean
+Cox-Ganser, Paul Henneberger, Danielle Iuliano, Robert Kraut, and Jordan Weber
+for suggesting survey items and revisions for Wave 4.*
 
 ---
 
