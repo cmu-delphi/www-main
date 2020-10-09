@@ -235,12 +235,13 @@ survey data can illuminate. Antigen tests, and new rapid tests, will only become
 more important in the coming months, making it important for epidemiologists to
 have information about their use.
 
-But testing volume is only one part of the issue. Another question is how many
-people are testing positive. If a large percentage of tests have positive
-results, that suggests that tests are only being given to people at high risk of
-illness, rather than being used in mass testing campaigns. When survey
-respondents say they were tested in the past 14 days, we also ask if they tested
-positive:
+But testing volume is only one part of the issue. We can also ask what fraction
+of tests results are positive. Early in the pandemic, when there were testing
+shortages, this test positivity rate could indicate areas where tests were only
+available to people already experiencing symptoms. Tests are more widely
+available now, but test positivity can still help us understand where the virus
+is most active and where people are being tested. When survey respondents say
+they were tested in the past 14 days, we also ask if they tested positive:
 
 ```{r test-positivity, message=FALSE}
 positivity <- covidcast_signal("fb-survey", "smoothed_wtested_positive_14d",
@@ -252,10 +253,11 @@ plot(positivity, range = c(4, 22),
 ```
 
 We can see quite a large variation in test positivity across the United States,
-suggesting different access to testing. (A few states, in gray, do not have a
-reported value. If fewer than 100 survey respondents in one state say they were
-tested, we do not have sufficient data to accurately estimate the test
-positivity rate, and hence do not report an estimate for that state.)
+with the highest values in areas that currently have many COVID cases. (A few
+states, in gray, do not have a reported value. If fewer than 100 survey
+respondents in one state say they were tested, we do not have sufficient data to
+accurately estimate the test positivity rate, and hence do not report an
+estimate for that state.)
 
 But test positivity only indirectly answers a crucial question: If people *want*
 a test, can they get it? When our survey respondents say they have *not* been
