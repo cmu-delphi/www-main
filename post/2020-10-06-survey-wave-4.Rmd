@@ -166,6 +166,7 @@ mask %>%
     inner_join(case_rates, by = "geo_value", suffix = c(".mask", ".case")) %>%
     ggplot(aes(x = value.case, y = value.mask, label = toupper(geo_value))) +
     geom_text_repel() +
+    geom_point() +
     labs(x = "New cases per 100,000 people (7-day average)",
          y = "% wearing masks",
          title = "Current COVID case rates and mask usage, by state") +
