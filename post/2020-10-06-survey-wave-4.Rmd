@@ -175,14 +175,13 @@ mask %>%
     plot_label
 ```
 
-The relationship is striking. Of course, to prove a causal relationship takes
-more than one graph, and we would want to both track changes over time (to see
-how mask use today relates to cases several weeks from now) and account for
-other differences between these states. (For example, people in more rural
-states may spend less time near others than people who live in cities, and hence
-feel less need to wear a mask.) Nonetheless, this data could be very useful to
-epidemiological researchers studying the public reaction to the pandemic and its
-spread.
+The relationship is striking. Of course, correlation is not causation, and there
+are many differences between these states beyond their use of masks. For
+example, people in more rural states may spend less time close to others, and
+hence feel less need to wear a mask; also, many states with high mask usage had
+major outbreaks earlier in the pandemic. Nonetheless, this data could be very
+useful to epidemiological researchers studying the public reaction to the
+pandemic and its spread.
 
 Mask-wearing surveys have been done before---for example, [the *New York Times*
 commissioned a large survey during July 2020 and produced detailed
