@@ -3,15 +3,8 @@ title: "New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing"
 author: "Alex Reinhart"
 date: 2020-10-09
 tags: ["symptom surveys"]
+summary: Beginning on September 8, 2020, we deployed a new version of our symptom survey. Facebook helps us recruit tens of thousands of respondents daily, and the new survey gives us unprecedented insights into the effects of COVID-19 across the United States. Today we release new public datasets and share maps revealing access to COVID testing, test results, and public use of masks.
 ---
-
-Beginning on September 8, 2020, we deployed a new version of our symptom survey.
-Facebook helps us recruit tens of thousands of respondents daily, and the new
-survey gives us unprecedented insights into the effects of COVID-19 across the
-United States. Today we release new public datasets and share maps revealing
-access to COVID testing, test results, and public use of masks.
-
-<!--more-->
 
 Beginning in early April 2020, the [Delphi group](https://delphi.cmu.edu/) has
 conducted a major survey to track COVID-19 across the United States. With the
@@ -155,24 +148,44 @@ compare the rates of mask-wearing with officially reported case counts, as
 reported by [Johns Hopkins
 University](https://github.com/CSSEGISandData/COVID-19):
 
-```{r, message=FALSE, fig.height=6, fig.width=8}
+```{r, message=FALSE, fig.height=5, fig.width=7, warning=FALSE}
 library(ggrepel)
 library(dplyr)
+library(plotly)
 
 case_rates <- covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
                                start_day = end_day, end_day = end_day,
                                geo_type = "state")
-mask %>%
-    inner_join(case_rates, by = "geo_value", suffix = c(".mask", ".case")) %>%
-    ggplot(aes(x = value.case, y = value.mask, label = toupper(geo_value))) +
-    geom_text_repel() +
-    geom_point() +
-    labs(x = "New cases per 100,000 people (7-day average)",
-         y = "% wearing masks",
-         title = "Current COVID case rates and mask usage, by state") +
-    theme_bw() +
-    date_label +
-    plot_label
+
+joined_data <- mask %>%
+    inner_join(case_rates, by = "geo_value", suffix = c(".mask", ".case"))
+
+outlying_states <- c("wy", "id", "wi", "mt", "sd", "nd", "vt", "dc", "me",
+                     "ut", "ri", "mn")
+joined_data %>%
+    plot_ly(
+        type = "scatter",
+        mode = "markers") %>%
+    add_trace(
+        name = "",
+        x = ~value.case,
+        y = ~value.mask,
+        text = ~abbr_to_name(toupper(geo_value)),
+        marker = list(color = "rgb(187, 0, 0)"),
+        hovertemplate = paste0("<b>%{text}</b><br>",
+                               "Mask use: %{y:.0f}%<br>",
+                               "Cases per 100,000: %{x:.1f}"),
+        showlegend = FALSE) %>%
+    layout(xaxis = list(title = "New cases per 100,000 people (7-day average)"),
+           yaxis = list(title = "% wearing masks most/all the time in public"),
+           title = paste0("Current COVID case rates and mask usage, by state<br>",
+                          date_formatted),
+           annotations = list(x = 1, y = 0,
+                              text = "Data from Delphi COVIDcast, covidcast.cmu.edu",
+                              showarrow = FALSE, xref = "paper", yref = "paper",
+                              xanchor = "right", yanchor = "auto",
+                              xshift = 0, yshift = 0),
+           dragmode = FALSE)
 ```
 
 The relationship is striking. Of course, correlation is not causation, and there
