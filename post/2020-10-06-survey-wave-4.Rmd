@@ -325,7 +325,8 @@ to get access.
 Of course, we require all those with access to protect the confidentiality of
 survey respondents, and permit the public release of only aggregate data that
 can't be used to identify any respondent. And while Facebook supports this
-project by helping recruit participants in the survey, they never receive
+project by helping recruit participants via a notification at the top of their
+News Feed, the survey is conducted off of Facebook---they never receive
 individual respondent's answers to survey questions, only aggregate data that
 does not identify any individual respondents.
 
