@@ -162,10 +162,21 @@ joined_data <- mask %>%
 
 outlying_states <- c("wy", "id", "wi", "mt", "sd", "nd", "vt", "dc", "me",
                      "ut", "ri", "mn")
+
+mask_fit <- lm(value.mask ~ value.case, data = joined_data)
+best_fit_data <- data.frame(value.case = range(joined_data$value.case))
+
 joined_data %>%
     plot_ly(
         type = "scatter",
         mode = "markers") %>%
+    add_trace(
+        name = "",
+        x = best_fit_data$value.case,
+        y = predict(mask_fit, newdata = best_fit_data),
+        mode = "lines",
+        hoverinfo = "skip",
+        line = list(color = "rgb(102, 102, 102)", width = 2, dash = "dash")) %>%
     add_trace(
         name = "",
         x = ~value.case,
