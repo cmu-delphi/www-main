@@ -185,7 +185,12 @@ joined_data %>%
                               showarrow = FALSE, xref = "paper", yref = "paper",
                               xanchor = "right", yanchor = "auto",
                               xshift = 0, yshift = 0),
-           dragmode = FALSE)
+           dragmode = FALSE) %>%
+    config(modeBarButtonsToRemove = c("zoom2d", "pan2d", "select2d", "lasso2d",
+                                      "zoomIn2d", "zoomOut2d", "resetScale2d",
+                                      "autoScale2d", "toggleSpikelines",
+                                      "hoverCompareCartesian",
+                                      "hoverClosestCartesian"))
 ```
 
 The relationship is striking. Of course, correlation is not causation, and there
