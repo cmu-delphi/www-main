@@ -16,7 +16,10 @@ worldwide. Every day, we aggregate our survey results to produce estimates of
 symptoms for counties and states across the United States, making these
 estimates available through our [COVIDcast map](https://covidcast.cmu.edu/) and
 our [public
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html). This
+augments the [numerous other data sources available in our COVIDcast
+API](https://delphi.cmu.edu/blog/2020/10/07/accessing-open-covid-19-data-via-the-covidcast-epidata-api/)
+to form a more complete picture of the pandemic.
 
 In previous posts, we demonstrated how [self-reported symptoms on our survey can
 correlate strongly with COVID
