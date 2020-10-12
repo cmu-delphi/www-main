@@ -373,7 +373,7 @@ reopening.
 
 *For more information about Delphi's symptom surveys, and for media contact
 details, see [our surveys page](https://covidcast.cmu.edu/surveys.html). For
-updates, you can follow [@CmuDelphi on Twitter](https://twitter.com/cmudelphi).*
+updates, you can follow [CmuDelphi on Twitter](https://twitter.com/cmudelphi).*
 
 **Acknowledgments.** *Many items in Wave 4 of our survey are based on work by
 the team at the Joint Program in Survey Methodology at the University of
