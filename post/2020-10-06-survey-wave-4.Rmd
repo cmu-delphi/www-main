@@ -258,13 +258,12 @@ plot(tested, range = c(6, 20),
 ```
 
 We can see a strong variation across the country. But it's worth interpreting
-this result more carefully. The survey data suggests that in North Dakota,
-nearly a fifth of people were tested in the last 14 days, but if we take North
-Dakota's adult population, 18% of that population is several times more people
-than [North Dakota's public testing
-data](https://covidtracking.com/data/state/north-dakota) says were tested during
-that time period. However, North Dakota's published testing figures [only
-include PCR tests, not COVID antigen
+this result more carefully. In North Dakota, nearly a fifth of adults surveyed
+reported being tested in the last 14 days, but if we take North Dakota's adult
+population, 18% of that population is several times more people than [North
+Dakota's public testing data](https://covidtracking.com/data/state/north-dakota)
+says were tested during that time period. However, North Dakota's published
+testing figures [only include PCR tests, not COVID antigen
 tests](https://khn.org/news/lack-of-antigen-test-reporting-leaves-country-blind-to-the-pandemic/),
 meaning the public figures leave out an important part of testing. News
 reporting suggests North Dakota makes extensive use of Abbott's ID NOW antigen
