@@ -15,18 +15,18 @@ knitr::opts_chunk$set(collapse = TRUE)
 One of our primary initiatives at the Delphi COVIDcast project
 has been to curate a diverse set of COVID-related data streams,
 and to make them freely available through our
-[COVIDcast Epidata API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+COVIDcast Epidata API.
 These include both novel signals that we have collected and analyzed ourselves,
-such as our symptom survey [distributed by Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
-to its users, [Google's symptom survey](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/) whose results are delivered to us,
+such as our symptom survey distributed by Facebook
+to its users, Google's symptom survey whose results are delivered to us,
 the percentage of doctor's visits due to COVID-like illness,
 and results from Quidel's antigen tests;
 and also existing signals, such as the confirmed case counts
 and deaths reported by USA Facts and Johns Hopkins University.
 The COVIDcast API freely provides researchers and decision-makers
 with the data they need to conduct their work, and
-is conveniently accessible via easy-to-use [Python](https://cmu-delphi.github.io/covidcast/covidcast-py/html/)
-and [R](https://cmu-delphi.github.io/covidcast/covidcastR/) packages.
+is conveniently accessible via easy-to-use Python
+and R packages.
 
 <!--more-->
 
