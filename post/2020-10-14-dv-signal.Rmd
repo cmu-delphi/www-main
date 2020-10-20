@@ -8,10 +8,11 @@ output:
     code_folding: hide
 ---
 
-In previous blog posts, we have written about indicators generated from surveys that we run through Facebook and Google. In addition to these, we have also generated indicators from electronic medical records. We received access to hospital records and insurance claims data from healthcare partners covering 10-15% of the population of the United States. We have created two indicators from this data:
+In addition to symptom surveys, one of our most prized data sources comes from health insurance claims data. Healthcare partners provide us with the counts of people going to the doctor due to COVID-like illness in counties across the entire country. We use this data to calculate a signal that estimates the level of COVID-like illness in every county where enough data is available. In this post, we discuss the data itself, what this data can tell us that the number of confirmed cases can't, and how we calculate a %CLI signal. We also investigate why the data appeared to become much less useful over time, and how we discovered that the data just needed a simple adjustment!
 
-* "Doctor Visits": percentage of office visits due to COVID-like illness.
-* "Hospital Admissions": percentage of hospital admissions due to COVID-19.
+<!--more-->
+
+In previous blog posts, we have written about indicators generated from surveys that we run through [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/). In addition to these, we have also generated indicators from electronic medical records. We received access to hospital records and insurance claims data from healthcare partners covering 10-15% of the population of the United States. One indicator that we created from this data is the "Doctor Visits" signal, which estimates the percentage of office visits due to COVID-like illness.
 
 Electronic health records are extremely useful in providing information about epidemics in real time. A patient may interact with the healthcare system days before receiving a test (if any), and several more days before receiving a positive result and being reported as a confirmed case by a state's Department of Health. This can make our signal an **early indicator** of confirmed cases, and certainly an early indicator of deaths. Early knowledge of an increase in people with COVID-like symptoms is extremely important, as early containment can prevent an outbreak.
 
@@ -33,20 +34,56 @@ The Doctor Visits indicator is based solely on insurance claims. For a given geo
 
 We calculate the percent of COVID-like illness (%CLI) as (COVID-like + Flu-like + Mixed - Flu) / Total. We subtract the Flu counts because they are unrelated to coronavirus. The indicator is available at four geographic levels: county, MSA, HRR, and state. See [here](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html) for more details.
 
+The signal is available daily starting February 1, 2020 (although understandably, the signal is nearly zero in all locations until mid-March). To preserve privacy and data integrity, we do not report a signal for a given location and date if there are less than 500 total visits in the last seven days before that date. Following these restrictions, we are able to produce estimates for about 2000 counties each day, or about two-thirds of the counties in the country and over 90% of the US population.
 
-### Backfill
-Electronic medical records have a few interesting challenges not present in the survey data. First, is that the data is available at a significant and variable latency (we call this "backfill"). For claims related to a given day, we will receive only about half of them within the first seven days after that date. Due to backfill, we cannot make estimates of our indicator for a given day until four days have passed, and we will revise the value of that day's indicator every day.
-Interestingly, certain types of claims have a longer latency than others. We found that for a given date, as more claims are available, the %CLI generally increases substantially. Covid-like claims have a longer latency and thus our early estimates of the indicator underestimate the final value.
-
-### Weekday Effects
-Another challenge is the influence of the day of the week on %CLI. On weekends, both total counts and COVID-like counts decrease, but proportionally, total counts decrease more. This is because people are more likely to delay seeking medical care for non-acute issues than acute issues. The total counts include many visits related to non-acute issues, but almost all COVID-like counts are due to acute issues. Without correcting for this weekday effect, the %CLI curve has a "sawtooth" pattern, spiking on weekends. We derived a method to create a corrected signal that accounts for the weekday effect. We assume that the log counts form a smooth underlying curve $\phi$, and a different additive effect $\alpha$ for each day of the week. We have the following formula for the expected counts in a given location $i$: $$\log \mu_{it} = \phi_{it} + \alpha_{wd(t)},$$ where $\mu_{it} = \mathbb{E}[Y_{it}]$ and $wd(t)$ is the day of the week of time $t$. We fit $\alpha$ (and $\phi$) by minimizing the following convex objective function: $$f(\alpha, \phi | \mu) = \sum_{i} -\log \ell(\alpha,\phi_i|\mu_i) + \lambda \|\Delta^3 \phi_i\|_1,$$ where $\ell$ is the Poisson log likelihood and $\Delta^3 \phi$ is the third differences of $\phi$. Once we have fit $\alpha$, we calculate the adjusted counts as $$\dot{Y}_{it} = Y_{it}/\alpha_{wd(t)}.$$ As mentioned above, we need to fit different $\alpha$ parameters for each type of count. Below, we see the effect of making these corrections below. When we do not correct for the weekday effect, we see a sawtooth pattern that clearly does not represent true changes in COVID-like illness within a location. However, when we make the weekday correction, we get a smooth curve that looks reasonable. It is important to note that this correction is not time-wise smoothing! Rather, we are making a point-wise correction based on the fitted $\alpha$ parameters.
+Below, we plot two maps to explore the signal. On the left is a heatmap representing the average DV signal for each state over the time period April 15 to May 15. On the right is a heatmap of the average daily confirmed cases per 100,000 people using data from [USAFacts](https://usafacts.org/issues/coronavirus/) during the same time period. We can see that the states with many cases tend to have high %CLI and states with fewer cases tend to have lower %CLI, providing a good sanity check.
 
 ```{r, message=FALSE, warning=FALSE}
 library(covidcast)
 library(dplyr)
+library(gridExtra)
 library(ggplot2)
 library(stringr)
 
+# Fetch DV % CLI signal and USA-Facts confirmed case incidence proportion at
+# the state level
+start_day = "2020-04-15"
+end_day = "2020-05-15"
+df_dv = covidcast_signal("doctor-visits", "smoothed_adj_cli",
+                         start_day, end_day, geo_type = "state")
+df_in = covidcast_signal("usa-facts", "confirmed_7dav_incidence_prop",
+                         start_day, end_day, geo_type = "state")
+
+# For each state, average the signals over all available times
+df_dv_avg = df_dv %>% group_by(geo_value) %>% summarize(value = mean(value))
+df_in_avg = df_in %>% group_by(geo_value) %>% summarize(value = mean(value))
+
+# Set a bunch of fields so that the data frames know how to plot themselves
+df_dv_avg$time_value = df_in_avg$time_value = start_day
+df_dv_avg$issue = df_in_avg$issue = start_day
+attributes(df_dv_avg)$geo_type = attributes(df_in_avg)$geo_type = "state"
+class(df_dv_avg) = c("covidcast_signal", class(df_dv_avg))
+class(df_in_avg) = c("covidcast_signal", class(df_in_avg))
+
+# Plot choropleth maps, using the covidcast plotting functionality
+subtitle = paste("Averaged over", start_day, "to", end_day)
+p1 = plot(df_dv_avg,
+          title = "% COVID-like illness, DV signal",
+          range=c(0, 20), choro_params = list(subtitle = subtitle))
+p2 = plot(df_in_avg,
+          title = "Daily new confirmed COVID-19 cases per 100k pop.",
+          range=c(0, 30), choro_params = list(subtitle = subtitle))
+grid.arrange(p1, p2, nrow = 1)
+```
+
+### Backfill
+Electronic medical records have a few interesting challenges not present in the survey data. First, is that the data is available at a significant and variable latency (we call this "backfill"). For claims related to a given day, we will receive only about half of them within the first seven days after that date. Due to backfill, we cannot make estimates of our indicator for a given day until four days have passed, and we will revise the value of that day's indicator every day.
+Interestingly, certain types of claims have a longer latency than others. We found that for a given date, as more claims are available, %CLI usually increases. Covid-like claims tend to have a longer latency and thus our early estimates of the indicator usually underestimate the final value.
+
+### Weekday Effects
+Another challenge is the influence of the day of the week on %CLI. On weekends, both total counts and COVID-like counts decrease, but proportionally, total counts decrease more. This is because people are more likely to delay seeking medical care for non-acute issues than acute issues. The total counts include many visits related to non-acute issues, but almost all COVID-like counts are due to acute issues. Without correcting for this weekday effect, the %CLI curve has a "sawtooth" pattern, spiking on weekends. We derived a method to create a corrected signal that accounts for this weekday effect (for a formal mathematical description of the method, see our [API documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html#day-of-week-adjustment)). Below, we see the effect of making these corrections below. When we do not correct for the weekday effect, we see a sawtooth pattern that clearly does not represent true changes in COVID-like illness within a location. However, when we make the weekday correction, we get a smooth curve that looks reasonable. It is important to note that this correction is not time-wise smoothing! Rather, we are making a point-wise correction based on the fitted $\alpha$ parameters.
+
+```{r, message=FALSE, warning=FALSE}
 start_day = "2020-05-01"
 end_day = "2020-08-01"
 
@@ -165,9 +202,9 @@ Let's look more closely at the behavior of HHS 2 (New Jersey and New York). We w
 
 The answer to the first question is largely yes. The case incidence is steadily decreasing throughout April and May, flattening out by mid-June. The DV signal peaks a little later than case incidence, but decreases throughout May and is also mostly flat by mid-June. This tells us that the time-wise correlation is good within HHS 2. However, the answer to the second question reveals an issue with the DV signal. The case incidence is the highest of all HHS regions in May and into June, but by July, HHS 2 and HHS 1 (New England) have the lowest case incidence. This is not true with the DV signal. HHS 2 has the highest DV signal almost throughout the entire time period, even when its case incidence is the lowest. With these plots, we can point out one reason why the space-wise correlations begin to decline starting in August: counties in HHS 2 tended to have low case incidence but a high DV signal, driving down the correlations.
 
-We have now identified the problem: a DV signal of, say 5%, might mean a very low case incidence for a county in New York but a very high case incidence for a county in Oregon. Since we have six months worth of history for both the DV signal and case incidence, we can correct for this problem by using the DV signal to predict the case incidence in a location-specific manner. In our case, we will use a simple linear regression model to fit the DV signal to case incidence. We call this turning a signal into a sensor.
+We have now identified the problem: a DV signal of, say 5%, might mean a very low case incidence for a county in New York but a very high case incidence for a county in Oregon. Since we have six months worth of history for both the DV signal and case incidence, we can correct for this problem by using the DV signal to predict the case incidence in a location-specific manner. In our case, we will use a simple linear regression model to fit the DV signal to case incidence. We call this turning a signal into a sensor. In the past, the Delphi group has done extensive work in creating sensors from signals and developing "sensor fusion," which combines multiple sensors into a single estimate. This work is out of the scope of this blog post, although it may be a topic for a future post. For a deeper look, see chapter 4 of [Farrow 2016](https://delphi.cmu.edu/~dfarrow/thesis.pdf) and [Jahja et al. 2019](https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights).
 
-We make these corrections in two ways: 1) A single regression fit across the entire time series, and 2) fitting each day, using data from the past 6 weeks. The first method "cheats" by using data that was not yet available (e.g. the DV signal's value for May 1 is corrected using data up to October 1). Therefore, its performance is not necessarily indicative of a system that makes this correction in real time. The second method is mostly real-time, with the exception of backfill of the DV signal, as discussed above.
+We make these sensors in two ways: 1) A single regression fit across the entire time series, and 2) fitting each day, using data from the past 6 weeks. The first method "cheats" by using data that was not yet available (e.g. the DV signal's value for May 1 is corrected using data up to October 1). Therefore, its performance is not necessarily indicative of a system that makes this correction in real time. The second method is mostly real-time, with the exception of backfill of the DV signal, as discussed above.
 
 ```{r, message=FALSE,include=FALSE}
 dv_cases_df = dv_cases_df %>%
@@ -191,7 +228,7 @@ lm_dv_cases_df = dv_cases_df %>%
   ungroup()
 ```
 
-```{r}
+```{r, message=FALSE,include=FALSE}
 rank_cor = function(x, y) {
   return(cor(x, y, method="spearman",use="na.or.complete"))
 }
