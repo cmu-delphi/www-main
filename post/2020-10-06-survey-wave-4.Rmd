@@ -120,7 +120,8 @@ library(gridExtra)
 start_day <- "2020-09-08"
 end_day <- "2020-10-07"
 
-date_formatted <- format(as.Date(end_day), "%B %e, %Y")
+vec <- strsplit(format(as.Date(end_day), "%B %e %Y"), split = "\\s+")[[1]]
+date_formatted <- paste(paste(vec[1], vec[2]), vec[3], sep = ", ")
 plot_label <- labs(caption = "Data from Delphi COVIDcast, covidcast.cmu.edu")
 date_label <- labs(subtitle = date_formatted)
 grid_label <- textGrob("Data from Delphi COVIDcast, covidcast.cmu.edu",
@@ -190,15 +191,23 @@ joined_data %>%
                                "Mask use: %{y:.0f}%<br>",
                                "Cases per 100,000: %{x:.1f}"),
         showlegend = FALSE) %>%
-    layout(xaxis = list(title = "New cases per 100,000 people (7-day average)"),
-           yaxis = list(title = "% wearing masks most/all the time in public"),
-           title = paste0("Current COVID case rates and mask usage, by state<br>",
-                          date_formatted),
-           annotations = list(x = 1, y = 0,
-                              text = "Data from Delphi COVIDcast, covidcast.cmu.edu",
-                              showarrow = FALSE, xref = "paper", yref = "paper",
-                              xanchor = "right", yanchor = "auto",
-                              xshift = 0, yshift = 0),
+    layout(xaxis = list(title = "New cases per 100,000 people (7-day average)",
+                        showline = TRUE, mirror = "ticks", zeroline = FALSE),
+           yaxis = list(title = "% wearing masks most/all the time in public",
+                        showline = TRUE, mirror = "ticks", zeroline = FALSE),
+           title = "Current COVID case rates and mask usage, by state",
+           subtitle = date_formatted,
+           annotations = list(
+             list(x = 0.5, y = 1,
+                  text = date_formatted,
+                  showarrow = FALSE, xref = "paper", yref = "paper",
+                  xanchor = "center", yanchor = "auto",
+                  xshift = 0, yshift = 0),
+             list(x = 1, y = 0,
+                  text = "Data from Delphi COVIDcast, covidcast.cmu.edu",
+                  showarrow = FALSE, xref = "paper", yref = "paper",
+                  xanchor = "right", yanchor = "auto",
+                  xshift = 0, yshift = 0)),
            dragmode = FALSE) %>%
     config(modeBarButtonsToRemove = c("zoom2d", "pan2d", "select2d", "lasso2d",
                                       "zoomIn2d", "zoomOut2d", "resetScale2d",
