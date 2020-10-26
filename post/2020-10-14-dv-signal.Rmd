@@ -12,7 +12,7 @@ In addition to symptom surveys, one of our most prized data sources is health in
 
 <!--more-->
 
-In previous blog posts, we have written about indicators generated from surveys that we run through [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/). In addition to these, we have also generated indicators from electronic medical records. We received access to hospital records and insurance claims data from healthcare partners covering 10-15% of the population of the United States. One indicator that we created from the outpatient insurance claims portion of the data is the "Doctor Visits" signal, which estimates the percentage of office visits due to COVID-like illness.
+In previous blog posts, we have written about indicators generated from surveys that we run through [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/). In addition to these, we have also generated indicators from electronic medical records. We received access to hospital records and insurance claims data from healthcare partners covering 10-15% of the population of the United States. One indicator that we created from the outpatient insurance claims portion of the data is the "Doctor Visits" signal, which estimates the percentage of office visits due to COVID-like illness. We have also partnered with Change Healthcare to receive insurance claims data, and we are in the process of creating a similar signal from their data. Their dataset covers approximately 45% of the population of the United States, so we are very excited to see their "Doctor Visits" signal.
 
 Electronic health records are extremely useful in providing information about epidemics in near real time. A patient may interact with the healthcare system days before receiving a test (if any), and several more days before receiving a positive result and being reported as a confirmed case by a state's Department of Health. This can make our signal an **early indicator** of confirmed cases, and even more so an early indicator of deaths. Early knowledge of an increase in people with COVID-like symptoms is extremely important, as early containment can help contain an outbreak.
 
@@ -227,7 +227,7 @@ The answer to the first question is largely yes. The case incidence is steadily 
 
 We have now identified the problem: a DV signal of, say 5%, might mean a very low case incidence for a county in New York but a very high case incidence for a county in Oregon. Since we have six months worth of history for both the DV signal and case incidence, we can correct for this problem by using the DV signal to predict the case incidence in a location-specific manner. In our case, we will use a simple linear regression model to fit the DV signal to case incidence. We call this turning a signal into a sensor. In the past, the Delphi group has done extensive work in creating sensors from signals and developing "sensor fusion," which combines multiple sensors into a single estimate. This work is out of the scope of this blog post, although it may be a topic for a future post. For a deeper look, see chapter 4 of [Farrow 2016](https://delphi.cmu.edu/~dfarrow/thesis.pdf) and [Jahja et al. 2019](https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights).
 
-We make these sensors in two ways: 1) A single regression fit across the entire time series, and 2) fitting each day, using data from the past 6 weeks. The first method "cheats" by using data that was not yet available (e.g. the DV signal's value for May 1 is corrected using data up to October 1). Therefore, its performance is not necessarily indicative of a system that makes this correction in real time. The second method is mostly real-time, with the exception of backfill of the DV signal, as discussed above.
+We make these sensors by fitting coefficients for each day and location, using data from the past 6 weeks. This method is mostly real-time, with the exception of backfill of the DV signal, as discussed above. Therefore, its performance is indicative of the performance we can achieve if we implemented it today looking forward.
 
 ```{r, message=FALSE, warning=FALSE}
 dv_cases_df = dv_cases_df %>%
@@ -255,70 +255,20 @@ ggplot(inner_join(dv_cases_df,lm_dv_cases_df, by="geo_value") %>%
          summarize(corr_out = rank_cor(dv*slope_6wk + int_6wk, cases),
                    corr_in = rank_cor(dv*m + b, cases),
                    corr_orig = rank_cor(dv,cases), .groups="drop")) +
-  geom_line(aes(time_value,corr_in,color="Single Correction (in sample)")) +
   geom_line(aes(time_value,corr_out,color="\"Real Time\" Correction")) +
   geom_line(aes(time_value,corr_orig,color="Original Signal")) +
   labs(x="Date",y="Correlation",title="Space-wise Correlation of DV-Corrected and Case Incidence",subtitle="Over all counties with at least 500 cumulative cases") +
   theme(legend.position = "bottom", legend.title = element_blank())
 ```
 
-From the graphs above, we see that correcting the DV signal by turning it into a sensor greatly improved the space-wise correlations! Furthermore, the correlation is relatively constant over time, demonstrating that the data quality did not necessarily decrease over time, since a simple linear correction stopped the deterioration.
-
-### Leading or Lagging Indicator?
-
-Above, we suggested that the condition of the pandemic should be represented in the DV signal earlier than the case incidence. We can test this by calculating the time-wise correlation between the DV signal and cases at different time shifts. Let $c_{it}$ and $d_{it}$ be the confirmed COVID-19 rate and DV indicator respectively, at location $i$ and time $t$. The $k$-day shifted correlation at location $i$ from time $t_1$ to $t_2$ is $cor(c_{i,t_1:t_2}, d_{i,t_1+k:t_2+k})$. If the DV signal is indeed a leading indicator relative to case incidence, then the shifted correlation should be highest for some negative value of $k$. We see below that this is indeed the case! The mean $-2$ and $-1$ day shifted correlations are higher than the non-shifted correlation (highest for lag $-1$). This suggests that the DV signal may precede case incidence by an average of one day. Although this is modest, every day counts when it comes to combating a pandemic. Additionally, the shifted correlation of the DV signal and death incidence is highest when the DV signal is shifted at least three weeks earlier.
-
-```{r, message=FALSE, warning=FALSE}
-full_counties = (dv_cases_df %>% group_by(geo_value) %>% summarize(days_present=n()) %>% filter(days_present==max(days_present)))[["geo_value"]]
-
-rank_cor_lag = function(x,y,lag) {
-  cor(x[lag+1:length(x)],y[1:(length(y)-lag)],method="spearman",use="na.or.complete")
-}
-dv_cases_df = dv_cases_df %>% arrange(time_value)
-plot_df = NULL
-
-df_deaths = suppressWarnings(covidcast_signal("usa-facts", "deaths_7dav_incidence_prop", start_day, end_day))
-
-dv_deaths_df = bind_rows(data_adjusted, df_deaths) %>%
-  filter(geo_value %in% geo_values) %>%
-  select(geo_value, signal, time_value, value) %>%
-  tidyr::pivot_wider(names_from=signal,values_from=value) %>%
-  rename(deaths=deaths_7dav_incidence_prop, dv=smoothed_adj_cli) %>%
-  filter(purrr::map_lgl(geo_value,function(fips) { substr(fips,3,5) != "000"})) %>%
-  group_by(time_value) %>%
-  ungroup()
-
-for (lag in 0:21) {
-  d1 = dv_cases_df %>% filter(geo_value %in% full_counties) %>%
-    group_by(geo_value) %>% summarize(corr_cases = rank_cor_lag(dv, cases, lag))
-  d2 = dv_deaths_df %>% filter(geo_value %in% full_counties) %>%
-    group_by(geo_value) %>% summarize(corr_deaths = rank_cor_lag(dv, deaths, lag))
-  d = inner_join(d1, d2, by="geo_value")
-  d[["lag"]] = lag
-  plot_df = bind_rows(plot_df,d)
-}
-for (lag in (-21:-1)) {
-  d1 = dv_cases_df %>% filter(geo_value %in% full_counties) %>%
-    group_by(geo_value) %>% summarize(corr_cases = rank_cor_lag(cases, dv, -lag))
-  d2 = dv_deaths_df %>% filter(geo_value %in% full_counties) %>%
-    group_by(geo_value) %>% summarize(corr_deaths = rank_cor_lag(deaths, dv, -lag))
-  d = inner_join(d1, d2, by="geo_value")
-  d[["lag"]] = lag
-  plot_df = bind_rows(plot_df,d)
-}
-
-ggplot(plot_df %>% group_by(lag) %>% summarize(mean_cor_cases=mean(corr_cases,na.rm=TRUE), mean_cor_deaths=mean(corr_deaths,na.rm=TRUE))) +
-  geom_line(aes(x=lag,y=mean_cor_cases,color="Case Incidence")) +
-  geom_line(aes(x=lag,y=mean_cor_deaths,color="Death Incidence")) +
-  labs(x="Days of DV Shift", y="Correlation", title="Mean Time-wise Correlation of Time-Shifted DV signal to Cases and Deaths", subtitle="Over all counties with DV signal present every day from April 15 to October 1")
-```
+From the graph above, we see that correcting the DV signal by turning it into a sensor greatly improved the space-wise correlations! Furthermore, the correlation is relatively constant over time, demonstrating that the data quality did not necessarily decrease over time, since a simple linear correction stopped the deterioration.
 
 ### Open Questions and Future Directions
-We were happy to see that a location-specific correction was able to greatly increase the space-wise correlation. By looking at the correlations of the two corrections in the graph above, we can see that they perform quite differently early on, and perform more similarly after mid-July. This indicates that the regression coefficients of the real-time correction, which are fit using a sliding window, change significantly over time. We would like to look into this non-stationary relationship between the DV signal and case incidence to better understand why it changes, and why counties in New York and New Jersey have such a different relationship in the first place.
+We were happy to see that a location-specific correction was able to greatly increase the space-wise correlation. We have seen that the regression coefficients of the correction, which are fit using a sliding window, change significantly over time. We would like to look into this non-stationary relationship between the DV signal and case incidence to better understand why it changes, and why counties in New York and New Jersey have such a different relationship in the first place.
 
-We would also like to see how this data compares to that of other healthcare insurance providers. Some insurance providers cover different populations with different rates, which could make their signal more or less correlated with the reported case incidence. We would expect that by combining datasets and covering more people, we can produce a more useful signal.
+We would also like to see how this data compares to that of other healthcare insurance providers. As mentioned above, we have received access to data from Change Healthcare, which has a larger coverage than the provider of this data. We would be interested in comparing Change's signal to this signal in sample size, correlations, and behavior. Some insurance providers cover different populations with different rates, which could make their signal more or less correlated with the reported case incidence. We would expect that by combining datasets and covering more people, we can produce a more useful signal.
 
-We believe that this dataset will be useful for forecasting Covid cases and deaths, since a doctor visit usually precedes a confirmed test and death. As shown above, the DV signal is a leading indicator relative to cases and deaths. Forecasting models can also take the current DV signal as a feature to help predict what the case incidence will be several weeks into the future.
+We believe that this dataset will be useful for forecasting Covid cases and deaths, since a doctor visit usually precedes a confirmed test and death. Forecasting models can also take the current DV signal as a feature to help predict what the case incidence will be several weeks into the future.
 
 **Acknowledgements.** *Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the signal. Aaron Rumack devised the weekday correction and analyzed the performance of the DV signal. Roni Rosenfeld worked closely with our health service partner to get access to the data, and provided domain knowledge to ensure that the data was useful. Both Roni and Ryan Tibshirani provided helpful suggestions and insights along the way.*
 
@@ -326,6 +276,4 @@ We believe that this dataset will be useful for forecasting Covid cases and deat
 
 *Aaron Rumack is a Ph.D. student in the Machine Learning Department, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.*
 
-*[Roni Rosenfeld](http://cs.cmu.edu/~roni) is a lead researcher in the Delphi 
-group, and a Professor and Head of the Machine Learning Department at CMU. He
-is also a Google Fellow.*
+*[Roni Rosenfeld](http://cs.cmu.edu/~roni) is a lead researcher in the Delphi group, and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.*
