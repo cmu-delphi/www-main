@@ -1,6 +1,6 @@
 ---
 title: "A Syndromic COVID-19 Indicator Based on Insurance Claims of Outpatient Visits"
-author: "Aaron Rumack"
+author: "Aaron Rumack and Roni Rosenfeld"
 date: 2020-10-14
 tags: ["nowcasting", "data sources"]
 output:
@@ -320,6 +320,12 @@ We would also like to see how this data compares to that of other healthcare ins
 
 We believe that this dataset will be useful for forecasting Covid cases and deaths, since a doctor visit usually precedes a confirmed test and death. As shown above, the DV signal is a leading indicator relative to cases and deaths. Forecasting models can also take the current DV signal as a feature to help predict what the case incidence will be several weeks into the future.
 
+**Acknowledgements.** *Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the signal. Aaron Rumack devised the weekday correction and analyzed the performance of the DV signal. Roni Rosenfeld worked closely with our health service partner to get access to the data, and provided domain knowledge to ensure that the data was useful. Both Roni and Ryan Tibshirani provided helpful suggestions and insights along the way.*
+
 ---
 
 *Aaron Rumack is a Ph.D. student in the Machine Learning Department, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.*
+
+*[Roni Rosenfeld](http://cs.cmu.edu/~roni) is a lead researcher in the Delphi 
+group, and a Professor and Head of the Machine Learning Department at CMU. He
+is also a Google Fellow.*
