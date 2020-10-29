@@ -8,36 +8,49 @@ output:
     code_folding: hide
 ---
 
-In addition to symptom surveys, one of our most prized data sources is health insurance claims data. Healthcare partners provide us with daily counts of people who visited a doctor due to COVID-like illness in counties across the entire country. We use this data to calculate a signal that estimates the level of COVID-like illness in every county where enough data is available. In this post, we discuss the data itself, what this data can tell us that the number of confirmed cases can't, and how we calculate a %CLI signal. We also investigate why the data appeared to become much less useful over time, and how we discovered that the data just needed a simple adjustment!  Of note, our volume of health insurance claims data is about to grow dramatically thanks to the generosity of Change Healthcare, who has donated their data to us.
+In addition to syndicating familiar indicators of COVID-19 activity, like cases and deaths, our COVIDcast [map](https://covidcast.cmu.edu/) and [API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) feature several novel early indicators. In past posts, we discussed our massive symptom surveys that have reached over ___ million people, in partnership with [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/). Another of our significant data initiatives has been to forge partnerships with healthcare systems, granting us access to hospital records and insurance claims data covering 10-15% of the United States population.  Our team processes these data, releasing aggregates that can serve as early indicators of COVID activity that may improve epidemiological forecasts and help policymakers make informed decisions. The new data allow us to calculate a signal that estimates levels of symptoms when available. We discuss what the new data reveals over our confirmed cases signal, how we calculate the %CLI signal, why this data appears less useful over time, and how this discovery leads to a simple adjustment.
 
 <!--more-->
 
-In previous blog posts, we have written about indicators generated from surveys that we run through [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/). In addition to these, we have also generated indicators from electronic medical records. We received access to hospital records and insurance claims data from healthcare partners covering 10-15% of the population of the United States. One indicator that we created from the outpatient insurance claims portion of the data is the "Doctor Visits" signal, which estimates the percentage of office visits due to COVID-like illness. We have also partnered with Change Healthcare to receive insurance claims data, and we are in the process of creating a similar signal from their data. Their dataset covers approximately 45% of the population of the United States, which we expect to significantly boost the accuracy and resolution of a "Doctor Visit" signal.
 
-Electronic health records are extremely useful in providing information about epidemics in near real time. A patient may interact with the healthcare system days before receiving a test (if any), and several more days before receiving a positive result and being reported as a confirmed case by a state's Department of Health. This can make our signal an **early indicator** of confirmed cases, and even more so an early indicator of deaths. Early knowledge of an increase in people with COVID-like symptoms is extremely important, as early containment can help contain an outbreak.
+In addition to syndicating familiar indicators of COVID-19 activity, like cases and deaths, our COVIDcast [map](https://covidcast.cmu.edu/) and [API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) feature several novel early indicators. In past posts, we discussed our massive symptom surveys that have reached over ___ million people, in partnership with [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/). Another of our significant data initiatives has been to forge partnerships with healthcare systems, granting us access to hospital records and insurance claims data covering 10-15% of the United States population.  Our team processes these data, releasing aggregates that can serve as early indicators of COVID activity that may improve epidemiological forecasts and help policymakers make informed decisions. The new data allow us to calculate a signal that estimates levels of symptoms when available. We discuss what the new data reveals over our confirmed cases signal, how we calculate the %CLI signal, why this data appears less useful over time, and how this discovery leads to a simple adjustment.
 
-The value of insurance claims data is even more apparent when you consider other problems with official case counts:
+### How is this data relevant to our research?
+The outpatient insurance claims provided data for our "Doctor Visits (DV)" signal, which estimates the percentage of office visits due to COVID-like symptoms. We also formed a new partnership with Change Healthcare to receive their insurance claims data, which will allow us to derive a new COVIDcast signal separate from our current DV signal. Because Change Healthcare's data covers approximately 45% of the United States population, we are excited to see how their raw data will translate into our "Doctor Visits" signal.
+ 
+Electronic health records are instrumental in providing epidemic information in near real-time. Patients may interact with healthcare systems days before testing (if at all) and several more days before receiving results reported as confirmed cases by a state's Department of Health. Tracking visit data allows our signal to function as an _early indicator_ of confirmed cases and, alternatively, an early indicator of deaths. Advance knowledge of spikes of COVID-like symptoms can enable early containment efforts to manage emerging outbreaks.
+ 
+The value of this aggregate data becomes apparent when you consider problems with official case counts:
+ 
+1.   **Limited testing capacity:** limited testing capacity means that people saw a doctor for COVID-like symptoms and never received a test, even when they should have. Our data would represent this but exclude them from confirmed counts.
+ 
+2.   **Reporting delays:** It can take several days between examination and testing, with a few more days between testing and results. If the test returns positive, health authorities report the results according to laws with additional verification and analysis (i.e., determining age and demographics) before adding the case to their public data. As a result, reports of confirmed cases are several weeks behind the medical examination date. Even with built-in delays (see below), amassing a claims-based signal allows estimations within 3-4 days of doctor's visits.
+ 
+3.   **Date accuracy:** Sites like JHU and USA Facts scrape and report confirmed cases based on the cases' publicly posted dates. The "number of new daily counts" (derived by successive subtraction from these reports) refers to the number of cases _published_ instead of those _lab-confirmed_ on that date. In comparison, insurance claims indicate the "date of service" typically closer to the testing date. With a gap of several weeks in confirmed public posting, the "date of service" data allows for timely reporting.
+ 
+4.   **Retrospective revisions:** Some states have changed their definition of confirmed COVID-19 cases. States then add and report hundreds of past cases as "new" on the definition date change, often assigning wrong dates in the process. Typically, the data dumping leaves no way to determine the actual test date. Insurance claims are thus useful, as they are not revised.
 
-* Limited testing capacity: Especially prevalent in the earlier days of the pandemic, limited testing capacity means that there were many people who saw a doctor for COVID-like symptoms but never received a test even though they should have. These people would be present in our data but absent from the confirmed counts.
-* Reporting delays:  From the moment a patient is first seen or evaluated, it may take several days (especially in the early days of the pandemic) until their specimen is collected.  It then takes a few more days for the test to be run.  Next, if the test is positive it is reported to the health authorities as required by law.  The health authorities typically do further verification and investigation (for example, determining age and other demographics) before adding the case into their public website.  As a result, many patients are reported as confirmed cases several weeks after they were first medically attended.  While insurance claims also have built-in delays (see below), a meaningful claims-based signal can be estimated within 3-4 days of the doctor's visit.
-* Dating accuracy: Cumulative confirmed cases scraped and reported by sites such as JHU and USA Facts (and mirrored by COVIDcast) are based on the date the case counts were publicly posted.  As a result, the "number of new daily counts" derived by successive subtraction from these reports refers to the number of cases _published_ on that date, not those that were _lab-confirmed_ on that date.  In contrast, insurance claims records indicate the "date of service" -- the date that the patient interacted with the healthcare system, which is typically closer to the testing date.  As explained above, there can be a gap of up to several weeks between these two dates.
-* Retrospective revisions: Some states have changed their definition of confirmed COVID-19 case, sometimes. This is sometime done retroactively, adding hundreds or thousands of past cases and reporting them as "new" on the day on which the definition was changed. These cases are clearly assigned the wrong date, but we have no way of determining when the test was actually taken.  Insurance claims data is not subject to such revisions.
+### The _Doctor Visits_ (DV) Indicator        
+ 
+The Doctor Visits indicator is based solely on insurance claims. We count the claims for a given geographic area and day that fall into five categories:
+ 
+1.     Total: All claims, whether or not related to COVID-19, are also known as _all-cause_claims.        
+ 
+2.     Flu: ICD-10 primary code starting with J09, J10, or J11, a definitive diagnosis of flu.  
+ 
+3.     COVID-like: ICD-10 primary code in {U07.1, U07.2, B97.29, J12.81, Z03.818, B34.2, J12.89}. Some of these codes correspond to a definitive diagnosis of COVID-19, while others indicate similar symptoms.       
+ 
+4.     Flu-like: ICD-10 primary code of J22 (acute lower respiratory infection) or B34.9 (viral infection, unspecified).      
+ 
+5.     Mixed: ICD-10 primary code of Z20.828 (suspected exposure to COVID-19) or J12.9 (viral pneumonia).     
 
-### The _Doctor Visits_ (DV) Indicator
-The Doctor Visits indicator is based solely on insurance claims. For a given geographic area and a given day, we receive the count of claims that fall into each of five categories:
 
-1. Total: All claims, whether or not related to COVID-19.  This is also known as 'all-cause' claims.
-2. Flu: ICD-10 primary code starting with J09, J10, or J11. This is an explicit diagnosis of flu.
-3. COVID-like: ICD-10 primary code in {U07.1, U07.2, B97.29, J12.81, Z03.818, B34.2, J12.89}. Some of these codes correspond to an explicit diagnosis of COVID-19, while others indicate similar symptoms.
-4. Flu-like: ICD-10 primary code of J22 (acute lower respiratory infection) or B34.9 (viral infection, unspecified).
-5. Mixed: ICD-10 primary code of Z20.828 (suspected exposure to COVID-19) or J12.9 (viral pneumonia).
+We estimate the percent of COVID-like illness (%CLI) as (COVID-like + Flu-like + Mixed - Flu) / Total. While the flu is symptomatically COVID-like, they are unrelated to coronaviruses. We subtract Flu counts to make the signal directly related to COVID-19. Our indicator is also available at four geographic levels: county, MSA, HRR, and state. Select [here](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html) for more details.
 
+We set the signal to track as far back as February 1, 2020, showing minimal daily changes across the country until mid-March. For privacy and data integrity, we do not report signals if visits total lower than 500 over seven days ending on that date. We produce daily estimates for about 2000 counties-- around two-thirds of US counties-- and account for over 90% of the US population. 
 
-We estimate the percent of COVID-like illness (%CLI) as (COVID-like + Flu-like + Mixed - Flu) / Total. We subtract the Flu counts because, although they are symptomatically COVID-like, they are known to be unrelated to coronavirus, thus making the signal more directly related to COVID-19. The indicator is available at four geographic levels: county, MSA, HRR, and state. See [here](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html) for more details.
+The two maps below explore the signal. The left heatmap represents the average DV signal for each state from April 15 to May 15. The right heatmap illustrates the average confirmed daily cases per 100,000 people using data from [USAFACTS] (https://usafacts.org/issues/coronavirus/)  within those dates. As shown, states with high cases tend to show high %CLI, and states with lower cases tend to have lower %CLI. 
 
-The signal is available daily starting February 1, 2020 (although understandably, it is nearly zero in all locations until mid-March). To preserve privacy and data integrity, we do not report a signal for a given location and date if there are fewer than 500 total visits in the seven days ending on that date. Following these restrictions, we are able to produce each day estimates for about 2000 counties, about two-thirds of the counties in the U.S. and accounting for over 90% of the country's population.
-
-Below, we plot two maps to explore the signal. On the left is a heatmap representing the average DV signal for each state over the time period April 15 to May 15. On the right is a heatmap of the average daily confirmed cases per 100,000 people using data from [USAFacts](https://usafacts.org/issues/coronavirus/) during the same time period. We can see that the states with many cases tend to have high %CLI and states with fewer cases tend to have lower %CLI, providing a good sanity check.
 
 ```{r, message=FALSE, warning=FALSE}
 library(covidcast)
@@ -78,11 +91,18 @@ grid.arrange(p1, p2, nrow = 1)
 ```
 
 ### Backfill
-Medical insurance claim records have a few interesting challenges not present in the survey data. First, the data is available at a significant and variable latency, often referred to as "backfill".  Due to backfill, we cannot reliably estimate our indicator for a given date of service until four days have passed.  We continue to revise the indicator's value every day thereafter based on newly received claims.  For a given date of service, we typically receive only about half of the total claims within seven days following that date.
-Interestingly, certain types of claims have a longer latency than others. We found that for a given date, as more claims are available, %CLI usually increases. Covid-like claims tend to have a longer latency and thus our early estimates of the indicator usually underestimate the final value.
 
-### Weekday Effects
-Another challenge is the influence of the day of the week on %CLI. On weekends, both total counts and COVID-like counts decrease, but proportionally, total counts decrease more. This is because doctor visits during the weekend tend to focus on acute care.  The total counts include many visits related to non-acute issues, but almost all COVID-like counts are due to acute issues. Without correcting for this weekday effect, the %CLI curve has a "sawtooth" pattern, spiking on weekends. We derived a method to create a corrected signal that accounts for this weekday effect (for a formal mathematical description of the method, see our [API documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html#day-of-week-adjustment)). Below, we see the effect of making these corrections. When we do not correct for the weekday effect, we see a sawtooth pattern that clearly does not represent true changes in COVID-like illness within a location. However, after making the weekday correction, we get a smooth curve that looks reasonable. It is important to note that this correction is not time-wise smoothing! Rather, we are making a point-wise correction based on seven fitted parameters, one for each day of the week.
+Medical insurance claim records present challenges not seen in survey data. Data is available at a significant and variable latency, referred to as _backfill_. Backfill prevents a reliable estimate for a date of service for four days. We revise the indicator value every day based on new claims. We typically receive about half of the total claims within seven days following a date or service.
+
+Certain claim types have a longer latency than others. We found that more claims available on a given date usually increases the %CLI. Our early indicator estimates usually underestimate the final value due to longer latency for COVID-like claims. 
+
+### Weekday Effects 
+
+Another challenge is the weekday influence on %CLI. Total counts and COVID-like counts decrease on weekends, with total counts decreasing proportionally because doctor visits tend to focus on acute care. Total counts include visits related to non-acute issues, but almost all COVID-like counts are due to acute issues. If not corrected, the %CLI curve spikes on weekends, creating a “sawtooth” pattern that does not represent real changes in COVID-like illness within a location. 
+
+We made a corrected signal that accounts for this effect. The formal mathematical description is available on our [API documentation] (https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html#day-of-week-adjustment). 
+As you can see in the corrected result below, the smooth curve is a more reasonable depiction:
+
 
 ```{r, message=FALSE, warning=FALSE}
 start_day = "2020-05-01"
@@ -111,9 +131,14 @@ ggplot(cmb_df %>% filter(geo_value %in% states_to_plot)) +
   facet_wrap(vars(geo_value)) +
   labs(x="Time",y="%CLI",title="Doctor visit signal, with and without weekday adjustment, for nine states")
 ```
+It is important to note that the correction does not smooth time-wise. Instead, we make a point-wise correction based on seven fitted parameters for the days of the week. 
 
 ### Evaluating the Indicator
-We can evaluate the Doctor Visits indicator by measuring its correlation with cases. We hope that when the Doctor Visits indicator is high, cases are also high. We can measure this correlation across two axes: space and time. Let $c_{it}$ and $d_{it}$ be the confirmed COVID-19 rate and DV indicator respectively, at location $i$ and time $t$. The space-wise correlation of an individual location $i$ is the rank correlation of $c_{\cdot t}$ and $d_{\cdot t}$, and the time-wise correlation of a single day $t$ is the rank correlation of $c_{i \cdot}$ and $d_{i \cdot}$. Below, we plot the distribution of time-wise correlation values for each county with at least 500 total confirmed cases. Most counties have high time-wise correlation values, indicating that when the signal is high in a certain county, the county is likely to have high case incidence.
+
+We evaluate the DV indicator by measuring its correlation with cases. We measure this correlation across two axes: space and time. Let $c_{it}$ and $d_{it}$ be the confirmed COVID-19 rate and DV indicator respectively, at location $i$ and time $t$. The space-wise correlation of an individual location $i$ is the rank correlation of $c_{\cdot t}$ and $d_{\cdot t}$, and the time-wise correlation of a single day $t$ is the rank correlation of $c_{i \cdot}$ and $d_{i \cdot}$. We predict that when the DV indicator is high, cases match. 
+
+We plotted the distribution of time-wise correlation for each country with at least 500 confirmed cases below. Most counties show high time-wise correlation values that indicate a likely high case incidence if the signal increased in a county. 
+
 
 ```{r, message=FALSE, warning=FALSE}
 start_day = "2020-04-15"
@@ -158,8 +183,8 @@ ggplot(df_time_cor) +
        subtitle="Over all counties with at least 500 cumulative cases",
        x="Correlation",y="Density")
 ```
+Small count locations usually have lower signal-to-noise ratio, which means their correlations are generally closer to zero. The average correlation increases substantially in counties with more than 2,000 confirmed COVID-19 cases. The resulting increase in correlation is due to the threshold increase. We see higher average time-wise correlation in counties with higher cumulative case counts, shown below. 
 
-Locations with small counts usually have a lower signal-to-noise ratio, which means that their correlations will usually be closer to zero. In the plot below, we show that the average time-wise correlation is higher when considering counties that have higher cumulative case counts. The average correlation increases substantially when considering only counties that have more than 2,000 confirmed COVID-19 cases, and increasing the threshold from there results in a modest increase in correlation.
 
 ```{r, message=FALSE, warning=FALSE}
 df_time_cor = df_time_cor %>%
@@ -171,7 +196,7 @@ ggplot(tibble(thresholds = seq(500,20000,by=500)) %>%
   labs(x="Confirmed Cases Threshold", y = "Correlation", title = "Average Time-wise Correlation between DV signal and case incidence", subtitle="Over all counties with cumulative cases greater than given threshold, as of October 1")
 ```
 
-Below, we plot the space-wise correlation over time. The correlation remains somewhat steady into the middle of July, but starting in the end of July, the space-wise correlation starts to decrease. By late August, the space-wise correlation is essentially zero, or essentially meaningless. This means that on a given day in April or May, a county with a higher DV signal value was more likely to have a higher case incidence than a county with a lower DV signal value. By August and September, we could no longer say that a county with a higher DV signal was more likely to have a higher case incidence.
+In our space-wise correlation over time plot shown below, the correlation remains somewhat steady into mid-July. Yet, the end of July shows a beginning decrease. The space-wise correlation is nearly zero or meaningless by late August, meaning on a given day in April or May, a high DV signal was likely to have higher case incidence than a lower signal in a county. By August or September, a higher DV signal was no longer tied to a higher case incidence.
 
 ```{r, message=FALSE, warning=FALSE}
 ggplot(df_space_cor) +
@@ -181,8 +206,12 @@ ggplot(df_space_cor) +
        x="Date",y="Correlation")
 ```
 
-### Correlation Deterioration
-This correlation deterioration was shocking to us, so we set out to find out the cause. After testing many hypotheses, we found one cause: some areas of the country have a higher DV "baseline" than others. We illustrate this with the plots below, where we plot the average case incidence and average DV signal for each of the 10 HHS regions (for which regions contain which states, see [here](https://www.hhs.gov/about/agencies/iea/regional-offices/index.html)).
+### Correlation Deterioration      
+
+
+We sent out to find the cause of the correlation deterioration and found that some areas in the country have a higher DV “baseline” than others. We plotted the average case incidence and average DV signal for each of the 10 HHS regions below. (To see which states are in those regions, [visit the U.S. Department of Health and Human Services (HHS) website](https://www.hhs.gov/about/agencies/iea/regional-offices/index.html)).
+
+
 
 ```{r, message=FALSE, warning=FALSE}
 fips_to_hhs = function(fips) {
@@ -225,13 +254,18 @@ ggplot(dv_cases_df %>% group_by(time_value,hhs) %>% summarize(dv=sum(dv*pop/sum(
        x="Date",y="Value",color="HHS")
 ```
 
-Let's look more closely at the behavior of HHS 2 (New Jersey and New York). We will compare the two curves in two ways: When the case incidence is high (or low) in HHS 2 compared to other days, is the DV signal also high (or low)? When the case incidence is high (or low) in HHS 2 compared to other HHS regions, is the DV signal also high (or low) in HHS 2? The first question asks how high the time-wise correlation is, and the second questions asks how high the space-wise correlation is.
+Looking closely at the behavior of HHS 2 (New Jersey and New York), we compared two curves in two ways:
+When the case incidence is high (or low) compared to other days, is the DV signal high (or low)?
+When the case incidence is high (or low) compared to other regions, is the DV signal in HHS 2 high (or low)? 
+The first question addresses the time-wise correlation; the second asks about the space-wise correlation. 
 
-The answer to the first question is largely yes. The case incidence is steadily decreasing throughout April and May, flattening out by mid-June. The DV signal peaks a little later than case incidence, but decreases throughout May and is also mostly flat by mid-June. This tells us that the time-wise correlation is good within HHS 2. However, the answer to the second question reveals an issue with the DV signal. The case incidence is the highest of all HHS regions in May and into June, but by July, HHS 2 and HHS 1 (New England) have the lowest case incidence. This is not true with the DV signal. HHS 2 has the highest DV signal almost throughout the entire time period, even when its case incidence is the lowest. With these plots, we can point out one reason why the space-wise correlations begin to decline starting in August: counties in HHS 2 tended to have low case incidence but a high DV signal, driving down the correlations.
+The answer to the first question is mostly yes. Case incidence is steadily decreasing throughout April and May, flattening out by mid-June. The DV signal peaks later than case incidence but decreases in May and is almost flat by mid-June, revealing that time-wise correlation within HHS 2 is good. 
 
-We have now identified the problem: a DV signal of, say 5%, might mean a very low case incidence for a county in New York but a very high case incidence for a county in Oregon. Since we have six months worth of history for both the DV signal and case incidence, we can correct for this problem by using the DV signal to predict the case incidence in a location-specific manner. In our case, we will use a simple linear regression model to fit the DV signal to case incidence. We call this turning a signal into a sensor. In the past, the Delphi group has done extensive work in creating sensors from signals and developing "sensor fusion," which combines multiple sensors into a single estimate. This work is out of the scope of this blog post, although it may be a topic for a future post. For a deeper look, see chapter 4 of [Farrow 2016](https://delphi.cmu.edu/~dfarrow/thesis.pdf) and [Jahja et al. 2019](https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights).
+However, the second question answer reveals an issue with the DV signal, with case incidence higher than all HHS regions in May into June. By July, HHS 2 and HSS 1 (New England) report the lowest case incidence, which is not true with the DV signal. HHS 2 shows the highest DV signal throughout most of the period, even with the lowest incidence case. In these plots, we point out why the space-wise correlations decline in August: counties in HHS 2 tend to have low case incidence but high DV signals, driving the correlations down. 
 
-We make these sensors by fitting coefficients for each day and location, using data from the past 6 weeks. This method is mostly real-time, with the exception of backfill of the DV signal, as discussed above. Therefore, its performance is indicative of the performance we can achieve if we implemented it today looking forward.
+We now identified the problem: a DV signal of say 5% might mean a low case incidence for a county in New York, but a high case incidence for a county in Oregon. With six months’ worth of history for both the DV signal and case incidence, we can correct the problem using the signal to predict incidences in location-specific methods. 
+
+We use a simple linear regression model to fit the DV signal to case incidence in our case. We turn a signal into a sensor. Past work within the Delphi group created sensors from signals and developed “sensor fusion,” which combined multiple sensors into a single estimate. Its performance is indicative of what we achieve by implementing it today, looking forward. Though out of scope for this post, it may present a topic for future research. For a more in-depth understanding, see chapter 4 of [Farrow 2016](https://delphi.cmu.edu/~dfarrow/thesis.pdf) and [Jahja et al. 2019](https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights).
 
 ```{r, message=FALSE, warning=FALSE}
 dv_cases_df = dv_cases_df %>%
@@ -268,14 +302,22 @@ ggplot(inner_join(df_space_cor %>% rename(orig_cor = value), df_space_corrected_
   theme(legend.position = "bottom", legend.title = element_blank())
 ```
 
-From the graph above, we see that correcting the DV signal by turning it into a sensor greatly improved the space-wise correlations! Furthermore, the correlation is relatively constant over time, demonstrating that the data quality did not necessarily decrease over time, since a simple linear correction stopped the deterioration.
+We see that turning the DV signal into a sensor improves the space-wise correlations in the graph above. Furthermore, the relatively constant correlation over time demonstrates that the data quality did not necessarily decrease as a simple linear correction stopped the deterioration. 
 
-### Open Questions and Future Directions
-We were happy to see that a location-specific correction was able to greatly increase the space-wise correlation. We have seen that the regression coefficients of the correction, which are fit using a sliding window, change significantly over time. We would like to look into this non-stationary relationship between the DV signal and case incidence to better understand why it changes, and why counties in New York and New Jersey have such a different relationship in the first place.
+### Open Questions and Future Directions  
+             
+We are happy to see a location-specific correction significantly increases the space-wise correlation. The regression coefficients of the correction, fit using a sliding window, change considerably over time. We would like to look into the non-stationary relationship between the DV signal and case incidence to understand why it changes and why counties in HHS 2 have such a different relationship in the first place.
 
-We would also like to see how the accuracy and coverage of EMR-based signals can be increased when data coverage increases dramatically. As mentioned above, we have received access to data from Change Healthcare, which when fully extracted will increase our coverage five fold -- to over 50% of the U.S. population. We would be interested in comparing Change's signal to our current signal in sample size, correlations, and behavior. Some insurance providers cover different populations with different rates, which could make their signal more or less correlated with the reported case incidence. We would expect that by combining datasets and dramatically increasing coverage we can produce a significantly more useful signal.
+We would like to compare this data with other healthcare insurance providers, such as comparing Healthcare Change’s signal to our sample size, correlations, and behavior. Our partnership with Change Healthcare grants us access to data with more extensive coverage than our current data, making their signal more or less correlated with reported case incidences. Other insurance providers cover different populations with different rates. We expect that by combining datasets and covering more of the population, we could produce a more useful signal.
 
-We believe that this dataset will be useful for forecasting Covid cases and deaths, since a doctor visit usually precedes a confirmed test and death. Forecasting models can also take the current DV signal as a feature to help predict what the case incidence will be several weeks into the future.
+Our data set could be useful in forecasting, as doctor visits usually precede confirmed COVID cases and deaths. The DV signal feature can also help predict what the case incidence will be several weeks into the future for some forecasting models. 
+
+### Related Posts
+
+[Google Survey](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)
+[Facebook Survey](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+[Tracking Mask-wearing Data](https://delphi.cmu.edu/blog/2020/10/12/new-and-improved-covid-symptom-survey-tracks-testing-and-mask-wearing/)
+
 
 **Acknowledgements.** *Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the signal. Aaron Rumack devised the weekday correction and analyzed the performance of the DV signal. Roni Rosenfeld worked closely with our health service partner to get access to the data, and provided domain knowledge to ensure that the data was useful. Both Roni and Ryan Tibshirani provided helpful suggestions and insights along the way.*
 
