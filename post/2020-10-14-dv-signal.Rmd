@@ -34,15 +34,15 @@ The value of this aggregate data becomes apparent when you consider problems wit
  
 The Doctor Visits indicator is based solely on insurance claims. We count the claims for a given geographic area and day that fall into five categories:
  
-1.     Total: All claims, whether or not related to COVID-19, are also known as _all-cause_claims.        
+1. Total: All claims, whether or not related to COVID-19, are also known as _all-cause_claims.
  
-2.     Flu: ICD-10 primary code starting with J09, J10, or J11, a definitive diagnosis of flu.  
+2. Flu: ICD-10 primary code starting with J09, J10, or J11, a definitive diagnosis of flu.
  
-3.     COVID-like: ICD-10 primary code in {U07.1, U07.2, B97.29, J12.81, Z03.818, B34.2, J12.89}. Some of these codes correspond to a definitive diagnosis of COVID-19, while others indicate similar symptoms.       
+3. COVID-like: ICD-10 primary code in {U07.1, U07.2, B97.29, J12.81, Z03.818, B34.2, J12.89}. Some of these codes correspond to a definitive diagnosis of COVID-19, while others indicate similar symptoms.
  
-4.     Flu-like: ICD-10 primary code of J22 (acute lower respiratory infection) or B34.9 (viral infection, unspecified).      
+4. Flu-like: ICD-10 primary code of J22 (acute lower respiratory infection) or B34.9 (viral infection, unspecified).
  
-5.     Mixed: ICD-10 primary code of Z20.828 (suspected exposure to COVID-19) or J12.9 (viral pneumonia).     
+5. Mixed: ICD-10 primary code of Z20.828 (suspected exposure to COVID-19) or J12.9 (viral pneumonia).
 
 
 We estimate the percent of COVID-like illness (%CLI) as (COVID-like + Flu-like + Mixed - Flu) / Total. While the flu is symptomatically COVID-like, they are unrelated to coronaviruses. We subtract Flu counts to make the signal directly related to COVID-19. Our indicator is also available at four geographic levels: county, MSA, HRR, and state. Select [here](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html) for more details.
