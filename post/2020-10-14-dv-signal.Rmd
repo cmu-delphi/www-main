@@ -52,7 +52,7 @@ We set the signal to track as far back as February 1, 2020, showing minimal dail
 The two maps below explore the signal. The left heatmap represents the average DV signal for each state from April 15 to May 15. The right heatmap illustrates the average confirmed daily cases per 100,000 people using data from [USAFACTS] (https://usafacts.org/issues/coronavirus/)  within those dates. As shown, states with high cases tend to show high %CLI, and states with lower cases tend to have lower %CLI. 
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, cache=TRUE, fig.width=9}
 library(covidcast)
 library(dplyr)
 library(gridExtra)
@@ -83,10 +83,10 @@ class(df_in_avg) = c("covidcast_signal", class(df_in_avg))
 subtitle = paste("Averaged over", start_day, "to", end_day)
 p1 = plot(df_dv_avg,
           title = "% COVID-like illness, DV signal",
-          range=c(0, 20), choro_params = list(subtitle = subtitle))
+          range = c(0, 20), choro_params = list(subtitle = subtitle))
 p2 = plot(df_in_avg,
           title = "Daily new confirmed COVID-19 cases per 100k pop.",
-          range=c(0, 30), choro_params = list(subtitle = subtitle))
+          range = c(0, 30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)
 ```
 
@@ -103,34 +103,37 @@ Another challenge is the weekday influence on %CLI. Total counts and COVID-like 
 We made a corrected signal that accounts for this effect. The formal mathematical description is available on our [API documentation] (https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html#day-of-week-adjustment). 
 As you can see in the corrected result below, the smooth curve is a more reasonable depiction:
 
-
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, cache=TRUE}
 start_day = "2020-05-01"
 end_day = "2020-08-01"
 
-data_unadjusted <- suppressMessages(covidcast_signal("doctor-visits", "smoothed_cli", start_day = start_day,
-                                                     end_day = end_day,geo_type="state"))
-data_adjusted <- suppressMessages(covidcast_signal("doctor-visits", "smoothed_adj_cli", start_day = start_day, 
-                                                   end_day = end_day,geo_type="state"))
+data_unadjusted <- covidcast_signal("doctor-visits", "smoothed_cli",
+                                    start_day = start_day, end_day = end_day,
+                                    geo_type = "state")
+data_adjusted <- covidcast_signal("doctor-visits", "smoothed_adj_cli",
+                                  start_day = start_day, end_day = end_day,
+                                  geo_type="state")
 
 data_unadjusted = data_unadjusted %>%
   select(geo_value, signal, time_value, value) %>%
-  tidyr::pivot_wider(names_from=signal,values_from = value)
+  tidyr::pivot_wider(names_from=signal, values_from = value)
 
 data_adjusted = data_adjusted %>%
   select(geo_value, signal, time_value, value) %>%
-  tidyr::pivot_wider(names_from=signal,values_from = value)
+  tidyr::pivot_wider(names_from = signal, values_from = value)
 
-cmb_df = inner_join(data_unadjusted,data_adjusted)
+cmb_df = inner_join(data_unadjusted, data_adjusted)
 
 cmb_df$geo_value = str_to_upper(cmb_df$geo_value)
-states_to_plot = c("AZ","CA","GA","FL","NJ","NY","PA","TX","WI")
+states_to_plot = c("AZ", "CA", "GA", "FL", "NJ", "NY", "PA", "TX", "WI")
 ggplot(cmb_df %>% filter(geo_value %in% states_to_plot)) +
-  geom_line(aes(x=time_value,y=smoothed_cli,color="Unadjusted")) +
-  geom_line(aes(x=time_value,y=smoothed_adj_cli,color="Adjusted")) +
+  geom_line(aes(x = time_value, y = smoothed_cli, color = "Unadjusted")) +
+  geom_line(aes(x = time_value, y = smoothed_adj_cli, color = "Adjusted")) +
   facet_wrap(vars(geo_value)) +
-  labs(x="Time",y="%CLI",title="Doctor visit signal, with and without weekday adjustment, for nine states")
+  labs(x = "Time", y = "%CLI",
+       title = "Doctor visit signal, with and without weekday adjustment, for nine states")
 ```
+
 It is important to note that the correction does not smooth time-wise. Instead, we make a point-wise correction based on seven fitted parameters for the days of the week. 
 
 ### Evaluating the Indicator
@@ -140,26 +143,26 @@ We evaluate the DV indicator by measuring its correlation with cases. We measure
 We plotted the distribution of time-wise correlation for each country with at least 500 confirmed cases below. Most counties show high time-wise correlation values that indicate a likely high case incidence if the signal increased in a county. 
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, cache=TRUE}
 start_day = "2020-04-15"
 end_day = "2020-10-01"
 
-data_adjusted <- suppressMessages(covidcast_signal("doctor-visits", "smoothed_adj_cli", start_day, end_day))
-df_cases = suppressWarnings(covidcast_signal("usa-facts", "confirmed_7dav_incidence_prop", start_day, end_day))
+data_adjusted <- covidcast_signal("doctor-visits", "smoothed_adj_cli", start_day, end_day)
+df_cases = covidcast_signal("usa-facts", "confirmed_7dav_incidence_prop", start_day, end_day)
 
 case_num = 500
-cumulative_case_df = suppressWarnings(covidcast_signal("usa-facts", "confirmed_cumulative_num",
-                              max(df_cases$time_value), 
-                              max(df_cases$time_value)))
+cumulative_case_df = covidcast_signal("usa-facts", "confirmed_cumulative_num",
+                                      max(df_cases$time_value), 
+                                      max(df_cases$time_value))
 geo_values = cumulative_case_df %>%
   filter(value >= case_num) %>% pull(geo_value)
 
 dv_cases_df = bind_rows(data_adjusted, df_cases) %>%
   filter(geo_value %in% geo_values) %>%
   select(geo_value, signal, time_value, value) %>%
-  tidyr::pivot_wider(names_from=signal,values_from=value) %>%
-  rename(cases=confirmed_7dav_incidence_prop, dv=smoothed_adj_cli) %>%
-  filter(purrr::map_lgl(geo_value,function(fips) { substr(fips,3,5) != "000"})) %>%
+  tidyr::pivot_wider(names_from = signal, values_from = value) %>%
+  rename(cases = confirmed_7dav_incidence_prop, dv = smoothed_adj_cli) %>%
+  filter(purrr::map_lgl(geo_value, function(fips) { substr(fips, 3, 5) != "000"})) %>%
   group_by(time_value) %>%
   ungroup()
 
@@ -168,52 +171,61 @@ df_space_cor =
                   filter(geo_value %in% geo_values),
                 df_cases %>%
                   filter(geo_value %in% geo_values),
-                by="time_value",method="spearman")
+                by = "time_value", method = "spearman")
 
 df_time_cor =
   covidcast_cor(data_adjusted %>%
                   filter(geo_value %in% geo_values),
                 df_cases %>%
                   filter(geo_value %in% geo_values),
-                by="geo_value",method="spearman")
+                by = "geo_value", method = "spearman")
 
 ggplot(df_time_cor) +
-  geom_density(aes(x=value)) +
-  labs(title="Time-wise Correlation between DV signal and case incidence",
-       subtitle="Over all counties with at least 500 cumulative cases",
-       x="Correlation",y="Density")
+  geom_density(aes(x = value)) +
+  labs(title = "Time-wise Correlation between DV signal and case incidence",
+       subtitle = "Over all counties with at least 500 cumulative cases",
+       x = "Correlation", y = "Density")
 ```
+
 Small count locations usually have lower signal-to-noise ratio, which means their correlations are generally closer to zero. The average correlation increases substantially in counties with more than 2,000 confirmed COVID-19 cases. The resulting increase in correlation is due to the threshold increase. We see higher average time-wise correlation in counties with higher cumulative case counts, shown below. 
 
 
 ```{r, message=FALSE, warning=FALSE}
 df_time_cor = df_time_cor %>%
-  inner_join(cumulative_case_df %>% select(geo_value,value) %>% rename(cases = value))
+  inner_join(cumulative_case_df %>%
+               select(geo_value, value) %>%
+               rename(cases = value))
 
-ggplot(tibble(thresholds = seq(500,20000,by=500)) %>%
-         mutate(avg_corr = purrr::map_dbl(thresholds, function(t) { mean(df_time_cor %>% filter(cases >= t) %>% pull(value), na.rm=T)}))) +
-  geom_line(aes(x=thresholds,y=avg_corr)) +
-  labs(x="Confirmed Cases Threshold", y = "Correlation", title = "Average Time-wise Correlation between DV signal and case incidence", subtitle="Over all counties with cumulative cases greater than given threshold, as of October 1")
+tibble(thresholds = seq(500, 20000, by = 500)) %>%
+  mutate(avg_corr = purrr::map_dbl(thresholds,
+                                   function(t) {
+                                     mean(df_time_cor %>% filter(cases >= t) %>% pull(value), na.rm=T)
+                                   })) %>%
+  ggplot() +
+  geom_line(aes(x = thresholds, y = avg_corr)) +
+  labs(x = "Confirmed Cases Threshold", y = "Correlation",
+       title = "Average Time-wise Correlation between DV signal and case incidence",
+       subtitle = "Over all counties with cumulative cases greater than given threshold, as of October 1")
 ```
 
 In our space-wise correlation over time plot shown below, the correlation remains somewhat steady into mid-July. Yet, the end of July shows a beginning decrease. The space-wise correlation is nearly zero or meaningless by late August, meaning on a given day in April or May, a high DV signal was likely to have higher case incidence than a lower signal in a county. By August or September, a higher DV signal was no longer tied to a higher case incidence.
 
 ```{r, message=FALSE, warning=FALSE}
 ggplot(df_space_cor) +
-  geom_line(aes(x=time_value,y=value)) +
-  labs(title="Space-wise Correlation between DV signal and case incidence",
-       subtitle="Over all counties with at least 500 cumulative cases",
-       x="Date",y="Correlation")
+  geom_line(aes(x = time_value, y = value)) +
+  labs(title = "Space-wise Correlation between DV signal and case incidence",
+       subtitle = "Over all counties with at least 500 cumulative cases",
+       x = "Date", y = "Correlation")
 ```
 
-### Correlation Deterioration      
+### Correlation Deterioration
 
 
 We sent out to find the cause of the correlation deterioration and found that some areas in the country have a higher DV “baseline” than others. We plotted the average case incidence and average DV signal for each of the 10 HHS regions below. (To see which states are in those regions, [visit the U.S. Department of Health and Human Services (HHS) website](https://www.hhs.gov/about/agencies/iea/regional-offices/index.html)).
 
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, cache=TRUE}
 fips_to_hhs = function(fips) {
   st = as.integer(substr(fips,1,2))
   if (st %in% c(9,23,25,33,44,50)) {
@@ -240,18 +252,32 @@ fips_to_hhs = function(fips) {
     return(0)
   }
 }
-dv_cases_df = dv_cases_df %>% mutate(hhs = purrr::map_dbl(geo_value,fips_to_hhs))
-dv_cases_df = dv_cases_df %>% left_join(county_census %>% select(FIPS,POPESTIMATE2019) %>% rename(geo_value=FIPS,pop=POPESTIMATE2019))
+dv_cases_df = dv_cases_df %>%
+  mutate(hhs = purrr::map_dbl(geo_value, fips_to_hhs))
 
-ggplot(dv_cases_df %>% group_by(time_value,hhs) %>% summarize(dv=sum(dv*pop)/sum(pop),cases=sum(cases*pop)/sum(pop)) %>% ungroup()) +
-  geom_line(aes(x=time_value,y=cases,group=hhs,color=as.factor(hhs))) +
-  labs(title="Mean Case Incidence by HHS Region",
-       x="Date",y="Cases",color="HHS")
+dv_cases_df = dv_cases_df %>%
+  left_join(county_census %>%
+              select(FIPS, POPESTIMATE2019) %>%
+              rename(geo_value = FIPS, pop = POPESTIMATE2019))
 
-ggplot(dv_cases_df %>% group_by(time_value,hhs) %>% summarize(dv=sum(dv*pop/sum(pop),na.rm=T),cases=sum(cases*pop/sum(pop),na.rm=T)) %>% ungroup()) +
-  geom_line(aes(x=time_value,y=dv,group=hhs,color=as.factor(hhs))) +
-  labs(title="Mean DV Signal by HHS Region",
-       x="Date",y="Value",color="HHS")
+dv_cases_df %>%
+  group_by(time_value, hhs) %>%
+  summarize(dv = sum(dv * pop) / sum(pop), cases = sum(cases * pop) / sum(pop)) %>%
+  ungroup() %>%
+  ggplot() +
+  geom_line(aes(x = time_value, y = cases, group = hhs, color = as.factor(hhs))) +
+  labs(title = "Mean Case Incidence by HHS Region",
+       x = "Date", y = "Cases", color = "HHS")
+
+dv_cases_df %>%
+  group_by(time_value, hhs) %>%
+  summarize(dv = sum(dv * pop / sum(pop), na.rm = TRUE),
+            cases = sum(cases * pop / sum(pop), na.rm = TRUE)) %>%
+  ungroup() %>%
+  ggplot() +
+  geom_line(aes(x = time_value, y = dv, group = hhs, color = as.factor(hhs))) +
+  labs(title = "Mean DV Signal by HHS Region",
+       x = "Date", y = "Value", color = "HHS")
 ```
 
 Looking closely at the behavior of HHS 2 (New Jersey and New York), we compared two curves in two ways:
@@ -267,7 +293,7 @@ We now identified the problem: a DV signal of say 5% might mean a low case incid
 
 We use a simple linear regression model to fit the DV signal to case incidence in our case. We turn a signal into a sensor. Past work within the Delphi group created sensors from signals and developed “sensor fusion,” which combined multiple sensors into a single estimate. Its performance is indicative of what we achieve by implementing it today, looking forward. Though out of scope for this post, it may present a topic for future research. For a more in-depth understanding, see chapter 4 of [Farrow 2016](https://delphi.cmu.edu/~dfarrow/thesis.pdf) and [Jahja et al. 2019](https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights).
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, cache=TRUE}
 dv_cases_df = dv_cases_df %>%
   group_by(geo_value) %>%
   mutate(coef_6wk =
@@ -295,10 +321,14 @@ df_space_corrected_cor = covidcast_cor(
   method="spearman"
 )
 
-ggplot(inner_join(df_space_cor %>% rename(orig_cor = value), df_space_corrected_cor %>% rename(corrected_cor = value))) +
-  geom_line(aes(time_value,orig_cor,color="Original Signal")) +
-  geom_line(aes(time_value,corrected_cor,color="\"Real Time\" Correction")) +
-  labs(x="Date",y="Correlation",title="Space-wise Correlation of DV-Corrected and Case Incidence",subtitle="Over all counties with at least 500 cumulative cases") +
+inner_join(df_space_cor %>% rename(orig_cor = value),
+           df_space_corrected_cor %>% rename(corrected_cor = value)) %>%
+  ggplot() +
+  geom_line(aes(time_value, orig_cor, color = "Original Signal")) +
+  geom_line(aes(time_value, corrected_cor, color = "\"Real Time\" Correction")) +
+  labs(x = "Date", y = "Correlation",
+       title = "Space-wise Correlation of DV-Corrected and Case Incidence",
+       subtitle = "Over all counties with at least 500 cumulative cases") +
   theme(legend.position = "bottom", legend.title = element_blank())
 ```
 
