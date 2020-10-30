@@ -20,7 +20,8 @@ yourself like this:
 
 Notice that when we explicitly mark the split point, it does *not* appear in the
 post itself, just on the front page. You should treat the paragraph above as an
-abstract or teaser for the post, not as part of the post itself.
+abstract or teaser for the post, not as part of the post itself. Usually we do
+not include links in the teaser.
 
 You can embed an R code chunk like this:
 
