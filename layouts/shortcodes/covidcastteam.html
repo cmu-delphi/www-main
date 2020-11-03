@@ -1,0 +1,15 @@
+<ul class="team_profiles">
+  {{ range where $.Site.Data.team_covidcast ".team" (.Get "team") }}
+  <li>
+    <div class="team_profile">
+        <img
+        src="{{ (path.Join "/images/team_covidcast/" .image )| relURL }}" alt="{{ .name }}"></img>
+        <span>{{ .name }}</span>
+        <span>{{ .affiliation }}</span>
+        {{ if isset . "note" }}
+        <i>{{ .note }}</i>
+        {{ end }}
+    </div>
+  </li>
+  {{ end }}
+</ul>
