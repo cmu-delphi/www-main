@@ -1,0 +1,96 @@
+- name: Roni Rosenfeld
+  image: roni-rosenfeld.jpg
+  homepage: http://www.cs.cmu.edu/~roni
+  active: true
+- name: Ryan Tibshirani
+  image: pic_ryan.jpg
+  homepage: http://www.stat.cmu.edu/~ryantibs/
+  active: true
+- name: Logan Brooks
+  image: pic_logan.jpg
+  email_image: email_logan.png
+  active: true
+- name: David Farrow
+  image: pic_david.jpg
+  email_image: email_david.png
+  active: true
+- name: Maria Jahja
+  image: pic_maria.jpg
+  homepage: http://www.stat.cmu.edu/~maria/
+  active: true
+- name: Aaron Rumack
+  image: pic_aaron.jpg
+  email_image: email_aaron_small.png
+  active: true
+- name: Jingjing Tang
+  image: jingjing-tang.jpg
+  homepage: https://www.linkedin.com/in/jingjing-tang-856539163/
+  active: true
+- name: Brian Clark
+  image: pic_brian.jpg
+  homepage: https://www.linkedin.com/in/clarkbg/
+  active: true
+- name: Daren Wu
+  image: pic_daren.jpg
+  # email_image: email_daren.png
+  note: Advanced Data Analysis project, 2015-2016
+  active: false
+- name: Pu (Paul) Liang
+  image: pic_paul.jpg
+  # email_image: email_paul.png
+  node: Summer-Fall Undergraduate research, 2016
+  active: false
+- name: Shannon Gallagher
+  image: pic_shannon.jpg
+  # email_image: email_shannon_smaller.png
+  homepage: http://stat.cmu.edu/~sgallagh/
+  note: Advanced Data Analysis project, 2015-2016
+  active: false
+- name: Lisheng Gao
+  image: pic_lisheng.jpg
+  # email_image: email_lisheng.png
+  active: false
+- name: Jun Li
+  image: pic_jun.jpg
+  # email_image: email_jun.png
+  homepage: https://www.linkedin.com/in/jun-li-81098067/
+  note: Data Analysis Project, 2017
+  active: false
+- name: Zirui (Edward) Wang
+  image: pic_edward.jpg
+  # email_image: email_edward.png
+  active: false
+- name: Sangwon (Justin) Hyun<br>
+  image: pic_justin.jpg
+  homepage: http://www.stat.cmu.edu/~shyun/
+  active: false
+- name: Nuoyu Li
+  image: pic_nuoyu_resized.jpg
+  # email_image: email_nuoyu-resized.png
+  homepage: https://www.linkedin.com/in/nuoyu-li/
+  active: false
+- name: Junpei (John) Zhou
+  image: pic_junpei.jpg
+  # email_image: email_junpei.png"
+  homepage: https://www.linkedin.com/in/jpzhou1996/
+  active: false
+- name: Steven Abreu
+  image: pic_steve.jpg
+  homepage: https://www.linkedin.com/in/steven-abreu
+  active: false
+- name: Mengze (Irene) Li
+  image: pic_irene.jpg
+  homepage: https://www.linkedin.com/in/mengze-irene-li-114592130/
+  active: false
+- name: Nicholas Trieu<br>
+  image: pic_nicholas.jpg
+  homepage: https://www.linkedin.com/in/nicholas-lee-trieu-2954a7100/
+  active: false
+- name: Theresa Gebert
+  image: pic_theresa.jpg
+  # email_image: email_theresa_small.png
+  active: false
+- name: Jiaxian (Chris) Sheng
+  image: pic_jiaxian.jpg
+  homepage: https://www.linkedin.com/in/jiaxian-sheng
+  active: false

@@ -1,0 +1,15 @@
+<ul>
+  {{ range $.Site.Data.bibliography}}
+  <li>
+    <!-- {{ .key }} -->
+    <p class="text_bib">
+      <a target="_blank" href="{{ .link }}"> <b>{{ .title }} </b> </a>
+      <br />
+      {{ .authors}} <br />
+      <i>{{ .journal }} </i> {{ .issue }} {{ if isset . "year" }} ({{ .year }})
+      {{ end }} {{ if isset . "doi" }} DOI:
+      <a href="https://doi.org/{{ .doi }}">{{ .doi }}</a>{{ end }}
+    </p>
+  </li>
+  {{ end }}
+</ul>

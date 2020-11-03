@@ -1,0 +1,12 @@
+- name: MIDAS
+  link: https://www.nigms.nih.gov/research/specificareas/MIDAS/pages/default.aspx
+  image: logo_nihmidas.jpg
+- name: DTRA
+  link: http://www.dtra.mil/
+  image: logo_dtra.png
+- name: UpTake
+  link: https://www.uptake.com/
+  image: logo_uptake_black.png
+- name: CMC
+  link: https://www.cdc.gov/
+  image: acknowledgment-uscdc-rev.png

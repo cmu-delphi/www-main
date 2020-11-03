@@ -1,0 +1,9 @@
+
+<ul>
+{{ $tools := .Site.GetPage "/news" }}
+{{ range sort ($tools.Resources.ByType "page") "Params.date" "desc" }}
+  <li>
+    {{ .Content }}
+  </li>
+{{ end }}
+</ul>

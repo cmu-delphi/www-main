@@ -1,0 +1,7 @@
+# Compress posts, their contents, their images
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html application/javascript text/css image/svg+xml
+</IfModule>
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html application/javascript text/css image/svg+xml
+</IfModule>

@@ -1,1 +1,4 @@
-.DS_Store
+/content/**/*.html
+/public
+/resources/_gen
+*.exe

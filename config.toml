@@ -1,0 +1,44 @@
+baseURL = "https://delphi.cmu.edu/"
+languageCode = "en-us"
+title = "The Delphi Team"
+theme = "cmu"
+googleAnalytics = "UA-88748454-1"
+disqusShortname = ""
+relativeURLs = false
+
+[permalinks]
+    post = "/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "Delphi"
+    url = "https://delphi.cmu.edu/"
+    weight = 1
+[[menu.main]]
+    name = "COVIDcast"
+    url = "https://covidcast.cmu.edu"
+    weight = 2
+[[menu.main]]
+    name = "Data"
+    url = "https://cmu-delphi.github.io/delphi-epidata/"
+    weight = 3
+[[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "https://delphi.cmu.edu/blog"
+    weight = 4
+[[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/cmu-delphi/"
+    weight = 5
+
+[params]
+    description = "Developing the Theory and Practice of Epidemiological Forecasting"
+    highlight = true
+    math = true
+    showReadMore = true
+
+    [params.logo]
+    url = "delphi_logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"

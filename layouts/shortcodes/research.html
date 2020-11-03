@@ -1,0 +1,10 @@
+<ul>
+  {{ range $.Site.Data.research }}
+  <li>
+    <p>
+      {{ .authors }}.
+      <a href="{{ .link }}">{{ .title }}</a>. {{ .journal }}, {{ .year }}
+    </p>
+  </li>
+  {{ end }}
+</ul>

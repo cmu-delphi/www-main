@@ -1,0 +1,8 @@
+name = "CMU"
+license = "MIT"
+description = "A CMU theme based on noteworthy."
+min_version = "0.55.2"
+
+[author]
+    name = "Samuel Gratzl"
+    homepage = "https://github.com/sgratzl"

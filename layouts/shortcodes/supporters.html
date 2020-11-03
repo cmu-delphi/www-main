@@ -1,0 +1,13 @@
+<ul>
+  {{ range $.Site.Data.supporter}}
+  <li>
+    <a target="_blank" rel="noopener" href="{{ .link }}">
+      <img
+        class="img_profile"
+        src="{{ (path.Join "/images/supporters/" .image )| relURL }}"
+        alt="{{ .name }}"
+      />
+    </a>
+  </li>
+  {{ end }}
+</ul>

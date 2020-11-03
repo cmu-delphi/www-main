@@ -1,0 +1,32 @@
+<header>
+    <div class="roof red invert">
+        <div>
+            <a class="wordmark" href="//www.cmu.edu/">Carnegie Mellon University</a>
+            <a aria-haspopup="true" aria-label="Menu" class="menu-btn" href="#nav"><b>&#8212;</b><b>&#8212;</b><b>&#8212;</b></a>
+            <form action="https://web-search.andrew.cmu.edu/search" class="search">
+                <input name="entqr" type="hidden" value="3"/>
+                <input name="entsp" type="hidden" value="a"/>
+                <input name="sort" type="hidden" value="date:D:L:d1"/>
+                <input name="output" type="hidden" value="xml_no_dtd"/>
+                <input name="client" type="hidden" value="default_frontend"/>
+                <input name="ud" type="hidden" value="1"/>
+                <input name="oe" type="hidden" value="UTF-8"/>
+                <input name="ie" type="hidden" value="UTF-8"/>
+                <input name="proxystylesheet" type="hidden" value="default_frontend"/>
+                <label><span>Search</span>
+                    <input name="q" placeholder="Search" title="Type keywords into this box, then press enter."/>
+                </label>
+                <button title="Submit" type="submit">Search</button>
+                <input name="site" type="hidden" value=""/>
+            </form>
+        </div>
+    </div>
+    <div id="sitename">
+        <h1><a href="{{ "/" | relLangURL }}">{{ .Site.Title }}</a></h1>
+        {{ if isset .Site.Params "description" }}
+        <h2>
+            {{ .Site.Params.Description | markdownify }}
+        </h2>
+        {{ end }}
+    </div>
+</header>
