@@ -16,3 +16,19 @@
     flex-direction: column;
     align-items: center;
 }
+
+.indicators {
+    display: flex;
+    flex-wrap: wrap;
+    background: lightgray;
+    padding: 1em;
+
+    article {    
+        width: 47%;
+        box-sizing: border-box;
+        padding: 1em;
+        margin: 1em;
+        background: white;
+        border: 1px solid grey;
+    }
+}
