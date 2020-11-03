@@ -10,6 +10,7 @@ relativeURLs = false
     post = "/:year/:month/:day/:slug/"
 
 [[menu.main]]
+    identifier = "main"
     name = "Delphi"
     url = "https://delphi.cmu.edu/"
     weight = 1
@@ -22,7 +23,6 @@ relativeURLs = false
     url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 3
 [[menu.main]]
-    identifier = "blog"
     name = "Blog"
     url = "https://delphi.cmu.edu/blog"
     weight = 4

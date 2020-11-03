@@ -47,7 +47,7 @@ We have participated, and [have done very well](http://www.cs.cmu.edu/~roni/CDC%
 
 {{<team active=true >}}
 
-We are faculty, students, and staff at Carnegie Mellon University (some [alumini]({{< ref "alumini.md" >}})).
+We are faculty, students, and staff at Carnegie Mellon University (some [alumini]({{< ref "alumini.mid" >}})).
 
 We are also part of a larger, University of Pittsburgh-based
 [MIDAS National Center of Excellence](https://www.midas.pitt.edu/), which includes epidemiologists, virologists, public health experts, infectious disease MDs, legal and economic experts, and other computationalists.

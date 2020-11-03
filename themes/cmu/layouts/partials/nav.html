@@ -1,7 +1,7 @@
 <nav id="nav">
   <ul>
     {{ range .Site.Menus.main.ByWeight }}
-    <li class="{{ if eq .Identifier "blog" }}active{{ end }}"><a class="{{ if ne .Identifier "blog" }}external{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
+    <li class="{{ if eq .Identifier "main" }}active{{ end }}"><a class="{{ if ne .Identifier "main" }}external{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
     {{ end }}
   </ul>
 </nav>
