@@ -1,0 +1,18 @@
+.team_profiles {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    > li {
+        margin: 1em;
+        padding: 0;
+    }
+}
+
+.team_profile {
+    width: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

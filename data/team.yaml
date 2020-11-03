@@ -60,7 +60,7 @@
   image: pic_edward.jpg
   # email_image: email_edward.png
   active: false
-- name: Sangwon (Justin) Hyun<br>
+- name: Sangwon (Justin) Hyun
   image: pic_justin.jpg
   homepage: http://www.stat.cmu.edu/~shyun/
   active: false
@@ -82,7 +82,7 @@
   image: pic_irene.jpg
   homepage: https://www.linkedin.com/in/mengze-irene-li-114592130/
   active: false
-- name: Nicholas Trieu<br>
+- name: Nicholas Trieu
   image: pic_nicholas.jpg
   homepage: https://www.linkedin.com/in/nicholas-lee-trieu-2954a7100/
   active: false

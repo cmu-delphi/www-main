@@ -4,7 +4,7 @@ description: Developing the Theory and Practice of Epidemiological Forecasting
 layout: plain
 ---
 
-# Our Mission
+### Our Mission
 
 Epidemiological forecasting is critically needed for decision making
 by public health officials, commercial and non-commercial
