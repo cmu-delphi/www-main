@@ -3,6 +3,7 @@
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
     {{ partial "head.html" . }}
     <body>
+        {{ partial "nav.html" . }}
         {{ partial "header.html" . }}
         <div>
             {{ block "main" . }}

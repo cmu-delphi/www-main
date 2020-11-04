@@ -1,6 +1,5 @@
 ---
 title: About Our Data and Methodology
-layout: plain
 ---
 
 The COVID-19 indicators visualized on our map are derived from the data sources described below. These are all publicly available on the [COVIDcast endpoint](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) of our public [Epidata API](https://cmu-delphi.github.io/delphi-epidata/api/README.html). The API documentation includes [full technical detail](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html) on how these indicators are calculated.

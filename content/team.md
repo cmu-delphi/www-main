@@ -1,6 +1,5 @@
 ---
 title: Delphi Team Members
-layout: plain
 ---
 
 Thank you to all the students, faculty, and staff who have contributed to the COVIDcast project.

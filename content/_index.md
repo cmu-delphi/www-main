@@ -1,7 +1,6 @@
 ---
 title: DELPHI - Epi Forecasting
 description: Developing the Theory and Practice of Epidemiological Forecasting
-layout: plain
 ---
 
 ### Our Mission

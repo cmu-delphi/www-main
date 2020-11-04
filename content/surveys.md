@@ -1,6 +1,5 @@
 ---
 title: Delphi's COVID-19 Surveys
-layout: plain
 ---
 
 In collaboration with Facebook, along with a consortium of universities and public health officials, the [Delphi group](https://delphi.cmu.edu/) at [Carnegie Mellon University](https://www.cmu.edu/) conducts research surveys to monitor the spread and impact of the COVID-19 pandemic in the United States. This survey is advertised through Facebook. It has run continuously since early April 2020, and about 70,000 people in the United States participate **every day**. Survey results are publicly available on our [COVIDcast map](https://covidcast.cmu.edu/index.html) and in our [COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
