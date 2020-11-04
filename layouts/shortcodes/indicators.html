@@ -1,5 +1,5 @@
 
-<section class="indicators">
+<section>
 {{ $tools := .Site.GetPage "/indicators" }}
 {{ range sort (where ($tools.Resources.ByType "page") ".Params.category" "eq" (.Get "category")) ".Params.order" }}
   <article>

@@ -1,7 +1,7 @@
-<ul class="team_profiles">
+<ul>
   {{ range where $.Site.Data.team ".active" (.Get "active") }}
   <li>
-    <div class="team_profile">
+    <div>
         <img
         src="{{ (path.Join "/images/team/" .image )| relURL }}" alt="{{ .name }}"></img>
         <span>{{ .name }}</span>
@@ -9,7 +9,7 @@
         <a href="{{ .homepage }}" target="_blank" rel="noopener">Homepage</a>
         {{ end }}
         {{ if isset . "email_image" }}
-        <img class="img_email" src="{{ (path.Join "/images/team/" .email_image ) | relURL }}"></img>
+        <img src="{{ (path.Join "/images/team/" .email_image ) | relURL }}"></img>
         {{ end }}
     </div>
   </li>

@@ -13,15 +13,6 @@
     <!-- <link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | relURL }}" color="#FF3DB4"> -->
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Styles -->
-    <link
-      href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link href="//www.cmu.edu/common/standard-v6/css/main.min.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="//www.cmu.edu/common/standard-v6/css/print.min.css" media="print" rel="stylesheet" type="text/css" />
-
     <!-- Use Hugo Pipes to process the Sass file (convert to CSS, minify, and add a hash) -->
     {{ $main_style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $main_style.Permalink }}"/>
@@ -40,8 +31,4 @@
     {{- if not .Site.IsServer -}}
       {{ template "_internal/google_analytics.html" . }}
     {{- end -}}
-
-    <script src="https://www.cmu.edu/common/standard-v6/js/list.min.js" type="text/javascript"></script>
-    <script src="https://www.cmu.edu/common/standard-v6/js/jquery-1.10.1.min.js" type="text/javascript"></script>
-    <script src="https://www.cmu.edu/common/standard-v6/js/main.min.js" type="text/javascript"></script>
 </head>

@@ -3,16 +3,11 @@
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
     {{ partial "head.html" . }}
     <body>
-        <div id="container">
-            {{ partial "header.html" . }}
-            <div id="content" class="content-container">
-                <div class="content">
-                    <div class="hidden"></div>
-                {{ block "main" . }}
-                {{ end }}
-                </div>
-            </div>
-            {{ partial "footer.html" . }}
+        {{ partial "header.html" . }}
+        <div>
+            {{ block "main" . }}
+            {{ end }}
         </div>
+        {{ partial "footer.html" . }}
     </body>
 </html>

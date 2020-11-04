@@ -1,4 +1,4 @@
-<nav id="nav">
+<nav>
   <ul>
     {{ range .Site.Menus.main.ByWeight }}
     <li class="{{ if eq .Identifier "main" }}active{{ end }}"><a class="{{ if ne .Identifier "main" }}external{{ end }}" href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>

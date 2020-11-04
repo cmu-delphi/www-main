@@ -1,13 +1,11 @@
 {{ define "main" }}
-<div class="article-content">
+<div>
     {{ if .Date }}
     <time>{{ .Date.Format "January 2, 2006" }}</time>
     {{ end }}
     <h1>{{ .Title }}</h1>
     {{ if .Params.author }}
-        <div class="contact">
-            <span>{{ .Params.author }}</span>
-        </div>
+        <span>{{ .Params.author }}</span>
     {{ end }}
     {{ partial "share.html" . }}
     {{ .Content }}
@@ -24,11 +22,11 @@
 
     {{ end }}
 
-    <div class="page-footer">
+    <div>
         {{if .Params.tags}}
-        <hr class="footer-divider">
+        <hr>
         {{ range .Params.tags }}
-            <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
         {{ end }}
       {{ end }}
     </div>
