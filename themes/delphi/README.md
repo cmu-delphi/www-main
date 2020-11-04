@@ -1,6 +1,6 @@
-# CMU
+# Delphi
 
-Hugo theme based on `Noteworthy` for CMU
+Hugo theme based on `Noteworthy` for Delphi
 
 ## Features
 
@@ -108,16 +108,6 @@ disqusShortname = ""
 
 # Add your Google Analytics identifier: UA-XXXXXXXX-X
 googleAnalytics = ""
-```
-
-## Ko-fi donation button
-
-If you'd like to enable a Ko-fi button on your posts, enable it in the config file and add your identifier.
-
-```
-# Set enableKofi to true to enable the Ko-fi support button. Add your Ko-fi ID to link to your account.
-enableKofi = true
-kofi = ""
 ```
 
 
