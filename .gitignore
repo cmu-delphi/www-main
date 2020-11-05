@@ -5,3 +5,4 @@
 /static/blog
 /static/rmarkdown-libs
 /.vscode
+/blogdown
