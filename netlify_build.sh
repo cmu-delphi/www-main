@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install -y pandoc r-base
+brew install R
 
 # install dependencies
 Rscript ./R/prepare.R
