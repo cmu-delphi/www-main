@@ -2,7 +2,7 @@
 title: "Accessing Open COVID-19 Data via the COVIDcast Epidata API"
 author: "Kathryn Mazaitis and Alex Reinhart"
 date: 2020-10-07
-tags: ["COVIDcast API", "packages", "COVIDcast"]
+tags: ["COVIDcast API", "packages", "COVIDcast", "R", "Python"]
 output:
   html_document:
     code_folding: hide

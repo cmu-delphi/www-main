@@ -2,7 +2,7 @@
 title: "Can Symptoms Surveys Improve COVID-19 Forecasts?"
 author: "Ryan Tibshirani"
 date: 2020-09-21
-tags: ["symptom surveys", "forecasting"]
+tags: ["symptom surveys", "forecasting", "COVIDcast", "R"]
 output:
   html_document:
     code_folding: hide
