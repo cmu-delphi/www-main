@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum install -y R
+amazon-linux-extras install R4.0
 
 # install dependencies
 Rscript ./R/prepare.R
