@@ -1,66 +1,66 @@
 ---
 title: "A Syndromic COVID-19 Indicator Based on Insurance Claims of Outpatient Visits"
 author: "Aaron Rumack and Roni Rosenfeld"
-date: 2020-10-14
+date: 2020-11-05
 tags: ["nowcasting", "data sources", "COVIDcast"]
 output:
   html_document:
     code_folding: hide
 ---
 
-In addition to syndicating familiar indicators of COVID-19 activity, like cases and deaths, our COVIDcast map and API feature several novel early indicators. In past posts, we discussed our massive symptom surveys that have reached over 12 million people, in partnership with Facebook and Google. Another of our significant data initiatives has been to forge partnerships with healthcare systems, granting us access to hospital records and insurance claims data covering 10-15% of the United States population.  Our team processes these data, releasing aggregates that can serve as early indicators of COVID activity that may improve epidemiological forecasts and help policymakers make informed decisions. The new data allow us to calculate a signal that estimates levels of symptoms when available. We discuss what the new data reveals over our confirmed cases signal, how we calculate the %CLI signal, why this data appears less useful over time, and how this discovery leads to a simple adjustment.
+In previous posts, we discussed our massive ongoing symptom surveys that have reached over 12 million people in the U.S. since April 2020, in partnership with Facebook and Google. Another one of our major data initiatives is based on partnerships with healthcare systems, granting us access to various aggregate statistics from hospital records and insurance claims covering 10-15% of the United States population. From these data, we can extract informative indicators that can be early indicators of COVID activity. This post focuses on one indicator in particular, based on outpatient visits, and demonstrates both the challenges and promises associated with medical records data.
 
 <!--more-->
 
+Our COVIDcast [map](https://covidcast.cmu.edu/) and [API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) feature several novel early indicators of COVID-19 activity. In past posts, we discussed our large-scale daily surveys that, as of October 2020, have reached over 12 million people throughout the US, in partnership with [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)  and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/). In another ongoing data initiative, health system partners grant us access to various aggregate statistics from hospital records and insurance claims covering 10-15% of the United States population. From these data, we can extract informative indicators that can be early indicators of COVID activity. Early indicators are important because they help policymakers make more informed decisions and can also improve epidemiological forecasts. 
 
-In addition to syndicating familiar indicators of COVID-19 activity, like cases and deaths, our COVIDcast [map](https://covidcast.cmu.edu/) and [API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) feature several novel early indicators. In past posts, we discussed our massive symptom surveys that have reached over 12 million people, in partnership with [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) and [Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/). Another of our significant data initiatives has been to forge partnerships with healthcare systems, granting us access to hospital records and insurance claims data covering 10-15% of the United States population.  Our team processes these data, releasing aggregates that can serve as early indicators of COVID activity that may improve epidemiological forecasts and help policymakers make informed decisions. The new data allow us to calculate a signal that estimates levels of symptoms when available. We discuss what the new data reveals over our confirmed cases signal, how we calculate the %CLI signal, why this data appears less useful over time, and how this discovery leads to a simple adjustment.
+One indicator that we created from the outpatient insurance claims portion of this data is what we call the **Doctor Visits** or **DV** indicator, which estimates the percentage of outpatient visits (including telemedicine, urgent care, and emergency department visits) that are due to COVID-Like Illness or CLI. We will use % CLI-in-DV to abbreviate the percentage of outpatient visits due to CLI, the units of our DV indicator. Below, we explain how we calculate the DV indicator and discuss its relation to confirmed COVID-19 cases. We also discuss our observation that the DV  indicator possesses significant spatial heterogeneity (it displays systematic county-to-county differences), and we describe a simple dynamic adjustment to address this issue.
 
-## How is This Data Relevant to Our Research?
-The outpatient insurance claims provided data for our "Doctor Visits (DV)" signal, which estimates the percentage of office visits due to COVID-like symptoms. We also formed a new partnership with Change Healthcare to receive their insurance claims data, which will allow us to derive a new COVIDcast signal separate from our current DV signal. Because Change Healthcare's data covers approximately 45% of the United States population, we are excited to see how their raw aggregated data will translate into our "Doctor Visits" signal.
- 
-Electronic health records are instrumental in providing epidemic information in near real-time. Patients may interact with healthcare systems days before testing (if at all) and several more days before receiving results reported as confirmed cases by a state's Department of Health. Tracking visit data allows our signal to function as an _early indicator_ of confirmed cases and, alternatively, an early indicator of deaths. Advance knowledge of spikes of COVID-like symptoms can enable early containment efforts to manage emerging outbreaks.
- 
-The value of this aggregate data becomes apparent when you consider problems with official case counts:
- 
-1. **Limited testing capacity:** Limited testing capacity means that people saw a doctor for COVID-like symptoms and never received a test, even when they should have. Our data would represent this but exclude them from confirmed counts.
- 
-2. **Reporting delays:** It can take several days between examination and testing, with a few more days between testing and results. Next, if the test is positive, it is reported to the health authorities required by law.  The health authorities typically do further verification and investigation (for example, determining age and other demographics) before adding the case to their public website. As a result, reports of confirmed cases are several weeks behind the medical examination date. Even with built-in delays (see below), amassing a claims-based signal allows estimations within 3-4 days of doctor's visits.
- 
-3. **Date accuracy:** Sites like JHU and USAFacts scrape and report confirmed cases based on the cases' publicly posted dates. The "number of new daily counts" (derived by successive subtraction from these reports) refers to the number of cases _published_ instead of those _lab-confirmed_ on that date. In comparison, insurance claims indicate the "date of service" typically closer to the testing date. With a gap of several weeks in confirmed public posting, the "date of service" data allows for timely reporting.
- 
-4. **Retrospective revisions:** Some states have changed their definition of confirmed COVID-19 cases. States then add and report hundreds of past cases as "new" on the definition date change, often assigning wrong dates in the process. Typically, the data dumping leaves no way to determine the actual test date. Insurance claims are thus useful, as they are not revised.
+## Motivation
 
-## The _Doctor Visits_ (DV) Indicator
+Electronic medical records (EMR) are instrumental in providing epidemiological information in near real-time. Sick patients interact with the healthcare system up to several weeks before they are confirmed as cases and added to the published count (see below). Thus signals based on EMR data can be *early indicators*, preceding official reports of confirmed cases and deaths. Early knowledge of a rise in COVID-like symptoms can enable early containment efforts to manage emerging outbreaks.
  
-The Doctor Visits indicator is based solely on insurance claims. We count the claims for a given geographic area and day that fall into five categories:
+The value of EMR data becomes apparent when you compare them to official COVID-19 case counts:
  
-1. Total: All claims, whether or not related to COVID-19, are also known as _all-cause_ claims.
+- **Limited testing capacity.** Especially prevalent in the earlier days of the pandemic, limited testing capacity means that many people saw a doctor for COVID-like symptoms but did not receive a test, even though they should have. These people would be represented in our DV indicator but absent from the confirmed counts.
  
-2. Flu: ICD-10 primary code starting with J09, J10, or J11, a definitive diagnosis of flu.
+- **Reporting delays.** From the moment a patient is first examined (or remotely evaluated), it may take several days until their specimen is collected, and another few days after testing before results are available. When tests come back positive, they must (by law) be reported to the public health authorities. The health authorities typically do further verification and investigation (for example, determining age and other demographics) before adding the cases to their public website. As a result, reports of confirmed cases trail behind the medical evaluation date by several weeks. Even with the reporting delays of insurance claims (see below), a claims-based signal allows estimates of disease activity within 3-4 days of when the outpatient visits occurred.
+
+- **Date accuracy.** Sites like [JHU CSSE](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6) and [USAFacts](https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/) scrape and report cumulative confirmed cases based on the cases' first date of public posting. As a result, the "number of new daily counts" (derived by successive subtraction from these reports) often refers to the number of cases *published* instead of those *lab-confirmed* on that date. In comparison, insurance claims indicate a "date of service", which is typically closer to the testing date. Accurate dating of cases is critical for modeling, analysis, and forecasting. 
  
-3. COVID-like: ICD-10 primary code in {U07.1, U07.2, B97.29, J12.81, Z03.818, B34.2, J12.89}. Some of these codes correspond to a definitive diagnosis of COVID-19, while others indicate similar symptoms.
+- **Retrospective revisions.** Some states have changed their definition of confirmed COVID-19 cases. This is sometimes done retroactively, adding hundreds or thousands of past cases and reporting them as "new" on the day that the definition was changed, resulting in an artificial spike on that date, with no way to assign these cases to their correct dates. This degrades the quality of the case time series.
  
-4. Flu-like: ICD-10 primary code of J22 (acute lower respiratory infection) or B34.9 (viral infection, unspecified).
+## The Doctor Visits Indicator    	
  
-5. Mixed: ICD-10 primary code of Z20.828 (suspected exposure to COVID-19) or J12.9 (viral pneumonia).
+The Doctor Visits indicator is based solely on insurance claims. We count the outpatient claims for a given geographic area and day that fall into each of five categories:
+ 
+1. Total: All claims, whether or not related to COVID-19 (also known as *all-cause* claims). 	
+ 
+2. Flu: ICD-10 primary code starting with J09, J10, or J11, a definitive diagnosis of influenza. 
+ 
+3. COVID-like: ICD-10 primary code in {U07.1, U07.2, B97.29, J12.81, Z03.818, B34.2, J12.89}. Some of these codes correspond to a definitive diagnosis of COVID-19, while others indicate strongly related conditions.
+ 
+4. Flu-like: ICD-10 primary code of J22 (acute lower respiratory infection) or B34.9 (viral infection, unspecified). 	
+ 
+5. Mixed: ICD-10 primary code of Z20.828 (suspected exposure to COVID-19) or J12.9 (viral pneumonia). 	
 
+We estimate the percent of COVID-like illness in doctor visits (% CLI-in-DV) as 100 * (COVID-like + Flu-like + Mixed - Flu) / Total. We subtract the "Flu" count because the higher the presence of confirmed flu, the larger the fraction of flu-like cases that are due to flu rather than to COVID. See [our signal documentation site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html) for more details.
 
-We estimate the percent of COVID-like illness (%CLI) as (COVID-like + Flu-like + Mixed - Flu) / Total. While the flu has symptoms similar to COVID-19, flu is unrelated to coronaviruses. We subtract Flu counts to make the signal directly related to COVID-19. Our indicator is also available at four geographic levels: county, metropolitan statistical area, hospital referral region, and state. See [our technical documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html) for more details.
+The indicator is available daily starting February 1, 2020 (although understandably, it is nearly zero in all locations until mid-March). To preserve privacy and data integrity, we do not report the indicator for a given location and date if there are fewer than 500 total visits in the seven days ending on that date. Following these restrictions, each day, we are able to produce estimates for about 2000 counties (roughly two-thirds of the counties in the US), accounting for over 90% of the country's population.
 
-We set the signal to track as far back as February 1, 2020, showing minimal daily changes across the country until mid-March. For privacy and data integrity, we do not report signals if visits total lower than 500 over seven days ending on that date.
+Below, we plot two maps to explore the indicator. On the left is a heatmap representing the DV indicator for each state, averaged over April 15 to May 15. On the right is a heatmap of daily confirmed COVID-19 cases per 100,000 people using data from [USAFacts](https://usafacts.org/issues/coronavirus/), averaged over the same time span. We can see that the states with many cases per capita tend to have high % CLI-in-DV, and states with fewer cases tend to have lower % CLI-in-DV, providing a good sanity check.
 
-The two maps below explore the signal. The left heatmap represents the average DV signal for each state from April 15 to May 15. The right heatmap illustrates the average confirmed daily cases per 100,000 people using data from [USAFacts](https://usafacts.org/issues/coronavirus/)  within those dates. As shown, states with high cases tend to show high %CLI, and states with lower cases tend to have lower %CLI.
+```{r, include = FALSE}
+knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
+```
 
-
-```{r, message=FALSE, warning=FALSE, fig.width=9}
+```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4}
 library(covidcast)
 library(dplyr)
-library(grid)
-library(gridExtra)
 library(ggplot2)
-library(stringr)
+library(gridExtra)
 
-# Fetch DV % CLI signal and USA-Facts confirmed case incidence proportion at
+# Fetch DV % CLI signal and USAFacts confirmed case incidence proportion at
 # the state level
 start_day = "2020-04-15"
 end_day = "2020-05-15"
@@ -76,81 +76,80 @@ df_in_avg = df_in %>% group_by(geo_value) %>% summarize(value = mean(value))
 # Set a bunch of fields so that the data frames know how to plot themselves
 df_dv_avg$time_value = df_in_avg$time_value = start_day
 df_dv_avg$issue = df_in_avg$issue = start_day
-attributes(df_dv_avg)$geo_type = attributes(df_in_avg)$geo_type = "state"
+attributes(df_dv_avg)$metadata$geo_type = "state"
+attributes(df_in_avg)$metadata$geo_type = "state"
 class(df_dv_avg) = c("covidcast_signal", class(df_dv_avg))
 class(df_in_avg) = c("covidcast_signal", class(df_in_avg))
 
 # Plot choropleth maps, using the covidcast plotting functionality
-grid_label <- textGrob("Data from Delphi COVIDcast, covidcast.cmu.edu",
-                       hjust = 1, x = 1, gp = gpar(fontsize = 9))
 subtitle = paste("Averaged over", start_day, "to", end_day)
 p1 = plot(df_dv_avg,
-          title = "% COVID-like illness, DV signal",
-          range = c(0, 20), choro_params = list(subtitle = subtitle))
+          title = "% COVID-like illness in outpatient visits",
+          range = c(0, 15), choro_params = list(subtitle = subtitle))
 p2 = plot(df_in_avg,
-          title = "Daily new confirmed COVID-19 cases per 100k pop.",
+          title = "Daily new confirmed COVID-19 cases per 100,000 people",
           range = c(0, 30), choro_params = list(subtitle = subtitle))
-grid.arrange(p1, p2, nrow = 1, bottom = grid_label)
+grid.arrange(p1, p2, nrow = 1)
 ```
 
-### Backfill
+## Backfill
 
-Medical insurance claim records present challenges not seen in survey data. Data is available at a significant and variable latency, referred to as _backfill_. Backfill prevents a reliable estimate for a date of service for four days. We revise the indicator value every day based on new claims. We typically receive about half of the total claims within seven days following a date or service.
+Medical insurance claim records introduce a few interesting challenges not present in, for example, survey data. First, insurance claims are available at a significant and variable latency, often referred to as "backfill". Due to typically very heavy backfill that occurs right after the date of service, we do not even release the indicator for a given date until four days have passed. We continue to revise the % CLI-in-DV estimate every day thereafter based on newly received claims. For a given date of service, we typically receive only about half of the total claims within seven days following that date.
 
-Certain claim types have a longer latency than others. We found that more claims available on a given date usually increases the %CLI. Our early indicator estimates usually underestimate the final value due to longer latency for COVID-like claims. 
+Interestingly, certain types of claims have longer latency than others. We found that for a given date, as more claims become available, % CLI-in-DV usually (but not always) increases. COVID-related claims tend to have longer latency and thus our early estimates of the indicator usually (but not always) underestimate the final value.
 
-### Weekday Effects 
+## Weekday Effects
 
-Another challenge is the weekday influence on %CLI. Total counts and COVID-like counts decrease on weekends, with total counts decreasing proportionally because doctor visits tend to focus on acute care. Total counts include visits related to non-acute issues, but almost all COVID-like counts are due to acute issues. If not corrected, the %CLI curve spikes on weekends, creating a “sawtooth” pattern that does not represent real changes in COVID-like illness within a location. 
+Another challenge is the influence of the day of the week on the DV indicator. On weekends, both total counts and COVID-like counts decrease, but proportionally, total counts decrease more. This is because doctor visits during the weekend tend to focus on acute care. The total counts include many visits related to non-acute issues, but almost all COVID-like counts are due to acute issues. Without adjusting for this weekday effect, the DV indicator has a "sawtooth" pattern, spiking on weekends. We derived a method to create an adjusted indicator that accounts for this weekday effect (for a precise description, see our [signal documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html#day-of-week-adjustment)). Below, we visualize the effect of making these adjustments. When we do not adjust for the weekday effect, we see a sawtooth pattern that clearly does not represent true changes in COVID-like illness within a location. However, after making the weekday adjustment, we get a smooth curve that looks reasonable. It is important to note that this adjustment is *not* temporal smoothing! Rather, we are making an adjustment each day based on historical patterns of weekday-to-weekend differences.
 
-We made a corrected signal that accounts for this effect. The formal mathematical description is available on our [API documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html#day-of-week-adjustment).
-As you can see in the corrected result below, the smooth curve is a more reasonable depiction:
-
-```{r, message=FALSE, warning=FALSE, cache=TRUE}
+```{r, message = FALSE, warning = FALSE, fig.width = 8, fig.height = 8}
 start_day = "2020-05-01"
 end_day = "2020-08-01"
 
-data_unadjusted <- covidcast_signal("doctor-visits", "smoothed_cli",
-                                    start_day = start_day, end_day = end_day,
-                                    geo_type = "state")
-data_adjusted <- covidcast_signal("doctor-visits", "smoothed_adj_cli",
-                                  start_day = start_day, end_day = end_day,
-                                  geo_type="state")
+data_unadjusted = covidcast_signal("doctor-visits", "smoothed_cli",
+                                   start_day = start_day, end_day = end_day,
+                                   geo_type = "state")
+data_adjusted = covidcast_signal("doctor-visits", "smoothed_adj_cli",
+                                 start_day = start_day, end_day = end_day,
+                                 geo_type = "state")
 
 data_unadjusted = data_unadjusted %>%
   select(geo_value, signal, time_value, value) %>%
-  tidyr::pivot_wider(names_from=signal, values_from = value)
+  tidyr::pivot_wider(names_from = signal, values_from = value)
 
 data_adjusted = data_adjusted %>%
   select(geo_value, signal, time_value, value) %>%
   tidyr::pivot_wider(names_from = signal, values_from = value)
 
 cmb_df = inner_join(data_unadjusted, data_adjusted)
+cmb_df$geo_value = toupper(cmb_df$geo_value)
 
-cmb_df$geo_value = str_to_upper(cmb_df$geo_value)
 states_to_plot = c("AZ", "CA", "GA", "FL", "NJ", "NY", "PA", "TX", "WI")
+ggplot_colors = c("#FC4E07", "#00AFBB") # Red, blue similar to ggplot defaults
+
 ggplot(cmb_df %>% filter(geo_value %in% states_to_plot)) +
-  geom_line(aes(x = time_value, y = smoothed_cli, color = "Unadjusted")) +
+  geom_line(aes(x = time_value, y = smoothed_cli, color = "Original")) +
   geom_line(aes(x = time_value, y = smoothed_adj_cli, color = "Adjusted")) +
+  scale_color_manual(values = ggplot_colors[2:1]) +
   facet_wrap(vars(geo_value)) +
-  labs(x = "Time", y = "%CLI",
-       title = "Doctor visit signal, with and without weekday adjustment, for nine states")
+  labs(x = "Date", y = "% CLI-in-DV",
+       title = "DV indicator, with and without weekday adjustment") +
+  theme_bw() + 
+  theme(legend.position = "bottom", legend.title = element_blank())
 ```
 
-It is important to note that the correction does not smooth time-wise. Instead, we make a point-wise correction based on seven fitted parameters for the days of the week. 
+## Basic Correlation Analyses
 
-### Evaluating the Indicator
+As a simple quantitative analysis, we can measure the correlation between the DV indicator and daily COVID-19 case rates. The hope is that when the DV indicator is high, the daily case rate (new daily case count per 100,000 people) is also high. We can measure this correlation across two axes: space and time. Everywhere below, by "correlation" we actually mean Spearman correlation (correlation between ranks); in addition, in all experiments (unless otherwise noted) we restrict our attention to counties with at least 500 cumulative COVID-19 cases. First, we consider correlations sliced by space (correlations-by-space, for short): this means, for each county, we correlate the vector of % CLI-in-DV values over time with that of COVID-19 case rates. The distribution of these correlations, plotted below, is concentrated around 0.75. This indicates that, separately for many counties, days where % CLI-in-DV is high tend to coincide with days where case rates are also high.
 
-We evaluate the DV indicator by measuring its correlation with cases. We measure this correlation across two axes: space and time. Let $c_{it}$ and $d_{it}$ be the confirmed COVID-19 rate and DV indicator respectively, at location $i$ and time $t$. The space-wise correlation of an individual location $i$ is the rank correlation of $c_{\cdot t}$ and $d_{\cdot t}$, and the time-wise correlation of a single day $t$ is the rank correlation of $c_{i \cdot}$ and $d_{i \cdot}$. We predict that when the DV indicator is high, cases match. 
-
-We plotted the distribution of time-wise correlation for each country with at least 500 confirmed cases below. Most counties show high time-wise correlation values that indicate a likely high case incidence if the signal increased in a county.
-
-```{r, message=FALSE, warning=FALSE, cache=TRUE}
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
 start_day = "2020-04-15"
 end_day = "2020-10-01"
 
-data_adjusted <- covidcast_signal("doctor-visits", "smoothed_adj_cli", start_day, end_day)
-df_cases = covidcast_signal("usa-facts", "confirmed_7dav_incidence_prop", start_day, end_day)
+df_adjusted = covidcast_signal("doctor-visits", "smoothed_adj_cli", 
+                               start_day, end_day)
+df_cases = covidcast_signal("usa-facts", "confirmed_7dav_incidence_prop", 
+                            start_day, end_day)
 
 case_num = 500
 cumulative_case_df = covidcast_signal("usa-facts", "confirmed_cumulative_num",
@@ -159,75 +158,75 @@ cumulative_case_df = covidcast_signal("usa-facts", "confirmed_cumulative_num",
 geo_values = cumulative_case_df %>%
   filter(value >= case_num) %>% pull(geo_value)
 
-dv_cases_df = bind_rows(data_adjusted, df_cases) %>%
+dv_cases_df = bind_rows(df_adjusted, df_cases) %>%
   filter(geo_value %in% geo_values) %>%
   select(geo_value, signal, time_value, value) %>%
   tidyr::pivot_wider(names_from = signal, values_from = value) %>%
   rename(cases = confirmed_7dav_incidence_prop, dv = smoothed_adj_cli) %>%
-  filter(purrr::map_lgl(geo_value, function(fips) { substr(fips, 3, 5) != "000"})) %>%
+  filter(purrr::map_lgl(geo_value, function(fips) { 
+    substr(fips, 3, 5) != "000"})) %>%
   group_by(time_value) %>%
   ungroup()
 
-df_space_cor =
-  covidcast_cor(data_adjusted %>%
+df_cor_by_time =
+  covidcast_cor(df_adjusted %>%
                   filter(geo_value %in% geo_values),
                 df_cases %>%
                   filter(geo_value %in% geo_values),
                 by = "time_value", method = "spearman")
 
-df_time_cor =
-  covidcast_cor(data_adjusted %>%
+df_cor_by_space =
+  covidcast_cor(df_adjusted %>%
                   filter(geo_value %in% geo_values),
                 df_cases %>%
                   filter(geo_value %in% geo_values),
                 by = "geo_value", method = "spearman")
 
-ggplot(df_time_cor) +
-  geom_density(aes(x = value)) +
-  labs(title = "Time-wise Correlation between DV signal and case incidence",
+ggplot(df_cor_by_space) +
+  geom_density(aes(x = value), fill = "gray") +
+  labs(title = "Correlation-by-space between DV indicator and case rates",
        subtitle = "Over all counties with at least 500 cumulative cases",
-       x = "Correlation", y = "Density")
+       x = "Correlation", y = "Density") + 
+  theme_bw()
 ```
 
-Locations with a small number of case counts usually have lower signal-to-noise ratio, which means their correlations are generally closer to zero. The average correlation increases substantially in counties with more than 2,000 confirmed COVID-19 cases. The resulting increase in correlation is due to the threshold increase. We see higher average time-wise correlation in counties with higher cumulative case counts, shown below. 
+Locations with small counts usually have a lower signal-to-noise ratio, which means that their correlations will usually be lower. In the next plot, we show that the average correlation (still sliced by space) is higher when we restrict our attention to counties with higher cumulative case counts. The average correlation increases substantially when considering only counties that have more than 2,000 cumulative COVID-19 cases, and increasing the threshold from there results in only a modest increase in correlation.
 
-
-```{r, message=FALSE, warning=FALSE}
-df_time_cor = df_time_cor %>%
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
+df_cor_by_space = df_cor_by_space %>%
   inner_join(cumulative_case_df %>%
                select(geo_value, value) %>%
                rename(cases = value))
 
 tibble(thresholds = seq(500, 20000, by = 500)) %>%
-  mutate(avg_corr = purrr::map_dbl(thresholds,
-                                   function(t) {
-                                     mean(df_time_cor %>% filter(cases >= t) %>% pull(value), na.rm=T)
-                                   })) %>%
-  ggplot() +
+  mutate(avg_corr = purrr::map_dbl(
+    thresholds, function(t) { 
+      mean(df_cor_by_space %>% filter(cases >= t) %>% pull(value), na.rm=T)
+    })) %>%
+  ggplot() + 
   geom_line(aes(x = thresholds, y = avg_corr)) +
-  labs(x = "Confirmed Cases Threshold", y = "Correlation",
-       title = "Average Time-wise Correlation between DV signal and case incidence",
-       subtitle = "Over all counties with cumulative cases greater than given threshold, as of October 1")
+  labs(x = "Cumulative cases threshold", y = "Correlation",
+       title = "Mean correlation-by-space between DV indicator and case rates",
+       subtitle = "Over all counties with cumulative cases above threshold") +
+  theme_bw()
 ```
 
-In our space-wise correlation over time plot shown below, the correlation remains somewhat steady into mid-July. Yet, the end of July shows a beginning decrease. The space-wise correlation is nearly zero or meaningless by late August, meaning on a given day in April or May, a high DV signal was likely to have higher case incidence than a lower signal in a county. By August or September, a higher DV signal was no longer tied to a higher case incidence.
+Now, we consider correlations sliced by time (correlations-by-time, for short): this means, for each day, we correlate the vector of % CLI-in-DV values over counties with that of COVID-19 case rates. The correlation remains somewhat steady into the middle of July, but starting at the end of July, the correlation starts to decrease. By late August, the correlation is essentially zero. In other words, on a given day in April or May, a county with a higher % CLI-in-DV was more likely to have a higher case rate than a county with a lower % CLI-in-DV. But by August and September, this was no longer true.
 
-```{r, message=FALSE, warning=FALSE}
-ggplot(df_space_cor) +
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
+ggplot(df_cor_by_time) +
   geom_line(aes(x = time_value, y = value)) +
-  labs(title = "Space-wise Correlation between DV signal and case incidence",
+  labs(title = "Correlation-by-time between DV indicator and case rates",
        subtitle = "Over all counties with at least 500 cumulative cases",
-       x = "Date", y = "Correlation")
+       x = "Date", y = "Correlation") + 
+  theme_bw()
 ```
 
-### Correlation Deterioration
+## Spatial Heterogeneity
 
+This correlation deterioration was surprising to us, so we set out to find out the reason. After testing many hypotheses, we found one cause: some areas of the country have a higher % CLI-in-DV "baseline" than others. We illustrate this with the plots below, where we plot the average case rate and average DV indicator for each of the 10 HHS regions (each region is comprised of 2-7 states; you can find the details on the [Department of HSS website](https://www.hhs.gov/about/agencies/iea/regional-offices/index.html)).
 
-We sent out to find the cause of the correlation deterioration and found that some areas in the country have a higher DV “baseline” than others. We plotted the average case incidence and average DV signal for each of the 10 HHS regions below. (To see which states are in those regions, [visit the U.S. Department of Health and Human Services (HHS) website](https://www.hhs.gov/about/agencies/iea/regional-offices/index.html)).
-
-
-
-```{r, message=FALSE, warning=FALSE, cache=TRUE}
+```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4}
 fips_to_hhs = function(fips) {
   st = as.integer(substr(fips,1,2))
   if (st %in% c(9,23,25,33,44,50)) {
@@ -254,6 +253,7 @@ fips_to_hhs = function(fips) {
     return(0)
   }
 }
+
 dv_cases_df = dv_cases_df %>%
   mutate(hhs = purrr::map_dbl(geo_value, fips_to_hhs))
 
@@ -262,100 +262,102 @@ dv_cases_df = dv_cases_df %>%
               select(FIPS, POPESTIMATE2019) %>%
               rename(geo_value = FIPS, pop = POPESTIMATE2019))
 
-dv_cases_df %>%
+p1 = dv_cases_df %>%
   group_by(time_value, hhs) %>%
   summarize(dv = sum(dv * pop) / sum(pop), cases = sum(cases * pop) / sum(pop)) %>%
   ungroup() %>%
   ggplot() +
-  geom_line(aes(x = time_value, y = cases, group = hhs, color = as.factor(hhs))) +
-  labs(title = "Mean Case Incidence by HHS Region",
-       x = "Date", y = "Cases", color = "HHS")
+  geom_line(aes(x = time_value, y = cases, color = as.factor(hhs))) +
+  labs(title = "Mean case rate per HHS region",
+       x = "Date", y = "New cases per 100,000 people", color = "HHS") +
+  theme_bw() 
 
-dv_cases_df %>%
+p2 = dv_cases_df %>%
   group_by(time_value, hhs) %>%
   summarize(dv = sum(dv * pop / sum(pop), na.rm = TRUE),
             cases = sum(cases * pop / sum(pop), na.rm = TRUE)) %>%
   ungroup() %>%
   ggplot() +
-  geom_line(aes(x = time_value, y = dv, group = hhs, color = as.factor(hhs))) +
-  labs(title = "Mean DV Signal by HHS Region",
-       x = "Date", y = "Value", color = "HHS")
+  geom_line(aes(x = time_value, y = dv, color = as.factor(hhs))) +
+  labs(title = "Mean DV indicator per HHS region",
+       x = "Date", y = "% CLI-in-DV", color = "HHS") +
+  theme_bw()
+
+grid.arrange(p1, p2, nrow = 1)
 ```
 
-Looking closely at the behavior of HHS 2 (New Jersey and New York), we compared two curves in two ways:
-When the case incidence is high (or low) compared to other days, is the DV signal high (or low)?
-When the case incidence is high (or low) compared to other regions, is the DV signal in HHS 2 high (or low)? 
-The first question addresses the time-wise correlation; the second asks about the space-wise correlation. 
+Let's look more closely at the behavior of our indicator in HHS 2 (New Jersey and New York). We will compare the two curves in two ways: when the case rate is high (or low) in HHS 2 compared to other days, is the DV indicator also high (or low)? And when the case rate is high (or low) in HHS 2 compared to other HHS regions, is the DV indicator also high (or low) in HHS 2? The first question asks how high the correlation-by-space is, and the second asks how high the correlation-by-time is.
 
-The answer to the first question is mostly yes. Case incidence is steadily decreasing throughout April and May, flattening out by mid-June. The DV signal peaks later than case incidence but decreases in May and is almost flat by mid-June, revealing that time-wise correlation within HHS 2 is good. 
+The answer to the first question is largely yes. The case rate curve is steadily decreasing throughout April and May, flattening out by mid-June. The DV indicator peaks a little later than case rates do, but decreases throughout May and is mostly flat by mid-June. This tells us that the correlation-by-space is good in HHS 2. However, the answer to the second question reveals an issue with the DV indicator. The case rate in HHS 2 is the highest of all HHS regions in May and into June, but by July, HHS 2 is among the lowest in case rate. This is not true with the DV indicator. HHS 2 has the highest % CLI-in-DV almost throughout the entire time period, even when its case rate is one of the lowest. So we see why the correlation-by-time began to decline starting in August: counties in HHS 2 tended to have low case rates but high % CLI-in-DV values, driving down the correlations.
 
-However, the answer to the second question reveals an issue with the DV signal, with case incidence higher than all HHS regions in May into June. By July, HHS 2 and HSS 1 (New England) report the lowest case incidence, which is not true with the DV signal. HHS 2 shows the highest DV signal throughout most of the period, even with the lowest incidence case. In these plots, we point out why the space-wise correlations decline in August: counties in HHS 2 tend to have low case incidence but high DV signals, driving the correlations down. 
+We have now identified the problem: a % CLI-in-DV of, say, 5% might mean a very low case rate for a county in New York but a very high case rate for a county in Oregon. Since we have six months’ worth of history for both the DV indicator and case rates, we can correct for this problem by regressing case rates on the DV indicator in a location-specific manner. We call this *sensorization*, that is, the process of turning the DV indicator into a *sensor*. In the past, the Delphi group has done extensive work in creating sensors from multiple data sources for tracking flu, dengue, and norovirus; and developed sensor fusion methodology for combining multiple sensors into a single unified estimate. For more, see Chapter 4 of [Farrow 2016](https://delphi.cmu.edu/~dfarrow/thesis.pdf) and [Jahja et al. 2019](https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights).
 
-We now identified the problem: a DV signal of say 5% might mean a low case incidence for a county in New York, but a high case incidence for a county in Oregon. With six months’ worth of history for both the DV signal and case incidence, we can correct the problem using the signal to predict incidences in location-specific methods. 
+In the present example, we sensorize by fitting a simple linear regression model of case rates on % CLI-in-DV, separately for each day and location, training on data from the past six weeks. Because we fit the regression anew each day based on the most recently available data, the method adapts to (potential) gradual changes in the underlying relationship between % CLI-in-DV and case rate.  This method is mostly real-time, but for backfill in the DV indicator, as discussed above.  
 
-In our case, we use a simple linear regression model to fit the DV signal to case incidence. We call this turning a signal into a sensor. Past work within the Delphi group created sensors from signals and developed “sensor fusion,” which combined multiple sensors into a single estimate. Its performance is indicative of what we achieve by implementing it today, looking forward. Though out of scope for this post, it may present a topic for future research. For a more in-depth understanding, see chapter 4 of [Farrow 2016](https://delphi.cmu.edu/~dfarrow/thesis.pdf) and [Jahja et al. 2019](https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights).
-
-
-```{r, message=FALSE, warning=FALSE, cache=TRUE}
+```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 dv_cases_df = dv_cases_df %>%
   group_by(geo_value) %>%
   mutate(coef_6wk =
            purrr::map(time_value,
                       function(d) {
                         mask = time_value %in% (d-seq(7,41))
-                        tryCatch(lm(cases[mask] ~ dv[mask])[["coefficients"]],error=function(x){NA})})) %>%
+                        tryCatch(lm(cases[mask] ~ dv[mask])[["coefficients"]],
+                                 error = function(x){NA})})) %>%
   ungroup()
 
 dv_cases_df = dv_cases_df %>%
-  mutate(slope_6wk = purrr::map_dbl(coef_6wk, function(c) { tryCatch(c[[2]], error=function(x) {NA})})) %>%
-  mutate(int_6wk = purrr::map_dbl(coef_6wk, function(c) { tryCatch(c[[1]], error=function(x) {NA})})) %>%
+  mutate(slope_6wk = purrr::map_dbl(coef_6wk, function(c) { 
+    tryCatch(c[[2]], error = function(x) {NA})})) %>%
+  mutate(int_6wk = purrr::map_dbl(coef_6wk, function(c) { 
+    tryCatch(c[[1]], error = function(x) {NA})})) %>%
   select(-coef_6wk)
 
 lm_dv_cases_df = dv_cases_df %>%
   group_by(geo_value) %>%
-  summarize(b=tryCatch(lm(cases ~ dv)[["coefficients"]][[1]],error=function(x){NA}),
-            m=tryCatch(lm(cases ~ dv)[["coefficients"]][[2]],error=function(x){NA})) %>%
+  summarize(b = tryCatch(lm(cases ~ dv)[["coefficients"]][[1]],
+                       error = function(x){NA}),
+            m = tryCatch(lm(cases ~ dv)[["coefficients"]][[2]],
+                       error = function(x){NA})) %>%
   ungroup()
 
-df_space_corrected_cor = covidcast_cor(
-  dv_cases_df %>% mutate(value = dv*slope_6wk + int_6wk, issue=time_value),
-  dv_cases_df %>% mutate(value = cases, issue=time_value),
-  by="time_value",
-  method="spearman"
-)
+df_cor_by_time_adj = covidcast_cor(
+  dv_cases_df %>% mutate(value = dv*slope_6wk + int_6wk, issue = time_value),
+  dv_cases_df %>% mutate(value = cases, issue = time_value),
+  by = "time_value",
+  method = "spearman")
 
-inner_join(df_space_cor %>% rename(orig_cor = value),
-           df_space_corrected_cor %>% rename(corrected_cor = value)) %>%
-  ggplot() +
-  geom_line(aes(time_value, orig_cor, color = "Original Signal")) +
-  geom_line(aes(time_value, corrected_cor, color = "\"Real Time\" Correction")) +
+inner_join(df_cor_by_time %>% rename(orig_cor = value),
+           df_cor_by_time_adj %>% rename(adj_cor = value), 
+           by = "time_value") %>%
+  ggplot() + 
+  geom_line(aes(time_value, orig_cor, color = "Original")) +
+  geom_line(aes(time_value, adj_cor, color = "Sensorized")) +
+  scale_color_manual(values = ggplot_colors[1:2]) +
   labs(x = "Date", y = "Correlation",
-       title = "Space-wise Correlation of DV-Corrected and Case Incidence",
+       title = "Correlation-by-time of DV indicator and case rates",
        subtitle = "Over all counties with at least 500 cumulative cases") +
+  theme_bw() +
   theme(legend.position = "bottom", legend.title = element_blank())
 ```
 
-We see that turning the DV signal into a sensor improves the space-wise correlations in the graph above. Furthermore, the relatively constant correlation over time demonstrates that the data quality did not necessarily decrease as a simple linear correction stopped the deterioration. 
+From the plot above, we see that sensorizing the DV indicator greatly improves the correlations-by-time. 
 
-## Open Questions and Future Directions
-             
-We are happy to see a location-specific correction significantly increases the space-wise correlation. The regression coefficients of the correction, fit using a sliding window, change considerably over time. We would like to look into the non-stationary relationship between the DV signal and case incidence to understand why it changes and why counties in HHS 2 have such a different relationship in the first place.
+It turns out that the regression coefficients in the method described above, which are fit using a sliding window, change significantly over time. As a future direction, we plan to look into this nonstationary relationship between the DV indicator and case rates to better understand why it changes and why counties in New York and New Jersey have such a different relationship in the first place.
 
-We would like to compare this data with other healthcare insurance providers, such as comparing Healthcare Change’s signal to our sample size, correlations, and behavior. Our partnership with Change Healthcare grants us access to data with more extensive coverage than our current data, making their signal more or less correlated with reported case incidences. Other insurance providers cover different populations with different rates. We expect that by combining datasets and covering more of the population, we could produce a more useful signal.
+## Exciting New Data
 
-Our data set could be useful in forecasting, as doctor visits usually precede confirmed COVID cases and deaths. The DV signal feature can also help predict what the case incidence will be several weeks into the future for some forecasting models. 
+We will end with exciting news: we have recently been granted access to medical insurance claims from [Change Healthcare](https://www.changehealthcare.com), a large healthcare technology company, and are in the process of creating multiple indicators from it. Their data covers approximately 45% of the population of the United States, so we expect it to enable us to substantially boost the accuracy, coverage, and resolution of our EMR-based indicators. We are also interested in comparing our new Change Healthcare indicator (a work in progress) to our current indicator in sample size, correlations, and behavior. Some insurance providers cover different populations with different rates, which could make their indicator more or less correlated with the reported case rates and other relevant indicators. We expect that by combining data sets and dramatically increasing coverage we can produce a significantly more useful indicator.
 
 ## Related Posts
 
-* [COVID-19 Symptom Surveys through Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)
-* [COVID-19 Symptom Surveys through Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
-* [New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing](https://delphi.cmu.edu/blog/2020/10/12/new-and-improved-covid-symptom-survey-tracks-testing-and-mask-wearing/)
+ - [COVID-19 Symptom Surveys through Google](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/)
 
+ - [COVID-19 Symptom Surveys through Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
 
-**Acknowledgements.** *Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the signal. Aaron Rumack devised the weekday correction and analyzed the performance of the DV signal. Roni Rosenfeld worked closely with our health service partner to get access to the data, and provided domain knowledge to ensure that the data was useful. Both Roni and Ryan Tibshirani provided helpful suggestions and insights along the way.*
+**Acknowledgements.** *Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the indicator. Aaron Rumack devised the weekday adjustment and analyzed the performance of the DV indicator. Roni Rosenfeld worked closely with our health systems partners to get access to the data and provided domain knowledge to ensure that the data was useful. Both Roni and Ryan Tibshirani provided helpful suggestions and insights towards the methodology and analysis.*
 
 ---
 
-*Aaron Rumack is a Ph.D. student in the Machine Learning Department, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.*
+*Aaron Rumack is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.*
 
-*[Roni Rosenfeld](http://cs.cmu.edu/~roni) is a lead researcher in the Delphi group, and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.*
+*[Roni Rosenfeld](http://cs.cmu.edu/~roni) is a lead researcher in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.*
