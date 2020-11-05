@@ -1,6 +1,6 @@
 #!/bin/bash
 
-amazon-linux-extras install R4.0
+amazon-linux-extras install R3.4
 
 # install dependencies
 Rscript ./R/prepare.R
