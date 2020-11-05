@@ -157,7 +157,7 @@ library(ggrepel)
 library(dplyr)
 library(plotly)
 
-case_rates <- covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
+case_rates <- covidcast_signal("usa-facts", "confirmed_7dav_incidence_prop",
                                start_day = end_day, end_day = end_day,
                                geo_type = "state")
 
@@ -383,6 +383,12 @@ reopening.
 *For more information about Delphi's symptom surveys, and for media contact
 details, see [our surveys page](https://covidcast.cmu.edu/surveys.html). For
 updates, you can follow [CmuDelphi on Twitter](https://twitter.com/cmudelphi).*
+
+**Note.** *This post was updated on October 17, 2020 to correct an error in the
+scatterplot of mask usage and reported case rates. An error in our data
+processing system meant our reported case rates were half the size they should
+have been. This did not affect the trend in the scatterplot, only the scale of
+the X axis.*
 
 **Acknowledgments.** *Many items in Wave 4 of our survey are based on work by
 the team at the Joint Program in Survey Methodology at the University of
