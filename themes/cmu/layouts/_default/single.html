@@ -1,37 +1,4 @@
 {{ define "main" }}
-<div class="article-content">
-    {{ if .Date }}
-    <time>{{ .Date.Format "January 2, 2006" }}</time>
-    {{ end }}
-    <h1>{{ .Title }}</h1>
-    {{ if .Params.author }}
-        <div class="contact">
-            <span>{{ .Params.author }}</span>
-        </div>
-    {{ end }}
-    {{ partial "share.html" . }}
-    {{ .Content }}
-    {{ template "_internal/disqus.html" . }}
-
-    {{ if .Site.Params.enableKofi }}
-
-        <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
-        <script type='text/javascript'>
-            const kofiId = '{{ .Site.Params.Kofi }}';
-            kofiwidget2.init('Support Me on Ko-fi', '#29abe0', kofiId);
-            kofiwidget2.draw();
-        </script>
-
-    {{ end }}
-
-    <div class="page-footer">
-        {{if .Params.tags}}
-        <hr class="footer-divider">
-        {{ range .Params.tags }}
-            <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
-        {{ end }}
-      {{ end }}
-    </div>
-
-</div>
-{{end}}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+{{ end }}

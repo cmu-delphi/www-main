@@ -1,0 +1,17 @@
+{{ define "main" }}
+<!-- Shows all of the site's tags -->
+<h1>{{.Title}}</h1>
+{{.Content}}
+
+<ul>
+{{ range .Pages }}
+  <li>
+    <a href="{{ .Permalink }}"><h3>{{ .Title}} {{ .PublishDate.Format "Monday, January 2, 2006" }}</h3></a>
+    {{ .Summary }}
+    {{ if .Truncated }}
+      <a href="{{ .Permalink }}">Read more >> </a>
+    {{ end}}
+  </li>
+{{ end }}
+</ul>
+{{end}}

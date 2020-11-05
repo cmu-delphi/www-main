@@ -1,4 +1,7 @@
-/content/**/*.html
+/content/blog/**/*.html
 /public
 /resources/_gen
 *.exe
+/static/blog
+/static/rmarkdown-libs
+/.vscode
