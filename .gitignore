@@ -6,3 +6,4 @@
 /static/rmarkdown-libs
 /.vscode
 /blogdown
+/.Rhistory

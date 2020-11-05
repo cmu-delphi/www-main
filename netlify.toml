@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "hugo -b $DEPLOY_PRIME_URL --gc --minify"
+command = "bash ./netlify_build.sh"
 
 [context.production.environment]
 HUGO_VERSION = "0.78.0"
