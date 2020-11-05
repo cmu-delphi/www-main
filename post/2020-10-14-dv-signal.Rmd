@@ -2,7 +2,7 @@
 title: "A Syndromic COVID-19 Indicator Based on Insurance Claims of Outpatient Visits"
 author: "Aaron Rumack and Roni Rosenfeld"
 date: 2020-11-05
-tags: ["nowcasting", "data sources", "COVIDcast"]
+tags: ["nowcasting", "data sources", "COVIDcast", "R"]
 output:
   html_document:
     code_folding: hide
@@ -200,7 +200,7 @@ df_cor_by_space = df_cor_by_space %>%
 
 tibble(thresholds = seq(500, 20000, by = 500)) %>%
   mutate(avg_corr = purrr::map_dbl(
-    thresholds, function(t) { 
+    thresholds, function(t) {
       mean(df_cor_by_space %>% filter(cases >= t) %>% pull(value), na.rm=T)
     })) %>%
   ggplot() + 
@@ -224,7 +224,7 @@ ggplot(df_cor_by_time) +
 
 ## Spatial Heterogeneity
 
-This correlation deterioration was surprising to us, so we set out to find out the reason. After testing many hypotheses, we found one cause: some areas of the country have a higher % CLI-in-DV "baseline" than others. We illustrate this with the plots below, where we plot the average case rate and average DV indicator for each of the 10 HHS regions (each region is comprised of 2-7 states; you can find the details on the [Department of HSS website](https://www.hhs.gov/about/agencies/iea/regional-offices/index.html)).
+This correlation deterioration was surprising to us, so we set out to find out the reason. After testing many hypotheses, we found one cause: some areas of the country have a higher % CLI-in-DV "baseline" than others. We illustrate this with the plots below, where we plot the average case rate and average DV indicator for each of the 10 HHS regions (each region is comprised of 2-7 states; you can find the details on the [Department of HHS website](https://www.hhs.gov/about/agencies/iea/regional-offices/index.html)).
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4}
 fips_to_hhs = function(fips) {
@@ -292,7 +292,7 @@ The answer to the first question is largely yes. The case rate curve is steadily
 
 We have now identified the problem: a % CLI-in-DV of, say, 5% might mean a very low case rate for a county in New York but a very high case rate for a county in Oregon. Since we have six months’ worth of history for both the DV indicator and case rates, we can correct for this problem by regressing case rates on the DV indicator in a location-specific manner. We call this *sensorization*, that is, the process of turning the DV indicator into a *sensor*. In the past, the Delphi group has done extensive work in creating sensors from multiple data sources for tracking flu, dengue, and norovirus; and developed sensor fusion methodology for combining multiple sensors into a single unified estimate. For more, see Chapter 4 of [Farrow 2016](https://delphi.cmu.edu/~dfarrow/thesis.pdf) and [Jahja et al. 2019](https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights).
 
-In the present example, we sensorize by fitting a simple linear regression model of case rates on % CLI-in-DV, separately for each day and location, training on data from the past six weeks. Because we fit the regression anew each day based on the most recently available data, the method adapts to (potential) gradual changes in the underlying relationship between % CLI-in-DV and case rate.  This method is mostly real-time, but for backfill in the DV indicator, as discussed above.  
+In the present example, we sensorize by fitting a simple linear regression model of case rates on % CLI-in-DV, separately for each day and location, training on data from the past six weeks. Because we fit the regression anew each day based on the most recently available data, the method adapts to (potential) gradual changes in the underlying relationship between % CLI-in-DV and case rate.  This method is mostly real-time, but for backfill in the DV indicator, as discussed above.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 dv_cases_df = dv_cases_df %>%
