@@ -30,7 +30,7 @@ jobs:
           Rscript ./R/prepare.R
       - name: Build site
         run: |
-          Rscript -e 'blogdown::build_site(run_hugo=FALSE)'
+          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -40,6 +40,11 @@ jobs:
 
       - name: Build
         run: hugo --minify
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: website
+          path: ./public
 
       - name: Deploy Main
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
