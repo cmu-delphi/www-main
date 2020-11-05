@@ -1,6 +1,6 @@
 #!/bin/bash
 
-brew install R
+yum install -y R
 
 # install dependencies
 Rscript ./R/prepare.R

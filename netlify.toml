@@ -1,8 +1,0 @@
-[build]
-publish = "public"
-command = "bash ./netlify_build.sh"
-
-[context.production.environment]
-HUGO_VERSION = "0.78.0"
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
