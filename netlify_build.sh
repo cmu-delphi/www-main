@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt-get install -y pandoc r-base
+apt-get install -y pandoc r-base
 
 # install dependencies
 Rscript ./R/prepare.R
