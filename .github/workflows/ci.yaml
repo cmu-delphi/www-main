@@ -14,6 +14,24 @@ jobs:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
+      - name: Setup R
+        uses: r-lib/actions/setup-r@master
+      - name: Install pandoc
+        uses: r-lib/actions/setup-pandoc@v1
+      - name: Restore Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/Library/Application Support/renv
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
+      - name: Run Prepare Script
+        run: |
+          Rscript ./R/prepare.R
+      - name: Build site
+        run: |
+          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
