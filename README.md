@@ -26,5 +26,8 @@ In order to convert the Rmd files to HTML files for Hugo you have to:
 
 #### Developing new blog content
 
+`/R/prepare.R` is the main R script that is used to setup R and install all dependencies needed to compile all Blog posts. 
+So, if you use a new dependency don't forget to add it to this script.
+
 blogdown also has an integrated server `blogdown::serve_site()` which will render RMarkdown files on the fly and does a similar thing as `hugo server -D`
    
