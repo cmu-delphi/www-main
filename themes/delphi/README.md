@@ -39,13 +39,13 @@ my-new-post
 Then, you can add an image within your Markdown file by using the shortcode like this:
 
 ```
-{{< resize-image src="image1.jpg" alt="My first image" >}}
+{{<resize-image src="image1.jpg" alt="My first image" >}}
 ```
 
 Add captions like this:
 
 ```
-{{< resize-image src="image2.png" alt="My second image" caption="My caption" >}}
+{{<resize-image src="image2.png" alt="My second image" caption="My caption" >}}
 ```
 
 ## Read more link for posts

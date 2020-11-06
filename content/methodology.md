@@ -7,15 +7,15 @@ The COVID-19 indicators visualized on our map are derived from the data sources 
 
 ## Active Indicators 
 
-{{< indicators category="active" >}}
+{{<indicators category="active" >}}
 
 ##  Official Reports 
 
-{{< indicators category="official" >}}
+{{<indicators category="official" >}}
 
 ## Paused and Retired Indicators
 
-{{< indicators category="archived" >}}
+{{<indicators category="archived" >}}
 
 ## About Our Methodology
 
@@ -51,4 +51,4 @@ Empirically (analyses conducted as of late April), we find that each of our COVI
 
 ## Release Log
 
-{{< releasenotes >}}
+{{<releasenotes>}}

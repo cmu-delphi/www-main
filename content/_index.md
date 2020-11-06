@@ -15,11 +15,11 @@ as universally accepted and useful as weather forecasting is today.
 
 ### News
 
-{{<news >}}
+{{<news>}}
 
 ### Operational Systems
 
-{{<systems >}}
+{{<systems>}}
 
 ### Activities
 
@@ -38,27 +38,27 @@ We have participated, and [have done very well](http://www.cs.cmu.edu/~roni/CDC%
 
 ### Publicly Available Tools
 
-{{<tools >}}
+{{<tools>}}
 
- All source code is freely available on [GitHub](https://github.com/cmu-delphi/).
+All source code is freely available on [GitHub](https://github.com/cmu-delphi/).
 
 ### Members
 
 {{<team active=true >}}
 
-We are faculty, students, and staff at Carnegie Mellon University (some [alumini]({{< ref "alumini" >}})).
+We are faculty, students, and staff at Carnegie Mellon University (some [alumini]({{<ref "alumini" >}})).
 
 We are also part of a larger, University of Pittsburgh-based
 [MIDAS National Center of Excellence](https://www.midas.pitt.edu/), which includes epidemiologists, virologists, public health experts, infectious disease MDs, legal and economic experts, and other computationalists.
 
 ### Members of The Delphi COVID-19 Pandemic Response Team
 
- See the list at [covidcast.cmu.edu](https://covidcast.cmu.edu/covid19-response-team.html).
+See the list at [covidcast.cmu.edu](https://covidcast.cmu.edu/covid19-response-team.html).
 
 ### Research and White Papers
 
-{{<research >}}
+{{<research>}}
 
 ### We are thankful for generous financial support from
 
-{{<supporters >}}
+{{<supporters>}}

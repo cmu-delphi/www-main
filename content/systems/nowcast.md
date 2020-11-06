@@ -1,6 +1,6 @@
 ---
 title: ILI Nearby
-externalLink: https://delphi.cmu.edu/nowcast/
+link: https://delphi.cmu.edu/nowcast/
 description: State-level real-time estimates (nowcasts) of ILI (influenza-like illness)
 order: 30
 ---

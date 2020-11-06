@@ -4,7 +4,7 @@
 {{ range sort ($tools.Resources.ByType "page") "Params.order" }}
   <li>
     <p>
-      {{ .Params.description }}: <a href="{{ .Params.externalLink }}">{{ .Title}}</a>.
+      {{ .Params.description }}: <a href="{{ .Params.link }}">{{ .Title}}</a>.
       {{ .Content }}
     </p>
   </li>

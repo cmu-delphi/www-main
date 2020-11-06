@@ -1,6 +1,6 @@
 ---
 title: epidata
-externalLink: https://github.com/cmu-delphi/delphi-epidata
+link: https://github.com/cmu-delphi/delphi-epidata
 description: API for getting up-to-date epidemiological data
 order: 40
 ---
