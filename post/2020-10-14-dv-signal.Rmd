@@ -2,7 +2,7 @@
 title: "A Syndromic COVID-19 Indicator Based on Insurance Claims of Outpatient Visits"
 author: "Aaron Rumack and Roni Rosenfeld"
 date: 2020-11-05
-tags: ["nowcasting", "data sources", "COVIDcast", "R"]
+tags: ["medical records", "COVIDcast", "R"]
 output:
   html_document:
     code_folding: hide
