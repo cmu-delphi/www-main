@@ -1,7 +1,7 @@
 name: www-main
 channels:
-  - defaults
   - conda-forge
+  - defaults
 dependencies:
   - gdal=3.0.2
   - python=3.7.9  
