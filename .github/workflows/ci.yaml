@@ -14,28 +14,34 @@ jobs:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Setup R
-        uses: r-lib/actions/setup-r@master
-      - name: Install pandoc
-        uses: r-lib/actions/setup-pandoc@v1
+      - name: Conda setup
+        uses: s-weigand/setup-conda@v1.0.3
+        with:
+          update-conda: true
+          python-version: 3.7      
       - name: Restore Cache
         uses: actions/cache@v2
         with:
-          path: ~/Library/Application Support/renv
-          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          path: ~/anaconda3/pkgs
+          key: ${{ runner.os }}-conda-${{ hashFiles('environment.yml') }}
           restore-keys: |
-            ${{ runner.os }}-renv-
-      - name: Run Prepare Script
+            ${{ runner.os }}-conda-
+      - name: Conda environment creation
         run: |
-          Rscript ./R/prepare.R
+          conda env create -f environment.yml
+      - name: Install R dependencies
+        run: |
+          source activate www-main
+          Rscript ./dependencies.R
       - name: Build site
         run: |
-          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
+          source activate www-main
+          Rscript -e 'blogdown::build_site(run_hugo=FALSE)'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.77.0'
+          hugo-version: '0.78.0'
           extended: true
 
       - name: Build

@@ -1,4 +1,4 @@
-install.packages(c('blogdown', 'svglite', 'devtools', 'gridExtra', 'reticulate'))
+install.packages(c('blogdown', 'svglite'), repo="http://cran.rstudio.com/")
 
 # blogdown::install_hugo()
 
