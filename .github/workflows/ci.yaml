@@ -12,13 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Conda setup
-        uses: s-weigand/setup-conda@v1.0.3
-        with:
-          update-conda: true
-          python-version: 3.7      
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod   
       - name: Restore Cache
         uses: actions/cache@v2
         with:
@@ -26,6 +20,11 @@ jobs:
           key: ${{ runner.os }}-conda-${{ hashFiles('environment.yml') }}
           restore-keys: |
             ${{ runner.os }}-conda-
+      - name: Conda setup
+        uses: s-weigand/setup-conda@v1.0.5
+        with:
+          update-conda: true
+          python-version: 3.7  
       - name: Conda environment creation
         run: |
           conda env create -f environment.yml
