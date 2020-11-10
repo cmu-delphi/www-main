@@ -20,6 +20,11 @@ dependencies:
   - r-purrr
   - r-rlang
   - r-tidyr
+  - r-vctrs
+  - r-farver
+  - r-vctrs
+  - r-testthat
+  - r-isoband
   - pandoc
   - fiona
   - geopandas
