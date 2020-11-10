@@ -5,5 +5,5 @@
 /blogdown
 /.Rhistory
 *_cache
-*_files
+/content/**/*_files
 *.lock~
