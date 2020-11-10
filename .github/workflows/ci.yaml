@@ -53,6 +53,14 @@ jobs:
         with:
           name: website
           path: ./public
+      - uses: actions/upload-artifact@v2
+        with:
+          name: content
+          path: ./content
+      - uses: actions/upload-artifact@v2
+        with:
+          name: static
+          path: ./static
 
       - name: Deploy Main
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
