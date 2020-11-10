@@ -16,10 +16,12 @@ jobs:
       - name: Restore Cache
         uses: actions/cache@v2
         with:
-          path: ~/miniconda/pkgs
-          key: ${{ runner.os }}-conda2-${{ hashFiles('environment.yml') }}
+          path: |
+            /usr/local/miniconda/pkgs
+            /Users/runner/.conda/pkgs
+          key: ${{ runner.os }}-conda3-${{ hashFiles('environment.yml') }}
           restore-keys: |
-            ${{ runner.os }}-conda-
+            ${{ runner.os }}-conda3-
       - name: Conda setup
         uses: s-weigand/setup-conda@v1.0.5
         with:
