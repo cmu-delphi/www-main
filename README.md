@@ -1,6 +1,6 @@
 # Delphi Website
 
-Delphi's homepage at https://delphi.cmu.edu/
+Delphi's homepage at https://cmu-delphi-main.netlify.app/
 
 This site is based on [Hugo](https://gohugo.io).
 
