@@ -10,6 +10,16 @@ dependencies:
   - r-devtools=2.0.2
   - r-gridextra=2.3
   - r-reticulate=1.12
+  - r-blogdown
+  - r-svglite
+  - r-dplyr
+  - r-ggplot2
+  - r-jsonlite
+  - r-httr
+  - r-maptools
+  - r-purrr
+  - r-rlang
+  - r-tidyr
   - pandoc
   - fiona
   - geopandas
