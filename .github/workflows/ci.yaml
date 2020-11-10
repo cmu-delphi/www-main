@@ -16,8 +16,8 @@ jobs:
       - name: Restore Cache
         uses: actions/cache@v2
         with:
-          path: ~/anaconda3/pkgs
-          key: ${{ runner.os }}-conda-${{ hashFiles('environment.yml') }}
+          path: ~/miniconda/pkgs
+          key: ${{ runner.os }}-conda2-${{ hashFiles('environment.yml') }}
           restore-keys: |
             ${{ runner.os }}-conda-
       - name: Conda setup
@@ -25,6 +25,7 @@ jobs:
         with:
           update-conda: true
           python-version: 3.7  
+      - run: conda info
       - name: Conda environment creation
         run: |
           conda env create -f environment.yml

@@ -16,6 +16,7 @@ dependencies:
   - r-ggplot2
   - r-jsonlite
   - r-httr
+  - r-codetools
   - r-maptools
   - r-purrr
   - r-rlang
