@@ -28,10 +28,12 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
 - Python
 - some dependencies for creating blog posts
 
+1. Activate the environment: `conda activate www-main`
 1. Install extra R dependencies: `Rscript ./dependencies.R`
 
 #### Commands
 
+1. Activate the environment: `conda activate www-main`
 1. Run blogdown to convert the files to HTML: `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE)'`
    - `local=TRUE` similar to `-D` to process draft files
    - `run_hugo=FALSE` to manually run hugo
