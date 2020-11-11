@@ -23,7 +23,7 @@ jobs:
             ${{ runner.os }}-conda4-
       - name: Configure Conda cache
         run: |
-          echo "pkgs_dirs:\n  - /Users/runner/.conda/pkgs\n" > ~/.condarc
+          echo -e "pkgs_dirs:\n  - /Users/runner/.conda/pkgs\n" > ~/.condarc
       - name: Conda setup
         uses: s-weigand/setup-conda@v1.0.5
         with:
