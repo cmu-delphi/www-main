@@ -17,16 +17,17 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            /usr/local/miniconda/pkgs
             /Users/runner/.conda/pkgs
-          key: ${{ runner.os }}-conda3-${{ hashFiles('environment.yml') }}
+          key: ${{ runner.os }}-conda4-${{ hashFiles('environment.yml') }}
           restore-keys: |
-            ${{ runner.os }}-conda3-
+            ${{ runner.os }}-conda4-
+      - name: Configure Conda cache
+        run: |
+          echo "pkgs_dirs:\n  - /Users/runner/.conda/pkgs\n" > ~/.condarc
       - name: Conda setup
         uses: s-weigand/setup-conda@v1.0.5
         with:
-          update-conda: true
-          python-version: 3.7  
+          activate-conda: false
       - run: conda info
       - name: Conda environment creation
         run: |
@@ -39,7 +40,7 @@ jobs:
       - name: Build site
         run: |
           source activate www-main
-          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
+          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=FALSE)'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
