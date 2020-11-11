@@ -26,6 +26,7 @@ dependencies:
   - r-vctrs
   - r-testthat
   - r-isoband
+  - r-ggrepel
   - pandoc
   - fiona
   - geopandas
