@@ -31,4 +31,9 @@
     {{- if not .Site.IsServer -}}
       {{ template "_internal/google_analytics.html" . }}
     {{- end -}}
+
+    {{ if eq .Page.Type "blog" }}
+    {{ $blog_style := resources.Get "css/blog.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $blog_style.Permalink }}"/>
+    {{ end }}
 </head>
