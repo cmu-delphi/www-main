@@ -39,7 +39,7 @@ jobs:
       - name: Build site
         run: |
           source activate www-main
-          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=FALSE)'
+          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
