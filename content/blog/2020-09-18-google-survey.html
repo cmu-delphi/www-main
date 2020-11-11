@@ -1,0 +1,358 @@
+---
+title: "COVID-19 Symptom Surveys through Google"
+author: "Ryan Tibshirani"
+date: 2020-09-18
+tags: ["symptom surveys", "COVIDcast", "R"]
+output:
+  html_document:
+    code_folding: hide
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p>Since April 2020, in addition to our massive daily survey advertised on
+Facebook, we’ve been running (even-more-massive) surveys through Google to
+track the spread of COVID-19 in the United States.
+At its peak, our Google survey was taken by over 1.2 million people in a single
+day, and over its first month in operation, averaged over 600,000 daily
+respondents. In mid-May, we paused daily dissemination of this survey in order
+to focus on our (longer, more complex) survey through Facebook,
+but we plan to bring back the Google survey this fall.
+This short post covers some key differences between our Google and Facebook
+surveys, explains the backstory behind the “CLI-in-community” question
+as it arose through our collaboration with Google,
+and shares some of our thinking about next steps for the Google survey.</p>
+<!--more-->
+<p>Since April 2020, in addition to our <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">massive daily survey advertised on
+Facebook</a>,
+we’ve been running (even-more-massive) surveys through Google to track the
+spread of COVID-19 in the United States. At its peak, our Google survey was
+taken by over 1.2 million people in a single day, and over its first month in
+operation, averaged about 600,000 daily respondents. As usual, we make
+aggregated data from this survey available through our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">COVIDcast
+API</a>.</p>
+<p>In mid-May, we decided to pause daily dissemination of this survey in order to
+focus on our (longer, more complex) survey through Facebook,
+but we plan to bring back the Google survey this fall.
+The two surveys are, in fact, quite different and complement each other nicely.
+This short post covers some key differences between our Google and Facebook
+surveys, explains the backstory behind the “CLI-in-community” question
+as it arose through our collaboration with Google’s team,
+and shares some of our thinking about next steps for the Google survey.</p>
+<div id="short-background" class="section level2">
+<h2>Short Background</h2>
+<p>Back in March 2020, around the time we began discussions with Facebook about
+COVID-19 symptom surveys, we pitched the same idea to Google.
+Our motivation, <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys">as we explained in our last
+post</a>,
+has been to produce real-time, county-level data streams of self-reported COVID
+symptoms that can potentially serve as <strong>early indicators</strong> of COVID activity in
+the US. As we noted in that post, we weren’t the only data scientists
+who thought of running COVID-19 symptom surveys, and several
+other groups had deployed surveys before us.
+What distinguished our strategy from others’
+was the pursuit of a giant like Google to achieve widespread and continuous
+dissemination (well beyond what we could do ourselves).
+Google’s willingness to help was a <em>huge</em> win for us.
+Of all the partnerships we formed to create new COVID-19 indicators,
+our deal with Google was the first to come through.
+This gave us an invaluable confidence boost,
+and taught us the silver lining of this pandemic:
+that many people are truly generous and willing to help.
+Google’s contributions didn’t stop there—they have been helping us in
+<a href="https://blog.google/outreach-initiatives/google-org/google-supports-covid-19-ai-and-data-analytics-projects">various ways ever since</a>.</p>
+<p>Our initial survey with Google launched in late March,
+deployed through various websites and apps (with whom Google partners
+to run questionnaires). Each respondent opted-in to answering the survey and
+agreed to legal disclosures about how the data would be used. The survey asked
+just a single question:</p>
+<blockquote>
+<p>Do you or anyone in your household have a fever of at least 100 °F, along
+with cough, shortness of breath, or difficulty breathing?</p>
+</blockquote>
+<p>This pattern of symptoms defines a condition called
+<strong>COVID-like illness</strong> or <strong>CLI</strong>.
+A respondent could reply “Yes”, “No”, or “Prefer not to say”.
+We’re also given the respondent’s (inferred) county from IP address lookup.
+At the start, this survey data allowed us to estimate the daily % CLI,
+the percentage of people with COVID-like illness, in over 1,000 counties across
+the US. After about 2 weeks, we stopped the survey.
+Google wondered whether we could get equally useful information without asking
+a question of such a sensitive nature. In general, asking a person about their
+health (or their family’s health) is not common practice on Google’s survey
+platform. The hope was that asking a broader question might also improve
+response rates, reduce costs, and increase the number of potential respondents.</p>
+</div>
+<div id="cli-in-community" class="section level2">
+<h2>CLI-in-Community</h2>
+<p>Working with Brett Slatkin (head of Google Surveys)
+and Hal Varian (Google’s Chief Economist), we looked for a new question.
+Brett came up with a list of questions that were acceptable,
+and the most promising among them was:</p>
+<blockquote>
+<p>Do you know of someone in your community who is sick with a fever, along with
+cough, shortness of breath, or difficulty breathing right now?</p>
+</blockquote>
+<p>We decided to deploy this proxy question<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> on April 11, 2020.
+We narrowed our focus to fewer counties:
+roughly the top 600 in terms of population,
+and estimated the daily % CLI-in-community,
+the percentage of people who <em>know someone in their community</em> with COVID-like
+illness. The initial results far exceeded our expectations,
+and were promising enough that within days we added
+this CLI-in-community question to our survey through Facebook.</p>
+<p>To give you a feel for the data, below we plot
+the daily new COVID-19 cases per 100,000 people
+versus the estimated % CLI-in-community from our Google survey,
+at the state level, averaged over April 11 to mid-May.
+This is shown on the left, and on the right,
+we reproduce this with the estimated % CLI-in-community from our Facebook
+survey.</p>
+<pre class="r"><code>library(covidcast)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+
+# Fetch county-level Google and Facebook % CLI-in-community signals, and JHU
+# confirmed case incidence proportion
+df_go = covidcast_signal(&quot;google-survey&quot;, &quot;smoothed_cli&quot;, geo_type = &quot;state&quot;)
+
+start_day = min(df_go$time_value)
+end_day = max(df_go$time_value)
+
+df_fb = covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_hh_cmnty_cli&quot;, 
+                         start_day, end_day, geo_type = &quot;state&quot;)
+df_in = covidcast_signal(&quot;jhu-csse&quot;, &quot;confirmed_7dav_incidence_prop&quot;,
+                         start_day, end_day, geo_type = &quot;state&quot;)
+
+# Join by state, average signals, compute correlations 
+df1 = inner_join(df_go %&gt;% group_by(geo_value) %&gt;% summarize(x = mean(value)),
+                 df_in %&gt;% group_by(geo_value) %&gt;% summarize(y = mean(value)),
+                 by = &quot;geo_value&quot;) 
+df2 = inner_join(df_fb %&gt;% group_by(geo_value) %&gt;% summarize(x = mean(value)),
+                 df_in %&gt;% group_by(geo_value) %&gt;% summarize(y = mean(value)), 
+                 by = &quot;geo_value&quot;) 
+
+# Join again to get state populations
+df1 = inner_join(df1, state_census %&gt;% mutate(ABBR = tolower(ABBR)),
+                 by = c(&quot;geo_value&quot; = &quot;ABBR&quot;))
+df2 = inner_join(df2, state_census %&gt;% mutate(ABBR = tolower(ABBR)),
+                 by = c(&quot;geo_value&quot; = &quot;ABBR&quot;))
+
+# Red, blue (similar to ggplot defaults), then yellow
+ggplot_colors = c(&quot;#FC4E07&quot;, &quot;#00AFBB&quot;, &quot;#E7B800&quot;)
+
+# Now make plots
+subtitle = paste(&quot;Averaged over&quot;, start_day, &quot;to&quot;, end_day)
+p1 = ggplot(df1, aes(x = x, y = y, label = toupper(geo_value))) + 
+  geom_smooth(method = &quot;lm&quot;, col = ggplot_colors[2], se = FALSE) +
+  geom_point(aes(size = POPESTIMATE2019), color = ggplot_colors[2], 
+             alpha = 0.5) + 
+  scale_size(name = &quot;Population&quot;, range = c(1, 10)) + 
+  geom_text(alpha = 0.5) +
+  labs(x = &quot;% CLI-in-community from Google surveys&quot;, 
+       y = &quot;Daily new confirmed COVID-19 cases per 100,000 people&quot;,
+       title = &quot;COVID-19 case rates vs Google % CLI-in-community&quot;,
+       subtitle = subtitle) +
+  theme_bw() + theme(legend.position = &quot;bottom&quot;)
+p2 = ggplot(df2, aes(x = x, y = y, label = toupper(geo_value))) + 
+  geom_smooth(method = &quot;lm&quot;, col = ggplot_colors[1], se = FALSE) +
+  geom_point(aes(size = POPESTIMATE2019), color = ggplot_colors[1], 
+             alpha = 0.5) + 
+  scale_size(name = &quot;Population&quot;, range = c(1, 10)) + 
+  geom_text(alpha = 0.5) +
+  labs(x = &quot;% CLI-in-community from Facebook surveys&quot;, y = &quot;&quot;,
+       title = &quot;COVID-19 case rates vs Facebook % CLI-in-community&quot;,
+       subtitle = subtitle) +
+  theme_bw() + theme(legend.position = &quot;bottom&quot;)
+grid.arrange(p1, p2, nrow = 1)</code></pre>
+<p><img src="/blog/2020-09-18-google-survey_files/figure-html/unnamed-chunk-2-1.png" width="960" /></p>
+<p>In both plots, we see a reassuring trend,
+but the trend on the left is noticeably stronger.
+Indeed, the correlation here between the Google signal and case rates is
+0.84,
+while that between the Facebook signal and case rates is
+0.64.
+To be fair, we should note that the Google signal comprises a much
+larger number of survey samples (as we’ll emphasize next),
+and the Facebook signal’s correlations to case rates shot up in mid-June
+(as we saw last time and we’ll revisit, shortly).</p>
+<p>From April 11 through May 14, we ran Google surveys in over 600 counties
+per day, with a target of at least 1,000 responses per county.
+The average number of responses per day was over 600,000,
+and at its peak, over 1.2 million!
+(By comparison, our survey through Facebook averages
+about 74,000 responses per day.)
+The actual sampling scheme behind our Google survey is more complicated,
+and involves two-level stratification, across both counties and states.
+For details, including those on statistical estimation,
+visit our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-survey.html">COVIDcast signals
+documentation</a>.
+On May 15, we paused our Google survey to focus on our Facebook survey,
+which is both longer and more complex.
+Importantly, the latter is <em>not</em> a replacement for the former,
+and our two surveys have different and complementary use cases.</p>
+</div>
+<div id="our-two-surveys" class="section level2">
+<h2>Our Two Surveys</h2>
+<p>We discuss some similarities and differences
+between the Google and Facebook surveys.
+Starting with similarities, both have been deployed at a massive scale,
+reaching tens of thousands of people per day,
+and covering much of the US at the county level.
+To state the obvious, both ask the same question:
+whether a person knows someone in their community with COVID-like illness,
+and both lead to an estimate of % CLI-in-community.</p>
+<p>Below we assess the numerical similarity of these estimates via correlations:
+we correlate them against each other, and for reference,
+correlate each against COVID-19 case rates.
+To be more specific, for each pair of the following:
+Google signal, Facebook signal, and COVID-19 case rates,
+and for each day that we have data available,
+we compute the Spearman correlation across all counties
+that had at least 200 cumulative COVID-19 cases
+by May 14 (the end of Google survey data).
+Over the first month of data, from mid-April to mid-May,
+we can see that the highest correlations clearly belong to
+those between the two survey signals.
+This is as expected, since in principle,
+these two surveys are measuring the same underlying quantity.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
+The next largest correlations over the first month
+belong to those between the Google signal and case rates,
+which for the most part holds a substantial gap over the
+correlations between the Facebook signal and case rates.
+This is no doubt encouraging, especially because we’d hope
+that the Google correlations would have only improved later in
+the year (as did the Facebook correlations, which we <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#basic-correlation-analysis">previously
+suggested</a>
+could have been due to the increase in the diversity of county-level
+case rates around mid-June).</p>
+<pre class="r"><code># Fetch county-level Google and Facebook % CLI-in-community signals, and JHU
+# confirmed case incidence proportion
+df_go = covidcast_signal(&quot;google-survey&quot;, &quot;smoothed_cli&quot;)
+
+start_day = min(df_go$time_value)
+end_day = &quot;2020-09-01&quot;
+
+df_fb = covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_hh_cmnty_cli&quot;, 
+                         start_day, end_day)
+df_in = covidcast_signal(&quot;jhu-csse&quot;, &quot;confirmed_7dav_incidence_prop&quot;,
+                         start_day, end_day)
+
+# Consider only counties with at least 200 cumulative cases by Google&#39;s end
+case_num = 200
+geo_values = covidcast_signal(&quot;jhu-csse&quot;, &quot;confirmed_cumulative_num&quot;,
+                              max(df_go$time_value), max(df_go$time_value)) %&gt;%
+  filter(value &gt;= case_num) %&gt;% pull(geo_value)
+df_go_act = df_go %&gt;% filter(geo_value %in% geo_values)
+df_fb_act = df_fb %&gt;% filter(geo_value %in% geo_values)
+df_in_act = df_in %&gt;% filter(geo_value %in% geo_values)
+
+# Compute correlations, per time, over all counties
+df_cor1 = covidcast_cor(df_go_act, df_in_act, by = &quot;time_value&quot;,
+                        method = &quot;spearman&quot;)
+df_cor2 = covidcast_cor(df_fb_act, df_in_act, by = &quot;time_value&quot;,
+                        method = &quot;spearman&quot;)
+df_cor3 = covidcast_cor(df_go_act, df_fb_act, by = &quot;time_value&quot;,
+                        method = &quot;spearman&quot;)
+
+# Stack rowwise into one data frame, then plot time series
+df_cor = rbind(df_cor1, df_cor2, df_cor3)
+df_cor$what = c(rep(&quot;Google and case rates&quot;, nrow(df_cor1)),
+                rep(&quot;Facebook and case rates&quot;, nrow(df_cor2)),
+                rep(&quot;Google and Facebook&quot;, nrow(df_cor3)))
+ggplot(df_cor, aes(x = time_value, y = value)) +
+  geom_line(aes(color = what)) +
+  scale_color_manual(values = ggplot_colors) +
+  labs(title = &quot;Correlation between survey signals and case rates&quot;,
+       subtitle = sprintf(&quot;Over all counties with at least %i cumulative cases&quot;,
+                          case_num), 
+       x = &quot;Date&quot;, y = &quot;Correlation&quot;) +
+    theme_bw() + theme(legend.pos = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
+<p><img src="/blog/2020-09-18-google-survey_files/figure-html/unnamed-chunk-3-1.png" width="576" /></p>
+<p>Now let’s consider the differences between the surveys. Here’s a summary:</p>
+<ul>
+<li><p>Our Facebook survey is <em>advertised by Facebook</em> but <em>run by us</em> (on a
+CMU-licensed Qualtrics platform); this means that we receive all the
+individual survey responses directly (and Facebook never sees any of the data).</p></li>
+<li><p>On the other hand, our Google survey is <em>deployed directly by Google</em> through
+partner websites and apps they use to run questionnaires;
+this means that we don’t see individual survey responses,
+but receive aggregated survey data from Google.</p></li>
+<li><p>This makes a big difference as to how much (and what questions) we can ask on
+the survey: our Google survey is just a single question long, and our Facebook
+survey is much longer and more detailed, currently over 35 questions.</p></li>
+<li><p>Finally, there’s a big difference in how much we control with respect to the
+geographic distribution of the survey samples: on our Facebook survey, we have
+no control over this, but on our Google survey we have full control,
+in that we can pick the counties we want to sample from ahead of time.</p></li>
+</ul>
+</div>
+<div id="google-survey-redux" class="section level2">
+<h2>Google Survey Redux</h2>
+<p>As we can see from the above summary,
+the two survey schemes are complementary,
+and could be used synergistically.
+Our Facebook survey is a continuously-running, wide-reaching instrument
+that provides answers to a <a href="https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html">rich set of
+questions</a>
+(beyond COVID-related symptoms, it asks about
+contacts, risk factors, behavior, and demographics).
+When we find something interesting that warrants follow-up
+and/or generalization to unseen locations,
+we could then deploy our Google survey in select counties—using
+it like a <strong>survey microscope</strong> (credit to Hal Varian for inventing the
+terminology!). This could be done automatically
+(it would be a pretty big, nonstationary <a href="https://en.wikipedia.org/wiki/Multi-armed_bandit">multi-armed bandit
+problem</a>)
+or manually (in collaboration with partners in public health and/or data
+journalists). Stay tuned to the Delphi blog for updates.</p>
+<p><strong>Acknowledgements.</strong> <em>Ryan Tibshirani wrote the initial code for producing
+estimates from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de
+Oliveira, and Lester Mackey greatly extended and improved this codebase, and
+they developed, along with Ryan, the underlying statistical methodology. Ryan
+came up with the idea of running the surveys, and worked with Google to make
+this a reality. On the Google side, Brett Slatkin and Hal Varian have been key
+collaborators; Brett wrote the code to get daily survey data over to Delphi’s
+estimation pipeline; and both contributed numerous important ideas at various
+stages of the project.</em></p>
+<hr />
+<p><em><a href="http://stat.cmu.edu/~ryantibs">Ryan Tibshirani</a> is a lead researcher in the
+Delphi group, and an Associate Professor in the Department of Statistics &amp; Data
+Science and the Machine Learning Department at CMU. He is also an Amazon
+Scholar.</em></p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>In the survey methodology literature, a “proxy question” is one in which
+the subject is asked to report on someone else. The traditional view seems to
+be that proxy questions can undermine survey data quality, but in our setting
+it’s critical: not only does it provide a safeguard against revealing personal
+health information, it turned out to deliver <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#basic-correlation-analysis">much higher
+correlations</a>
+with case rates than the direct (non-proxy) question.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>A closer look reveals that the relationship between the Google
+% CLI-in-community and Facebook % CLI-in-community signals is not 1:1. For
+example, you can check the x-axes in the first example in this blog post: the
+range of the Facebook signal is over twice that of the Google signal. There
+are differences in the setups we can point to: the two surveys phrase the
+CLI-in-community question slightly differently; they reach different subpopulations
+of the US; and the estimation procedures behind the surveys handle
+missing responses differently. But as far as we can tell, none of this can really
+explain why the Facebook numbers are over twice as large as the Google ones, a
+trend that seems pretty consistent across location and time. We’ll save rigorous
+analysis for when we work on deploying these two surveys in tandem; for now, we
+emphasize that this observation reiterates the importance of focusing on
+<em>time-varying trends</em> in the survey signals, not the signal values themselves
+(a point we <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys">made in our last
+post</a>).
+Here, the self-reporting aspect must somehow be creating greatly different
+levels of bias in the two surveys; in an absolute sense, the subsequent
+estimates of % CLI-in-community strongly disagree, so both can’t be right, and
+this casts doubt on the idea that either could be bias-free.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
