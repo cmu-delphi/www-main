@@ -31,4 +31,8 @@
     {{- if not .Site.IsServer -}}
       {{ template "_internal/google_analytics.html" . }}
     {{- end -}}
+
+    {{ range .Page.Params.styles }}
+      <link rel="stylesheet" href="{{ . | absURL }}"/>
+    {{ end }}
 </head>
