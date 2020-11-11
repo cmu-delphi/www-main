@@ -616,7 +616,7 @@ ggplot(res_dif4 %&gt;%
   facet_wrap(vars(lead, model)) + 
   labs(x = &quot;P-value&quot;, y = &quot;Count&quot;) +
   theme_bw() + theme(legend.pos = &quot;none&quot;)</code></pre>
-<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-4-1.png" width="864" /></p>
+<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-4-1.svg" width="864" /></p>
 </div>
 <div id="results-first-two-models" class="section level2">
 <h2>Results: First Two Models</h2>
@@ -766,7 +766,7 @@ ggplot(res_err2 %&gt;%
   facet_wrap(vars(lead)) + 
   labs(x = &quot;Date&quot;, y = &quot;Median scaled error&quot;) +
   theme_bw() + theme(legend.pos = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-6-1.png" width="864" /></p>
+<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-6-1.svg" width="864" /></p>
 <p>Again, basic hypothesis testing suggests that the results we’re seeing here
 are likely significant, though it’s hard to say definitively
 given the complicated dependence structure present in the data.
@@ -844,7 +844,7 @@ the bulk of p-values are still quite small.</p>
   facet_wrap(vars(lead, model)) + 
   labs(x = &quot;P-value&quot;, y = &quot;Count&quot;) +
   theme_bw() + theme(legend.pos = &quot;none&quot;)</code></pre>
-<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-8-1.svg" width="672" /></p>
 </div>
 <div id="varying-the-number-of-days-ahead" class="section level2">
 <h2>Varying the Number of Days Ahead*</h2>
@@ -914,7 +914,7 @@ ggplot(err_by_lead, aes(x = lead, y = err)) +
                           case_num),
        x = &quot;Number of days ahead&quot;, y = &quot;Median scaled error&quot;) +
   theme_bw() + theme(legend.pos = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-9-1.png" width="576" /></p>
+<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-9-1.svg" width="576" /></p>
 <p>But if we look at it from a different angle,
 and consider the <em>horizontal</em> gap between the curves,
 then we can infer something quite a bit more interesting:

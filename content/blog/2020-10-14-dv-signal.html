@@ -76,7 +76,7 @@ p2 = plot(df_in_avg,
           title = &quot;Daily new confirmed COVID-19 cases per 100,000 people&quot;,
           range = c(0, 30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-2-1.png" width="960" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-2-1.svg" width="960" /></p>
 </div>
 <div id="backfill" class="section level2">
 <h2>Backfill</h2>
@@ -119,7 +119,7 @@ ggplot(cmb_df %&gt;% filter(geo_value %in% states_to_plot)) +
        title = &quot;DV indicator, with and without weekday adjustment&quot;) +
   theme_bw() + 
   theme(legend.position = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-3-1.svg" width="768" /></p>
 </div>
 <div id="basic-correlation-analyses" class="section level2">
 <h2>Basic Correlation Analyses</h2>
@@ -169,7 +169,7 @@ ggplot(df_cor_by_space) +
        subtitle = &quot;Over all counties with at least 500 cumulative cases&quot;,
        x = &quot;Correlation&quot;, y = &quot;Density&quot;) + 
   theme_bw()</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-4-1.png" width="576" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-4-1.svg" width="576" /></p>
 <p>Locations with small counts usually have a lower signal-to-noise ratio, which means that their correlations will usually be lower. In the next plot, we show that the average correlation (still sliced by space) is higher when we restrict our attention to counties with higher cumulative case counts. The average correlation increases substantially when considering only counties that have more than 2,000 cumulative COVID-19 cases, and increasing the threshold from there results in only a modest increase in correlation.</p>
 <pre class="r"><code>df_cor_by_space = df_cor_by_space %&gt;%
   inner_join(cumulative_case_df %&gt;%
@@ -187,7 +187,7 @@ tibble(thresholds = seq(500, 20000, by = 500)) %&gt;%
        title = &quot;Mean correlation-by-space between DV indicator and case rates&quot;,
        subtitle = &quot;Over all counties with cumulative cases above threshold&quot;) +
   theme_bw()</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-5-1.png" width="576" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-5-1.svg" width="576" /></p>
 <p>Now, we consider correlations sliced by time (correlations-by-time, for short): this means, for each day, we correlate the vector of % CLI-in-DV values over counties with that of COVID-19 case rates. The correlation remains somewhat steady into the middle of July, but starting at the end of July, the correlation starts to decrease. By late August, the correlation is essentially zero. In other words, on a given day in April or May, a county with a higher % CLI-in-DV was more likely to have a higher case rate than a county with a lower % CLI-in-DV. But by August and September, this was no longer true.</p>
 <pre class="r"><code>ggplot(df_cor_by_time) +
   geom_line(aes(x = time_value, y = value)) +
@@ -195,7 +195,7 @@ tibble(thresholds = seq(500, 20000, by = 500)) %&gt;%
        subtitle = &quot;Over all counties with at least 500 cumulative cases&quot;,
        x = &quot;Date&quot;, y = &quot;Correlation&quot;) + 
   theme_bw()</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-6-1.png" width="576" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-6-1.svg" width="576" /></p>
 </div>
 <div id="spatial-heterogeneity" class="section level2">
 <h2>Spatial Heterogeneity</h2>
@@ -257,7 +257,7 @@ p2 = dv_cases_df %&gt;%
   theme_bw()
 
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-7-1.svg" width="960" /></p>
 <p>Let’s look more closely at the behavior of our indicator in HHS 2 (New Jersey and New York). We will compare the two curves in two ways: when the case rate is high (or low) in HHS 2 compared to other days, is the DV indicator also high (or low)? And when the case rate is high (or low) in HHS 2 compared to other HHS regions, is the DV indicator also high (or low) in HHS 2? The first question asks how high the correlation-by-space is, and the second asks how high the correlation-by-time is.</p>
 <p>The answer to the first question is largely yes. The case rate curve is steadily decreasing throughout April and May, flattening out by mid-June. The DV indicator peaks a little later than case rates do, but decreases throughout May and is mostly flat by mid-June. This tells us that the correlation-by-space is good in HHS 2. However, the answer to the second question reveals an issue with the DV indicator. The case rate in HHS 2 is the highest of all HHS regions in May and into June, but by July, HHS 2 is among the lowest in case rate. This is not true with the DV indicator. HHS 2 has the highest % CLI-in-DV almost throughout the entire time period, even when its case rate is one of the lowest. So we see why the correlation-by-time began to decline starting in August: counties in HHS 2 tended to have low case rates but high % CLI-in-DV values, driving down the correlations.</p>
 <p>We have now identified the problem: a % CLI-in-DV of, say, 5% might mean a very low case rate for a county in New York but a very high case rate for a county in Oregon. Since we have six months’ worth of history for both the DV indicator and case rates, we can correct for this problem by regressing case rates on the DV indicator in a location-specific manner. We call this <em>sensorization</em>, that is, the process of turning the DV indicator into a <em>sensor</em>. In the past, the Delphi group has done extensive work in creating sensors from multiple data sources for tracking flu, dengue, and norovirus; and developed sensor fusion methodology for combining multiple sensors into a single unified estimate. For more, see Chapter 4 of <a href="https://delphi.cmu.edu/~dfarrow/thesis.pdf">Farrow 2016</a> and <a href="https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights">Jahja et al. 2019</a>.</p>
@@ -305,7 +305,7 @@ inner_join(df_cor_by_time %&gt;% rename(orig_cor = value),
        subtitle = &quot;Over all counties with at least 500 cumulative cases&quot;) +
   theme_bw() +
   theme(legend.position = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-8-1.png" width="576" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-8-1.svg" width="576" /></p>
 <p>From the plot above, we see that sensorizing the DV indicator greatly improves the correlations-by-time.</p>
 <p>It turns out that the regression coefficients in the method described above, which are fit using a sliding window, change significantly over time. As a future direction, we plan to look into this nonstationary relationship between the DV indicator and case rates to better understand why it changes and why counties in New York and New Jersey have such a different relationship in the first place.</p>
 </div>

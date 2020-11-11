@@ -169,7 +169,7 @@ p2 = ggplot(df2, aes(x = x, y = y, label = toupper(geo_value))) +
        subtitle = subtitle) +
   theme_bw() + theme(legend.position = &quot;bottom&quot;)
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-09-18-google-survey_files/figure-html/unnamed-chunk-2-1.png" width="960" /></p>
+<p><img src="/blog/2020-09-18-google-survey_files/figure-html/unnamed-chunk-2-1.svg" width="960" /></p>
 <p>In both plots, we see a reassuring trend,
 but the trend on the left is noticeably stronger.
 Indeed, the correlation here between the Google signal and case rates is
@@ -272,7 +272,7 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
                           case_num), 
        x = &quot;Date&quot;, y = &quot;Correlation&quot;) +
     theme_bw() + theme(legend.pos = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-09-18-google-survey_files/figure-html/unnamed-chunk-3-1.png" width="576" /></p>
+<p><img src="/blog/2020-09-18-google-survey_files/figure-html/unnamed-chunk-3-1.svg" width="576" /></p>
 <p>Now let’s consider the differences between the surveys. Here’s a summary:</p>
 <ul>
 <li><p>Our Facebook survey is <em>advertised by Facebook</em> but <em>run by us</em> (on a

@@ -134,7 +134,7 @@ p2 = plot(df_in_avg,
           title = &quot;Daily new confirmed COVID-19 cases per 100,000 people&quot;,
           range=c(0, 30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-2-1.png" width="960" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-2-1.svg" width="960" /></p>
 <p>We generated these plots using our <a href="https://cmu-delphi.github.io/covidcast/covidcastR/">covidcast R
 package</a>.
 In all, fetching the data from our API and producing the heatmaps
@@ -320,7 +320,7 @@ plot_one(name_to_fips(&quot;Miami-Dade&quot;), xlab = &quot;Date&quot;,
              linetype = 2, size = 1, color = ggplot_colors[1]) +
   geom_vline(xintercept = as.numeric(as.Date(&quot;2020-06-25&quot;)),
              linetype = 2, size = 1, color = ggplot_colors[2])</code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-3-1.png" width="576" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-3-1.svg" width="576" /></p>
 <p>This example, as with all code examples in this blog post, was produced using
 our <a href="https://cmu-delphi.github.io/covidcast/covidcastR/">covidcast R package</a>.</p>
 <p>A first glance reveals that the % CLI-in-community indicator
@@ -348,7 +348,7 @@ for (i in 1:num) {
   p_list[[i]] = plot_one(geo_values[i], legend = FALSE)
 }
 do.call(grid.arrange, c(p_list, nrow = 5, ncol = 4))</code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-4-1.svg" width="960" /></p>
 <p>The examples above are an informal way of looking
 at the <em>recall</em> of the % CLI-in-community signal.
 Of course, this is only one half of the story:
@@ -418,7 +418,7 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
        subtitle = sprintf(&quot;Over all counties with at least %i cumulative cases&quot;,
                           case_num), x = &quot;Date&quot;, y = &quot;Correlation&quot;) +
     theme_bw() + theme(legend.pos = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-5-1.png" width="576" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-5-1.svg" width="576" /></p>
 <p>Another interesting observation is that the correlations from either indicator
 increase dramatically sometime around mid-June.
 This could be because many counties saw big surges in COVID-19 activity around
@@ -440,7 +440,7 @@ around the same time as the correlations increased.</p>
        subtitle = sprintf(&quot;Over all counties with at least %i cumulative cases&quot;,
                           case_num), x = &quot;Date&quot;, y = &quot;Median abs deviation&quot;) +
   theme_bw() </code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-6-1.png" width="576" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-6-1.svg" width="576" /></p>
 </div>
 <div id="correlations-sliced-by-county" class="section level3">
 <h3>Correlations Sliced by County</h3>
@@ -468,7 +468,7 @@ ggplot(df_cor, aes(value)) +
        subtitle = sprintf(&quot;Over all counties with at least %i cumulative cases&quot;,
                           case_num), x = &quot;Correlation&quot;, y = &quot;Density&quot;) +
   theme_bw() + theme(legend.pos = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-7-1.png" width="576" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-7-1.svg" width="576" /></p>
 <p>We can also examine choropleth maps of these correlations to learn
 where (geographically speaking) they’re high and where they’re not.
 As we can see from the maps below, the % CLI-in-community indicator
@@ -491,7 +491,7 @@ p1 = plot(df_cor1, title = &quot;Correlation between % CLI and case rates&quot;,
 p2 = plot(df_cor2, title = &quot;Correlation between % CLI-in-community and case rates&quot;,
           range = c(-1, 1), choro_col = cm.colors(10))
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-8-1.svg" width="960" /></p>
 </div>
 </div>
 <div id="whats-next-with-the-surveys" class="section level2">

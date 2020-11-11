@@ -500,13 +500,12 @@ hosp &lt;- covidcast_signal(
 )
 plot(hosp, plot_type = &quot;line&quot;,
      title = &quot;% of hospital admissions due to COVID-19&quot;)</code></pre>
-<p><img src="/blog/2020-08-28-api_files/figure-html/dv-graph-1.png" width="672" /></p>
+<p><img src="/blog/2020-08-28-api_files/figure-html/dv-graph-1.svg" width="672" /></p>
 <p>Since the packages also support mapping,
 we can examine the percentage
 of outpatient doctor’s visits
 due to COVID-Like-Illness (CLI) in the South.</p>
 <pre class="r"><code>library(gridExtra)
-## Warning: package &#39;gridExtra&#39; was built under R version 3.6.3
 dv &lt;- covidcast_signal(
     data_source = &quot;doctor-visits&quot;, signal = &quot;smoothed_adj_cli&quot;,
     start_day = &quot;2020-07-15&quot;, end_day = &quot;2020-08-24&quot;)
@@ -517,7 +516,7 @@ g1 &lt;- plot(dv, time_value = &quot;2020-07-15&quot;, include = south,
 g2 &lt;- plot(dv, time_value = &quot;2020-08-24&quot;, include = south,
            title = &quot;% of doctor&#39;s visits due to CLI on August 24&quot;)
 grid.arrange(g1, g2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-08-28-api_files/figure-html/dv-maps-1.png" width="960" /></p>
+<p><img src="/blog/2020-08-28-api_files/figure-html/dv-maps-1.svg" width="960" /></p>
 <p>In Python, fetching data requires the
 <a href="https://cmu-delphi.github.io/covidcast/covidcast-py/html/">Python covidcast package</a>,
 which can quickly produce a Pandas data frame.
