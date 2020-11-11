@@ -1,5 +1,7 @@
 on:
-  push
+  push:
+    paths: # run only when an Rmd file changes
+     - '**.Rmd'
 
 name: ci
 
@@ -11,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod   
+          # submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 3
       - name: Restore Cache
         uses: actions/cache@v2
         with:
@@ -55,14 +57,6 @@ jobs:
         with:
           name: website
           path: ./public
-      - uses: actions/upload-artifact@v2
-        with:
-          name: content
-          path: ./content
-      - uses: actions/upload-artifact@v2
-        with:
-          name: static
-          path: ./static
 
       - name: Deploy Main
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
