@@ -27,6 +27,7 @@ dependencies:
   - r-testthat
   - r-isoband
   - r-ggrepel
+  - r-plotly
   - pandoc
   - fiona
   - geopandas
