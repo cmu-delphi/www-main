@@ -6,10 +6,12 @@ dependencies:
   - gdal=3.0.2
   - python=3.7.9  
   - pip=20.2.4
-  - r-base=3.6.1
-  - r-devtools=2.0.2
-  - r-gridextra=2.3
-  - r-reticulate=1.12
+  - r-base=3.6.3
+  - fonts-conda-forge
+  - r-cario
+  - r-devtools
+  - r-gridextra
+  - r-reticulate
   - r-blogdown
   - r-svglite
   - r-dplyr

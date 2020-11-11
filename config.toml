@@ -34,8 +34,6 @@ relativeURLs = false
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
-    highlight = true
-    math = true
     showReadMore = true
 
     [params.logo]

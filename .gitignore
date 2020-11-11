@@ -7,3 +7,4 @@
 *_cache
 /content/**/*_files
 *.lock~
+/content/blog/_output.yml
