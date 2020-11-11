@@ -2,7 +2,18 @@
   <div class="uk-navbar-left">
       <ul class="uk-navbar-nav">
           {{ range .Site.Menus.main.ByWeight }}
-          <li class="{{ if eq .Identifier "main" }}uk-active{{ end }}"><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
+          <li class="{{ if eq .Identifier "main" }}uk-active{{ end }}">
+            {{if eq .Identifier "about"}}
+              <a href=""> i {{ .Name }} ></a>
+              <div class="uk-navbar-dropdown">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li><a href="#">Team</a></li>
+                </ul>
+              </div>
+            {{else}}
+              <a href="{{ .URL | relLangURL }}">i {{ .Name }}</a>
+            {{end}}
+          </li>
           {{ end }}
       </ul>
   </div>

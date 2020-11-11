@@ -8,19 +8,18 @@ relativeURLs = false
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
+[[menu.main]]
+    name = "DELPHI LOGO"
+    weight = 1
 
 [[menu.main]]
-    identifier = "main"
-    name = "Delphi"
+    identifier = "about"
+    name = "About"
     url = "https://delphi.cmu.edu/"
-    weight = 1
+    weight = 2
 [[menu.main]]
     name = "COVIDcast"
     url = "https://covidcast.cmu.edu"
-    weight = 2
-[[menu.main]]
-    name = "Data"
-    url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 3
 [[menu.main]]
     name = "Blog"
@@ -30,6 +29,10 @@ relativeURLs = false
     name = "GitHub"
     url = "https://github.com/cmu-delphi/"
     weight = 5
+[[menu.main]]
+    name = "API"
+    url = "https://cmu-delphi.github.io/delphi-epidata/"
+    weight = 6
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"

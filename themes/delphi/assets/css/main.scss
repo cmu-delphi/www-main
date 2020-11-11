@@ -1,5 +1,13 @@
 // 1. Your custom variables and variable overwrites.
 // $global-link-color: #DA7D02;
+$navbar-dropdown-width: 100px;
+$navbar-dropdown-margin: 0px;
+$navbar-dropdown-padding: 10px;
+$navbar-nav-item-height: 50px;
+$navbar-nav-item-padding-horizontal: 15px;
+$navbar-nav-item-font-size: 14px;
+$navbar-nav-item-text-transform: none;
+
 
 // 2. Import default variables and available mixins.
 @import '../uikit/src/scss/variables-theme.scss';
