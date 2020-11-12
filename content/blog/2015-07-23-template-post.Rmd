@@ -69,7 +69,7 @@ rather than boring titles like "New survey aggregates".
 The author metadata should credit the post author or authors; as shown at the
 end of this example post, you should also include a block about the authors and
 linking to their home pages. But in the post text, you should also generously
-name anyone who helped with parts of your post, e.g. the team members who
+name anyone who helped with parts of your post, e.g., the team members who
 obtained data or set up a server or developed a package you use.
 
 ### Tags
