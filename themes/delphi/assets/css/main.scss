@@ -1,13 +1,20 @@
 // 1. Your custom variables and variable overwrites.
 // $global-link-color: #DA7D02;
-$navbar-dropdown-width: 100px;
-$navbar-dropdown-margin: 0px;
-$navbar-dropdown-padding: 10px;
+
+// Font
+$global-font-family: "Open Sans", Roboto, Arial, sans-serif;
+
+// Navbar
 $navbar-nav-item-height: 50px;
-$navbar-nav-item-padding-horizontal: 15px;
+$navbar-nav-item-padding-horizontal: 25px;
 $navbar-nav-item-font-size: 14px;
 $navbar-nav-item-text-transform: none;
-
+$navbar-nav-item-height: 35px;
+$navbar-nav-item-color: #232735;
+$navbar-background: none;
+$navbar-dropdown-padding: 5px;;
+$navbar-dropdown-margin: 10px;
+$navbar-dropdown-width: 80px;
 
 // 2. Import default variables and available mixins.
 @import '../uikit/src/scss/variables-theme.scss';
@@ -21,3 +28,30 @@ $navbar-nav-item-text-transform: none;
 
 
 @import "custom";
+
+.content {
+    margin: 0 10%;
+}
+
+.uk-navbar-container {
+    font-weight: 600;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.15);
+    margin-bottom: 10px;
+}
+.uk-navbar-left {
+    margin: 40px 10% 0 10%;
+}
+.uk-navbar-nav>li>a {
+    display: inline;
+    padding-left: 4px;
+}
+.uk-navbar-nav>li>img {
+    height: 13px;
+}
+
+.uk-navbar-dropdown-bottom-left {
+    margin-left: -20px;
+}
+.uk-navbar-dropdown-nav>li>a {
+    text-align: center;
+}
