@@ -9,4 +9,8 @@
     {{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}
 	<script src="{{ $script_blog.Permalink }}" {{ printf "integrity=%q" $script_blog.Data.Integrity | safeHTMLAttr }} ></script>	
     {{ end }}
+  
+	{{ range .Page.Params.scripts }}
+	<script src="{{ . | absURL }}"></script>
+	{{ end }}
 </footer>

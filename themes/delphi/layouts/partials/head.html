@@ -36,4 +36,8 @@
     {{ $blog_style := resources.Get "css/blog.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $blog_style.Permalink }}"/>
     {{ end }}
+
+    {{ range .Page.Params.styles }}
+      <link rel="stylesheet" href="{{ . | absURL }}"/>
+    {{ end }}
 </head>
