@@ -39,10 +39,18 @@ jobs:
         run: |
           source activate www-main
           Rscript ./dependencies.R
+      - name: Restore Blogdown Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ./blogdown
+          key: ${{ runner.os }}-blogdown-${{ hashFiles('content/blog/**.Rmd') }}
+          restore-keys: |
+            ${{ runner.os }}-blogdown-
       - name: Build site
         run: |
           source activate www-main
-          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=FALSE)'
+          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
