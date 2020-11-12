@@ -15,13 +15,13 @@ jobs:
         with:
           # submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 3
-      # - name: Cache Conda
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: /home/ga/miniconda3/envs/www-main
-      #     key: ${{ runner.os }}-conda5-${{ hashFiles('environment.yml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-conda5-
+      - name: Cache Conda
+        uses: actions/cache@v1
+        with:          
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda6-${{ hashFiles('environment.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-conda6-
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: 3.7
@@ -31,6 +31,7 @@ jobs:
           activate-environment: www-main
           environment-file: environment.yml
           auto-activate-base: false
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
       - name: Conda info
         shell: bash -l {0}
         run: |
