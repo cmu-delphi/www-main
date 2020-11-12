@@ -7,8 +7,6 @@ on:
 
 name: ci
 
-# based on https://github.com/r-lib/actions/blob/master/examples/blogdown.yaml
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,29 +15,30 @@ jobs:
         with:
           # submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 3
-      - name: Restore Cache
-        uses: actions/cache@v2
+      - name: Cache Conda
+        uses: actions/cache@v1
         with:
-          path: |
-            /Users/runner/.conda/pkgs
-          key: ${{ runner.os }}-conda4-${{ hashFiles('environment.yml') }}
+          path: /home/ga/miniconda3/envs/www-main
+          key: ${{ runner.os }}-conda5-${{ hashFiles('environment.yml') }}
           restore-keys: |
-            ${{ runner.os }}-conda4-
-      - name: Configure Conda cache
-        run: |
-          echo -e "pkgs_dirs:\n  - /Users/runner/.conda/pkgs\n" > ~/.condarc
-      - name: Conda setup
-        uses: s-weigand/setup-conda@v1.0.5
+            ${{ runner.os }}-conda5-
+      - name: Setup Conda dependencies
+        uses: goanpeca/setup-miniconda@v1
+        env:
+          CONDA: /home/ga/miniconda3
         with:
-          activate-conda: false
-      - run: conda info
-      - name: Conda environment creation
+          activate-environment: www-main
+          environment-file: environment.yml
+          python-version: 3.7
+          auto-activate-base: false
+      - name: Conda info
+        shell: bash -l {0}
         run: |
-          export DYLD_FALLBACK_LIBRARY_PATH=$(HOME)/lib:/usr/local/lib:/lib:/usr/lib
-          conda env create -f environment.yml
+          conda info
+          conda list
       - name: Install R dependencies
+        shell: bash -l {0}
         run: |
-          source activate www-main
           Rscript ./dependencies.R
       - name: Restore Blogdown Cache
         uses: actions/cache@v2
@@ -50,9 +49,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-blogdown-
       - name: Build site
+        shell: bash -l {0}        
         run: |
-          source activate www-main
-          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
+          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=FALSE)'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
