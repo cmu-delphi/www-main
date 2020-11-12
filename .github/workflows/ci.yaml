@@ -2,6 +2,7 @@ on:
   push:
     paths: # run only when an Rmd file changes
      - '**.Rmd'
+     - 'environment.yml'
 
 name: ci
 
@@ -50,7 +51,7 @@ jobs:
       - name: Build site
         run: |
           source activate www-main
-          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
+          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=FALSE)'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
