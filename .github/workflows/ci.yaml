@@ -26,7 +26,7 @@ jobs:
         with:
           python-version: 3.7
           mamba-version: "*"
-          channels: conda-forge,defaults
+          # channels: conda-forge,defaults
           channel-priority: true
           activate-environment: www-main
           environment-file: environment.yml
@@ -52,7 +52,7 @@ jobs:
       - name: Build site
         shell: bash -l {0}        
         run: |
-          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=FALSE)'
+          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
