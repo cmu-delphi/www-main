@@ -1,5 +1,5 @@
 {{ define "main" }}
-<a href="{{"/blog/" | relURL }}" class="uk-text-bold-600 uk-text-uppercase uk-link-muted"><span uk-icon="chevron-left" role="img"></span>Delphi Blog</a>
+<a href="{{.Section | relURL }}" class="uk-text-bold-600 uk-text-uppercase uk-link-muted"><span uk-icon="chevron-left" role="img"></span>Delphi Blog</a>
 <h1>{{ .Title }}</h1>
 <div>
     {{- range .Params.tags -}}
@@ -13,7 +13,7 @@
     <div class="uk-width-medium">
         <div class="uk-grid-small uk-flex-start" uk-grid>
             <div class="uk-width-auto">
-                <span class="uk-icon-button" uk-icon="icon: user"></span>
+                <span class="uk-icon-button" uk-icon="icon: user{{if gt (len .Params.authors) 1}}s{{end}}"></span>
             </div>
             <div class="uk-width-expand">
                 <p class="uk-text-bold-600">{{ .Params.author }}</p>
@@ -28,14 +28,12 @@
     </div>
     <div class="uk-width-1-5"></div>
 </div>
-{{ if isset .Params "authors"}}
-  <hr />
-  {{ range .Params.authors}}
-  <div>
-      {{ range first 1 (where $.Site.Data.authors "key" "eq" .)}}
-        {{ if isset . "link"}}<a href="{{.link}}" class="uk-text-bold-600 uk-link-text">{{.name}}</a>{{ else }}<span>{{.name}}</span>{{ end}} {{.description}}
-      {{ end }}
-  </div>
-  {{ end }}
+<hr />
+{{ range .Params.authors}}
+<div>
+    {{ range first 1 (where $.Site.Data.authors "key" "eq" .)}}
+    {{ if isset . "link"}}<a href="{{.link}}" class="uk-text-bold-600 uk-link-text">{{.name}}</a>{{ else }}<span>{{.name}}</span>{{ end}} {{.description}}
+    {{ end }}
+</div>
 {{ end }}
 {{end}}
