@@ -1,6 +1,4 @@
 ---
 title: The Delphi Blog
-description: Blogging
+description: News, findings, and musings from the epidemic tracking and forecasting team. 
 ---
-
-This is our blog
