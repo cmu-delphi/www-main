@@ -1,2 +1,13 @@
 @import './highlight';
 @import './katex/katex.min';
+
+
+.blog-tag {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 0.25em;
+}
+
+.blog-read-more {
+    font-weight: 600;
+}
