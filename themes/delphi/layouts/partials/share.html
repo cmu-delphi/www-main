@@ -1,21 +1,21 @@
-<ul>
-    <li>
-        <a title="Share on Facebook" target="_blank"
-            rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?{{ (querify "u" .Permalink) | safeURL }}">
-            Facebook
-        </a>
-    </li>
-    <li>
+<div class="uk-flex uk-flex-center">
+    <div>
         <a title="Share on Twitter" target="_blank"
-            rel="noopener noreferrer" href="https://twitter.com/share?{{ (querify "text" .Title "url" .Permalink) | safeURL }}">
-            Twitter
+            rel="noopener noreferrer" href="https://twitter.com/share?{{ (querify "text" .Title "url" .Permalink) | safeURL }}"
+            uk-icon="twitter"><span aria-hidden="true">Twitter</span>
         </a>
-    </li>
-    <li>
+    </div>
+    <div>
         <a title="Share on LinkedIn" target="_blank"
             rel="noopener noreferrer"
-            href="https://www.linkedin.com/shareArticle?{{ (querify "mini" "true" "url" .Permalink "title" .Title) | safeURL }}">
-            LinkedIn
+            href="https://www.linkedin.com/shareArticle?{{ (querify "mini" "true" "url" .Permalink "title" .Title) | safeURL }}"
+            uk-icon="linkedin"><span aria-hidden="true">LinkedIn</span>
         </a>
-    </li>
-</ul>
+    </div>
+    <div>
+        <a title="Share on Facebook" target="_blank"
+            rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?{{ (querify "u" .Permalink) | safeURL }}"
+            uk-icon="facebook"><span aria-hidden="true">Facebook</span>
+        </a>
+    </div>
+</div>

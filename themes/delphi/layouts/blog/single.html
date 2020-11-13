@@ -1,24 +1,31 @@
 {{ define "main" }}
+<a href="{{"/blog/" | relURL }}" class="uk-text-bold-600 uk-text-uppercase uk-link-muted"><span uk-icon="chevron-left" role="img"></span>Delphi Blog</a>
+<h1>{{ .Title }}</h1>
 <div>
-    {{ if .Date }}
-    <time>{{ .Date.Format "January 2, 2006" }}</time>
-    {{ end }}
-    <h1>{{ .Title }}</h1>
-    {{ if .Params.author }}
-        <span>{{ .Params.author }}</span>
-    {{ end }}
-    {{ partial "share.html" . }}
-    {{ .Content }}
-    {{ template "_internal/disqus.html" . }}
-
-    <div>
-        {{if .Params.tags}}
-        <hr>
-        {{ range .Params.tags }}
-            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
-        {{ end }}
-      {{ end }}
+    {{- range .Params.tags -}}
+    <a class="uk-text-bold-600 uk-text-uppercase uk-link-muted blog-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
+    {{- end -}}
+</div>
+<div class="uk-margin-top uk-margin-bottom">
+    <img data-src="https://via.placeholder.com/800x600" width="800" height="400" alt="{{ .Title}} - Hero Image" uk-img>
+</div>
+<div uk-grid>
+    <div class="uk-width-1-5">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+                <span uk-icon="icon: user; ratio: 1.5"></span>
+            </div>
+            <div class="uk-width-expand">
+                <span class="uk-text-bold-600">{{ .Params.author }}</span>
+                <div><time>{{ .Date.Format "Jan 2, 2006" }}</time></div>
+                {{ partial "share.html" . }}
+            </div>
+        </div>
     </div>
-
+    <div class="uk-width-3-5">
+        {{ .Content }}
+        {{ template "_internal/disqus.html" . }}
+    </div>
+    <div class="uk-width-1-5"></div>
 </div>
 {{end}}
