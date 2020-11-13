@@ -2,18 +2,20 @@
   <div class="uk-navbar-left">
       <ul class="uk-navbar-nav">
           <li>
-            <a href="#"><img src="{{ "favicon-32x32.png" }}"></a>
+            <a href="https://delphi.cmu.edu/" class="delphi-text-logo">DELPHI</a>
           </li>
           {{ range .Site.Menus.main.ByWeight }}
           <li class="{{ if eq .Identifier "main" }}uk-active{{ end }}">
             <img src="{{ "favicon-16x16.png" }}">
-            {{if eq .Identifier "about"}}
+            {{if .HasChildren}}
               <a href=""> {{ .Name }}</a>
-            <div class="uk-navbar-dropdown">
-              <ul class="uk-nav uk-navbar-dropdown-nav">
-                  <li><a href="#">Team</a></li>
-              </ul>
-            </div>
+              <div class="uk-navbar-dropdown">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                  {{ range .Children }}
+                    <li><a href={{ .URL | relLangURL }}>{{ .Name }}</a></li>
+                  {{ end }}
+                </ul>
+              </div>
             {{else}}
               <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
             {{end}}

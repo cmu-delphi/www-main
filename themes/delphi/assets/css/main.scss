@@ -7,14 +7,17 @@ $global-font-family: "Open Sans", Roboto, Arial, sans-serif;
 // Navbar
 $navbar-nav-item-height: 50px;
 $navbar-nav-item-padding-horizontal: 25px;
-$navbar-nav-item-font-size: 14px;
-$navbar-nav-item-text-transform: none;
+$navbar-nav-item-font-size: 16px;
 $navbar-nav-item-height: 35px;
-$navbar-nav-item-color: #232735;
+$navbar-nav-item-color: #505565;
 $navbar-background: none;
 $navbar-dropdown-padding: 5px;;
 $navbar-dropdown-margin: 10px;
 $navbar-dropdown-width: 80px;
+
+// Table (footer)
+$table-cell-padding-vertical: 4px;
+$table-header-cell-color: white;
 
 // 2. Import default variables and available mixins.
 @import '../uikit/src/scss/variables-theme.scss';
@@ -29,13 +32,24 @@ $navbar-dropdown-width: 80px;
 
 @import "custom";
 
+// Site-wide
 .content {
     margin: 0 10%;
 }
 
-.uk-navbar-container {
+.delphi-text-logo {
+    background-color: white;
+    color: #b00 !important;
+    font-size: 18px !important;
     font-weight: 600;
+    line-height: 18px;
+    padding: 5px 10px;
+}
+
+// Navbar
+.uk-navbar-container {
     box-shadow: 0 3px 5px -1px rgba(0,0,0,.15);
+    font-weight: 300;
     margin-bottom: 10px;
 }
 .uk-navbar-left {
@@ -51,7 +65,25 @@ $navbar-dropdown-width: 80px;
 
 .uk-navbar-dropdown-bottom-left {
     margin-left: -20px;
+    margin-top: -2px;
 }
 .uk-navbar-dropdown-nav>li>a {
     text-align: center;
+}
+
+// Footer
+.footer {
+    background-color: #232735;
+    padding: 50px 20% 20px 20%;
+}
+
+.footer-table td>a{
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footer-table th {
+    font-weight: 600;
+    text-transform: uppercase;
 }
