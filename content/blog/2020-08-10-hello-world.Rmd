@@ -3,6 +3,9 @@ title: "Hello World!"
 author: "Roni Rosenfeld and Ryan Tibshirani"
 date: 2020-08-10
 tags: ["COVIDcast"]
+authors:
+- roni
+- ryan
 ---
 
 Hello from the Delphi research group at Carnegie Mellon University!
@@ -154,14 +157,3 @@ Here's a quick summary:
 In subsequent posts, we'll dive deeper into many of these projects, and touch on
 what's next for us (a lot... in many ways, we feel that our most important work
 is still ahead of us). Until next time!
-
----
-
-*[Roni Rosenfeld](http://cs.cmu.edu/~roni) is a lead researcher in the Delphi 
-group, and a Professor and Head of the Machine Learning Department at CMU. He
-is also a Google Fellow.*
-
-*[Ryan Tibshirani](http://stat.cmu.edu/~ryantibs) is a lead researcher in the
-Delphi group, and an Associate Professor in the Department of Statistics & Data
-Science and the Machine Learning Department at CMU. He is also an Amazon
-Scholar.*

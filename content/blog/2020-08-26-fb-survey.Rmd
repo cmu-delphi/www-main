@@ -3,6 +3,9 @@ title: "COVID-19 Symptom Surveys through Facebook"
 author: "Alex Reinhart and Ryan Tibshirani"
 date: 2020-08-26
 tags: ["symptom surveys", "COVIDcast", "R"]
+authors:
+- alex
+- ryan
 output:
   html_document:
     code_folding: hide
@@ -598,14 +601,3 @@ idea of running the surveys, and worked with Facebook to make this a reality.
 On the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
 University of Maryland team, including Adrianne Bradford and Samantha Chiu and
 led by Frauke Kreuter, made many contributions to the survey design.*
-
----
-
-*[Alex Reinhart](https://www.refsmmat.com) manages Delphi's surveys, and is an
-Assistant Teaching Professor in the Department of Statistics & Data Science at
-CMU.*
-
-*[Ryan Tibshirani](http://stat.cmu.edu/~ryantibs) is a lead researcher in the
-Delphi group, and an Associate Professor in the Department of Statistics & Data
-Science and the Machine Learning Department at CMU. He is also an Amazon
-Scholar.*

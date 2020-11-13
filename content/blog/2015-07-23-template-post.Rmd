@@ -4,6 +4,8 @@ author: "Frida Gomam"
 date: 2015-07-23
 tags: ["R Markdown", "plot", "regression"]
 draft: true
+authors:
+- frida
 ---
 
 ```{r setup, include=FALSE}
@@ -87,8 +89,3 @@ suggest we consider the following tags as base tags:
 * news (for announcements of new features, new models, etc.)
 * R (for posts containing R, typically, our covidcast R package)
 * Python (for posts containing Python, typically, our covicast Python package)
-
----
-
-*[Frida Gomam](https://example.com) is a member of the Delphi group and a Ph.D.
-student in data wrangling at the University of Southern North Dakota at Hoople.*

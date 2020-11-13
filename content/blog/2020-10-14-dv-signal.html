@@ -3,6 +3,9 @@ title: "A Syndromic COVID-19 Indicator Based on Insurance Claims of Outpatient V
 author: "Aaron Rumack and Roni Rosenfeld"
 date: 2020-11-05
 tags: ["medical records", "COVIDcast", "R"]
+authors:
+- aaron
+- roni
 output:
   html_document:
     code_folding: hide
@@ -320,7 +323,4 @@ inner_join(df_cor_by_time %&gt;% rename(orig_cor = value),
 <li><p><a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">COVID-19 Symptom Surveys through Facebook</a></p></li>
 </ul>
 <p><strong>Acknowledgements.</strong> <em>Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the indicator. Aaron Rumack devised the weekday adjustment and analyzed the performance of the DV indicator. Roni Rosenfeld worked closely with our health systems partners to get access to the data and provided domain knowledge to ensure that the data was useful. Both Roni and Ryan Tibshirani provided helpful suggestions and insights towards the methodology and analysis.</em></p>
-<hr />
-<p><em>Aaron Rumack is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.</em></p>
-<p><em><a href="http://cs.cmu.edu/~roni">Roni Rosenfeld</a> is a lead researcher in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.</em></p>
 </div>
