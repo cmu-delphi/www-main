@@ -5,15 +5,12 @@
 $global-font-family: "Open Sans", Roboto, Arial, sans-serif;
 
 // Navbar
-$navbar-nav-item-height: 50px;
 $navbar-nav-item-padding-horizontal: 25px;
 $navbar-nav-item-font-size: 16px;
 $navbar-nav-item-height: 35px;
 $navbar-nav-item-color: #505565;
 $navbar-background: none;
-$navbar-dropdown-padding: 5px;;
-$navbar-dropdown-margin: 10px;
-$navbar-dropdown-width: 80px;
+$navbar-dropdown-padding: 10px;
 
 // Table (footer)
 $table-cell-padding-vertical: 4px;
@@ -35,6 +32,7 @@ $table-header-cell-color: white;
 // Site-wide
 .content {
     margin: 0 10%;
+    max-width: 1440px;
 }
 
 .delphi-text-logo {
@@ -46,14 +44,21 @@ $table-header-cell-color: white;
     padding: 5px 10px;
 }
 
+.inline-svg {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    position: relative;
+    fill: grey;
+  }
+
 // Navbar
 .uk-navbar-container {
-    box-shadow: 0 3px 5px -1px rgba(0,0,0,.15);
+    // box-shadow: 0 3px 5px -1px rgba(0,0,0,.15);
     font-weight: 300;
-    margin-bottom: 10px;
 }
 .uk-navbar-left {
-    margin: 40px 10% 0 10%;
+    margin: 40px 10% 40px 10%;
 }
 .uk-navbar-nav>li>a {
     display: inline;
@@ -66,9 +71,6 @@ $table-header-cell-color: white;
 .uk-navbar-dropdown-bottom-left {
     margin-left: -20px;
     margin-top: -2px;
-}
-.uk-navbar-dropdown-nav>li>a {
-    text-align: center;
 }
 
 // Footer

@@ -20,19 +20,29 @@ relativeURLs = false
     url = "#"
     weight = 1
 [[menu.main]]
+    identifier = "center"
+    parent = "about"
+    name = "Center of Excellence"
+    url = "#"
+    weight = 1
+[[menu.main]]
     name = "COVIDcast"
+    pre = "map"
     url = "https://covidcast.cmu.edu"
     weight = 2
 [[menu.main]]
     name = "Blog"
+    pre = "blog"
     url = "https://delphi.cmu.edu/blog"
     weight = 3
 [[menu.main]]
     name = "GitHub"
+    pre = "github"
     url = "https://github.com/cmu-delphi/"
     weight = 4
 [[menu.main]]
     name = "API"
+    pre = "api"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 5
 
