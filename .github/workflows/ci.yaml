@@ -52,25 +52,22 @@ jobs:
       - name: Build site
         shell: bash -l {0}        
         run: |
-          Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+          npm run build:blog
+      
+      - uses: actions/setup-node@v1
         with:
-          hugo-version: '0.78.0'
-          extended: true
-
+          node-version: '12'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
       - name: Build
-        run: hugo --minify
+        run: npm run build
 
       - uses: actions/upload-artifact@v2
         with:
           name: website
           path: ./public
-
-      - name: Deploy Main
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: ./public
-
