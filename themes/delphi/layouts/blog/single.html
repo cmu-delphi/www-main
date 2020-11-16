@@ -10,7 +10,7 @@
     <img src="https://via.placeholder.com/800x600" class="blog-hero-image" alt="{{ .Title}} - Hero Image">
 </div>
 <div uk-grid>
-    <div class="uk-width-medium">
+    <div class="uk-width-1-1@s uk-width-medium@l">
         <div class="uk-grid-small uk-flex-start" uk-grid>
             <div class="uk-width-auto">
                 <span class="uk-icon-button" uk-icon="icon: user{{if gt (len .Params.authors) 1}}s{{end}}"></span>
@@ -22,11 +22,10 @@
             </div>
         </div>
     </div>
-    <div class="uk-width-3-5">
+    <div class="uk-width-1-1@s uk-width-3-5@l">
         {{ .Content }}
         {{ template "_internal/disqus.html" . }}
     </div>
-    <div class="uk-width-1-5"></div>
 </div>
 <hr />
 {{ range .Params.authors}}
