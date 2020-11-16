@@ -1,0 +1,37 @@
+on:
+  push:
+    paths-ignore: # don't run the fast version when an Rmd file changes
+     - '**.Rmd'
+     - 'environment.yml'
+     - '.github/workflows/ci.yaml'
+
+name: ci_fast
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 3    # Fetch all history for .GitInfo and .Lastmod   
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.78.0'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: website
+          path: ./public
+
+      - name: Deploy Main
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./public
+
