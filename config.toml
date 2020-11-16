@@ -17,7 +17,7 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     name = "COVIDcast"
-    url = "https://covidcast.cmu.edu"
+    url = "/covidcast"
     weight = 2
 [[menu.main]]
     name = "Data"
