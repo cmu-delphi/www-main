@@ -5,11 +5,9 @@
 {{ range .Paginator.Pages }}
   <li>
     <div uk-grid class="uk-grid-small">
-      <div class="uk-width-small">
-        <time class="uk-text-bold-600">{{ .Date.Format "Jan _2" }}</time>
-      </div>
-      <div class="uk-width-expand">
+      <div class="uk-width-1-1@s uk-width-expand@m blog-list-content">
         <div>
+          <time class="uk-text-bold-600">{{ .Date.Format "Jan _2" }}</time>
           {{- range .Params.tags -}}
             <a class="uk-text-bold-600 uk-text-uppercase uk-link-muted blog-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
           {{- end -}}
@@ -25,7 +23,7 @@
             By {{ .Params.author }}
         </div>
       </div>
-      <div class="uk-width-auto">
+      <div class="uk-width-1-1@s uk-width-auto@m blog-list-hero-image">
         <img data-src="https://via.placeholder.com/800x600" width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img>
       </div>
   </div>

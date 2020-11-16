@@ -1,3 +1,4 @@
+@import '../uikit/src/scss/variables-theme.scss';
 @import './highlight';
 @import './katex/katex.min';
 
@@ -19,4 +20,32 @@
     width: 100%;
     height: 20em;
     object-fit: fill;
+}
+
+
+$blog-list-date-width: 5em;
+.blog-list-content time {
+    display: inline-block;
+    min-width: $blog-list-date-width;
+}
+
+@media(min-width: $breakpoint-medium) {
+    .blog-list-content {
+        margin-left: $blog-list-date-width;
+        time {
+            position: absolute;
+            left: 0;
+        }
+    }
+}
+// sm
+@media(max-width: $breakpoint-medium) {
+ .blog-list-hero-image {
+     order: -1;
+     > img {
+        width: 100%;
+        max-height: 20em;
+        object-fit: contain;
+    }
+}
 }
