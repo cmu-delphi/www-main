@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "The Delphi Team"
 theme = "delphi"
 googleAnalytics = "UA-88748454-1"
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$", "\\.rda$"]
 disqusShortname = ""
 relativeURLs = false
 
