@@ -25,6 +25,22 @@
     </div>
     <div class="uk-width-1-1@s uk-width-3-5@m">
         {{ .Content }}
+        {{ if isset .Params "acknowledgements" }}
+        <p>
+            <strong>Acknowledgements: </strong>
+            {{ .Params.acknowledgements | markdownify }}
+        </p>
+        {{ end }}
+        {{ if isset .Params "related" }}
+        <strong>Related Posts:</strong>
+        <ul>
+            {{ $currentPage := . }}
+            {{ range $related := .Params.related }}
+              {{ $relPage := $.GetPage $related}}
+            <li><a href="{{ $relPage.Permalink }}">{{ $relPage.Title }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
         {{ template "_internal/disqus.html" . }}
     </div>
 </div>
