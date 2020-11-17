@@ -1,24 +1,39 @@
 {{ define "main" }}
+<a href="{{.Section | relURL }}" class="uk-text-bold-600 uk-text-uppercase uk-link-muted"><span uk-icon="chevron-left" role="img"></span>Delphi Blog</a>
+<h1>{{ .Title }}</h1>
 <div>
-    {{ if .Date }}
-    <time>{{ .Date.Format "January 2, 2006" }}</time>
-    {{ end }}
-    <h1>{{ .Title }}</h1>
-    {{ if .Params.author }}
-        <span>{{ .Params.author }}</span>
-    {{ end }}
-    {{ partial "share.html" . }}
-    {{ .Content }}
-    {{ template "_internal/disqus.html" . }}
-
-    <div>
-        {{if .Params.tags}}
-        <hr>
-        {{ range .Params.tags }}
-            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
-        {{ end }}
-      {{ end }}
-    </div>
-
+    {{- range .Params.tags -}}
+    <a class="uk-text-bold-600 uk-text-uppercase uk-link-muted blog-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
+    {{- end -}}
 </div>
+<div class="uk-margin-top uk-margin-bottom">
+    <img src="https://via.placeholder.com/800x600" class="blog-hero-image" alt="{{ .Title}} - Hero Image">
+</div>
+<div uk-grid>
+    <div class="uk-width-medium">
+        <div class="uk-grid-small uk-flex-start" uk-grid>
+            <div class="uk-width-auto">
+                <span class="uk-icon-button" uk-icon="icon: user{{if gt (len .Params.authors) 1}}s{{end}}"></span>
+            </div>
+            <div class="uk-width-expand">
+                <p class="uk-text-bold-600">{{ .Params.author }}</p>
+                <p><time>{{ .Date.Format "Jan 2, 2006" }}</time></p>
+                {{ partial "share.html" . }}
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-3-5">
+        {{ .Content }}
+        {{ template "_internal/disqus.html" . }}
+    </div>
+    <div class="uk-width-1-5"></div>
+</div>
+<hr />
+{{ range .Params.authors}}
+<div>
+    {{ range first 1 (where $.Site.Data.authors "key" "eq" .)}}
+    {{ if isset . "link"}}<a href="{{.link}}" class="uk-text-bold-600 uk-link-text">{{.name}}</a>{{ else }}<span>{{.name}}</span>{{ end}} {{.description}}
+    {{ end }}
+</div>
+{{ end }}
 {{end}}

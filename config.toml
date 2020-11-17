@@ -3,12 +3,14 @@ languageCode = "en-us"
 title = "The Delphi Team"
 theme = "delphi"
 googleAnalytics = "UA-88748454-1"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 disqusShortname = ""
 relativeURLs = false
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
 [[menu.main]]
+<<<<<<< HEAD
     identifier = "about"
     name = "About"
     url = "/about"
@@ -19,6 +21,11 @@ relativeURLs = false
     parent = "about"
     name = "Team"
     url = "/about/team"
+=======
+    identifier = "main"
+    name = "Delphi"
+    url = "/"
+>>>>>>> dev
     weight = 1
 [[menu.main]]
     name = "COVIDcast"
@@ -27,9 +34,14 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     name = "Blog"
+<<<<<<< HEAD
     pre = "blog"
     url = "/blog"
     weight = 3
+=======
+    url = "/blog"
+    weight = 4
+>>>>>>> dev
 [[menu.main]]
     name = "GitHub"
     pre = "github"
@@ -43,8 +55,6 @@ relativeURLs = false
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
-    highlight = true
-    math = true
     showReadMore = true
 
     [params.logo]

@@ -1,36 +1,73 @@
 on:
-  push
+  push:
+    paths: # run only when an Rmd file changes
+     - '**.Rmd'
+     - 'environment.yml'
+     - '.github/workflows/ci.yaml'
 
 name: ci
 
-# based on https://github.com/r-lib/actions/blob/master/examples/blogdown.yaml
-
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+          # submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 3
+      - name: Cache Conda
+        uses: actions/cache@v1
+        with:          
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda6-${{ hashFiles('environment.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-conda6-
+      - uses: conda-incubator/setup-miniconda@v2
         with:
-          hugo-version: '0.77.0'
-          extended: true
-
+          python-version: 3.7
+          mamba-version: "*"
+          channels: conda-forge,defaults
+          channel-priority: true
+          activate-environment: www-main
+          environment-file: environment.yml
+          auto-activate-base: false
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+      # - name: Conda info
+      #   shell: bash -l {0}
+      #   run: |
+      #     conda info
+      #     conda list
+      - name: Install R dependencies
+        shell: bash -l {0}
+        run: |
+          Rscript ./dependencies.R
+      - name: Restore Blogdown Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ./blogdown
+          key: ${{ runner.os }}-blogdown2-${{ hashFiles('content/blog/**.Rmd') }}
+          restore-keys: |
+            ${{ runner.os }}-blogdown2-
+      - name: Build site
+        shell: bash -l {0}        
+        run: |
+          npm run build:blog
+      
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
       - name: Build
-        run: hugo --minify
+        run: npm run build
 
       - uses: actions/upload-artifact@v2
         with:
           name: website
           path: ./public
-
-      - name: Deploy Main
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: ./public
-

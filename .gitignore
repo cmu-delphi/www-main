@@ -1,5 +1,11 @@
-/content/**/*.html
 /public
 /resources/_gen
 *.exe
 /.vscode
+/blogdown
+/.Rhistory
+*_cache
+/content/**/*_files
+*.lock~
+/content/blog/_output.yml
+/node_modules

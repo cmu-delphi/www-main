@@ -1,4 +1,39 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
-{{ .Content }}
+<h2>{{ .Description }} </h2>
+<ul class="uk-list uk-list-divider uk-list-large">
+{{ range .Paginator.Pages }}
+  <li>
+    <div uk-grid class="uk-grid-small">
+      <div class="uk-width-small">
+        <time class="uk-text-bold-600">{{ .Date.Format "Jan _2" }}</time>
+      </div>
+      <div class="uk-width-expand">
+        <div>
+          {{- range .Params.tags -}}
+            <a class="uk-text-bold-600 uk-text-uppercase uk-link-muted blog-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
+          {{- end -}}
+        </div>
+        <h2 class="uk-margin-small-top uk-text-bold-600"><a href="{{ .RelPermalink  }}" class="uk-link-heading">{{ .Title}}</a></h2>
+        <p>
+          {{ .Summary | plainify }}
+          {{- if .Truncated -}}
+            <a href="{{ .RelPermalink  }}" class="uk-link-text uk-text-bold-600">&hellip; read more</a>
+          {{ end}}
+        </p>
+        <div class="authors">
+            By {{ .Params.author }}
+        </div>
+      </div>
+      <div class="uk-width-auto">
+        <img data-src="https://via.placeholder.com/800x600" width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img>
+      </div>
+  </div>
+
+
+    
+  </li>
+{{ end }}
+</ul>
+{{ template "_internal/pagination.html" . }}
 {{ end }}

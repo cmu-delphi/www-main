@@ -25,15 +25,16 @@ $table-cell-padding-vertical: 4px;
 $table-header-cell-color: white;
 
 // 2. Import default variables and available mixins.
-@import '../uikit/src/scss/variables-theme.scss';
-@import '../uikit/src/scss/mixins-theme.scss';
+@import './node_modules/uikit/src/scss/variables-theme.scss';
+@import './node_modules/uikit/src/scss/mixins-theme.scss';
 
 // 3. Your custom mixin overwrites.
 // @mixin hook-card() { color: #000; }
 
 // 4. Import UIkit.
-@import '../uikit/src/scss/uikit-theme.scss';
+@import './node_modules/uikit/src/scss/uikit-theme.scss';
 
+<<<<<<< HEAD
 
 @import "custom";
 
@@ -133,3 +134,6 @@ svg {
 .footer-small div {
     padding-top: 10px;
 }
+=======
+@import 'custom';
+>>>>>>> dev
