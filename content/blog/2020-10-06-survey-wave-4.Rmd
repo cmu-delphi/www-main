@@ -3,12 +3,27 @@ title: "New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing"
 author: "Alex Reinhart"
 date: 2020-10-12
 tags: ["symptom surveys", "COVIDcast", "R"]
-summary: Beginning on September 8, 2020, we deployed a new version of our symptom survey. Facebook helps us recruit tens of thousands of respondents daily, and the new survey gives us unprecedented insights into the effects of COVID-19 across the United States. Today we release new public datasets and share maps revealing access to COVID testing, test results, and public use of masks.
+summary: |
+  Beginning on September 8, 2020, we deployed a new version of our symptom survey. 
+  Facebook helps us recruit tens of thousands of respondents daily, and the new survey gives us unprecedented insights into the effects of COVID-19 across the United States. 
+  Today we release new public datasets and share maps revealing access to COVID testing, test results, and public use of masks.
 authors:
 - alex
+acknowledgments: |
+  Many items in Wave 4 of our survey are based on work by
+  the team at the Joint Program in Survey Methodology at the University of
+  Maryland led by Frauke Kreuter; Adrianne Bradford and Samantha Chiu helped
+  design items and gave feedback. Facebook's survey team, including Sarah LaRocca
+  and Katherine Morris, gave extensive feedback on Wave 4 of the survey and
+  assisted in its deployment. Kelsey Mulcahy at Facebook Data For Good helped
+  coordinate data access for numerous researchers. Taylor Arnold, Alex Reinhart,
+  and Kathryn Mazaitis developed the code needed to process Wave 4. Delphi members
+  Roni Rosenfeld and Ryan Tibshirani suggested survey revisions. We thank Jean
+  Cox-Ganser, Paul Henneberger, Danielle Iuliano, Robert Kraut, and Jordan Weber
+  for suggesting survey items and revisions for Wave 4.
 ---
 
-Beginning in early April 2020, the [Delphi group](https://delphi.cmu.edu/) has
+Beginning in early April 2020, the [Delphi group](`r blogdown::shortcode("ref", "/")`) has
 conducted a major survey to track COVID-19 across the United States. With the
 support of Facebook Data for Good, we have been able to recruit tens of
 thousands of active Facebook users *every day* to take our voluntary survey.
@@ -16,18 +31,18 @@ Concurrently, a University of Maryland team has conducted a [parallel
 international effort](https://covidmap.umd.edu/) covering over 100 countries
 worldwide. Every day, we aggregate our survey results to produce estimates of
 symptoms for counties and states across the United States, making these
-estimates available through our [COVIDcast map](https://covidcast.cmu.edu/) and
+estimates available through our [COVIDcast map](`r blogdown::shortcode("ref", "covidcast")`) and
 our [public
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html). This
 augments the [numerous other data sources available in our COVIDcast
-API](https://delphi.cmu.edu/blog/2020/10/07/accessing-open-covid-19-data-via-the-covidcast-epidata-api/)
+API](`r blogdown::shortcode("ref", "2020-08-28-api")`)
 to form a more complete picture of the pandemic.
 
 In previous posts, we demonstrated how [self-reported symptoms on our survey can
 correlate strongly with COVID
-cases](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+cases](`r blogdown::shortcode("ref", "2020-08-26-fb-survey"))
 and how [symptom survey data could improve forecasts of COVID
-cases](https://delphi.cmu.edu/blog/2020/09/21/can-symptoms-surveys-improve-covid-19-forecasts/).
+cases](`r blogdown::shortcode("ref", "2020-09-21-forecast-demo")`).
 Our data is also powering the [COVID-19 Symptom Data
 Challenge](https://www.symptomchallenge.org/), which asked participants to use our
 symptom survey data to enable earlier detection of outbreaks and help public
@@ -91,7 +106,7 @@ and the other important topics described above, along with demographic details
 about the respondent. These demographics include age, gender, race, occupation,
 and education, allowing us to understand how different groups have been affected
 and which groups are currently most vulnerable to COVID-19. (As we [described
-before](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/),
+before](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`),
 Facebook does not receive any individual survey responses; we at Carnegie Mellon
 collect this data and prepare aggregate data, which does not identify any
 individual respondent, for public release.)
@@ -110,7 +125,7 @@ mask most or all of the time when they're in public? For comparison, we'll map
 this next to map of the percentage of respondents who personally know someone in
 their local community who is sick (with a fever and at least one other symptom,
 such as cough or difficulty breathing). This percentage [correlates very
-well](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#some-interesting-examples)
+well](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#some-interesting-examples")`)
 with COVID case rates as reported by state agencies.
 
 ```{r mask-wearing, message=FALSE, fig.width=9}
@@ -286,7 +301,7 @@ active user population (which does not include all adults in the United States)
 and because it is voluntary, and some people may be more likely to volunteer
 than others. It's plausible these biases could affect rural states more strongly
 than others. [As we've explained
-before](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys),
+before](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#why-run-these-surveys")`),
 we try to adjust for these biases using demographic and other data, but without
 reliable ground-truth testing data, it's impossible to tell if these adjustments
 successfully remove all bias.
@@ -351,10 +366,10 @@ available through our COVIDcast API, and the exact technical details are
 described in our [signal
 documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).
 The symptom and mask data is already featured on our [COVIDcast interactive
-map](https://covidcast.cmu.edu/?sensor=fb-survey-smoothed_wearing_mask&level=county&signalType=value&encoding=color&mode=overview&region=42003),
+map](`r blogdown::shortcode_html("ref", "covidcast?sensor=fb-survey-smoothed_wearing_mask&level=county&signalType=value&encoding=color&mode=overview&region=42003")`),
 and other survey signals will soon be added as well. More information about the
 surveys, including preliminary results, is given on our [survey
-site](https://covidcast.cmu.edu/surveys.html).
+site](`r blogdown::shortcode_html("ref", "surveys")`).
 
 But we also know that many researchers will have questions that can't be
 answered from these simple county- and state-level averages. What occupations
@@ -383,7 +398,7 @@ data, we can make decisions needed to protect public health and permit safe
 reopening.
 
 *For more information about Delphi's symptom surveys, and for media contact
-details, see [our surveys page](https://covidcast.cmu.edu/surveys.html). For
+details, see [our surveys page](`r blogdown::shortcode_html("ref", "surveys")`). For
 updates, you can follow [CmuDelphi on Twitter](https://twitter.com/cmudelphi).*
 
 **Note.** *This post was updated on October 17, 2020 to correct an error in the
@@ -391,15 +406,3 @@ scatterplot of mask usage and reported case rates. An error in our data
 processing system meant our reported case rates were half the size they should
 have been. This did not affect the trend in the scatterplot, only the scale of
 the X axis.*
-
-**Acknowledgments.** *Many items in Wave 4 of our survey are based on work by
-the team at the Joint Program in Survey Methodology at the University of
-Maryland led by Frauke Kreuter; Adrianne Bradford and Samantha Chiu helped
-design items and gave feedback. Facebook's survey team, including Sarah LaRocca
-and Katherine Morris, gave extensive feedback on Wave 4 of the survey and
-assisted in its deployment. Kelsey Mulcahy at Facebook Data For Good helped
-coordinate data access for numerous researchers. Taylor Arnold, Alex Reinhart,
-and Kathryn Mazaitis developed the code needed to process Wave 4. Delphi members
-Roni Rosenfeld and Ryan Tibshirani suggested survey revisions. We thank Jean
-Cox-Ganser, Paul Henneberger, Danielle Iuliano, Robert Kraut, and Jordan Weber
-for suggesting survey items and revisions for Wave 4.*

@@ -6,6 +6,10 @@ tags: ["R Markdown", "plot", "regression"]
 draft: true
 authors:
 - frida
+related:
+- 2015-07-23-template-post
+acknowledgements: Test
+
 ---
 
 ```{r setup, include=FALSE}
@@ -14,15 +18,8 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 Each blog post is an R Markdown document. For more details on using R Markdown
 see <http://rmarkdown.rstudio.com>. The first paragraph or so will appear on the
-front page; by default the first 70 words are used, but you should instead write
-the first paragraph so it can serve as a summary, and mark the split point
-yourself like this:
-
-<!--more-->
-
-Notice that when we explicitly mark the split point, it does *not* appear in the
-post itself, just on the front page. You should treat the paragraph above as an
-abstract or teaser for the post, not as part of the post itself. Usually we do
+front page; by default the first 70 words are used. If you want to specify the 
+exact text, you can specify a `summary` front matter variable. Usually we do
 not include links in the teaser.
 
 You can embed an R code chunk like this:

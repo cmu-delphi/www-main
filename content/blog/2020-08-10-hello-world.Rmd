@@ -6,20 +6,18 @@ tags: ["COVIDcast"]
 authors:
 - roni
 - ryan
+summary: |
+  Hello from the Delphi research group at Carnegie Mellon University!
+  We're a group of faculty, students, and staff, based primarily out of CMU
+  together with strong collaborators from other universities and industry.
+  Our group was founded in 2012 to advance the theory and practice of epidemic 
+  forecasting. Since March 2020, we have refocused efforts towards helping combat 
+  the COVID-19 pandemic, by supporting informed decision-making at federal, state,
+  and local levels of government and in the healthcare sector. Until now, we've
+  been pretty "heads down" with our work, and slow to communicate what we've been 
+  up to. But at last ... Delphi finally has a blog! This first post serves as an 
+  introduction of sorts. Future posts will dive deeper into our various projects.
 ---
-
-Hello from the Delphi research group at Carnegie Mellon University!
-We're a group of faculty, students, and staff, based primarily out of CMU
-together with strong collaborators from other universities and industry.
-Our group was founded in 2012 to advance the theory and practice of epidemic 
-forecasting. Since March 2020, we have refocused efforts towards helping combat 
-the COVID-19 pandemic, by supporting informed decision-making at federal, state,
-and local levels of government and in the healthcare sector. Until now, we've
-been pretty "heads down" with our work, and slow to communicate what we've been 
-up to. But at last ... Delphi finally has a blog! This first post serves as an 
-introduction of sorts. Future posts will dive deeper into our various projects.
-
-<!--more-->
 
 Hello from the Delphi research group at Carnegie Mellon University!
 We're a group of faculty, students, and staff, based primarily out of CMU
@@ -55,7 +53,7 @@ and making headway into dengue and norovirus.
 To learn about the work our group has done in the past,
 including some papers we've written, software tools we've built,
 and the real-time epidemiological data server we've been deploying since 2016,
-check out [our website](https://delphi.cmu.edu).
+check out [our website](`r blogdown::shortcode("ref", "/")`).
 
 When the COVID-19 pandemic arrived, we focused all our attention on it.
 Our Delphi team
@@ -66,7 +64,7 @@ including Stanford, UC Davis, and USC, and also from industry.
 The pace has been intense and dizzying at times,
 and we're infinitely grateful for the contributions
 and commitment of all our new members---we'd be nowhere without them.
-See [here](https://covidcast.cmu.edu/covid19-response-team.html)
+See [here](`r blogdown::shortcode("ref", "team")`)
 for a list of the Delphi team members.
 
 With new members comes a new breadth of expertise:
@@ -148,7 +146,7 @@ Here's a quick summary:
   to serve our indicators to researchers and the public. This API provides new 
   data daily.
 
-- We've built [interactive maps and graphics](https://covidcast.cmu.edu/) to 
+- We've built [interactive maps and graphics](`r blogdown::shortcode("ref", "covidcast")`) to 
   display our indicators, and better inform the public and decision-makers.
 
 - We've developed forecasts of the future spread of the pandemic, 

@@ -6,26 +6,39 @@ tags: ["symptom surveys", "COVIDcast", "R"]
 authors:
 - alex
 - ryan
+summary: |
+  Since April 2020, in collaboration with Facebook,
+  partner universities, and public health officials,
+  we've been conducting a massive daily survey to monitor
+  the spread and impact of the COVID-19 pandemic in the United States.
+  Our survey, advertised by Facebook, is taken by about 74,000 people each day.
+  Respondents provide information about COVID-related
+  symptoms, contacts, risk factors, and demographics,
+  allowing us to examine county-level trends across the US.
+  We believe that this combination of *detail* and *scale*
+  has never before been available in a public health emergency.
+  In this post, we'll share some of our initial survey findings,
+  show you how to access the data, and highlight
+  some of the exciting new directions that we're pursuing.
+acknowledgements: |
+  Logan Brooks and Katie Mazaitis
+  wrote the initial code for processing
+  the survey data and producing estimates.
+  Taylor Arnold, Amartya Basu, and Alex Reinhart
+  provided huge help with refactoring and improving this codebase.
+  Logan Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani
+  developed the statistical methodology behind the estimates computed from the
+  survey data. The COVIDcast API, which serves these estimates and is updated
+  daily, is a much larger effort run by the Delphi group, and our entire
+  engineering team is owed a lot of credit here. Ryan came up with the
+  idea of running the surveys, and worked with Facebook to make this a reality. 
+  On the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
+  University of Maryland team, including Adrianne Bradford and Samantha Chiu and
+  led by Frauke Kreuter, made many contributions to the survey design.
 output:
   html_document:
     code_folding: hide
 ---
-
-Since April 2020, in collaboration with Facebook,
-partner universities, and public health officials,
-we've been conducting a massive daily survey to monitor
-the spread and impact of the COVID-19 pandemic in the United States.
-Our survey, advertised by Facebook, is taken by about 74,000 people each day.
-Respondents provide information about COVID-related
-symptoms, contacts, risk factors, and demographics,
-allowing us to examine county-level trends across the US.
-We believe that this combination of *detail* and *scale*
-has never before been available in a public health emergency.
-In this post, we'll share some of our initial survey findings,
-show you how to access the data, and highlight
-some of the exciting new directions that we're pursuing.
-
-<!--more-->
 
 Since April 2020, in collaboration with Facebook,
 partner universities, and public health officials,
@@ -42,7 +55,7 @@ has never before been available in a public health emergency.
 
 We make aggregated data publicly available daily through our
 [COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html),
-and visualize it on our [COVIDcast interactive map](https://covidcast.cmu.edu/).
+and visualize it on our [COVIDcast interactive map](`r blogdown::shortcode_html("ref", "covidcast")`).
 We also make (fully de-identified) individual survey responses available
 to researchers who agree to
 [data use terms](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/).
@@ -585,19 +598,4 @@ Detailed data will be available to researchers,
 while new aggregates---such as of mask-wearing---will 
 be made public, as usual, through our [COVIDcast
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) 
-and [COVIDcast interactive map](https://covidcast.cmu.edu/).
-
-**Acknowledgements.** *Logan Brooks and Katie Mazaitis
-wrote the initial code for processing
-the survey data and producing estimates.
-Taylor Arnold, Amartya Basu, and Alex Reinhart
-provided huge help with refactoring and improving this codebase.
-Logan Brooks, Pratik Patil, Rob Tibshirani, and Ryan Tibshirani
-developed the statistical methodology behind the estimates computed from the
-survey data. The COVIDcast API, which serves these estimates and is updated
-daily, is a much larger effort run by the Delphi group, and our entire
-engineering team is owed a lot of credit here. Ryan came up with the
-idea of running the surveys, and worked with Facebook to make this a reality. 
-On the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
-University of Maryland team, including Adrianne Bradford and Samantha Chiu and
-led by Frauke Kreuter, made many contributions to the survey design.*
+and [COVIDcast interactive map](`r blogdown::shortcode_html("ref", "covidcast")`).
