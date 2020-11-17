@@ -1,6 +1,7 @@
 ---
 date: "2020-07-28"
 title: About
+layout: single
 ---
 
 In March 2020, the [Delphi group](https://delphi.cmu.edu) at Carnegie Mellon 
