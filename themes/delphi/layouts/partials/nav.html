@@ -1,9 +1,58 @@
-<nav class="uk-navbar-container" data-uk-navbar>
+<nav class="uk-visible@s uk-navbar-container" data-uk-navbar>
   <div class="uk-navbar-left">
       <ul class="uk-navbar-nav">
-          {{ range .Site.Menus.main.ByWeight }}
-          <li class="{{ if eq .Identifier "main" }}uk-active{{ end }}"><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
-          {{ end }}
+        <li>
+          {{partial "delphi-text-logo.html"}}
+        </li>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main.ByWeight }}
+        <li class="{{ if (eq $currentPage.URL .URL) }}nav-active{{ end }}">
+          <a href="{{ .URL | relLangURL }}">
+            {{ if .Pre }}
+              {{ partial "font-awesome.html" .Pre }}
+            {{end}}
+            {{ .Name }}
+            {{ if .Post }}
+              {{ partial "font-awesome.html" .Post }}
+            {{end}}
+          </a>
+          {{if .HasChildren}}
+            <div class="uk-navbar-dropdown">
+              <ul class="uk-nav uk-navbar-dropdown-nav">
+                {{ range .Children }}
+                  <li><a href={{ .URL | relLangURL }}>{{ .Name }}</a></li>
+                {{ end }}
+              </ul>
+            </div>
+          {{end}}
+        </li>
+        {{ end }}
       </ul>
   </div>
+</nav>
+
+
+<!-- Mobile nav -->
+<nav class="uk-hidden@s mobile-nav">
+  {{partial "delphi-text-logo.html"}}
+  <a class="uk-navbar-toggle" uk-navbar-toggle-icon href=""></a>
+    <div uk-dropdown="mode: click" class="dropdown-mobile">
+      <ul class="uk-nav uk-navbar-dropdown-nav">
+        {{ range .Site.Menus.main.ByWeight }}
+        <li class="{{if .HasChildren }}menu-parent{{end}} menu-element">
+          <a href="{{ .URL | relLangURL }}">
+            {{ if .Pre }}
+              {{ partial "font-awesome.html" .Pre }}
+            {{end}}
+            {{ .Name }}
+          </a>
+          {{if .HasChildren}}
+            {{ range .Children }}
+              <li class="menu-element menu-child"><a href={{ .URL | relLangURL }}>{{ .Name }}</a></li>
+            {{ end }}
+          {{end}}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
 </nav>
