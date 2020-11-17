@@ -12,6 +12,7 @@ relativeURLs = false
     identifier = "about"
     name = "About"
     url = "https://delphi.cmu.edu/"
+    post = "angle-down"
     weight = 1
 [[menu.main]]
     identifier = "team"
