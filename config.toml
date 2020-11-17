@@ -10,7 +10,6 @@ relativeURLs = false
 [permalinks]
     post = "/:year/:month/:day/:slug/"
 [[menu.main]]
-<<<<<<< HEAD
     identifier = "about"
     name = "About"
     url = "/about"
@@ -21,11 +20,6 @@ relativeURLs = false
     parent = "about"
     name = "Team"
     url = "/about/team"
-=======
-    identifier = "main"
-    name = "Delphi"
-    url = "/"
->>>>>>> dev
     weight = 1
 [[menu.main]]
     name = "COVIDcast"
@@ -34,14 +28,9 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     name = "Blog"
-<<<<<<< HEAD
     pre = "blog"
     url = "/blog"
     weight = 3
-=======
-    url = "/blog"
-    weight = 4
->>>>>>> dev
 [[menu.main]]
     name = "GitHub"
     pre = "github"

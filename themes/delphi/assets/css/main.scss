@@ -34,9 +34,8 @@ $table-header-cell-color: white;
 // 4. Import UIkit.
 @import './node_modules/uikit/src/scss/uikit-theme.scss';
 
-<<<<<<< HEAD
 
-@import "custom";
+@import 'custom';
 
 // Site-wide
 .content {
@@ -134,6 +133,3 @@ svg {
 .footer-small div {
     padding-top: 10px;
 }
-=======
-@import 'custom';
->>>>>>> dev
