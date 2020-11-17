@@ -11,24 +11,24 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
-    url = "https://delphi.cmu.edu/"
+    url = "/about"
     post = "angle-down"
     weight = 1
 [[menu.main]]
     identifier = "team"
     parent = "about"
     name = "Team"
-    url = "#"
+    url = "/about/team"
     weight = 1
 [[menu.main]]
     name = "COVIDcast"
     pre = "map"
-    url = "https://covidcast.cmu.edu"
+    url = "/covidcast"
     weight = 2
 [[menu.main]]
     name = "Blog"
     pre = "blog"
-    url = "https://delphi.cmu.edu/blog"
+    url = "/blog"
     weight = 3
 [[menu.main]]
     name = "GitHub"

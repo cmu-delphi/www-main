@@ -39,7 +39,7 @@ $table-header-cell-color: white;
 
 // Site-wide
 .content {
-    margin: 0 10%;
+    margin: 20px 10%;
     max-width: 1200px;
 }
 
@@ -64,7 +64,7 @@ svg {
 }
 
 // Navbar
-.active {
+.nav-active {
     border-bottom: 2px solid #F03F3F !important;
 }
 .uk-navbar-container {
@@ -101,10 +101,10 @@ svg {
     font-weight: 400;
     padding: 20px 0 20px 40px;
 }
-.menu-element.parent {
+.menu-element.menu-parent {
     font-weight: 600;
 }
-.menu-element.child {
+.menu-element.menu-child {
     padding-left: 64px;
 }
 
@@ -115,7 +115,7 @@ svg {
     font-size: 12px;
     padding: 50px 20% 20px 20%;
 }
-.footer .header {
+.footer .footer-header {
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -127,7 +127,7 @@ svg {
     text-align: center;
     font-size: 14px;
 }
-.footer-small .header {
+.footer-small .footer-header {
     padding-top: 30px;
 }
 .footer-small div {
