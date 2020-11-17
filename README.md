@@ -8,13 +8,13 @@ This site is based on [Hugo](https://gohugo.io).
 
 ### Web Editor Only
 
-1. Install Hugo: https://gohugo.io/getting-started/installing/ -> install the **extended** version.
+1. Install Node: https://nodejs.org/en/download/
+1. Run `npm install`
 
 #### Commands
 
-1. run `hugo server` to create a development server
-1. run `hugo server -D` to create a development server which also renders draft pages, see [Draft](https://gohugo.io/getting-started/usage/#draft-future-and-expired-content)
-1. run `hugo --minify` to build a minified build in `/public`
+1. run `npm start` to create a development Hugo server
+1. run `npm build` to build a minified build in `/public`
 
 ### Blog Editor
 
@@ -34,7 +34,7 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
 #### Commands
 
 1. Activate the environment: `conda activate www-main`
-1. Run blogdown to convert the files to HTML: `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE)'`
+1. Run blogdown to convert the files to HTML: `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE, build_rmd=TRUE)'`
    - `local=TRUE` similar to `-D` to process draft files
    - `run_hugo=FALSE` to manually run hugo
    - `build_rmd=TRUE` force a (re)build of the Rmd pages

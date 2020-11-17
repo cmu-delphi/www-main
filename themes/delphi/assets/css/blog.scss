@@ -1,12 +1,10 @@
-@import '../uikit/src/scss/variables-theme.scss';
-@import './highlight';
-@import './katex/katex.min';
+@import './node_modules/highlight.js/scss/github';
+@import './node_modules/katex/dist/katex.min';
 
 
 .blog-tag {
     margin: 0 0.25em;
 }
-
 
 .uk-text-bold-600 {
     font-weight: 600;

@@ -8,3 +8,4 @@
 /content/**/*_files
 *.lock~
 /content/blog/_output.yml
+/node_modules

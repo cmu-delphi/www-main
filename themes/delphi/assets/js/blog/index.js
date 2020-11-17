@@ -1,7 +1,7 @@
-import './highlight.pack';
-import renderMathInElement from './katex/contrib/auto-render.mjs';
+import hljs from 'highlight.js';
+import renderMathInElement from 'katex/dist/contrib/auto-render.mjs';
 import { initializeCodeFolding } from './codeFolding';
 
-window.hljs.initHighlightingOnLoad();
+hljs.initHighlightingOnLoad();
 initializeCodeFolding();
 Array.from(document.querySelectorAll('.math')).forEach((elem) => renderMathInElement(elem));
