@@ -21,12 +21,6 @@ relativeURLs = false
     url = "#"
     weight = 1
 [[menu.main]]
-    identifier = "center"
-    parent = "about"
-    name = "Center of Excellence"
-    url = "#"
-    weight = 1
-[[menu.main]]
     name = "COVIDcast"
     pre = "map"
     url = "https://covidcast.cmu.edu"
