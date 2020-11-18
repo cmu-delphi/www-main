@@ -1,14 +1,12 @@
-<ul>
-  {{ range where $.Site.Data.team ".team" (.Get "team") }}
-  <li>
-    <div>
-        <img src="{{ (path.Join "/images/team/" .image )| relURL }}" alt="{{ .name }}"></img>
-        <span>{{ .name }}</span>
-        <span>{{ .affiliation }}</span>
-        {{ if isset . "note" }}
-        <i>{{ .note }}</i>
-        {{ end }}
-    </div>
-  </li>
+<div uk-grid class="team-members uk-grid-small uk-child-width-1-6">
+{{ range where $.Site.Data.team ".team" (.Get "team") }}
+  <div class="team-member">
+      <img src="{{ (path.Join "/images/team/" .image )| relURL }}" alt="{{ .name }}"></img>
+      <div class="uk-text-bold">{{ .name }}</div>
+      <div>{{ .affiliation }}</div>
+      {{ if isset . "note" }}
+      <div class="uk-text-small">{{ .note }}</div>
+      {{ end }}
+  </div>
   {{ end }}
-</ul>
+</div>
