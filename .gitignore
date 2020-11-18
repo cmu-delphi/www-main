@@ -9,3 +9,4 @@
 *.lock~
 /content/blog/_output.yml
 /node_modules
+/.DS_Store
