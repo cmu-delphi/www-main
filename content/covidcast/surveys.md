@@ -38,7 +38,7 @@ To account for the differences between Facebook users and the United States popu
 
 ## Where can I see the results?
 
-Our [COVIDcast map](https://covidcast.cmu.edu/) shows basic aggregate survey results, revealing the rate of COVID-like symptoms across the United States, and this data is also freely available for download through the [COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
+Our [COVIDcast map]({{<relref "covidcast" >}}) shows basic aggregate survey results, revealing the rate of COVID-like symptoms across the United States, and this data is also freely available for download through the [COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
 
 
 ### Blog posts and presentations
