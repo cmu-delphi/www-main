@@ -12,6 +12,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
+    url = "/about"
     weight = 1
 [[menu.main]]
     parent = "about"
@@ -27,6 +28,7 @@ relativeURLs = false
     identifier = "covidcast"
     name = "COVIDcast"
     pre = "map"
+    url = "/covidcast"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
