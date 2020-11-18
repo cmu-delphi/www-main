@@ -34,11 +34,15 @@ svg {
     max-height: 18px;
 }
 
-.inline-svg {
+.inline-svg-icon {
     display: inline-block;
-    fill: #505565;
-    width: 18px;
-    padding: 0 9px 0 5px;
+    fill: currentColor;
+    width: 1.2em;
+    padding: 0 0.5em 0 0.25em;
+}
+
+.uk-icon-button > .inline-svg-icon {
+    padding: 0;
 }
 
 // Navbar
