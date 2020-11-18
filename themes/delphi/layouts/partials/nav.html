@@ -10,7 +10,7 @@
           {{ if .HasChildren }}
             <a href="#">
             {{ partial "menu/item.html" . }}
-            {{ partial "font-awesome.html" "angle-down" }}
+            {{ partial "font-awesome.html" "solid/angle-down" }}
             </a>
           {{ else }}
             <a href="{{ .URL | relLangURL }}">
