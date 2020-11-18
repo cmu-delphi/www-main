@@ -6,27 +6,27 @@ Thank you to all the students, faculty, and staff who have contributed to the CO
 
 ## Core Members
 
-{{<covidcastteam team="core" >}}
+{{<team team="core" >}}
 
 ## Interns
 
-{{<covidcastteam team="interns" >}}
+{{<team team="interns" >}}
 
 ## Contractors
 
-{{<covidcastteam team="contractors" >}}
+{{<team team="contractors" >}}
 
 ## Advisors
 
-{{<covidcastteam team="advisors" >}}
+{{<team team="advisors" >}}
 
 ## Contributors
 
-{{<covidcastteam team="contributors" >}}
+{{<team team="contributors" >}}
 
 ## Past Members
 
-{{<covidcastteam team="past" >}}
+{{<team team="past" >}}
 
 
 _Abbreviations: CompBio is Computational Biology; LTI is Language Technologies Institute; MLD is Machine Learning Department; Stat is Statistics & Data Science; HCII is Human-Computer Interaction Institute_

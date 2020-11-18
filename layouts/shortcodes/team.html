@@ -1,15 +1,12 @@
 <ul>
-  {{ range where $.Site.Data.team ".active" (.Get "active") }}
+  {{ range where $.Site.Data.team ".team" (.Get "team") }}
   <li>
     <div>
-        <img
-        src="{{ (path.Join "/images/team/" .image )| relURL }}" alt="{{ .name }}"></img>
+        <img src="{{ (path.Join "/images/team/" .image )| relURL }}" alt="{{ .name }}"></img>
         <span>{{ .name }}</span>
-        {{ if isset . "homepage" }}
-        <a href="{{ .homepage }}" target="_blank" rel="noopener">Homepage</a>
-        {{ end }}
-        {{ if isset . "email_image" }}
-        <img src="{{ (path.Join "/images/team/" .email_image ) | relURL }}"></img>
+        <span>{{ .affiliation }}</span>
+        {{ if isset . "note" }}
+        <i>{{ .note }}</i>
         {{ end }}
     </div>
   </li>

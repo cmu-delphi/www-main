@@ -1,96 +1,223 @@
-- name: Roni Rosenfeld
-  image: roni-rosenfeld.jpg
-  homepage: http://www.cs.cmu.edu/~roni
-  active: true
-- name: Ryan Tibshirani
-  image: pic_ryan.jpg
-  homepage: http://www.stat.cmu.edu/~ryantibs/
-  active: true
+- name: Jacob Bien
+  image: jacob-bien-500x500-min.jpg
+  affiliation: University of Southern California
+  team: core
 - name: Logan Brooks
-  image: pic_logan.jpg
-  email_image: email_logan.png
-  active: true
-- name: David Farrow
-  image: pic_david.jpg
-  email_image: email_david.png
-  active: true
-- name: Maria Jahja
-  image: pic_maria.jpg
-  homepage: http://www.stat.cmu.edu/~maria/
-  active: true
-- name: Aaron Rumack
-  image: pic_aaron.jpg
-  email_image: email_aaron_small.png
-  active: true
-- name: Jingjing Tang
-  image: jingjing-tang.jpg
-  homepage: https://www.linkedin.com/in/jingjing-tang-856539163/
-  active: true
+  image: logan-brooks-500x500-min.jpg
+  affiliation: CMU/MLD
+  team: core
 - name: Brian Clark
-  image: pic_brian.jpg
-  homepage: https://www.linkedin.com/in/clarkbg/
-  active: true
-- name: Daren Wu
-  image: pic_daren.jpg
-  # email_image: email_daren.png
-  note: Advanced Data Analysis project, 2015-2016
-  active: false
-- name: Pu (Paul) Liang
-  image: pic_paul.jpg
-  # email_image: email_paul.png
-  node: Summer-Fall Undergraduate research, 2016
-  active: false
-- name: Shannon Gallagher
-  image: pic_shannon.jpg
-  # email_image: email_shannon_smaller.png
-  homepage: http://stat.cmu.edu/~sgallagh/
-  note: Advanced Data Analysis project, 2015-2016
-  active: false
-- name: Lisheng Gao
-  image: pic_lisheng.jpg
-  # email_image: email_lisheng.png
-  active: false
-- name: Jun Li
-  image: pic_jun.jpg
-  # email_image: email_jun.png
-  homepage: https://www.linkedin.com/in/jun-li-81098067/
-  note: Data Analysis Project, 2017
-  active: false
-- name: Zirui (Edward) Wang
-  image: pic_edward.jpg
-  # email_image: email_edward.png
-  active: false
+  image: brian-clark-500x500-min.jpg
+  affiliation: CMU/MLD
+  team: core
+- name: Jodi Forlizzi
+  image: jodi-forlizzi-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: core
+- name: George Haff
+  image: profile-placeholder.png
+  affiliation: CMU/CSD
+  team: core
+- name: Addison Hu
+  image: addison-hu-500x500-min.jpg
+  affiliation: CMU/Stat
+  team: core
+- name: Maria Jahja
+  image: maria-jahja-500x500-min.jpg
+  affiliation: CMU/Stat
+  team: core
+- name: Zack Lipton
+  image: zachary-lipton-500x500-min.jpg
+  affiliation: CMU/MLD
+  team: core
+- name: Kathryn Rivard Mazaitis
+  image: kathryn-mazaitis-500x500-min.jpg
+  affiliation: CMU/MLD
+  team: core
+- name: Balasubramanian Narasimhan
+  image: balasubramanian-narasimhan-500x500-min.jpg
+  affiliation: Stanford University
+  team: core
+- name: Adam Perer
+  image: adam-perer-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: core
+- name: Collin Politsch
+  image: collin-politsch-500x500-min.jpg
+  affiliation: CMU/MLD
+  team: core
+- name: Alex Reinhart
+  image: alex-reinhart-500x500-min.jpg
+  affiliation: CMU/Stat
+  team: core
+- name: Roni Rosenfeld
+  image: roni-rosenfeld-500x500-min.jpg
+  affiliation: CMU/MLD
+  team: core
+- name: Aaron Rumack
+  image: aaron-rumack-500x500-min.jpg
+  affiliation: CMU/MLD
+  team: core
+- name: James Sharpnack
+  image: james-sharpnack-500x500-min.jpg
+  affiliation: UC Davis
+  team: core
+- name: Dmitry Shemetov
+  image: dmitry-shemetov-500x500-min.jpg
+  affiliation: UC Davis
+  team: core
+- name: Jingjing Tang
+  image: jinjing-tang-500x500-min.jpg
+  affiliation: CMU/CompBio
+  team: core
+- name: Robert Tibshirani
+  image: robert-tibshirani-500x500-min.jpg
+  affiliation: Stanford University
+  team: core
+- name: Ryan Tibshirani
+  image: ryan-tibshirani-500x500-min.jpg
+  affiliation: CMU/MLD/Stat
+  team: core
+- name: Valérie Ventura
+  image: valerie-ventura-500x500-min.jpg
+  affiliation: CMU/Stat
+  team: core
+- name: Larry Wasserman
+  image: larry-wasserman-500x500-min.jpg
+  affiliation: CMU/Stat
+  team: core
+- name: Jeremy Weiss
+  image: jeremy-weiss-500x500-min.jpg
+  affiliation: CMU/Heinz College
+  team: core
+
+- name: Amartya Basu
+  image: amartya-basu-500x500-min.jpg
+  affiliation: CMU/INI
+  team: interns
+- name: Eu Jing Chua
+  image: eu-jing-chua-500x500-min.jpg
+  affiliation: CMU/MLD
+  team: interns
+- name: Robin Han
+  image: robin-han-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: interns
+- name: Jenny Lee
+  image: jenny-yeon-jin-lee-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: interns
+- name: Wael Al Saeed
+  image: wael-al-saeed-500x50-min.jpg
+  affiliation: CMU/CSD
+  team: interns
+- name: Vishnu Shankar
+  image: vishn-hankar-500x500-min.jpg
+  affiliation: Stanford University
+  team: interns
+- name: Vishakha Srivastava
+  image: vishakha-srivastava-500x500-min.jpg
+  affiliation: Santa Clara University
+  team: interns
+
+- name: EJ Fox
+  image: ej-fox-500x500-min.jpg
+  affiliation: Data visualization consultant
+  team: contractors
+- name: Samuel Gratzl
+  image: sam-gratzl-500x500-min.jpg
+  affiliation: Data visualization consultant
+  team: contractors
+
+- name: Dawn Rucker
+  image: dawn-rucker-500x500-min.jpg
+  affiliation: The Rucker Group
+  team: advisors
+- name: Nigam Shah
+  image: nigram-shah-500x500-min.jpg
+  affiliation: Stanford University
+  team: advisors
+
+- name: Taylor Arnold
+  image: taylor-arnold-500x500-min.jpg
+  affiliation: University of Richmond
+  team: contributors
+  note: Core member, May–June 2020
+- name: Andrew Chin
+  image: andrew-chin-500x500-min.jpg
+  affiliation: 
+  team: contributors
+- name: Alden Green
+  image: alden-green-500x500-min.jpg
+  affiliation: CMU/Stat
+  note: Core member, May–July 2020
+  team: contributors
 - name: Sangwon (Justin) Hyun
-  image: pic_justin.jpg
-  homepage: http://www.stat.cmu.edu/~shyun/
-  active: false
-- name: Nuoyu Li
-  image: pic_nuoyu_resized.jpg
-  # email_image: email_nuoyu-resized.png
-  homepage: https://www.linkedin.com/in/nuoyu-li/
-  active: false
-- name: Junpei (John) Zhou
-  image: pic_junpei.jpg
-  # email_image: email_junpei.png"
-  homepage: https://www.linkedin.com/in/jpzhou1996/
-  active: false
-- name: Steven Abreu
-  image: pic_steve.jpg
-  homepage: https://www.linkedin.com/in/steven-abreu
-  active: false
-- name: Mengze (Irene) Li
-  image: pic_irene.jpg
-  homepage: https://www.linkedin.com/in/mengze-irene-li-114592130/
-  active: false
-- name: Nicholas Trieu
-  image: pic_nicholas.jpg
-  homepage: https://www.linkedin.com/in/nicholas-lee-trieu-2954a7100/
-  active: false
-- name: Theresa Gebert
-  image: pic_theresa.jpg
-  # email_image: email_theresa_small.png
-  active: false
-- name: Jiaxian (Chris) Sheng
-  image: pic_jiaxian.jpg
-  homepage: https://www.linkedin.com/in/jiaxian-sheng
-  active: false
+  image: sangwon-justin-hyun-500x500-min.jpg
+  affiliation: USC
+  team: contributors
+  note: Core member, March – May 2020
+- name: Jaemin Jo
+  image: jaemin-jo-500x500-min.jpg
+  affiliation: Seoul National University
+  team: contributors
+- name: Ananya Joshi
+  image: ananya-joshi-500x500-min.jpg
+  affiliation: CMU/CSD
+  team: contributors
+- name: Jimi Kim
+  image: jimi-kim-500x500-min.jpg
+  affiliation: CMU/LTI
+  note: Core member, March – April 2020
+  team: contributors
+- name: Michael Xieyang Liu
+  image: michael-xieyang-liu-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: contributors
+  note: Core member, March – April 2020
+- name: Natalia Lombardi de Oliveira
+  image: natalia-lombardi-de-oliveira-500x500-min.jpg
+  affiliation: CMU/Stat
+  team: contributors
+  note: Core member, March – May 2020
+- name: Samyak Rajanala
+  image: samyak-rajanala-500x500-min.jpg
+  affiliation: Stanford University
+  team: contributors
+  note: Core member, May – July 2020
+- name: Kristin Williams
+  image: kristin-williams-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: contributors
+  note: Core member, March – April 2020
+
+- name: Angel (Alex) Cabrera
+  image: angel-alex-cabrera-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: past
+  note: Core member, March – April 2020
+- name: David Farrow
+  image: david-farrow-500x500-min.jpg
+  affiliation: Google
+  team: past
+  note: Founding member 2012–2016, Core member March–April 2020
+- name: Andrew Kuznetsov
+  image: andrew-kuznetsov-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: past
+  note: Core member, March – April 2020
+- name: Lester Mackey
+  image: lester-mackey-500x500-min.jpg
+  affiliation: Microsoft Research/Stanford
+  team: past
+  note: Core member, March – May 2020
+- name: Pratik Patil
+  image: pratik-patil-500x500-min.jpg
+  affiliation: CMU/Stat
+  team: past
+  note: Core member, March – May 2020
+- name: Noah Simon
+  image: noah-simon-500x500-min.jpg
+  affiliation: University of Washington
+  team: past
+  note: Core member, may – June 2020
