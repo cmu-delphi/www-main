@@ -65,7 +65,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "api"
     name = "API"
-    pre = "solid/code-branch"
+    pre = "solid/database"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 5
 
