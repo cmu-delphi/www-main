@@ -1,1 +1,1 @@
-{{- $.Page.Site.Params.apiUrl -}}{{- .Get 0 -}}
+{{- path.Join $.Page.Site.Params.apiUrl (.Get 0) -}}

@@ -4,17 +4,17 @@ title: About
 layout: single
 ---
 
-In March 2020, the [Delphi group](https://delphi.cmu.edu) at Carnegie Mellon 
-University launched the [COVIDcast project](https://covidcast.cmu.edu/), a 
+In March 2020, the [Delphi group]({{< relref "/" >}}) at Carnegie Mellon 
+University launched the [COVIDcast project]({{< relref "covidcast" >}}), a 
 comprehensive effort to:
 
 - build and maintain new data streams and indicators that reflect COVID-19 
   activity and burden, 
 - make that data available to researchers, journalists, and the public through a
-  [public API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) 
+  [public API]({{< apiref "covidcast.html">}}) 
   and [packages for R and 
-  Python](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html), 
-- build [interactive maps and graphics](https://covidcast.cmu.edu/) to inform 
+  Python]({{< apiref "covidcast_clients.html">}}), 
+- build [interactive maps and graphics]({{< relref "covidcast" >}}) to inform 
   decision makers and the public, and 
 - develop forecasts of the future spread of the pandemic and healthcare demand.
 
