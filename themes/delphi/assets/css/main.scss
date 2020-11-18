@@ -1,6 +1,29 @@
 // 1. Your custom variables and variable overwrites.
 // $global-link-color: #DA7D02;
 
+// Font
+$global-font-family: "Open Sans", Roboto, Arial, sans-serif;
+
+// Breakpoints:
+$breakpoint-small: 715px;
+
+// Navbar
+$navbar-nav-item-padding-horizontal: 0px;
+$navbar-nav-item-height: 35px;
+$navbar-nav-item-color: #505565;
+$navbar-background: none;
+$navbar-dropdown-padding: 10px;
+$navbar-dropdown-nav-item-color: #232735;
+$nav-default-item-active-color: red;
+
+$button-padding-horizontal: 0px;
+$button-line-height: 0px;
+
+
+// Table (footer)
+$table-cell-padding-vertical: 4px;
+$table-header-cell-color: white;
+
 // 2. Import default variables and available mixins.
 @import './node_modules/uikit/src/scss/variables-theme.scss';
 @import './node_modules/uikit/src/scss/mixins-theme.scss';
@@ -11,4 +34,102 @@
 // 4. Import UIkit.
 @import './node_modules/uikit/src/scss/uikit-theme.scss';
 
+
 @import 'custom';
+
+// Site-wide
+.content {
+    margin: 20px 10%;
+    max-width: 1200px;
+}
+
+.delphi-text-logo {
+    background-color: white;
+    color: #F03F3F !important;
+    font-size: 16px !important;
+    font-weight: 700;
+    line-height: 18px;
+    padding: 5px 10px;
+}
+
+svg {
+    max-height: 18px;
+}
+
+.inline-svg {
+    display: inline-block;
+    fill: #505565;
+    width: 18px;
+    padding: 0 9px 0 5px;
+}
+
+// Navbar
+.nav-active {
+    border-bottom: 2px solid #F03F3F !important;
+}
+.uk-navbar-container {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.15);
+}
+.uk-navbar-left {
+    margin: 40px 10% 0 10%;
+}
+.uk-navbar-nav>li {
+    padding-left: 10px;
+    padding-right: 20px;
+}
+.uk-navbar-dropdown-bottom-left {
+    margin-left: -20px;
+    margin-top: 3px;
+}
+
+.mobile-nav {
+    height: 20px;
+    padding: 23px;
+    border-bottom: 1px solid #d2d2d2;
+}
+.uk-navbar-toggle {
+    float:right;
+    margin-top: -10px;
+}
+.dropdown-mobile {
+    left: 0 !important;
+    padding: 0;
+    width: 100%;
+}
+.menu-element {
+    border-top: 1px solid #d2d2d2;
+    font-weight: 400;
+    padding: 20px 0 20px 40px;
+}
+.menu-element.menu-parent {
+    font-weight: 600;
+}
+.menu-element.menu-child {
+    padding-left: 64px;
+}
+
+// Footer
+.footer {
+    background-color: #232735;
+    color: white;
+    font-size: 12px;
+    padding: 50px 20% 20px 20%;
+}
+.footer .footer-header {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+.footer-small {
+    text-align: center;
+    font-size: 14px;
+}
+.footer-small .footer-header {
+    padding-top: 30px;
+}
+.footer-small div {
+    padding-top: 10px;
+}
