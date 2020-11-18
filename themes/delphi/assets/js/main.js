@@ -1,6 +1,6 @@
-import UIKit from 'uikit/dist/js/uikit.js';
+import UIkit from 'uikit/dist/js/uikit.js';
 import plugin from 'uikit/dist/js/uikit-icons.js';
 
-UIKit.use(plugin);
+UIkit.use(plugin);
 
-window.UIKit = UIKit;
+window.UIkit = UIkit;
