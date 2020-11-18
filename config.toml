@@ -62,7 +62,7 @@ relativeURLs = false
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
     showReadMore = true
-    apiUrl = "https://cmu-delphi.github.io/delphi-epidata/api"
+    apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
 
     [params.logo]
     url = "delphi_logo.png"
