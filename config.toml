@@ -27,6 +27,21 @@ relativeURLs = false
     url = "/covidcast"
     weight = 2
 [[menu.main]]
+    parent = "covidcast"
+    name = "Surveys"
+    url = "/covidcast/surveys"
+    weight = 1
+[[menu.main]]
+    parent = "covidcast"
+    name = "Methods"
+    url = "/covidcast/methodology"
+    weight = 2
+[[menu.main]]
+    parent = "covidcast"
+    name = "Terms Of Use"
+    url = "/covidcast/terms-of-use"
+    weight = 3
+[[menu.main]]
     identifier = "blog"
     name = "Blog"
     pre = "blog"
