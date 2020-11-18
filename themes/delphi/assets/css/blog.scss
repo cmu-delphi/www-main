@@ -2,8 +2,19 @@
 @import './node_modules/katex/dist/katex.min';
 @import './node_modules/uikit/src/scss/variables-theme.scss';
 
+.code-wrapper > summary {
+    cursor: pointer;
+}
+
+.blog-tags {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .blog-tag {
-    margin: 0 0.25em;
+    margin-right: 0.5em;
+    white-space: nowrap;
+    font-size: 14px; // TODO
 }
 
 .uk-text-bold-600 {
@@ -22,7 +33,8 @@
 
 
 $blog-list-date-width: 5em;
-.blog-list-content time {
+.blog-list-content time,
+.blog-card time {
     display: inline-block;
     min-width: $blog-list-date-width;
 }
@@ -46,4 +58,17 @@ $blog-list-date-width: 5em;
         object-fit: contain;
     }
 }
+}
+
+.blog-card {
+    .uk-card-media-top img {
+        width: 100%;
+        object-fit: cover;
+        height: 14em;
+    }
+
+    > .uk-card-footer {
+        border-top: none;
+        display: flex;
+    }
 }

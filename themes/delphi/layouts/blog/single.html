@@ -1,10 +1,6 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
-<div>
-    {{- range .Params.tags -}}
-    <a class="uk-text-bold-600 uk-text-uppercase uk-link-muted blog-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
-    {{- end -}}
-</div>
+{{ partial "blog/tags.html" .}}
 <div class="uk-margin-top uk-margin-bottom">
     <img src="https://via.placeholder.com/800x600" class="blog-hero-image" alt="{{ .Title}} - Hero Image">
 </div>
@@ -51,4 +47,6 @@
     {{ end }}
 </div>
 {{ end }}
+<hr />
+{{ partial "blog/latestblogs.html" . }}
 {{end}}
