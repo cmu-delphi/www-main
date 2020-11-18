@@ -72,3 +72,11 @@ $blog-list-date-width: 5em;
         display: flex;
     }
 }
+
+.blog-blog {
+    // center align auto generated images
+    p > img:first-of-type {
+        display: block;
+        margin: 0 auto;
+    }
+}
