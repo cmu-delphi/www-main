@@ -8,7 +8,7 @@ disqusShortname = ""
 relativeURLs = false
 
 [permalinks]
-    post = "/:year/:month/:day/:slug/"
+    blog = "/blog/:year/:month/:day/:slug/"
 [[menu.main]]
     identifier = "about"
     name = "About"
