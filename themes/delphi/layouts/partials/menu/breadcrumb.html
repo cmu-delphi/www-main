@@ -1,22 +1,9 @@
-<!--based on https://gohugo.io/content-management/sections/ -->
 {{ if .Parent }}
 {{ if (not .Parent.IsHome) }}
+<!--hugo doesn't support shortcut evaluation of ifs, thats why the nested one -->
 <ul class="uk-breadcrumb uk-text-uppercase">
-  <li><a href="{{ .Site.Home }}">&lt;</a></li>
-  {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+  <li><a href="{{ .Parent.Permalink }}"><span uk-icon="icon: chevron-left; ratio: 0.6"></span>{{ .Parent.LinkTitle }}</a></li>
+  <li><span>{{ .LinkTitle }}</span></li>
 </ul>
 {{ end }}
-{{ end }}
-
-{{ define "breadcrumbnav" }}
-{{ if and .p1.Parent (not .p1.Parent.IsHome) }}
-{{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
-{{ end }}
-<li>
-  {{ if eq .p1 .p2 }}
-  <span>{{ .p1.LinkTitle }}</span>
-  {{ else }}  
-  <a href="{{ .p1.Permalink }}">{{ .p1.LinkTitle }}</a>
-  {{ end }}
-</li>
 {{ end }}
