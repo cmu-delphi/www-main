@@ -9,27 +9,37 @@ relativeURLs = false
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
-
 [[menu.main]]
-    identifier = "main"
-    name = "Delphi"
-    url = "/"
+    identifier = "about"
+    name = "About"
+    url = "/about"
+    post = "angle-down"
+    weight = 1
+[[menu.main]]
+    identifier = "team"
+    parent = "about"
+    name = "Team"
+    url = "/about/team"
     weight = 1
 [[menu.main]]
     name = "COVIDcast"
+    pre = "map"
     url = "/covidcast"
     weight = 2
 [[menu.main]]
-    name = "Data"
-    url = "https://cmu-delphi.github.io/delphi-epidata/"
+    name = "Blog"
+    pre = "blog"
+    url = "/blog"
     weight = 3
 [[menu.main]]
-    name = "Blog"
-    url = "/blog"
+    name = "GitHub"
+    pre = "github"
+    url = "https://github.com/cmu-delphi/"
     weight = 4
 [[menu.main]]
-    name = "GitHub"
-    url = "https://github.com/cmu-delphi/"
+    name = "API"
+    pre = "api"
+    url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 5
 
 [params]
