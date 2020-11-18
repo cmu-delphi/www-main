@@ -38,7 +38,7 @@
     <div uk-dropdown="mode: click" class="dropdown-mobile">
       <ul class="uk-nav uk-navbar-dropdown-nav">
         {{ range .Site.Menus.main.ByWeight }}
-        <li class="{{if .HasChildren }}menu-parent{{end}} menu-element {{ if (eq $currentPage.Section .Identifier) }}nav-active{{ end }}">
+        <li class="{{if .HasChildren }}menu-parent{{end}} menu-element">
           <a href="{{ .URL | relLangURL }}">
             {{ if .Pre }}
               {{ partial "font-awesome.html" .Pre }}
