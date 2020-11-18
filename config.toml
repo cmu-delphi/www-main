@@ -26,7 +26,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "covidcast"
     name = "COVIDcast"
-    pre = "map"
+    pre = "solid/map"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
@@ -51,19 +51,19 @@ relativeURLs = false
 [[menu.main]]
     identifier = "blog"
     name = "Blog"
-    pre = "blog"
+    pre = "solid/book"
     url = "/blog"
     weight = 3
 [[menu.main]]
     identifier = "github"
     name = "GitHub"
-    pre = "github"
+    pre = "brands/github"
     url = "https://github.com/cmu-delphi/"
     weight = 4
 [[menu.main]]
     identifier = "api"
     name = "API"
-    pre = "api"
+    pre = "solid/code-branch"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 5
 
