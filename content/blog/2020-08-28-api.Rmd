@@ -51,7 +51,7 @@ One of our primary initiatives at the Delphi COVIDcast project
 ([learn more about our organization here](`r blogdown::shortcode_html("ref", "2020-08-10-hello-world")`))
 has been to curate a diverse set of COVID-related data streams, 
 and to make them freely available through our 
-[COVIDcast Epidata API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+[COVIDcast Epidata API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`).
 These include both novel signals that we have collected and analyzed ourselves, 
 such as our symptom survey [distributed by Facebook](`r blogdown::shortcode_html("ref", "2020-09-18-google-survey")`)
 to its users, [Google's symptom survey](`r blogdown::shortcode_html("ref", "2020-09-18-google-survey")`) whose results are delivered to us,
@@ -67,7 +67,7 @@ and [R](https://cmu-delphi.github.io/covidcast/covidcastR/) packages.
 
 We have always made our code, data and estimates freely and publicly available, from the very beginning of our work on flu back in 2013, well before the COVID pandemic.
 Back in 2016, Delphi member David Farrow designed and implemented the [Epidata
-API](https://cmu-delphi.github.io/delphi-epidata/) to share data from our numerous surveillance
+API](`r blogdown::shortcode_html("apiref", "/")`) to share data from our numerous surveillance
 streams for influenza and other diseases, and pioneered many of the API concepts
 discussed below. Now that COVID-19 is here, our collaborations with partner
 organizations in technology and healthcare enable us to include a
@@ -176,7 +176,7 @@ cover most levels of the severity pyramid and include:
   short run, and was a surprisingly informative measure 
   of pandemic activity preceding medical contact. For more, see our 
   [previous blog post](`r blogdown::shortcode_html("ref", "2020-09-18-google-survey")`), 
-  or our [technical documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-survey.html).
+  or our [technical documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/google-survey.html")`).
   As explained in our past blog post, Delphi is currently considering new uses
   for these surveys.
 * Insurance claims: Medical insurance claims include diagnostic codes,
@@ -188,15 +188,15 @@ cover most levels of the severity pyramid and include:
   We use this data to construct signals
   reflecting COVID activity in both outpatient and inpatient visits; see our
   technical documentation sites for 
-  [doctor's visits](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html)
-  and [hospital admissions](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html)
+  [doctor's visits](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/doctor-visits.html")`)
+  and [hospital admissions](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/hospital-admissions.html")`)
   for more details.
 * Quidel COVID antigen tests: Quidel is a national provider of networked lab
   testing devices, and began making de-identified records of their COVID-19 antigen
   tests available to us in early May. This data source fills an important gap
   because many public testing data sources only include PCR tests, not antigen
   tests.  Our [technical
-  documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/quidel.html#covid-19-tests)
+  documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/quidel.html#covid-19-tests")`)
   gives more details.
 * Google search trends:
   We query the Google Health Trends API
@@ -206,7 +206,7 @@ cover most levels of the severity pyramid and include:
   which emerged as a specific symptom of COVID-19. 
   More details, including the search terms and topics we analyze,
   are available in our 
-  [technical documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html).
+  [technical documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/ght.html")`).
 
 Additionally, we host the following more widely-available signals in our API for the
 convenience of the research community, and to provide revision tracking:
@@ -223,7 +223,7 @@ at the county level across the United States.
 We also aggregate our signals to metropolitan statistical areas and states, and some signals to Hospital Referral Regions (HRRs). 
 For a full list of all data streams, see our 
 [COVIDcast signal documentation
-site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html).
+site](`r blogdown::shortcode_html("apiref", "api/covidcast_signals.html")`).
 The software we've developed to obtain and aggregate this data is open-source,
 shared in our [covidcast-indicators GitHub
 repository](https://github.com/cmu-delphi/covidcast-indicators).
@@ -339,10 +339,10 @@ data analysis in either language.
 The first step of using the packages to acquire the data is to identify the
 source and signal name for the data you want to analyze. Suppose, for example,
 that you browse the [COVIDcast signal
-documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html)
+documentation](`r blogdown::shortcode_html("apiref", "api/covidcast_signals.html")`)
 and decide you would like to conduct an analysis of a hospital admissions
 signal. According to [its documentation
-page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html),
+page](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/hospital-admissions.html")`),
 this source is called `hospital-admissions`, and there are several available
 signals to choose from. Reviewing the technical details, you decide
 `smoothed_adj_covid19` fits your needs best, because it removes day-of-week
@@ -394,7 +394,7 @@ of people in each state who know someone who is sick,
 based on Delphi's [symptom
 surveys](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`).
 According to the [relevant documentation
-page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html),
+page](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html")`),
 this is the `fb-survey` data source's `smoothed_hh_cmnty_cli` signal.
 (Click the "Code" button to see the Python code used to produce this example.)
 
@@ -433,17 +433,17 @@ surveys---for one county in the United States between April 6 and April
 10, 2020. That county is Alameda County, CA, which has the FIPS code 06001.
 
 Query syntax is defined on our [API documentation
-site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), and you
+site](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`), and you
 can use any programming language that supports making HTTP requests---which is
 most programming languages---to fetch up-to-date data.
 
 ## Putting the API to Work
 
-The [COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) 
+The [COVIDcast API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`) 
 provides unified access to numerous COVID data streams,
 which can be browsed through our [interactive map](`r blogdown::shortcode_html("ref", "covidcast")`) 
 and easily accessed through our 
-[R and Python packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html).
+[R and Python packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`).
 Unlike most other sources of COVID data,
 it tracks the complete revision history of every signal, 
 allowing historical reconstructions of

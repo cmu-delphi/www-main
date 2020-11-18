@@ -54,7 +54,7 @@ We believe that this combination of *detail* and *scale*
 has never before been available in a public health emergency.
 
 We make aggregated data publicly available daily through our
-[COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html),
+[COVIDcast API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
 and visualize it on our [COVIDcast interactive map](`r blogdown::shortcode_html("ref", "covidcast")`).
 We also make (fully de-identified) individual survey responses available
 to researchers who agree to
@@ -167,7 +167,7 @@ In all, fetching the data from our API and producing the heatmaps
 requires only 15 lines of code. 
 If you're interested, click the "Code" button to reveal the source. 
 We'll cover our [R and Python covidcast
-packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html)
+packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`)
 in a future blog post.
 
 ## Why Run These Surveys?
@@ -204,7 +204,7 @@ which may be a sizeable fraction of the US population, but certainly not all of
 it. We'll also likely see bias because some people on Facebook are more inclined
 to take surveys than others. We attempt to correct for both of these biases
 using a [statistical reweighting
-scheme](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting),
+scheme](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html#survey-weighting")`),
 but these corrections aren't perfect.
 
 - Our symptom data is entirely self-reported, in contrast to data
@@ -242,7 +242,7 @@ community* with COVID-like illness.
 
 Details on how we compute the % CLI and % CLI-in-community estimates can be
 found in our [COVIDcast signals
-documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).
+documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html")`).
 
 The % CLI-in-community indicator has an interesting backstory: it was sort of a
 "happy accident" from an experiment we tried with surveys we were running in
@@ -265,9 +265,9 @@ completion rate too much, and they were right: of the people who complete the
 first section, over 85% go on to finish the full survey!
 
 Our [survey documentation
-site](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/) includes more
+site](`r blogdown::shortcode_html("apiref", "symptom-survey/")`) includes more
 details about the survey, including the [full text of every survey
-version](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html).
+version](`r blogdown::shortcode_html("apiref", "symptom-survey/coding.html")`).
 And yes, researchers can [request
 access](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
 to (fully de-identified) individual survey responses for research purposes,
@@ -597,5 +597,5 @@ and data should become available in the next few weeks.
 Detailed data will be available to researchers,
 while new aggregates---such as of mask-wearing---will 
 be made public, as usual, through our [COVIDcast
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) 
+API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`) 
 and [COVIDcast interactive map](`r blogdown::shortcode_html("ref", "covidcast")`).

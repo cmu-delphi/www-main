@@ -33,7 +33,7 @@ worldwide. Every day, we aggregate our survey results to produce estimates of
 symptoms for counties and states across the United States, making these
 estimates available through our [COVIDcast map](`r blogdown::shortcode("ref", "covidcast")`) and
 our [public
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html). This
+API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`). This
 augments the [numerous other data sources available in our COVIDcast
 API](`r blogdown::shortcode("ref", "2020-08-28-api")`)
 to form a more complete picture of the pandemic.
@@ -86,7 +86,7 @@ Facebook to recruit respondents.)
 ## Insights from the New Survey Instrument
 
 The full text of the survey can be found [on our documentation
-site](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html)---this
+site](`r blogdown::shortcode_html("apiref", "symptom-survey/coding.html")`)---this
 version is Wave 4.
 
 ```{r sample-size, message=FALSE, include=FALSE}
@@ -115,7 +115,7 @@ Let's explore just a few of the questions on the survey to see what they can
 tell us. All of the plots below were made using our [covidcast R
 package](https://cmu-delphi.github.io/covidcast/covidcastR/) using data we make
 publicly available in the [COVIDcast
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)---click the
+API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`)---click the
 Code button to see the full code for each example.
 
 ### Mask Wearing
@@ -364,7 +364,7 @@ to form a more complete picture of the pandemic.
 All of the maps and graphs above were built using data we make publicly
 available through our COVIDcast API, and the exact technical details are
 described in our [signal
-documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).
+documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html")`).
 The symptom and mask data is already featured on our [COVIDcast interactive
 map](`r blogdown::shortcode_html("ref", "covidcast?sensor=fb-survey-smoothed_wearing_mask&level=county&signalType=value&encoding=color&mode=overview&region=42003")`),
 and other survey signals will soon be added as well. More information about the

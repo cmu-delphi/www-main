@@ -140,9 +140,9 @@ Here's a quick summary:
   Change Healthcare.
 
 - We've built a [public 
-  API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), 
+  API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`), 
   and [R and Python 
-  packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html), 
+  packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`), 
   to serve our indicators to researchers and the public. This API provides new 
   data daily.
 

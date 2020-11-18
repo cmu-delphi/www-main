@@ -595,7 +595,7 @@ about the possible uses of our symptom survey data.
 To get started playing with our data yourself,
 take a look at our [interactive COVIDcast map](`r blogdown::shortcode_html("ref", "covidcast")`),
 or our [COVIDcast 
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html),
+API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
 through our [R client](https://cmu-delphi.github.io/covidcast/covidcastR/) 
 or [Python client](https://cmu-delphi.github.io/covidcast/covidcast-py/html/).
 And if you're feeling adventurous, consider competing in the 

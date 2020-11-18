@@ -40,7 +40,7 @@ spread of COVID-19 in the United States. At its peak, our Google survey was
 taken by over 1.2 million people in a single day, and over its first month in 
 operation, averaged about 600,000 daily respondents. As usual, we make
 aggregated data from this survey available through our [COVIDcast
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`).
 
 In mid-May, we decided to pause daily dissemination of this survey in order to
 focus on our (longer, more complex) survey through Facebook, 
@@ -217,7 +217,7 @@ The actual sampling scheme behind our Google survey is more complicated,
 and involves two-level stratification, across both counties and states.
 For details, including those on statistical estimation, 
 visit our [COVIDcast signals 
-documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-survey.html).
+documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/google-survey.html")`).
 On May 15, we paused our Google survey to focus on our Facebook survey, 
 which is both longer and more complex. 
 Importantly, the latter is *not* a replacement for the former, 
@@ -351,7 +351,7 @@ the two survey schemes are complementary,
 and could be used synergistically.
 Our Facebook survey is a continuously-running, wide-reaching instrument
 that provides answers to a [rich set of
-questions](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html)
+questions](`r blogdown::shortcode_html("apiref", "symptom-survey/coding.html")`)
 (beyond COVID-related symptoms, it asks about
 contacts, risk factors, behavior, and demographics).
 When we find something interesting that warrants follow-up

@@ -52,7 +52,7 @@ output:
 (<a href="{{< ref "2020-08-10-hello-world" >}}">learn more about our organization here</a>)
 has been to curate a diverse set of COVID-related data streams,
 and to make them freely available through our
-<a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">COVIDcast Epidata API</a>.
+<a href="{{< apiref "api/covidcast.html" >}}">COVIDcast Epidata API</a>.
 These include both novel signals that we have collected and analyzed ourselves,
 such as our symptom survey <a href="{{< ref "2020-09-18-google-survey" >}}">distributed by Facebook</a>
 to its users, <a href="{{< ref "2020-09-18-google-survey" >}}">Google’s symptom survey</a> whose results are delivered to us,
@@ -66,7 +66,7 @@ is conveniently accessible via easy-to-use
 <a href="https://cmu-delphi.github.io/covidcast/covidcast-py/html/">Python</a>
 and <a href="https://cmu-delphi.github.io/covidcast/covidcastR/">R</a> packages.</p>
 <p>We have always made our code, data and estimates freely and publicly available, from the very beginning of our work on flu back in 2013, well before the COVID pandemic.
-Back in 2016, Delphi member David Farrow designed and implemented the <a href="https://cmu-delphi.github.io/delphi-epidata/">Epidata
+Back in 2016, Delphi member David Farrow designed and implemented the <a href="{{< apiref "/" >}}">Epidata
 API</a> to share data from our numerous surveillance
 streams for influenza and other diseases, and pioneered many of the API concepts
 discussed below. Now that COVID-19 is here, our collaborations with partner
@@ -169,7 +169,7 @@ through Google. It reached over 100,000 respondents daily during its
 short run, and was a surprisingly informative measure
 of pandemic activity preceding medical contact. For more, see our
 <a href="{{< ref "2020-09-18-google-survey" >}}">previous blog post</a>,
-or our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-survey.html">technical documentation</a>.
+or our <a href="{{< apiref "api/covidcast-signals/google-survey.html" >}}">technical documentation</a>.
 As explained in our past blog post, Delphi is currently considering new uses
 for these surveys.</li>
 <li>Insurance claims: Medical insurance claims include diagnostic codes,
@@ -181,14 +181,14 @@ or allow us to derive such statistics from strictly de-identified claim records.
 We use this data to construct signals
 reflecting COVID activity in both outpatient and inpatient visits; see our
 technical documentation sites for
-<a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html">doctor’s visits</a>
-and <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html">hospital admissions</a>
+<a href="{{< apiref "api/covidcast-signals/doctor-visits.html" >}}">doctor’s visits</a>
+and <a href="{{< apiref "api/covidcast-signals/hospital-admissions.html" >}}">hospital admissions</a>
 for more details.</li>
 <li>Quidel COVID antigen tests: Quidel is a national provider of networked lab
 testing devices, and began making de-identified records of their COVID-19 antigen
 tests available to us in early May. This data source fills an important gap
 because many public testing data sources only include PCR tests, not antigen
-tests. Our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/quidel.html#covid-19-tests">technical
+tests. Our <a href="{{< apiref "api/covidcast-signals/quidel.html#covid-19-tests" >}}">technical
 documentation</a>
 gives more details.</li>
 <li>Google search trends:
@@ -199,7 +199,7 @@ of COVID-19 related terms about anosmia
 which emerged as a specific symptom of COVID-19.
 More details, including the search terms and topics we analyze,
 are available in our
-<a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html">technical documentation</a>.</li>
+<a href="{{< apiref "api/covidcast-signals/ght.html" >}}">technical documentation</a>.</li>
 </ul>
 <p>Additionally, we host the following more widely-available signals in our API for the
 convenience of the research community, and to provide revision tracking:</p>
@@ -215,7 +215,7 @@ agreement with SafeGraph, we make county-level aggregates publicly available.</l
 at the county level across the United States.
 We also aggregate our signals to metropolitan statistical areas and states, and some signals to Hospital Referral Regions (HRRs).
 For a full list of all data streams, see our
-<a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html">COVIDcast signal documentation
+<a href="{{< apiref "api/covidcast_signals.html" >}}">COVIDcast signal documentation
 site</a>.
 The software we’ve developed to obtain and aggregate this data is open-source,
 shared in our <a href="https://github.com/cmu-delphi/covidcast-indicators">covidcast-indicators GitHub
@@ -496,10 +496,10 @@ to make data access easy for anyone conducting
 data analysis in either language.</p>
 <p>The first step of using the packages to acquire the data is to identify the
 source and signal name for the data you want to analyze. Suppose, for example,
-that you browse the <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html">COVIDcast signal
+that you browse the <a href="{{< apiref "api/covidcast_signals.html" >}}">COVIDcast signal
 documentation</a>
 and decide you would like to conduct an analysis of a hospital admissions
-signal. According to <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html">its documentation
+signal. According to <a href="{{< apiref "api/covidcast-signals/hospital-admissions.html" >}}">its documentation
 page</a>,
 this source is called <code>hospital-admissions</code>, and there are several available
 signals to choose from. Reviewing the technical details, you decide
@@ -543,7 +543,7 @@ For example, here we fetch the estimated percentage
 of people in each state who know someone who is sick,
 based on Delphi’s <a href="{{< ref "2020-08-26-fb-survey" >}}">symptom
 surveys</a>.
-According to the <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html">relevant documentation
+According to the <a href="{{< apiref "api/covidcast-signals/fb-survey.html" >}}">relevant documentation
 page</a>,
 this is the <code>fb-survey</code> data source’s <code>smoothed_hh_cmnty_cli</code> signal.
 (Click the “Code” button to see the Python code used to produce this example.)</p>
@@ -573,18 +573,18 @@ want and the regions and times you want it for. For example, the URL</p>
 estimated percent of people with COVID-Like Illness based on our symptom
 surveys—for one county in the United States between April 6 and April
 10, 2020. That county is Alameda County, CA, which has the FIPS code 06001.</p>
-<p>Query syntax is defined on our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">API documentation
+<p>Query syntax is defined on our <a href="{{< apiref "api/covidcast.html" >}}">API documentation
 site</a>, and you
 can use any programming language that supports making HTTP requests—which is
 most programming languages—to fetch up-to-date data.</p>
 </div>
 <div id="putting-the-api-to-work" class="section level2">
 <h2>Putting the API to Work</h2>
-<p>The <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">COVIDcast API</a>
+<p>The <a href="{{< apiref "api/covidcast.html" >}}">COVIDcast API</a>
 provides unified access to numerous COVID data streams,
 which can be browsed through our <a href="{{< ref "covidcast" >}}">interactive map</a>
 and easily accessed through our
-<a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html">R and Python packages</a>.
+<a href="{{< apiref "api/covidcast_clients.html" >}}">R and Python packages</a>.
 Unlike most other sources of COVID data,
 it tracks the complete revision history of every signal,
 allowing historical reconstructions of
