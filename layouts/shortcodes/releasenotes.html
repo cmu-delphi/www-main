@@ -1,5 +1,5 @@
 
-{{ $tools := .Site.GetPage "/release-notes" }}
+{{ $tools := .Site.GetPage "/covidcast/release-notes" }}
 {{ range sort ($tools.Resources.ByType "page") "PublishDate" "desc" }}
   <h3>{{ .Title}} {{ .PublishDate.Format "Monday, January 2, 2006" }}</h3>
   {{ .Content }}

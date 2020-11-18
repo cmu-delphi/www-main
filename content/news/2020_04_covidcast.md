@@ -8,7 +8,7 @@ April 2020: We launched our [COVIDcast system](https://covidcast.cmu.edu), which
 indicators related to COVID-19 activity level across the U.S.  These
 indicators are derived from a variety of anonymized, aggregated data sources
 made available by multiple partners, and are publicly available at the
-[COVIDcast endpoint](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) of our [Epidata API](https://cmu-delphi.github.io/delphi-epidata/api/README.html).
+[COVIDcast endpoint]({{< apiref "covidcast.html">}}) of our [Epidata API]({{< apiref "README.html">}}).
 
 Related news articles:
 

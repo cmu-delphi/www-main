@@ -1,8 +1,10 @@
 {
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "highlight.js": "^10.3.2",
     "katex": "^0.12.0",
-    "uikit": "^3.5.9"
+    "uikit": "^3.5.9",
+    "www-covidcast": "github:cmu-delphi/www-covidcast#dev"
   },
   "devDependencies": {
     "hugo-bin": "^0.66.2",
@@ -12,7 +14,9 @@
     "buildTags": "extended"
   },
   "scripts": {
-    "postinstall": "ncp node_modules/katex/dist/fonts themes/delphi/static/css/fonts/",
+    "copy_fonts": "ncp node_modules/katex/dist/fonts themes/delphi/static/css/fonts/",
+    "copy_covidcast": "ncp node_modules/www-covidcast/public static/covidcast/",
+    "postinstall": "npm run copy_fonts && npm run copy_covidcast",
     "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd=TRUE)\"",
     "build": "hugo --gc --minify",
     "start": "hugo server -D",

@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th class="header">
-                    {{partial "delphi-text-logo.html"}}
+                    {{partial "delphi-text-logo.html" . }}
                 </th>
                 <th class="footer-header">COVIDcast</th>
                 <th class="footer-header">Resources</th>
@@ -14,25 +14,25 @@
         <tbody>
             <tr>
                 <td></td>
-                <td>{{partial "footer/methods.html"}}</td>
-                <td>{{partial "footer/cmu.html"}}</td>
-                <td>{{partial "footer/twitter.html"}}</td>
+                <td>{{partial "footer/methods.html" .}}</td>
+                <td>{{partial "footer/cmu.html" . }}</td>
+                <td>{{partial "footer/twitter.html" . }}</td>
             </tr>
             <tr>
                 <td></td>
-                <td>{{partial "footer/surveys.html"}}</td>
-                <td>{{partial "footer/api.html"}}</td>
-                <td>{{partial "footer/terms.html"}}</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>{{partial "footer/github.html"}}</td>
+                <td>{{partial "footer/surveys.html" . }}</td>
+                <td>{{partial "footer/api.html" . }}</td>
+                <td>{{partial "footer/terms.html" . }}</td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
-                <td>{{partial "footer/blog.html"}}</td>
+                <td>{{partial "footer/github.html" . }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>{{partial "footer/blog.html" . }}</td>
             </tr>
         </tbody>
     </table>
