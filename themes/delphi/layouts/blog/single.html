@@ -1,9 +1,11 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
 {{ partial "blog/tags.html" .}}
+{{if isset .Params "heroimage"}}
 <div class="uk-margin-top uk-margin-bottom">
-    <img src="https://via.placeholder.com/800x600" class="blog-hero-image" alt="{{ .Title}} - Hero Image">
+    <img src="{{.Params.heroImage | relURL }}" width="1120" height="440" alt="{{ .Title}} - Hero Image">
 </div>
+{{end}}
 <div uk-grid>
     <div class="uk-width-1-1@s uk-width-medium@m">
         <div class="uk-grid-small uk-flex-start" uk-grid>
