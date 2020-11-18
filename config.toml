@@ -12,19 +12,27 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
+    weight = 1
+[[menu.main]]
+    parent = "about"
+    name = "About Delphi"
     url = "/about"
     weight = 1
 [[menu.main]]
     parent = "about"
     name = "Team"
     url = "/about/team"
-    weight = 1
+    weight = 2
 [[menu.main]]
     identifier = "covidcast"
     name = "COVIDcast"
     pre = "map"
-    url = "/covidcast"
     weight = 2
+[[menu.main]]
+    parent = "covidcast"
+    name = "Map"
+    url = "/covidcast"
+    weight = 1
 [[menu.main]]
     parent = "covidcast"
     name = "Surveys"
