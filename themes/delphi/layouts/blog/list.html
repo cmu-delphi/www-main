@@ -24,7 +24,9 @@
         </p>
       </div>
       <div class="uk-width-1-1@s uk-width-auto@m blog-list-hero-image">
-        <a href="{{ .RelPermalink  }}"><img data-src="https://via.placeholder.com/800x600" width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img></a>
+        {{if isset .Params "heroimagethumb"}}
+        <a href="{{ .RelPermalink  }}"><img data-src="{{ .Params.heroImageThumb | relURL }}" width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img></a>
+        {{end}}
       </div>
   </div>
   </li>

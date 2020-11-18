@@ -1,6 +1,6 @@
 <div class="uk-card uk-card-default blog-card">
     <div class="uk-card-media-top">
-        <a href="{{ .RelPermalink  }}"><img data-src="https://via.placeholder.com/800x600" width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img></a>
+        <a href="{{ .RelPermalink  }}"><img data-src="{{ .Params.heroImageThumb | relURL }}" width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img></a>
     </div>
     <div class="uk-card-body">
         {{ partial "blog/tags.html" . }}
