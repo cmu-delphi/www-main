@@ -46,9 +46,4 @@ The “7-day Trend” view presents a color map of the trend underlying these es
 
 ### Correlation Analyses
 
-Empirically (analyses conducted as of late April), we find that each of our COVID-19 indicators, averaged over a 1 week period, has a reasonably strong positive correlation (in particular, Spearman correlation, which measures correlation on the scale of ranks and is thus invariant to monotone transformations) with the number of COVID-19 cases confirmed during that same week, as made available through the JHU CSSE COVID-19 GitHub repository.  The incidence of confirmed COVID-19 cases is arguably viewed as “the standard” metric for current COVID-19 activity (albeit flawed because it is confounded by issues like testing capacity and policy), so this is a reassuring finding.  An R notebook which explicitly computes these correlations (and is completely self-contained, able to be re-compiled by any user with access to R and RStudio) is available [here](https://cmu-delphi.github.io/covidcast/R-notebooks/signal_correlations.html).  
-
-
-## Release Log
-
-{{<releasenotes>}}
+Empirically (analyses conducted as of late April), we find that each of our COVID-19 indicators, averaged over a 1 week period, has a reasonably strong positive correlation (in particular, Spearman correlation, which measures correlation on the scale of ranks and is thus invariant to monotone transformations) with the number of COVID-19 cases confirmed during that same week, as made available through the JHU CSSE COVID-19 GitHub repository.  The incidence of confirmed COVID-19 cases is arguably viewed as “the standard” metric for current COVID-19 activity (albeit flawed because it is confounded by issues like testing capacity and policy), so this is a reassuring finding.  An R notebook which explicitly computes these correlations (and is completely self-contained, able to be re-compiled by any user with access to R and RStudio) is available [here](https://cmu-delphi.github.io/covidcast/R-notebooks/signal_correlations.html).
