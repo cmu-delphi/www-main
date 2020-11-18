@@ -13,7 +13,6 @@ relativeURLs = false
     identifier = "about"
     name = "About"
     url = "/about"
-    post = "angle-down"
     weight = 1
 [[menu.main]]
     parent = "about"

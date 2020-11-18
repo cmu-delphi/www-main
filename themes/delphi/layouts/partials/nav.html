@@ -12,8 +12,8 @@
               {{ partial "font-awesome.html" .Pre }}
             {{end}}
             {{ .Name }}
-            {{ if .Post }}
-              {{ partial "font-awesome.html" .Post }}
+            {{ if .HasChildren }}
+              {{ partial "font-awesome.html" "angle-down" }}
             {{end}}
           </a>
           {{if .HasChildren}}
