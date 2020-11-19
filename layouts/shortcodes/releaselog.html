@@ -1,6 +1,12 @@
 
 {{ $tools := .Site.GetPage "/covidcast/release-log/headless" }}
-{{ range sort ($tools.Resources.ByType "page") "PublishDate" "desc" }}
-  <h3>{{ .Title}} {{ .PublishDate.Format "Monday, January 2, 2006" }}</h3>
-  {{ .Content }}
+<ul uk-accordion="multiple: true">
+{{ range $i, $l := sort ($tools.Resources.ByType "page") "PublishDate" "desc" }}
+  <li class="{{if eq $i 0}}uk-open{{end}}">
+      <a class="uk-accordion-title" href="#"><h3>{{ $l.Title}} {{ $l.PublishDate.Format "Monday, January 2, 2006" }}</h3></a>
+      <div class="uk-accordion-content">
+          {{ $l.Content }}
+      </div>
+  </li>  
 {{ end }}
+</ul>
