@@ -49,6 +49,7 @@ relativeURLs = false
     url = "/covidcast/terms-of-use"
     weight = 3
 [[menu.main]]
+    identifier = "flu"
     name = "Flu and Other"
     url = "/flu"
     weight = 3
