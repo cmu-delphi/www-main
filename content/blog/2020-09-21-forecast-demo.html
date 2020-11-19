@@ -5,6 +5,23 @@ date: 2020-09-21
 tags: ["symptom surveys", "forecasting", "COVIDcast", "R"]
 authors:
 - ryan
+heroImage: /blog/images/blog-Lg-img_can symptoms surveys improve covid-19.png
+heroImageThumb: /blog/images/blog-thumbnail_can symptoms surveys improve covid-19.png
+summary: |
+  Building on our previous two posts (on our COVID-19 symptom surveys through
+  Facebook and Google)
+  this post offers a deeper dive into empirical analysis, examining whether the 
+  % CLI-in-community indicators from our two surveys can be used to improve 
+  the accuracy of short-term forecasts of county-level COVID-19 case rates.
+acknowledgements: |
+  *Delphi's forecasting effort involves many people from our
+  modeling team, from forecaster design, to implementation, to evaluation. The 
+  broader insights on forecasting shared in this post certainly cannot be
+  attributable to Ryan's work alone, and are a reflection of the work carried out 
+  by all these team members.*
+related:
+- 2020-09-18-google-survey
+- 2020-08-26-fb-survey
 output:
   html_document:
     code_folding: hide
@@ -15,17 +32,11 @@ output:
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
-<p>Building on our previous two posts (on our COVID-19 symptom surveys through
-Facebook and Google)
-this post offers a deeper dive into empirical analysis, examining whether the
-% CLI-in-community indicators from our two surveys can be used to improve
-the accuracy of short-term forecasts of county-level COVID-19 case rates.</p>
-<!--more-->
 <p>In our past two posts, we wrote about the COVID-19 symptom surveys that Delphi
 runs through
-<a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">Facebook</a>
+<a href="{{< ref "2020-08-26-fb-survey" >}}">Facebook</a>
 and
-<a href="https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/">Google</a>.
+<a href="{{< ref "2020-09-18-google-survey" >}}">Google</a>.
 These surveys have asked millions of people in the United States whether they
 (or people they know) are experiencing COVID-like symptoms, allowing us to
 calculate a “% CLI-in-community” signal for counties across the United States:
@@ -58,7 +69,7 @@ where the goal is to predict whether case rates will rise significantly,
 rather than to predict the future case rates directly, as in forecasting.
 To motivate why we might be optimistic about the utility of incorporating
 our survey signals into forecasting or hotspot detection models, you can
-check out our <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#some-interesting-examples">previous exploratory
+check out our <a href="{{< ref "2020-08-26-fb-survey#some-interesting-examples" >}}">previous exploratory
 investigations</a>,
 which suggested that they can serve as <strong>early indicators</strong> of COVID-19
 activity. Stay tuned to the Delphi blog for a post on hotspot detection
@@ -382,7 +393,7 @@ which ends up being May 6 through May 14 for 7-day-ahead forecasts,
 and only May 13 through May 14 for 14-day-ahead forecasts.
 (The reason for this shortened period:
 we paused running the Google survey on May 14 so its data ends there,
-but as we explained in our last post, we <a href="https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/#google-survey-redux">plan to bring it
+but as we explained in our last post, we <a href="{{% ref "2020-09-18-google-survey#google-survey-redux" %}}">plan to bring it
 back</a>
 later this fall.) Hence we skip studying the 14-day-ahead forecasts results
 in this four-way model discussion, as they’re only based on 2 days of test data.</p>
@@ -977,8 +988,8 @@ so that data gets pulled “as of” the forecast date
 <p>Hopefully these preliminary findings have gotten you excited
 about the possible uses of our symptom survey data.
 To get started playing with our data yourself,
-take a look at our <a href="https://covidcast.cmu.edu">interactive COVIDcast map</a>,
-or our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">COVIDcast
+take a look at our <a href="{{< ref "covidcast" >}}">interactive COVIDcast map</a>,
+or our <a href="{{< apiref "api/covidcast.html" >}}">COVIDcast
 API</a>,
 through our <a href="https://cmu-delphi.github.io/covidcast/covidcastR/">R client</a>
 or <a href="https://cmu-delphi.github.io/covidcast/covidcast-py/html/">Python client</a>.
@@ -990,20 +1001,6 @@ aggregate data from our survey (beyond CLI indicators) <a href="https://www.symp
 the Challenge</a>, and
 submissions are due September 29, with finalists eligible for cash prizes.
 We look forward to seeing how you put our data to use!</p>
-<p><strong>Acknowledgements.</strong> <em>Delphi’s forecasting effort involves many people from our
-modeling team, from forecaster design, to implementation, to evaluation. The
-broader insights on forecasting shared in this post certainly cannot be
-attributable to Ryan’s work alone, and are a reflection of the work carried out
-by all these team members.</em></p>
-</div>
-<div id="related-posts" class="section level2">
-<h2>Related Posts</h2>
-<ul>
-<li><a href="https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/">COVID-19 Symptom Surveys through
-Google</a></li>
-<li><a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">COVID-19 Symptom Surveys through
-Facebook</a></li>
-</ul>
 </div>
 <div class="footnotes">
 <hr />

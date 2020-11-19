@@ -9,14 +9,15 @@ services:
     volumes:
       - './:/app'
     # run: docker-compose exec r bash
-    # conda run -n www-main Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
+    # conda activate www-main
+    # Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
   
   # see https://github.com/peaceiris/hugo-extended-docker
-  hugo:
-    image: peaceiris/hugo:v0.78.1-full
-    volumes:
-      - ${PWD}:/src
-    command:
-      - server
-      - --bind=0.0.0.0
-      - --buildDrafts
+  # hugo:
+  #   image: peaceiris/hugo:v0.78.1-full
+  #   volumes:
+  #     - ${PWD}:/src
+  #   command:
+  #     - server
+  #     - --bind=0.0.0.0
+  #     - --buildDrafts

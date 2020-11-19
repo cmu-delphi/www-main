@@ -1,16 +1,13 @@
 {{ define "main" }}
-<a href="{{.Section | relURL }}" class="uk-text-bold-600 uk-text-uppercase uk-link-muted"><span uk-icon="chevron-left" role="img"></span>Delphi Blog</a>
 <h1>{{ .Title }}</h1>
-<div>
-    {{- range .Params.tags -}}
-    <a class="uk-text-bold-600 uk-text-uppercase uk-link-muted blog-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
-    {{- end -}}
-</div>
+{{ partial "blog/tags.html" .}}
+{{if isset .Params "heroimage"}}
 <div class="uk-margin-top uk-margin-bottom">
-    <img src="https://via.placeholder.com/800x600" class="blog-hero-image" alt="{{ .Title}} - Hero Image">
+    <img src="{{.Params.heroImage | relURL }}" width="1120" height="440" alt="{{ .Title}} - Hero Image">
 </div>
+{{end}}
 <div uk-grid>
-    <div class="uk-width-medium">
+    <div class="uk-width-1-1@s uk-width-medium@m">
         <div class="uk-grid-small uk-flex-start" uk-grid>
             <div class="uk-width-auto">
                 <span class="uk-icon-button" uk-icon="icon: user{{if gt (len .Params.authors) 1}}s{{end}}"></span>
@@ -21,12 +18,28 @@
                 {{ partial "share.html" . }}
             </div>
         </div>
+        <hr class="uk-hidden@m"/>
     </div>
-    <div class="uk-width-3-5">
+    <div class="uk-width-1-1@s uk-width-3-5@m blog-blog">
         {{ .Content }}
+        {{ if isset .Params "acknowledgements" }}
+        <p>
+            <strong>Acknowledgements: </strong>
+            {{ .Params.acknowledgements | markdownify }}
+        </p>
+        {{ end }}
+        {{ if isset .Params "related" }}
+        <strong>Related Posts:</strong>
+        <ul>
+            {{ $currentPage := . }}
+            {{ range $related := .Params.related }}
+              {{ $relPage := $.GetPage $related}}
+            <li><a href="{{ $relPage.Permalink }}">{{ $relPage.Title }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
         {{ template "_internal/disqus.html" . }}
     </div>
-    <div class="uk-width-1-5"></div>
 </div>
 <hr />
 {{ range .Params.authors}}
@@ -36,4 +49,6 @@
     {{ end }}
 </div>
 {{ end }}
+<hr />
+{{ partial "blog/latestblogs.html" . }}
 {{end}}

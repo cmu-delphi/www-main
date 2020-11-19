@@ -3,9 +3,26 @@ title: "New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing"
 author: "Alex Reinhart"
 date: 2020-10-12
 tags: ["symptom surveys", "COVIDcast", "R"]
-summary: Beginning on September 8, 2020, we deployed a new version of our symptom survey. Facebook helps us recruit tens of thousands of respondents daily, and the new survey gives us unprecedented insights into the effects of COVID-19 across the United States. Today we release new public datasets and share maps revealing access to COVID testing, test results, and public use of masks.
+summary: |
+  Beginning on September 8, 2020, we deployed a new version of our symptom survey. 
+  Facebook helps us recruit tens of thousands of respondents daily, and the new survey gives us unprecedented insights into the effects of COVID-19 across the United States. 
+  Today we release new public datasets and share maps revealing access to COVID testing, test results, and public use of masks.
 authors:
 - alex
+heroImage: /blog/images/blog-lg-img_New and Improved COVID.png
+heroImageThumb: /blog/images/blog-thumb-img_New and Improved COVID.png
+acknowledgments: |
+  Many items in Wave 4 of our survey are based on work by
+  the team at the Joint Program in Survey Methodology at the University of
+  Maryland led by Frauke Kreuter; Adrianne Bradford and Samantha Chiu helped
+  design items and gave feedback. Facebook's survey team, including Sarah LaRocca
+  and Katherine Morris, gave extensive feedback on Wave 4 of the survey and
+  assisted in its deployment. Kelsey Mulcahy at Facebook Data For Good helped
+  coordinate data access for numerous researchers. Taylor Arnold, Alex Reinhart,
+  and Kathryn Mazaitis developed the code needed to process Wave 4. Delphi members
+  Roni Rosenfeld and Ryan Tibshirani suggested survey revisions. We thank Jean
+  Cox-Ganser, Paul Henneberger, Danielle Iuliano, Robert Kraut, and Jordan Weber
+  for suggesting survey items and revisions for Wave 4.
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -21,7 +38,7 @@ authors:
 <script src="/rmarkdown-libs/plotly-main/plotly-latest.min.js"></script>
 
 
-<p>Beginning in early April 2020, the <a href="https://delphi.cmu.edu/">Delphi group</a> has
+<p>Beginning in early April 2020, the <a href="{{% ref "/" %}}">Delphi group</a> has
 conducted a major survey to track COVID-19 across the United States. With the
 support of Facebook Data for Good, we have been able to recruit tens of
 thousands of active Facebook users <em>every day</em> to take our voluntary survey.
@@ -29,16 +46,16 @@ Concurrently, a University of Maryland team has conducted a <a href="https://cov
 international effort</a> covering over 100 countries
 worldwide. Every day, we aggregate our survey results to produce estimates of
 symptoms for counties and states across the United States, making these
-estimates available through our <a href="https://covidcast.cmu.edu/">COVIDcast map</a> and
-our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">public
+estimates available through our <a href="{{% ref "covidcast" %}}">COVIDcast map</a> and
+our <a href="{{< apiref "api/covidcast.html" >}}">public
 API</a>. This
-augments the <a href="https://delphi.cmu.edu/blog/2020/10/07/accessing-open-covid-19-data-via-the-covidcast-epidata-api/">numerous other data sources available in our COVIDcast
+augments the <a href="{{% ref "2020-08-28-api" %}}">numerous other data sources available in our COVIDcast
 API</a>
 to form a more complete picture of the pandemic.</p>
-<p>In previous posts, we demonstrated how <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">self-reported symptoms on our survey can
+<p>In previous posts, we demonstrated how <a href="{{% ref "2020-08-26-fb-survey" %}}">self-reported symptoms on our survey can
 correlate strongly with COVID
 cases</a>
-and how <a href="https://delphi.cmu.edu/blog/2020/09/21/can-symptoms-surveys-improve-covid-19-forecasts/">symptom survey data could improve forecasts of COVID
+and how <a href="{{% ref "2020-09-21-forecast-demo" %}}">symptom survey data could improve forecasts of COVID
 cases</a>.
 Our data is also powering the <a href="https://www.symptomchallenge.org/">COVID-19 Symptom Data
 Challenge</a>, which asked participants to use our
@@ -74,7 +91,7 @@ researchers at MIT</a>, also in partnership with
 Facebook to recruit respondents.)</p>
 <div id="insights-from-the-new-survey-instrument" class="section level2">
 <h2>Insights from the New Survey Instrument</h2>
-<p>The full text of the survey can be found <a href="https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html">on our documentation
+<p>The full text of the survey can be found <a href="{{< apiref "symptom-survey/coding.html" >}}">on our documentation
 site</a>—this
 version is Wave 4.</p>
 <p>Between the new survey’s deployment on September 8, 2020, and October 7th, we
@@ -83,7 +100,7 @@ States. Each response includes questions about symptoms, mask wearing, testing,
 and the other important topics described above, along with demographic details
 about the respondent. These demographics include age, gender, race, occupation,
 and education, allowing us to understand how different groups have been affected
-and which groups are currently most vulnerable to COVID-19. (As we <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">described
+and which groups are currently most vulnerable to COVID-19. (As we <a href="{{< ref "2020-08-26-fb-survey" >}}">described
 before</a>,
 Facebook does not receive any individual survey responses; we at Carnegie Mellon
 collect this data and prepare aggregate data, which does not identify any
@@ -91,7 +108,7 @@ individual respondent, for public release.)</p>
 <p>Let’s explore just a few of the questions on the survey to see what they can
 tell us. All of the plots below were made using our <a href="https://cmu-delphi.github.io/covidcast/covidcastR/">covidcast R
 package</a> using data we make
-publicly available in the <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">COVIDcast
+publicly available in the <a href="{{< apiref "api/covidcast.html" >}}">COVIDcast
 API</a>—click the
 Code button to see the full code for each example.</p>
 <div id="mask-wearing" class="section level3">
@@ -100,7 +117,7 @@ Code button to see the full code for each example.</p>
 mask most or all of the time when they’re in public? For comparison, we’ll map
 this next to map of the percentage of respondents who personally know someone in
 their local community who is sick (with a fever and at least one other symptom,
-such as cough or difficulty breathing). This percentage <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#some-interesting-examples">correlates very
+such as cough or difficulty breathing). This percentage <a href="{{< ref "2020-08-26-fb-survey#some-interesting-examples" >}}">correlates very
 well</a>
 with COVID case rates as reported by state agencies.</p>
 <pre class="r"><code>library(covidcast)
@@ -203,7 +220,7 @@ joined_data %&gt;%
                                       &quot;hoverCompareCartesian&quot;,
                                       &quot;hoverClosestCartesian&quot;))</code></pre>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"2ee141930ff":["function () ","plotlyVisDat"]},"cur_data":"2ee141930ff","attrs":{"2ee141930ff":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"2ee141930ff.1":{"mode":"lines","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","name":"","x":[0.85853161788795,28.222300622709],"y":[90.3886014269541,64.460652002081],"hoverinfo":"skip","line":{"color":"rgb(102, 102, 102)","width":2,"dash":"dash"},"inherit":true},"2ee141930ff.2":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","name":"","x":{},"y":{},"text":{},"marker":{"color":"rgb(187, 0, 0)"},"hovertemplate":"<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"New cases per 100,000 people (7-day average)","showline":true,"mirror":"ticks","zeroline":false},"yaxis":{"domain":[0,1],"automargin":true,"title":"% wearing masks most/all the time in public","showline":true,"mirror":"ticks","zeroline":false},"title":"Current COVID case rates and mask usage, by state","subtitle":"October 7, 2020","annotations":[{"x":0.5,"y":1,"text":"October 7, 2020","showarrow":false,"xref":"paper","yref":"paper","xanchor":"center","yanchor":"auto","xshift":0,"yshift":0},{"x":1,"y":0,"text":"Data from Delphi COVIDcast, covidcast.cmu.edu","showarrow":false,"xref":"paper","yref":"paper","xanchor":"right","yanchor":"auto","xshift":0,"yshift":0}],"dragmode":false,"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false,"modeBarButtonsToRemove":["zoom2d","pan2d","select2d","lasso2d","zoomIn2d","zoomOut2d","resetScale2d","autoScale2d","toggleSpikelines","hoverCompareCartesian","hoverClosestCartesian"]},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"lines","type":"scatter","name":"","x":[0.85853161788795,28.222300622709],"y":[90.3886014269541,64.460652002081],"hoverinfo":["skip","skip"],"line":{"color":"rgb(102, 102, 102)","width":2,"dash":"dash"},"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"markers","type":"scatter","name":"","x":[10.320622791489,9.7837280403306,12.267671648466,3.955759942701,4.1556760802853,5.4389415613823,3.6342496009838,7.5097520506582,6.8731819443491,5.3849780755367,5.4546461711364,3.2034776347822,13.103625955322,14.816792578094,8.0950142389615,8.8624992315737,10.579507932008,12.38740103469,6.2412500348017,4.2976301310901,4.6538543696845,1.1212091970187,5.0680895615393,9.5206313360264,11.106327555172,9.7249355267015,19.9894512371,8.4040952706764,28.222300622709,13.784209801803,2.4427459742758,3.6799161339393,6.6018054609399,7.7500712858143,3.5318542891527,5.3383066275419,12.912113114515,3.6021347805368,4.2320432730079,6.2975969206234,8.0075474047639,20.080376409764,11.837867528761,7.1123402468292,16.600787836718,4.5465475335645,0.85853161788795,3.4312460370187,20.941168492176,5.137493105835,11.749277333052],"y":[80.8163211,79.9652721,80.4482412,84.7378749,90.4996141,84.3420031,92.6228968,96.3872191,90.8896672,83.5919435,80.7585766,91.4270943,75.5868093,68.6841917,87.5830323,81.2513388,80.7628288,84.3246245,78.587337,93.2560714,91.6745376,83.8496764,85.2723165,87.6111293,76.2643159,78.3171483,76.9646719,83.797694,65.0591507,76.3171926,87.1537625,90.9577393,84.9431592,87.5663413,91.8804509,83.2619412,75.6117651,86.9318896,84.5064859,92.7898693,80.26181,67.2130902,76.7214721,85.5288172,79.7936266,87.0367251,92.0629743,88.6605605,84.6752812,82.3923966,57.8590153],"text":["Alaska","Alabama","Arkansas","Arizona","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Iowa","Idaho","Illinois","Indiana","Kansas","Kentucky","Louisiana","Massachusetts","Maryland","Maine","Michigan","Minnesota","Missouri","Mississippi","Montana","North Carolina","North Dakota","Nebraska","New Hampshire","New Jersey","New Mexico","Nevada","New York","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Virginia","Vermont","Washington","Wisconsin","West Virginia","Wyoming"],"marker":{"color":"rgb(187, 0, 0)","line":{"color":"rgba(44,160,44,1)"}},"hovertemplate":["<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}"],"showlegend":false,"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"line":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"visdat":{"587d618666":["function () ","plotlyVisDat"]},"cur_data":"587d618666","attrs":{"587d618666":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"587d618666.1":{"mode":"lines","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","name":"","x":[0.85853161788795,28.222300622709],"y":[90.3886014269541,64.460652002081],"hoverinfo":"skip","line":{"color":"rgb(102, 102, 102)","width":2,"dash":"dash"},"inherit":true},"587d618666.2":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","name":"","x":{},"y":{},"text":{},"marker":{"color":"rgb(187, 0, 0)"},"hovertemplate":"<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"New cases per 100,000 people (7-day average)","showline":true,"mirror":"ticks","zeroline":false},"yaxis":{"domain":[0,1],"automargin":true,"title":"% wearing masks most/all the time in public","showline":true,"mirror":"ticks","zeroline":false},"title":"Current COVID case rates and mask usage, by state","subtitle":"October 7, 2020","annotations":[{"x":0.5,"y":1,"text":"October 7, 2020","showarrow":false,"xref":"paper","yref":"paper","xanchor":"center","yanchor":"auto","xshift":0,"yshift":0},{"x":1,"y":0,"text":"Data from Delphi COVIDcast, covidcast.cmu.edu","showarrow":false,"xref":"paper","yref":"paper","xanchor":"right","yanchor":"auto","xshift":0,"yshift":0}],"dragmode":false,"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false,"modeBarButtonsToRemove":["zoom2d","pan2d","select2d","lasso2d","zoomIn2d","zoomOut2d","resetScale2d","autoScale2d","toggleSpikelines","hoverCompareCartesian","hoverClosestCartesian"]},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"lines","type":"scatter","name":"","x":[0.85853161788795,28.222300622709],"y":[90.3886014269541,64.460652002081],"hoverinfo":["skip","skip"],"line":{"color":"rgb(102, 102, 102)","width":2,"dash":"dash"},"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"markers","type":"scatter","name":"","x":[10.320622791489,9.7837280403306,12.267671648466,3.955759942701,4.1556760802853,5.4389415613823,3.6342496009838,7.5097520506582,6.8731819443491,5.3849780755367,5.4546461711364,3.2034776347822,13.103625955322,14.816792578094,8.0950142389615,8.8624992315737,10.579507932008,12.38740103469,6.2412500348017,4.2976301310901,4.6538543696845,1.1212091970187,5.0680895615393,9.5206313360264,11.106327555172,9.7249355267015,19.9894512371,8.4040952706764,28.222300622709,13.784209801803,2.4427459742758,3.6799161339393,6.6018054609399,7.7500712858143,3.5318542891527,5.3383066275419,12.912113114515,3.6021347805368,4.2320432730079,6.2975969206234,8.0075474047639,20.080376409764,11.837867528761,7.1123402468292,16.600787836718,4.5465475335645,0.85853161788795,3.4312460370187,20.941168492176,5.137493105835,11.749277333052],"y":[80.8163211,79.9652721,80.4482412,84.7378749,90.4996141,84.3420031,92.6228968,96.3872191,90.8896672,83.5919435,80.7585766,91.4270943,75.5868093,68.6841917,87.5830323,81.2513388,80.7628288,84.3246245,78.587337,93.2560714,91.6745376,83.8496764,85.2723165,87.6111293,76.2643159,78.3171483,76.9646719,83.797694,65.0591507,76.3171926,87.1537625,90.9577393,84.9431592,87.5663413,91.8804509,83.2619412,75.6117651,86.9318896,84.5064859,92.7898693,80.26181,67.2130902,76.7214721,85.5288172,79.7936266,87.0367251,92.0629743,88.6605605,84.6752812,82.3923966,57.8590153],"text":["Alaska","Alabama","Arkansas","Arizona","California","Colorado","Connecticut","District of Columbia","Delaware","Florida","Georgia","Hawaii","Iowa","Idaho","Illinois","Indiana","Kansas","Kentucky","Louisiana","Massachusetts","Maryland","Maine","Michigan","Minnesota","Missouri","Mississippi","Montana","North Carolina","North Dakota","Nebraska","New Hampshire","New Jersey","New Mexico","Nevada","New York","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Virginia","Vermont","Washington","Wisconsin","West Virginia","Wyoming"],"marker":{"color":"rgb(187, 0, 0)","line":{"color":"rgba(44,160,44,1)"}},"hovertemplate":["<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}","<b>%{text}<\/b><br>Mask use: %{y:.0f}%<br>Cases per 100,000: %{x:.1f}"],"showlegend":false,"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"line":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p>The relationship is striking. (Hover over or click each point to see which state
 it is.) Of course, correlation is not causation, and there are many differences
 between these states beyond their use of masks. For example, people in more
@@ -233,7 +250,7 @@ nursing homes, where many residents are particularly vulnerable to COVID-19 and
 staff must be tested regularly to ensure residents aren’t exposed.</p>
 <p>Testing data is published by state health authorities and aggregated by
 organizations such as the <a href="https://covidtracking.com/">COVID Tracking Project</a>;
-our own <a href="https://covidcast.cmu.edu/">COVIDcast map</a> also includes results from
+our own <a href="{{< ref "covidcast" >}}">COVIDcast map</a> also includes results from
 antigen tests produced by Quidel, a major test product manufacturer. But
 publicly reported data can be <a href="https://www.theatlantic.com/health/archive/2020/09/how-many-people-america-testing-coronavirus/616249/">inconsistent between states, may not include all
 tests</a>,
@@ -264,7 +281,7 @@ survey is subject to sampling biases, both because it samples from Facebook’s
 active user population (which does not include all adults in the United States)
 and because it is voluntary, and some people may be more likely to volunteer
 than others. It’s plausible these biases could affect rural states more strongly
-than others. <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys">As we’ve explained
+than others. <a href="{{< ref "2020-08-26-fb-survey#why-run-these-surveys" >}}">As we’ve explained
 before</a>,
 we try to adjust for these biases using demographic and other data, but without
 reliable ground-truth testing data, it’s impossible to tell if these adjustments
@@ -318,12 +335,12 @@ to form a more complete picture of the pandemic.</p>
 <h2>You Can Help Analyze This Data</h2>
 <p>All of the maps and graphs above were built using data we make publicly
 available through our COVIDcast API, and the exact technical details are
-described in our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html">signal
+described in our <a href="{{< apiref "api/covidcast-signals/fb-survey.html" >}}">signal
 documentation</a>.
-The symptom and mask data is already featured on our <a href="https://covidcast.cmu.edu/?sensor=fb-survey-smoothed_wearing_mask&amp;level=county&amp;signalType=value&amp;encoding=color&amp;mode=overview&amp;region=42003">COVIDcast interactive
+The symptom and mask data is already featured on our <a href="{{< ref "covidcast?sensor=fb-survey-smoothed_wearing_mask&level=county&signalType=value&encoding=color&mode=overview&region=42003" >}}">COVIDcast interactive
 map</a>,
 and other survey signals will soon be added as well. More information about the
-surveys, including preliminary results, is given on our <a href="https://covidcast.cmu.edu/surveys.html">survey
+surveys, including preliminary results, is given on our <a href="{{< ref "surveys" >}}">survey
 site</a>.</p>
 <p>But we also know that many researchers will have questions that can’t be
 answered from these simple county- and state-level averages. What occupations
@@ -349,22 +366,11 @@ important roles informing our national pandemic response. Armed with the right
 data, we can make decisions needed to protect public health and permit safe
 reopening.</p>
 <p><em>For more information about Delphi’s symptom surveys, and for media contact
-details, see <a href="https://covidcast.cmu.edu/surveys.html">our surveys page</a>. For
+details, see <a href="{{< ref "surveys" >}}">our surveys page</a>. For
 updates, you can follow <a href="https://twitter.com/cmudelphi">CmuDelphi on Twitter</a>.</em></p>
 <p><strong>Note.</strong> <em>This post was updated on October 17, 2020 to correct an error in the
 scatterplot of mask usage and reported case rates. An error in our data
 processing system meant our reported case rates were half the size they should
 have been. This did not affect the trend in the scatterplot, only the scale of
 the X axis.</em></p>
-<p><strong>Acknowledgments.</strong> <em>Many items in Wave 4 of our survey are based on work by
-the team at the Joint Program in Survey Methodology at the University of
-Maryland led by Frauke Kreuter; Adrianne Bradford and Samantha Chiu helped
-design items and gave feedback. Facebook’s survey team, including Sarah LaRocca
-and Katherine Morris, gave extensive feedback on Wave 4 of the survey and
-assisted in its deployment. Kelsey Mulcahy at Facebook Data For Good helped
-coordinate data access for numerous researchers. Taylor Arnold, Alex Reinhart,
-and Kathryn Mazaitis developed the code needed to process Wave 4. Delphi members
-Roni Rosenfeld and Ryan Tibshirani suggested survey revisions. We thank Jean
-Cox-Ganser, Paul Henneberger, Danielle Iuliano, Robert Kraut, and Jordan Weber
-for suggesting survey items and revisions for Wave 4.</em></p>
 </div>
