@@ -1,4 +1,4 @@
-<div uk-grid class="team-members uk-grid-small uk-child-width-1-6@l uk-child-width-1-4@m uk-child-width-1-2@s">
+<div uk-grid class="team-members uk-grid-small uk-child-width-1-6@l uk-child-width-1-4@m uk-child-width-1-{{with .Get "small"}}{{.}}{{else}}3{{end}}@s">
 {{ range where $.Site.Data.team ".team" (.Get "team") }}
   <div class="team-member">
       <img src="{{ (path.Join "/images/team/" .image )| relURL }}" alt="{{ .name }}"></img>

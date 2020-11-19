@@ -14,7 +14,7 @@ layout: team
 
 ## Leadership
 
-{{<team team="leadership" >}}
+{{<team team="leadership" small="2" >}}
 
 ## Core Members
 
