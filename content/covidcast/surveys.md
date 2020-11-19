@@ -62,18 +62,24 @@ Access to de-identified individual survey responses is available to qualified re
 
 ## Who can I contact?
 
-- Questions from survey respondents about consent, research ethics, or how their data is used: [delphi-admin-survey-fb@lists.andrew.cmu.edu](mailto:delphi-admin-survey-fb@lists.andrew.cmu.edu)
-- Getting access to survey data for research: [complete this form](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
-- Media inquiries:
-  - [Byron Spice](mailto:bspice@cs.cmu.edu)  
-    Director, Media Relations  
-    School of Computer Science  
-    Carnegie Mellon University
-  - [Jason Maderer](mailto:maderer@cmu.edu)  
-    Senior Director, Media Relations  
-    Carnegie Mellon University
-- All other questions:
-   - [Alex Reinhart](mailto:areinhar@stat.cmu.edu)  
-     Assistant Teaching Professor  
-     Department of Statistics & Data Science  
-     Carnegie Mellon University
+Questions from survey respondents about consent, research ethics, or how their data is used: [delphi-admin-survey-fb@lists.andrew.cmu.edu](mailto:delphi-admin-survey-fb@lists.andrew.cmu.edu)
+
+Getting access to survey data for research: [complete this form](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
+
+### Media inquiries:
+
+[Byron Spice](mailto:bspice@cs.cmu.edu)  
+Director, Media Relations  
+School of Computer Science  
+Carnegie Mellon University
+
+[Jason Maderer](mailto:maderer@cmu.edu)  
+Senior Director, Media Relations  
+Carnegie Mellon University
+
+### All other questions:
+
+[Alex Reinhart](mailto:areinhar@stat.cmu.edu)  
+Assistant Teaching Professor  
+Department of Statistics & Data Science  
+Carnegie Mellon University
