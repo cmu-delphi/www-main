@@ -2,7 +2,7 @@
 title: About Our Data and Methodology
 ---
 
-The COVID-19 indicators visualized on our map are derived from the data sources described below. These are all publicly available on the [COVIDcast endpoint]({{< apiref "covidcast.html">}}) of our public [Epidata API]({{< apiref "README.html">}}). The API documentation includes [full technical detail]({{< apiref "covidcast_signals.html">}}) on how these indicators are calculated.
+The COVID-19 indicators visualized on our map are derived from the data sources described below. These are all publicly available on the [COVIDcast endpoint]({{< apiref "api/covidcast.html">}}) of our public [Epidata API]({{< apiref "api/README.html">}}). The API documentation includes [full technical detail]({{< apiref "api/covidcast_signals.html">}}) on how these indicators are calculated.
 
 
 ## Active Indicators 
@@ -19,7 +19,7 @@ The COVID-19 indicators visualized on our map are derived from the data sources 
 
 ## About Our Methodology
 
-Full technical documentation on the sources of our data, and how our estimates are constructed, is available in the [COVIDcast API data source documentation]({{< apiref "covidcast_signals.html">}}).
+Full technical documentation on the sources of our data, and how our estimates are constructed, is available in the [COVIDcast API data source documentation]({{< apiref "api/covidcast_signals.html">}}).
 
 ### Live Estimates
 
@@ -46,9 +46,4 @@ The “7-day Trend” view presents a color map of the trend underlying these es
 
 ### Correlation Analyses
 
-Empirically (analyses conducted as of late April), we find that each of our COVID-19 indicators, averaged over a 1 week period, has a reasonably strong positive correlation (in particular, Spearman correlation, which measures correlation on the scale of ranks and is thus invariant to monotone transformations) with the number of COVID-19 cases confirmed during that same week, as made available through the JHU CSSE COVID-19 GitHub repository.  The incidence of confirmed COVID-19 cases is arguably viewed as “the standard” metric for current COVID-19 activity (albeit flawed because it is confounded by issues like testing capacity and policy), so this is a reassuring finding.  An R notebook which explicitly computes these correlations (and is completely self-contained, able to be re-compiled by any user with access to R and RStudio) is available [here](https://cmu-delphi.github.io/covidcast/R-notebooks/signal_correlations.html).  
-
-
-## Release Log
-
-{{<releasenotes>}}
+Empirically (analyses conducted as of late April), we find that each of our COVID-19 indicators, averaged over a 1 week period, has a reasonably strong positive correlation (in particular, Spearman correlation, which measures correlation on the scale of ranks and is thus invariant to monotone transformations) with the number of COVID-19 cases confirmed during that same week, as made available through the JHU CSSE COVID-19 GitHub repository.  The incidence of confirmed COVID-19 cases is arguably viewed as “the standard” metric for current COVID-19 activity (albeit flawed because it is confounded by issues like testing capacity and policy), so this is a reassuring finding.  An R notebook which explicitly computes these correlations (and is completely self-contained, able to be re-compiled by any user with access to R and RStudio) is available [here](https://cmu-delphi.github.io/covidcast/R-notebooks/signal_correlations.html).

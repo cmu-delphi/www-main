@@ -11,9 +11,9 @@ comprehensive effort to:
 - build and maintain new data streams and indicators that reflect COVID-19 
   activity and burden, 
 - make that data available to researchers, journalists, and the public through a
-  [public API]({{< apiref "covidcast.html">}}) 
+  [public API]({{< apiref "api/covidcast.html">}}) 
   and [packages for R and 
-  Python]({{< apiref "covidcast_clients.html">}}), 
+  Python]({{< apiref "api/covidcast_clients.html">}}), 
 - build [interactive maps and graphics]({{< relref "covidcast" >}}) to inform 
   decision makers and the public, and 
 - develop forecasts of the future spread of the pandemic and healthcare demand.

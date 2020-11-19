@@ -4,7 +4,7 @@
     {{ partial "head.html" . }}
     <body style="height: 100vh; display: flex; flex-direction: column;">
         {{ partial "nav.html" . }}
-        {{ partial "header.html" . }}
+        {{ partial "menu/breadcrumb.html" . }}
         {{ block "main" . }}
         {{ end }}
         {{ partial "footer.html" . }}
