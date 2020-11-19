@@ -73,9 +73,11 @@ svg {
 .uk-navbar-left {
     margin: 40px 10% 0 10%;
 }
+
 .uk-navbar-nav>li {
     padding-left: 10px;
     padding-right: 20px;
+    white-space: nowrap;
 }
 .uk-navbar-dropdown-bottom-left {
     margin-left: -20px;
