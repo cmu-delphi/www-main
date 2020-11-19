@@ -51,6 +51,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "flu"
     name = "Flu and Other"
+    pre = "solid/disease"
     url = "/flu"
     weight = 3
 [[menu.main]]
