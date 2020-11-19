@@ -1,12 +1,6 @@
 
-<ul>
 {{ $tools := .Site.GetPage "/tools" }}
 {{ range sort ($tools.Resources.ByType "page") "Params.order" }}
-  <li>
-    <p>
-      {{ .Params.description }}: <a href="{{ .Params.link }}">{{ .Title}}</a>.
-      {{ .Content }}
-    </p>
-  </li>
+  <h3><a href="{{ .Params.link }}">{{ .Title}}</a></h3>
+  {{ .Content }}
 {{ end }}
-</ul>
