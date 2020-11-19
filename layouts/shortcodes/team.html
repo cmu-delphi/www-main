@@ -1,7 +1,9 @@
+{{ $images := .Page.Resources.ByType "image"}}
 <div uk-grid class="team-members uk-grid-small uk-child-width-1-6@l uk-child-width-1-4@m uk-child-width-1-{{with .Get "small"}}{{.}}{{else}}3{{end}}">
-{{ range where $.Site.Data.team ".team" (.Get "team") }}
+{{ range where .Page.Params.team ".team" (.Get "team") }}
+  {{ $img := $images.GetMatch (path.Join "images" .image) }}
   <div class="team-member">
-      <img src="{{ (path.Join "/images/team/" .image )| relURL }}" alt="{{ .name }}"></img>
+      <img src="{{ ($img.Resize "200x200").RelPermalink }}" alt="{{ .name }}"></img>
       <div class="uk-text-bold">{{ .name }}</div>
       <div>{{ .affiliation }}</div>
       {{ if isset . "note" }}
