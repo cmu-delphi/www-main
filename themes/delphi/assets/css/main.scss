@@ -1,6 +1,7 @@
 // 1. Your custom variables and variable overwrites.
 // $global-link-color: #DA7D02;
 @import 'customize';
+$grid-gap: (32/1440)*100%;
 
 // 2. Import default variables and available mixins.
 @import './node_modules/uikit/src/scss/variables-theme.scss';
@@ -14,6 +15,28 @@
 
 
 @import 'custom';
+
+// Layouts
+
+@import 'layouts';
+
+.main-carousel {
+    background-image: url("../images/landing-page/hero-images/landing-pg_hero-Real-time Indicators of COVID-19 Activity.png");
+    background-size: auto;
+    width: 100vw;
+    height: 724px;
+    h2 {
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: white;
+    }
+    p {
+        font-weight: 600;
+        font-size: 44px;
+        color: white;
+    }
+}
 
 // Site-wide
 .content {
