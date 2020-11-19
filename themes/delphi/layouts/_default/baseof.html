@@ -5,6 +5,7 @@
     <body>
         {{ partial "nav.html" . }}
         <div class="content">
+            {{ partial "menu/breadcrumb.html" . }}
             {{ block "main" . }}
             {{ end }}
         </div>

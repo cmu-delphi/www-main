@@ -10,7 +10,13 @@
     <div class="uk-width-1-1@s uk-width-medium@m">
         <div class="uk-grid-small uk-flex-start" uk-grid>
             <div class="uk-width-auto">
-                <span class="uk-icon-button" uk-icon="icon: user{{if gt (len .Params.authors) 1}}s{{end}}"></span>
+                <span class="uk-icon-button">
+                    {{if gt (len .Params.authors) 1}}
+                        {{partial "font-awesome.html" "solid/users"}}
+                    {{ else }}
+                        {{partial "font-awesome.html" "solid/user"}}
+                    {{ end }}
+                </span>
             </div>
             <div class="uk-width-expand">
                 <p class="uk-text-bold-600">{{ .Params.author }}</p>

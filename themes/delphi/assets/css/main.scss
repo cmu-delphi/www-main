@@ -1,28 +1,6 @@
 // 1. Your custom variables and variable overwrites.
 // $global-link-color: #DA7D02;
-
-// Font
-$global-font-family: "Open Sans", Roboto, Arial, sans-serif;
-
-// Breakpoints:
-$breakpoint-small: 715px;
-
-// Navbar
-$navbar-nav-item-padding-horizontal: 0px;
-$navbar-nav-item-height: 35px;
-$navbar-nav-item-color: #505565;
-$navbar-background: none;
-$navbar-dropdown-padding: 10px;
-$navbar-dropdown-nav-item-color: #232735;
-$nav-default-item-active-color: red;
-
-$button-padding-horizontal: 0px;
-$button-line-height: 0px;
-
-
-// Table (footer)
-$table-cell-padding-vertical: 4px;
-$table-header-cell-color: white;
+@import 'customize';
 
 // 2. Import default variables and available mixins.
 @import './node_modules/uikit/src/scss/variables-theme.scss';
@@ -52,15 +30,20 @@ $table-header-cell-color: white;
     padding: 5px 10px;
 }
 
+.uk-breadcrumb svg,
 .uk-navbar svg {
     max-height: 18px;
 }
 
-.inline-svg {
+.inline-svg-icon {
     display: inline-block;
-    fill: #505565;
-    width: 18px;
-    padding: 0 9px 0 5px;
+    fill: currentColor;
+    width: 1.2em;
+    padding: 0 0.5em 0 0.25em;
+}
+
+.uk-icon-button > .inline-svg-icon {
+    padding: 0;
 }
 
 // Navbar
@@ -138,4 +121,12 @@ $table-header-cell-color: white;
 
 #vizbox {
     margin-top: 5px !important;
+}
+
+
+.team-hero-image {
+    width: 100%;
+}
+.team-member > img {
+    border-radius: 5px;
 }
