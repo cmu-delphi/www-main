@@ -1,5 +1,5 @@
 ---
-title: Flu and Other Research Projects
+title: Flu and Other Diseases
 layout: single-title
 ---
 
