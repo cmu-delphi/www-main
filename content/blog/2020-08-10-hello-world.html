@@ -6,6 +6,19 @@ tags: ["COVIDcast"]
 authors:
 - roni
 - ryan
+heroImage: /blog/images/blog-lg-img_hello-world.png
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
+summary: |
+  Hello from the Delphi research group at Carnegie Mellon University!
+  We're a group of faculty, students, and staff, based primarily out of CMU
+  together with strong collaborators from other universities and industry.
+  Our group was founded in 2012 to advance the theory and practice of epidemic 
+  forecasting. Since March 2020, we have refocused efforts towards helping combat 
+  the COVID-19 pandemic, by supporting informed decision-making at federal, state,
+  and local levels of government and in the healthcare sector. Until now, we've
+  been pretty “heads down” with our work, and slow to communicate what we've been 
+  up to. But at last ... Delphi finally has a blog! This first post serves as an 
+  introduction of sorts. Future posts will dive deeper into our various projects.
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -13,17 +26,6 @@ authors:
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
-<p>Hello from the Delphi research group at Carnegie Mellon University!
-We’re a group of faculty, students, and staff, based primarily out of CMU
-together with strong collaborators from other universities and industry.
-Our group was founded in 2012 to advance the theory and practice of epidemic
-forecasting. Since March 2020, we have refocused efforts towards helping combat
-the COVID-19 pandemic, by supporting informed decision-making at federal, state,
-and local levels of government and in the healthcare sector. Until now, we’ve
-been pretty “heads down” with our work, and slow to communicate what we’ve been
-up to. But at last … Delphi finally has a blog! This first post serves as an
-introduction of sorts. Future posts will dive deeper into our various projects.</p>
-<!--more-->
 <p>Hello from the Delphi research group at Carnegie Mellon University!
 We’re a group of faculty, students, and staff, based primarily out of CMU
 together with strong collaborators from other universities and industry.
@@ -56,7 +58,7 @@ and making headway into dengue and norovirus.
 To learn about the work our group has done in the past,
 including some papers we’ve written, software tools we’ve built,
 and the real-time epidemiological data server we’ve been deploying since 2016,
-check out <a href="https://delphi.cmu.edu">our website</a>.</p>
+check out <a href="{{% ref "/" %}}">our website</a>.</p>
 <p>When the COVID-19 pandemic arrived, we focused all our attention on it.
 Our Delphi team
 quickly grew to 30+ members, and is still growing.
@@ -66,7 +68,7 @@ including Stanford, UC Davis, and USC, and also from industry.
 The pace has been intense and dizzying at times,
 and we’re infinitely grateful for the contributions
 and commitment of all our new members—we’d be nowhere without them.
-See <a href="https://covidcast.cmu.edu/covid19-response-team.html">here</a>
+See <a href="{{% ref "team" %}}">here</a>
 for a list of the Delphi team members.</p>
 <p>With new members comes a new breadth of expertise:
 our expertise now covers statistical modeling, computation,
@@ -133,13 +135,13 @@ beyond the typical publicly-available metrics like confirmed cases and deaths.</
 through partnerships with Facebook and Google, and others are based on
 aggregated counts from massive medical claims data sets through partners like
 Change Healthcare.</p></li>
-<li><p>We’ve built a <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">public
+<li><p>We’ve built a <a href="{{< apiref "api/covidcast.html" >}}">public
 API</a>,
-and <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html">R and Python
+and <a href="{{< apiref "api/covidcast_clients.html" >}}">R and Python
 packages</a>,
 to serve our indicators to researchers and the public. This API provides new
 data daily.</p></li>
-<li><p>We’ve built <a href="https://covidcast.cmu.edu/">interactive maps and graphics</a> to
+<li><p>We’ve built <a href="{{% ref "covidcast" %}}">interactive maps and graphics</a> to
 display our indicators, and better inform the public and decision-makers.</p></li>
 <li><p>We’ve developed forecasts of the future spread of the pandemic,
 validated them prospectively, and started submitting them to CDC.</p></li>

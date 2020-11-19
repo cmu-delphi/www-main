@@ -4,34 +4,31 @@
 <ul class="uk-list uk-list-divider uk-list-large">
 {{ range .Paginator.Pages }}
   <li>
-    <div uk-grid class="uk-grid-small">
-      <div class="uk-width-small">
-        <time class="uk-text-bold-600">{{ .Date.Format "Jan _2" }}</time>
-      </div>
-      <div class="uk-width-expand">
+    <div uk-grid class="uk-grid-small uk-position-relative">
+      <div class="uk-width-1-1@s uk-width-expand@m blog-list-content">
         <div>
+          <time class="uk-text-bold-600">{{ .Date.Format "Jan _2" }}</time>
           {{- range .Params.tags -}}
-            <a class="uk-text-bold-600 uk-text-uppercase uk-link-muted blog-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{.}}</a>
+            {{ partial "blog/tag.html" . }}
           {{- end -}}
         </div>
         <h2 class="uk-margin-small-top uk-text-bold-600"><a href="{{ .RelPermalink  }}" class="uk-link-heading">{{ .Title}}</a></h2>
         <p>
-          {{ .Summary | plainify }}
+          {{ .Summary }}
           {{- if .Truncated -}}
             <a href="{{ .RelPermalink  }}" class="uk-link-text uk-text-bold-600">&hellip; read more</a>
           {{ end}}
         </p>
-        <div class="authors">
+        <p>
             By {{ .Params.author }}
-        </div>
+        </p>
       </div>
-      <div class="uk-width-auto">
-        <img data-src="https://via.placeholder.com/800x600" width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img>
+      <div class="uk-width-1-1@s uk-width-auto@m blog-list-hero-image">
+        {{if isset .Params "heroimagethumb"}}
+        <a href="{{ .RelPermalink  }}"><img data-src="{{ .Params.heroImageThumb | relURL }}" width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img></a>
+        {{end}}
       </div>
   </div>
-
-
-    
   </li>
 {{ end }}
 </ul>

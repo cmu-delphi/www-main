@@ -2,7 +2,7 @@
 title: Delphi's COVID-19 Surveys
 ---
 
-In collaboration with Facebook, along with a consortium of universities and public health officials, the [Delphi group]({{< relref "/" >}}) at [Carnegie Mellon University](https://www.cmu.edu/) conducts research surveys to monitor the spread and impact of the COVID-19 pandemic in the United States. This survey is advertised through Facebook. It has run continuously since early April 2020, and about 70,000 people in the United States participate **every day**. Survey results are publicly available on our [COVIDcast map]({{< relref "covidcast" >}}) and in our [COVIDcast API]({{< apiref "covidcast.html" >}}).
+In collaboration with Facebook, along with a consortium of universities and public health officials, the [Delphi group]({{< relref "/" >}}) at [Carnegie Mellon University](https://www.cmu.edu/) conducts research surveys to monitor the spread and impact of the COVID-19 pandemic in the United States. This survey is advertised through Facebook. It has run continuously since early April 2020, and about 70,000 people in the United States participate **every day**. Survey results are publicly available on our [COVIDcast map]({{< relref "covidcast" >}}) and in our [COVIDcast API]({{< apiref "api/covidcast.html" >}}).
 
 Such detailed data has never before been available during a public health emergency, and it will help public health officials understand how to save lives and how to safely reopen public life. The data will also help researchers understand the social, economic, and health effects of the COVID-19 pandemic.
 
@@ -38,7 +38,7 @@ To account for the differences between Facebook users and the United States popu
 
 ## Where can I see the results?
 
-Our [COVIDcast map]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rate of COVID-like symptoms across the United States, and this data is also freely available for download through the [COVIDcast API]({{< apiref "covidcast.html">}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
+Our [COVIDcast map]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rate of COVID-like symptoms across the United States, and this data is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
 
 
 ### Blog posts and presentations
@@ -56,24 +56,30 @@ If you have used the survey data, or the aggregate data available in the COVIDca
 
 ## Can I use the surveys in my research?
 
-Yes! Aggregate data is available for download through the [COVIDcast API]({{< apiref "covidcast.html">}}), updated daily, and is archived in the [Amazon Web Services data lake](https://aws.amazon.com/covid-19-data-lake/). [R and Python clients are available]({{< apiref "covidcast_clients.html">}}) for the API. Aggregate data does not include any individual survey responses, only averages over counties and other geographic areas, and does not include all survey questions. See the [API documentation]({{< apiref "covidcast-signals/fb-survey.html">}}) for details on how to access the data, what survey questions are available, and how our aggregate values are calculated. We recommend that everyone using the COVIDcast API [subscribe to our mailing list](https://lists.andrew.cmu.edu/mailman/listinfo/delphi-covidcast-api) for updates on the API and the data it includes.
+Yes! Aggregate data is available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}), updated daily, and is archived in the [Amazon Web Services data lake](https://aws.amazon.com/covid-19-data-lake/). [R and Python clients are available]({{< apiref "api/covidcast_clients.html">}}) for the API. Aggregate data does not include any individual survey responses, only averages over counties and other geographic areas, and does not include all survey questions. See the [API documentation]({{< apiref "api/covidcast-signals/fb-survey.html">}}) for details on how to access the data, what survey questions are available, and how our aggregate values are calculated. We recommend that everyone using the COVIDcast API [subscribe to our mailing list](https://lists.andrew.cmu.edu/mailman/listinfo/delphi-covidcast-api) for updates on the API and the data it includes.
 
 Access to de-identified individual survey responses is available to qualified research groups who sign Data Use Agreements protecting the confidentiality of survey responses. If you are interested in using the data for your research, you can [start the process by submitting this form requesting a DUA from Facebook](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/). The available data and survey waves are [documented here](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/). Also, if you have specific research questions that are not addressed by the current survey questions, contact us. We cannot accommodate all requests, since the surveys must be kept short and face legal and ethical constraints, so we will try to prioritize important topics for public health.
 
 ## Who can I contact?
 
-- Questions from survey respondents about consent, research ethics, or how their data is used: [delphi-admin-survey-fb@lists.andrew.cmu.edu](mailto:delphi-admin-survey-fb@lists.andrew.cmu.edu)
-- Getting access to survey data for research: [complete this form](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
-- Media inquiries:
-  - [Byron Spice](mailto:bspice@cs.cmu.edu)  
-    Director, Media Relations  
-    School of Computer Science  
-    Carnegie Mellon University
-  - [Jason Maderer](mailto:maderer@cmu.edu)  
-    Senior Director, Media Relations  
-    Carnegie Mellon University
-- All other questions:
-   - [Alex Reinhart](mailto:areinhar@stat.cmu.edu)  
-     Assistant Teaching Professor  
-     Department of Statistics & Data Science  
-     Carnegie Mellon University
+Questions from survey respondents about consent, research ethics, or how their data is used: [delphi-admin-survey-fb@lists.andrew.cmu.edu](mailto:delphi-admin-survey-fb@lists.andrew.cmu.edu)
+
+Getting access to survey data for research: [complete this form](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
+
+### Media inquiries:
+
+[Byron Spice](mailto:bspice@cs.cmu.edu)  
+Director, Media Relations  
+School of Computer Science  
+Carnegie Mellon University
+
+[Jason Maderer](mailto:maderer@cmu.edu)  
+Senior Director, Media Relations  
+Carnegie Mellon University
+
+### All other questions:
+
+[Alex Reinhart](mailto:areinhar@stat.cmu.edu)  
+Assistant Teaching Professor  
+Department of Statistics & Data Science  
+Carnegie Mellon University

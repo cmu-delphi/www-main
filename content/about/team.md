@@ -1,34 +1,41 @@
 ---
 title: Delphi Team Members
+others: |
+ MLD administrators Christy Melucci and Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
+abbreviations:
+- CompBio is Computational Biology
+- LTI is Language Technologies Institute
+- MLD is Machine Learning Department
+- Stat is Statistics & Data Science
+- HCII is Human-Computer Interaction Institute
+
+layout: team
 ---
 
-Thank you to all the students, faculty, and staff who have contributed to the COVIDcast project.
+## Leadership
+
+{{<team team="leadership" small="2" >}}
 
 ## Core Members
 
-{{<covidcastteam team="core" >}}
+{{<team team="core" >}}
 
 ## Interns
 
-{{<covidcastteam team="interns" >}}
+{{<team team="interns" >}}
 
 ## Contractors
 
-{{<covidcastteam team="contractors" >}}
+{{<team team="contractors" >}}
 
 ## Advisors
 
-{{<covidcastteam team="advisors" >}}
+{{<team team="advisors" >}}
 
 ## Contributors
 
-{{<covidcastteam team="contributors" >}}
+{{<team team="contributors" >}}
 
 ## Past Members
 
-{{<covidcastteam team="past" >}}
-
-
-_Abbreviations: CompBio is Computational Biology; LTI is Language Technologies Institute; MLD is Machine Learning Department; Stat is Statistics & Data Science; HCII is Human-Computer Interaction Institute_
-
-**We have many others to thank for their contributions, at various stages of the project**: MLD administrators Christy Melucci and Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
+{{<team team="past" >}}

@@ -8,10 +8,11 @@ disqusShortname = ""
 relativeURLs = false
 
 [permalinks]
-    post = "/:year/:month/:day/:slug/"
+    blog = "/blog/:year/:month/:day/:slug/"
 [[menu.main]]
     identifier = "about"
     name = "About"
+    url = "/about"
     weight = 1
 [[menu.main]]
     parent = "about"
@@ -27,6 +28,7 @@ relativeURLs = false
     identifier = "covidcast"
     name = "COVIDcast"
     pre = "solid/map"
+    url = "/covidcast"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
@@ -37,17 +39,22 @@ relativeURLs = false
     parent = "covidcast"
     name = "Surveys"
     url = "/covidcast/surveys"
-    weight = 1
+    weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "Methods"
+    name = "Data & Methods"
     url = "/covidcast/methodology"
-    weight = 2
+    weight = 3
+[[menu.main]]
+    parent = "covidcast"
+    name = "Release Log"
+    url = "/covidcast/release-log"
+    weight = 4
 [[menu.main]]
     parent = "covidcast"
     name = "Terms Of Use"
     url = "/covidcast/terms-of-use"
-    weight = 3
+    weight = 5
 [[menu.main]]
     identifier = "blog"
     name = "Blog"
@@ -63,14 +70,14 @@ relativeURLs = false
 [[menu.main]]
     identifier = "api"
     name = "API"
-    pre = "solid/code-branch"
+    pre = "solid/database"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 5
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
     showReadMore = true
-    apiUrl = "https://cmu-delphi.github.io/delphi-epidata/api"
+    apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
 
     [params.logo]
     url = "delphi_logo.png"
