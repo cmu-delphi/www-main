@@ -12,7 +12,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
-    pre = "solid/users"
+    pre = "solid/info-circle"
     url = "/about"
     weight = 1
 [[menu.main]]
@@ -59,7 +59,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "flu"
     name = "Flu and Other Diseases"
-    pre = "solid/disease"
+    pre = "solid/virus"
     url = "/flu"
     weight = 3
 [[menu.main]]
