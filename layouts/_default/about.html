@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+<div>
+    Our Mission
+    <h1>{{ .Summary }}</h1>
+</div>
+<div>
+    {{ .Content }}
+</div>
+
+<h2>Research and White Papers</h2>
+{{partial "research-papers.html" .}}
+
+{{ end }}

@@ -53,9 +53,6 @@ We are also part of a larger, University of Pittsburgh-based
 
 See the list at [covidcast.cmu.edu](https://covidcast.cmu.edu/covid19-response-team.html).
 
-### Research and White Papers
-
-{{<research>}}
 
 ### We are thankful for generous financial support from
 

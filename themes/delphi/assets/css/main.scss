@@ -128,3 +128,51 @@
 .team-member > img {
     border-radius: 5px;
 }
+
+.card-grid {
+    
+}
+
+.card-grid-item {
+    position: relative;
+    margin: 1em 8em;
+    border-radius: 8px;
+    
+    .uk-card-footer {
+        border-top: none;
+    }
+}
+
+.card-grid-item-img {
+    width: 12.5em;
+    border-radius: 8px 0 0 8px;
+    object-fit: cover;
+}
+
+.card-grid-item-date {
+    position: absolute;
+    left: -8em;
+    font-weight: 600;
+}
+
+.arrow-link {
+    display: flex;
+    align-items: center;
+    
+    > .inline-svg-icon {
+        border-radius: 50%;
+        padding: 5px;
+        border: 1px solid #232735;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1em;
+        
+        > svg {
+          width: 14px;
+        }
+    }
+}
