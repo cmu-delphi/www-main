@@ -16,7 +16,7 @@ summary: |
   forecasting. Since March 2020, we have refocused efforts towards helping combat 
   the COVID-19 pandemic, by supporting informed decision-making at federal, state,
   and local levels of government and in the healthcare sector. Until now, we've
-  been pretty "heads down" with our work, and slow to communicate what we've been 
+  been pretty “heads down” with our work, and slow to communicate what we've been 
   up to. But at last ... Delphi finally has a blog! This first post serves as an 
   introduction of sorts. Future posts will dive deeper into our various projects.
 ---

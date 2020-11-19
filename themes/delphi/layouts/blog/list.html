@@ -14,7 +14,7 @@
         </div>
         <h2 class="uk-margin-small-top uk-text-bold-600"><a href="{{ .RelPermalink  }}" class="uk-link-heading">{{ .Title}}</a></h2>
         <p>
-          {{ .Summary | plainify }}
+          {{ .Summary }}
           {{- if .Truncated -}}
             <a href="{{ .RelPermalink  }}" class="uk-link-text uk-text-bold-600">&hellip; read more</a>
           {{ end}}
