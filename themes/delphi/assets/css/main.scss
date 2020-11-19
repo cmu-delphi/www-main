@@ -135,8 +135,8 @@
 
 .card-grid-item {
     position: relative;
-    margin: 1em 8em;
     border-radius: 8px;
+    margin: 3em 0 0 1em;
     
     .uk-card-footer {
         border-top: none;
@@ -144,15 +144,36 @@
 }
 
 .card-grid-item-img {
-    width: 12.5em;
-    border-radius: 8px 0 0 8px;
     object-fit: cover;
+    width: 100%;
+    height: 8em;
+    display: block;
+    border-radius: 8px 8px 0 0;
 }
 
 .card-grid-item-date {
     position: absolute;
-    left: -8em;
     font-weight: 600;
+    top: -2em;
+    left: 0;
+}
+
+@media (min-width: $breakpoint-small) {
+    .card-grid-item {
+        display: flex;
+        margin: 1em 8em;
+    }
+
+    .card-grid-item-img {
+        width: 12.5em;
+        height: unset;
+        border-radius: 8px 0 0 8px;
+    }
+
+    .card-grid-item-date {
+        top: 0;
+        left: -8em;
+    }
 }
 
 .arrow-link {
