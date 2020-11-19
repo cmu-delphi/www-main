@@ -129,10 +129,6 @@
     border-radius: 5px;
 }
 
-.card-grid {
-    
-}
-
 .card-grid-item {
     position: relative;
     border-radius: 8px;
@@ -161,7 +157,7 @@
 @media (min-width: $breakpoint-small) {
     .card-grid-item {
         display: flex;
-        margin: 1em 8em;
+        margin: 1em 1em 0 8em;
     }
 
     .card-grid-item-img {
@@ -173,6 +169,12 @@
     .card-grid-item-date {
         top: 0;
         left: -8em;
+    }
+}
+
+@media (min-width: $breakpoint-large) {
+    .card-grid-item {
+        margin-right: 8em;
     }
 }
 
@@ -195,5 +197,23 @@
         > svg {
           width: 14px;
         }
+    }
+}
+
+.about-collaborators {
+    background: #FAFAFC;
+    padding: 0;
+    padding: 2em 0;
+}
+
+.about-collaborators-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    
+    > div {
+        margin: 1em 0;
+        text-align: center;
     }
 }
