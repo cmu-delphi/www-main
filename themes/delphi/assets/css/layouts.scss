@@ -1,3 +1,5 @@
+$grid-gap: (32/1440)*100%;
+
 .content-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
