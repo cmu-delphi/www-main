@@ -12,6 +12,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
+    pre = "solid/users"
     url = "/about"
     weight = 1
 [[menu.main]]
