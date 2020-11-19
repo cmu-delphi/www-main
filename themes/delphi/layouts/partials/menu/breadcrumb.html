@@ -1,0 +1,9 @@
+{{ if .Parent }}
+{{ if (not .Parent.IsHome) }}
+<!--hugo doesn't support shortcut evaluation of ifs, thats why the nested one -->
+<ul class="uk-breadcrumb uk-text-uppercase">
+  <li><a href="{{ .Parent.Permalink }}">{{partial "font-awesome.html" "solid/angle-left" }}{{ .Parent.LinkTitle }}</a></li>
+  <li><span>{{ .LinkTitle }}</span></li>
+</ul>
+{{ end }}
+{{ end }}

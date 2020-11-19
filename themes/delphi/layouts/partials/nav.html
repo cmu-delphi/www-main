@@ -8,7 +8,7 @@
         {{ range .Site.Menus.main.ByWeight }}
         <li class="{{ if (eq $currentPage.Section .Identifier) }}nav-active{{ end }}">
           {{ if .HasChildren }}
-            <a href="#">
+            <a href="{{ .URL | relLangURL }}">
             {{ partial "menu/item.html" . }}
             {{ partial "font-awesome.html" "solid/angle-down" }}
             </a>
@@ -54,4 +54,4 @@
         {{ end }}
       </ul>
     </div>
-</nav> 
+</nav>
