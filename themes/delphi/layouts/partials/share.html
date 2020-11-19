@@ -1,17 +1,23 @@
 <div class="uk-flex uk-flex-start">
     <a title="Share on Twitter" target="_blank"
-        rel="noopener noreferrer" href="https://twitter.com/share?{{ (querify "text" .Title "url" .Permalink) | safeURL }}"
-        class="uk-margin-small-right"
-        uk-icon="twitter"><span aria-hidden="true">Twitter</span>
+        rel="noopener noreferrer" href="https://twitter.com/share?{{ (querify "text" .LinkTitle "url" .Permalink) | safeURL }}"
+        class="uk-margin-small-right uk-link-muted"
+        >
+        {{partial "font-awesome" "brands/twitter"}}
+        <span aria-hidden="true">Twitter</span>
     </a>
     <a title="Share on LinkedIn" target="_blank"
         rel="noopener noreferrer"
-        href="https://www.linkedin.com/shareArticle?{{ (querify "mini" "true" "url" .Permalink "title" .Title) | safeURL }}"
-        class="uk-margin-small-right"
-        uk-icon="linkedin"><span aria-hidden="true">LinkedIn</span>
+        href="https://www.linkedin.com/shareArticle?{{ (querify "mini" "true" "url" .Permalink "title" .LinkTitle) | safeURL }}"
+        class="uk-margin-small-right uk-link-muted">
+        {{partial "font-awesome" "brands/linkedin"}}
+        <span aria-hidden="true">LinkedIn</span>
     </a>
     <a title="Share on Facebook" target="_blank"
         rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?{{ (querify "u" .Permalink) | safeURL }}"
-        uk-icon="facebook"><span aria-hidden="true">Facebook</span>
+        class=" uk-link-muted"
+        >
+        {{partial "font-awesome" "brands/facebook"}}
+        <span aria-hidden="true">Facebook</span>
     </a>
 </div>

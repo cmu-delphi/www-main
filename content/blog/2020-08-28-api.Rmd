@@ -6,6 +6,40 @@ tags: ["COVIDcast API", "COVIDcast", "R", "Python"]
 authors:
 - kathryn
 - alex
+heroImage: /blog/images/blog-lg-img_Accessing Open COVID-19.png
+heroImageThumb: /blog/images/blog-thumb-img_Accessing Open COVID-19.png
+summary: |
+  One of our primary initiatives at the Delphi COVIDcast project
+  has been to curate a diverse set of COVID-related data streams,
+  and to make them freely available through our
+  COVIDcast Epidata API.
+  These include both novel signals that we have collected and analyzed ourselves,
+  such as our symptom survey distributed by Facebook
+  to its users, Google's symptom survey whose results are delivered to us,
+  the percentage of doctor's visits due to COVID-like illness,
+  and results from Quidel's antigen tests;
+  and also existing signals, such as the confirmed case counts
+  and deaths reported by USA Facts and Johns Hopkins University.
+  The COVIDcast API freely provides researchers and decision-makers
+  with the data they need to conduct their work, and
+  is conveniently accessible via easy-to-use Python
+  and R packages.
+acknowledgements: |
+  The COVIDcast API builds on the Epidata API, built by
+  Delphi founding member David Farrow. Kathryn Mazaitis leads Delphi's engineering
+  team, overseeing the COVIDcast API and all related operations. Brian Clark
+  manages the API infrastructure, with significant help from Wael Al Saeed, Eu
+  Jing Chua, Samuel Gratzl, and George Haff. Alex Reinhart maintains the COVIDcast
+  API clients, with major contributions from Andrew Chin and Ryan Tibshirani. Ryan
+  and Roni Rosenfeld secured many data partnerships, with key support from CMU's
+  legal team. Last but not least, building the COVIDcast signals themselves was
+  (and still is) a huge team effort: many Delphi members contributed code and
+  expertise to ingest and serve data on the COVIDcast API, including Taylor
+  Arnold, Logan Brooks, Eu Jing Chua, Addison Hu, Sangwon Hyun, Maria Jahja, Jimi
+  Kim, Zachary Lipton, Natalia Lombardi de Oliveira, Lester Mackey, Pratik Patil,
+  Samyak Rajanala, Roni Rosenfeld, Aaron Rumack, James Sharpnack, Noah Simon,
+  Jingjing Tang, Robert Tibshirani, Ryan Tibshirani, Valérie Ventura, Larry Wasserman, and
+  Jeremy Weiss.
 output:
   html_document:
     code_folding: hide
@@ -15,32 +49,14 @@ output:
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-One of our primary initiatives at the Delphi COVIDcast project
-has been to curate a diverse set of COVID-related data streams,
-and to make them freely available through our
-COVIDcast Epidata API.
-These include both novel signals that we have collected and analyzed ourselves,
-such as our symptom survey distributed by Facebook
-to its users, Google's symptom survey whose results are delivered to us,
-the percentage of doctor's visits due to COVID-like illness,
-and results from Quidel's antigen tests;
-and also existing signals, such as the confirmed case counts
-and deaths reported by USA Facts and Johns Hopkins University.
-The COVIDcast API freely provides researchers and decision-makers
-with the data they need to conduct their work, and
-is conveniently accessible via easy-to-use Python
-and R packages.
-
-<!--more-->
-
 One of our primary initiatives at the Delphi COVIDcast project 
-([learn more about our organization here](https://delphi.cmu.edu/blog/2020/08/10/hello-world/))
+([learn more about our organization here](`r blogdown::shortcode_html("ref", "2020-08-10-hello-world")`))
 has been to curate a diverse set of COVID-related data streams, 
 and to make them freely available through our 
-[COVIDcast Epidata API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+[COVIDcast Epidata API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`).
 These include both novel signals that we have collected and analyzed ourselves, 
-such as our symptom survey [distributed by Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
-to its users, [Google's symptom survey](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/) whose results are delivered to us,
+such as our symptom survey [distributed by Facebook](`r blogdown::shortcode_html("ref", "2020-09-18-google-survey")`)
+to its users, [Google's symptom survey](`r blogdown::shortcode_html("ref", "2020-09-18-google-survey")`) whose results are delivered to us,
 the percentage of doctor's visits due to COVID-like illness,
 and results from Quidel's antigen tests;
 and also existing signals, such as the confirmed case counts 
@@ -53,7 +69,7 @@ and [R](https://cmu-delphi.github.io/covidcast/covidcastR/) packages.
 
 We have always made our code, data and estimates freely and publicly available, from the very beginning of our work on flu back in 2013, well before the COVID pandemic.
 Back in 2016, Delphi member David Farrow designed and implemented the [Epidata
-API](https://cmu-delphi.github.io/delphi-epidata/) to share data from our numerous surveillance
+API](`r blogdown::shortcode_html("apiref", "/")`) to share data from our numerous surveillance
 streams for influenza and other diseases, and pioneered many of the API concepts
 discussed below. Now that COVID-19 is here, our collaborations with partner
 organizations in technology and healthcare enable us to include a
@@ -78,7 +94,7 @@ This recognition caused us to shift priorities.
 Before we could build forecasts and other statistical models,
 we needed to rapidly develop new relevant data streams. 
 This effort grew into the COVIDcast project---see our [introductory
-post](https://delphi.cmu.edu/blog/2020/08/10/hello-world/) 
+post](`r blogdown::shortcode_html("ref", "2020-08-10-hello-world")`) 
 for more about our efforts since March.
 
 The data streams that we work with can be roughly mapped
@@ -150,19 +166,19 @@ cover most levels of the severity pyramid and include:
   since April 6. Our survey averages over 70,000 respondents each day, making
   it---along with its [international sister survey](https://covidmap.umd.edu/)
   run by University of Maryland---the largest public health survey ever conducted. 
-  Our [previous blog post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/)
+  Our [previous blog post](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`)
   showed how the survey can indicate COVID-19 activity,
   and preliminary analysis also suggests [it can help forecast COVID-19
-  cases](https://delphi.cmu.edu/blog/2020/09/21/can-symptoms-surveys-improve-covid-19-forecasts/).
-  See our [surveys site](https://covidcast.cmu.edu/surveys.html)
+  cases](`r blogdown::shortcode_html("ref", "2020-09-21-forecast-demo")`).
+  See our [surveys site](`r blogdown::shortcode_html("ref", "surveys")`)
   for more on the survey, its questions, and getting access to data.
 * Massive surveys we run through Google:
   From April 11 to May 14, 2020, Delphi conducted a single-question symptoms survey
   through Google. It reached over 100,000 respondents daily during its 
   short run, and was a surprisingly informative measure 
   of pandemic activity preceding medical contact. For more, see our 
-  [previous blog post](https://delphi.cmu.edu/blog/2020/09/18/covid-19-symptom-surveys-through-google/), 
-  or our [technical documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-survey.html).
+  [previous blog post](`r blogdown::shortcode_html("ref", "2020-09-18-google-survey")`), 
+  or our [technical documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/google-survey.html")`).
   As explained in our past blog post, Delphi is currently considering new uses
   for these surveys.
 * Insurance claims: Medical insurance claims include diagnostic codes,
@@ -174,15 +190,15 @@ cover most levels of the severity pyramid and include:
   We use this data to construct signals
   reflecting COVID activity in both outpatient and inpatient visits; see our
   technical documentation sites for 
-  [doctor's visits](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/doctor-visits.html)
-  and [hospital admissions](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html)
+  [doctor's visits](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/doctor-visits.html")`)
+  and [hospital admissions](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/hospital-admissions.html")`)
   for more details.
 * Quidel COVID antigen tests: Quidel is a national provider of networked lab
   testing devices, and began making de-identified records of their COVID-19 antigen
   tests available to us in early May. This data source fills an important gap
   because many public testing data sources only include PCR tests, not antigen
   tests.  Our [technical
-  documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/quidel.html#covid-19-tests)
+  documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/quidel.html#covid-19-tests")`)
   gives more details.
 * Google search trends:
   We query the Google Health Trends API
@@ -192,7 +208,7 @@ cover most levels of the severity pyramid and include:
   which emerged as a specific symptom of COVID-19. 
   More details, including the search terms and topics we analyze,
   are available in our 
-  [technical documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/ght.html).
+  [technical documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/ght.html")`).
 
 Additionally, we host the following more widely-available signals in our API for the
 convenience of the research community, and to provide revision tracking:
@@ -209,7 +225,7 @@ at the county level across the United States.
 We also aggregate our signals to metropolitan statistical areas and states, and some signals to Hospital Referral Regions (HRRs). 
 For a full list of all data streams, see our 
 [COVIDcast signal documentation
-site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html).
+site](`r blogdown::shortcode_html("apiref", "api/covidcast_signals.html")`).
 The software we've developed to obtain and aggregate this data is open-source,
 shared in our [covidcast-indicators GitHub
 repository](https://github.com/cmu-delphi/covidcast-indicators).
@@ -311,7 +327,7 @@ A massive database of COVID-19 data is, of course,
 of no use if nobody can access it. 
 We provide several ways to access COVIDcast data.
 
-First, the [public COVIDcast map](https://covidcast.cmu.edu/) 
+First, the [public COVIDcast map](`r blogdown::shortcode_html("ref", "covidcast")`) 
 provides a selection of our signals, 
 and includes an "Export Data" tab that can 
 pull a selected signal and download it as a CSV. 
@@ -325,10 +341,10 @@ data analysis in either language.
 The first step of using the packages to acquire the data is to identify the
 source and signal name for the data you want to analyze. Suppose, for example,
 that you browse the [COVIDcast signal
-documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html)
+documentation](`r blogdown::shortcode_html("apiref", "api/covidcast_signals.html")`)
 and decide you would like to conduct an analysis of a hospital admissions
 signal. According to [its documentation
-page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/hospital-admissions.html),
+page](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/hospital-admissions.html")`),
 this source is called `hospital-admissions`, and there are several available
 signals to choose from. Reviewing the technical details, you decide
 `smoothed_adj_covid19` fits your needs best, because it removes day-of-week
@@ -378,9 +394,9 @@ which can quickly produce a Pandas data frame.
 For example, here we fetch the estimated percentage 
 of people in each state who know someone who is sick, 
 based on Delphi's [symptom
-surveys](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/).
+surveys](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`).
 According to the [relevant documentation
-page](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html),
+page](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html")`),
 this is the `fb-survey` data source's `smoothed_hh_cmnty_cli` signal.
 (Click the "Code" button to see the Python code used to produce this example.)
 
@@ -419,17 +435,17 @@ surveys---for one county in the United States between April 6 and April
 10, 2020. That county is Alameda County, CA, which has the FIPS code 06001.
 
 Query syntax is defined on our [API documentation
-site](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), and you
+site](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`), and you
 can use any programming language that supports making HTTP requests---which is
 most programming languages---to fetch up-to-date data.
 
 ## Putting the API to Work
 
-The [COVIDcast API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) 
+The [COVIDcast API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`) 
 provides unified access to numerous COVID data streams,
-which can be browsed through our [interactive map](https://covidcast.cmu.edu/) 
+which can be browsed through our [interactive map](`r blogdown::shortcode_html("ref", "covidcast")`) 
 and easily accessed through our 
-[R and Python packages](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html).
+[R and Python packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`).
 Unlike most other sources of COVID data,
 it tracks the complete revision history of every signal, 
 allowing historical reconstructions of
@@ -455,19 +471,3 @@ applies scan statistics algorithms to COVIDcast survey data
 to detect statistically significant clusters.
 
 We hope to see you join this list soon!
-
-**Acknowledgments.** *The COVIDcast API builds on the Epidata API, built by
-Delphi founding member David Farrow. Kathryn Mazaitis leads Delphi's engineering
-team, overseeing the COVIDcast API and all related operations. Brian Clark
-manages the API infrastructure, with significant help from Wael Al Saeed, Eu
-Jing Chua, Samuel Gratzl, and George Haff. Alex Reinhart maintains the COVIDcast
-API clients, with major contributions from Andrew Chin and Ryan Tibshirani. Ryan
-and Roni Rosenfeld secured many data partnerships, with key support from CMU's
-legal team. Last but not least, building the COVIDcast signals themselves was
-(and still is) a huge team effort: many Delphi members contributed code and
-expertise to ingest and serve data on the COVIDcast API, including Taylor
-Arnold, Logan Brooks, Eu Jing Chua, Addison Hu, Sangwon Hyun, Maria Jahja, Jimi
-Kim, Zachary Lipton, Natalia Lombardi de Oliveira, Lester Mackey, Pratik Patil,
-Samyak Rajanala, Roni Rosenfeld, Aaron Rumack, James Sharpnack, Noah Simon,
-Jingjing Tang, Robert Tibshirani, Ryan Tibshirani, Valérie Ventura, Larry Wasserman, and
-Jeremy Weiss.*

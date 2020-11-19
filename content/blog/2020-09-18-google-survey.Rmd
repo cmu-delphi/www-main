@@ -5,34 +5,44 @@ date: 2020-09-18
 tags: ["symptom surveys", "COVIDcast", "R"]
 authors:
 - ryan
+heroImage: /blog/images/blog-lg-img_google-survey-post.png
+heroImageThumb: /blog/images/blog-thumb-img_google-survey-post.png
+summary: |
+  Since April 2020, in addition to our massive daily survey advertised on 
+  Facebook, we've been running (even-more-massive) surveys through Google to 
+  track the spread of COVID-19 in the United States. 
+  At its peak, our Google survey was taken by over 1.2 million people in a single 
+  day, and over its first month in operation, averaged over 600,000 daily 
+  respondents. In mid-May, we paused daily dissemination of this survey in order 
+  to focus on our (longer, more complex) survey through Facebook,
+  but we plan to bring back the Google survey this fall. 
+  This short post covers some key differences between our Google and Facebook 
+  surveys, explains the backstory behind the "CLI-in-community" question
+  as it arose through our collaboration with Google, 
+  and shares some of our thinking about next steps for the Google survey. 
+acknowledgements: |
+  Ryan Tibshirani wrote the initial code for producing 
+  estimates from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de 
+  Oliveira, and Lester Mackey greatly extended and improved this codebase, and
+  they developed, along with Ryan, the underlying statistical methodology. Ryan 
+  came up with the idea of running the surveys, and worked with Google to make 
+  this a reality. On the Google side, Brett Slatkin and Hal Varian have been key 
+  collaborators; Brett wrote the code to get daily survey data over to Delphi's 
+  estimation pipeline; and both contributed numerous important ideas at various 
+  stages of the project.
 output:
   html_document:
     code_folding: hide
 ---
 
-Since April 2020, in addition to our massive daily survey advertised on 
-Facebook, we've been running (even-more-massive) surveys through Google to 
-track the spread of COVID-19 in the United States. 
-At its peak, our Google survey was taken by over 1.2 million people in a single 
-day, and over its first month in operation, averaged over 600,000 daily 
-respondents. In mid-May, we paused daily dissemination of this survey in order 
-to focus on our (longer, more complex) survey through Facebook,
-but we plan to bring back the Google survey this fall. 
-This short post covers some key differences between our Google and Facebook 
-surveys, explains the backstory behind the "CLI-in-community" question
-as it arose through our collaboration with Google, 
-and shares some of our thinking about next steps for the Google survey. 
-
-<!--more-->
-
 Since April 2020, in addition to our [massive daily survey advertised on
-Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/), 
+Facebook](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`), 
 we've been running (even-more-massive) surveys through Google to track the 
 spread of COVID-19 in the United States. At its peak, our Google survey was 
 taken by over 1.2 million people in a single day, and over its first month in 
 operation, averaged about 600,000 daily respondents. As usual, we make
 aggregated data from this survey available through our [COVIDcast
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
+API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`).
 
 In mid-May, we decided to pause daily dissemination of this survey in order to
 focus on our (longer, more complex) survey through Facebook, 
@@ -48,7 +58,7 @@ and shares some of our thinking about next steps for the Google survey.
 Back in March 2020, around the time we began discussions with Facebook about 
 COVID-19 symptom surveys, we pitched the same idea to Google. 
 Our motivation, [as we explained in our last 
-post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys), 
+post](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#why-run-these-surveys")`), 
 has been to produce real-time, county-level data streams of self-reported COVID 
 symptoms that can potentially serve as **early indicators** of COVID activity in 
 the US. As we noted in that post, we weren't the only data scientists
@@ -112,7 +122,7 @@ the subject is asked to report on someone else. The traditional view seems to
 be that proxy questions can undermine survey data quality, but in our setting 
 it's critical: not only does it provide a safeguard against revealing personal
 health information, it turned out to deliver [much higher
-correlations](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#basic-correlation-analysis) 
+correlations](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#basic-correlation-analysis")`) 
 with case rates than the direct (non-proxy) question.
 
 To give you a feel for the data, below we plot 
@@ -209,7 +219,7 @@ The actual sampling scheme behind our Google survey is more complicated,
 and involves two-level stratification, across both counties and states.
 For details, including those on statistical estimation, 
 visit our [COVIDcast signals 
-documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-survey.html).
+documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/google-survey.html")`).
 On May 15, we paused our Google survey to focus on our Facebook survey, 
 which is both longer and more complex. 
 Importantly, the latter is *not* a replacement for the former, 
@@ -247,7 +257,7 @@ correlations between the Facebook signal and case rates.
 This is no doubt encouraging, especially because we'd hope
 that the Google correlations would have only improved later in
 the year (as did the Facebook correlations, which we [previously 
-suggested](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#basic-correlation-analysis)
+suggested](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#basic-correlation-analysis")`)
 could have been due to the increase in the diversity of county-level
 case rates around mid-June).
 
@@ -265,7 +275,7 @@ analysis for when we work on deploying these two surveys in tandem; for now, we
 emphasize that this observation reiterates the importance of focusing on 
 *time-varying trends* in the survey signals, not the signal values themselves 
 (a point we [made in our last 
-post](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#why-run-these-surveys)). 
+post](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#why-run-these-surveys")`)). 
 Here, the self-reporting aspect must somehow be creating greatly different 
 levels of bias in the two surveys; in an absolute sense, the subsequent 
 estimates of % CLI-in-community strongly disagree, so both can't be right, and 
@@ -343,7 +353,7 @@ the two survey schemes are complementary,
 and could be used synergistically.
 Our Facebook survey is a continuously-running, wide-reaching instrument
 that provides answers to a [rich set of
-questions](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/coding.html)
+questions](`r blogdown::shortcode_html("apiref", "symptom-survey/coding.html")`)
 (beyond COVID-related symptoms, it asks about
 contacts, risk factors, behavior, and demographics).
 When we find something interesting that warrants follow-up
@@ -355,13 +365,3 @@ terminology!). This could be done automatically
 problem](https://en.wikipedia.org/wiki/Multi-armed_bandit))
 or manually (in collaboration with partners in public health and/or data
 journalists). Stay tuned to the Delphi blog for updates.
-
-**Acknowledgements.** *Ryan Tibshirani wrote the initial code for producing 
-estimates from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de 
-Oliveira, and Lester Mackey greatly extended and improved this codebase, and
-they developed, along with Ryan, the underlying statistical methodology. Ryan 
-came up with the idea of running the surveys, and worked with Google to make 
-this a reality. On the Google side, Brett Slatkin and Hal Varian have been key 
-collaborators; Brett wrote the code to get daily survey data over to Delphi's 
-estimation pipeline; and both contributed numerous important ideas at various 
-stages of the project.*
