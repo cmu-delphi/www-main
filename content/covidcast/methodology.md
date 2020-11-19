@@ -2,7 +2,7 @@
 title: About Our Data and Methodology
 ---
 
-The COVID-19 indicators visualized on our map are derived from the data sources described below. These are all publicly available on the [COVIDcast endpoint]({{< apiref "covidcast.html">}}) of our public [Epidata API]({{< apiref "README.html">}}). The API documentation includes [full technical detail]({{< apiref "covidcast_signals.html">}}) on how these indicators are calculated.
+The COVID-19 indicators visualized on our map are derived from the data sources described below. These are all publicly available on the [COVIDcast endpoint]({{< apiref "api/covidcast.html">}}) of our public [Epidata API]({{< apiref "api/README.html">}}). The API documentation includes [full technical detail]({{< apiref "api/covidcast_signals.html">}}) on how these indicators are calculated.
 
 
 ## Active Indicators 
@@ -19,7 +19,7 @@ The COVID-19 indicators visualized on our map are derived from the data sources 
 
 ## About Our Methodology
 
-Full technical documentation on the sources of our data, and how our estimates are constructed, is available in the [COVIDcast API data source documentation]({{< apiref "covidcast_signals.html">}}).
+Full technical documentation on the sources of our data, and how our estimates are constructed, is available in the [COVIDcast API data source documentation]({{< apiref "api/covidcast_signals.html">}}).
 
 ### Live Estimates
 

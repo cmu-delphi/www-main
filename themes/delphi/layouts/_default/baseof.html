@@ -5,11 +5,8 @@
     <body>
         {{ partial "nav.html" . }}
         <div class="content">
-            {{ partial "header.html" . }}
-            <div>
-                {{ block "main" . }}
-                {{ end }}
-            </div>
+            {{ block "main" . }}
+            {{ end }}
         </div>
         {{ partial "footer.html" . }}
     </body>
