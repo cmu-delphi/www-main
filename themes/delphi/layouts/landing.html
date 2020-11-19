@@ -1,44 +1,56 @@
 {{ define "main" }}
 <div>
     <div class="main-carousel">
-        <div class="carousel-entry">
-            <h2>OUR TOOLS</h2>
-            <p>Real-time Indicators of COVID-19 Activity</p>
-            <a href="/covidcast">Explore COVIDcast</a>
+        <div class="content">
+            <div class="content-grid">
+                <div class="carousel-entry grid-2-8">
+                    <h2>OUR TOOLS</h2>
+                    <p>Real-time Indicators of COVID-19 Activity</p>
+                    {{partial "font-awesome.html" "regular/arrow-alt-circle-right"}}
+                    <a href="/covidcast">Explore COVIDcast</a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="content">
-        <div class="content-grid">
-            <div class="grid-2-8">
-                <h2>    
-                    OUR MISSION
-                </h2>
-                <p>
-                    Develop the theory and practice of 
-                    epidemiological forecasting, with a long-term 
-                    vision of seeing this technology become as 
-                    universally accepted and useful as weather 
-                    forecasting is today
-                </p>
+    <div class="white-area">
+        <div class="content">
+            <div class="content-grid">
+                <div class="landing-entry grid-2-10">
+                    <h2>    
+                        OUR MISSION
+                    </h2>
+                    <p>
+                        Develop the theory and practice of 
+                        epidemiological forecasting, with a long-term 
+                        vision of seeing this technology become as 
+                        universally accepted and useful as weather 
+                        forecasting is today
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="content-grid">
-            <div class="grid-2-8">
-                <h2>OUR TEAM</h2>
-                <p>Meeting the scientists and researchers making a difference</p>
-            </div>
-            <div class="grid-8-11">
-                <h2>OUR API</h2>
-                <p>Access out data and tools</p>
-            </div>
-        </div>
-        <div class="content-grid">
-            <div class="grid-2-8">
-                <div class="news-carousel">
-                    <ul>
-                        <li>news item 1</li>
-                        <li>news item 2</li>
-                    </ul>
+    </div>
+
+    <div class="gray-area">
+        <div class="content">
+            <div class="content-grid">
+                <div class="landing-entry grid-2-8">
+                    <div id="entry-image">
+                        <img src="../images/landing-page/team-image.png"/>
+                    </div>
+                    <h2>OUR TEAM</h2>
+                    <p>Meeting the scientists and researchers making a difference</p>
+                    {{partial "font-awesome.html" "regular/arrow-alt-circle-right"}}
+                    <a href="/about/team">View all</a>
+                </div>
+                <div class="landing-entry grid-8-12">
+                    <div id="entry-image">
+                        <img src="../images/landing-page/API-image.png"/>
+                    </div>
+                    <h2>OUR API</h2>
+                    <p>Access out data and tools</p>
+                    {{partial "font-awesome.html" "regular/arrow-alt-circle-right"}}
+                    <a href="/covidcast">Learn more</a>
                 </div>
             </div>
         </div>
