@@ -12,11 +12,12 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
+    pre = "solid/info-circle"
     url = "/about"
     weight = 1
 [[menu.main]]
     parent = "about"
-    name = "About Delphi"
+    name = "Our Mission"
     url = "/about"
     weight = 1
 [[menu.main]]
@@ -56,26 +57,33 @@ relativeURLs = false
     url = "/covidcast/terms-of-use"
     weight = 5
 [[menu.main]]
+    identifier = "flu"
+    name = "Flu and Other Diseases"
+    pre = "solid/virus"
+    url = "/flu"
+    weight = 3
+[[menu.main]]
     identifier = "blog"
     name = "Blog"
     pre = "solid/book"
     url = "/blog"
-    weight = 3
+    weight = 4
 [[menu.main]]
     identifier = "github"
     name = "GitHub"
     pre = "brands/github"
     url = "https://github.com/cmu-delphi/"
-    weight = 4
+    weight = 5
 [[menu.main]]
     identifier = "api"
     name = "API"
     pre = "solid/database"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
-    weight = 5
+    weight = 6
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
+    mission = "Develop the theory and practice of epidemiological forecasting, with a long-term vision of seeing this technology become as universally accepted and useful as weather forecasting is today."
     showReadMore = true
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
 
