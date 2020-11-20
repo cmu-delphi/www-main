@@ -3,11 +3,11 @@
 </footer>
 
 {{ $script := resources.Get "js/main.js" | js.Build | minify | fingerprint -}}
-<script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
+<script src="{{ $script.Permalink }}"></script>
 
 {{ if eq .Page.Type "blog" }}
 {{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}
-<script src="{{ $script_blog.Permalink }}" {{ printf "integrity=%q" $script_blog.Data.Integrity | safeHTMLAttr }} ></script>	
+<script src="{{ $script_blog.Permalink }}"></script>	
 {{ end }}
 
 {{ range .Page.Params.scripts }}
