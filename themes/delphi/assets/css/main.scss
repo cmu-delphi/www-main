@@ -275,34 +275,49 @@ $grid-gap: (32/1440)*100%;
 }
 
 .about-mission {
+    padding: 8rem 0;
+}
+
+.about-mission-img {
+    z-index: -1;    
+}
+.about-mission-mission {
     color: white;
+    padding: 1em 0;
+    display: block;
+    background: rgba(#FA8C16, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
 
-    .abort-mission-overlay {
-        margin-top: 8rem;
-        margin-bottom: 8rem;
-    }
+.about-mission-text {
+    color: white;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 64px;
+    margin: 0;
+}
 
-    span {
-        display: block;
-        background: rgba(#FA8C16, 0.2);
-        text-transform: uppercase;
+.about-description {
+    padding: 24px;
+    margin-bottom: 3rem;
+    
+    h3 {
         letter-spacing: 3px;
-        padding: 1rem 10rem;
-    }    
-    h1 {
-        color: white;
-        padding: 0 10rem;
-        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-        font-weight: 600;
-        font-size: 44px;
-        line-height: 64px;
-        margin: 0;
-    }
-
-    img {
-        z-index: -1;
+        text-transform: uppercase;
     }
 }
+
+@media (min-width: $breakpoint-medium) {
+    .about-description {
+        background: white;
+        border: 1px solid #D3D4D8;
+        border-radius: 5px;
+        margin-top: -6rem;
+    }
+}
+
 
 .about-collaborators {
     background: #FAFAFC;

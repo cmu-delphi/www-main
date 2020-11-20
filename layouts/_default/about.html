@@ -1,19 +1,30 @@
 {{ define "main" }}
 
 <div class="about-mission uk-cover-container">
-    <img src="{{ "images/mission.jpg" | relURL }}" alt="Mission image" uk-cover />
-    <div class="abort-mission-overlay">
-        <span>Our Mission</span>
-        <h1>{{ .Summary }}</h1>
+    <img class="about-mission-img" src="{{ "images/mission.jpg" | relURL }}" alt="Mission image" uk-cover />
+    <div class="about-mission-mission">
+        <div class="content content-grid">
+            <div class="grid-2-10">
+                Our Mission
+            </div>
+        </div>
+    </div>
+    <div class="content content-grid">
+        <h1 class="grid-2-10 about-mission-text">
+            {{.Site.Params.mission}}
+        </h1>
     </div>
 </div>
-<div class="about-mission-text">
-    {{ .Content }}
+
+<div class="content content-grid">
+    <div class="grid-2-10 about-description">
+        {{ .Content }}
+    </div>
 </div>
-
-<h2>Research and White Papers</h2>
-{{partial "about/research-papers.html" .}}
-
+<div class="content">
+    <h2>Research and White Papers</h2>
+    {{partial "about/research-papers.html" .}}
+</div>
 {{partial "about/collaborators.html" .}}
 
 {{ end }}

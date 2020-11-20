@@ -1,19 +1,17 @@
 ---
 title: About
 layout: about
-summary: |
- Develop the theory and practice of epidemiological forecasting, with a long-term vision of seeing this technology become as universally accepted and useful as weather forecasting is today.
 ---
 
-## About Delphi
+### About Delphi
 
 Since 2012, we've been developing a [digital ecosystem to support](https://docs.google.com/presentation/d/13xwrzW17i1Hn_OvEe-8Ha8XZmexVkkIY22h1MO9QmcY/edit?usp=sharing) epidemic tracking and forecasting.  Pre-pandemic our focus was influenza; now it's COVID. We procure unique data streams that reflect COVID activity (from healthcare partners, tech companies, and massive national surveys), extract COVID-related indicators, and make these publicly and continuously available. These indicators are then used for nowcasting (situational awareness) and short-term forecasting.
 
-## Who is our audience?
+### Who is our audience?
 
 Public health authorities (federal, state, local), fellow researchers (working on nowcasting and forecasting), fellow COVID response groups (e.g., COVID Exit Strategy), public and private sectors, data journalists, general public.
 
-## What has our impact been?
+### What has our impact been?
 
 Since 2013, we've supported CDC's Influenza Division in advancing and growing a scientific community around flu forecasting.  We've been perennial leaders in forecasting accuracy, and started providing flu nowcasts to state departments of health in 2016.
 
