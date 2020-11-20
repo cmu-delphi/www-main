@@ -19,22 +19,12 @@ $grid-gap: (32/1440)*100%;
 // Layouts
 
 @import 'layouts';
-
-.main-carousel {
-    background-image: url("../images/landing-page/hero-images/landing-pg_hero-Real-time Indicators of COVID-19 Activity.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    padding-top: 6rem;
-    padding-bottom: 8rem;
-    .inline-svg-icon{
-        color:white;
-        font-size:x-large;
-    }
-    
-    .carousel-entry {
-        margin-top: 4rem;
-    }
+.main-carousel{
+    height:600px;
+}
+.carousel-entry {
+    z-index: 10;
+    margin-top: 6rem;
     h2 {
         color: white;
         font-weight: 400;
@@ -50,9 +40,16 @@ $grid-gap: (32/1440)*100%;
         color: white;
     }
 }
+#slider-controls{
+    z-index: 10;
+    top: -5rem;
+    position: relative;
+    margin-top: 0;
+}
+
 .white-area {
-    padding-top:3rem;
-    padding-bottom:3rem;
+    padding-top:2rem;
+    padding-bottom:2rem;
 }
 .gray-area {
     padding-top:3rem;
