@@ -1,26 +1,28 @@
 {{ define "main" }}
+<div class="content">
 <h1>Thank you to our {{ len .Params.team }} members around the world, all the students, faculty, staff, and volunteers who have contributed to the COVIDcast project.</h1>
 
 <img src="{{ (.Resources.GetMatch "map-and-pins.png").RelPermalink }}" alt="World map of team members" class="team-hero-image">
 
-{{ .Content }}
+    {{ .Content }}
 
-<hr />
+    <hr />
 
 
-<strong>Abbreviations</strong>
-<ul class="uk-list">
-    {{range .Params.abbreviations}}
-    <li>{{.}}</li>
-    {{end}}
-</ul>
+    <strong>Abbreviations</strong>
+    <ul class="uk-list">
+        {{range .Params.abbreviations}}
+        <li>{{.}}</li>
+        {{end}}
+    </ul>
 
-<hr />
-<div class="uk-margin-large-top uk-margin-large-bottom">
-<h2 class="uk-text-center">Thank you for your contributions</h2>
-<p class="uk-text-center">
-    {{ .Params.others }}
-</p>
+    <hr />
+    <div class="uk-margin-large-top uk-margin-large-bottom">
+    <h2 class="uk-text-center">Thank you for your contributions</h2>
+    <p class="uk-text-center">
+        {{ .Params.others }}
+    </p>
+    </div>
+    <hr />
 </div>
-<hr />
 {{ end }}
