@@ -1,6 +1,7 @@
 // 1. Your custom variables and variable overwrites.
 // $global-link-color: #DA7D02;
 @import 'customize';
+$grid-gap: (32/1440)*100%;
 
 // 2. Import default variables and available mixins.
 @import './node_modules/uikit/src/scss/variables-theme.scss';
@@ -14,6 +15,77 @@
 
 
 @import 'custom';
+
+// Layouts
+
+@import 'layouts';
+
+.main-carousel {
+    background-image: url("../images/landing-page/hero-images/landing-pg_hero-Real-time Indicators of COVID-19 Activity.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    padding-top: 6rem;
+    padding-bottom: 8rem;
+    .inline-svg-icon{
+        color:white;
+        font-size:x-large;
+    }
+    
+    .carousel-entry {
+        margin-top: 4rem;
+    }
+    h2 {
+        color: white;
+        font-weight: 400;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    p {
+        color: white;
+        font-weight: 600;
+        font-size: 44px;
+    }
+    a {
+        color: white;
+    }
+}
+.white-area {
+    padding-top:3rem;
+    padding-bottom:3rem;
+}
+.gray-area {
+    padding-top:3rem;
+    padding-bottom:3rem;
+    background-color: #eee;
+}
+.landing-entry {
+    line-height: 48px;
+    .inline-svg-icon{
+        font-size:x-large;
+    }
+    h2 {
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    p {
+        font-weight: 600;
+        font-size: 32px;
+    }
+    a {
+        color: #666;
+        font-weight: bold;
+    }
+}
+
+.entry-image{
+    width: 100%;
+    img{
+        max-width: 100%;
+        max-height: 100%
+    }
+}
 
 @import 'layouts';
 
@@ -131,4 +203,138 @@
 }
 .team-member > img {
     border-radius: 5px;
+}
+
+.card-grid-item {
+    position: relative;
+    border-radius: 8px;
+    margin: 3em 0 0 1em;
+    
+    .uk-card-footer {
+        border-top: none;
+    }
+}
+
+.card-grid-item-img {
+    object-fit: cover;
+    width: 100%;
+    height: 8em;
+    display: block;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-grid-item-date {
+    position: absolute;
+    font-weight: 600;
+    top: -2em;
+    left: 0;
+}
+
+@media (min-width: $breakpoint-small) {
+    .card-grid-item {
+        display: flex;
+        margin: 1em 1em 0 8em;
+    }
+
+    .card-grid-item-img {
+        width: 12.5em;
+        height: unset;
+        border-radius: 8px 0 0 8px;
+    }
+
+    .card-grid-item-date {
+        top: 0;
+        left: -8em;
+    }
+}
+
+@media (min-width: $breakpoint-large) {
+    .card-grid-item {
+        margin-right: 8em;
+    }
+}
+
+.arrow-link {
+    display: flex;
+    align-items: center;
+    
+    > .inline-svg-icon {
+        border-radius: 50%;
+        padding: 5px;
+        border: 1px solid #232735;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1em;
+        
+        > svg {
+          width: 14px;
+        }
+    }
+}
+
+.about-mission {
+    padding: 8rem 0;
+}
+
+.about-mission-img {
+    z-index: -1;    
+}
+.about-mission-mission {
+    color: white;
+    padding: 1em 0;
+    display: block;
+    background: rgba(#FA8C16, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.about-mission-text {
+    color: white;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 64px;
+    margin: 0;
+}
+
+.about-description {
+    padding: 24px;
+    margin-bottom: 3rem;
+    
+    h3 {
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+}
+
+@media (min-width: $breakpoint-medium) {
+    .about-description {
+        background: white;
+        border: 1px solid #D3D4D8;
+        border-radius: 5px;
+        margin-top: -6rem;
+    }
+}
+
+
+.about-collaborators {
+    background: #FAFAFC;
+    padding: 0;
+    padding: 2em 0;
+}
+
+.about-collaborators-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    
+    > div {
+        margin: 1em 0;
+        text-align: center;
+    }
 }

@@ -17,7 +17,7 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "about"
-    name = "About Delphi"
+    name = "Our Mission"
     url = "/about"
     weight = 1
 [[menu.main]]
@@ -83,6 +83,7 @@ relativeURLs = false
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
+    mission = "Develop the theory and practice of epidemiological forecasting, with a long-term vision of seeing this technology become as universally accepted and useful as weather forecasting is today."
     showReadMore = true
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
 
