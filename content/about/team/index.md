@@ -1,3 +1,16 @@
+---
+title: Delphi Team Members
+layout: team
+others: |
+ MLD administrators Christy Melucci and Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
+abbreviations:
+- CompBio is Computational Biology
+- LTI is Language Technologies Institute
+- MLD is Machine Learning Department
+- Stat is Statistics & Data Science
+- HCII is Human-Computer Interaction Institute
+
+team:
 - name: Jacob Bien
   image: jacob-bien-500x500-min.jpg
   affiliation: University of Southern California
@@ -221,3 +234,89 @@
   affiliation: University of Washington
   team: past
   note: Core member, may – June 2020
+  
+- name: Mike O'Brien
+  image: mike-o'brian_head-shot.png
+  affiliation: Software Engineer
+  team: google
+- name: Kate Harwood
+  image: kate-harwood_head-shot.png
+  affiliation: Software Engineer
+  team: google
+- name: Sumit Agrawal
+  image: sumit-agrawal_head-shot.png
+  affiliation: Program Manager Lead
+  team: google
+- name: Benjamin Weaver
+  image: benjamin-weaver_head-shot.png
+  affiliation: Program / Project Manager
+  team: google
+- name: Spencer Whitman
+  image: specer-whitman_head-shot.png
+  affiliation: Project Manager
+  team: google
+- name: Benjamin Smith
+  image: benjamin-smith_head-shot.png
+  affiliation: Tech Lead Software Engineer
+  team: google
+- name: Raphael Hyde
+  image: raphael-hyde_head-shot.png
+  affiliation: UX Designer
+  team: google
+- name: Phil McGuinness
+  image: phil-mcguinness_head-shot.png
+  affiliation: UX Researcher
+  team: google
+- name: Jed Grabman
+  image: jed-gradmn_head-shot.png
+  affiliation: Site Reliability Engineer, Data Scientist
+  team: google
+- name: Sarah Colquhoun
+  image: sarah-colquhoun_head-shot.png
+  affiliation: Site Reliability Engineer, Data Scientist
+  team: google
+- name: Chris Scott
+  image: chris-scott_head-shot.png
+  affiliation: Tech Lead Software Engineer
+  team: google
+- name: Daniel LaLiberte
+  image: daniel-laliberte_head-shot.png
+  affiliation: Software Engineer
+  team: google
+- name: David Farrow
+  image: david-farrow_head-shot.png
+  affiliation: Software Engineer
+  team: google
+---
+
+## Leadership
+
+{{<team team="leadership" small="2" >}}
+
+## Core Members
+
+{{<team team="core" >}}
+
+## Interns
+
+{{<team team="interns" >}}
+
+## Google Fellows
+
+{{<team team="google" >}}
+
+## Contractors
+
+{{<team team="contractors" >}}
+
+## Advisors
+
+{{<team team="advisors" >}}
+
+## Contributors
+
+{{<team team="contributors" >}}
+
+## Past Members
+
+{{<team team="past" >}}
