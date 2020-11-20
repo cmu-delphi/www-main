@@ -5,7 +5,7 @@ category: update
 ---
 
 
-We launched our [COVIDcast system](https://covidcast.cmu.edu), which displays
+We launched our [COVIDcast system]({{< relref "covidcast">}}), which displays
 indicators related to COVID-19 activity level across the U.S.  These
 indicators are derived from a variety of anonymized, aggregated data sources
 made available by multiple partners, and are publicly available at the
