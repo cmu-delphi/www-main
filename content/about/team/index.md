@@ -234,6 +234,59 @@ team:
   affiliation: University of Washington
   team: past
   note: Core member, may – June 2020
+  
+- name: Mike O'Brien
+  image: mike-o'brian_head-shot.png
+  affiliation: Software Engineer
+  team: google
+- name: Kate Harwood
+  image: kate-harwood_head-shot.png
+  affiliation: Software Engineer
+  team: google
+- name: Sumit Agrawal
+  image: sumit-agrawal_head-shot.png
+  affiliation: Program Manager Lead
+  team: google
+- name: Benjamin Weaver
+  image: benjamin-weaver_head-shot.png
+  affiliation: Program / Project Manager
+  team: google
+- name: Spencer Whitman
+  image: specer-whitman_head-shot.png
+  affiliation: Project Manager
+  team: google
+- name: Benjamin Smith
+  image: benjamin-smith_head-shot.png
+  affiliation: Tech Lead Software Engineer
+  team: google
+- name: Raphael Hyde
+  image: raphael-hyde_head-shot.png
+  affiliation: UX Designer
+  team: google
+- name: Phil McGuinness
+  image: phil-mcguinness_head-shot.png
+  affiliation: UX Researcher
+  team: google
+- name: Jed Grabman
+  image: jed-gradmn_head-shot.png
+  affiliation: Site Reliability Engineer, Data Scientist
+  team: google
+- name: Sarah Colquhoun
+  image: sarah-colquhoun_head-shot.png
+  affiliation: Site Reliability Engineer, Data Scientist
+  team: google
+- name: Chris Scott
+  image: chris-scott_head-shot.png
+  affiliation: Tech Lead Software Engineer
+  team: google
+- name: Daniel LaLiberte
+  image: daniel-laliberte_head-shot.png
+  affiliation: Software Engineer
+  team: google
+- name: David Farrow
+  image: david-farrow_head-shot.png
+  affiliation: Software Engineer
+  team: google
 ---
 
 ## Leadership
@@ -247,6 +300,10 @@ team:
 ## Interns
 
 {{<team team="interns" >}}
+
+## Google Fellows
+
+{{<team team="google" >}}
 
 ## Contractors
 
