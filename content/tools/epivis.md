@@ -1,6 +1,7 @@
 ---
 title: EpiVis
 link: https://delphi.cmu.edu/epivis/epivis.html
-description: Epidemiological time series visualizer
-order: 30
+order: 1
 ---
+
+Epidemiological time series visualizer

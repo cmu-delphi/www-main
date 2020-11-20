@@ -1,8 +1,7 @@
 ---
-title: epidata
+title: EpiData
 link: https://github.com/cmu-delphi/delphi-epidata
-description: API for getting up-to-date epidemiological data
-order: 40
+order: 2
 ---
 
-(also available via a web interface through [EpiVis](https://delphi.cmu.edu/epivis/epivis.html))
+API for getting up-to-date epidemiological data (also available via a web interface through [EpiVis](https://delphi.cmu.edu/epivis/epivis.html))

@@ -130,9 +130,11 @@ $grid-gap: (32/1440)*100%;
 .uk-navbar-left {
     margin: 40px 10% 0 10%;
 }
+
 .uk-navbar-nav>li {
     padding-left: 15px;
     padding-right: 15px;
+    white-space: nowrap;
 }
 .uk-navbar-dropdown-bottom-left {
     margin-left: -20px;

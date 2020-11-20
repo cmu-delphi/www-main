@@ -1,6 +1,7 @@
 ---
-title: nowcast
+title: Nowcast
 link: https://github.com/cmu-delphi/nowcast
-description: Epidemiological nowcasting via sensor fusion
 order: 20
 ---
+
+Epidemiological nowcasting via sensor fusion
