@@ -32,3 +32,13 @@ by [DARPA](http://www.darpa.mil/)
 {{<tools>}}
 
 All source code is freely available on [GitHub](https://github.com/cmu-delphi/).
+
+## Accomplishments
+
+Delphi’s notable achievements
+
+{{<news category="accomplishment">}}
+
+## Updates
+
+{{<news category="update">}}
