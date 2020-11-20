@@ -1,38 +1,36 @@
 {{ define "main" }}
 <div class="content">
-<h1>{{ .Title }}</h1>
-<h2>{{ .Description }} </h2>
-<ul class="uk-list uk-list-divider uk-list-large">
-{{ range .Paginator.Pages }}
-  <li>
-    <div uk-grid class="uk-grid-small uk-position-relative">
-      <div class="uk-width-1-1@s uk-width-expand@m blog-list-content">
-        <div>
-          <time class="uk-text-bold-600">{{ .Date.Format "Jan _2" }}</time>
-          {{- range .Params.tags -}}
-            {{ partial "blog/tag.html" . }}
-          {{- end -}}
-        </div>
-        <h2 class="uk-margin-small-top uk-text-bold-600"><a href="{{ .RelPermalink  }}" class="uk-link-heading">{{ .Title}}</a></h2>
-        <p>
-          {{ .Summary }}
-          {{- if .Truncated -}}
-            <a href="{{ .RelPermalink  }}" class="uk-link-text uk-text-bold-600">&hellip; read more</a>
-          {{ end}}
-        </p>
-        <p>
-            By {{ .Params.author }}
-        </p>
+  <h1>{{ .Title }}</h1>
+  <h2>{{ .Description }} </h2>
+
+  <div class="card-grid">
+    {{ range .Paginator.Pages }}
+    <div class="card-grid-item uk-card uk-card-default uk-card-small">
+      <div class="card-grid-item-date">{{ .Date.Format "Jan _2" }}</div>
+      <img class="card-grid-item-img" src="{{ .Params.heroImageThumb | relURL }}" width="200" height="300"  alt="{{ .Title}} - Hero Image">
+      <div>
+          <div class="uk-card-body">
+              <h3 class="uk-card-title">{{.Title}}</h3>
+              <p>
+                {{ .Summary }}
+                {{- if .Truncated -}}&hellip;{{ end}}
+              </p>
+              <p>
+              {{- range .Params.tags -}}
+                {{ partial "blog/tag.html" . }}
+              {{- end -}}
+              </p>
+              <p>
+                By {{ .Params.author }}
+              </p>
+          </div>
+          <div class="uk-card-footer">
+              {{partial "arrow-link.html" (dict "alt" "Read More" "link" .RelPermalink)}}
+          </div>
       </div>
-      <div class="uk-width-1-1@s uk-width-auto@m blog-list-hero-image">
-        {{if isset .Params "heroimagethumb"}}
-        <a href="{{ .RelPermalink  }}"><img data-src="{{ .Params.heroImageThumb | relURL }}" width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img></a>
-        {{end}}
-      </div>
+    </div>
+    {{end}}
   </div>
-  </li>
-{{ end }}
-</ul>
+  {{ template "_internal/pagination.html" . }}
 </div>
-{{ template "_internal/pagination.html" . }}
 {{ end }}
