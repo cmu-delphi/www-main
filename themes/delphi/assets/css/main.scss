@@ -20,21 +20,34 @@ $grid-gap: (32/1440)*100%;
 
 @import 'layouts';
 
-.main-carousel {
-    background-image: url("../images/landing-page/hero-images/landing-pg_hero-Real-time Indicators of COVID-19 Activity.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    padding-top: 6rem;
-    padding-bottom: 8rem;
-    .inline-svg-icon{
-        color:white;
-        font-size:x-large;
+//The UIKit slideshow component doesn't want to stay inside its parent container
+//We have to do multiple things to keep it in check:
+//
+// * Set `ratio: false` on the uk-slideshow element
+// * Explicitly set heights for these three elements
+//
+//If this behavior ever becomes more sane, some of these work-arounds can be removed.
+$carousel-height:500px;
+
+#main-carousel{
+    max-height: $carousel-height;
+}
+
+#uikit-main-carousel{
+    height: $carousel-height;
+}
+
+#slideshow-container{
+    max-height:$carousel-height;
+    height:$carousel-height;
+    img {
+        z-index: -1;
     }
-    
-    .carousel-entry {
-        margin-top: 4rem;
-    }
+}
+
+.carousel-entry {
+    z-index: 10;
+    margin-top: 6rem;
     h2 {
         color: white;
         font-weight: 400;
@@ -50,9 +63,25 @@ $grid-gap: (32/1440)*100%;
         color: white;
     }
 }
+
+@media screen and (max-width: $breakpoint-medium) {
+    .carousel-entry {
+        p {
+            font-size: 32px;
+        }
+    }
+}
+
+#slider-controls{
+    z-index: 10;
+    top: -5rem;
+    position: relative;
+    margin-top: 0;
+}
+
 .white-area {
-    padding-top:3rem;
-    padding-bottom:3rem;
+    padding-top:2rem;
+    padding-bottom:2rem;
 }
 .gray-area {
     padding-top:3rem;
