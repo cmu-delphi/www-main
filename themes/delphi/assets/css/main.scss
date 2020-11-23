@@ -116,8 +116,6 @@ $carousel-height:500px;
     }
 }
 
-@import 'layouts';
-
 // Site-wide
 .content {
     margin: 20px 10%;
@@ -198,28 +196,16 @@ $carousel-height:500px;
 
 // Footer
 .footer {
-    background-color: #232735;
-    color: white;
-    font-size: 12px;
+    background-color: #F2F2F2;
+    color: #232735;
     padding: 50px 20% 20px 20%;
 }
-.footer .footer-header {
-    font-weight: 700;
-    text-transform: uppercase;
-}
-.footer a {
-    color: white;
-    text-decoration: none;
-}
-.footer-small {
-    text-align: center;
-    font-size: 14px;
-}
-.footer-small .footer-header {
-    padding-top: 30px;
-}
-.footer-small div {
-    padding-top: 10px;
+
+
+
+.footer .delphi-text-logo {
+    border: 1px solid #D3D4D8;
+    padding: 8px 12px;
 }
 
 #vizbox {
