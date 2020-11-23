@@ -1,0 +1,18 @@
+<div class="latest-news uk-margin-medium-top uk-margin-medium-bottom content">
+    <h2 class="uk-text-center">Latest News</h2>
+    {{- $currentPage := . -}}
+    <div class="uk-position-relative" tabindex="-1" uk-slider>
+        <div class="uk-slider-container">
+            <ul class="uk-slider-items uk-child-width-1-2@s uk-child-width-1-4@m uk-grid uk-grid-match">
+                {{ $blogs := (.Site.GetPage "/blog").Pages }}
+                {{range first 5 $blogs}}
+                <li>
+                    {{ partial "landing/latest-card.html" (dict "source" "blog" "image" .Params.heroImageThumb "title" .Title "link" .RelPermalink ) }}
+                </li>
+                {{end}}
+            </ul>
+        </div>
+        <a class="uk-position-center-left-out uk-position-small" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="uk-position-center-right-out uk-position-small" href="#" uk-slidenav-next uk-slider-item="next"></a>
+    </div>
+</div>
