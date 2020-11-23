@@ -12,8 +12,7 @@
           <div class="uk-card-body">
               <h3 class="uk-card-title">{{.Title}}</h3>
               <p>
-                {{ .Summary }}
-                {{- if .Truncated -}}&hellip;{{ end}}
+                {{ .Summary | safeHTML | truncate 150 }}
               </p>
               <p>
               {{- range .Params.tags -}}
