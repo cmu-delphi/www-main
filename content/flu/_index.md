@@ -1,6 +1,6 @@
 ---
 title: Flu and Other Diseases
-layout: single-title
+layout: single
 ---
 
 
