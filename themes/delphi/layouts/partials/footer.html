@@ -1,16 +1,15 @@
 <footer>
 	{{ partial "footer/desktop.html" . }}
-	{{ partial "footer/mobile.html" . }}
-	
-	{{ $script := resources.Get "js/main.js" | js.Build | minify | fingerprint -}}
-	<script src="{{ $script.Permalink }}"></script>
-	
-	{{ if eq .Page.Type "blog" }}
-    {{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}
-	<script src="{{ $script_blog.Permalink }}"></script>	
-    {{ end }}
-  
-	{{ range .Page.Params.scripts }}
-	<script src="{{ . | absURL }}"></script>
-	{{ end }}
 </footer>
+
+{{ $script := resources.Get "js/main.js" | js.Build | minify | fingerprint -}}
+<script src="{{ $script.Permalink }}"></script>
+
+{{ if eq .Page.Type "blog" }}
+{{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}
+<script src="{{ $script_blog.Permalink }}"></script>	
+{{ end }}
+
+{{ range .Page.Params.scripts }}
+<script src="{{ . | absURL }}"></script>
+{{ end }}
