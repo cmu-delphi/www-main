@@ -37,8 +37,4 @@ All source code is freely available on [GitHub](https://github.com/cmu-delphi/).
 
 Delphi’s notable achievements
 
-{{<news category="accomplishment">}}
-
-## Updates
-
-{{<news category="update">}}
+{{<news>}}
