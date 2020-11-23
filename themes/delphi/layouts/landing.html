@@ -31,14 +31,10 @@
             <div class="content-grid">
                 <div class="landing-entry grid-2-10">
                     <h2>    
-                        OUR MISSION
+                        Our Mission
                     </h2>
                     <p>
-                        Develop the theory and practice of 
-                        epidemiological forecasting, with a long-term 
-                        vision of seeing this technology become as 
-                        universally accepted and useful as weather 
-                        forecasting is today
+                        {{.Site.Params.mission}}
                     </p>
                 </div>
             </div>
@@ -50,21 +46,19 @@
             <div class="content-grid">
                 <div class="landing-entry grid-2-8">
                     <div class="entry-image">
-                        <img src="../images/landing-page/team-image.png"/>
+                        <img src="{{ "/images/landing-page/team-image.png" | relURL }}"/>
                     </div>
-                    <h2>OUR TEAM</h2>
+                    <h2>Our Team</h2>
                     <p>Meeting the scientists and researchers making a difference</p>
-                    {{partial "font-awesome.html" "regular/arrow-alt-circle-right"}}
-                    <a href="/about/team">View all</a>
+                    {{partial "arrow-link.html" (dict "link" (relref . "team") "alt" "View all")}}
                 </div>
                 <div class="landing-entry grid-8-12">
                     <div class="entry-image">
-                        <img src="../images/landing-page/API-image.png"/>
+                        <img src="{{ "/images/landing-page/API-image.png" | relURL }}"/>
                     </div>
-                    <h2>OUR API</h2>
+                    <h2>Our API</h2>
                     <p>Access out data and tools</p>
-                    {{partial "font-awesome.html" "regular/arrow-alt-circle-right"}}
-                    <a href="/covidcast">Learn more</a>
+                    {{partial "arrow-link.html" (dict "link" (relref . "covidcast") "alt" "Learn more")}}
                 </div>
             </div>
         </div>
