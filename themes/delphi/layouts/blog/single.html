@@ -55,8 +55,8 @@
     {{ if isset . "link"}}<a href="{{.link}}" class="uk-text-bold-600 uk-link-text">{{.name}}</a>{{ else }}<span>{{.name}}</span>{{ end}} {{.description}}
     {{ end }}
 </div>
-</div>
 {{ end }}
 <hr />
 {{ partial "blog/latestblogs.html" . }}
+</div>
 {{end}}
