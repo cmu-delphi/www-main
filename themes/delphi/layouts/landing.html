@@ -3,42 +3,23 @@
     <div id="main-carousel">
         <div id="uikit-main-carousel" class="uk-position-relative uk-light" tabindex="-1" uk-slideshow="animation: push; ratio: false">            
             <ul id="slideshow-container" class="uk-slideshow-items uk-cover-container uk-child-width-1-1 ">
+                {{$currentPage := .}}
+                {{range .Site.Data.landing}}
                 <li>
-                    <img src="../images/landing-page/hero-images/landing-pg_hero-Real-time Indicators of COVID-19 Activity.png" uk-cover/>
+                    <img src="{{ (path.Join "/images/landing-page/hero-images" .image) | relURL }}" uk-cover/>
                     <div class="content content-grid">
                         <div class="carousel-entry grid-2-10">
-                            <h2>OUR TOOLS</h2>
-                            <p>Real-time Indicators of COVID-19 Activity</p>
-                            {{partial "font-awesome.html" "regular/arrow-alt-circle-right"}}
-                            <a href="/covidcast">Explore COVIDcast</a>
+                            <h2>{{.pre}}</h2>
+                            <p>{{.title}}</p>
+                            {{if isset . "ref"}}
+                              {{partial "arrow-link.html" (dict "link" (relref $currentPage .ref) "alt" .alt)}}
+                            {{else}}
+                                {{partial "arrow-link.html" (dict "link" .link "alt" .alt)}}
+                            {{end}}
                         </div>
                     </div>
                 </li>
-                <li>
-                    <img src="../images/landing-page/hero-images/landing-pg_hero-img-2_New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing.png" uk-cover/>
-                    <div class="content content-grid">
-                        <div class="carousel-entry grid-2-10">
-                            <h2>OUR BLOG POST</h2>
-                            <p>
-                                New and improved COVID Symptom Survey Tracks
-                                Testing and Mask-Wearing
-                            </p>
-                            {{partial "font-awesome.html" "regular/arrow-alt-circle-right"}}
-                            <a href="/blog/2020/10/12/new-and-improved-covid-symptom-survey-tracks-testing-and-mask-wearing/">Learn more</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <img src="../images/landing-page/hero-images/landing-pg_hero-img-2_Pancasting_ forecasting epidemics from provisional data.png" uk-cover/>
-                    <div class="content content-grid">
-                        <div class="carousel-entry grid-2-10">
-                            <h2>OUR RESEARCH AND WHITE PAPERS</h2>
-                            <p>Pancasting: forecasting epidemics from provisional data</p>
-                            {{partial "font-awesome.html" "regular/arrow-alt-circle-right"}}
-                            <a href="https://delphi.cmu.edu/~lcbrooks/brooks2020pancasting.pdf">View Paper</a>
-                        </div>
-                    </div>
-                </li>
+                {{end}}
             </ul>
             <ul id="slider-controls" class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
             <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>

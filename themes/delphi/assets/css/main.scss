@@ -61,6 +61,10 @@ $carousel-height:500px;
     }
     a {
         color: white;
+        
+        .inline-svg-icon {
+            border-color: white;
+        }
     }
 }
 
