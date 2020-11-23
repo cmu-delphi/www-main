@@ -1,6 +1,6 @@
 
 {{ $news := .Site.GetPage "/news" }}
-{{ range where (sort ($news.Resources.ByType "page") ".PublishDate" "desc") ".Params.category" "eq" (.Get "category")}}
+{{ range (sort ($news.Resources.ByType "page") ".PublishDate" "desc")}}
   <h3>{{ .PublishDate.Format "January 2006" }}</h3>
   {{ .Content }}
 {{ end }}
