@@ -3,26 +3,30 @@ title: About
 layout: about
 ---
 
-### About Delphi
+### Who are we?
 
-Since 2012, we've been developing a [digital ecosystem to support](https://docs.google.com/presentation/d/13xwrzW17i1Hn_OvEe-8Ha8XZmexVkkIY22h1MO9QmcY/edit?usp=sharing) epidemic tracking and forecasting.  Pre-pandemic our focus was influenza; now it's COVID. We procure unique data streams that reflect COVID activity (from healthcare partners, tech companies, and massive national surveys), extract COVID-related indicators, and make these publicly and continuously available. These indicators are then used for nowcasting (situational awareness) and short-term forecasting.
+We're a research group based out of Carnegie Mellon University dedicated to developing the theory and practice of epidemic tracking and forecasting. Pre-pandemic our focus was influenza; now it's COVID. We procure unique data streams that reflect epidemic (or pandemic) activity, extract relevant indicators, and make these publicly and continuously available. These indicators are then used for nowcasting (situational awareness) and short-term forecasting.
 
 ### Who is our audience?
 
-Public health authorities (federal, state, local), fellow researchers (working on nowcasting and forecasting), fellow COVID response groups (e.g., COVID Exit Strategy), public and private sectors, data journalists, general public.
+Public health authorities (federal, state, local), fellow researchers (working on epidemic tracking and forecasting), public and private sectors, data journalists, and the general public.
 
-### What has our impact been?
+### Delphi's milestones
 
-Since 2013, we've supported CDC's Influenza Division in advancing and growing a scientific community around flu forecasting.  We've been perennial leaders in forecasting accuracy, and started providing flu nowcasts to state departments of health in 2016.
+- Since 2013, we've supported CDC's Influenza Division in advancing and growing a [scientific community around flu forecasting](https://www.cdc.gov/flu/weekly/flusight/index.html). We've been perennial leaders in forecasting accuracy.
 
-Since 2019, we've been working directly with CDC as a National Center of Excellence for Influenza Forecasting (a 5-year designation).
+- Since 2016, we've been TODO RONI please describe the Epidata API and you can [use this](https://cmu-delphi.github.io/delphi-epidata/) to link to it. 
 
-Since March 2020, we've created and maintained the nation's largest public repository of diverse, geographically-detailed, real-time indicators of COVID activity in the U.S.  Our indicators cover every rung of the severity pyramid, and they're used regularly by public health officials, DoD personnel, data journalists, healthcare companies, financial firms, fellow modelers, and COVID response groups.  We've made our indicators freely available through a public API, with R and Python packages for easy access.
+- Since 2016, we've been providing [flu nowcasts](https://delphi.cmu.edu/nowcast/) to state departments of health.
 
-Several of the underlying data sources (on which these indicators are built) would not exist or be publicly available without our efforts. This includes: 
+- Since 2019, we've been working directly with CDC as a National Center of Excellence for Influenza Forecasting (a 5-year designation).
 
-A massive national daily survey we're running in partnership with Facebook.  This has reached over 12 million Americans since April, providing real-time insights into, e.g., self-reported symptoms, mask wearing, testing, and contacts, broken down by various demographics.  Survey data on symptoms and testing can serve as early indicators of COVID activity while leapfrogging over public health reporting systems; data on mask wearing and contacts can guide policy and outreach. 
+- Since March 2020, we've created and maintained the [nation's largest public repository of diverse, geographically-detailed, real-time indicators of COVID-19 activity](https://covidcast.cmu.edu) in the U.S. Our indicators cover every rung of the [severity pyramid](https://docs.google.com/presentation/d/1jvIycxDRMEIozKIowv2UyvSqZyF5y6jR8EAXUEK22D4/edit?usp=sharing), and they're freely available through a [public API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html).
 
-An enormous historical and real-time database of de-identified medical insurance claims, covering more than half the US population, made possible through health system partners including Change Healthcare.  We use this to produce a new syndromic COVID-19 indicator based on doctor visits, as well as other indicators based on hospitalizations and ICU admissions.
+- Several of the underlying data sources (on which these indicators are built) would not exist or be publicly available without our efforts. This includes: 
 
-Since April 2020, we've been supporting and advising the CDC in their community-driven COVID forecasting effort (e.g., we've helped create and evaluate an ensemble forecast from the 70+ forecasts under submission, which is the basis for the CDC's official forecast reports).  Since June 2020, we've been contributing our own short-term forecasts of COVID-19 cases and deaths to this community effort.
+    * A massive [national daily survey](https://covidcast.cmu.edu/surveys.html) we're running in [partnership with Facebook](https://covid-survey.dataforgood.fb.com/survey_and_map_data.html). This has reached over 12 million Americans since April, providing real-time insights into, e.g., [self-reported symptoms](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/#whats-in-the-survey), [mask wearing](https://delphi.cmu.edu/blog/2020/10/12/new-and-improved-covid-symptom-survey-tracks-testing-and-mask-wearing/#mask-wearing), [testing](https://delphi.cmu.edu/blog/2020/10/12/new-and-improved-covid-symptom-survey-tracks-testing-and-mask-wearing/#testing), and contacts, all broken down by various demographics.
+
+    * An enormous database of de-identified medical insurance claims, covering more than half the US population, made possible through health system partners including Change Healthcare. We use this to produce a new [syndromic COVID-19 indicator based on doctor visits](https://delphi.cmu.edu/blog/2020/11/05/a-syndromic-covid-19-indicator-based-on-insurance-claims-of-outpatient-visits/), and other indicators based on hospitalizations and ICU admissions.
+
+- Since April 2020, we've been supporting and advising the CDC in their community-driven COVID-19 forecasting effort, which includes [creating and evaluating an ensemble forecast](https://forecasters.org/blog/2020/10/28/comparing-ensemble-approaches-for-short-term-probabilistic-covid-19-forecasts-in-the-u-s/) from the 70+ forecasts under submission that serves as the basis for the [CDC's official COVID-19 forecast communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html). We also contribute our own short-term forecasts of COVID-19 cases and deaths, which can be found in the [COVID-19 Forecast Hub](https://covid19forecasthub.org).
