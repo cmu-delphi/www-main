@@ -1,4 +1,7 @@
 {
+  "name": "www-main",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "highlight.js": "^10.3.2",
@@ -32,7 +35,5 @@
     "start:blog": "Rscript -e \"blogdown::serve_site()\"",
     "format": "prettier **/* --write",
     "lint": "prettier **/* --check"
-  },
-  "name": "www-main",
-  "version": "0.1.0"
+  }
 }
