@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "editor.trimAutoWhitespace": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSaveMode": "modifications",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

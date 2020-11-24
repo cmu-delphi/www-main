@@ -1,7 +1,6 @@
 /public
 /resources/_gen
 *.exe
-/.vscode
 /blogdown
 /.Rhistory
 *_cache
