@@ -1,6 +1,3 @@
-@import './node_modules/highlight.js/scss/github';
-@import './node_modules/katex/dist/katex.min';
-@import './node_modules/uikit/src/scss/variables-theme.scss';
 
 .code-wrapper > summary {
     cursor: pointer;
@@ -15,14 +12,6 @@
     margin-right: 0.5em;
     white-space: nowrap;
     font-size: 14px; // TODO
-}
-
-.uk-text-bold-600 {
-    font-weight: 600;
-}
-
-.content [aria-hidden="true"] {
-    display: none;
 }
 
 .blog-hero-image {
