@@ -7,7 +7,7 @@
                 {{range .Site.Data.landing}}
                 <li>
                     <img src="{{ (path.Join "/images/landing-page/hero-images" .image) | relURL }}" uk-cover/>
-                    <div class="content content-grid">
+                    <div class="uk-container content-grid">
                         <div class="carousel-entry grid-2-10">
                             <h2>{{.pre}}</h2>
                             <p>{{.title}}</p>
@@ -27,39 +27,35 @@
         </div>
     </div>
     <div class="white-area">
-        <div class="content">
-            <div class="content-grid">
-                <div class="landing-entry grid-2-10">
-                    <h2>    
-                        Our Mission
-                    </h2>
-                    <p>
-                        {{.Site.Params.mission}}
-                    </p>
-                </div>
+        <div class="uk-container content-grid">
+            <div class="landing-entry grid-2-10">
+                <h2>    
+                    Our Mission
+                </h2>
+                <p>
+                    {{.Site.Params.mission}}
+                </p>
             </div>
         </div>
     </div>
 
     <div class="gray-area">
-        <div class="content">
-            <div class="content-grid">
-                <div class="landing-entry grid-2-8">
-                    <div class="entry-image">
-                        <img src="{{ "/images/landing-page/team-image.png" | relURL }}"/>
-                    </div>
-                    <h2>Our Team</h2>
-                    <p>Meet the Delphi team</p>
-                    {{partial "arrow-link.html" (dict "link" (relref . "team") "alt" "View all")}}
+        <div class="uk-container content-grid">
+            <div class="landing-entry grid-2-8">
+                <div class="entry-image">
+                    <img src="{{ "/images/landing-page/team-image.png" | relURL }}"/>
                 </div>
-                <div class="landing-entry grid-8-12">
-                    <div class="entry-image">
-                        <img src="{{ "/images/landing-page/API-image.png" | relURL }}"/>
-                    </div>
-                    <h2>Our API</h2>
-                    <p>Access out data and tools</p>
-                    {{partial "arrow-link.html" (dict "link" .Site.Params.apiUrl "alt" "Learn more")}}
+                <h2>Our Team</h2>
+                <p>Meet the Delphi team</p>
+                {{partial "arrow-link.html" (dict "link" (relref . "team") "alt" "View all")}}
+            </div>
+            <div class="landing-entry grid-8-12">
+                <div class="entry-image">
+                    <img src="{{ "/images/landing-page/API-image.png" | relURL }}"/>
                 </div>
+                <h2>Our API</h2>
+                <p>Access out data and tools</p>
+                {{partial "arrow-link.html" (dict "link" .Site.Params.apiUrl "alt" "Learn more")}}
             </div>
         </div>
     </div>
