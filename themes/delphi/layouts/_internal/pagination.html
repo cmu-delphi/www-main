@@ -2,7 +2,11 @@
 {{ if gt $pag.TotalPages 1 -}}
 <ul class="uk-pagination uk-flex-center">
   <li class="{{ if not $pag.HasPrev }} uk-disabled{{ end }}">
-    <a {{ if $pag.HasPrev }}href="{{ $pag.Prev.URL }}"{{ end }} aria-label="Previous"><span uk-pagination-previous></span></a>
+    {{ if $pag.HasPrev }}
+    <a href="{{ $pag.Prev.URL }}" aria-label="Previous"><span uk-pagination-previous></span></a>
+    {{else}}
+    <a aria-label="Previous"><span uk-pagination-previous></span></a>
+    {{end}}
   </li>
   {{- $ellipsed := false -}}
   {{- $shouldEllipse := false -}}
@@ -29,7 +33,11 @@
   {{- end -}}
   {{- end }}
   <li class="{{ if not $pag.HasNext }} uk-disabled{{ end }}">
-    <a {{ if $pag.HasNext }}href="{{ $pag.Next.URL }}"{{ end }} aria-label="Next"><span uk-pagination-next></span></a>
+    {{ if $pag.HasNext }}
+    <a href="{{ $pag.Next.URL }}"aria-label="Next"><span uk-pagination-next></span></a>
+    {{else}}
+    <a aria-label="Next"><span uk-pagination-next></span></a>
+    {{end}}
   </li>
 </ul>
 {{ end }}
