@@ -14,12 +14,14 @@
 /LICENSE
 /package-lock.json
 /content/blog/**/*.html
-/static/blog/**/*
+/static/blog
+/static/images
 /public
 /Dockerfile
 /resources
 /static/covidcast
 /static/rmarkdown-libs
+/assets
 *.woff
 *.ttf
 *.woff2
