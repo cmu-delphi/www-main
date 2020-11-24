@@ -212,6 +212,12 @@ $carousel-height:500px;
     margin-top: 5px !important;
 }
 
+.covidcast_wrapper {
+    display: flex; 
+    flex-direction: column;
+    height: 100vh;
+}
+
 
 .team-hero-image {
     width: 100%;
