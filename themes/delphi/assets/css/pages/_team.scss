@@ -7,16 +7,16 @@
     border-radius: 5px;
 }
 
-#team-header {
+.team-header {
     line-height: 64px;
-    font-size: 40;
+    font-size: 40px;
     padding-top: .25em;
     padding-bottom: 1em;
 }
 
 @media screen and (max-width: 414px) { 
-    #team-header {
-        font-size: 14;
+    .team-header {
+        font-size: 18px;
         line-height: 24px;
     }
    }
