@@ -15,7 +15,7 @@ Public health authorities (federal, state, local), fellow researchers (working o
 
 - Since 2013, we've supported CDC's Influenza Division in advancing and growing a [scientific community around flu forecasting](https://www.cdc.gov/flu/weekly/flusight/index.html). We've been perennial leaders in forecasting accuracy.
 
-- Since 2016, we've been TODO RONI please describe the Epidata API and you can [use this]({{< apiref "/" >}}) to link to it. 
+- Since 2016, we've developed the [Epidata API]({{< apiref "/" >}}), which provides real-time access to epidemiological surveillance data.
 
 - Since 2016, we've been providing [flu nowcasts](https://delphi.cmu.edu/nowcast/) to state departments of health.
 
