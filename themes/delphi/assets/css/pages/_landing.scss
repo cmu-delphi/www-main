@@ -1,4 +1,3 @@
-
 //The UIKit slideshow component doesn't want to stay inside its parent container
 //We have to do multiple things to keep it in check:
 //
@@ -82,7 +81,7 @@ $carousel-height:500px;
         font-size: 32px;
     }
     a {
-        color: #666;
+        color: $global-color;
         font-weight: bold;
     }
 }
