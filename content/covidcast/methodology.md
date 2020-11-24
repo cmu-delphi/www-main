@@ -38,12 +38,3 @@ Generally, we do not report estimates at locations with insufficient data (or in
 ### Intensity Heat map
 
 The “Intensity” view presents a heat map of these estimates.  For each indicator, we use a fixed range of values, from a “low” value to a “high” value, and assign a color to each value in between, as shown to the left of the map.  These “low” and “high” values are different for each indicator, but for a given indicator, they are constant across time and geographic hierarchy, meaning that the heat maps are comparable across days.  At the county level, the “rest of state” estimates are plotted in semi-transparent colors, to make the individual counties where estimates are made more easily visually distinguishable.
-
-### 7-day Trend Map
-
-The “7-day Trend” view presents a color map of the trend underlying these estimates.  This is computed by calculating the line of best fit (as measured by squared error) over the last 7 days.  So for example, the trend on April 7 is based on the line of best fit through the estimates from April 1 through April 7.  We then perform a basic statistical test to determine whether this line is significantly rising or falling.  
-
-
-### Correlation Analyses
-
-Empirically (analyses conducted as of late April), we find that each of our COVID-19 indicators, averaged over a 1 week period, has a reasonably strong positive correlation (in particular, Spearman correlation, which measures correlation on the scale of ranks and is thus invariant to monotone transformations) with the number of COVID-19 cases confirmed during that same week, as made available through the JHU CSSE COVID-19 GitHub repository.  The incidence of confirmed COVID-19 cases is arguably viewed as “the standard” metric for current COVID-19 activity (albeit flawed because it is confounded by issues like testing capacity and policy), so this is a reassuring finding.  An R notebook which explicitly computes these correlations (and is completely self-contained, able to be re-compiled by any user with access to R and RStudio) is available [here](https://cmu-delphi.github.io/covidcast/R-notebooks/signal_correlations.html).
