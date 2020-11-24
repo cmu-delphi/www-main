@@ -33,7 +33,7 @@
     "build": "hugo --gc --minify",
     "start": "hugo server -D",
     "start:blog": "Rscript -e \"blogdown::serve_site()\"",
-    "format": "prettier **/* --write",
-    "lint": "prettier **/* --check"
+    "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
+    "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check"
   }
 }

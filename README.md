@@ -42,7 +42,7 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
 1. Alternatively, run `npm run build:blog`
 1. Run Hugo server as usual
 
-blogdown also has an integrated server `blogdown::serve_site()` which will render RMarkdown files on the fly and does a similar thing as `hugo server -D`. 
+blogdown also has an integrated server `blogdown::serve_site()` which will render RMarkdown files on the fly and does a similar thing as `hugo server -D`.
 A shortcut is available through `npm run start:blog`.
 
 #### Adding a new blog post
