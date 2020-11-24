@@ -5,10 +5,8 @@
     <body>
         {{ partial "nav.html" . }}
         {{ partial "menu/breadcrumb.html" . }}
-        <div>
-            {{ block "main" . }}
-            {{ end }}
-        </div>
+        {{ block "main" . }}
+        {{ end }}
         {{ partial "footer.html" . }}
         {{ partial "scripts.html" . }}
     </body>
