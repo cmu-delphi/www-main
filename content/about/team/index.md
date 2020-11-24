@@ -3,279 +3,345 @@ title: Delphi Team Members
 layout: team
 
 team:
-- name: Jacob Bien
+- firstName: Jacob
+  lastName: Bien
   image: jacob-bien-500x500-min.jpg
   affiliation: University of Southern California
   team: core
-- name: Logan Brooks
+- firstName: Logan
+  lastName: Brooks
   image: logan-brooks-500x500-min.jpg
   affiliation: CMU/MLD
   team: core
-- name: Brian Clark
+- firstName: Brian
+  lastName: Clark
   image: brian-clark-500x500-min.jpg
   affiliation: CMU/MLD
   team: core
-- name: Jodi Forlizzi
+- firstName: Jodi
+  lastName: Forlizzi
   image: jodi-forlizzi-500x500-min.jpg
   affiliation: CMU/HCII
   team: core
-- name: George Haff
+- firstName: George
+  lastName: Haff
   image: profile-placeholder.png
   affiliation: CMU/CSD
   team: core
-- name: Addison Hu
+- firstName: Addison
+  lastName: Hu
   image: addison-hu-500x500-min.jpg
   affiliation: CMU/Stat
   team: core
-- name: Maria Jahja
+- firstName: Maria
+  lastName: Jahja
   image: maria-jahja-500x500-min.jpg
   affiliation: CMU/Stat
   team: core
-- name: Zack Lipton
+- firstName: Zack
+  lastName: Lipton
   image: zachary-lipton-500x500-min.jpg
   affiliation: CMU/MLD
   team: core
-- name: Kathryn Rivard Mazaitis
+- firstName: Kathryn
+  lastName: Rivard
+  lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
   affiliation: CMU/MLD
   team: core
-- name: Balasubramanian Narasimhan
+- firstName: Balasubramanian
+  lastName: Narasimhan
   image: balasubramanian-narasimhan-500x500-min.jpg
   affiliation: Stanford University
   team: core
-- name: Adam Perer
+- firstName: Adam
+  lastName: Perer
   image: adam-perer-500x500-min.jpg
   affiliation: CMU/HCII
   team: core
-- name: Collin Politsch
+- firstName: Collin
+  lastName: Politsch
   image: collin-politsch-500x500-min.jpg
   affiliation: CMU/MLD
   team: core
-- name: Alex Reinhart
+- firstName: Alex
+  lastName: Reinhart
   image: alex-reinhart-500x500-min.jpg
   affiliation: CMU/Stat
   team: core
-- name: Roni Rosenfeld
+- firstName: Roni
+  lastName: Rosenfeld
   image: roni-rosenfeld-500x500-min.jpg
   affiliation: CMU/MLD
   team: leadership
-- name: Aaron Rumack
+- firstName: Aaron
+  lastName: Rumack
   image: aaron-rumack-500x500-min.jpg
   affiliation: CMU/MLD
   team: core
-- name: James Sharpnack
+- firstName: James
+  lastName: Sharpnack
   image: james-sharpnack-500x500-min.jpg
   affiliation: UC Davis
   team: core
-- name: Dmitry Shemetov
+- firstName: Dmitry
+  lastName: Shemetov
   image: dmitry-shemetov-500x500-min.jpg
   affiliation: UC Davis
   team: core
-- name: Jingjing Tang
+- firstName: Jingjing
+  lastName: Tang
   image: jinjing-tang-500x500-min.jpg
   affiliation: CMU/CompBio
   team: core
-- name: Robert Tibshirani
+- firstName: Robert
+  lastName: Tibshirani
   image: robert-tibshirani-500x500-min.jpg
   affiliation: Stanford University
   team: core
-- name: Ryan Tibshirani
+- firstName: Ryan
+  lastName: Tibshirani
   image: ryan-tibshirani-500x500-min.jpg
   affiliation: CMU/MLD/Stat
   team: leadership
-- name: Valérie Ventura
+- firstName: Valérie
+  lastName: Ventura
   image: valerie-ventura-500x500-min.jpg
   affiliation: CMU/Stat
   team: core
-- name: Larry Wasserman
+- firstName: Larry
+  lastName: Wasserman
   image: larry-wasserman-500x500-min.jpg
   affiliation: CMU/Stat
   team: core
-- name: Jeremy Weiss
+- firstName: Jeremy
+  lastName: Weiss
   image: jeremy-weiss-500x500-min.jpg
   affiliation: CMU/Heinz College
   team: core
 
-- name: Amartya Basu
+- firstName: Amartya
+  lastName: Basu
   image: amartya-basu-500x500-min.jpg
   affiliation: CMU/INI
   team: interns
-- name: Eu Jing Chua
+- firstName: Eu Jing
+  lastName: Chua
   image: eu-jing-chua-500x500-min.jpg
   affiliation: CMU/MLD
   team: interns
-- name: Robin Han
+- firstName: Robin
+  lastName: Han
   image: robin-han-500x500-min.jpg
   affiliation: CMU/HCII
   team: interns
-- name: Jenny Lee
+- firstName: Jenny
+  lastName: Lee
   image: jenny-yeon-jin-lee-500x500-min.jpg
   affiliation: CMU/HCII
   team: interns
-- name: Wael Al Saeed
+- firstName: Wael Al
+  lastName: Saeed
   image: wael-al-saeed-500x50-min.jpg
   affiliation: CMU/CSD
   team: interns
-- name: Vishnu Shankar
+- firstName: Vishnu
+  lastName: Shankar
   image: vishn-hankar-500x500-min.jpg
   affiliation: Stanford University
   team: interns
-- name: Vishakha Srivastava
+- firstName: Vishakha
+  lastName: Srivastava
   image: vishakha-srivastava-500x500-min.jpg
   affiliation: Santa Clara University
   team: interns
 
-- name: EJ Fox
+- firstName: EJ
+  lastName: Fox
   image: ej-fox-500x500-min.jpg
   affiliation: Data visualization consultant
   team: contractors
-- name: Samuel Gratzl
+- firstName: Samuel
+  lastName: Gratzl
   image: sam-gratzl-500x500-min.jpg
   affiliation: Data visualization consultant
   team: contractors
 
-- name: Dawn Rucker
+- firstName: Dawn
+  lastName: Rucker
   image: dawn-rucker-500x500-min.jpg
   affiliation: The Rucker Group
   team: advisors
-- name: Nigam Shah
+- firstName: Nigam
+  lastName: Shah
   image: nigram-shah-500x500-min.jpg
   affiliation: Stanford University
   team: advisors
 
-- name: Taylor Arnold
+- firstName: Taylor
+  lastName: Arnold
   image: taylor-arnold-500x500-min.jpg
   affiliation: University of Richmond
   team: contributors
   note: Core member, May–June 2020
-- name: Andrew Chin
+- firstName: Andrew
+  lastName: Chin
   image: andrew-chin-500x500-min.jpg
   affiliation: 
   team: contributors
-- name: Alden Green
+- firstName: Alden
+  lastName: Green
   image: alden-green-500x500-min.jpg
   affiliation: CMU/Stat
   note: Core member, May–July 2020
   team: contributors
-- name: Sangwon (Justin) Hyun
+- firstName: Sangwon (Justin)
+  lastName: Hyun
   image: sangwon-justin-hyun-500x500-min.jpg
   affiliation: USC
   team: contributors
   note: Core member, March – May 2020
-- name: Jaemin Jo
+- firstName: Jaemin
+  lastName: Jo
   image: jaemin-jo-500x500-min.jpg
   affiliation: Seoul National University
   team: contributors
-- name: Ananya Joshi
+- firstName: Ananya
+  lastName: Joshi
   image: ananya-joshi-500x500-min.jpg
   affiliation: CMU/CSD
   team: contributors
-- name: Jimi Kim
+- firstName: Jimi
+  lastName: Kim
   image: jimi-kim-500x500-min.jpg
   affiliation: CMU/LTI
   note: Core member, March – April 2020
   team: contributors
-- name: Michael Xieyang Liu
+- firstName: Michael
+  lastName: Xieyang
+  lastName: Liu
   image: michael-xieyang-liu-500x500-min.jpg
   affiliation: CMU/HCII
   team: contributors
   note: Core member, March – April 2020
-- name: Natalia Lombardi de Oliveira
+- firstName: Natalia
+  lastName: Lombardi de Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
   affiliation: CMU/Stat
   team: contributors
   note: Core member, March – May 2020
-- name: Samyak Rajanala
+- firstName: Samyak
+  lastName: Rajanala
   image: samyak-rajanala-500x500-min.jpg
   affiliation: Stanford University
   team: contributors
   note: Core member, May – July 2020
-- name: Kristin Williams
+- firstName: Kristin
+  lastName: Williams
   image: kristin-williams-500x500-min.jpg
   affiliation: CMU/HCII
   team: contributors
   note: Core member, March – April 2020
 
-- name: Angel (Alex) Cabrera
+- firstName: Angel (Alex)
+  lastName: Cabrera
   image: angel-alex-cabrera-500x500-min.jpg
   affiliation: CMU/HCII
   team: past
   note: Core member, March – April 2020
-- name: David Farrow
+- firstName: David
+  lastName: Farrow
   image: david-farrow-500x500-min.jpg
   affiliation: Google
   team: past
   note: Founding member 2012–2016, Core member March–April 2020
-- name: Andrew Kuznetsov
+- firstName: Andrew
+  lastName: Kuznetsov
   image: andrew-kuznetsov-500x500-min.jpg
   affiliation: CMU/HCII
   team: past
   note: Core member, March – April 2020
-- name: Lester Mackey
+- firstName: Lester
+  lastName: Mackey
   image: lester-mackey-500x500-min.jpg
   affiliation: Microsoft Research/Stanford
   team: past
   note: Core member, March – May 2020
-- name: Pratik Patil
+- firstName: Pratik
+  lastName: Patil
   image: pratik-patil-500x500-min.jpg
   affiliation: CMU/Stat
   team: past
   note: Core member, March – May 2020
-- name: Noah Simon
+- firstName: Noah
+  lastName: Simon
   image: noah-simon-500x500-min.jpg
   affiliation: University of Washington
   team: past
   note: Core member, may – June 2020
   
-- name: Mike O'Brien
+- firstName: Mike
+  lastName: O'Brien
   image: mike-o'brian_head-shot.png
   affiliation: Software Engineer
   team: google
-- name: Kate Harwood
+- firstName: Kate
+  lastName: Harwood
   image: kate-harwood_head-shot.png
   affiliation: Software Engineer
   team: google
-- name: Sumit Agrawal
+- firstName: Sumit
+  lastName: Agrawal
   image: sumit-agrawal_head-shot.png
   affiliation: Program Manager Lead
   team: google
-- name: Benjamin Weaver
+- firstName: Benjamin
+  lastName: Weaver
   image: benjamin-weaver_head-shot.png
   affiliation: Program / Project Manager
   team: google
-- name: Spencer Whitman
+- firstName: Spencer
+  lastName: Whitman
   image: specer-whitman_head-shot.png
   affiliation: Project Manager
   team: google
-- name: Benjamin Smith
+- firstName: Benjamin
+  lastName: Smith
   image: benjamin-smith_head-shot.png
   affiliation: Tech Lead Software Engineer
   team: google
-- name: Raphael Hyde
+- firstName: Raphael
+  lastName: Hyde
   image: raphael-hyde_head-shot.png
   affiliation: UX Designer
   team: google
-- name: Phil McGuinness
+- firstName: Phil
+  lastName: McGuinness
   image: phil-mcguinness_head-shot.png
   affiliation: UX Researcher
   team: google
-- name: Jed Grabman
+- firstName: Jed
+  lastName: Grabman
   image: jed-gradmn_head-shot.png
   affiliation: Site Reliability Engineer, Data Scientist
   team: google
-- name: Sarah Colquhoun
+- firstName: Sarah
+  lastName: Colquhoun
   image: sarah-colquhoun_head-shot.png
   affiliation: Site Reliability Engineer, Data Scientist
   team: google
-- name: Chris Scott
+- firstName: Chris
+  lastName: Scott
   image: chris-scott_head-shot.png
   affiliation: Tech Lead Software Engineer
   team: google
-- name: Daniel LaLiberte
+- firstName: Daniel
+  lastName: LaLiberte
   image: daniel-laliberte_head-shot.png
   affiliation: Software Engineer
   team: google
-- name: David Farrow
+- firstName: David
+  lastName: Farrow
   image: david-farrow_head-shot.png
   affiliation: Software Engineer
   team: google
