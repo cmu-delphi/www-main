@@ -75,12 +75,22 @@ $carousel-height:500px;
     h2 {
         font-weight: 600;
         font-size: 14px;
+        letter-spacing: 3px;
         text-transform: uppercase;
     }
     p {
-        font-weight: 600;
-        font-size: 32px;
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 48px;
+        color: rgb(35, 39, 53);
     }
+
+    @media screen and (max-width: 414px) { 
+        p {
+         font-size: 18px;
+         line-height: 32px;
+        }
+       }
     a {
         color: #666;
         font-weight: bold;

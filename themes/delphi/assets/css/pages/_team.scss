@@ -6,3 +6,17 @@
 .team-member > img {
     border-radius: 5px;
 }
+
+#team-header {
+    line-height: 64px;
+    font-size: 40;
+    padding-top: .25em;
+    padding-bottom: 1em;
+}
+
+@media screen and (max-width: 414px) { 
+    #team-header {
+        font-size: 14;
+        line-height: 24px;
+    }
+   }
