@@ -1,5 +1,5 @@
 ---
-title: About
+title: Delphi Research Group
 layout: about
 ---
 
