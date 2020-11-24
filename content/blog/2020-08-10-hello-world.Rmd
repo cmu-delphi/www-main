@@ -1,8 +1,9 @@
 ---
-title: "Hello World!"
-author: "Roni Rosenfeld and Ryan Tibshirani"
+title: Hello World!
+author: Roni Rosenfeld and Ryan Tibshirani
 date: 2020-08-10
-tags: ["COVIDcast"]
+tags:
+  - COVIDcast
 authors:
   - roni
   - ryan

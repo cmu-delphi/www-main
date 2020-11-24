@@ -1,8 +1,11 @@
 ---
-title: "COVID-19 Symptom Surveys through Facebook"
-author: "Alex Reinhart and Ryan Tibshirani"
+title: COVID-19 Symptom Surveys through Facebook
+author: Alex Reinhart and Ryan Tibshirani
 date: 2020-08-26
-tags: ["symptom surveys", "COVIDcast", "R"]
+tags:
+  - symptom surveys
+  - COVIDcast
+  - R
 authors:
   - alex
   - ryan

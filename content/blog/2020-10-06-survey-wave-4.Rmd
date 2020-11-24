@@ -1,8 +1,11 @@
 ---
-title: "New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing"
-author: "Alex Reinhart"
+title: New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing
+author: Alex Reinhart
 date: 2020-10-12
-tags: ["symptom surveys", "COVIDcast", "R"]
+tags:
+  - symptom surveys
+  - COVIDcast
+  - R
 summary: |
   Beginning on September 8, 2020, we deployed a new version of our symptom survey. 
   Facebook helps us recruit tens of thousands of respondents daily, and the new survey gives us unprecedented insights into the effects of COVID-19 across the United States. 

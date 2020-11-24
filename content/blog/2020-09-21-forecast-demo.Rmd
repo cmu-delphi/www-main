@@ -1,8 +1,12 @@
 ---
-title: "Can Symptoms Surveys Improve COVID-19 Forecasts?"
-author: "Ryan Tibshirani"
+title: Can Symptoms Surveys Improve COVID-19 Forecasts?
+author: Ryan Tibshirani
 date: 2020-09-21
-tags: ["symptom surveys", "forecasting", "COVIDcast", "R"]
+tags:
+  - symptom surveys
+  - forecasting
+  - COVIDcast
+  - R
 authors:
   - ryan
 heroImage: /blog/images/blog-Lg-img_can symptoms surveys improve covid-19.png

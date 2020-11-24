@@ -1,8 +1,11 @@
 ---
-title: "COVID-19 Symptom Surveys through Google"
-author: "Ryan Tibshirani"
+title: COVID-19 Symptom Surveys through Google
+author: Ryan Tibshirani
 date: 2020-09-18
-tags: ["symptom surveys", "COVIDcast", "R"]
+tags:
+  - symptom surveys
+  - COVIDcast
+  - R
 authors:
   - ryan
 heroImage: /blog/images/blog-lg-img_google-survey-post.png
