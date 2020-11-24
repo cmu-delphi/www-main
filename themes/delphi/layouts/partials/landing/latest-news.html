@@ -5,11 +5,6 @@
     {{ return (dict "source" "blog" "image" .Params.heroImageThumb "title" .Title "link" .RelPermalink "date" .PublishDate ) }}
     {{ end }}
     {{ $items := apply (.Site.GetPage "/blog").Pages "partial" "latest-blog" "."}}
-    
-    <!--
-    {{range first 0 ((.Site.GetPage "/news").Resources.ByType "page") }}
-    {{$items = $items | append (dict "source" "news" "title" .Title "date" .PublishDate "link" (relref $currentPage "flu#updates" ) )}}
-    {{end}}-->
 
     {{ $top := 6 }}
     

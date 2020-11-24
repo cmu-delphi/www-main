@@ -11,7 +11,8 @@
     "hugo-bin": "^0.66.2",
     "husky": "^4.3.0",
     "ncp": "^2.0.0",
-    "prettier": "^2.2.0"
+    "prettier": "^2.2.0",
+    "prettier-plugin-go-template": "0.0.10"
   },
   "hugo-bin": {
     "buildTags": "extended"
@@ -28,7 +29,9 @@
     "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd=TRUE)\"",
     "build": "hugo --gc --minify",
     "start": "hugo server -D",
-    "start:blog": "Rscript -e \"blogdown::serve_site()\""
+    "start:blog": "Rscript -e \"blogdown::serve_site()\"",
+    "format": "prettier **/* --write",
+    "lint": "prettier **/* --check"
   },
   "name": "www-main",
   "version": "0.1.0"

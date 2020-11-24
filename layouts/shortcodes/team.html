@@ -3,7 +3,7 @@
 {{ range where .Page.Params.team ".team" (.Get "team") }}
   {{ $img := $images.GetMatch (path.Join "images" .image) }}
   <div class="team-member">
-      <img src="{{ ($img.Resize "250x250").RelPermalink }}" alt="{{ .name }}"></img>
+      <img src="{{ ($img.Resize "250x250").RelPermalink }}" alt="{{ .name }}" />
       <div class="uk-text-bold">{{ .name }}</div>
       <div>{{ .affiliation }}</div>
       {{ if isset . "note" }}
