@@ -10,4 +10,5 @@
 /content/blog/_output.yml
 /node_modules
 /assets/jsconfig.json
+/static/uikit/**
 .DS_Store
