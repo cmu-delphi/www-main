@@ -43,6 +43,8 @@ acknowledgements: |
 output:
   html_document:
     code_folding: hide
+  blogdown::html_page:
+    toc: true
 ---
 
 ```{r setup, include=FALSE}

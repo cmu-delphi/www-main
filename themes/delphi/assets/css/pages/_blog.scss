@@ -89,3 +89,8 @@ $blog-list-date-width: 5em;
         height: 100%;
     }
 }
+
+#TOC {
+    // hide original toc
+    display: none;
+}

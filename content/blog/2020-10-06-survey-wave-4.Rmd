@@ -23,6 +23,9 @@ acknowledgments: |
   Roni Rosenfeld and Ryan Tibshirani suggested survey revisions. We thank Jean
   Cox-Ganser, Paul Henneberger, Danielle Iuliano, Robert Kraut, and Jordan Weber
   for suggesting survey items and revisions for Wave 4.
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 Beginning in early April 2020, the [Delphi group](`r blogdown::shortcode("ref", "/")`) has

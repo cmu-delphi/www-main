@@ -40,6 +40,8 @@ acknowledgements: |
 output:
   html_document:
     code_folding: hide
+  blogdown::html_page:
+    toc: true
 ---
 
 Since April 2020, in collaboration with Facebook,
