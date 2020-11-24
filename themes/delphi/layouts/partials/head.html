@@ -21,14 +21,6 @@
     {{ $main_style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $main_style.Permalink }}"/>
 
-    <!-- Uncomment to add custom styles -->
-    <!-- Modify the custom.scss file inside assets > css to use scss -->
-    <!-- {{ $custom_style := resources.Get "css/custom.scss" | toCSS | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $custom_style.Permalink }}"/> -->
-
-    <!-- Modify the custom.css file inside static > css to use vanilla css -->
-    <!-- <link type="text/css" rel="stylesheet" href="{{ "/" | relURL }}css/custom.css"> -->
-
     {{ with .OutputFormats.Get "RSS" }}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end }}
@@ -37,7 +29,7 @@
     {{- end -}}
 
     {{ if eq .Page.Type "blog" }}
-    {{ $blog_style := resources.Get "css/blog.scss" | toCSS | minify | fingerprint }}
+    {{ $blog_style := resources.Get "css/blog_extra.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $blog_style.Permalink }}"/>
     {{ end }}
 

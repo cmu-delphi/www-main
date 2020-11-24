@@ -1,0 +1,21 @@
+.arrow-link {
+    display: flex;
+    align-items: center;
+    
+    > .inline-svg-icon {
+        border-radius: 50%;
+        padding: 5px;
+        border: 1px solid currentColor;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1em;
+        
+        > svg {
+          width: 14px;
+        }
+    }
+}
