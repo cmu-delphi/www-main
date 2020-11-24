@@ -14,7 +14,8 @@ This site is based on [Hugo](https://gohugo.io).
 #### Commands
 
 1. run `npm start` to create a development Hugo server
-1. run `npm build` to build a minified build in `/public`
+1. run `npm run format` to run prettier and format files
+1. run `npm run build` to build a minified build in `/public`
 
 ### Blog Editor
 
@@ -38,9 +39,11 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
    - `local=TRUE` similar to `-D` to process draft files
    - `run_hugo=FALSE` to manually run hugo
    - `build_rmd=TRUE` force a (re)build of the Rmd pages
+1. Alternatively, run `npm run build:blog`
 1. Run Hugo server as usual
 
-blogdown also has an integrated server `blogdown::serve_site()` which will render RMarkdown files on the fly and does a similar thing as `hugo server -D`
+blogdown also has an integrated server `blogdown::serve_site()` which will render RMarkdown files on the fly and does a similar thing as `hugo server -D`. 
+A shortcut is available through `npm run start:blog`.
 
 #### Adding a new blog post
 
