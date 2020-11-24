@@ -4,8 +4,8 @@ author: "Roni Rosenfeld and Ryan Tibshirani"
 date: 2020-08-10
 tags: ["COVIDcast"]
 authors:
-- roni
-- ryan
+  - roni
+  - ryan
 heroImage: /blog/images/blog-lg-img_hello-world.png
 heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
 summary: |
@@ -24,12 +24,12 @@ summary: |
 Hello from the Delphi research group at Carnegie Mellon University!
 We're a group of faculty, students, and staff, based primarily out of CMU
 together with strong collaborators from other universities and industry.
-Our group was founded in 2012 to advance the theory and practice of epidemic 
-forecasting. Since March 2020, we have refocused efforts towards helping combat 
+Our group was founded in 2012 to advance the theory and practice of epidemic
+forecasting. Since March 2020, we have refocused efforts towards helping combat
 the COVID-19 pandemic, by supporting informed decision-making at federal, state,
 and local levels of government and in the healthcare sector. Until now, we've
-been pretty "heads down" with our work, and slow to communicate what we've been 
-up to. But at last ... Delphi finally has a blog! This first post serves as an 
+been pretty "heads down" with our work, and slow to communicate what we've been
+up to. But at last ... Delphi finally has a blog! This first post serves as an
 introduction of sorts. Future posts will dive deeper into our various projects.
 
 ## A Little Bit About Us
@@ -86,40 +86,40 @@ epidemic forecasting, since March 2020 our goals are to help combat the COVID-19
 pandemic and save lives and livelihoods.
 We aim to support informed decision-making at federal,
 state, and local levels of government and in the healthcare sector.
-Whenever possible, we strive to make our work useful 
-to the private and public sectors, other researchers, 
+Whenever possible, we strive to make our work useful
+to the private and public sectors, other researchers,
 the press, and the general public.
 
 Our strategy:
 
 1. Improve pandemic situational awareness and understanding
-by providing comprehensive, geographically-detailed, 
-and continuously-updated indicators of pandemic activity and its impact,
-helping to make meaning out of the pandemic information deluge.
+   by providing comprehensive, geographically-detailed,
+   and continuously-updated indicators of pandemic activity and its impact,
+   helping to make meaning out of the pandemic information deluge.
 
-2. Support local, state, and federal governments' 
-ongoing decision-making in their attempts to balance
-public health concerns with economic preservation,
-by providing validated, verifiable, localized,
-short-term forecasts of epidemic spread and healthcare demand,
-under any assumed level of the local population's mobility and distancing 
-behavior.
+2. Support local, state, and federal governments'
+   ongoing decision-making in their attempts to balance
+   public health concerns with economic preservation,
+   by providing validated, verifiable, localized,
+   short-term forecasts of epidemic spread and healthcare demand,
+   under any assumed level of the local population's mobility and distancing
+   behavior.
 
-3. Analyze and demonstrate the impacts of governments' 
-past tightening or loosening of mitigation measures
-(e.g., opening or closing schools or businesses, 
-imposing or lifting bans on gatherings, shelter in place orders, etc.)
-on a population's mobility and distancing behavior.
+3. Analyze and demonstrate the impacts of governments'
+   past tightening or loosening of mitigation measures
+   (e.g., opening or closing schools or businesses,
+   imposing or lifting bans on gatherings, shelter in place orders, etc.)
+   on a population's mobility and distancing behavior.
 
-4. Engage continuously with our target users to communicate 
-our findings, and inform our directions and priorities.
+4. Engage continuously with our target users to communicate
+   our findings, and inform our directions and priorities.
 
 5. Make our products useful and accessible to other
-researchers and tool developers, to amplify their impact.
-To that end, we'll continue to make everything we invent or produce
-publicly and freely available as soon as possible
-and to the greatest degree allowed, including models,
-algorithms, software, tools, estimates, and forecasts.
+   researchers and tool developers, to amplify their impact.
+   To that end, we'll continue to make everything we invent or produce
+   publicly and freely available as soon as possible
+   and to the greatest degree allowed, including models,
+   algorithms, software, tools, estimates, and forecasts.
 
 ## What We've Been Up To
 
@@ -129,29 +129,29 @@ and have made good progress on some of them.
 
 Here's a quick summary:
 
-- We've built a number of new indicators of COVID-19 activity. 
-  These are fine-grained geographically 
-  (most of them are available at the US county level) 
+- We've built a number of new indicators of COVID-19 activity.
+  These are fine-grained geographically
+  (most of them are available at the US county level)
   and temporally (all of them updated daily).
-  They are designed to shed light on the current picture of COVID in the US, 
+  They are designed to shed light on the current picture of COVID in the US,
   beyond the typical publicly-available metrics like confirmed cases and deaths.
 
--  Some of our indicators are based on massive-scale surveys that we’re running 
-  through partnerships with Facebook and Google, and others are based on 
+- Some of our indicators are based on massive-scale surveys that we’re running
+  through partnerships with Facebook and Google, and others are based on
   aggregated counts from massive medical claims data sets through partners like
   Change Healthcare.
 
-- We've built a [public 
-  API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`), 
-  and [R and Python 
-  packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`), 
-  to serve our indicators to researchers and the public. This API provides new 
+- We've built a [public
+  API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
+  and [R and Python
+  packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`),
+  to serve our indicators to researchers and the public. This API provides new
   data daily.
 
-- We've built [interactive maps and graphics](`r blogdown::shortcode("ref", "covidcast")`) to 
+- We've built [interactive maps and graphics](`r blogdown::shortcode("ref", "covidcast")`) to
   display our indicators, and better inform the public and decision-makers.
 
-- We've developed forecasts of the future spread of the pandemic, 
+- We've developed forecasts of the future spread of the pandemic,
   validated them prospectively, and started submitting them to CDC.
 
 In subsequent posts, we'll dive deeper into many of these projects, and touch on

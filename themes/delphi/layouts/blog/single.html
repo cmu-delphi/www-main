@@ -1,62 +1,68 @@
 {{ define "main" }}
-<div class="content">
-<h1>{{ .Title }}</h1>
-{{ partial "blog/tags.html" .}}
-{{if isset .Params "heroimage"}}
-<div class="uk-margin-top uk-margin-bottom">
-    <img src="{{.Params.heroImage | relURL }}" width="1120" height="440" alt="{{ .Title}} - Hero Image">
-</div>
-{{end}}
-<div uk-grid>
-    <div class="uk-width-1-1@s uk-width-medium@m">
+  <div class="content">
+    <h1>{{ .Title }}</h1>
+    {{ partial "blog/tags.html" . }}
+    {{ if isset .Params "heroimage" }}
+      <div class="uk-margin-top uk-margin-bottom">
+        <img src="{{ .Params.heroImage | relURL }}" width="1120" height="440" alt="{{ .Title }} - Hero Image" />
+      </div>
+    {{ end }}
+    <div uk-grid>
+      <div class="uk-width-1-1@s uk-width-medium@m">
         <div class="uk-grid-small uk-flex-start" uk-grid>
-            <div class="uk-width-auto">
-                <span class="uk-icon-button">
-                    {{if gt (len .Params.authors) 1}}
-                        {{partial "font-awesome.html" "solid/users"}}
-                    {{ else }}
-                        {{partial "font-awesome.html" "solid/user"}}
-                    {{ end }}
-                </span>
-            </div>
-            <div class="uk-width-expand">
-                <p class="uk-text-bold-600">{{ .Params.author }}</p>
-                <p><time>{{ .Date.Format "Jan 2, 2006" }}</time></p>
-                {{ partial "share.html" . }}
-            </div>
+          <div class="uk-width-auto">
+            <span class="uk-icon-button">
+              {{ if gt (len .Params.authors) 1 }}
+                {{ partial "font-awesome.html" "solid/users" }}
+                {{ else }}
+                {{ partial "font-awesome.html" "solid/user" }}
+              {{ end }}
+            </span>
+          </div>
+          <div class="uk-width-expand">
+            <p class="uk-text-bold-600">{{ .Params.author }}</p>
+            <p><time>{{ .Date.Format "Jan 2, 2006" }}</time></p>
+            {{ partial "share.html" . }}
+          </div>
         </div>
-        <hr class="uk-hidden@m"/>
-    </div>
-    <div class="uk-width-1-1@s uk-width-3-5@m blog-blog">
+        <hr class="uk-hidden@m" />
+      </div>
+      <div class="uk-width-1-1@s uk-width-3-5@m blog-blog">
         {{ .Content }}
         {{ if isset .Params "acknowledgements" }}
-        <p>
+          <p>
             <strong>Acknowledgements: </strong>
             {{ .Params.acknowledgements | markdownify }}
-        </p>
+          </p>
         {{ end }}
         {{ if isset .Params "related" }}
-        <strong>Related Posts:</strong>
-        <ul>
+          <strong>Related Posts:</strong>
+          <ul>
             {{ $currentPage := . }}
             {{ range $related := .Params.related }}
-              {{ $relPage := $.GetPage $related}}
-            <li><a href="{{ $relPage.Permalink }}">{{ $relPage.Title }}</a></li>
+              {{ $relPage := $.GetPage $related }}
+              <li><a href="{{ $relPage.Permalink }}">{{ $relPage.Title }}</a></li>
             {{ end }}
-        </ul>
+          </ul>
         {{ end }}
         {{ template "_internal/disqus.html" . }}
+      </div>
     </div>
-</div>
-<hr />
-{{ range .Params.authors}}
-<div>
-    {{ range first 1 (where $.Site.Data.authors "key" "eq" .)}}
-    {{ if isset . "link"}}<a href="{{.link}}" class="uk-text-bold-600 uk-link-text">{{.name}}</a>{{ else }}<span>{{.name}}</span>{{ end}} {{.description}}
+    <hr />
+    {{ range .Params.authors }}
+      <div>
+        {{ range first 1 (where $.Site.Data.authors "key" "eq" .) }}
+          {{ if isset . "link" }}
+            <a href="{{ .link }}" class="uk-text-bold-600 uk-link-text">{{ .name }}</a>{{ else }}<span
+              >{{ .name }}</span
+            >{{ end }}
+
+
+          {{ .description }}
+        {{ end }}
+      </div>
     {{ end }}
-</div>
+    <hr />
+    {{ partial "blog/latestblogs.html" . }}
+  </div>
 {{ end }}
-<hr />
-{{ partial "blog/latestblogs.html" . }}
-</div>
-{{end}}

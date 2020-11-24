@@ -1,63 +1,61 @@
-
 .about-mission {
-    padding: 8rem 0;
+  padding: 8rem 0;
 }
 
 .about-mission-img {
-    z-index: -1;    
+  z-index: -1;
 }
 .about-mission-mission {
-    color: white;
-    padding: 1em 0;
-    display: block;
-    background: rgba(#FA8C16, 0.2);
-    text-transform: uppercase;
-    letter-spacing: 3px;
+  color: white;
+  padding: 1em 0;
+  display: block;
+  background: rgba(#fa8c16, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .about-mission-text {
-    color: white;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    font-weight: 600;
-    font-size: 44px;
-    line-height: 64px;
-    margin: 0;
+  color: white;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 64px;
+  margin: 0;
 }
 
 .about-description {
-    padding: 24px;
-    margin-bottom: 3rem;
-    
-    h3 {
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
+  padding: 24px;
+  margin-bottom: 3rem;
+
+  h3 {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
 }
 
 @media (min-width: $breakpoint-medium) {
-    .about-description {
-        background: white;
-        border: 1px solid #D3D4D8;
-        border-radius: 5px;
-        margin-top: -6rem;
-    }
+  .about-description {
+    background: white;
+    border: 1px solid #d3d4d8;
+    border-radius: 5px;
+    margin-top: -6rem;
+  }
 }
 
-
 .about-collaborators {
-    background: #FAFAFC;
-    padding: 0;
-    padding: 2em 0;
+  background: #fafafc;
+  padding: 0;
+  padding: 2em 0;
 }
 
 .about-collaborators-list {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    
-    > div {
-        margin: 1em 0;
-        text-align: center;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+
+  > div {
+    margin: 1em 0;
+    text-align: center;
+  }
 }

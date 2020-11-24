@@ -1,9 +1,9 @@
 on:
   push:
     paths-ignore: # don't run the fast version when an Rmd file changes
-     - '**.Rmd'
-     - 'environment.yml'
-     - '.github/workflows/ci.yaml'
+      - "**.Rmd"
+      - "environment.yml"
+      - ".github/workflows/ci.yaml"
 
 name: ci_fast
 
@@ -14,11 +14,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           # submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 3    # Fetch all history for .GitInfo and .Lastmod   
-      
+          fetch-depth: 3 # Fetch all history for .GitInfo and .Lastmod
+
       - uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: "12"
       - uses: actions/cache@v2
         with:
           path: ~/.npm

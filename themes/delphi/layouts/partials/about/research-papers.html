@@ -1,23 +1,26 @@
 {{ $currentPage := . }}
 <div class="card-grid">
   {{ range $.Site.Data.research }}
-  <div class="card-grid-item uk-card uk-card-default">
-    <div class="card-grid-item-date">{{ .year }}</div>
-    <img class="card-grid-item-img" src="{{(path.Join "/images/papers" .image) | relURL}}" width="200" height="300">
-    <div>
+    <div class="card-grid-item uk-card uk-card-default">
+      <div class="card-grid-item-date">{{ .year }}</div>
+      <img
+        class="card-grid-item-img"
+        src="{{ (path.Join "/images/papers" .image) | relURL }}"
+        width="200"
+        height="300"
+      />
+      <div>
         <div class="uk-card-body">
-            <h3 class="uk-card-title">{{.title}}</h3>
-            <div class="uk-text-uppercase">
-                {{ .authors }}
-            </div>
-            <div>
-                {{.journal}}, {{ .year }}
-            </div>
+          <h3 class="uk-card-title">{{ .title }}</h3>
+          <div class="uk-text-uppercase">
+            {{ .authors }}
+          </div>
+          <div>{{ .journal }}, {{ .year }}</div>
         </div>
         <div class="uk-card-footer">
-            {{partial "arrow-link.html" (dict "alt" "View Paper" "link" .link)}}
+          {{ partial "arrow-link.html" (dict "alt" "View Paper" "link" .link) }}
         </div>
+      </div>
     </div>
-   </div>
-   {{end}}
+  {{ end }}
 </div>

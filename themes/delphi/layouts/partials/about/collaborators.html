@@ -1,18 +1,17 @@
-
 <div class="about-collaborators">
-    <div class="content">
-        <h2 class="uk-text-center">Collaborators</h2>
-        <p class="uk-text-center">We're grateful for financial and other support from our collaborators and supporters</p>
-        <div class="about-collaborators-list">
-            {{range where .Site.Data.supporter "group" "collaborator"}}
-            {{partial "about/collaborator-img.html" .}}
-            {{end}}
-        </div>
-        <p class="uk-text-center">With grant support from</p>
-        <div class="about-collaborators-list">
-            {{range where .Site.Data.supporter "group" "grant"}}
-            {{partial "about/collaborator-img.html" .}}
-            {{end}}
-        </div>
+  <div class="content">
+    <h2 class="uk-text-center">Collaborators</h2>
+    <p class="uk-text-center">We're grateful for financial and other support from our collaborators and supporters</p>
+    <div class="about-collaborators-list">
+      {{ range where .Site.Data.supporter "group" "collaborator" }}
+        {{ partial "about/collaborator-img.html" . }}
+      {{ end }}
     </div>
+    <p class="uk-text-center">With grant support from</p>
+    <div class="about-collaborators-list">
+      {{ range where .Site.Data.supporter "group" "grant" }}
+        {{ partial "about/collaborator-img.html" . }}
+      {{ end }}
+    </div>
+  </div>
 </div>

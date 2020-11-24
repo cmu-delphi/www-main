@@ -20,7 +20,7 @@ CMU may update and change these TOU from time to time without notice to you. You
 
 ### Permitted Use and License/Availability of the Site
 
-Subject to other relevant provisions of the TOU, the Site and any information and data on it (“Site Content”) is provided to you under the [CC-BY license]( https://creativecommons.org/licenses/by/4.0/) CMU (and/or its content providers, as applicable) own and retain all intellectual property rights they have in and to the Site Content, including but not limited to the Project content and the underlying infrastructure. CMU shall have the right in its sole and absolute discretion to suspend or terminate the Site any or all access to it for any reason. As specified below, the Site (including Site Content) is provided on an “AS-IS, AS-AVAILABLE” basis.
+Subject to other relevant provisions of the TOU, the Site and any information and data on it (“Site Content”) is provided to you under the [CC-BY license](https://creativecommons.org/licenses/by/4.0/) CMU (and/or its content providers, as applicable) own and retain all intellectual property rights they have in and to the Site Content, including but not limited to the Project content and the underlying infrastructure. CMU shall have the right in its sole and absolute discretion to suspend or terminate the Site any or all access to it for any reason. As specified below, the Site (including Site Content) is provided on an “AS-IS, AS-AVAILABLE” basis.
 
 ### Prohibited Uses/Activities
 

@@ -1,9 +1,9 @@
 on:
   push:
     paths: # run only when an Rmd file changes
-     - '**.Rmd'
-     - 'environment.yml'
-     - '.github/workflows/ci.yaml'
+      - "**.Rmd"
+      - "environment.yml"
+      - ".github/workflows/ci.yaml"
 
 name: ci
 
@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 3
       - name: Cache Conda
         uses: actions/cache@v1
-        with:          
+        with:
           path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda6-${{ hashFiles('environment.yml') }}
           restore-keys: |
@@ -50,13 +50,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-blogdown2-
       - name: Build site
-        shell: bash -l {0}        
+        shell: bash -l {0}
         run: |
           npm run build:blog
-      
+
       - uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: "12"
       - uses: actions/cache@v2
         with:
           path: ~/.npm

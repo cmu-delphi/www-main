@@ -4,7 +4,7 @@ author: "Ryan Tibshirani"
 date: 2020-09-21
 tags: ["symptom surveys", "forecasting", "COVIDcast", "R"]
 authors:
-- ryan
+  - ryan
 heroImage: /blog/images/blog-Lg-img_can symptoms surveys improve covid-19.png
 heroImageThumb: /blog/images/blog-thumbnail_can symptoms surveys improve covid-19.png
 summary: |
@@ -20,8 +20,8 @@ acknowledgements: |
   attributable to Ryan's work alone, and are a reflection of the work carried out 
   by all these team members.*
 related:
-- 2020-09-18-google-survey
-- 2020-08-26-fb-survey
+  - 2020-09-18-google-survey
+  - 2020-08-26-fb-survey
 output:
   html_document:
     code_folding: hide
@@ -44,64 +44,65 @@ the surveys, examining whether the % CLI-in-community indicators from our two
 surveys can be used to improve the accuracy of short-term forecasts of
 county-level COVID-19 case rates.
 
-**Forecasting** has long been a primary initiative of the Delphi research 
-group (in the past for flu, and currently for COVID-19). 
-Each week since mid-July we've been submitting forecasts 
-to the [COVID Forecast Hub](https://covid19forecasthub.org), 
-which serves as the official data source for the 
-[CDC's communications on COVID-19 
+**Forecasting** has long been a primary initiative of the Delphi research
+group (in the past for flu, and currently for COVID-19).
+Each week since mid-July we've been submitting forecasts
+to the [COVID Forecast Hub](https://covid19forecasthub.org),
+which serves as the official data source for the
+[CDC's communications on COVID-19
 forecasts](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-modeling.html).
 
-At the outset, we should state that this post is neither a report on Delphi's 
-current COVID-19 forecasters nor an authoritative take on cutting-edge 
-COVID-19 forecasting. Instead, our purpose here to study the Facebook and 
-Google % CLI-in-community signals, and demonstrate their value, when used as 
-features, to add predictive power beyond what we can achieve with (fairly 
-simple) time series models trained on case rates alone. In a future blog post, 
-we'll follow up with details on our "production" forecasters. 
+At the outset, we should state that this post is neither a report on Delphi's
+current COVID-19 forecasters nor an authoritative take on cutting-edge
+COVID-19 forecasting. Instead, our purpose here to study the Facebook and
+Google % CLI-in-community signals, and demonstrate their value, when used as
+features, to add predictive power beyond what we can achieve with (fairly
+simple) time series models trained on case rates alone. In a future blog post,
+we'll follow up with details on our "production" forecasters.
 
-While we focus here on forecasting, there are a number of other important 
+While we focus here on forecasting, there are a number of other important
 prediction problems that arise as part of the pandemic response.
 For example, we also work on **hotspot detection**,
 where the goal is to predict whether case rates will rise significantly,
 rather than to predict the future case rates directly, as in forecasting.
 To motivate why we might be optimistic about the utility of incorporating
-our survey signals into forecasting or hotspot detection models, you can 
+our survey signals into forecasting or hotspot detection models, you can
 check out our [previous exploratory
-investigations](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#some-interesting-examples")`), 
-which suggested that they can serve as **early indicators** of COVID-19 
+investigations](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#some-interesting-examples")`),
+which suggested that they can serve as **early indicators** of COVID-19
 activity. Stay tuned to the Delphi blog for a post on hotspot detection
 soon.
 
 Next we explain the forecasting setup and results in detail.
-Some parts may get a bit technical, but we've tried to make the post 
-accessible enough that you can catch the main points 
+Some parts may get a bit technical, but we've tried to make the post
+accessible enough that you can catch the main points
 even if you skip the technical details.
 
-## Problem Setup 
+## Problem Setup
 
 Formally, our goal here is to predict county-level
 COVID-19 case incidence rates, 1 and 2 weeks ahead.
-Specifically, we wish to predict the number of new COVID-19 cases per capita, 
-both over the next 1-7 days and over the next 8-14 days. 
-One convenient (and equivalent) way to phrase this problem 
-is to predict the *smoothed* COVID-19 case incidence rate 7 days ahead and 
+Specifically, we wish to predict the number of new COVID-19 cases per capita,
+both over the next 1-7 days and over the next 8-14 days.
+One convenient (and equivalent) way to phrase this problem
+is to predict the _smoothed_ COVID-19 case incidence rate 7 days ahead and
 14 days ahead, where the smoothing is performed via a 7-day trailing average.
-We restrict our attention to the 440 counties 
-that had at least 200 confirmed cases by May 14, 2020 
-(the end of the Google survey data) and in which 
-both the Facebook and Google % CLI-in-community signals are available 
-(there were 604 counties in total with at least 200 confirmed cases by May 14, 
+We restrict our attention to the 440 counties
+that had at least 200 confirmed cases by May 14, 2020
+(the end of the Google survey data) and in which
+both the Facebook and Google % CLI-in-community signals are available
+(there were 604 counties in total with at least 200 confirmed cases by May 14,
 and we dropped 164 of them due to a lack of Facebook or Google survey data).
 
-To fix notation, let $Y_{\ell,t}$ denote the smoothed COVID-19 case 
-incidence rate for location (county) $\ell$ and time (day) $t$. 
-Let $F_{\ell,t}$ and $G_{\ell,t}$ denote 
-the Facebook and Google % CLI-in-community signals, respectively, 
-for location $\ell$ and time $t$. 
-(We rescale all these signals from their given values in our API 
-so that they are true proportions: between 0 and 1.) 
+To fix notation, let $Y_{\ell,t}$ denote the smoothed COVID-19 case
+incidence rate for location (county) $\ell$ and time (day) $t$.
+Let $F_{\ell,t}$ and $G_{\ell,t}$ denote
+the Facebook and Google % CLI-in-community signals, respectively,
+for location $\ell$ and time $t$.
+(We rescale all these signals from their given values in our API
+so that they are true proportions: between 0 and 1.)
 We evaluate the following four models:
+
 $$
 \begin{aligned}
 &\text{Cases:} \quad && h(Y_{\ell,t+d})
@@ -118,105 +119,110 @@ $$
 \sum_{j=0}^2 \tau_j h(G_{\ell,t-7j}).
 \end{aligned}
 $$
-Here $d=7$ or $d=14$, depending on the target value 
-(number of days we predict ahead), 
-and $h$ is a transformation to be specified later. 
+
+Here $d=7$ or $d=14$, depending on the target value
+(number of days we predict ahead),
+and $h$ is a transformation to be specified later.
 
 Informally, the first model bases its predictions of future case rates
 on the following three features:
 current COVID-19 case rates, and those 1 and 2 weeks back.
 The second model additionally incorporates the current Facebook signal,
 and the Facebook signal from 1 and 2 weeks back.
-The third model is exactly same but substitutes the Google signal 
+The third model is exactly same but substitutes the Google signal
 instead of the Facebook one.
-Finally, the fourth model uses both Facebook and Google signals. 
-For each model, in order to make a forecast at time $t_0$ 
+Finally, the fourth model uses both Facebook and Google signals.
+For each model, in order to make a forecast at time $t_0$
 (to predict case rates at time $t_0+d$),
-we fit a linear model using least absolute deviations (LAD) regression, 
-training over all locations $\ell$ (all 440 counties), 
-and all time $t$ that are within the most recent 14 days of data 
-available up to and including time $t_0$. 
+we fit a linear model using least absolute deviations (LAD) regression,
+training over all locations $\ell$ (all 440 counties),
+and all time $t$ that are within the most recent 14 days of data
+available up to and including time $t_0$.
 
-Forecasts are transformed back to the original scale 
-(we apply $h^{-1}$ to the predictions from the fitted LAD model), 
+Forecasts are transformed back to the original scale
+(we apply $h^{-1}$ to the predictions from the fitted LAD model),
 and denoted $\hat{Y}_{\ell,t_0+d}$.
-For an error metric, we consider **scaled absolute error** 
+For an error metric, we consider **scaled absolute error**
 (or just scaled error for short):
+
 $$
 \frac{|\hat{Y}_{\ell,t_0+d} - Y_{\ell,t_0+d}|}
 {|Y_{\ell,t_0} - Y_{\ell,t_0+d}|},
 $$
-where the error in the denominator is the error of the "strawman" model,
-which for any target always simply predicts the most recent available case rate. 
 
-This normalization helps for two reasons. 
-First, it gives us an interpretable scale, 
-as we can understand the scaled error as a fraction improvement 
-over the strawman's error (so numbers like 0.8 or 0.9 would be favorable, 
-and numbers like 2 or 5 or 10 would be increasingly disastrous). 
+where the error in the denominator is the error of the "strawman" model,
+which for any target always simply predicts the most recent available case rate.
+
+This normalization helps for two reasons.
+First, it gives us an interpretable scale,
+as we can understand the scaled error as a fraction improvement
+over the strawman's error (so numbers like 0.8 or 0.9 would be favorable,
+and numbers like 2 or 5 or 10 would be increasingly disastrous).
 Second, in our forecasting problem,
-there turns out to a considerable amount of county-to-county variability 
+there turns out to a considerable amount of county-to-county variability
 in forecasting difficulty, and normalizing by the strawman's
 error helps adjust for this (so that the aggregate results aren't dominated
 by county-to-county differences).
 
 ## Transformations
 
-We investigated three transformations $h$: identity, log, and logit (the 
-latter two being common variance-stabilizing transforms for proportions). 
-The results in all three cases were quite similar 
-and the qualitative conclusions don't change at all 
-(the code below supports all three, so you can check this for yourself). 
-For brevity, we'll just show the results for the logit transform 
-(actually, a "padded" version $h(x) = \log\left(\frac{x+a}{1-x+a}\right)$, 
-where the numerator and denominator are pushed away from zero 
-by a small constant, which we took to be $a=0.01$). 
+We investigated three transformations $h$: identity, log, and logit (the
+latter two being common variance-stabilizing transforms for proportions).
+The results in all three cases were quite similar
+and the qualitative conclusions don't change at all
+(the code below supports all three, so you can check this for yourself).
+For brevity, we'll just show the results for the logit transform
+(actually, a "padded" version $h(x) = \log\left(\frac{x+a}{1-x+a}\right)$,
+where the numerator and denominator are pushed away from zero
+by a small constant, which we took to be $a=0.01$).
 
 ## Forecasting Code
 
-The code below marches the forecast date $t_0$ forward, 
-one day at a time (from April 11 to September 1), fits the four models, 
-makes predictions 7 and 14 days ahead, and records errors. 
-It takes a little while to run[^1], the culprit being LAD regression: 
-the training sets in our forecasting problem get moderately large 
-(aggregating the data over 440 counties and 14 days results in over 6000 
-training samples), and at this scale LAD regression is much slower than least 
-squares regression. We ran this R code separately and saved the results in an 
-RData file; you can find this in the [same GitHub 
-repo](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post) 
+The code below marches the forecast date $t_0$ forward,
+one day at a time (from April 11 to September 1), fits the four models,
+makes predictions 7 and 14 days ahead, and records errors.
+It takes a little while to run[^1], the culprit being LAD regression:
+the training sets in our forecasting problem get moderately large
+(aggregating the data over 440 counties and 14 days results in over 6000
+training samples), and at this scale LAD regression is much slower than least
+squares regression. We ran this R code separately and saved the results in an
+RData file; you can find this in the [same GitHub
+repo](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post)
 as the Rmd source for this blog post.
 
-[^1]: The R package [quantgen](https://github.com/ryantibs/quantgen) allows you 
-to choose between Gurobi or GLPK as the underlying LP solver. The default is 
-GLPK, since it's open source; but if you can use Gurobi (which is [free for 
-academic use](https://www.gurobi.com/academia/academic-program-and-licenses/)), 
-then this forecast demo will run much faster. 
+[^1]:
+    The R package [quantgen](https://github.com/ryantibs/quantgen) allows you
+    to choose between Gurobi or GLPK as the underlying LP solver. The default is
+    GLPK, since it's open source; but if you can use Gurobi (which is [free for
+    academic use](https://www.gurobi.com/academia/academic-program-and-licenses/)),
+    then this forecast demo will run much faster.
 
 ```{r, eval = FALSE, code = readLines("forecast-demo/demo.R")}
+
 ```
 
 ## Results: All Four Models
 
-We first compare the results across all four models. 
-For this analysis, we filter down to common forecast dates 
-available for the four models (to set an even footing for the comparison), 
-which ends up being May 6 through May 14 for 7-day-ahead forecasts, 
-and only May 13 through May 14 for 14-day-ahead forecasts. 
-(The reason for this shortened period: 
+We first compare the results across all four models.
+For this analysis, we filter down to common forecast dates
+available for the four models (to set an even footing for the comparison),
+which ends up being May 6 through May 14 for 7-day-ahead forecasts,
+and only May 13 through May 14 for 14-day-ahead forecasts.
+(The reason for this shortened period:
 we paused running the Google survey on May 14 so its data ends there,
 but as we explained in our last post, we [plan to bring it
-back](`r blogdown::shortcode("ref", "2020-09-18-google-survey#google-survey-redux")`) 
-later this fall.) Hence we skip studying the 14-day-ahead forecasts results 
+back](`r blogdown::shortcode("ref", "2020-09-18-google-survey#google-survey-redux")`)
+later this fall.) Hence we skip studying the 14-day-ahead forecasts results
 in this four-way model discussion, as they're only based on 2 days of test data.
 
-Below we compute and print the median scaled errors for each of the four models 
-over the 9-day test period (recall that the scaled error is the absolute error 
-of the model's forecast relative to that of the strawman; and each test day 
-actually comprises 440 forecasts, over the 440 counties being considered). 
-We can see that adding either or both of the survey signals 
+Below we compute and print the median scaled errors for each of the four models
+over the 9-day test period (recall that the scaled error is the absolute error
+of the model's forecast relative to that of the strawman; and each test day
+actually comprises 440 forecasts, over the 440 counties being considered).
+We can see that adding either or both of the survey signals
 improves on the median scaled error of the model that uses cases only,
 with the biggest gain achieved by the "Cases + Google" model.
-We can also see that the median scaled errors are all close to 1 
+We can also see that the median scaled errors are all close to 1
 (with all but that from "Cases + Google" model exceeding 1),
 which speaks to the difficulty of the forecasting problem.
 
@@ -229,7 +235,7 @@ library(ggplot2)
 model_names = c("Cases", "Cases + Facebook", "Cases + Google",
                 "Cases + Facebook + Google")
 
-# Restrict to common period for all 4 models, then calculate the scaled errors 
+# Restrict to common period for all 4 models, then calculate the scaled errors
 # for each model, that is, the error relative to the strawman's error
 res_all4 = res %>%
   drop_na() %>%                                       # Restrict to common time
@@ -238,48 +244,49 @@ res_all4 = res %>%
   mutate(dif12 = err1 - err2, dif13 = err1 - err3,    # Compute differences
          dif14 = err1 - err4) %>%                     # relative to cases model
   ungroup() %>%
-  select(-err0) 
-         
+  select(-err0)
+
 # Calculate and print median errors, for all 4 models, and just 7 days ahead
-res_err4 = res_all4 %>% 
+res_err4 = res_all4 %>%
   select(-starts_with("dif")) %>%
   pivot_longer(names_to = "model", values_to = "err",
                cols = -c(geo_value, time_value, lead)) %>%
   mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
          model = factor(model, labels = model_names))
 
-knitr::kable(res_err4 %>% 
+knitr::kable(res_err4 %>%
                group_by(model, lead) %>%
-               summarize(err = median(err), n = length(unique(time_value))) %>% 
+               summarize(err = median(err), n = length(unique(time_value))) %>%
                arrange(lead) %>% ungroup() %>%
-               rename("Model" = model, "Median scaled error" = err, 
+               rename("Model" = model, "Median scaled error" = err,
                       "Target" = lead, "Test days" = n) %>%
-               filter(Target == "7 days ahead"), 
+               filter(Target == "7 days ahead"),
              caption = paste("Test period:", min(res_err4$time_value), "to",
                              max(res_err4$time_value)),
              format = "html", table.attr = "style='width:70%;'")
 ```
 
-Are these differences in median scaled errors significant? 
-It's hard to say, but some basic hypothesis testing suggests 
-that they probably are: below we conduct a [sign 
-test](https://en.wikipedia.org/wiki/Sign_test)[^2] 
-for whether the difference in the "Cases" model's scaled error 
-and each other model's scaled error is centered at zero. 
-The sign test is run on the 9 test days x 440 counties = 3960 pairs 
+Are these differences in median scaled errors significant?
+It's hard to say, but some basic hypothesis testing suggests
+that they probably are: below we conduct a [sign
+test](https://en.wikipedia.org/wiki/Sign_test)[^2]
+for whether the difference in the "Cases" model's scaled error
+and each other model's scaled error is centered at zero.
+The sign test is run on the 9 test days x 440 counties = 3960 pairs
 of scaled errors. The p-values from the "Cases" versus "Cases + Facebook"
 and the "Cases" versus "Cases + Google" tests are tiny;
-the p-value from the "Cases" versus "Cases + Facebook + Google" test 
-is much bigger but still below 0.01. 
+the p-value from the "Cases" versus "Cases + Facebook + Google" test
+is much bigger but still below 0.01.
 
-[^2]: As far as nonparametric tests of medians go, [Wilcoxon's signed-rank 
-test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test) 
-(for paired data, as we have here) is more popular, 
-because it tends to be more powerful than the sign test. 
-Applied here, it does indeed give smaller p-values pretty much across the board. 
-However, it assumes symmetry of the distribution in question
-(in our case, the difference in scaled errors), 
-whereas the sign test does not, and thus we show results from the latter.
+[^2]:
+    As far as nonparametric tests of medians go, [Wilcoxon's signed-rank
+    test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
+    (for paired data, as we have here) is more popular,
+    because it tends to be more powerful than the sign test.
+    Applied here, it does indeed give smaller p-values pretty much across the board.
+    However, it assumes symmetry of the distribution in question
+    (in our case, the difference in scaled errors),
+    whereas the sign test does not, and thus we show results from the latter.
 
 ```{r, message = FALSE, warning = FALSE}
 # Compute p-values using the sign test against a one-sided alternative, for
@@ -289,46 +296,46 @@ res_dif4 = res_all4 %>%
   pivot_longer(names_to = "model", values_to = "dif",
                cols = -c(geo_value, time_value, lead)) %>%
   mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
-         model = factor(model, 
+         model = factor(model,
                         labels = c("Cases vs Cases + Facebook",
                                    "Cases vs Cases + Google",
-                                   "Cases vs Cases + Facebook + Google"))) 
+                                   "Cases vs Cases + Facebook + Google")))
 
 knitr::kable(res_dif4 %>%
                group_by(model, lead) %>%
-               summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE), 
+               summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE),
                                         n = n(), alt = "greater")$p.val) %>%
                ungroup() %>% filter(lead == "7 days ahead") %>%
-               rename("Comparison" = model, "Target" = lead, "P-value" = p), 
+               rename("Comparison" = model, "Target" = lead, "P-value" = p),
              format = "html", table.attr = "style='width:50%;'")
 ```
 
-We should read these with a grain of salt: the sign test here assumes 
-independence of observations, which clearly can't be true, 
-given the spatiotemporal structure of our forecasting problem. 
-To mitigate the dependence across time 
-(which intuitively seems to matter more than that across space), 
-we recomputed these tests in a stratified way, 
-where for each day we run a sign test on the scaled errors 
-between two models over all 440 counties. 
-The results are plotted as histograms below; 
-the "Cases + Facebook" and "Cases + Google" models 
-appear to deliver some decently small p-values, 
-but the story is not as clear with the "Cases + Facebook + Google" model. 
+We should read these with a grain of salt: the sign test here assumes
+independence of observations, which clearly can't be true,
+given the spatiotemporal structure of our forecasting problem.
+To mitigate the dependence across time
+(which intuitively seems to matter more than that across space),
+we recomputed these tests in a stratified way,
+where for each day we run a sign test on the scaled errors
+between two models over all 440 counties.
+The results are plotted as histograms below;
+the "Cases + Facebook" and "Cases + Google" models
+appear to deliver some decently small p-values,
+but the story is not as clear with the "Cases + Facebook + Google" model.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 3.5}
 # Red, blue (similar to ggplot defaults), then yellow
 ggplot_colors = c("#FC4E07", "#00AFBB", "#E7B800")
 
-ggplot(res_dif4 %>% 
+ggplot(res_dif4 %>%
          group_by(model, lead, time_value) %>%
-         summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE), 
+         summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE),
                                   n = n(), alt = "greater")$p.val) %>%
          ungroup() %>% filter(lead == "7 days ahead"), aes(p)) +
-  geom_histogram(aes(color = model, fill = model), alpha = 0.4) + 
+  geom_histogram(aes(color = model, fill = model), alpha = 0.4) +
   scale_color_manual(values = ggplot_colors) +
   scale_fill_manual(values = ggplot_colors) +
-  facet_wrap(vars(lead, model)) + 
+  facet_wrap(vars(lead, model)) +
   labs(x = "P-value", y = "Count") +
   theme_bw() + theme(legend.pos = "none")
 ```
@@ -336,16 +343,16 @@ ggplot(res_dif4 %>%
 ## Results: First Two Models
 
 Next we focus on comparing results between the "Cases" and "Cases + Facebook"
-models only. Restricting to a common available forecast dates yields a much 
-longer test period, May 6 through August 25 for 7-day-ahead forecasts, 
-and May 13 through August 18 for 14-day-ahead forecasts. 
-The median scaled errors over the test period are computed and reported below. 
-Now we see a decent improvement in median scaled error for the 
-"Cases + Facebook" model, and this is true for both 7-day-ahead and 
+models only. Restricting to a common available forecast dates yields a much
+longer test period, May 6 through August 25 for 7-day-ahead forecasts,
+and May 13 through August 18 for 14-day-ahead forecasts.
+The median scaled errors over the test period are computed and reported below.
+Now we see a decent improvement in median scaled error for the
+"Cases + Facebook" model, and this is true for both 7-day-ahead and
 14-day-ahead forecasts.
 
 ```{r, message = FALSE, warning = FALSE}
-# Restrict to common period for just models 1 and 2, then calculate the scaled 
+# Restrict to common period for just models 1 and 2, then calculate the scaled
 # errors, that is, the error relative to the strawman's error
 res_all2 = res %>%
   select(-c(err3, err4)) %>%
@@ -355,72 +362,72 @@ res_all2 = res %>%
   mutate(dif12 = err1 - err2) %>%                     # Compute differences
                                                       # relative to cases model
   ungroup() %>%
-  select(-err0) 
-         
-# Calculate and print median errors, for just models 1 and 2, and both 7 and 14 
+  select(-err0)
+
+# Calculate and print median errors, for just models 1 and 2, and both 7 and 14
 # days ahead
-res_err2 = res_all2 %>% 
+res_err2 = res_all2 %>%
   select(-starts_with("dif")) %>%
   pivot_longer(names_to = "model", values_to = "err",
                cols = -c(geo_value, time_value, lead)) %>%
   mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
          model = factor(model, labels = model_names[1:2]))
-  
-knitr::kable(res_err2 %>% 
+
+knitr::kable(res_err2 %>%
                select(-starts_with("dif")) %>%
                group_by(model, lead) %>%
-               summarize(err = median(err), n = length(unique(time_value))) %>% 
+               summarize(err = median(err), n = length(unique(time_value))) %>%
                arrange(lead) %>% ungroup() %>%
-               rename("Model" = model, "Median scaled error" = err, 
+               rename("Model" = model, "Median scaled error" = err,
                       "Target" = lead, "Test days" = n),
              caption = paste("Test period:", min(res_err2$time_value), "to",
                              max(res_err2$time_value)),
              format = "html", table.attr = "style='width:70%;'")
 ```
 
-Thanks to the extended length of the test period, 
-we can also "unravel" these median scaled errors 
+Thanks to the extended length of the test period,
+we can also "unravel" these median scaled errors
 over time and plot their trajectories, as we do below,
-with the left plot concerning 7-day-ahead forecasts, 
-and the right 14-day-ahead forecasts. 
-These plots reveal something at once interesting and bothersome: 
-the median scaled errors are quite volatile over time, 
-and for some periods in July, forecasting became much "harder", 
-with the scaled errors reaching above 1.25 for 7-day-ahead forecasts, 
-and above 1.5 for 14-day-ahead forecasts. 
-Furthermore, towards the positive, we can see a clear visual 
-difference between the median scaled errors from 
-the "Cases + Facebook" model in red and the "Cases" model in black. 
+with the left plot concerning 7-day-ahead forecasts,
+and the right 14-day-ahead forecasts.
+These plots reveal something at once interesting and bothersome:
+the median scaled errors are quite volatile over time,
+and for some periods in July, forecasting became much "harder",
+with the scaled errors reaching above 1.25 for 7-day-ahead forecasts,
+and above 1.5 for 14-day-ahead forecasts.
+Furthermore, towards the positive, we can see a clear visual
+difference between the median scaled errors from
+the "Cases + Facebook" model in red and the "Cases" model in black.
 The former appears to be below the latter pretty consistently over time,
-with the possible exception of periods where forecasting 
-becomes "hard" and the scaled errors shoot above 1. 
+with the possible exception of periods where forecasting
+becomes "hard" and the scaled errors shoot above 1.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 5}
 # Plot median errors as a function of time, for models 1 and 2, and both 7 and
 # 14 days ahead
-ggplot(res_err2 %>% 
+ggplot(res_err2 %>%
          group_by(model, lead, time_value) %>%
          summarize(err = median(err)) %>% ungroup(),
-       aes(x = time_value, y = err)) + 
-  geom_line(aes(color = model)) + 
+       aes(x = time_value, y = err)) +
+  geom_line(aes(color = model)) +
   scale_color_manual(values = c("black", ggplot_colors)) +
   geom_hline(yintercept = 1, linetype = 2, color = "gray") +
-  facet_wrap(vars(lead)) + 
+  facet_wrap(vars(lead)) +
   labs(x = "Date", y = "Median scaled error") +
   theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
 ```
 
-Again, basic hypothesis testing suggests that the results we're seeing here 
-are likely significant, though it's hard to say definitively 
-given the complicated dependence structure present in the data. 
-Below we perform a sign test for whether the difference in scaled errors 
-from the "Cases" and "Cases + Facebook" models is centered at zero. 
-Given the large sample size: 112 test days for 7-day-ahead forecasts 
-and 98 test days for 14-day-ahead forecasts 
-(times 440 counties for each day), the p-values are basically zero. 
+Again, basic hypothesis testing suggests that the results we're seeing here
+are likely significant, though it's hard to say definitively
+given the complicated dependence structure present in the data.
+Below we perform a sign test for whether the difference in scaled errors
+from the "Cases" and "Cases + Facebook" models is centered at zero.
+Given the large sample size: 112 test days for 7-day-ahead forecasts
+and 98 test days for 14-day-ahead forecasts
+(times 440 counties for each day), the p-values are basically zero.
 
 ```{r, message = FALSE, warning = FALSE}
-# Compute p-values using the sign test against a one-sided alternative, just 
+# Compute p-values using the sign test against a one-sided alternative, just
 # for models 1 and 2, and both 7 and 14 days ahead
 res_dif2 = res_all2 %>%
   select(-starts_with("err")) %>%
@@ -429,29 +436,29 @@ res_dif2 = res_all2 %>%
   mutate(lead = factor(lead, labels = paste(leads, "days ahead")),
          model = factor(model, labels = "Cases > Cases + Facebook"))
 
-knitr::kable(res_dif2 %>% 
+knitr::kable(res_dif2 %>%
                group_by(model, lead) %>%
                summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE),
-                                        n = n(), alt = "greater")$p.val) %>% 
-               ungroup() %>% 
-               rename("Comparison" = model, "Target" = lead, "P-value" = p), 
+                                        n = n(), alt = "greater")$p.val) %>%
+               ungroup() %>%
+               rename("Comparison" = model, "Target" = lead, "P-value" = p),
              format = "html", table.attr = "style='width:50%;'")
 ```
 
-Once we stratify and recompute p-values by forecast date, 
-as shown in the histograms below, 
+Once we stratify and recompute p-values by forecast date,
+as shown in the histograms below,
 the bulk of p-values are still quite small.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 7, fig.height = 4}
-ggplot(res_dif2 %>% 
+ggplot(res_dif2 %>%
          group_by(model, lead, time_value) %>%
-         summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE), 
+         summarize(p = binom.test(x = sum(dif > 0, na.rm = TRUE),
                                   n = n(), alt = "greater")$p.val) %>%
          ungroup(), aes(p)) +
-  geom_histogram(aes(color = model, fill = model), alpha = 0.4) + 
+  geom_histogram(aes(color = model, fill = model), alpha = 0.4) +
   scale_color_manual(values = ggplot_colors) +
   scale_fill_manual(values = ggplot_colors) +
-  facet_wrap(vars(lead, model)) + 
+  facet_wrap(vars(lead, model)) +
   labs(x = "P-value", y = "Count") +
   theme_bw() + theme(legend.pos = "none")
 ```
@@ -460,44 +467,44 @@ ggplot(res_dif2 %>%
 
 **[\*Added September 25, 2020]**
 
-Hypothesis tests (like the sign tests conducted above) tell us 
-whether the differences in errors 
+Hypothesis tests (like the sign tests conducted above) tell us
+whether the differences in errors
 (between the forecasters)
-are *statistically* significant, 
-but not about their *practical* significance. 
-For example, for 7-day-ahead forecasts, 
+are _statistically_ significant,
+but not about their _practical_ significance.
+For example, for 7-day-ahead forecasts,
 what does an improvement of 0.018 units on the scaled error scale really mean,
-when comparing the "Cases + Facebook" model to the "Cases" model 
-(over the test period May 6 through August 25)? 
-Is this a meaningful gain? 
+when comparing the "Cases + Facebook" model to the "Cases" model
+(over the test period May 6 through August 25)?
+Is this a meaningful gain?
 
-To answer questions like this, 
-we can look at the way that the median scaled errors 
-behave as a function of the number of days ahead 
-at which we're making the forecasts. 
-Previously, we considered forecasting case rates 
-just 7 and 14 days ahead; 
-now we systematically examine 5, 6, 7, etc., through 20 days ahead. 
-As before, we ran the code for this separately 
-and saved the results in an RData file, 
-which you can find in the [same GitHub 
-repo](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post) 
-as the Rmd source for this blog post. 
+To answer questions like this,
+we can look at the way that the median scaled errors
+behave as a function of the number of days ahead
+at which we're making the forecasts.
+Previously, we considered forecasting case rates
+just 7 and 14 days ahead;
+now we systematically examine 5, 6, 7, etc., through 20 days ahead.
+As before, we ran the code for this separately
+and saved the results in an RData file,
+which you can find in the [same GitHub
+repo](https://github.com/cmu-delphi/delphi-blog/tree/main/content/post)
+as the Rmd source for this blog post.
 (It's exactly the same code as that above,
-but with `leads = 5:20`.) 
+but with `leads = 5:20`.)
 
-Below, we compute and plot the median scaled errors 
-for the "Cases" and "Cases + Facebook" models 
+Below, we compute and plot the median scaled errors
+for the "Cases" and "Cases + Facebook" models
 for different number of days ahead for the forecast target.
-This is done over all forecast dates common to the two models 
-(May 6 through August 27, or earlier---the end date gets decremented 
-each time we increase the number of days ahead). 
-A first glance shows that the "Cases + Facebook" model, 
-in red, gives better median scaled errors at all ahead values; 
-and the vertical gap between the two curves 
-is consistently in the range of what we were seeing before 
-(for 7 and 14 days ahead), 
-around 0.02 units or more on the scaled error scale. 
+This is done over all forecast dates common to the two models
+(May 6 through August 27, or earlier---the end date gets decremented
+each time we increase the number of days ahead).
+A first glance shows that the "Cases + Facebook" model,
+in red, gives better median scaled errors at all ahead values;
+and the vertical gap between the two curves
+is consistently in the range of what we were seeing before
+(for 7 and 14 days ahead),
+around 0.02 units or more on the scaled error scale.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
 load("forecast-demo/demo-extended.rda")
@@ -514,14 +521,14 @@ err_by_lead = res %>%
                cols = -c(geo_value, time_value, lead)) %>%
   mutate(model = factor(model, labels = model_names[1:2])) %>%
   group_by(model, lead) %>%
-  summarize(err = median(err)) %>% 
+  summarize(err = median(err)) %>%
   ungroup()
 
-ggplot(err_by_lead, aes(x = lead, y = err)) + 
-  geom_line(aes(color = model)) + 
-  geom_point(aes(color = model)) + 
+ggplot(err_by_lead, aes(x = lead, y = err)) +
+  geom_line(aes(color = model)) +
+  geom_point(aes(color = model)) +
   scale_color_manual(values = c("black", ggplot_colors)) +
-  geom_hline(yintercept = err_by_lead %>% 
+  geom_hline(yintercept = err_by_lead %>%
                filter(lead %in% 7, model == "Cases") %>% pull(err),
              linetype = 2, color = "gray") +
   labs(title = "Forecasting errors by number of days ahead",
@@ -531,92 +538,93 @@ ggplot(err_by_lead, aes(x = lead, y = err)) +
   theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
 ```
 
-But if we look at it from a different angle, 
-and consider the *horizontal* gap between the curves, 
-then we can infer something quite a bit more interesting: 
-for 7-day-ahead forecasts, 
-the median scaled error of the "Cases" model 
-(marked by a horizontal gray line) 
+But if we look at it from a different angle,
+and consider the _horizontal_ gap between the curves,
+then we can infer something quite a bit more interesting:
+for 7-day-ahead forecasts,
+the median scaled error of the "Cases" model
+(marked by a horizontal gray line)
 is comparable to that of 12-day-ahead forecasts from the "Cases + Facebook"
-model. So you could say that using the % CLI-in-community signal from our 
-Facebook survey buys us *5 extra days of lead time* for this forecasting 
-problem, which seems pretty nontrivial. 
-Different forecast targets yield different lead times 
-(for 14-day-ahead forecasts, for example, it appears 
-to be more like 3 or 4 days of lead time), 
+model. So you could say that using the % CLI-in-community signal from our
+Facebook survey buys us _5 extra days of lead time_ for this forecasting
+problem, which seems pretty nontrivial.
+Different forecast targets yield different lead times
+(for 14-day-ahead forecasts, for example, it appears
+to be more like 3 or 4 days of lead time),
 but the added value of the survey signal is clear throughout.
- 
+
 ## Wrap-Up
 
-We've seen that either of the Facebook or Google % CLI-in-community 
-signals can improve the accuracy of short-term forecasts 
-of county-level COVID-19 case incidence rates. 
-The significance of these improvements 
+We've seen that either of the Facebook or Google % CLI-in-community
+signals can improve the accuracy of short-term forecasts
+of county-level COVID-19 case incidence rates.
+The significance of these improvements
 is more apparent with the Facebook signal, thanks
-to the much longer test period available. 
-With either signal, of the magnitude of the improvement offered 
-seems modest but nontrivial, especially because the forecasting problem 
+to the much longer test period available.
+With either signal, of the magnitude of the improvement offered
+seems modest but nontrivial, especially because the forecasting problem
 is so hard in the first place.
 
 We reiterate that this was just a demo. Our analysis was fairly simple and lacks
-a few qualities that we'd expect in a truly comprehensive, realistic forecasting 
-analysis. To name three: 
+a few qualities that we'd expect in a truly comprehensive, realistic forecasting
+analysis. To name three:
 
-1. The models we considered are simple autoregressive structures from standard 
-time series, and could be improved in various ways (including, considering other
-relevant dimensions like mobility measures, county health metrics, etc.).
+1. The models we considered are simple autoregressive structures from standard
+   time series, and could be improved in various ways (including, considering other
+   relevant dimensions like mobility measures, county health metrics, etc.).
 
-2. The forecasts we produced are *point* rather than *distributional* forecasts
-(that is, we predict a single number, rather than an entire distribution, for
-what happens 7 and 14 days ahead). Distributional forecasts portray uncertainty 
-in a transparent way, which is important in practice.
+2. The forecasts we produced are _point_ rather than _distributional_ forecasts
+   (that is, we predict a single number, rather than an entire distribution, for
+   what happens 7 and 14 days ahead). Distributional forecasts portray uncertainty
+   in a transparent way, which is important in practice.
 
-3. The way we trained our forecast models does not account 
-for *data latency* and *revisions*, which are critical issues.
-For each (retrospective) forecast date $t_0$, 
-we constructed forecasts by training on data 
-that we fetched from the API today, "as of" the day we wrote this blog post, 
-and not "as of" the forecast date $t_0$. 
-This matters because nearly all signals are subject to latency 
-(they are only available at some number of days lag) 
-and go through multiple revisions (past data values get updated as time
-goes on).
+3. The way we trained our forecast models does not account
+   for _data latency_ and _revisions_, which are critical issues.
+   For each (retrospective) forecast date $t_0$,
+   we constructed forecasts by training on data
+   that we fetched from the API today, "as of" the day we wrote this blog post,
+   and not "as of" the forecast date $t_0$.
+   This matters because nearly all signals are subject to latency
+   (they are only available at some number of days lag)
+   and go through multiple revisions (past data values get updated as time
+   goes on).
 
 On the flip side, our example here was not that "far away" from being realistic.
 The models we examined are actually not too different from Delphi's forecasters
-"in production".[^3] Also, the way we fit LAD regression models in the code 
-extends immediately to multiple quantile regression 
+"in production".[^3] Also, the way we fit LAD regression models in the code
+extends immediately to multiple quantile regression
 (just requires changing the parameter `tau` in the call to `quantile_lasso()`),
-which would give us distributional forecasts. 
-And lastly, it's fairly easy to change the data acquisition step in the code 
+which would give us distributional forecasts.
+And lastly, it's fairly easy to change the data acquisition step in the code
 so that data gets pulled "as of" the forecast date
 (requires specifying the parameter `as_of` in the call to `covidcast_signal()`).
 
-Hopefully these preliminary findings have gotten you excited 
-about the possible uses of our symptom survey data. 
+Hopefully these preliminary findings have gotten you excited
+about the possible uses of our symptom survey data.
 To get started playing with our data yourself,
 take a look at our [interactive COVIDcast map](`r blogdown::shortcode_html("ref", "covidcast")`),
-or our [COVIDcast 
+or our [COVIDcast
 API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
-through our [R client](https://cmu-delphi.github.io/covidcast/covidcastR/) 
+through our [R client](https://cmu-delphi.github.io/covidcast/covidcastR/)
 or [Python client](https://cmu-delphi.github.io/covidcast/covidcast-py/html/).
-And if you're feeling adventurous, consider competing in the 
+And if you're feeling adventurous, consider competing in the
 [COVID-19 Symptom Data Challenge](https://www.symptomchallenge.org/),
-and trying your hand at developing novel analytic approaches to extract 
+and trying your hand at developing novel analytic approaches to extract
 insights from our Facebook symptom survey data. We've made extensive data
 aggregate data from our survey (beyond CLI indicators) [available for
 the Challenge](https://www.symptomchallenge.org/challenge#sources), and
 submissions are due September 29, with finalists eligible for cash prizes.
 We look forward to seeing how you put our data to use!
 
-[^3]: Delphi's "production" forecasters are still based on relatively simple
-times series models, though to be clear they're distributional, 
-and we add a couple of extra layers of complexity on top of standard structures. 
-For short-term forecasts, we've found that simple statistical models can be 
-competitive with compartmental models (like
-[SIR](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model) 
-and its [many 
-variants](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#Variations_on_the_basic_SIR_model)),
-even fairly complicated ones. Being statisticians and computer scientists, we 
-find these statistical models are easier to build, debug, and most importantly, 
-calibrate. More on this in a future blog post. 
+[^3]:
+    Delphi's "production" forecasters are still based on relatively simple
+    times series models, though to be clear they're distributional,
+    and we add a couple of extra layers of complexity on top of standard structures.
+    For short-term forecasts, we've found that simple statistical models can be
+    competitive with compartmental models (like
+    [SIR](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model)
+    and its [many
+    variants](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#Variations_on_the_basic_SIR_model)),
+    even fairly complicated ones. Being statisticians and computer scientists, we
+    find these statistical models are easier to build, debug, and most importantly,
+    calibrate. More on this in a future blog post.

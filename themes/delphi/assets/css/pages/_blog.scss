@@ -1,71 +1,69 @@
-
 .code-wrapper > summary {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .blog-tags {
-    overflow: hidden;
-    text-overflow: ellipsis;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .blog-tag {
-    margin-right: 0.5em;
-    white-space: nowrap;
-    font-size: 14px; // TODO
+  margin-right: 0.5em;
+  white-space: nowrap;
+  font-size: 14px; // TODO
 }
 
 .blog-hero-image {
-    width: 100%;
-    height: 20em;
-    object-fit: fill;
+  width: 100%;
+  height: 20em;
+  object-fit: fill;
 }
-
 
 $blog-list-date-width: 5em;
 .blog-list-content time,
 .blog-card time {
-    display: inline-block;
-    min-width: $blog-list-date-width;
+  display: inline-block;
+  min-width: $blog-list-date-width;
 }
 
-@media(min-width: $breakpoint-medium) {
-    .blog-list-content {
-        margin-left: $blog-list-date-width;
-        time {
-            position: absolute;
-            left: 0;
-        }
+@media (min-width: $breakpoint-medium) {
+  .blog-list-content {
+    margin-left: $blog-list-date-width;
+    time {
+      position: absolute;
+      left: 0;
     }
+  }
 }
 // sm
-@media(max-width: $breakpoint-medium) {
- .blog-list-hero-image {
-     order: -1;
-     img {
-        width: 100%;
-        max-height: 20em;
-        object-fit: contain;
+@media (max-width: $breakpoint-medium) {
+  .blog-list-hero-image {
+    order: -1;
+    img {
+      width: 100%;
+      max-height: 20em;
+      object-fit: contain;
     }
-}
+  }
 }
 
 .blog-card {
-    .uk-card-media-top img {
-        width: 100%;
-        object-fit: cover;
-        height: 14em;
-    }
+  .uk-card-media-top img {
+    width: 100%;
+    object-fit: cover;
+    height: 14em;
+  }
 
-    > .uk-card-footer {
-        border-top: none;
-        display: flex;
-    }
+  > .uk-card-footer {
+    border-top: none;
+    display: flex;
+  }
 }
 
 .blog-blog {
-    // center align auto generated images
-    p > img:first-of-type {
-        display: block;
-        margin: 0 auto;
-    }
+  // center align auto generated images
+  p > img:first-of-type {
+    display: block;
+    margin: 0 auto;
+  }
 }

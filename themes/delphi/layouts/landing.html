@@ -1,69 +1,82 @@
 {{ define "main" }}
-<div>
+  <div>
     <div id="main-carousel">
-        <div id="uikit-main-carousel" class="uk-position-relative uk-light" tabindex="-1" uk-slideshow="animation: push; ratio: false">            
-            <ul id="slideshow-container" class="uk-slideshow-items uk-cover-container uk-child-width-1-1 ">
-                {{$currentPage := .}}
-                {{range .Site.Data.landing}}
-                <li>
-                    <img src="{{ (path.Join "/images/landing-page/hero-images" .image) | relURL }}" uk-cover/>
-                    <div class="content content-grid">
-                        <div class="carousel-entry grid-2-10">
-                            <h2>{{.pre}}</h2>
-                            <p>{{.title}}</p>
-                            {{if isset . "ref"}}
-                              {{partial "arrow-link.html" (dict "link" (relref $currentPage .ref) "alt" .alt)}}
-                            {{else}}
-                                {{partial "arrow-link.html" (dict "link" .link "alt" .alt)}}
-                            {{end}}
-                        </div>
-                    </div>
-                </li>
-                {{end}}
-            </ul>
-            <ul id="slider-controls" class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
-            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
-        </div>
+      <div
+        id="uikit-main-carousel"
+        class="uk-position-relative uk-light"
+        tabindex="-1"
+        uk-slideshow="animation: push; ratio: false"
+      >
+        <ul id="slideshow-container" class="uk-slideshow-items uk-cover-container uk-child-width-1-1 ">
+          {{ $currentPage := . }}
+          {{ range .Site.Data.landing }}
+            <li>
+              <img src="{{ (path.Join "/images/landing-page/hero-images" .image) | relURL }}" uk-cover />
+              <div class="content content-grid">
+                <div class="carousel-entry grid-2-10">
+                  <h2>{{ .pre }}</h2>
+                  <p>{{ .title }}</p>
+                  {{ if isset . "ref" }}
+                    {{ partial "arrow-link.html" (dict "link" (relref $currentPage .ref) "alt" .alt) }}
+                    {{ else }}
+                    {{ partial "arrow-link.html" (dict "link" .link "alt" .alt) }}
+                  {{ end }}
+                </div>
+              </div>
+            </li>
+          {{ end }}
+        </ul>
+        <ul id="slider-controls" class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+        <a
+          class="uk-position-center-left uk-position-small uk-hidden-hover"
+          href="#"
+          uk-slidenav-previous
+          uk-slideshow-item="previous"
+        ></a>
+        <a
+          class="uk-position-center-right uk-position-small uk-hidden-hover"
+          href="#"
+          uk-slidenav-next
+          uk-slideshow-item="next"
+        ></a>
+      </div>
     </div>
     <div class="white-area">
-        <div class="content">
-            <div class="content-grid">
-                <div class="landing-entry grid-2-10">
-                    <h2>    
-                        Our Mission
-                    </h2>
-                    <p>
-                        {{.Site.Params.mission}}
-                    </p>
-                </div>
-            </div>
+      <div class="content">
+        <div class="content-grid">
+          <div class="landing-entry grid-2-10">
+            <h2>Our Mission</h2>
+            <p>
+              {{ .Site.Params.mission }}
+            </p>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="gray-area">
-        <div class="content">
-            <div class="content-grid">
-                <div class="landing-entry grid-2-8">
-                    <div class="entry-image">
-                        <img src="{{ "/images/landing-page/team-image.png" | relURL }}"/>
-                    </div>
-                    <h2>Our Team</h2>
-                    <p>Meeting the scientists and researchers making a difference</p>
-                    {{partial "arrow-link.html" (dict "link" (relref . "team") "alt" "View all")}}
-                </div>
-                <div class="landing-entry grid-8-12">
-                    <div class="entry-image">
-                        <img src="{{ "/images/landing-page/API-image.png" | relURL }}"/>
-                    </div>
-                    <h2>Our API</h2>
-                    <p>Access out data and tools</p>
-                    {{partial "arrow-link.html" (dict "link" .Site.Params.apiUrl "alt" "Learn more")}}
-                </div>
+      <div class="content">
+        <div class="content-grid">
+          <div class="landing-entry grid-2-8">
+            <div class="entry-image">
+              <img src="{{ "/images/landing-page/team-image.png" | relURL }}" />
             </div>
+            <h2>Our Team</h2>
+            <p>Meeting the scientists and researchers making a difference</p>
+            {{ partial "arrow-link.html" (dict "link" (relref . "team") "alt" "View all") }}
+          </div>
+          <div class="landing-entry grid-8-12">
+            <div class="entry-image">
+              <img src="{{ "/images/landing-page/API-image.png" | relURL }}" />
+            </div>
+            <h2>Our API</h2>
+            <p>Access out data and tools</p>
+            {{ partial "arrow-link.html" (dict "link" .Site.Params.apiUrl "alt" "Learn more") }}
+          </div>
         </div>
+      </div>
     </div>
-    
-    {{partial "landing/latest-news.html" .}}
-</div>
+
+    {{ partial "landing/latest-news.html" . }}
+  </div>
 {{ end }}

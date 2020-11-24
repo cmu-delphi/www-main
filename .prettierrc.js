@@ -1,20 +1,19 @@
 module.exports = {
   printWidth: 120,
   semi: true,
-  singleQuote: true,
-  trailingComma: 'es5',
+  trailingComma: "es5",
 
   overrides: [
     {
-      files: ['*.html'],
+      files: ["*.html"],
       options: {
-        parser: 'go-template',
+        parser: "go-template",
       },
     },
     {
-      files: ['*.Rmd'],
+      files: ["*.Rmd"],
       options: {
-        parser: 'markdown',
+        parser: "markdown",
       },
     },
   ],

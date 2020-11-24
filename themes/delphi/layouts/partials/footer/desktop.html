@@ -1,34 +1,34 @@
 <div class="footer uk-child-width-1-3@s uk-child-width-1-5@m uk-grid-column-small" uk-grid>
-    <div>
-        {{partial "delphi-text-logo.html" . }}
-    </div>
-    <div>
-        <h5 class="uk-text-bold">COVIDcast</h5>
-        <ul class="uk-list">
-            <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/methodology" }}">Methods</a></li>
-            <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/surveys" }}">Surveys</a></li>
-        </ul>
-    </div>
-    <div>
-        <h5 class="uk-text-bold">Resources</h5>
-        <ul class="uk-list">
-            <li><a class="uk-link-text uk-text-small" href="{{ relref . "about#papers" }}">Research & Publications</a></li>
-            <li><a class="uk-link-text uk-text-small" href="{{ .Site.Params.apiUrl }}/">API</a></li>
-            <li><a class="uk-link-text uk-text-small" href="https://github.com/cmu-delphi/">GitHub</a></li>
-            <li><a class="uk-link-text uk-text-small" href="{{ relref . "/blog" }}">Blog</a></li>            
-        </ul>
-    </div>
-    <div>
-        <h5 class="uk-text-bold">About</h5>
-        <ul class="uk-list">
-            <li><a class="uk-link-text uk-text-small" href="https://www.cmu.edu/">CMU</a></li>
-            <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/terms-of-use" }}">Terms</a></li>
-        </ul>
-    </div>
-    <div>
-        <h5 class="uk-text-bold">Contact</h5>
-        <ul class="uk-list">
-            <li><a class="uk-link-text uk-text-small" href="https://twitter.com/{{ .Site.Params.twitter}}/">Twitter</a></li>
-        </ul>
-    </div>
+  <div>
+    {{ partial "delphi-text-logo.html" . }}
+  </div>
+  <div>
+    <h5 class="uk-text-bold">COVIDcast</h5>
+    <ul class="uk-list">
+      <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/methodology" }}">Methods</a></li>
+      <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/surveys" }}">Surveys</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="uk-text-bold">Resources</h5>
+    <ul class="uk-list">
+      <li><a class="uk-link-text uk-text-small" href="{{ relref . "about#papers" }}">Research & Publications</a></li>
+      <li><a class="uk-link-text uk-text-small" href="{{ .Site.Params.apiUrl }}/">API</a></li>
+      <li><a class="uk-link-text uk-text-small" href="https://github.com/cmu-delphi/">GitHub</a></li>
+      <li><a class="uk-link-text uk-text-small" href="{{ relref . "/blog" }}">Blog</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="uk-text-bold">About</h5>
+    <ul class="uk-list">
+      <li><a class="uk-link-text uk-text-small" href="https://www.cmu.edu/">CMU</a></li>
+      <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/terms-of-use" }}">Terms</a></li>
+    </ul>
+  </div>
+  <div>
+    <h5 class="uk-text-bold">Contact</h5>
+    <ul class="uk-list">
+      <li><a class="uk-link-text uk-text-small" href="https://twitter.com/{{ .Site.Params.twitter }}/">Twitter</a></li>
+    </ul>
+  </div>
 </div>
