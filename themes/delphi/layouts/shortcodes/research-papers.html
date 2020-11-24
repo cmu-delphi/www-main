@@ -2,7 +2,7 @@
 <div class="card-grid">
   {{ range .Page.Params.papers }}
   {{ $img := $images.GetMatch (path.Join "images" .image) }}
-  <div class="card-grid-item uk-card uk-card-default">
+  <div class="card-grid-item uk-card uk-card-default uk-card-small">
     <div class="card-grid-item-date">{{ .year }}</div>
     <img class="card-grid-item-img" src="{{$img.RelPermalink}}" width="200" height="300">
     <div>
