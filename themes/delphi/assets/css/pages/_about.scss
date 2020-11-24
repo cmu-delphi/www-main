@@ -5,45 +5,37 @@
 
 .about-mission-img {
     z-index: -1;
-    filter: grayscale(50%);  
-    filter:contrast(50%);  
+    filter: grayscale(65%);  
 }
+
 .about-mission-mission {
-    color: white;
-    padding: 1em 0;
     display: block;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-@media screen and (max-width: 414px) { 
-    .about-mission-mission {
-    padding-left: 1.7em;
-    padding-right: 1.7em;
-    }
-   }
-
-.about-mission-text {
-    color: white;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+.mission-text {
     font-weight: 600;
-    font-size: 32px;
-    line-height: 50px;
-    margin: 0;
+    font-size: 24px;
+    line-height: 36px;
 }
 
 @media screen and (max-width: 414px) { 
-    .about-mission-text {
+    .mission-text {
      font-size: 18px;
-     line-height: 32px;
-     padding-left: 1.7em;
-     padding-right: 1.7em;
+     line-height: 28px;
     }
    }
+
+// @media screen and (max-width: 414px) {
+//     .uk-cover-container .about-mission-img {
+//         max-height: 6em;
+//         align-content: center;
+//     }
+// }
 
 .about-description {
-    padding: 24px;
+    padding: 2em;
     margin-bottom: 3rem;
     
     h3 {
@@ -74,7 +66,8 @@
     align-content: center;
     justify-content: center;
     
-    > div {
+    > 
+    div {
         margin: 1em 0;
         text-align: center;
     }
