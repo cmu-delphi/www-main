@@ -16,7 +16,8 @@ function showModal(img) {
 export default function imageModal() {
     const refButton = document.createElement('button');
     refButton.classList.add('uk-icon-button', 'uk-button-default', 'blog-image-button');
-    refButton.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="expand"><polygon points="13 2 18 2 18 7 17 7 17 3 13 3"></polygon><polygon points="2 13 3 13 3 17 7 17 7 18 2 18"></polygon><path fill="none" stroke="#000" stroke-width="1.1" d="M11,9 L17,3"></path><path fill="none" stroke="#000" stroke-width="1.1" d="M3,17 L9,11"></path></svg>`
+    refButton.title = 'Show image in fullscreen';
+    refButton.innerHTML = `<svg width="15" height="15" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="expand"><polygon points="13 2 18 2 18 7 17 7 17 3 13 3"></polygon><polygon points="2 13 3 13 3 17 7 17 7 18 2 18"></polygon><path fill="none" stroke="#000" stroke-width="1.1" d="M11,9 L17,3"></path><path fill="none" stroke="#000" stroke-width="1.1" d="M3,17 L9,11"></path></svg>`
 
     Array.from(document.querySelectorAll('.blog-blog p > img')).forEach((elem) => {
         const button = refButton.cloneNode(true);
