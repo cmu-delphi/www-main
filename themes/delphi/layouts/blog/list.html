@@ -10,7 +10,7 @@
       <img class="card-grid-item-img" src={{ .Params.heroImageThumb | relURL }} width="200" height="300"  alt="{{ .Title}} - Hero Image">
       <div class="uk-flex uk-flex-column">
           <div class="uk-card-body uk-flex-1">
-              <a href={{.RelPermalink}} class="uk-link-heading"><h3 class="uk-card-title">{{.Title}}</h3></a>
+              <h3 class="uk-card-title"><a href={{.RelPermalink}} class="uk-link-heading">{{.Title}}</a></h3>
               <p>
                 {{ .Summary | safeHTML | truncate 150 }}
               </p>
