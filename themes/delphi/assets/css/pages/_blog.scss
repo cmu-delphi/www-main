@@ -69,3 +69,34 @@ $blog-list-date-width: 5em;
         margin: 0 auto;
     }
 }
+
+.blog-image-wrapper {
+    position: relative;
+}
+
+.blog-image-button {
+    position: absolute;
+    right: 0;
+    top: -14px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.blog-image-modal {
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+
+    > img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.blog-license {
+    margin-top: 2em;
+
+    .inline-svg-icon {
+        padding: 0;
+    }
+}

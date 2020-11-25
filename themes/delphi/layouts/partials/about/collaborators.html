@@ -2,27 +2,17 @@
 <div class="about-collaborators">
     <div class="uk-container">
         <h2 class="uk-text-center">Collaborators</h2>
-        <p class="uk-text-center">We're grateful for financial and other support from our collaborators and supporters</p>
-        <div class="about-collaborators-list">
+        <p class="uk-text-center">We're grateful for financial and other support from our collaborators and supporters:</p>
+        <div class="uk-flex uk-flex-center">
             <ul>
-                <li>Amazon</li>
-                <li>CDC</li>
-                <li>Change Healthcare</li>
-                <li>DTRA (Defense Threat Reduction Agency</li>
-                <li>Facebook</li>
-                <li>Uptake</li>
-                <li>Optum</li>
-                <li>Google.org</li>
+                {{range .Site.Data.supporter}}
+                    <li>
+                        {{if eq .group "sponsor"}}With support from {{end}}
+
+                        {{.name}}
+                    </li>
+                {{end}}
             </ul>
-            <!-- {{range where .Site.Data.supporter "group" "collaborator"}}
-            {{partial "about/collaborator-img.html" .}}
-            {{end}} -->
-        <!-- </div>
-        <p class="uk-text-center">With grant support from</p>
-        <div class="about-collaborators-list">
-            {{range where .Site.Data.supporter "group" "grant"}}
-            {{partial "about/collaborator-img.html" .}}
-            {{end}}
-        </div> -->
+        </div>
     </div>
 </div>

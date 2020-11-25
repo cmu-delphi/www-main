@@ -1,4 +1,5 @@
 {{ define "main" }}
+<div class="uk-container">
 <!-- Page that displays after clicking on a post's tag -->
   <h1>Tagged "{{ .Data.Term }}"</h1>
   {{range .Pages}}
@@ -21,4 +22,5 @@
             </div>
         </article>
     {{ end }}
+</div>
 {{ end }}
