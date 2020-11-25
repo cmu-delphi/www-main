@@ -4,10 +4,10 @@
   {{ $img := $images.GetMatch (path.Join "images" .image) }}
   <div class="card-grid-item uk-card uk-card-default uk-card-small">
     <div class="card-grid-item-date">{{ .year }}</div>
-    <img class="card-grid-item-img" src="{{$img.RelPermalink}}" width="200" height="300">
-    <div>
-        <div class="uk-card-body">
-            <h3 class="uk-card-title">{{.title}}</h3>
+    <img class="card-grid-item-img" src={{$img.RelPermalink}} width="200" height="300">
+    <div class="uk-flex uk-flex-column">
+        <div class="uk-card-body uk-flex-1">
+            <a href={{.link}} class="uk-link-heading"><h3 class="uk-card-title">{{.title}}</h3></a>
             <div class="uk-text-uppercase">
                 {{ .authors }}
             </div>
