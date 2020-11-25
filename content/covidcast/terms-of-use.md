@@ -2,15 +2,15 @@
 title: Carnegie Mellon University COVIDcast Website Terms of Use
 ---
 
-Version Date: May 18, 2020
+Version Date: November 25, 2020
 
 ### Introduction/Scope
 
-The Carnegie Mellon University (“CMU”) COVIDcast [website]({{< relref "/covidcast">}}) (“Site”) displays signals related to COVID-19 activity levels across the United States, derived from a variety of anonymized, aggregated data sources made available by multiple partners.
+The Carnegie Mellon University (“CMU”) COVIDcast [website]({{< relref "/covidcast">}}) and related COVIDcast [​Epidata API pages​]{{< apiref "/">}} (collectively, the “Site”) displays signals related to COVID-19 activity levels across the United States, derived from a variety of anonymized, aggregated data sources made available by multiple partners.
 
 Each signal may reflect the prevalence of COVID-19 infection, mild symptoms, or more severe disease over time. Each signal can be presented at multiple geographic resolutions: state, county, and/or metropolitan area. All these signals taken together may suggest heightened or rising COVID-19 activity in specific locations.
 
-**THE COVID-19 INDICATORS VISUALIZED ON OUR MAP ARE RESEARCH RESULTS AND PROJECTIONS DERIVED FROM VARIOUS DATA SOURCES. THIS INFORMATION IS PROVIDED ON AN-AS, AS-AVAILABLE BASIS AS MORE PARTICULARLY DESCRIBED IN THESE TERMS OF USE, AND IT SHOULD NOT BE USED FOR DIAGNOSTIC OR TREATMENT PURPOSES, OR FOR GUIDANCE ON ANY TYPE OF TRAVEL.**
+**THE COVID-19 INDICATORS VISUALIZED ON OUR MAP(S) ARE RESEARCH RESULTS AND PROJECTIONS DERIVED FROM VARIOUS DATA SOURCES. THIS MAP DATA AND SIGNAL INFORMATION IS PROVIDED ON AN AS-IS, AS-AVAILABLE BASIS AS MORE PARTICULARLY DESCRIBED IN THESE TERMS OF USE, AND IT SHOULD NOT BE USED FOR DIAGNOSTIC OR TREATMENT PURPOSES, OR FOR GUIDANCE ON ANY TYPE OF TRAVEL.**
 
 Your use of the Site constitutes your agreement to these Terms of Use (**“TOU”**).
 
@@ -20,7 +20,7 @@ CMU may update and change these TOU from time to time without notice to you. You
 
 ### Permitted Use and License/Availability of the Site
 
-Subject to other relevant provisions of the TOU, the Site and any information and data on it (“Site Content”) is provided to you under the [CC-BY license]( https://creativecommons.org/licenses/by/4.0/) CMU (and/or its content providers, as applicable) own and retain all intellectual property rights they have in and to the Site Content, including but not limited to the Project content and the underlying infrastructure. CMU shall have the right in its sole and absolute discretion to suspend or terminate the Site any or all access to it for any reason. As specified below, the Site (including Site Content) is provided on an “AS-IS, AS-AVAILABLE” basis.
+Subject to other relevant provisions of the TOU and except as otherwise indicated on the Site, the Site and any information and data on it (**“​Site Content​”**) is provided to you under the CC-BY license ([https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)). Without limiting the general nature of the prior sentence, as indicated on the Site, certain API signals are subject to the CC-BY-NC license ([​https://creativecommons.org/licenses/by-nc/4.0/](​https://creativecommons.org/licenses/by-nc/4.0/​​)). CMU (and/or its content providers, as applicable) own and retain all intellectual property rights they have in and to the Site Content, including but not limited to the underlying infrastructure. CMU shall have the right in its sole and absolute discretion to suspend or terminate the Site any or all access to it for any reason. As specified below, the Site (including Site Content) is provided on an “AS-IS, AS-AVAILABLE” basis.
 
 ### Prohibited Uses/Activities
 
@@ -36,9 +36,10 @@ CMU’s servers and operations are located primarily in the United States and ou
 
 ### Notice to California Residents
 
-BY USING THE SERVICES, YOU WAIVE YOUR RIGHTS WITH RESPECT TO CALIFORNIA CIVIL CODE SECTION 1542, WHICH SAYS "A GENERAL RELEASE DOES NOT EXTEND TO CLAIMS WHICH THE CREDITOR DOES NOT KNOW OR SUSPECT TO EXIST IN HIS FAVOR AT THE TIME OF EXECUTING THE RELEASE, WHICH, IF KNOWN BY HIM MUST HAVE MATERIALLY AFFECTED HIS SETTLEMENT WITH THE DEBTOR."
+BY USING THE SERVICES, YOU WAIVE YOUR RIGHTS WITH RESPECT TO CALIFORNIA CIVIL CODE SECTION 1542, WHICH SAYS "A GENERAL RELEASE DOES NOT EXTEND TO CLAIMS WHICH THE CREDITOR DOES NOT KNOW ​OR​ SUSPECT TO EXIST IN HIS FAVOR AT THE TIME OF EXECUTING THE RELEASE, WHICH, IF KNOWN BY HIM MUST HAVE MATERIALLY AFFECTED HIS SETTLEMENT WITH THE DEBTOR."
 
 If the Site is at any time deemed an electronic commercial service (as defined under California Civil Code Section 1789.3), California residents are entitled to the following specific consumer rights information:
+
 The provider of the Site is:
 
 Carnegie Mellon University
@@ -50,9 +51,9 @@ If the Site is deemed as electronic commercial service, you may file a complaint
 
 ### Disclaimer of Warranties
 
-THE SITE, AND ALL MATERIALS, INFORMATION, PRODUCTS AND SERVICES INCLUDED IN OR AVAILABLE THROUGH THE SITE ARE PROVIDED "AS IS," WITH NO WARRANTIES WHATSOEVER. CMU, ITS TRUSTEES, OFFICERS, EMPLOYEES, AGENTS, REPRESENTATIVES, AFFILIATES, LICENSORS, CONTENT PROVIDERS, CONTRACTORS (INCLUDING ANY THIRD PARTY PROVIDERS) AND SPONSORS (COLLECTIVELY THE **“SITE PARTIES”**) EXPRESSLY DISCLAIM TO THE FULLEST EXTENT PERMITTED BY LAW ALL EXPRESS, IMPLIED, AND STATUTORY WARRANTIES AND DUTIES, INCLUDING, WITHOUT LIMITATION: THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT; AND ANY WARRANTIES REGARDING THE SECURITY, RELIABILITY, TIMELINESS, AND PERFORMANCE OF THE SITE.
+THE SITE, AND ALL MATERIALS, INFORMATION, PRODUCTS AND SERVICES INCLUDED IN OR AVAILABLE THROUGH THE SITE ARE PROVIDED "AS IS," WITH NO WARRANTIES WHATSOEVER. CMU, ITS TRUSTEES, OFFICERS, EMPLOYEES, AGENTS, REPRESENTATIVES, AFFILIATES, LICENSORS, CONTENT PROVIDERS, CONTRACTORS (INCLUDING ANY THIRD PARTY PROVIDERS) AND SPONSORS (COLLECTIVELY THE **​“SITE PARTIES”​**) EXPRESSLY DISCLAIM TO THE FULLEST EXTENT PERMITTED BY LAW ALL EXPRESS, IMPLIED, AND STATUTORY WARRANTIES AND DUTIES, INCLUDING, WITHOUT LIMITATION: THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT; AND ANY WARRANTIES REGARDING THE SECURITY, RELIABILITY, TIMELINESS, AND PERFORMANCE OF THE SITE.
 
-YOU ARE PROHIBITED FROM MAKING ANY EXPRESS OR IMPLIED warranty TO ANY THIRD PARTY on behalf of CMU RELATING TO ANY MATTER, INCLUDING the application of or the results to be obtained FROM the information, materials, services, INTELLECTUAL PROPERTY OR OTHER PROPERTY OR RIGHTS (INCLUDING COVIDCAST) GRANTED AND/OR PROVIDED BY CMU.
+YOU ARE PROHIBITED FROM MAKING ANY EXPRESS OR IMPLIED WARRANTY TO ANY THIRD PARTY ON BEHALF OF CMU RELATING TO ANY MATTER, INCLUDING THE APPLICATION OF OR THE RESULTS TO BE OBTAINED FROM THE INFORMATION, MATERIALS, SERVICES, INTELLECTUAL PROPERTY OR OTHER PROPERTY OR RIGHTS (INCLUDING COVIDCAST) GRANTED AND/OR PROVIDED BY CMU​.
 
 YOU UNDERSTAND AND AGREE THAT YOU OBTAIN ANY AND ALL INFORMATION, MATERIAL, DATA AND/OR OTHER CONTENT THROUGH THE USE OF THE SITE AT YOUR OWN DISCRETION AND CMU IS NOT ASSUMING RESPONSIBILITY FOR ANY DAMAGES TO YOUR COMPUTER SYSTEM OR LOSS OF DATA THAT RESULTS FROM THE USE OF SUCH ITEMS. IN ADDITION, SOME STATES OR OTHER JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU. YOU MAY ALSO HAVE OTHER RIGHTS THAT VARY FROM STATE TO STATE AND JURISDICTION TO JURISDICTION.
 
