@@ -76,8 +76,11 @@ $blog-list-date-width: 5em;
 
 .blog-image-button {
     position: absolute;
-    left: 100%;
-    top: 0;
+    right: 0;
+    top: -14px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
 }
 
 .blog-image-modal {
