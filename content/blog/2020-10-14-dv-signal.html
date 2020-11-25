@@ -21,12 +21,25 @@ acknowledgements: |
 output:
   html_document:
     code_folding: hide
+  blogdown::html_page:
+    toc: true
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#the-doctor-visits-indicator">The Doctor Visits Indicator</a></li>
+<li><a href="#backfill">Backfill</a></li>
+<li><a href="#weekday-effects">Weekday Effects</a></li>
+<li><a href="#basic-correlation-analyses">Basic Correlation Analyses</a></li>
+<li><a href="#spatial-heterogeneity">Spatial Heterogeneity</a></li>
+<li><a href="#exciting-new-data">Exciting New Data</a></li>
+</ul>
+</div>
 
 <p>Our COVIDcast <a href="{{< ref "covidcast" >}}">map</a> and <a href="{{< apiref "api/covidcast.html" >}}">API</a> feature several novel early indicators of COVID-19 activity. In past posts, we discussed our large-scale daily surveys that, as of October 2020, have reached over 12 million people throughout the US, in partnership with <a href="{{< ref "2020-08-26-fb-survey" >}}">Facebook</a> and <a href="{{< ref "2020-09-18-google-survey" >}}">Google</a>. In another ongoing data initiative, health system partners grant us access to various aggregate statistics from hospital records and insurance claims covering 10-15% of the United States population. From these data, we can extract informative indicators that can be early indicators of COVID activity. Early indicators are important because they help policymakers make more informed decisions and can also improve epidemiological forecasts.</p>
 <p>One indicator that we created from the outpatient insurance claims portion of this data is what we call the <strong>Doctor Visits</strong> or <strong>DV</strong> indicator, which estimates the percentage of outpatient visits (including telemedicine, urgent care, and emergency department visits) that are due to COVID-Like Illness or CLI. We will use % CLI-in-DV to abbreviate the percentage of outpatient visits due to CLI, the units of our DV indicator. Below, we explain how we calculate the DV indicator and discuss its relation to confirmed COVID-19 cases. We also discuss our observation that the DV indicator possesses significant spatial heterogeneity (it displays systematic county-to-county differences), and we describe a simple dynamic adjustment to address this issue.</p>

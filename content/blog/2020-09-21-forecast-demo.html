@@ -25,12 +25,25 @@ related:
 output:
   html_document:
     code_folding: hide
+  blogdown::html_page:
+    toc: true
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#problem-setup">Problem Setup</a></li>
+<li><a href="#transformations">Transformations</a></li>
+<li><a href="#forecasting-code">Forecasting Code</a></li>
+<li><a href="#results-all-four-models">Results: All Four Models</a></li>
+<li><a href="#results-first-two-models">Results: First Two Models</a></li>
+<li><a href="#varying-the-number-of-days-ahead">Varying the Number of Days Ahead*</a></li>
+<li><a href="#wrap-up">Wrap-Up</a></li>
+</ul>
+</div>
 
 <p>In our past two posts, we wrote about the COVID-19 symptom surveys that Delphi
 runs through

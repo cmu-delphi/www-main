@@ -93,6 +93,35 @@ $blog-list-date-width: 5em;
     }
 }
 
+#TOC {
+    // hide original toc
+    display: none;
+}
+
+.blog-toc-container {
+    margin-top: 2em;
+
+    h5 {
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+}
+
+.blog-toc {
+    background: #F5F5F5;
+    border-radius: 5px;
+    padding: 24px;
+
+    li {
+        list-style: decimal;
+    }
+
+    .uk-nav-default > li.uk-active > a {
+        color: unset;
+        font-weight: 600;
+    }
+}
+
 .blog-license {
     margin-top: 2em;
 
