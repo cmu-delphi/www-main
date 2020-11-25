@@ -84,7 +84,7 @@ $carousel-height:500px;
         color: rgb(35, 39, 53);
     }
 
-    @media screen and (max-width: 414px) { 
+    @media screen and (max-width: $breakpoint-small) { 
         p {
          font-size: 18px;
          line-height: 32px;

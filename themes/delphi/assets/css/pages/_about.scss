@@ -4,17 +4,6 @@
     height: 200px;
 }
 
-.about-mission-img {
-    z-index: -1;
-    filter: grayscale(65%);  
-}
-
-.about-mission-mission {
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
 .mission-text {
     font-weight: 600;
     font-size: 24px;
@@ -38,8 +27,6 @@
         background: white;
         border: 1px solid #D3D4D8;
         border-radius: 5px;
-    }
-    .about-description {
         margin-top: -6rem;
     }
 }
