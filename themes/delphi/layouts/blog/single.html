@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="blog-toc-container uk-visible@m uk-hidden">
-            <div uk-sticky="offset: 32" class="uk-sticky uk-sticky-fixed uk-sticky-below blog-toc">
+            <div uk-sticky="offset: 32; bottom: .blog-toc-end" class="uk-sticky uk-sticky-fixed uk-sticky-below blog-toc">
                 <h5>Outline</h5>
                 <ol uk-scrollspy-nav="closest: li; scroll: true; offset: 100" class="uk-nav uk-nav-default"></ol>
             </div>
@@ -54,7 +54,7 @@
         {{ template "_internal/disqus.html" . }}
     </div>
 </div>
-<hr />
+<hr class="blog-toc-end"/>
 {{ range .Params.authors}}
 <div>
     {{ range first 1 (where $.Site.Data.authors "key" "eq" .)}}
