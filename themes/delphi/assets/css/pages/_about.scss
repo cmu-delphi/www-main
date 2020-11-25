@@ -1,45 +1,43 @@
-
 .about-mission {
-    padding: 8rem 0;
+    background-image: url("../images/red-bubble-map_mission-pg-short.jpg");
+    background-size: auto;
+    height: 200px;
 }
 
-.about-mission-img {
-    z-index: -1;    
-}
-.about-mission-mission {
-    color: white;
-    padding: 1em 0;
-    display: block;
-    background: rgba(#FA8C16, 0.2);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-.about-mission-text {
-    color: white;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+.mission-text {
     font-weight: 600;
-    font-size: 44px;
-    line-height: 64px;
-    margin: 0;
+    font-size: 24px;
+    line-height: 36px;
 }
 
-.about-description {
-    padding: 24px;
-    margin-bottom: 3rem;
-    
-    h3 {
-        letter-spacing: 3px;
-        text-transform: uppercase;
+@media screen and (max-width: $breakpoint-medium) { 
+    .mission-text {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .about-mission {
+        height: 50px;
+    }
+    .about-description {
+        margin-top: 0px;
     }
 }
-
-@media (min-width: $breakpoint-medium) {
+@media screen and (min-width: $breakpoint-medium) {
     .about-description {
         background: white;
         border: 1px solid #D3D4D8;
         border-radius: 5px;
         margin-top: -6rem;
+    }
+}
+
+.about-description {
+    padding: 2em;
+    margin-bottom: 3rem;
+
+    h3 {
+        letter-spacing: 3px;
+        text-transform: uppercase;
     }
 }
 
