@@ -6,7 +6,7 @@ Version Date: November 25, 2020
 
 ### Introduction/Scope
 
-The Carnegie Mellon University (“CMU”) COVIDcast [website]({{< relref "/covidcast">}}) and related COVIDcast [​Epidata API pages​]{{< apiref "/">}} (collectively, the “Site”) displays signals related to COVID-19 activity levels across the United States, derived from a variety of anonymized, aggregated data sources made available by multiple partners.
+The Carnegie Mellon University (“CMU”) COVIDcast [website]({{< relref "/covidcast">}}) and related COVIDcast [Epidata API pages​]({{< apiref "/">}}) (collectively, the “Site”) displays signals related to COVID-19 activity levels across the United States, derived from a variety of anonymized, aggregated data sources made available by multiple partners.
 
 Each signal may reflect the prevalence of COVID-19 infection, mild symptoms, or more severe disease over time. Each signal can be presented at multiple geographic resolutions: state, county, and/or metropolitan area. All these signals taken together may suggest heightened or rising COVID-19 activity in specific locations.
 
@@ -20,7 +20,7 @@ CMU may update and change these TOU from time to time without notice to you. You
 
 ### Permitted Use and License/Availability of the Site
 
-Subject to other relevant provisions of the TOU and except as otherwise indicated on the Site, the Site and any information and data on it (**“​Site Content​”**) is provided to you under the CC-BY license ([https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)). Without limiting the general nature of the prior sentence, as indicated on the Site, certain API signals are subject to the CC-BY-NC license ([​https://creativecommons.org/licenses/by-nc/4.0/](​https://creativecommons.org/licenses/by-nc/4.0/​​)). CMU (and/or its content providers, as applicable) own and retain all intellectual property rights they have in and to the Site Content, including but not limited to the underlying infrastructure. CMU shall have the right in its sole and absolute discretion to suspend or terminate the Site any or all access to it for any reason. As specified below, the Site (including Site Content) is provided on an “AS-IS, AS-AVAILABLE” basis.
+Subject to other relevant provisions of the TOU and except as otherwise indicated on the Site, the Site and any information and data on it (**“​Site Content​”**) is provided to you under the CC-BY license ([https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)). Without limiting the general nature of the prior sentence, as indicated on the Site, certain API signals are subject to the CC-BY-NC license ([https://creativecommons.org/licenses/by-nc/4.0/](https://creativecommons.org/licenses/by-nc/4.0/)). CMU (and/or its content providers, as applicable) own and retain all intellectual property rights they have in and to the Site Content, including but not limited to the underlying infrastructure. CMU shall have the right in its sole and absolute discretion to suspend or terminate the Site any or all access to it for any reason. As specified below, the Site (including Site Content) is provided on an “AS-IS, AS-AVAILABLE” basis.
 
 ### Prohibited Uses/Activities
 
