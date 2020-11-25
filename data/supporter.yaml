@@ -1,24 +1,17 @@
 - name: Amazon
-  image: Amazon-logo.png
   group: collaborator
 - name: CDC
-  image: CDC_logo.png
   group: collaborator
 - name: Change Healthcare
-  image: Change_Healthcare_Logo.png
   group: collaborator
-- name: DTRA
-  image: US-DefenseThreatReductionAgency-Logo.png
+- name: Defense Threat Reduction Agency
   group: collaborator
-- name: facebook
-  image: facebook-logo.png
+- name: Facebook
   group: collaborator
 - name: Uptake
-  image: Uptake-logo.png
   group: collaborator
 - name: Optum
-  image: Optum_logo.png
   group: collaborator
-- name: Google
-  image: google.org.png
-  group: grant
+- name: Google.org
+  group: sponsor
+
