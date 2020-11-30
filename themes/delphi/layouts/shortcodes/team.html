@@ -1,15 +1,18 @@
-{{ $images := .Page.Resources.ByType "image"}}
-<div uk-grid class="team-members uk-grid-small uk-child-width-1-6@l uk-child-width-1-4@m uk-child-width-1-{{with .Get "small"}}{{.}}{{else}}3{{end}}">
-{{ $team := where .Page.Params.team ".team" (.Get "team")}}
-{{ range sort $team "lastName" "asc" "firstName" "asc"}}
-  {{ $img := $images.GetMatch (path.Join "images" .image) }}
-  <div class="team-member">
-      <img src="{{ ($img.Resize "250x250").RelPermalink }}" alt="{{ .name }}"></img>
+{{ $images := .Page.Resources.ByType "image" }}
+<div
+  uk-grid
+  class="team-members uk-grid-small uk-child-width-1-6@l uk-child-width-1-4@m uk-child-width-1-{{ with .Get "small" }}{{ . }}{{ else }}3{{ end }}"
+>
+  {{ $team := where .Page.Params.team ".team" (.Get "team") }}
+  {{ range sort $team "lastName" "asc" "firstName" "asc" }}
+    {{ $img := $images.GetMatch (path.Join "images" .image) }}
+    <div class="team-member">
+      <img src="{{ ($img.Resize "250x250").RelPermalink }}" alt="{{ .name }}" />
       <div class="uk-text-bold">{{ printf "%s %s" .firstName .lastName }}</div>
       <div>{{ .affiliation }}</div>
       {{ if isset . "note" }}
-      <div class="uk-text-small">{{ .note }}</div>
+        <div class="uk-text-small">{{ .note }}</div>
       {{ end }}
-  </div>
+    </div>
   {{ end }}
 </div>
