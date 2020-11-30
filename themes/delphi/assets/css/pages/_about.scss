@@ -1,46 +1,45 @@
 .about-mission {
-    background-image: url("../images/red-bubble-map_mission-pg-short.jpg");
-    background-size: auto;
-    height: 200px;
+  background-image: url("../images/red-bubble-map_mission-pg-short.jpg");
+  background-size: auto;
+  height: 200px;
 }
 
 .mission-text {
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 36px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
 }
 
-@media screen and (max-width: $breakpoint-medium) { 
-    .mission-text {
-        font-size: 18px;
-        line-height: 28px;
-    }
-    .about-mission {
-        height: 50px;
-    }
-    .about-description {
-        margin-top: 0px;
-    }
+@media screen and (max-width: $breakpoint-medium) {
+  .mission-text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .about-mission {
+    height: 50px;
+  }
+  .about-description {
+    margin-top: 0px;
+  }
 }
 @media screen and (min-width: $breakpoint-medium) {
-    .about-description {
-        background: white;
-        border: 1px solid #D3D4D8;
-        border-radius: 5px;
-        margin-top: -6rem;
-    }
+  .about-description {
+    background: white;
+    border: 1px solid #d3d4d8;
+    border-radius: 5px;
+    margin-top: -6rem;
+  }
 }
 
 .about-description {
-    padding: 2em;
-    margin-bottom: 3rem;
+  padding: 2em;
+  margin-bottom: 3rem;
 
-    h3 {
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
+  h3 {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
 }
-
 
 .about-collaborators {
   background: #fafafc;

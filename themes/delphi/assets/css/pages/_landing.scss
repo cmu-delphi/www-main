@@ -60,33 +60,33 @@ $carousel-height: 500px;
   background-color: #eee;
 }
 .landing-entry {
+  line-height: 48px;
+  .inline-svg-icon {
+    font-size: x-large;
+  }
+  h2 {
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  p {
+    font-weight: 500;
+    font-size: 28px;
     line-height: 48px;
-    .inline-svg-icon{
-        font-size:x-large;
-    }
-    h2 {
-        font-weight: 600;
-        font-size: 14px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
-    p {
-        font-weight: 500;
-        font-size: 28px;
-        line-height: 48px;
-        color: rgb(35, 39, 53);
-    }
+    color: rgb(35, 39, 53);
+  }
 
-    @media screen and (max-width: $breakpoint-small) { 
-        p {
-         font-size: 18px;
-         line-height: 32px;
-        }
-       }
-    a {
-        color: $global-color;
-        font-weight: bold;
+  @media screen and (max-width: $breakpoint-small) {
+    p {
+      font-size: 18px;
+      line-height: 32px;
     }
+  }
+  a {
+    color: $global-color;
+    font-weight: bold;
+  }
 }
 
 .entry-image {
@@ -97,7 +97,6 @@ $carousel-height: 500px;
   }
 }
 
-
 .latest-news {
-    padding: 0 50px;
+  padding: 0 50px;
 }

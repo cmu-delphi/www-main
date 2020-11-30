@@ -1,14 +1,14 @@
 {{ define "main" }}
-<div class="uk-container">
-<h1>{{ .Title }}</h1>
-{{ partial "blog/tags.html" .}}
-{{if isset .Params "heroimage"}}
-<div class="uk-margin-top uk-margin-bottom">
-    <img src="{{.Params.heroImage | relURL }}" width="1120" height="440" alt="{{ .Title}} - Hero Image">
-</div>
-{{end}}
-<div uk-grid>
-    <div class="uk-width-1-1@s uk-width-medium@m">
+  <div class="uk-container">
+    <h1>{{ .Title }}</h1>
+    {{ partial "blog/tags.html" . }}
+    {{ if isset .Params "heroimage" }}
+      <div class="uk-margin-top uk-margin-bottom">
+        <img src="{{ .Params.heroImage | relURL }}" width="1120" height="440" alt="{{ .Title }} - Hero Image" />
+      </div>
+    {{ end }}
+    <div uk-grid>
+      <div class="uk-width-1-1@s uk-width-medium@m">
         <div class="uk-grid-small uk-flex-start" uk-grid>
           <div class="uk-width-auto">
             <span class="uk-icon-button">
@@ -26,14 +26,14 @@
           </div>
         </div>
         <div class="blog-toc-container uk-visible@m uk-hidden">
-            <div uk-sticky="offset: 32; bottom: .blog-toc-end" class="uk-sticky uk-sticky-fixed uk-sticky-below blog-toc">
-                <h5>Outline</h5>
-                <ol uk-scrollspy-nav="closest: li; scroll: true; offset: 100" class="uk-nav uk-nav-default"></ol>
-            </div>
+          <div uk-sticky="offset: 32; bottom: .blog-toc-end" class="uk-sticky uk-sticky-fixed uk-sticky-below blog-toc">
+            <h5>Outline</h5>
+            <ol uk-scrollspy-nav="closest: li; scroll: true; offset: 100" class="uk-nav uk-nav-default"></ol>
+          </div>
         </div>
-        <hr class="uk-hidden@m"/>
-    </div>
-    <div class="uk-width-1-1@s uk-width-3-5@m blog-blog">
+        <hr class="uk-hidden@m" />
+      </div>
+      <div class="uk-width-1-1@s uk-width-3-5@m blog-blog">
         {{ .Content }}
         {{ if isset .Params "acknowledgements" }}
           <p>
@@ -54,19 +54,23 @@
         {{ template "_internal/disqus.html" . }}
       </div>
     </div>
-</div>
-<hr class="blog-toc-end"/>
-{{ range .Params.authors}}
-<div>
-    {{ range first 1 (where $.Site.Data.authors "key" "eq" .)}}
-    {{ if isset . "link"}}<a href="{{.link}}" class="uk-text-bold-600 uk-link-text">{{.name}}</a>{{ else }}<span>{{.name}}</span>{{ end}} {{.description}}
+    <hr class="blog-toc-end" />
+    {{ range .Params.authors }}
+      <div>
+        {{ range first 1 (where $.Site.Data.authors "key" "eq" .) }}
+          {{ if isset . "link" }}
+            <a href="{{ .link }}" class="uk-text-bold-600 uk-link-text">{{ .name }}</a>{{ else }}<span
+              >{{ .name }}</span
+            >{{ end }}
+
+          {{ .description }}
+        {{ end }}
+        <hr />
+        {{ partial "blog/latestblogs.html" . }}
+      </div>
     {{ end }}
+    {{ partial "blog/license.html" . }}
     <hr />
     {{ partial "blog/latestblogs.html" . }}
   </div>
 {{ end }}
-{{ partial "blog/license.html" . }}
-<hr />
-{{ partial "blog/latestblogs.html" . }}
-</div>
-{{end}}
