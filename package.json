@@ -1,4 +1,7 @@
 {
+  "name": "www-main",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "highlight.js": "^10.3.2",
@@ -7,11 +10,20 @@
     "www-covidcast": "github:cmu-delphi/www-covidcast#dev"
   },
   "devDependencies": {
+    "git-format-staged": "^2.1.0",
     "hugo-bin": "^0.66.2",
-    "ncp": "^2.0.0"
+    "husky": "^4.3.0",
+    "ncp": "^2.0.0",
+    "prettier": "^2.2.0",
+    "prettier-plugin-go-template": "0.0.10"
   },
   "hugo-bin": {
     "buildTags": "extended"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "git-format-staged -f 'prettier --ignore-unknown --stdin --stdin-filepath \"{}\"' ."
+    }
   },
   "scripts": {
     "copy_fonts": "ncp node_modules/katex/dist/fonts themes/delphi/static/css/fonts/",
@@ -20,8 +32,8 @@
     "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd=TRUE)\"",
     "build": "hugo --gc --minify",
     "start": "hugo server -D",
-    "start:blog": "Rscript -e \"blogdown::serve_site()\""
-  },
-  "name": "www-main",
-  "version": "0.1.0"
+    "start:blog": "Rscript -e \"blogdown::serve_site()\"",
+    "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
+    "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check"
+  }
 }

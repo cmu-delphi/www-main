@@ -10,5 +10,4 @@ styles:
   - ./covidcast/styles.css
 ---
 
-
 {{<covidcast >}}

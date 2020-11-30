@@ -4,16 +4,15 @@ Hugo theme based on `Noteworthy` for Delphi
 
 ## Features
 
-* Fully responsive
-* Google Analytics and Disqus integration
-* Ko-fi donation button
-* Syntax highlighting
-* Mathematical notations with KaTex
-* About, Tags, and Archives pages
-* RSS feeds
-* Social media links
-* SCSS for styling
-
+- Fully responsive
+- Google Analytics and Disqus integration
+- Ko-fi donation button
+- Syntax highlighting
+- Mathematical notations with KaTex
+- About, Tags, and Archives pages
+- RSS feeds
+- Social media links
+- SCSS for styling
 
 ## Installation
 
@@ -97,7 +96,6 @@ impactstory = "#"
 orcid = "#"
 ```
 
-
 ## Disqus and Google Analytics
 
 Add your Disqus shortname and Google Analytics identifier in the `config.toml` file.
@@ -109,7 +107,6 @@ disqusShortname = ""
 # Add your Google Analytics identifier: UA-XXXXXXXX-X
 googleAnalytics = ""
 ```
-
 
 ## License
 
