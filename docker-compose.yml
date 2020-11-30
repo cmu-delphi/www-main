@@ -3,13 +3,14 @@ version: "3.1"
 # docker services for R environment and Hugo runner
 services:
   r:
-    build: "."
+    build: 
+      context: .
+      dockerfile: devops/r/Dockerfile
     working_dir: "/app"
     command: tail -F anything
     volumes:
       - "./:/app"
     # run: docker-compose exec r bash
-    # conda activate www-main
     # Rscript -e 'blogdown::build_site(run_hugo=FALSE, build_rmd=TRUE)'
 
   # see https://github.com/peaceiris/hugo-extended-docker
