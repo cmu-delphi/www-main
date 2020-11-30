@@ -29,6 +29,8 @@ related:
 output:
   html_document:
     code_folding: hide
+  blogdown::html_page:
+    toc: true
 ---
 
 In our past two posts, we wrote about the COVID-19 symptom surveys that Delphi

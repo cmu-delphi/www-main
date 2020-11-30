@@ -20,6 +20,9 @@ summary: |
   been pretty “heads down” with our work, and slow to communicate what we've been 
   up to. But at last ... Delphi finally has a blog! This first post serves as an 
   introduction of sorts. Future posts will dive deeper into our various projects.
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 Hello from the Delphi research group at Carnegie Mellon University!

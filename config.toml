@@ -17,7 +17,7 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "about"
-    name = "Our Mission"
+    name = "Delphi Research Group"
     url = "/about"
     weight = 1
 [[menu.main]]
@@ -25,6 +25,11 @@ relativeURLs = false
     name = "Team"
     url = "/about/team"
     weight = 2
+[[menu.main]]
+    parent = "about"
+    name = "Publications"
+    url = "/about/publications"
+    weight = 3
 [[menu.main]]
     identifier = "covidcast"
     name = "COVIDcast"

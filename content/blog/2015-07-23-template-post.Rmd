@@ -14,6 +14,9 @@ heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
 related:
   - 2015-07-23-template-post
 acknowledgements: Test
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 ```{r setup, include=FALSE}

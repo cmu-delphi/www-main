@@ -1,27 +1,14 @@
 {{ define "main" }}
-  <div class="about-mission uk-cover-container">
-    <img class="about-mission-img" src="{{ "images/mission.jpg" | relURL }}" alt="Mission image" uk-cover />
-    <div class="about-mission-mission">
-      <div class="content content-grid">
-        <div class="grid-2-10">Our Mission</div>
-      </div>
-    </div>
-    <div class="content content-grid">
-      <h1 class="grid-2-10 about-mission-text">
-        {{ .Site.Params.mission }}
-      </h1>
-    </div>
-  </div>
 
-  <div class="content content-grid">
+<div class="about-mission">
+</div>
+<div class="uk-container content-grid">
     <div class="grid-2-10 about-description">
-      {{ .Content }}
+        <h2 class="mission-header">Delphi Research Group</h2>
+        <h4 class="mission-text">{{.Site.Params.mission}}</h4>
+        {{ .Content }}
     </div>
-  </div>
-  <div class="content">
-    <a id="papers"></a>
-    <h2>Research and White Papers</h2>
-    {{ partial "about/research-papers.html" . }}
-  </div>
-  {{ partial "about/collaborators.html" . }}
+</div>
+{{partial "about/collaborators.html" .}}
+
 {{ end }}

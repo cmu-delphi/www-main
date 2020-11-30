@@ -24,6 +24,8 @@ acknowledgements: |
 output:
   html_document:
     code_folding: hide
+  blogdown::html_page:
+    toc: true
 ---
 
 Our COVIDcast [map](`r blogdown::shortcode_html("ref", "covidcast")`) and [API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`) feature several novel early indicators of COVID-19 activity. In past posts, we discussed our large-scale daily surveys that, as of October 2020, have reached over 12 million people throughout the US, in partnership with [Facebook](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`) and [Google](`r blogdown::shortcode_html("ref", "2020-09-18-google-survey")`). In another ongoing data initiative, health system partners grant us access to various aggregate statistics from hospital records and insurance claims covering 10-15% of the United States population. From these data, we can extract informative indicators that can be early indicators of COVID activity. Early indicators are important because they help policymakers make more informed decisions and can also improve epidemiological forecasts.

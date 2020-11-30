@@ -1,11 +1,11 @@
 {{- $currentPage := . -}}
 <nav class="uk-visible@m uk-navbar-container" data-uk-navbar>
-  <div class="uk-navbar-left">
-    <ul class="uk-navbar-nav">
-      <li>
-        <a class="delphi-text-logo" href="{{ relref . "/" }}">DELPHI</a>
-      </li>
-      {{ range .Site.Menus.main.ByWeight }}
+  <div class="uk-navbar-left uk-container">
+      <ul class="uk-navbar-nav">
+        <li>
+          <a class="delphi-text-logo" href="{{ relref . "/" }}">DELPHI</a>
+        </li>
+        {{ range .Site.Menus.main.ByWeight }}
         <li class="{{ if (eq $currentPage.Section .Identifier) }}nav-active{{ end }}">
           {{ if .HasChildren }}
             <a href="{{ .URL | relLangURL }}">

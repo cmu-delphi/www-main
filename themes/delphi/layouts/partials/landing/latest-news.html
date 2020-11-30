@@ -1,7 +1,7 @@
-<div class="latest-news uk-margin-medium-top uk-margin-medium-bottom content">
-  <h2 class="uk-text-center">Latest News</h2>
-  {{- $currentPage := . -}}
-  {{ define "partials/latest-blog" }}
+<div class="latest-news uk-margin-medium-top uk-margin-medium-bottom uk-container">
+    <h2 class="uk-text-center">Latest News</h2>
+    {{- $currentPage := . -}}
+    {{ define "partials/latest-blog" }}
     {{ return (dict "source" "blog" "image" .Params.heroImageThumb "title" .Title "link" .RelPermalink "date" .PublishDate ) }}
   {{ end }}
   {{ $items := apply (.Site.GetPage "/blog").Pages "partial" "latest-blog" "." }}
