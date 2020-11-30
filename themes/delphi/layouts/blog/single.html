@@ -1,4 +1,5 @@
 {{ define "main" }}
+  {{ $currentPage := . }}
   <div class="uk-container">
     <h1>{{ .Title }}</h1>
     {{ partial "blog/tags.html" . }}
@@ -44,7 +45,6 @@
         {{ if isset .Params "related" }}
           <strong>Related Posts:</strong>
           <ul>
-            {{ $currentPage := . }}
             {{ range $related := .Params.related }}
               {{ $relPage := $.GetPage $related }}
               <li><a href="{{ $relPage.Permalink }}">{{ $relPage.Title }}</a></li>
@@ -59,18 +59,16 @@
       <div>
         {{ range first 1 (where $.Site.Data.authors "key" "eq" .) }}
           {{ if isset . "link" }}
-            <a href="{{ .link }}" class="uk-text-bold-600 uk-link-text">{{ .name }}</a>{{ else }}<span
-              >{{ .name }}</span
-            >{{ end }}
-
+            <a href="{{ .link }}" class="uk-text-bold-600 uk-link-text">{{ .name }}</a>
+            {{ else }}
+            <span>{{ .name }}</span>
+          {{ end }}
           {{ .description }}
         {{ end }}
-        <hr />
-        {{ partial "blog/latestblogs.html" . }}
       </div>
     {{ end }}
-    {{ partial "blog/license.html" . }}
+    {{ partial "blog/license.html" $currentPage }}
     <hr />
-    {{ partial "blog/latestblogs.html" . }}
+    {{ partial "blog/latestblogs.html" $currentPage }}
   </div>
 {{ end }}
