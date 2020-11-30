@@ -24,3 +24,4 @@
 *.woff2
 *.R
 *.xml
+.dockerignore

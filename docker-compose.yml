@@ -3,7 +3,7 @@ version: "3.1"
 # docker services for R environment and Hugo runner
 services:
   r:
-    build: 
+    build:
       context: .
       dockerfile: devops/r/Dockerfile
     working_dir: "/app"
