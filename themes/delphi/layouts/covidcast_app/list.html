@@ -1,3 +1,13 @@
+{{ define "styles"}}
+  <link rel="stylesheet" href="{{ "./covidcast/vendors.css" | relURL }}" />
+  <link rel="stylesheet" href="{{ "./covidcast/styles.css" | relURL }}" />
+{{ end }}
+{{ define "scripts"}}
+  <script src="{{ "./covidcast/vendors.js" | relURL }}"></script>
+  <script src="{{ "./covidcast/styles.js" | relURL }}"></script>
+  <script src="{{ "./covidcast/bundle.js" | relURL }}"></script>
+{{ end }}
+{{ define "body_class" }}covidcast_wrapper{{ end }}
 {{ define "main" }}
 <div id="vizbox">
   <div class="ie-banner" style="display: none">
