@@ -22,18 +22,18 @@
   <link rel="stylesheet" href="{{ $main_style.RelPermalink }}" />
 
   {{ with .OutputFormats.Get "RSS" }}
-  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end }}
   {{- if not .Site.IsServer -}}
-  {{ template "_internal/google_analytics.html" . }}
+    {{ template "_internal/google_analytics.html" . }}
   {{- end -}}
 
   {{ if eq .Page.Type "blog" }}
-  {{ $blog_style := resources.Get "css/blog_extra.scss" | toCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $blog_style.RelPermalink }}" />
+    {{ $blog_style := resources.Get "css/blog_extra.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $blog_style.RelPermalink }}" />
   {{ end }}
 
   {{ range .Page.Params.styles }}
-  <link rel="stylesheet" href="{{ . | relURL }}" />
+    <link rel="stylesheet" href="{{ . | relURL }}" />
   {{ end }}
 </head>
