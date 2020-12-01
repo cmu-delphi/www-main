@@ -1,0 +1,7 @@
+<!-- Open Sans Font -->
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+<!-- Use Hugo Pipes to process the Sass file (convert to CSS, minify, and add a hash) -->
+{{ $main_style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $main_style.Permalink }}" />

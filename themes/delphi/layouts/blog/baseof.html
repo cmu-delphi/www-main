@@ -4,16 +4,16 @@
   <head>
     {{ partial "head/meta.html" . }}
     {{ partial "head/styles.html" . }}
-    <link rel="stylesheet" href="{{ "./covidcast/vendors.css" | relURL }}" />
-    <link rel="stylesheet" href="{{ "./covidcast/styles.css" | relURL }}" />
+    {{ $blog_style := resources.Get "css/blog_extra.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $blog_style.RelPermalink }}" />
   </head>
-  <body class="covidcast_wrapper">
+  <body>
     {{ partial "nav.html" . }}
     {{ partial "menu/breadcrumb.html" . }}
     {{ block "main" . }} {{ end }}
+    {{ partial "footer.html" . }}
     {{ partial "scripts.html" . }}
-    <script src="{{ "./covidcast/vendors.js" | relURL }}"></script>
-    <script src="{{ "./covidcast/styles.js" | relURL }}"></script>
-    <script src="{{ "./covidcast/bundle.js" | relURL }}"></script>
+    {{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}
+    <script src="{{ $script_blog.RelPermalink }}"></script>
   </body>
 </html>
