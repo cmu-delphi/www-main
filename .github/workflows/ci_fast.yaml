@@ -52,12 +52,14 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: cmu-delphi/www-main
         run: |
-          case "${GITHUB_REF#*/}" in
+          baseRef="${GITHUB_REF#*/}"
+          baseRef="${baseRef#*/}"
+          case "${baseRef}" in
           main)
             awsTag="latest"
             ;;
           *)
-            awsTag="${GITHUB_REF#*/}" # replace `/` with `_` in branch name
+            awsTag="${baseRef//\//_}" # replace `/` with `_` in branch name
             ;;
           esac
           echo "using tag: --${awsTag}--"
