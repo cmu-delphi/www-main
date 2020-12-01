@@ -8,10 +8,10 @@
         <img src="{{ .Params.heroImage | relURL }}" width="1120" height="440" alt="{{ .Title }} - Hero Image" />
       </div>
     {{ end }}
-    <div uk-grid>
-      <div class="uk-width-1-1@s uk-width-medium@m">
-        <div class="uk-grid-small uk-flex-start" uk-grid>
-          <div class="uk-width-auto">
+    <div class="content-grid">
+      <div class="grid-1-4">
+        <div class="uk-flex-start uk-flex">
+          <div class="uk-margin-small-right">
             <span class="uk-icon-button">
               {{ if gt (len .Params.authors) 1 }}
                 {{ partial "font-awesome.html" "solid/users" }}
@@ -20,21 +20,21 @@
               {{ end }}
             </span>
           </div>
-          <div class="uk-width-expand">
+          <div>
             <p class="uk-text-bold-600">{{ .Params.author }}</p>
             <p><time>{{ .Date.Format "Jan 2, 2006" }}</time></p>
             {{ partial "share.html" . }}
           </div>
         </div>
-        <div class="blog-toc-container uk-visible@m uk-hidden">
+        <div class="blog-toc-container uk-visible@s uk-hidden">
           <div uk-sticky="offset: 32; bottom: .blog-toc-end" class="uk-sticky uk-sticky-fixed uk-sticky-below blog-toc">
             <h5>Outline</h5>
             <ol uk-scrollspy-nav="closest: li; scroll: true; offset: 100" class="uk-nav uk-nav-default"></ol>
           </div>
         </div>
-        <hr class="uk-hidden@m" />
+        <hr class="uk-hidden@s" />
       </div>
-      <div class="uk-width-1-1@s uk-width-3-5@m blog-blog">
+      <div class="grid-4-12 blog-blog">
         {{ .Content }}
         {{ if isset .Params "acknowledgements" }}
           <p>

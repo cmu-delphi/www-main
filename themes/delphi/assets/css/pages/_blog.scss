@@ -68,6 +68,23 @@ $blog-list-date-width: 5em;
   }
 }
 
+@media (min-width: $breakpoint-medium) {
+  .blog-blog,
+  .blog-blog div.section {
+    > .footnotes,
+    > blockquote,
+    > p:not(.blog-image-wrapper),
+    > ul,
+    > ol,
+    > h1,
+    > h2,
+    > h3,
+    > h4 {
+      margin-right: 25%;
+    }
+  }
+}
+
 .blog-image-wrapper {
   position: relative;
 }
