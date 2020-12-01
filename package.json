@@ -17,14 +17,6 @@
     "prettier": "^2.2.0",
     "prettier-plugin-go-template": "0.0.10"
   },
-  "hugo-bin": {
-    "buildTags": "extended"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "scripts": {
     "copy_fonts": "ncp node_modules/katex/dist/fonts themes/delphi/static/css/fonts/",
     "copy_covidcast": "ncp node_modules/www-covidcast/public static/covidcast/",
@@ -35,6 +27,14 @@
     "start:blog": "Rscript -e \"blogdown::serve_site()\"",
     "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
     "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check"
+  },
+  "hugo-bin": {
+    "buildTags": "extended"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.{js,scss,css,yaml,md,html,json,yml}": "prettier --write"
