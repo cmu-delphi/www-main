@@ -5,7 +5,7 @@ layout: about
 
 ### Who are we?
 
-We're a research group based out of Carnegie Mellon University dedicated to developing the theory and practice of epidemic tracking and forecasting. Pre-pandemic we worked mostly on  influenza, dengue and norovirus; now we focus on COVID. We procure unique data streams that reflect epidemic (or pandemic) activity, extract relevant indicators, and make these publicly and continuously available. We and others then use these indicators for nowcasting (situational awareness) and short-term forecasting.
+We're a research group based out of Carnegie Mellon University dedicated to developing the theory and practice of epidemic tracking and forecasting. Pre-pandemic we worked mostly on influenza, dengue and norovirus; now we focus on COVID. We procure unique data streams that reflect epidemic (or pandemic) activity, extract relevant indicators, and make these publicly and continuously available. We and others then use these indicators for nowcasting (situational awareness) and short-term forecasting.
 
 ### Who is our audience?
 
