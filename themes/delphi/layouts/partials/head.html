@@ -19,21 +19,21 @@
 
   <!-- Use Hugo Pipes to process the Sass file (convert to CSS, minify, and add a hash) -->
   {{ $main_style := resources.Get "css/main.scss" | toCSS | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $main_style.Permalink }}" />
+  <link rel="stylesheet" href="{{ $main_style.RelPermalink }}" />
 
   {{ with .OutputFormats.Get "RSS" }}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end }}
   {{- if not .Site.IsServer -}}
-    {{ template "_internal/google_analytics.html" . }}
+  {{ template "_internal/google_analytics.html" . }}
   {{- end -}}
 
   {{ if eq .Page.Type "blog" }}
-    {{ $blog_style := resources.Get "css/blog_extra.scss" | toCSS | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $blog_style.Permalink }}" />
+  {{ $blog_style := resources.Get "css/blog_extra.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $blog_style.RelPermalink }}" />
   {{ end }}
 
   {{ range .Page.Params.styles }}
-    <link rel="stylesheet" href="{{ . | absURL }}" />
+  <link rel="stylesheet" href="{{ . | relURL }}" />
   {{ end }}
 </head>

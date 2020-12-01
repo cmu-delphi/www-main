@@ -1,11 +1,11 @@
 {{ $script := resources.Get "js/main.js" | js.Build | minify | fingerprint -}}
-<script src="{{ $script.Permalink }}"></script>
+<script src="{{ $script.RelPermalink }}"></script>
 
 {{ if eq .Page.Type "blog" }}
-  {{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}
-  <script src="{{ $script_blog.Permalink }}"></script>
+{{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}
+<script src="{{ $script_blog.RelPermalink }}"></script>
 {{ end }}
 
 {{ range .Page.Params.scripts }}
-  <script src="{{ . | absURL }}"></script>
+<script src="{{ . | relURL }}"></script>
 {{ end }}
