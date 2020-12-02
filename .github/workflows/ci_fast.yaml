@@ -50,7 +50,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: cmu-delphi/www-main
+          ECR_REPOSITORY: www-main
         run: |
           baseRef="${GITHUB_REF#*/}"
           baseRef="${baseRef#*/}"
