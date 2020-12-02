@@ -1,5 +1,6 @@
 ---
 title: Flu and Other Diseases
+layout: single
 ---
 
 ## Operational Systems
