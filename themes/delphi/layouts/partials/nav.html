@@ -1,6 +1,6 @@
 {{- $currentPage := . -}}
 <nav class="nav-container">
-  <div class="uk-container uk-navbar-container" data-uk-navbar="dropbar: true">
+  <div class="uk-container uk-navbar-container" data-uk-navbar="offset: 3">
     <ul class="uk-navbar-nav">
       <li>
         <a class="delphi-text-logo" href="{{ relref . "/" }}">DELPHI</a>
@@ -37,7 +37,7 @@
     <ul class="uk-navbar-nav nav-burger uk-hidden@m">
       <li>
         <a class="uk-navbar-toggle nav-toggle" uk-navbar-toggle-icon href="" title="Toggle Menu"></a>
-        <div uk-dropdown="mode: click">
+        <div uk-dropdown="mode: click; offset: 3">
           <ul class="uk-nav uk-navbar-dropdown-nav">
             {{ range .Site.Menus.main.ByWeight }}
               <li
