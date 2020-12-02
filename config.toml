@@ -1,0 +1,100 @@
+baseURL = "https://delphi.cmu.edu/"
+languageCode = "en-us"
+title = "The Delphi Team"
+theme = "delphi"
+googleAnalytics = "UA-88748454-1"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$", "\\.rda$"]
+disqusShortname = ""
+relativeURLs = false
+
+[permalinks]
+    blog = "/blog/:year/:month/:day/:slug/"
+[[menu.main]]
+    identifier = "about"
+    name = "About"
+    pre = "solid/info-circle"
+    url = "/about"
+    weight = 1
+[[menu.main]]
+    parent = "about"
+    name = "Delphi Research Group"
+    url = "/about"
+    weight = 1
+[[menu.main]]
+    parent = "about"
+    name = "Team"
+    url = "/about/team"
+    weight = 2
+[[menu.main]]
+    parent = "about"
+    name = "Publications"
+    url = "/about/publications"
+    weight = 3
+[[menu.main]]
+    identifier = "covidcast"
+    name = "COVIDcast"
+    pre = "solid/map"
+    url = "/covidcast"
+    weight = 2
+[[menu.main]]
+    parent = "covidcast"
+    name = "Map"
+    url = "/covidcast"
+    weight = 1
+[[menu.main]]
+    parent = "covidcast"
+    name = "Surveys"
+    url = "/covidcast/surveys"
+    weight = 2
+[[menu.main]]
+    parent = "covidcast"
+    name = "Data & Methods"
+    url = "/covidcast/methodology"
+    weight = 3
+[[menu.main]]
+    parent = "covidcast"
+    name = "Release Log"
+    url = "/covidcast/release-log"
+    weight = 4
+[[menu.main]]
+    parent = "covidcast"
+    name = "Terms Of Use"
+    url = "/covidcast/terms-of-use"
+    weight = 5
+[[menu.main]]
+    identifier = "flu"
+    name = "Flu and Other Diseases"
+    pre = "solid/virus"
+    url = "/flu"
+    weight = 3
+[[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    pre = "solid/book"
+    url = "/blog"
+    weight = 4
+[[menu.main]]
+    identifier = "github"
+    name = "GitHub"
+    pre = "brands/github"
+    url = "https://github.com/cmu-delphi/"
+    weight = 5
+[[menu.main]]
+    identifier = "api"
+    name = "API"
+    pre = "solid/database"
+    url = "https://cmu-delphi.github.io/delphi-epidata/"
+    weight = 6
+
+[params]
+    description = "Developing the Theory and Practice of Epidemiological Forecasting"
+    mission = "Develop the theory and practice of epidemiological forecasting, with a long-term vision of seeing this technology become as universally accepted and useful as weather forecasting is today."
+    showReadMore = true
+    apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
+    twitter = "CmuDelphi"
+
+    [params.logo]
+    url = "delphi_logo.png"
+    width = 50
+    height = 50
+    alt = "Logo"

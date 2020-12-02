@@ -1,0 +1,12 @@
+<div class="uk-card uk-card-default latest-card uk-card-small uk-flex uk-flex-column">
+    <div class="uk-card-media-top">
+        <img src={{ .image | relURL }} alt={{ .title }}>
+    </div>
+    <div class="uk-card-body">
+        <div class="latest-card-category">{{ .source }}</div>
+        <h3 class="uk-card-title"><a href={{.link | relURL}} class="uk-link-heading">{{ .title }}</a></h3>
+    </div>
+    <div class="uk-card-footer">
+        <a href={{.link | relURL}}>Learn more {{partial "font-awesome.html" "solid/long-arrow-alt-right"}}</a>
+    </div>
+</div>

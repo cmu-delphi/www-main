@@ -1,0 +1,114 @@
+---
+title: "Template Post"
+author: "Frida Gomam"
+date: 2015-07-23
+tags: ["R Markdown", "plot", "regression"]
+draft: true
+authors:
+- frida
+heroImage: /blog/images/blog-lg-img_hello-world.png
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
+related:
+- 2015-07-23-template-post
+acknowledgements: Test
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#including-plots">Including Plots</a></li>
+<li><a href="#including-math">Including Math</a></li>
+<li><a href="#metadata">Metadata</a>
+<ul>
+<li><a href="#tags">Tags</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>Each blog post is an R Markdown document. For more details on using R Markdown
+see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. The first paragraph or so will appear on the
+front page; by default the first 70 words are used. If you want to specify the
+exact text, you can specify a <code>summary</code> front matter variable. Usually we do
+not include links in the teaser.</p>
+<p>You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932</code></pre>
+<div id="including-plots" class="section level2">
+<h2>Including Plots</h2>
+<p>You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:</p>
+<pre class="r"><code>par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)</code></pre>
+<div class="figure"><span id="fig:pie"></span>
+<img src="/blog/2015-07-23-template-post_files/figure-html/pie-1.svg" alt="A fancy pie chart." width="672" />
+<p class="caption">
+Figure 1: A fancy pie chart.
+</p>
+</div>
+<p>For posts where we’re using our public data and showing it off, including some
+of the code chunks would be great so that readers see how easy it is to use our
+data. But for other audiences, it’s probably best to use the <code>echo=FALSE</code> chunk
+option so the code is not included in the post.</p>
+</div>
+<div id="including-math" class="section level2">
+<h2>Including Math</h2>
+<p>You can embed mathematics by using dollar signs for inline math and double
+dollars for display math: <span class="math inline">\(x = \sum_{i=1}^n i\)</span>,</p>
+<p><span class="math display">\[
+\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]</span></p>
+</div>
+<div id="metadata" class="section level2">
+<h2>Metadata</h2>
+<p>Each post has a title, author, date, and tags. The <code>draft</code> attribute marks a
+post that should not be included in the rendered and published site, such as
+this one. Choose bold, active titles, like “Delphi releases new survey data”,
+rather than boring titles like “New survey aggregates”.</p>
+<p>The author metadata should credit the post author or authors; as shown at the
+end of this example post, you should also include a block about the authors and
+linking to their home pages. But in the post text, you should also generously
+name anyone who helped with parts of your post, e.g., the team members who
+obtained data or set up a server or developed a package you use.</p>
+<div id="tags" class="section level3">
+<h3>Tags</h3>
+<p>Each post can be tagged, as you can see in the metadata block at the top. I
+suggest we consider the following tags as base tags:</p>
+<ul>
+<li>forecasting</li>
+<li>nowcasting</li>
+<li>symptom surveys</li>
+<li>medical records</li>
+<li>COVIDcast API</li>
+<li>COVIDcast map</li>
+<li>data sources (for everthing else than symptom surveys and medical records)</li>
+<li>news (for announcements of new features, new models, etc.)</li>
+<li>R (for posts containing R, typically, our covidcast R package)</li>
+<li>Python (for posts containing Python, typically, our covicast Python package)</li>
+</ul>
+</div>
+</div>

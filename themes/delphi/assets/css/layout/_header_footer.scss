@@ -1,0 +1,76 @@
+
+.delphi-text-logo {
+    background-color: white;
+    color: #F03F3F !important;
+    font-size: 16px !important;
+    font-weight: 700;
+    line-height: 18px;
+    padding: 5px 10px;
+}
+
+.uk-breadcrumb svg,
+.uk-navbar svg {
+    max-height: 18px;
+}
+
+// Navbar
+.nav-active {
+    border-bottom: 2px solid #F03F3F !important;
+}
+.uk-navbar-container {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.15);
+    display: block;
+}
+
+.uk-navbar-left {
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+.uk-navbar-nav>li {
+    padding-left: 15px;
+    padding-right: 15px;
+    white-space: nowrap;
+}
+.uk-navbar-dropdown-bottom-left {
+    margin-left: -20px;
+    margin-top: 3px;
+}
+
+.mobile-nav {
+    height: 20px;
+    padding: 23px;
+    border-bottom: 1px solid #d2d2d2;
+}
+.uk-navbar-toggle {
+    float:right;
+    margin-top: -10px;
+}
+.dropdown-mobile {
+    left: 0 !important;
+    padding: 0;
+    width: 100%;
+}
+.menu-element {
+    border-top: 1px solid #d2d2d2;
+    font-weight: 400;
+    padding: 20px 0 20px 40px;
+}
+.menu-element.menu-parent {
+    font-weight: 600;
+}
+.menu-element.menu-child {
+    padding-left: 64px;
+}
+
+// Footer
+.footer {
+    background-color: #F2F2F2;
+    color: #232735;
+    padding: 50px 20% 20px 20%;
+}
+
+.footer .delphi-text-logo {
+    border: 1px solid #D3D4D8;
+    padding: 8px 12px;
+}

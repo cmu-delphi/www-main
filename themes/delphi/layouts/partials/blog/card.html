@@ -1,0 +1,15 @@
+<div class="uk-card uk-card-default blog-card">
+    <div class="uk-card-media-top">
+        <a href={{ .RelPermalink  }}><img data-src={{ .Params.heroImageThumb | relURL }} width="300" height="200" alt="{{ .Title}} - Hero Image" uk-img></a>
+    </div>
+    <div class="uk-card-body">
+        {{ partial "blog/tags.html" . }}
+        <h3 class="uk-card-title"><a href={{ .RelPermalink  }} class="uk-link-heading">{{ .Title}}</a></h3>
+    </div>
+    <div class="uk-card-footer">
+        <time class="uk-text-bold-600">{{ .Date.Format "Jan _2" }}</time>
+        <div class="authors">
+            By {{ .Params.author }}
+        </div>
+    </div>
+</div>
