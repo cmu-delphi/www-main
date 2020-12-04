@@ -1,0 +1,9 @@
+<div class="landing-team-grid">
+    {{ $team := .Site.GetPage "/about/team" }}
+    {{ $images := $team.Resources.ByType "image" }}
+    {{ $team := where $team.Params.team ".team" "intersect" (slice .team) }}
+    {{ range first 8 (sort $team "lastName" "asc" "firstName" "asc") }}
+        {{ $img := $images.GetMatch (path.Join "images" .image) }}
+        <img src="{{ ($img.Resize "250x250").RelPermalink }}" alt="{{ printf "%s %s" .firstName .lastName }}" />
+    {{ end }}
+</div>

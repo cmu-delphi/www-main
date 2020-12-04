@@ -3,7 +3,7 @@
   uk-grid
   class="team-members uk-grid-small uk-child-width-1-6@l uk-child-width-1-4@m uk-child-width-1-{{ with .Get "small" }}{{ . }}{{ else }}3{{ end }}"
 >
-  {{ $team := where .Page.Params.team ".team" (.Get "team") }}
+  {{ $team := where .Page.Params.team ".team" "intersect" (slice (.Get "team")) }}
   {{ range sort $team "lastName" "asc" "firstName" "asc" }}
     {{ $img := $images.GetMatch (path.Join "images" .image) }}
     <div class="team-member">
