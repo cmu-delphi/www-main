@@ -2,13 +2,13 @@
 title: Delphi's COVID-19 Surveys
 ---
 
-In collaboration with Facebook, along with a consortium of universities and public health officials, the [Delphi group]({{< relref "/" >}}) at [Carnegie Mellon University](https://www.cmu.edu/) conducts research surveys to monitor the spread and impact of the COVID-19 pandemic in the United States. This survey is advertised through Facebook. It has run continuously since early April 2020, and about 70,000 people in the United States participate **every day**. Survey results are publicly available on our [COVIDcast map]({{< relref "covidcast" >}}) and in our [COVIDcast API]({{< apiref "api/covidcast.html" >}}).
+In collaboration with Facebook, along with a consortium of universities and public health officials, the [Delphi group]({{< relref "/" >}}) at [Carnegie Mellon University](https://www.cmu.edu/) conducts research surveys to monitor the spread and impact of the COVID-19 pandemic in the United States. This survey is advertised through Facebook. It has run continuously since early April 2020, and about 50,000 people in the United States participate **every day**. Survey results are publicly available on our [COVIDcast map]({{< relref "covidcast" >}}) and in our [COVIDcast API]({{< apiref "api/covidcast.html" >}}).
 
 Such detailed data has never before been available during a public health emergency, and it will help public health officials understand how to save lives and how to safely reopen public life. The data will also help researchers understand the social, economic, and health effects of the COVID-19 pandemic.
 
 An international version of the survey is conducted by the University of Maryland in collaboration with Facebook. Its data [is available separately](https://covidmap.umd.edu/). MIT also conducts a global [Beliefs, Behaviors and Norms survey](https://covidsurvey.mit.edu/), also through Facebook, whose data is available for research.
 
-**New!** The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenges participants to enable earlier detection and improved situational awareness of the COVID-19 outbreak by using data from these symptom surveys. Submissions are due by Tuesday, October 6th, 2020, and finalists are eligible to win cash prizes. See [the challenge website](https://www.symptomchallenge.org/) for more details.
+The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged participants to enable earlier detection and improved situational awareness of the COVID-19 outbreak by using data from these symptom surveys. Check out the [the challenge website](https://www.symptomchallenge.org/) for more details about the Challenge and the finalists.
 
 
 ## What are the surveys for?
@@ -38,11 +38,12 @@ To account for the differences between Facebook users and the United States popu
 
 ## Where can I see the results?
 
-Our [COVIDcast map]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rate of COVID-like symptoms across the United States, and this data is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
+Our [COVIDcast map]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States, and this data is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
 
 
 ### Blog posts and presentations
 
+- Alex Reinhart, October 12, 2020. [New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing]({{< relref "2020-10-06-survey-wave-4" >}}). Delphi blog.
 - Ryan Tibshirani, September 21, 2020. [Can Symptom Surveys Improve COVID-19 Forecasts?]({{< relref "2020-09-21-forecast-demo" >}}) Delphi blog.
 - Alex Reinhart and Ryan Tibshirani, August 26, 2020. [COVID-19 Symptom Surveys through Facebook]({{< relref "2020-08-26-fb-survey" >}}). Delphi blog.
 
@@ -50,7 +51,8 @@ Our [COVIDcast map]({{< relref "covidcast" >}}) shows basic aggregate survey res
 
 Research results from universities studying the survey data will be listed here as soon as they are available.
 
-- Kreuter, F., Barkay, N., Bilinski, A., Bradford, A., Chiu, S., Eliat, R., Fan, J., Galili, T., Haimovich, D., Kim, B., LaRocca, S., Li, Y., Morris, K., Presser, S., Sarig, T., Salomon, J. A., Stewart, K., Stuart, E. A., & Tibshirani, R. J. (2020). [Partnering with a global platform to inform research and public policy making](https://doi.org/10.18148/srm/2020.v14i2.7761). Survey Research Methods, 14(2), 159-163.
+-  Flaxman AD, Henning DJ and Duber HC. [The relative incidence of COVID-19 in healthcare workers versus non-healthcare workers: evidence from a web-based survey of Facebook users in the United States](https://doi.org/10.12688/gatesopenres.13202.1). *Gates Open Research* 2020, 4:174.
+- Kreuter, F., Barkay, N., Bilinski, A., Bradford, A., Chiu, S., Eliat, R., Fan, J., Galili, T., Haimovich, D., Kim, B., LaRocca, S., Li, Y., Morris, K., Presser, S., Sarig, T., Salomon, J. A., Stewart, K., Stuart, E. A., & Tibshirani, R. J. (2020). [Partnering with a global platform to inform research and public policy making](https://doi.org/10.18148/srm/2020.v14i2.7761). *Survey Research Methods*, 14(2), 159-163.
 
 If you have used the survey data, or the aggregate data available in the COVIDcast API, to publish research results, please [contact us](#who-can-i-contact) so we can include your work here.
 
@@ -71,10 +73,6 @@ Getting access to survey data for research: [complete this form](https://datafor
 [Byron Spice](mailto:bspice@cs.cmu.edu)  
 Director, Media Relations  
 School of Computer Science  
-Carnegie Mellon University
-
-[Jason Maderer](mailto:maderer@cmu.edu)  
-Senior Director, Media Relations  
 Carnegie Mellon University
 
 ### All other questions:
