@@ -40,17 +40,13 @@
     <ul class="uk-nav uk-navbar-dropdown-nav">
       {{ range .Site.Menus.main.ByWeight }}
         <li class="{{ if .HasChildren }}menu-parent{{ end }} menu-element">
-          {{ if .HasChildren }}
+          <a href="{{ .URL | relLangURL }}">
             {{ partial "menu/item.html" . }}
-            {{ range .Children }}
-              <li class="menu-element menu-child">
-                <a href="{{ .URL | relLangURL }}">{{ partial "menu/item.html" . }}</a>
-              </li>
-            {{ end }}
-            {{ else }}
-            <a href="{{ .URL | relLangURL }}">
-              {{ partial "menu/item.html" . }}
-            </a>
+          </a>
+          {{ range .Children }}
+            <li class="menu-element menu-child">
+              <a href="{{ .URL | relLangURL }}">{{ partial "menu/item.html" . }}</a>
+            </li>
           {{ end }}
         </li>
       {{ end }}
