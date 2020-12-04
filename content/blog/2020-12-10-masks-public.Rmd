@@ -1,0 +1,131 @@
+---
+title: "Are Masks Widely Used in Public?"
+author: "Alex Reinhart"
+date: 2015-07-23
+tags: ["R", "symptom surveys", "COVIDcast"]
+draft: true
+authors:
+- frida
+heroImage: /blog/images/blog-lg-img_hello-world.png
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
+related:
+- 2020-10-06-survey-wave-4
+acknowledgements: Test
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+As COVID cases and deaths continue to rise in the United States, we are
+repeatedly reminded that unless we take the appropriate precautions---by wearing
+masks when around other people, by working from home whenever possible, by
+avoiding travel and crowded places---there will be a high rate of COVID deaths.
+Vaccines are on their way, but until they arrive, we must continue social
+distancing. But as we consider the precautions we've already taken, and the
+sacrifices we have made in our lives during 2020, it's natural to ask: Why
+haven't these precautions prevented the current COVID spike? If everyone is
+wearing masks, why are cases increasing?
+
+To answer this question, we must first ask: *Is* everyone wearing masks? What
+precautions are we not currently taking?
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+## Studying Social Distancing with Surveys
+
+Since April, and in partnership with Facebook Data for Good and the University
+of Maryland, Delphi has [conducted daily surveys of Facebook users](`r
+blogdown::shortcode("ref", "2020-08-26-fb-survey")`) throughout the United
+States. These surveys ask respondents about their experiences during the
+pandemic, and ask whether they're experiencing symptoms, whether they are
+isolating or following precautions, and how they have been affected by the
+pandemic.
+
+[Beginning in early September](`r blogdown::shortcode("ref",
+"2020-10-06-survey-wave-4")`) we have asked all respondents a question about
+mask use:
+
+> In the past 5 days, how often did you wear a mask when in public?
+>
+> 1. All the time
+> 2. Most of the time
+> 3. Some of the time
+> 4. A little of the time
+> 5. None of the time
+> 6. I have not been in public during the past 5 days
+
+Early analysis suggests that in most states, mask usage is high, and in those
+where it was lower, it has been gradually increasing.
+
+TODO nice line chart
+
+## foobar
+
+```{r}
+library(covidcast)
+library(dplyr)
+library(ggplot2)
+
+masked <- covidcast_signal("fb-survey", "smoothed_wearing_mask",
+                           start_day = "2020-12-01", end_day = "2020-12-01",
+                           geo_type = "state")
+other_mask <- covidcast_signal("fb-survey", "wip_smoothed_others_masked",
+                               start_day = "2020-12-01", end_day = "2020-12-01",
+                               geo_type = "state")
+
+joined <- masked %>%
+    inner_join(other_mask, by = "geo_value", suffix = c(".self", ".other"))
+
+p_most <- function(base_rate) {
+  N <- 10
+  frac <- 0.7
+  bias <- 0.0755
+
+  pbinom(frac * N, size = N, prob = base_rate / 100 - bias,
+         lower.tail = FALSE) * 100
+}
+
+ggplot(joined, aes(x = value.self, y = value.other,
+                   label = toupper(geo_value))) +
+  geom_text() +
+  geom_function(fun = p_most) +
+  labs(x = "% who report wearing masks most/all the time",
+       y = "% who report most/all others wear masks",
+       title = "Mask use reported in symptom survey",
+       subtitle = "December 1st, 2020",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+  theme_bw()
+```
+
+```{r}
+make_objective <- function(self, other, n) {
+  num_obs <- length(self)
+
+  obj <- function(pars) {
+    ## n <- floor(pars[1])
+    frac <- pars[1]
+
+    squared_err <- 0.0
+
+    for (ii in seq_len(num_obs)) {
+      err <- other[ii] / 100 - pbinom(frac * n, size = n, prob = self[ii] / 100,
+                                      lower.tail = FALSE)
+      squared_err <- squared_err + err**2
+    }
+    cat("value: ", frac, " err: ", squared_err, "\n")
+    return(squared_err)
+  }
+
+  return(obj)
+}
+
+optim(c(0.8), make_objective(joined$value.self, joined$value.other, 10),
+      lower = c(0), upper = c(1),
+      method = "L-BFGS-B")
+```
+
+TODO Use the binomial argument to show that even small amounts of lack of mask
+use increase risk, by making it highly likely that in small sets of contacts,
+someone is unmasked
