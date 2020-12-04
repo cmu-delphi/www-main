@@ -1,12 +1,11 @@
-
 {{ $tools := .Site.GetPage "/systems" }}
 {{ range sort ($tools.Resources.ByType "page") "Params.order" }}
   <h3>
-  {{ if isset .Params "externallink" }}
-    <a href="{{ .Params.externallink }}">{{.Title}}</a>
-  {{else}}
-    {{.Title}}
-  {{ end }}
+    {{ if isset .Params "externallink" }}
+      <a href="{{ .Params.externallink }}">{{ .Title }}</a>
+      {{ else }}
+      {{ .Title }}
+    {{ end }}
   </h3>
   {{ .Content }}
 {{ end }}

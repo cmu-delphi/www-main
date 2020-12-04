@@ -1,19 +1,22 @@
 ---
-title: "A Syndromic COVID-19 Indicator Based on Insurance Claims of Outpatient Visits"
-author: "Aaron Rumack and Roni Rosenfeld"
+title: A Syndromic COVID-19 Indicator Based on Insurance Claims of Outpatient Visits
+author: Aaron Rumack and Roni Rosenfeld
 date: 2020-11-05
-tags: ["medical records", "COVIDcast", "R"]
+tags:
+  - medical records
+  - COVIDcast
+  - R
 authors:
-- aaron
-- roni
+  - aaron
+  - roni
 heroImage: /blog/images/blog-img_A Syndromic COVID-19.png
 heroImageThumb: /blog/images/blog-thumb-img_A Syndromic COVID-19.png
 related:
-- 2020-09-18-google-survey
-- 2020-08-26-fb-survey
+  - 2020-09-18-google-survey
+  - 2020-08-26-fb-survey
 summary: |
   In previous posts, we discussed our massive ongoing symptom surveys that have reached over 12 million people in the U.S. since April 2020, in partnership with Facebook and Google. Another one of our major data initiatives is based on partnerships with healthcare systems, granting us access to various aggregate statistics from hospital records and insurance claims covering 10-15% of the United States population. From these data, we can extract informative indicators that can be early indicators of COVID activity. This post focuses on one indicator in particular, based on outpatient visits, and demonstrates both the challenges and promises associated with medical records data.
-acknowledgements: | 
+acknowledgements: |
   Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the indicator. 
   Aaron Rumack devised the weekday adjustment and analyzed the performance of the DV indicator. 
   Roni Rosenfeld worked closely with our health systems partners to get access to the data and provided domain knowledge to ensure that the data was useful. Both Roni and Ryan Tibshirani provided helpful suggestions and insights towards the methodology and analysis.
