@@ -16,7 +16,7 @@
       <div class="uk-container content-grid">
         <div class="landing-entry grid-2-8">
           <div class="entry-image">
-            <img src="{{ "/images/landing-page/team-image.png" | relURL }}" />
+            {{ partial "landing/teampic.html" (dict "Site" .Site "team" "highlight") }}
           </div>
           <h2>Our Team</h2>
           <p>Meet the Delphi team</p>

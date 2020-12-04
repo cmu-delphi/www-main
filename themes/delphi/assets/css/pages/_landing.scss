@@ -104,3 +104,12 @@ $carousel-height: 500px;
 .latest-news {
   padding: 0 50px;
 }
+
+.landing-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  > img {
+    filter: grayscale(100%);
+  }
+}
