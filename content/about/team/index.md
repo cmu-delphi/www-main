@@ -112,7 +112,6 @@ team:
   image: dmitry-shemetov-500x500-min.jpg
   affiliation: UC Davis
   team:
-    - 
     - core
 - firstName: Jingjing
   lastName: Tang
