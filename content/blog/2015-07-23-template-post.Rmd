@@ -1,15 +1,18 @@
 ---
-title: "Template Post"
-author: "Frida Gomam"
+title: Template Post
+author: Frida Gomam
 date: 2015-07-23
-tags: ["R Markdown", "plot", "regression"]
+tags:
+  - R Markdown
+  - plot
+  - regression
 draft: true
 authors:
-- frida
+  - frida
 heroImage: /blog/images/blog-lg-img_hello-world.png
 heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
 related:
-- 2015-07-23-template-post
+  - 2015-07-23-template-post
 acknowledgements: Test
 output:
   blogdown::html_page:
@@ -22,7 +25,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 Each blog post is an R Markdown document. For more details on using R Markdown
 see <http://rmarkdown.rstudio.com>. The first paragraph or so will appear on the
-front page; by default the first 70 words are used. If you want to specify the 
+front page; by default the first 70 words are used. If you want to specify the
 exact text, you can specify a `summary` front matter variable. Usually we do
 not include links in the teaser.
 
@@ -80,13 +83,13 @@ obtained data or set up a server or developed a package you use.
 Each post can be tagged, as you can see in the metadata block at the top. I
 suggest we consider the following tags as base tags:
 
-* forecasting
-* nowcasting
-* symptom surveys
-* medical records
-* COVIDcast API
-* COVIDcast map
-* data sources (for everthing else than symptom surveys and medical records)
-* news (for announcements of new features, new models, etc.)
-* R (for posts containing R, typically, our covidcast R package)
-* Python (for posts containing Python, typically, our covicast Python package)
+- forecasting
+- nowcasting
+- symptom surveys
+- medical records
+- COVIDcast API
+- COVIDcast map
+- data sources (for everthing else than symptom surveys and medical records)
+- news (for announcements of new features, new models, etc.)
+- R (for posts containing R, typically, our covidcast R package)
+- Python (for posts containing Python, typically, our covicast Python package)

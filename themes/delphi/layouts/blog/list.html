@@ -1,35 +1,39 @@
 {{ define "main" }}
-<div class="uk-container">
-  <h1>{{ .Title }}</h1>
-  <h2>{{ .Description }} </h2>
+  <div class="uk-container">
+    <h1>{{ .Title }}</h1>
+    <h2>{{ .Description }}</h2>
 
-  <div class="card-grid">
-    {{ range .Paginator.Pages }}
-    <div class="card-grid-item uk-card uk-card-default uk-card-small">
-      <div class="card-grid-item-date">{{ .Date.Format "Jan _2" }}</div>
-      <img class="card-grid-item-img" src={{ .Params.heroImageThumb | relURL }} width="200" height="300"  alt="{{ .Title}} - Hero Image">
-      <div class="uk-flex uk-flex-column">
-          <div class="uk-card-body uk-flex-1">
-              <h3 class="uk-card-title"><a href={{.RelPermalink}} class="uk-link-heading">{{.Title}}</a></h3>
+    <div class="card-grid">
+      {{ range .Paginator.Pages }}
+        <div class="card-grid-item uk-card uk-card-default uk-card-small">
+          <div class="card-grid-item-date">{{ .Date.Format "Jan _2" }}</div>
+          <img
+            class="card-grid-item-img"
+            src="{{ .Params.heroImageThumb | relURL }}"
+            width="200"
+            height="300"
+            alt="{{ .Title }} - Hero Image"
+          />
+          <div class="uk-flex uk-flex-column">
+            <div class="uk-card-body uk-flex-1">
+              <h3 class="uk-card-title"><a href="{{ .RelPermalink }}" class="uk-link-heading">{{ .Title }}</a></h3>
               <p>
                 {{ .Summary | safeHTML | truncate 150 }}
               </p>
               <p>
-              {{- range .Params.tags -}}
-                {{ partial "blog/tag.html" . }}
-              {{- end -}}
+                {{- range .Params.tags -}}
+                  {{ partial "blog/tag.html" . }}
+                {{- end -}}
               </p>
-              <p>
-                By {{ .Params.author }}
-              </p>
+              <p>By {{ .Params.author }}</p>
+            </div>
+            <div class="uk-card-footer">
+              {{ partial "arrow-link.html" (dict "alt" "Read More" "link" .RelPermalink) }}
+            </div>
           </div>
-          <div class="uk-card-footer">
-              {{partial "arrow-link.html" (dict "alt" "Read More" "link" .RelPermalink)}}
-          </div>
-      </div>
+        </div>
+      {{ end }}
     </div>
-    {{end}}
+    {{ template "_internal/pagination.html" . }}
   </div>
-  {{ template "_internal/pagination.html" . }}
-</div>
 {{ end }}

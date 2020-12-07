@@ -4,11 +4,11 @@ channels:
   - defaults
 dependencies:
   - gdal=3.0.2
-  - python=3.7.9  
+  - python=3.7.9
   - pip=20.2.4
   - r-base=3.6.3
   - glib
-  - fonts-conda-forge
+  - mscorefonts
   - r-cairo
   - r-devtools
   - r-directlabels
@@ -41,4 +41,4 @@ dependencies:
   - pyproj
   - matplotlib
   - pip:
-    - covidcast==0.1.0
+      - covidcast==0.1.0
