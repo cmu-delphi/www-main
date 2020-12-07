@@ -1,46 +1,6 @@
 {{ define "main" }}
   <div>
-    <div id="main-carousel">
-      <div
-        id="uikit-main-carousel"
-        class="uk-position-relative uk-light"
-        tabindex="-1"
-        uk-slideshow="animation: push; ratio: false"
-      >
-        <ul id="slideshow-container" class="uk-slideshow-items uk-cover-container uk-child-width-1-1 ">
-          {{ $currentPage := . }}
-          {{ range .Site.Data.landing }}
-            <li>
-              <img src="{{ (path.Join "/images/landing-page/hero-images" .image) | relURL }}" uk-cover />
-              <div class="uk-container content-grid">
-                <div class="carousel-entry grid-2-10">
-                  <h2>{{ .pre }}</h2>
-                  <p>{{ .title }}</p>
-                  {{ if isset . "ref" }}
-                    {{ partial "arrow-link.html" (dict "link" (relref $currentPage .ref) "alt" .alt) }}
-                    {{ else }}
-                    {{ partial "arrow-link.html" (dict "link" .link "alt" .alt) }}
-                  {{ end }}
-                </div>
-              </div>
-            </li>
-          {{ end }}
-        </ul>
-        <ul id="slider-controls" class="uk-slideshow-nav uk-dotnav uk-position-bottom-center uk-margin"></ul>
-        <a
-          class="uk-position-bottom-left uk-position-small uk-hidden-hover"
-          href="#"
-          uk-slidenav-previous
-          uk-slideshow-item="previous"
-        ></a>
-        <a
-          class="uk-position-bottom-right uk-position-small uk-hidden-hover"
-          href="#"
-          uk-slidenav-next
-          uk-slideshow-item="next"
-        ></a>
-      </div>
-    </div>
+    {{ partial "landing/carousel.html" . }}
     <div class="white-area">
       <div class="uk-container content-grid">
         <div class="landing-entry grid-2-10">
@@ -56,7 +16,7 @@
       <div class="uk-container content-grid">
         <div class="landing-entry grid-2-8">
           <div class="entry-image">
-            <img src="{{ "/images/landing-page/team-image.png" | relURL }}" />
+            {{ partial "landing/teampic.html" (dict "Site" .Site "team" "highlight") }}
           </div>
           <h2>Our Team</h2>
           <p>Meet the Delphi team</p>

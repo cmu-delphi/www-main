@@ -25,3 +25,5 @@
 *.R
 *.xml
 .dockerignore
+*.Rmd
+*.md
