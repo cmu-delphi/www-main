@@ -1,3 +1,4 @@
+# docker image for setting up an R environment
 FROM continuumio/miniconda
 
 ADD ./environment.yml .
