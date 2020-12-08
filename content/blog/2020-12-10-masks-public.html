@@ -45,15 +45,17 @@ important research about the pandemic and its spread.</p>
 <div id="studying-mask-use-with-surveys" class="section level2">
 <h2>Studying Mask Use with Surveys</h2>
 <p>Since April, and in partnership with Facebook Data for Good and the University
-of Maryland, Delphi has <a href="%60r%20blogdown::shortcode(%22ref%22,%20%222020-08-26-fb-survey%22)%60">conducted daily surveys of Facebook users</a> throughout the United
-States. These surveys ask respondents about their experiences during the
-pandemic, and ask whether they’re experiencing symptoms, whether they are
-isolating or following precautions, and how they have been affected by the
-pandemic. They survey has been completed 14 million times since April, allowing
-us an unprecedented level of insight into COVID and people’s experiences, down
-to individual counties around the country.</p>
-<p><a href="{{% ref "2020-10-06-survey-wave-4" %}}">Since in early September</a> we have asked all respondents a question about
-mask use:</p>
+of Maryland, Delphi has <a href="{{< ref "2020-08-26-fb-survey" >}}">conducted daily surveys of Facebook
+users</a>
+throughout the United States. These surveys ask respondents about their
+experiences during the pandemic, and ask whether they’re experiencing symptoms,
+whether they are isolating or following precautions, and how they have been
+affected by the pandemic. They survey has been completed 14 million times since
+April, allowing us an unprecedented level of insight into COVID and people’s
+experiences, down to individual counties around the country.</p>
+<p><a href="{{< ref "2020-10-06-survey-wave-4" >}}">Since in early
+September</a>
+we have asked all respondents a question about mask use:</p>
 <blockquote>
 <p>In the past 5 days, how often did you wear a mask when in public?</p>
 <ol style="list-style-type: decimal">
@@ -102,7 +104,7 @@ ggplot(state_masks, aes(x = time_value, y = value, color = geo_value)) +
 has been on the rise in states whose mask use started low. This is quite
 encouraging.</p>
 <p>(Note that, as with most of Delphi’s blog posts, all the code and data used to
-make these plots is available—simply click the Code button to see how our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html">API
+make these plots is available—simply click the Code button to see how our <a href="{{< apiref "api/covidcast_clients.html" >}}">API
 clients</a>
 make it easy to access aggregated data.)</p>
 <p>Seeing these numbers—particularly the very high reported mask usage in many
@@ -365,11 +367,10 @@ ggplot(mask_time,
 which combine to produce more opportunities to spread the virus. While this
 graph only shows one possible activity, our survey asks about others—including
 working outside the home, visiting bars and restaurants, and attending large
-events—and our API allows researchers to quickly combine it with <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/safegraph.html">SafeGraph’s
-mobility
-data</a>
-and other data sources that give a clearer picture of how people react to the
-pandemic.</p>
+events—and our API allows researchers to quickly combine it with <a href="{{< apiref "api/covidcast-signals/safegraph.html" >}}">SafeGraph’s
+mobility data</a>
+and other data sources that give a
+clearer picture of how people react to the pandemic.</p>
 </div>
 <div id="more-opportunities-in-survey-data" class="section level2">
 <h2>More Opportunities in Survey Data</h2>
@@ -382,7 +383,7 @@ interventions are most effective to stop it.</p>
 <p>All of the data used above is publicly available—see our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">COVIDcast Epidata
 API</a> for details
 on how to get it. Numerous aggregates from the survey data, including more
-measures of public activity, are <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html">available through the
+measures of public activity, are <a href="{{< apiref "api/covidcast-signals/fb-survey.html" >}}">available through the
 API</a>.</p>
 <p>We also make the raw response data available to academic and nonprofit
 researchers, and we look forward to seeing more detailed analyses of this data.

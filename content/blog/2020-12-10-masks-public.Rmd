@@ -38,18 +38,18 @@ knitr::opts_chunk$set(collapse = TRUE)
 ## Studying Mask Use with Surveys
 
 Since April, and in partnership with Facebook Data for Good and the University
-of Maryland, Delphi has [conducted daily surveys of Facebook users](`r
-blogdown::shortcode("ref", "2020-08-26-fb-survey")`) throughout the United
-States. These surveys ask respondents about their experiences during the
-pandemic, and ask whether they're experiencing symptoms, whether they are
-isolating or following precautions, and how they have been affected by the
-pandemic. They survey has been completed 14 million times since April, allowing
-us an unprecedented level of insight into COVID and people's experiences, down
-to individual counties around the country.
+of Maryland, Delphi has [conducted daily surveys of Facebook
+users](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`)
+throughout the United States. These surveys ask respondents about their
+experiences during the pandemic, and ask whether they're experiencing symptoms,
+whether they are isolating or following precautions, and how they have been
+affected by the pandemic. They survey has been completed 14 million times since
+April, allowing us an unprecedented level of insight into COVID and people's
+experiences, down to individual counties around the country.
 
-[Since in early September](`r blogdown::shortcode("ref",
-"2020-10-06-survey-wave-4")`) we have asked all respondents a question about
-mask use:
+[Since in early
+September](`r blogdown::shortcode_html("ref", "2020-10-06-survey-wave-4")`)
+we have asked all respondents a question about mask use:
 
 > In the past 5 days, how often did you wear a mask when in public?
 >
@@ -102,7 +102,7 @@ encouraging.
 
 (Note that, as with most of Delphi's blog posts, all the code and data used to
 make these plots is available---simply click the Code button to see how our [API
-clients](https://cmu-delphi.github.io/delphi-epidata/api/covidcast_clients.html)
+clients](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`)
 make it easy to access aggregated data.)
 
 Seeing these numbers---particularly the very high reported mask usage in many
@@ -331,10 +331,9 @@ which combine to produce more opportunities to spread the virus. While this
 graph only shows one possible activity, our survey asks about others---including
 working outside the home, visiting bars and restaurants, and attending large
 events---and our API allows researchers to quickly combine it with [SafeGraph's
-mobility
-data](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/safegraph.html)
-and other data sources that give a clearer picture of how people react to the
-pandemic.
+mobility data](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/safegraph.html")`)
+and other data sources that give a
+clearer picture of how people react to the pandemic.
 
 ## More Opportunities in Survey Data
 
@@ -349,7 +348,7 @@ All of the data used above is publicly available---see our [COVIDcast Epidata
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) for details
 on how to get it. Numerous aggregates from the survey data, including more
 measures of public activity, are [available through the
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html).
+API](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html")`).
 
 We also make the raw response data available to academic and nonprofit
 researchers, and we look forward to seeing more detailed analyses of this data.
