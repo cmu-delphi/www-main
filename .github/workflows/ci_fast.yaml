@@ -63,5 +63,5 @@ jobs:
             ;;
           esac
           echo "using tag: --${awsTag}--"
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$awsTag --file ./devops/web/Dockerfile .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$awsTag --file ./devops/precompiled/Dockerfile .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$awsTag
