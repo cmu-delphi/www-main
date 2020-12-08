@@ -50,7 +50,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ github.repository.name }}
+          ECR_REPOSITORY: ${{ github.event.repository.name }}
         run: |
           baseRef="${GITHUB_REF#*/}"
           baseRef="${baseRef#*/}"
