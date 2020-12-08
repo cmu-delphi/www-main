@@ -2,8 +2,10 @@
 title: "Are Masks Widely Used in Public?"
 author: "Alex Reinhart"
 date: 2020-12-07
-tags: ["R", "symptom surveys", "COVIDcast"]
-draft: true
+tags:
+  - R
+  - symptom surveys
+  - COVIDcast
 authors:
 - alex
 heroImage: /blog/images/blog-lg-img_hello-world.png
@@ -137,9 +139,11 @@ To answer this important question, we must ask:
    some way, perhaps mask use is not as common as they suggest.
 2. How much mask use is necessary to prevent cases? If some people do not wear
    masks, and they interact with each other, they may spread COVID. Also, masks
-   *reduce* risk; they do not eliminate it. If people are working indoors around
-   others, hosting social events, dining indoors, and so on, but wearing masks,
-   they are nonetheless at greater risk than people who do none of those things.
+   *reduce* risk; [they do not eliminate
+   it](https://www.preprints.org/manuscript/202004.0203/v4). If people are
+   working indoors around others, hosting social events, dining indoors, and so
+   on, but wearing masks, they are nonetheless at greater risk than people who
+   do none of those things.
 
 ## Potential Survey Biases
 
@@ -272,7 +276,9 @@ $\text{Binomial}(20, p)$.
 Suppose $p = 0.8$, meaning 80% of people wear masks. With a bit of math, we
 find that on a typical trip into public, the chance of seeing **at least 4
 people** not wearing masks is $\Pr(X \leq 16)$, or
-**`r round(pbinom(3, size=20, prob=0.2, lower.tail = FALSE))`%.**
+**`r round(pbinom(3, size=20, prob=0.2, lower.tail = FALSE) * 100)`%.** To
+reduce that change to 10%, we'd need 91% mask compliance, showing how small
+changes in mask usage can cause big changes in risk.
 
 This means that the apparent contradiction we saw in the graph above---with
 respondents claiming that they wear masks but disputing that most others
@@ -296,10 +302,11 @@ can dramatically reduce these opportunities.
 
 Earlier, I pointed out that mask use *reduces* the risk of COVID transmission,
 but does not eliminate it. This is why authorities such as the Centers for
-Disease Control, and most state health departments, recommend social distancing
-together with mask use. This means we can't simply compare states by their level
-of mask use to see if masks are working; we must also compare their level of
-social distancing.
+Disease Control, and most state health departments, [recommend social distancing
+together with mask
+use](https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html).
+This means we can't simply compare states by their level of mask use to see if
+masks are working; we must also compare their level of social distancing.
 
 Our survey asks respondents a series of questions about activities, by asking
 "In the last 24 hours, have you done any of the following?" One possible choice
