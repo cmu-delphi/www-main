@@ -202,7 +202,9 @@ bias. And even if the survey sample is not representative, as long as the
 respondents visit representative public places (like grocery stores or public
 transit) and see <em>other</em> people there, we may get a better estimate of public
 mask use.</p>
-<p>Let’s see how the data looks.</p>
+<p>Let’s see how the data looks. We’ll plot the percentage of people answering
+“all” or “most” to each mask question in each state, with a diagonal line
+indicating perfect agreement between the results:</p>
 <pre class="r"><code>masked &lt;- covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_wearing_mask&quot;,
                            start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
                            geo_type = &quot;state&quot;)
@@ -213,18 +215,10 @@ other_mask &lt;- covidcast_signal(&quot;fb-survey&quot;, &quot;wip_smoothed_othe
 joined &lt;- masked %&gt;%
     inner_join(other_mask, by = &quot;geo_value&quot;, suffix = c(&quot;.self&quot;, &quot;.other&quot;))
 
-p_most &lt;- function(base_rate) {
-  N &lt;- 10
-  frac &lt;- 0.8
-
-  pbinom(frac * N, size = N, prob = base_rate / 100,
-         lower.tail = FALSE) * 100
-}
-
 ggplot(joined, aes(x = value.self, y = value.other,
                    label = toupper(geo_value))) +
   geom_text() +
-  ## geom_function(fun = p_most) +
+  geom_abline(slope = 1, intercept = 0) +
   labs(x = &quot;% who report wearing masks most/all the time&quot;,
        y = &quot;% who report most/all others wear masks&quot;,
        title = &quot;Mask use reported in symptom survey&quot;,
@@ -321,7 +315,7 @@ people who are wearing masks is a random variable <span class="math inline">\(X\
 find that on a typical trip into public, the chance of seeing <strong>at least 4
 people</strong> not wearing masks is <span class="math inline">\(\Pr(X \leq 16)\)</span>, or
 <strong>59%.</strong> To
-reduce that change to 10%, we’d need 91% mask compliance, showing how small
+reduce that chance to 10%, we’d need 91% mask compliance, showing how small
 changes in mask usage can cause big changes in risk.</p>
 <p>This means that the apparent contradiction we saw in the graph above—with
 respondents claiming that they wear masks but disputing that most others
@@ -334,7 +328,7 @@ important.</strong> If 80% of people wear masks, you are still likely to run int
 several unmasked people on a trip to any public place, placing you at higher
 risk. The problem only gets worse if our assumption that mask use is uniformly
 distributed is false, and if people without masks tend to visit the same
-locations or events.</p>
+locations or events, or gather together for social events.</p>
 <p>There are, in short, numerous opportunities for COVID transmission even when
 over three-quarters of people wear masks. Only a very high rate of mask usage
 can dramatically reduce these opportunities.</p>
