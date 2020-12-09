@@ -104,4 +104,4 @@ Jumping to a specific section/anchor is supported too:
 
 there is another shortcode for creating an api link, e.g. 
 [public API](`r blogdown::shortcode_html("apiref", "/")`) or
-[public COVIDCast API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`) 
+[Doctor's Visits signal](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/doctor-visits.html")`) 
