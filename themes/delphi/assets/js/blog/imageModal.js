@@ -28,7 +28,10 @@ export default function imageModal() {
     const button = refButton.cloneNode(true);
     elem.insertAdjacentElement("beforebegin", button);
     elem.parentElement.classList.add("blog-image-wrapper");
-    elem.className.split(' ').filter(Boolean).forEach((clazzName) => elem.parentElement.classList.add(clazzName));
+    elem.className
+      .split(" ")
+      .filter(Boolean)
+      .forEach((clazzName) => elem.parentElement.classList.add(clazzName));
     button.addEventListener("click", (e) => {
       e.preventDefault();
       e.target.blur();
