@@ -83,6 +83,13 @@ $blog-list-date-width: 5em;
       margin-right: 25%;
     }
   }
+
+  .blog-blog {
+    // center align auto generated images
+    p > img:first-of-type {
+      margin: initial;
+    }
+  }
 }
 
 .blog-image-wrapper {
