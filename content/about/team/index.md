@@ -339,7 +339,7 @@ team:
 - firstName: Spencer
   lastName: Whitman
   image: specer-whitman_head-shot.png
-  affiliation: Project Manager
+  affiliation: Product Manager
   team: google
 - firstName: Benjamin
   lastName: Smith
