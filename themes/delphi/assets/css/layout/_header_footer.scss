@@ -14,7 +14,7 @@
 
 // Navbar
 .nav-active {
-  border-bottom: 2px solid #f03f3f !important;
+  border-bottom: $menu-active-border-width solid $menu-active-color !important;
 }
 .uk-navbar-container {
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.15);
@@ -72,4 +72,10 @@
 .footer .delphi-text-logo {
   border: 1px solid #d3d4d8;
   padding: 8px 12px;
+}
+
+
+.breadcrumb-menu {
+  margin-top: 3px;
+  margin-bottom: 5px;
 }
