@@ -14,10 +14,4 @@
       </ul>
     </div>
   </div>
-  <p class="uk-text-center">With grant support from</p>
-  <div class="about-collaborators-list">
-    {{ range where .Site.Data.supporter "group" "grant" }}
-      {{ partial "about/collaborator-img.html" . }}
-    {{ end }}
-  </div>
 </div>
