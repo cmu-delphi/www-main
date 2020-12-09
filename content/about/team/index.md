@@ -371,6 +371,12 @@ team:
   image: daniel-laliberte_head-shot.png
   affiliation: Software Engineer
   team: google
+- firstName: David
+  lastName: Farrow
+  image: david-farrow-500x500-min.jpg
+  affiliation: Software Engineer
+  team: google
+  note: Founding member 2012–2016, Core member March–April 2020
 
  
 
