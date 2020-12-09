@@ -115,7 +115,7 @@ currently look like this?
 ```{r national_cases_time, message=FALSE}
 cases <- covidcast_signal("indicator-combination",
                           "confirmed_7dav_incidence_num",
-                          start_day = "2020-09-15", end_day = "2020-11-30",
+                          start_day = "2020-09-15", end_day = "2020-12-05",
                           geo_type = "state")
 
 cases %>%
@@ -170,6 +170,10 @@ the surveys:
   usually wear a mask may feel pressure to say they do on a survey. This effect
   is likely smaller on an anonymous online survey than it would be in person,
   but it could still be present.
+* **Different amounts of time in public.** If, for example, people who wear
+  masks also tend to limit the amount of time they spend in public places, while
+  people who do not wear masks spend more time in public, people in public may
+  be more likely to also be people who don't wear masks.
 * **Incorrect responses.** Some survey respondents may deliberately give
   incorrect answers, because when you post something on the Internet, inevitably
   someone will try to mess with it. Sometimes this is easy to detect (e.g.
@@ -184,7 +188,7 @@ interesting
 data](https://bloombergcities.medium.com/how-philadelphia-is-cracking-the-code-for-measuring-mask-compliance-7ace18daa9a9),
 though!)
 
-Instead, we chose a different way to verify our mask use estimates. In late
+Instead, we chose a different way to check our mask use estimates. In late
 November, we added a new mask question to the survey:
 
 > In the past 7 days, when out in public places where social distancing is not
@@ -205,7 +209,7 @@ mask use.
 
 Let's see how the data looks. We'll plot the percentage of people answering
 "all" or "most" to each mask question in each state, with a diagonal line
-indicating perfect agreement between the results:
+indicating perfect agreement between the numbers:
 
 ```{r mask_questions_compared, message=FALSE}
 masked <- covidcast_signal("fb-survey", "smoothed_wearing_mask",
@@ -286,7 +290,8 @@ important.** If 80% of people wear masks, you are still likely to run into
 several unmasked people on a trip to any public place, placing you at higher
 risk. The problem only gets worse if our assumption that mask use is uniformly
 distributed is false, and if people without masks tend to visit the same
-locations or events, or gather together for social events.
+locations or events, or gather together for social events, or go out in public
+more often than people who do wear masks.
 
 There are, in short, numerous opportunities for COVID transmission even when
 over three-quarters of people wear masks. Only a very high rate of mask usage
@@ -306,7 +311,7 @@ Our survey asks respondents a series of questions about activities, by asking
 "In the last 24 hours, have you done any of the following?" One possible choice
 is "Spent time with someone who isn't currently staying with you"; whether this
 is done with a mask or not, it represents a higher risk. And the data shows that
-it's more often done in states where fewer people report wearing masks:
+it's done more often in states where fewer people report wearing masks:
 
 ```{r social_distancing, message=FALSE}
 spent_time <- covidcast_signal("fb-survey", "wip_smoothed_wspent_time_1d",
@@ -331,10 +336,12 @@ This suggests that lower mask use is correlated with other risky behaviors,
 which combine to produce more opportunities to spread the virus. While this
 graph only shows one possible activity, our survey asks about others---including
 working outside the home, visiting bars and restaurants, and attending large
-events---and our API allows researchers to quickly combine it with [SafeGraph's
-mobility data](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/safegraph.html")`)
-and other data sources that give a
-clearer picture of how people react to the pandemic.
+events---and our API allows researchers to quickly combine this data with
+[SafeGraph's mobility data](`r blogdown::shortcode_html("apiref",
+"api/covidcast-signals/safegraph.html")`) and other data sources that give a
+clearer picture of how people react to the pandemic. By studying this aggregate
+data, and also the individual survey responses, it will be possible to examine
+how mask use is associated with other social distancing behavior.
 
 ## More Opportunities in Survey Data
 
@@ -349,7 +356,9 @@ All of the data used above is publicly available---see our [COVIDcast Epidata
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) for details
 on how to get it. Numerous aggregates from the survey data, including more
 measures of public activity, are [available through the
-API](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html")`).
+API](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html")`),
+and can be easily downloaded using [our R and Python
+packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`).
 
 We also make the raw response data available to academic and nonprofit
 researchers, and we look forward to seeing more detailed analyses of this data.
