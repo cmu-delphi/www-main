@@ -24,3 +24,5 @@
 *.woff2
 *.R
 *.xml
+*.Rmd
+*.md

@@ -1,9 +1,9 @@
 <ul>
-  {{ range $.Site.Data.bibliography }}
+  {{ range .Page.Params.bibliography }}
     <li>
       <!-- {{ .key }} -->
       <p>
-        <a target="_blank" href="{{ .link }}"> <b>{{ .title }} </b> </a>
+        <a href="{{ .link }}"><b>{{ .title }} </b> </a>
         <br />
         {{ .authors }} <br />
         <i>{{ .journal }} </i> {{ .issue }} {{ if isset . "year" }} ({{ .year }}) {{ end }}
