@@ -37,11 +37,11 @@
     <ul class="uk-navbar-nav nav-burger uk-hidden@m">
       <li>
         <a class="uk-navbar-toggle nav-toggle" uk-navbar-toggle-icon href="" title="Toggle Menu"></a>
-        <div uk-dropdown="mode: click; offset: 3">
+        <div class="nav-mobile" uk-dropdown="mode: click; offset: 0; position: bottom-right;">
           <ul class="uk-nav uk-navbar-dropdown-nav">
             {{ range .Site.Menus.main.ByWeight }}
               <li
-                class="{{ if .HasChildren }}uk-nav-header{{ end }} {{ if (eq $currentPage.Section .Identifier) }}uk-active{{ end }}"
+                class="nav-dropdown-parent {{ if .HasChildren }}uk-nav-header{{ end }} {{ if (eq $currentPage.Section .Identifier) }}uk-active{{ end }}"
               >
                 <a href="{{ .URL | relLangURL }}">
                   {{ partial "menu/item.html" . }}

@@ -14,7 +14,7 @@
 
 .nav-container {
   box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.15);
-  
+
   > .uk-navbar-container {
     margin-bottom: 0;
   }
@@ -40,13 +40,9 @@
 }
 .nav-entry {
   white-space: nowrap;
-  
+
   padding-left: 15px;
   padding-right: 15px;
-  
-  // > .uk-navbar-dropdown {
-  //   margin-top: 6px;
-  // }
 }
 
 .nav-burger {
@@ -62,8 +58,41 @@
 .nav-toggle {
   width: 20px;
 }
+
 .nav-dropdown-child {
   padding-left: 2.2em;
+}
+
+.nav-dropdown-parent {
+  text-transform: none;
+}
+
+.nav-mobile {
+  left: unset !important;
+  right: 0;
+}
+
+@media only screen and (max-width: $breakpoint-small) {
+  // wide mobile menu
+  .nav-mobile {
+    padding: 0;
+    width: 100%;
+
+    li {
+      border-top: 1px solid #d2d2d2;
+      font-weight: 400;
+      padding: 20px 0 20px 40px;
+    }
+  }
+  
+  li.nav-dropdown-parent {
+    margin-top: 0 !important;
+    font-weight: 600;
+  }
+
+  li.nav-dropdown-child {
+    padding-left: 40px + 30px;
+  }
 }
 
 // Footer
