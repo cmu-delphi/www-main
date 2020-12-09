@@ -69,11 +69,6 @@ team:
   image: balasubramanian-narasimhan-500x500-min.jpg
   affiliation: Stanford University
   team: core
-- firstName: Adam
-  lastName: Perer
-  image: adam-perer-500x500-min.jpg
-  affiliation: CMU/HCII
-  team: core
 - firstName: Collin
   lastName: Politsch
   image: collin-politsch-500x500-min.jpg
@@ -139,12 +134,6 @@ team:
   image: jeremy-weiss-500x500-min.jpg
   affiliation: CMU/Heinz College
   team: core
-
-- firstName: Amartya
-  lastName: Basu
-  image: amartya-basu-500x500-min.jpg
-  affiliation: CMU/INI
-  team: interns
 - firstName: Eu Jing
   lastName: Chua
   image: eu-jing-chua-500x500-min.jpg
@@ -210,11 +199,6 @@ team:
   image: profile-placeholder.png
   affiliation:
   team: contributors
-- firstName: Jaemin
-  lastName: Jo
-  image: jaemin-jo-500x500-min.jpg
-  affiliation: Seoul National University
-  team: contributors
 - firstName: Jimi
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
@@ -244,18 +228,16 @@ team:
   affiliation: CMU/Stat
   team: contributors
   note: Core member, March – May 2020
+- firstName: Adam
+  lastName: Perer
+  image: adam-perer-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: contributor
 - firstName: Venkatesh
   lastName: Sivaraman
   image: profile-placeholder.png
   affiliation:
   team: contributors
-
-- firstName: Kristin
-  lastName: Williams
-  image: kristin-williams-500x500-min.jpg
-  affiliation: CMU/HCII
-  team: contributors
-  note: Core member, March – April 2020
 - firstName: Helen
   lastName: Zhou
   image: profile-placeholder.png
@@ -263,6 +245,12 @@ team:
   team: contributors
 
 
+- firstName: Amartya
+  lastName: Basu
+  image: amartya-basu-500x500-min.jpg
+  affiliation: CMU/INI
+  team: past
+  note: Intern, 2020
 - firstName: Angel (Alex)
   lastName: Cabrera
   image: angel-alex-cabrera-500x500-min.jpg
@@ -281,6 +269,11 @@ team:
   affiliation: USC
   team: past
   note: Core member, March – May 2020; Contributor, May - July 2020
+- firstName: Jaemin
+  lastName: Jo
+  image: jaemin-jo-500x500-min.jpg
+  affiliation: Seoul National University
+  team: Contributor, 2020
 - firstName: Andrew
   lastName: Kuznetsov
   image: andrew-kuznetsov-500x500-min.jpg
@@ -311,6 +304,12 @@ team:
   affiliation: University of Washington
   team: past
   note: Core member, may – June 2020
+- firstName: Kristin
+  lastName: Williams
+  image: kristin-williams-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: past
+  note: Core member, March – April 2020; Contributor 2020
   
 - firstName: Mike
   lastName: O'Brien
