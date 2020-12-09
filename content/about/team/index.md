@@ -134,15 +134,12 @@ team:
   image: jeremy-weiss-500x500-min.jpg
   affiliation: CMU/Heinz College
   team: core
+  
+  
 - firstName: Eu Jing
   lastName: Chua
   image: eu-jing-chua-500x500-min.jpg
   affiliation: CMU/MLD
-  team: interns
-- firstName: Robin
-  lastName: Han
-  image: robin-han-500x500-min.jpg
-  affiliation: CMU/HCII
   team: interns
 - firstName: Jenny
   lastName: Lee
@@ -159,11 +156,7 @@ team:
   image: vishn-hankar-500x500-min.jpg
   affiliation: Stanford University
   team: interns
-- firstName: Vishakha
-  lastName: Srivastava
-  image: vishakha-srivastava-500x500-min.jpg
-  affiliation: Santa Clara University
-  team: interns
+
 
 - firstName: Samuel
   lastName: Gratzl
@@ -215,13 +208,6 @@ team:
   image: profile-placeholder.png
   affiliation:
   team: contributors
-- firstName: Michael
-  lastName: Xieyang
-  lastName: Liu
-  image: michael-xieyang-liu-500x500-min.jpg
-  affiliation: CMU/HCII
-  team: contributors
-  note: Core member, March – April 2020
 - firstName: Natalia
   lastName: Lombardi de Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
@@ -263,6 +249,12 @@ team:
   affiliation: Data visualization consultant
   team: past
   note: Contractor, 2020
+- firstName: Robin
+  lastName: Han
+  image: robin-han-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: past
+  notes: Intern, summer 2020
 - firstName: Sangwon (Justin)
   lastName: Hyun
   image: sangwon-justin-hyun-500x500-min.jpg
@@ -280,6 +272,13 @@ team:
   affiliation: CMU/HCII
   team: past
   note: Core member, March – April 2020
+- firstName: Michael
+  lastName: Xieyang
+  lastName: Liu
+  image: michael-xieyang-liu-500x500-min.jpg
+  affiliation: CMU/HCII
+  team: past
+  note: Core member, March – April 2020; Contributor 2020
 - firstName: Lester
   lastName: Mackey
   image: lester-mackey-500x500-min.jpg
@@ -304,6 +303,12 @@ team:
   affiliation: University of Washington
   team: past
   note: Core member, may – June 2020
+- firstName: Vishakha
+  lastName: Srivastava
+  image: vishakha-srivastava-500x500-min.jpg
+  affiliation: Santa Clara University
+  team: past
+  note: Intern, Summer 2020
 - firstName: Kristin
   lastName: Williams
   image: kristin-williams-500x500-min.jpg
