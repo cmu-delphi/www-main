@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+{{(print $.Page.Site.Params.apiUrl (cond (hasPrefix (.Get 0) "/") "" "/") (.Get 0)) | absURL}}
+=======
+{{ (print $.Page.Site.Params.apiUrl (cond (hasPrefix (.Get 0) "/") "" "/") (.Get 0)) | absURL }}
+>>>>>>> dev
