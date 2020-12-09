@@ -119,6 +119,11 @@ team:
   image: ryan-tibshirani-500x500-min.jpg
   affiliation: CMU/MLD/Stat
   team: leadership
+- firstName: Ana Karina
+  lastName: Van Nortwick
+  image: ana-karina-van-nortwick.jpeg
+  affiliation: Tech Writer
+  team: core
 - firstName: Valérie
   lastName: Ventura
   image: valerie-ventura-500x500-min.jpg
@@ -244,11 +249,7 @@ team:
   image: profile-placeholder.png
   affiliation:
   team: contributors
-- firstName: Ana Karina
-  lastName: Van Nortwick
-  image: ana-karina-van-nortwick.jpeg
-  affiliation: Tech Writer
-  team: contributors
+
 - firstName: Kristin
   lastName: Williams
   image: kristin-williams-500x500-min.jpg
