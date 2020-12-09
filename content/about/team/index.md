@@ -218,7 +218,8 @@ team:
   lastName: Perer
   image: adam-perer-500x500-min.jpg
   affiliation: CMU/HCII
-  team: contributor
+  team: contributors
+  note: Core member, March - October 2020
 - firstName: Venkatesh
   lastName: Sivaraman
   image: profile-placeholder.png
