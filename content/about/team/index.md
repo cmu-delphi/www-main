@@ -13,6 +13,11 @@ team:
   image: logan-brooks-500x500-min.jpg
   affiliation: CMU/MLD
   team: core
+- firstName: Andrew
+  lastName: Chin
+  image: andrew-chin-500x500-min.jpg
+  affiliation: 
+  team: core
 - firstName: Brian
   lastName: Clark
   image: brian-clark-500x500-min.jpg
@@ -48,6 +53,11 @@ team:
   lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
   affiliation: CMU/MLD
+  team: core
+- firstName: Daniel
+  lastName: McDonald
+  image: daniel-mcdonald-photo.jpeg
+  affiliation: University of British Columbia
   team: core
 - firstName: Balasubramanian
   lastName: Narasimhan
@@ -156,11 +166,6 @@ team:
   affiliation: Santa Clara University
   team: interns
 
-- firstName: EJ
-  lastName: Fox
-  image: ej-fox-500x500-min.jpg
-  affiliation: Data visualization consultant
-  team: contractors
 - firstName: Samuel
   lastName: Gratzl
   image: sam-gratzl-500x500-min.jpg
@@ -184,23 +189,17 @@ team:
   affiliation: University of Richmond
   team: contributors
   note: Core member, May–June 2020
-- firstName: Andrew
-  lastName: Chin
-  image: andrew-chin-500x500-min.jpg
-  affiliation: 
-  team: contributors
 - firstName: Alden
   lastName: Green
   image: alden-green-500x500-min.jpg
   affiliation: CMU/Stat
   note: Core member, May–July 2020
   team: contributors
-- firstName: Sangwon (Justin)
-  lastName: Hyun
-  image: sangwon-justin-hyun-500x500-min.jpg
-  affiliation: USC
+- firstName: Shantanu
+  lastName: Gupta
+  image: 
+  affiliation:
   team: contributors
-  note: Core member, March – May 2020
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -217,6 +216,16 @@ team:
   affiliation: CMU/LTI
   note: Core member, March – April 2020
   team: contributors
+- firstName: Wichada
+  lastName: La Motte-Kerr
+  image: 
+  affiliation:
+  team: contributors
+- firstName: Kenneth
+  lastName: Lee
+  image: 
+  affiliation:
+  team: contributors
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
@@ -230,18 +239,28 @@ team:
   affiliation: CMU/Stat
   team: contributors
   note: Core member, March – May 2020
-- firstName: Samyak
-  lastName: Rajanala
-  image: samyak-rajanala-500x500-min.jpg
-  affiliation: Stanford University
+- firstName: Venkatesh
+  lastName: Sivaraman
+  image: 
+  affiliation:
   team: contributors
-  note: Core member, May – July 2020
+- firstName: Ana Karina
+  lastName: Van Nortwick
+  image: ana-karina-van-nortwick.jpeg
+  affiliation: Tech Writer
+  team: contributors
 - firstName: Kristin
   lastName: Williams
   image: kristin-williams-500x500-min.jpg
   affiliation: CMU/HCII
   team: contributors
   note: Core member, March – April 2020
+- firstName: Helen
+  lastName: Zhou
+  image: 
+  affiliation:
+  team: contributors
+
 
 - firstName: Angel (Alex)
   lastName: Cabrera
@@ -249,12 +268,18 @@ team:
   affiliation: CMU/HCII
   team: past
   note: Core member, March – April 2020
-- firstName: David
-  lastName: Farrow
-  image: david-farrow-500x500-min.jpg
-  affiliation: Google
+- firstName: EJ
+  lastName: Fox
+  image: ej-fox-500x500-min.jpg
+  affiliation: Data visualization consultant
   team: past
-  note: Founding member 2012–2016, Core member March–April 2020
+  note: Contractor, 2020
+- firstName: Sangwon (Justin)
+  lastName: Hyun
+  image: sangwon-justin-hyun-500x500-min.jpg
+  affiliation: USC
+  team: past
+  note: Core member, March – May 2020; Contributor, May - July 2020
 - firstName: Andrew
   lastName: Kuznetsov
   image: andrew-kuznetsov-500x500-min.jpg
@@ -273,6 +298,12 @@ team:
   affiliation: CMU/Stat
   team: past
   note: Core member, March – May 2020
+- firstName: Samyak
+  lastName: Rajanala
+  image: samyak-rajanala-500x500-min.jpg
+  affiliation: Stanford University
+  team: past
+  note: Core member, May – July 2020
 - firstName: Noah
   lastName: Simon
   image: noah-simon-500x500-min.jpg
@@ -340,11 +371,8 @@ team:
   image: daniel-laliberte_head-shot.png
   affiliation: Software Engineer
   team: google
-- firstName: David
-  lastName: Farrow
-  image: david-farrow_head-shot.png
-  affiliation: Software Engineer
-  team: google
+
+ 
 
 others: |
  MLD administrators Christy Melucci and Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
