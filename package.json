@@ -27,7 +27,7 @@
     "start:blog": "Rscript -e \"blogdown::serve_site()\"",
     "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
     "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check",
-    "image": "docker build -t www-main:latest --file ./devops/web/Dockerfile ."
+    "image": "docker build -t www-main:latest --file ./devops/Dockerfile ."
   },
   "hugo-bin": {
     "buildTags": "extended"
