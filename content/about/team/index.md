@@ -30,7 +30,7 @@ team:
   team: core
 - firstName: George
   lastName: Haff
-  image: profile-placeholder.png
+  image: george-haff-photo.jpg
   affiliation: CMU/CSD
   team: core
 - firstName: Addison
@@ -197,7 +197,7 @@ team:
   team: contributors
 - firstName: Shantanu
   lastName: Gupta
-  image: 
+  image: profile-placeholder.png
   affiliation:
   team: contributors
 - firstName: Jaemin
@@ -218,12 +218,12 @@ team:
   team: contributors
 - firstName: Wichada
   lastName: La Motte-Kerr
-  image: 
+  image: wichada-lamotte-kerr-photo.png
   affiliation:
   team: contributors
 - firstName: Kenneth
   lastName: Lee
-  image: 
+  image: profile-placeholder.png
   affiliation:
   team: contributors
 - firstName: Michael
@@ -241,7 +241,7 @@ team:
   note: Core member, March – May 2020
 - firstName: Venkatesh
   lastName: Sivaraman
-  image: 
+  image: profile-placeholder.png
   affiliation:
   team: contributors
 - firstName: Ana Karina
@@ -257,7 +257,7 @@ team:
   note: Core member, March – April 2020
 - firstName: Helen
   lastName: Zhou
-  image: 
+  image: profile-placeholder.png
   affiliation:
   team: contributors
 
