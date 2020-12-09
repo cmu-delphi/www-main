@@ -43,6 +43,11 @@ team:
   image: maria-jahja-500x500-min.jpg
   affiliation: CMU/Stat
   team: core
+- firstName: Ananya
+  lastName: Joshi
+  image: ananya-joshi-500x500-min.jpg
+  affiliation: CMU/CSD
+  team: core
 - firstName: Zack
   lastName: Lipton
   image: zachary-lipton-500x500-min.jpg
@@ -204,11 +209,6 @@ team:
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
   affiliation: Seoul National University
-  team: contributors
-- firstName: Ananya
-  lastName: Joshi
-  image: ananya-joshi-500x500-min.jpg
-  affiliation: CMU/CSD
   team: contributors
 - firstName: Jimi
   lastName: Kim
