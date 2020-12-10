@@ -6,7 +6,7 @@
         <a class="delphi-text-logo" href="{{ relref . "/" }}">DELPHI</a>
       </li>
     </ul>
-    <ul class="uk-navbar-nav nav-entries uk-visible@s">
+    <ul class="uk-navbar-nav nav-entries">
       {{ range .Site.Menus.main.ByWeight }}
         <li
           class="nav-entry {{ if (eq $currentPage.Section .Identifier) }}uk-active{{ end }} {{ if .HasChildren }}uk-parent{{ end }}"
@@ -34,7 +34,7 @@
       {{ end }}
     </ul>
     <div class="nav-spacer"></div>
-    <ul class="uk-navbar-nav nav-burger uk-hidden@m">
+    <ul class="uk-navbar-nav nav-burger">
       <li>
         <a class="uk-navbar-toggle nav-toggle" uk-navbar-toggle-icon href="" title="Toggle Menu"></a>
         <div class="nav-mobile" uk-dropdown="mode: click; offset: 0; position: bottom-right;">

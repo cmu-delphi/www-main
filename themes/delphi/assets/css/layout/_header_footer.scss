@@ -72,7 +72,17 @@
   right: 0;
 }
 
-@media only screen and (max-width: $breakpoint-small) {
+@media only screen and (min-width: $menu-mode-hybrid) {
+  .nav-burger {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: $menu-mode-mobile-only) {
+  .nav-entries {
+    display: none;
+  }
+
   // wide mobile menu
   .nav-mobile {
     padding: 0;
@@ -84,7 +94,7 @@
       padding: 20px 0 20px 40px;
     }
   }
-  
+
   li.nav-dropdown-parent {
     margin-top: 0 !important;
     font-weight: 600;
