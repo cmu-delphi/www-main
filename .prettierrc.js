@@ -10,11 +10,5 @@ module.exports = {
         parser: "go-template",
       },
     },
-    {
-      files: ["*.Rmd"],
-      options: {
-        parser: "markdown",
-      },
-    },
   ],
 };

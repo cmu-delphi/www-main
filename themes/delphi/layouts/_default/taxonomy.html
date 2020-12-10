@@ -6,13 +6,13 @@
       <!-- Display the posts with the tag -->
       <article>
         <h2>
-          <a href="{{ .Permalink }}">
+          <a href="{{ .RelPermalink }}">
             {{ .Title }}
           </a>
         </h2>
         <div>
           {{ .Summary }}
-          {{ if (and (.Site.Params.showReadMore) (.Truncated)) }}
+          {{ if .Truncated }}
             <p><a href="{{ .RelPermalink }}">Read more...</a></p>
           {{ end }}
         </div>

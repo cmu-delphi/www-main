@@ -1,0 +1,40 @@
+{{ $currentPage := . }}
+<div class="main-carousel">
+  <div
+    class="uk-position-relative uk-light uikit-main-carousel"
+    tabindex="-1"
+    uk-slideshow="animation: push; ratio: false"
+  >
+    <ul class="uk-slideshow-items uk-cover-container uk-child-width-1-1 slideshow-container">
+      {{ range .Params.carousel }}
+        <li>
+          <img src="{{ (path.Join "/images/landing-page/hero-images" .image) | relURL }}" uk-cover />
+          <div class="uk-container content-grid">
+            <div class="carousel-entry grid-2-10">
+              <h2>{{ .pre }}</h2>
+              <p>{{ .title }}</p>
+              {{ if isset . "ref" }}
+                {{ partial "arrow-link.html" (dict "link" (relref $currentPage .ref) "alt" .alt) }}
+                {{ else }}
+                {{ partial "arrow-link.html" (dict "link" .link "alt" .alt) }}
+              {{ end }}
+            </div>
+          </div>
+        </li>
+      {{ end }}
+    </ul>
+    <ul class="uk-slideshow-nav uk-dotnav uk-position-bottom-center uk-margin"></ul>
+    <a
+      class="uk-position-bottom-left uk-position-small uk-hidden-hover"
+      href="#"
+      uk-slidenav-previous
+      uk-slideshow-item="previous"
+    ></a>
+    <a
+      class="uk-position-bottom-right uk-position-small uk-hidden-hover"
+      href="#"
+      uk-slidenav-next
+      uk-slideshow-item="next"
+    ></a>
+  </div>
+</div>
