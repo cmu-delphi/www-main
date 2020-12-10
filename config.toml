@@ -1,6 +1,6 @@
 baseURL = "https://delphi.cmu.edu/"
 languageCode = "en-us"
-title = "The Delphi Team"
+title = "DELPHI"
 theme = "delphi"
 googleAnalytics = "UA-88748454-1"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$", "\\.rda$"]

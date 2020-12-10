@@ -1,10 +1,17 @@
-.delphi-text-logo {
-  background-color: white;
-  color: #f03f3f !important;
-  font-size: 16px !important;
-  font-weight: 700;
-  line-height: 18px;
-  padding: 5px 10px;
+$mobile-margin: 15px;
+
+.nav-cmu-delphi-logo {
+  background-image: url("./images/cmu_brand.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 220px;
+  height: 50px;
+  margin-right: 30px;
+  margin-bottom: 5px;
+
+  > span {
+    display: none;
+  }
 }
 
 .uk-breadcrumb svg,
@@ -12,64 +19,160 @@
   max-height: 18px;
 }
 
-// Navbar
-.nav-active {
+.nav-container {
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.15);
+  padding: 20px 0 0 0;
+
+  > .uk-navbar-container {
+    margin-top: 0;
+    margin-bottom: 0;
+    align-items: flex-end;
+  }
+}
+
+.nav-entries .uk-active {
   border-bottom: 2px solid #f03f3f !important;
 }
-.uk-navbar-container {
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.15);
-  display: block;
+
+.nav-entries {
+  flex-shrink: 1;
+  overflow: hidden;
 }
 
-.uk-navbar-left {
-  margin-top: 40px;
-  margin-bottom: 0;
+.nav-spacer {
+  flex: 1 1 0;
 }
 
-.uk-navbar-nav > li {
-  padding-left: 15px;
-  padding-right: 15px;
+li.nav-entry {
   white-space: nowrap;
-}
-.uk-navbar-dropdown-bottom-left {
-  margin-left: -20px;
-  margin-top: 3px;
+
+  > a {
+    padding: 0 15px;
+  }
 }
 
-.mobile-nav {
-  height: 20px;
-  padding: 23px;
-  border-bottom: 1px solid #d2d2d2;
+.nav-burger {
+  margin-left: 1em;
 }
-.uk-navbar-toggle {
-  float: right;
-  margin-top: -10px;
+
+.nav-burger li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
-.dropdown-mobile {
-  left: 0 !important;
-  padding: 0;
-  width: 100%;
+
+.nav-toggle {
+  width: 20px;
 }
-.menu-element {
-  border-top: 1px solid #d2d2d2;
-  font-weight: 400;
-  padding: 20px 0 20px 40px;
+
+.nav-dropdown-child {
+  padding-left: 2.2em;
 }
-.menu-element.menu-parent {
-  font-weight: 600;
+
+.nav-dropdown-parent {
+  text-transform: none;
 }
-.menu-element.menu-child {
-  padding-left: 64px;
+
+.nav-mobile {
+  left: unset !important;
+  right: 0;
+}
+
+@media only screen and (min-width: $menu-mode-hybrid) {
+  .nav-burger {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: $menu-mode-mobile-only) {
+  .nav-container {
+    padding: 0;
+  }
+  .nav-cmu-delphi-logo {
+    background-image: url("./images/cmu_brand_mobile.png");
+    margin: $mobile-margin 0;
+    height: 33px;
+    width: 193px;
+  }
+
+  .nav-entries {
+    display: none;
+  }
+
+  .nav-burger {
+    align-self: stretch;
+  }
+  .nav-burger > li {
+    align-items: stretch;
+  }
+
+  // wide mobile menu
+  .nav-mobile {
+    padding: 0;
+    width: 100%;
+
+    li {
+      border-top: 1px solid #d2d2d2;
+      font-weight: 400;
+      padding: 20px 0 20px 40px;
+    }
+  }
+
+  li.nav-dropdown-parent {
+    margin-top: 0 !important;
+    font-weight: 600;
+  }
+
+  li.nav-dropdown-child {
+    padding-left: 40px + 30px;
+  }
 }
 
 // Footer
 .footer {
   background-color: #f2f2f2;
   color: #232735;
-  padding: 50px 20% 20px 20%;
+  padding-top: 50px;
+  padding-bottom: 20px;
+
+  > .uk-container {
+    display: flex;
+  }
 }
 
-.footer .delphi-text-logo {
-  border: 1px solid #d3d4d8;
-  padding: 8px 12px;
+@media only screen and (max-width: $menu-mode-mobile-only) {
+  .footer > .uk-container {
+    display: block;
+  }
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.footer-footer {
+  flex: 1 1 0;
+  display: flex;
+  margin-top: 22px;
+}
+
+.footer-cmu-delphi-logo {
+  background-image: url("./images/cmu_brand.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 220px;
+  height: 50px;
+  display: block;
+  margin-right: 30px;
+  margin-bottom: 30px;
+
+  > span {
+    display: none;
+  }
+}
+
+.footer h5 {
+  margin-top: 5px;
 }
