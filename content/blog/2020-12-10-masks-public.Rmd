@@ -351,8 +351,8 @@ ggplot(mask_rest,
        aes(x = value.mask, y = value.restaurant, label = toupper(geo_value))) +
   geom_text() +
   labs(x = "% who report wearing masks most/all the time",
-       y = "Restaurant visits by SafeGraph panel, per 100,000 population",
-       title = "Social distancing and mask use",
+       y = "Visits by SafeGraph panel, per 100,000 population",
+       title = "Restaurant visits and mask use",
        subtitle = "December 1st, 2020",
        caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
   theme_bw()
