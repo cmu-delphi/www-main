@@ -365,15 +365,39 @@ ggplot(mask_time,
        caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
   theme_bw()</code></pre>
 <p><img src="/blog/2020-12-10-masks-public_files/figure-html/social_distancing-1.svg" width="672" /></p>
-<p>This suggests that lower mask use is correlated with other risky behaviors,
-which combine to produce more opportunities to spread the virus. While this
-graph only shows one possible activity, our survey asks about others—including
-working outside the home, visiting bars and restaurants, and attending large
-events—and our API allows researchers to quickly combine this data with
-<a href="{{< apiref "api/covidcast-signals/safegraph.html" >}}">SafeGraph’s mobility data</a> and other data sources that give a
-clearer picture of how people react to the pandemic. By studying this aggregate
-data, and also the individual survey responses, it will be possible to examine
-how mask use is associated with other social distancing behavior.</p>
+<p>Similarly, SafeGraph collects anonymous data on visits to restaurants by using
+cell phone location data. Using <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/safegraph.html#safegraph-weekly-patterns">county-level aggregates from our
+API</a>,
+we can compare mask use to the proportion of people visiting restaurants in each state:</p>
+<pre class="r"><code># 2020-11-29 was most recent data available at time of writing
+restaurants &lt;- covidcast_signal(&quot;safegraph&quot;, &quot;restaurants_visit_prop&quot;,
+                                &quot;2020-11-29&quot;, &quot;2020-11-29&quot;,
+                                geo_type = &quot;state&quot;)
+
+mask_rest &lt;- masked %&gt;%
+  inner_join(restaurants, by = &quot;geo_value&quot;,
+             suffix = c(&quot;.mask&quot;, &quot;.restaurant&quot;))
+
+ggplot(mask_rest,
+       aes(x = value.mask, y = value.restaurant, label = toupper(geo_value))) +
+  geom_text() +
+  labs(x = &quot;% who report wearing masks most/all the time&quot;,
+       y = &quot;Restaurant visits by SafeGraph panel, per 100,000 population&quot;,
+       title = &quot;Social distancing and mask use&quot;,
+       subtitle = &quot;December 1st, 2020&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw()</code></pre>
+<p><img src="/blog/2020-12-10-masks-public_files/figure-html/restaurants-1.svg" width="672" /></p>
+<p>These plots suggest that lower mask use is correlated with other risky
+behaviors, which combine to produce more opportunities to spread the virus.
+While these graphs only show two possible activities, our survey asks about
+others—including working outside the home and attending large events—and our
+API allows researchers to quickly combine this data with <a href="{{< apiref "api/covidcast-signals/safegraph.html" >}}">SafeGraph’s other
+mobility data</a>
+and other data sources that give a clearer picture of how people react to the
+pandemic. By studying this aggregate data, and also the individual survey
+responses, it will be possible to examine how mask use is associated with other
+social distancing behavior.</p>
 </div>
 <div id="more-opportunities-in-survey-data" class="section level2">
 <h2>More Opportunities in Survey Data</h2>
