@@ -56,6 +56,20 @@ of the code chunks would be great so that readers see how easy it is to use our
 data. But for other audiences, it's probably best to use the `echo=FALSE` chunk
 option so the code is not included in the post.
 
+### Wide Figure
+
+To create a wide figure, add the `out.extra='class="wide-figure"'` markup:
+
+```{r wide-pie, fig.cap='A fancy pie chart.', tidy=FALSE, out.extra='class="wide-figure"'}
+par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+```
+
 ## Including Math
 
 You can embed mathematics by using dollar signs for inline math and double
