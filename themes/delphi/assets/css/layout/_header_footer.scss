@@ -132,15 +132,41 @@ li.nav-entry {
 .footer {
   background-color: #f2f2f2;
   color: #232735;
-  padding: 50px 20% 20px 20%;
+  padding-top: 50px;
+  padding-bottom: 20px;
+
+  > .uk-container {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: $menu-mode-mobile-only) {
+  .footer > .uk-container {
+    display: block;
+  }
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.footer-footer {
+  flex: 1 1 0;
+  display: flex;
+  margin-top: 22px;
 }
 
 .footer-cmu-delphi-logo {
-  background-image: url("./images/cmu_brand_mobile.png");
+  background-image: url("./images/cmu_brand.png");
   background-size: contain;
   background-repeat: no-repeat;
-  height: 33px;
+  width: 220px;
+  height: 50px;
   display: block;
+  margin-right: 30px;
+  margin-bottom: 30px;
 
   > span {
     display: none;
