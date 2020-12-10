@@ -29,9 +29,9 @@ haven't these precautions prevented the current COVID spike? If everyone is
 wearing masks, why are cases increasing?
 
 To answer this question, we must first ask: *Is* everyone wearing masks? And are
-*enough* people wearing masks? In this post we'll show how Delphi's COVID
-symptom surveys can help answer these questions, and how they can enable
-important research about the pandemic and its spread.
+they also socially distancing in other ways? In this post we'll show how
+Delphi's COVID symptom surveys can help answer these questions, and how they can
+enable important research about the pandemic and its spread.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
@@ -212,10 +212,10 @@ Let's see how the data looks. We'll plot the percentage of people answering
 indicating perfect agreement between the numbers:
 
 ```{r mask_questions_compared, message=FALSE}
-masked <- covidcast_signal("fb-survey", "smoothed_wearing_mask",
+masked <- covidcast_signal("fb-survey", "smoothed_wwearing_mask",
                            start_day = "2020-12-01", end_day = "2020-12-01",
                            geo_type = "state")
-other_mask <- covidcast_signal("fb-survey", "wip_smoothed_others_masked",
+other_mask <- covidcast_signal("fb-survey", "smoothed_wothers_masked",
                                start_day = "2020-12-01", end_day = "2020-12-01",
                                geo_type = "state")
 
@@ -314,7 +314,7 @@ is done with a mask or not, it represents a higher risk. And the data shows that
 it's done more often in states where fewer people report wearing masks:
 
 ```{r social_distancing, message=FALSE}
-spent_time <- covidcast_signal("fb-survey", "wip_smoothed_wspent_time_1d",
+spent_time <- covidcast_signal("fb-survey", "smoothed_wspent_time_1d",
                                start_day = "2020-12-01", end_day = "2020-12-01",
                                geo_type = "state")
 
