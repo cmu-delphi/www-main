@@ -19,7 +19,7 @@ team:
 - firstName: Andrew
   lastName: Chin
   image: andrew-chin-500x500-min.jpg
-  affiliation: 
+  affiliation:  CMU/MLD
   team:
   - core
 - firstName: Brian
@@ -375,13 +375,13 @@ team:
   note: Core member, March – April 2020; Contributor 2020
 - firstName: Mike
   lastName: O'Brien
-  image: mike-o'brian_head-shot.png
+  image: mike-o'brien_head-shot.jpg
   affiliation: Software Engineer
   team:
   - google
 - firstName: Kate
   lastName: Harwood
-  image: kate-harwood_head-shot.png
+  image: kate-harwood_head-shot.jpg
   affiliation: Software Engineer
   team:
   - google
@@ -399,19 +399,19 @@ team:
   - google
 - firstName: Spencer
   lastName: Whitman
-  image: specer-whitman_head-shot.png
+  image: specer-whitman_head-shot.jpg
   affiliation: Product Manager
   team:
   - google
 - firstName: Benjamin
   lastName: Smith
-  image: benjamin-smith_head-shot.png
+  image: benjamin-smith_head-shot.jpg
   affiliation: Tech Lead Software Engineer
   team:
   - google
 - firstName: Raphael
   lastName: Hyde
-  image: raphael-hyde_head-shot.png
+  image: raphael-hyde_head-shot.jpg
   affiliation: UX Designer
   team:
   - google
@@ -429,25 +429,25 @@ team:
   - google
 - firstName: Sarah
   lastName: Colquhoun
-  image: sarah-colquhoun_head-shot.png
+  image: sarah-colquhoun_head-shot.jpg
   affiliation: Site Reliability Engineer, Data Scientist
   team:
   - google
 - firstName: Chris
   lastName: Scott
-  image: chris-scott_head-shot.png
+  image: chris-scott_head-shot.jpg
   affiliation: Tech Lead Software Engineer
   team:
   - google
 - firstName: Daniel
   lastName: LaLiberte
-  image: daniel-laliberte_head-shot.png
+  image: daniel-laliberte_head-shot.jpg
   affiliation: Software Engineer
   team:
   - google
 - firstName: David
   lastName: Farrow
-  image: david-farrow-500x500-min.jpg
+  image: david-farrow_head-shot.jpg
   affiliation: Software Engineer
   team:
   - google
