@@ -6,14 +6,17 @@ tags:
   - R Markdown
   - plot
   - regression
-draft: true
-authors:
+draft: true # remove this line in new blog posts
+authors: # list of author keys, see /data/authors.yaml
   - frida
 heroImage: /blog/images/blog-lg-img_hello-world.png
 heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
+summary: |
+  Blog summary, the first 150 characters are used for the blog list
+acknowledgements: |
+  List acknowledgements here
 related:
   - 2015-07-23-template-post
-acknowledgements: Test
 output:
   blogdown::html_page:
     toc: true
@@ -24,10 +27,7 @@ knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 Each blog post is an R Markdown document. For more details on using R Markdown
-see <http://rmarkdown.rstudio.com>. The first paragraph or so will appear on the
-front page; by default the first 70 words are used. If you want to specify the
-exact text, you can specify a `summary` front matter variable. Usually we do
-not include links in the teaser.
+see <http://rmarkdown.rstudio.com>.
 
 You can embed an R code chunk like this:
 
@@ -56,6 +56,20 @@ of the code chunks would be great so that readers see how easy it is to use our
 data. But for other audiences, it's probably best to use the `echo=FALSE` chunk
 option so the code is not included in the post.
 
+### Wide Figure
+
+To create a wide figure, add the `out.extra='class="wide-figure"'` markup:
+
+```{r wide-pie, fig.cap='A fancy pie chart.', tidy=FALSE, out.extra='class="wide-figure"'}
+par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+```
+
 ## Including Math
 
 You can embed mathematics by using dollar signs for inline math and double
@@ -67,14 +81,12 @@ $$
 
 ## Metadata
 
-Each post has a title, author, date, and tags. The `draft` attribute marks a
-post that should not be included in the rendered and published site, such as
-this one. Choose bold, active titles, like "Delphi releases new survey data",
+Each post has a title, author, date, and tags. 
+Choose bold, active titles, like "Delphi releases new survey data",
 rather than boring titles like "New survey aggregates".
 
-The author metadata should credit the post author or authors; as shown at the
-end of this example post, you should also include a block about the authors and
-linking to their home pages. But in the post text, you should also generously
+The author metadata should credit the post author or authors; But in the post acknowledgements, 
+you should also generously
 name anyone who helped with parts of your post, e.g., the team members who
 obtained data or set up a server or developed a package you use.
 
@@ -93,3 +105,17 @@ suggest we consider the following tags as base tags:
 - news (for announcements of new features, new models, etc.)
 - R (for posts containing R, typically, our covidcast R package)
 - Python (for posts containing Python, typically, our covicast Python package)
+
+## Linking
+
+### Linking to other pages and blog posts:
+
+using the file name and the Hugo shortcodes, e.g.: [Facebook Post](`r blogdown::shortcode_html("relref", "2020-08-26-fb-survey")`).
+Jumping to a specific section/anchor is supported too: 
+[previous exploratory investigations](`r blogdown::shortcode_html("relref", "2020-08-26-fb-survey#some-interesting-examples")`)
+
+### Linking to the API doc:
+
+there is another shortcode for creating an api link, e.g. 
+[public API](`r blogdown::shortcode_html("apiref", "/")`) or
+[Doctor's Visits signal](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/doctor-visits.html")`) 
