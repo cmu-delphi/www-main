@@ -150,8 +150,8 @@ team:
   team:
   - leadership
   - highlight
-- firstName: Ana Karina
-  lastName: Van Nortwick
+- firstName: Ana&nbsp;Karina
+  lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
   affiliation: Tech Writer
   team:
@@ -175,7 +175,7 @@ team:
   team:
   - core
 - firstName: Wichada
-  lastName: La Motte-Kerr
+  lastName: La&nbsp;Motte&#x2011;Kerr
   image: wichada-lamotte-kerr-photo.png
   affiliation: CMU/MLD
   team:
@@ -240,7 +240,7 @@ team:
   team:
   - contributors
 - firstName: Natalia
-  lastName: Lombardi de Oliveira
+  lastName: Lombardi de&nbsp;Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
   affiliation: CMU/Stat
   team:
