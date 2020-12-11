@@ -1,15 +1,17 @@
 {{ if .Parent }}
   {{ if (not .Parent.IsHome) }}
     <!--hugo doesn't support shortcut evaluation of ifs, thats why the nested one -->
-    <div class="uk-container">
-      <ul class="uk-breadcrumb uk-text-uppercase">
-        <li>
-          <a href="{{ .Parent.Permalink }}"
-            >{{ partial "font-awesome.html" "solid/angle-left" }}{{ .Parent.LinkTitle }}</a
-          >
-        </li>
-        <li><span>{{ .LinkTitle }}</span></li>
-      </ul>
+    <div>
+      <div class="uk-container breadcrumb-menu">
+        <ul class="uk-breadcrumb uk-text-uppercase">
+          <li>
+            <a href="{{ .Parent.Permalink }}"
+              >{{ partial "font-awesome.html" "solid/angle-left" }}{{ .Parent.LinkTitle }}</a
+            >
+          </li>
+          <li><span>{{ .LinkTitle }}</span></li>
+        </ul>
+      </div>
     </div>
   {{ end }}
 {{ end }}
