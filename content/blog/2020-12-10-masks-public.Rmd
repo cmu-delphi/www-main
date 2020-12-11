@@ -117,10 +117,10 @@ over 90% in many, why does the rate of new COVID cases in the United States
 currently look like this?
 
 ```{r national_cases_time, message=FALSE}
-cases <- covidcast_signal("indicator-combination",
-                          "confirmed_7dav_incidence_num",
-                          start_day = "2020-09-15", end_day = "2020-12-05",
-                          geo_type = "state")
+cases <- covidcast_signal(
+  "indicator-combination", "confirmed_7dav_incidence_num",
+  start_day = "2020-09-15", end_day = "2020-12-05",
+  geo_type = "state")
 
 cases %>%
   group_by(time_value) %>%
@@ -220,15 +220,19 @@ Let's see how the data looks. We'll plot the percentage of people answering
 "all" or "most" to each mask question in each state:
 
 ```{r mask_questions_compared, message=FALSE}
-masked <- covidcast_signal("fb-survey", "smoothed_wwearing_mask",
-                           start_day = "2020-12-01", end_day = "2020-12-01",
-                           geo_type = "state")
-other_mask <- covidcast_signal("fb-survey", "smoothed_wothers_masked",
-                               start_day = "2020-12-01", end_day = "2020-12-01",
-                               geo_type = "state")
+masked <- covidcast_signal(
+  "fb-survey", "smoothed_wwearing_mask",
+  start_day = "2020-12-01", end_day = "2020-12-01",
+  geo_type = "state")
+
+other_mask <- covidcast_signal(
+  "fb-survey", "smoothed_wothers_masked",
+  start_day = "2020-12-01", end_day = "2020-12-01",
+  geo_type = "state")
 
 joined <- masked %>%
-    inner_join(other_mask, by = "geo_value", suffix = c(".self", ".other"))
+  inner_join(other_mask, by = "geo_value",
+             suffix = c(".self", ".other"))
 
 ggplot(joined, aes(x = value.self, y = value.other,
                    label = toupper(geo_value))) +
@@ -322,12 +326,14 @@ is done with a mask or not, it represents a higher risk. And the data shows that
 it's done more often in states where fewer people report wearing masks:
 
 ```{r social_distancing, message=FALSE}
-spent_time <- covidcast_signal("fb-survey", "smoothed_wspent_time_1d",
-                               start_day = "2020-12-01", end_day = "2020-12-01",
-                               geo_type = "state")
+spent_time <- covidcast_signal(
+  "fb-survey", "smoothed_wspent_time_1d",
+  start_day = "2020-12-01", end_day = "2020-12-01",
+  geo_type = "state")
 
 mask_time <- masked %>%
-  inner_join(spent_time, by = "geo_value", suffix = c(".mask", ".others"))
+  inner_join(spent_time, by = "geo_value",
+             suffix = c(".mask", ".others"))
 
 ggplot(mask_time,
        aes(x = value.mask, y = value.others, label = toupper(geo_value))) +
@@ -347,9 +353,10 @@ we can compare mask use to the proportion of people visiting restaurants in each
 
 ```{r restaurants, message=FALSE}
 # 2020-11-29 was most recent data available at time of writing
-restaurants <- covidcast_signal("safegraph", "restaurants_visit_prop",
-                                "2020-11-29", "2020-11-29",
-                                geo_type = "state")
+restaurants <- covidcast_signal(
+  "safegraph", "restaurants_visit_prop",
+  "2020-11-29", "2020-11-29",
+  geo_type = "state")
 
 mask_rest <- masked %>%
   inner_join(restaurants, by = "geo_value",
