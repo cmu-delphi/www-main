@@ -49,7 +49,7 @@ Facebook users](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`)
 throughout the United States. These surveys ask respondents about their
 experiences during the pandemic, and ask whether they're experiencing symptoms,
 whether they are isolating or following precautions, and how they have been
-affected by the pandemic. They survey has been completed over 14 million times
+affected by the pandemic. The survey has been completed over 14 million times
 since April, allowing us an unprecedented level of insight into COVID and
 people's experiences, down to individual counties around the country.
 
