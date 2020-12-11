@@ -174,6 +174,12 @@ team:
   affiliation: CMU/Heinz College
   team:
   - core
+- firstName: Wichada
+  lastName: La Motte-Kerr
+  image: wichada-lamotte-kerr-photo.png
+  affiliation:
+  team: CMU/MLD
+  - core
 - firstName: Samuel
   lastName: Gratzl
   image: sam-gratzl-500x500-min.jpg
@@ -218,12 +224,6 @@ team:
   image: jimi-kim-500x500-min.jpg
   affiliation: CMU/LTI
   note: Core member, March–April 2020
-  team:
-  - contributors
-- firstName: Wichada
-  lastName: La Motte-Kerr
-  image: wichada-lamotte-kerr-photo.png
-  affiliation:
   team:
   - contributors
 - firstName: Jenny
@@ -489,10 +489,6 @@ abbreviations:
 ## Core Members
 
 {{<team team="core" >}}
-
-## Interns
-
-{{<team team="interns" >}}
 
 ## Google Fellows
 
