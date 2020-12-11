@@ -26,7 +26,7 @@ output:
 <div id="TOC">
 <ul>
 <li><a href="#studying-mask-use-with-surveys">Studying Mask Use with Surveys</a></li>
-<li><a href="#potential-survey-biases">Potential Survey Biases</a></li>
+<li><a href="#addressing-potential-survey-biases">Addressing Potential Survey Biases</a></li>
 <li><a href="#a-probabilistic-argument-for-mask-use">A Probabilistic Argument for Mask Use</a></li>
 <li><a href="#public-activities-social-distancing-and-masks">Public Activities, Social Distancing, and Masks</a></li>
 <li><a href="#more-opportunities-in-survey-data">More Opportunities in Survey Data</a></li>
@@ -49,9 +49,9 @@ Delphi’s COVID symptom surveys can help answer these questions and how they ca
 enable important research about the pandemic and its spread.</p>
 <div id="studying-mask-use-with-surveys" class="section level2">
 <h2>Studying Mask Use with Surveys</h2>
-<p>Since April, and in partnership with Facebook Data for Good and the University
-of Maryland, Delphi has <a href="{{< ref "2020-08-26-fb-survey" >}}">conducted daily surveys of Facebook
-users</a>
+<p>Since April, and in partnership with Facebook Data for Good and the <a href="https://covidmap.umd.edu/">University
+of Maryland</a>, Delphi has <a href="{{< ref "2020-08-26-fb-survey" >}}">conducted daily surveys of
+Facebook users</a>
 throughout the United States. These surveys ask respondents about their
 experiences during the pandemic, and ask whether they’re experiencing symptoms,
 whether they are isolating or following precautions, and how they have been
@@ -116,10 +116,10 @@ make it easy to access aggregated data.)</p>
 states—might make you wonder: If mask usage is over 80% in most states and
 over 90% in many, why does the rate of new COVID cases in the United States
 currently look like this?</p>
-<pre class="r"><code>cases &lt;- covidcast_signal(&quot;indicator-combination&quot;,
-                          &quot;confirmed_7dav_incidence_num&quot;,
-                          start_day = &quot;2020-09-15&quot;, end_day = &quot;2020-12-05&quot;,
-                          geo_type = &quot;state&quot;)
+<pre class="r"><code>cases &lt;- covidcast_signal(
+  &quot;indicator-combination&quot;, &quot;confirmed_7dav_incidence_num&quot;,
+  start_day = &quot;2020-09-15&quot;, end_day = &quot;2020-12-05&quot;,
+  geo_type = &quot;state&quot;)
 
 cases %&gt;%
   group_by(time_value) %&gt;%
@@ -148,8 +148,8 @@ on, but wearing masks, they are nonetheless at greater risk than people who
 do none of those things.</li>
 </ol>
 </div>
-<div id="potential-survey-biases" class="section level2">
-<h2>Potential Survey Biases</h2>
+<div id="addressing-potential-survey-biases" class="section level2">
+<h2>Addressing Potential Survey Biases</h2>
 <p>To answer the first question, we must consider what kinds of biases could affect
 the surveys:</p>
 <ul>
@@ -215,15 +215,19 @@ transit) and see <em>other</em> people there, we may get a better estimate of pu
 mask use.</p>
 <p>Let’s see how the data looks. We’ll plot the percentage of people answering
 “all” or “most” to each mask question in each state:</p>
-<pre class="r"><code>masked &lt;- covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_wwearing_mask&quot;,
-                           start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
-                           geo_type = &quot;state&quot;)
-other_mask &lt;- covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_wothers_masked&quot;,
-                               start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
-                               geo_type = &quot;state&quot;)
+<pre class="r"><code>masked &lt;- covidcast_signal(
+  &quot;fb-survey&quot;, &quot;smoothed_wwearing_mask&quot;,
+  start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
+  geo_type = &quot;state&quot;)
+
+other_mask &lt;- covidcast_signal(
+  &quot;fb-survey&quot;, &quot;smoothed_wothers_masked&quot;,
+  start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
+  geo_type = &quot;state&quot;)
 
 joined &lt;- masked %&gt;%
-    inner_join(other_mask, by = &quot;geo_value&quot;, suffix = c(&quot;.self&quot;, &quot;.other&quot;))
+  inner_join(other_mask, by = &quot;geo_value&quot;,
+             suffix = c(&quot;.self&quot;, &quot;.other&quot;))
 
 ggplot(joined, aes(x = value.self, y = value.other,
                    label = toupper(geo_value))) +
@@ -354,12 +358,14 @@ masks are working; we must also compare their level of social distancing.</p>
 is “Spent time with someone who isn’t currently staying with you”; whether this
 is done with a mask or not, it represents a higher risk. And the data shows that
 it’s done more often in states where fewer people report wearing masks:</p>
-<pre class="r"><code>spent_time &lt;- covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_wspent_time_1d&quot;,
-                               start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
-                               geo_type = &quot;state&quot;)
+<pre class="r"><code>spent_time &lt;- covidcast_signal(
+  &quot;fb-survey&quot;, &quot;smoothed_wspent_time_1d&quot;,
+  start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
+  geo_type = &quot;state&quot;)
 
 mask_time &lt;- masked %&gt;%
-  inner_join(spent_time, by = &quot;geo_value&quot;, suffix = c(&quot;.mask&quot;, &quot;.others&quot;))
+  inner_join(spent_time, by = &quot;geo_value&quot;,
+             suffix = c(&quot;.mask&quot;, &quot;.others&quot;))
 
 ggplot(mask_time,
        aes(x = value.mask, y = value.others, label = toupper(geo_value))) +
@@ -376,9 +382,10 @@ cell phone location data. Using <a href="https://cmu-delphi.github.io/delphi-epi
 API</a>,
 we can compare mask use to the proportion of people visiting restaurants in each state:</p>
 <pre class="r"><code># 2020-11-29 was most recent data available at time of writing
-restaurants &lt;- covidcast_signal(&quot;safegraph&quot;, &quot;restaurants_visit_prop&quot;,
-                                &quot;2020-11-29&quot;, &quot;2020-11-29&quot;,
-                                geo_type = &quot;state&quot;)
+restaurants &lt;- covidcast_signal(
+  &quot;safegraph&quot;, &quot;restaurants_visit_prop&quot;,
+  &quot;2020-11-29&quot;, &quot;2020-11-29&quot;,
+  geo_type = &quot;state&quot;)
 
 mask_rest &lt;- masked %&gt;%
   inner_join(restaurants, by = &quot;geo_value&quot;,
@@ -435,5 +442,8 @@ masks regularly. Our survey asks respondents about these types of activities,
 allowing us to understand how behavior varies. If you’re an academic or
 nonprofit researcher and want to do this kind of research, check out our <a href="https://cmu-delphi.github.io/delphi-epidata/symptom-survey/">survey
 documentation to get
-started</a>.</p>
+started</a>. And if
+you’re interested in similar data in numerous other countries around the world,
+check out <a href="https://covidmap.umd.edu/">the University of Maryland’s survey</a>,
+which makes similar data available to researchers.</p>
 </div>

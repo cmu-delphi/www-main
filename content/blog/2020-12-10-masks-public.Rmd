@@ -43,9 +43,9 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 ## Studying Mask Use with Surveys
 
-Since April, and in partnership with Facebook Data for Good and the University
-of Maryland, Delphi has [conducted daily surveys of Facebook
-users](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`)
+Since April, and in partnership with Facebook Data for Good and the [University
+of Maryland](https://covidmap.umd.edu/), Delphi has [conducted daily surveys of
+Facebook users](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`)
 throughout the United States. These surveys ask respondents about their
 experiences during the pandemic, and ask whether they're experiencing symptoms,
 whether they are isolating or following precautions, and how they have been
@@ -417,4 +417,7 @@ masks regularly. Our survey asks respondents about these types of activities,
 allowing us to understand how behavior varies. If you're an academic or
 nonprofit researcher and want to do this kind of research, check out our [survey
 documentation to get
-started](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/).
+started](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/). And if
+you're interested in similar data in numerous other countries around the world,
+check out [the University of Maryland's survey](https://covidmap.umd.edu/),
+which makes similar data available to researchers.
