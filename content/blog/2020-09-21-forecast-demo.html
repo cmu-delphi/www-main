@@ -120,15 +120,19 @@ so that they are true proportions: between 0 and 1.)
 We evaluate the following four models:</p>
 <p><span class="math display">\[
 \begin{aligned}
-&amp;\text{Cases:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
-&amp;\text{Cases + Facebook:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases + Facebook:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
-&amp;\text{Cases + Google:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases + Google:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
-&amp;\text{Cases + Facebook + Google:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases + Facebook + Google:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) +
 \sum_{j=0}^2 \tau_j h(G_{\ell,t-7j}).

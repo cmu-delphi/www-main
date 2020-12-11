@@ -111,15 +111,19 @@ We evaluate the following four models:
 
 $$
 \begin{aligned}
-&\text{Cases:} \quad && h(Y_{\ell,t+d})
+&\text{Cases:} \\
+& h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
-&\text{Cases + Facebook:} \quad && h(Y_{\ell,t+d})
+&\text{Cases + Facebook:} \\
+& h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
-&\text{Cases + Google:} \quad && h(Y_{\ell,t+d})
+&\text{Cases + Google:} \\
+& h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
-&\text{Cases + Facebook + Google:} \quad && h(Y_{\ell,t+d})
+&\text{Cases + Facebook + Google:} \\
+& h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) +
 \sum_{j=0}^2 \tau_j h(G_{\ell,t-7j}).
