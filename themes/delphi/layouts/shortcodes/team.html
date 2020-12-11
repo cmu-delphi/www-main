@@ -8,7 +8,7 @@
     {{ $img := $images.GetMatch (path.Join "images" .image) }}
     <div class="team-member">
       <img src="{{ ($img.Resize "250x250").RelPermalink }}" alt="{{ printf "%s %s" .firstName .lastName }}" />
-      <div class="uk-text-bold">{{ printf "%s %s" .firstName .lastName }}</div>
+      <div class="uk-text-bold">{{ printf "%s %s" .firstName .lastName | safeHTML }}</div>
       <div>{{ .affiliation }}</div>
       {{ if isset . "note" }}
         <div class="uk-text-small">{{ .note }}</div>

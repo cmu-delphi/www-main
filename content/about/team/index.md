@@ -175,7 +175,7 @@ team:
   team:
   - core
 - firstName: Wichada
-  lastName: La Motte-Kerr
+  lastName: La&nbsp;Motte&#x2011;Kerr
   image: wichada-lamotte-kerr-photo.png
   affiliation: CMU/MLD
   team:
