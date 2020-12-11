@@ -1,11 +1,15 @@
 ---
-title: "Accessing Open COVID-19 Data via the COVIDcast Epidata API"
-author: "Kathryn Mazaitis and Alex Reinhart"
+title: Accessing Open COVID-19 Data via the COVIDcast Epidata API
+author: Kathryn Mazaitis and Alex Reinhart
 date: 2020-10-07
-tags: ["COVIDcast API", "COVIDcast", "R", "Python"]
+tags:
+  - COVIDcast API
+  - COVIDcast
+  - R
+  - Python
 authors:
-- kathryn
-- alex
+  - kathryn
+  - alex
 heroImage: /blog/images/blog-lg-img_Accessing Open COVID-19.png
 heroImageThumb: /blog/images/blog-thumb-img_Accessing Open COVID-19.png
 summary: |
@@ -548,7 +552,7 @@ g1 &lt;- plot(dv, time_value = &quot;2020-07-15&quot;, include = south,
 g2 &lt;- plot(dv, time_value = &quot;2020-08-24&quot;, include = south,
            title = &quot;% of doctor&#39;s visits due to CLI on August 24&quot;)
 grid.arrange(g1, g2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-08-28-api_files/figure-html/dv-maps-1.svg" width="960" /></p>
+<p><img src="/blog/2020-08-28-api_files/figure-html/dv-maps-1.svg" width="960" class="wide-figure" /></p>
 <p>In Python, fetching data requires the
 <a href="https://cmu-delphi.github.io/covidcast/covidcast-py/html/">Python covidcast package</a>,
 which can quickly produce a Pandas data frame.

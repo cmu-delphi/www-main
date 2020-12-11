@@ -17,11 +17,12 @@ $navbar-dropdown-padding: 10px;
 $navbar-dropdown-nav-item-color: #232735;
 $nav-default-item-active-color: red;
 
-$button-padding-horizontal: 0px;
-$button-line-height: 0px;
+// size when both the burger menu and the navbar should be visible
+$menu-mode-hybrid: 1140px;
+// size when only the burger menu is visible
+$menu-mode-mobile-only: $breakpoint-small;
 
-
+// Breadcrumb
 $breadcrumb-divider-margin-horizontal: 3px;
 
-
-$grid-gap: (32/1440)*100%;
+$grid-gap: (32/1440) * 100%;
