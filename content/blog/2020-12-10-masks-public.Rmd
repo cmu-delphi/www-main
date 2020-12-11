@@ -1,7 +1,7 @@
 ---
 title: "Are Masks Widely Used in Public?"
 author: "Alex Reinhart"
-date: 2020-12-07
+date: 2020-12-11
 tags:
   - R
   - symptom surveys
@@ -25,10 +25,12 @@ repeatedly reminded that unless we take the appropriate precautions---by wearing
 masks when around other people, working from home whenever possible, and
 avoiding travel and crowded places---there will be a high rate of COVID deaths.
 Vaccines are on their way, but until they arrive, we must continue social
-distancing. But as we consider the precautions we've already taken and the
-sacrifices we have made in our lives during 2020, it's natural to ask: Why
-haven't these precautions prevented the current COVID spike? If everyone is
-wearing masks, why are cases increasing?
+distancing.
+
+But after all the precautions we've taken and the sacrifices we have made in our
+lives during 2020, we have seen many people ask: Why haven't these precautions
+prevented the current COVID spike? Some have even argued that this is proof that
+masks and social distancing do not work. Can this claim be justified?
 
 To answer this question, we must first ask: *Is* everyone wearing masks? And are
 they also socially distancing in other ways? In this post, we'll show how
@@ -47,11 +49,11 @@ users](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`)
 throughout the United States. These surveys ask respondents about their
 experiences during the pandemic, and ask whether they're experiencing symptoms,
 whether they are isolating or following precautions, and how they have been
-affected by the pandemic. They survey has been completed 14 million times since
-April, allowing us an unprecedented level of insight into COVID and people's
-experiences, down to individual counties around the country.
+affected by the pandemic. They survey has been completed over 14 million times
+since April, allowing us an unprecedented level of insight into COVID and
+people's experiences, down to individual counties around the country.
 
-[Since in early
+[Since early
 September](`r blogdown::shortcode_html("ref", "2020-10-06-survey-wave-4")`)
 we have asked all respondents a question about mask use:
 
@@ -64,7 +66,8 @@ we have asked all respondents a question about mask use:
 > 5. None of the time
 > 6. I have not been in public during the past 5 days
 
-Early analysis suggests that mask usage is high in most states, and in those where it was lower, it has been gradually increasing. For example, the graph
+Early analysis suggests that mask usage is high in most states, and in those
+where it was lower, it has been gradually increasing. For example, the graph
 below shows the percentage of respondents who answer "Most of the time" or "All
 of the time" in six states (including DC). In three of these (the District of
 Columbia, Massachusetts, and New York), mask usage is among the highest in the
@@ -162,35 +165,40 @@ the surveys:
   who take the survey might be different in some way. For example, perhaps the
   people who take the survey are more concerned about COVID than those who
   choose not to, and hence are more likely to wear masks than the general
-  population. Facebook's weights also try to account for this by estimating the
+  population. Facebook's weights try to account for this by estimating the
   probability that each person will respond, but it's difficult to verify that
   this probability is estimated correctly.
 * **Social desirability bias.** It's well-known that survey respondents can
-  choose answers that seem socially desirable. If mask usage is widely
-  accepted and there is immense social pressure to comply, someone who does not
-  usually wear a mask may feel pressure to say they do on a survey. This effect
-  is likely smaller on an anonymous online survey than it would be in person,
-  but it could still be present.
-* **Different amounts of time in public.** If, for example, people who wear
-  masks also tend to limit the amount of time they spend in public places, while
-  people who do not wear masks spend more time in public, people in public may
-  be more likely to also be people who don't wear masks.
+  prefer answers that seem socially desirable. If mask usage is widely accepted
+  and there is immense social pressure to comply, someone who does not usually
+  wear a mask may feel pressure to say they do on a survey. This effect is
+  likely smaller on an anonymous online survey than it would be in person, but
+  it could still be present.
 * **Incorrect responses.** Some survey respondents may deliberately give
   incorrect answers because when you post something on the Internet, inevitably
   someone will try to mess with it. Sometimes this is easy to detect (e.g.,
   people indicating that they are experiencing *every* symptom of a list of 16
   or that they have -20 family members), but not always.
 
-These biases are hard to measure directly. We don't have a way to tell if a
-respondent is truthful, and since there's no objective national data on the
-exact percentage of people wearing masks in public, we have no way to
-check exactly how biased results could be. ([Some cities are collecting
-interesting
-data](https://bloombergcities.medium.com/how-philadelphia-is-cracking-the-code-for-measuring-mask-compliance-7ace18daa9a9),
-though!)
+These biases are hard to measure directly. There's another problem too: If 90%
+of people say they wear masks when they're in public, that doesn't mean that 90%
+of people in public places are wearing masks! For example, if people who wear
+masks also tend to limit the amount of time they spend in public places, while
+people who do not wear masks spend more time in public, people in public may be
+more likely to also be people who don't wear masks.
 
-Instead, we chose a different way to check our mask use estimates. In late
-November, we added a new mask question to the survey:
+We don't have a way to tell if a respondent is truthful, and since there's no
+objective national data on the exact percentage of people wearing masks in
+public, we have no way to check exactly how biased results could be. We have
+seen hints, however: when researchers in Philadelphia [studied surveillance
+camera footage to count how many people in public places wear masks
+correctly](https://bloombergcities.medium.com/how-philadelphia-is-cracking-the-code-for-measuring-mask-compliance-7ace18daa9a9),
+only 43% did, despite over 90% of Philadelphia respondents to our survey saying
+they wear masks most or all of the time. Unfortunately this is only one study in
+one city, and doesn't give us a picture of mask usage nationally.
+
+After consulting with survey experts, we chose a different way to check our mask
+use estimates. In late November, we added a new mask question to the survey:
 
 > In the past 7 days, when out in public places where social distancing is not
 > possible, about how many people would you estimate wore masks?
@@ -226,7 +234,6 @@ joined <- masked %>%
 ggplot(joined, aes(x = value.self, y = value.other,
                    label = toupper(geo_value))) +
   geom_text() +
-  geom_abline(slope = 1, intercept = 0) +
   labs(x = "% who report wearing masks most/all the time",
        y = "% who report most/all others wear masks",
        title = "Mask use reported in symptom survey",
@@ -237,7 +244,7 @@ ggplot(joined, aes(x = value.self, y = value.other,
 
 There are a few things worthy of note. There is clearly a strong relationship
 here---but notice that in South Dakota and Wyoming, where over 80% report they
-wear masks most or all of the time, fewer than half of respondents agree that
+wear masks most or all of the time, **fewer than half** of respondents agree that
 most or all *other* people wear masks in public places. Only in a few states do
 over 90% of respondents agree that most other people wear masks:
 
@@ -253,12 +260,13 @@ joined %>%
 
 But we should also be careful in interpreting this. In South Dakota and Wyoming,
 fewer than half of respondents agree that most or all other people wear masks.
-That's not the same thing as saying that fewer than half of people wear masks.
-For example, if people interpret "most people wear masks" to mean "I only see
-one or two people not wearing masks when I'm in public", "most" could correspond
-to 80 or 90% mask use, rather than just 50%. It's not obvious how to translate
-the survey question into an estimate of the percent of people wearing masks. So
-what can we learn from this?
+We can conclude that it's clearly untrue that "everyone wears masks", but this
+is not the same thing as saying that fewer than half of people wear masks. For
+example, if people interpret "most people wear masks" to mean "I only see one or
+two people not wearing masks when I'm in public", "most" could correspond to 80
+or 90% mask use, rather than just 50%. It's not obvious how to translate the
+survey question into an estimate of the percent of people wearing masks. So what
+can we learn from this?
 
 ## A Probabilistic Argument for Mask Use
 
@@ -294,7 +302,7 @@ distributed is false, and if people without masks tend to visit the same
 locations or events, or gather together for social events, or go out in public
 more often than people who do wear masks.
 
- In short, there are numerous opportunities for COVID transmission even when
+In short, there are numerous opportunities for COVID transmission even when
 over three-quarters of people wear masks. Only a very high rate of mask usage
 can dramatically reduce these opportunities.
 
@@ -373,13 +381,20 @@ social distancing behavior.
 ## More Opportunities in Survey Data
 
 Above, we've seen how our survey data can shed light on mask use in the United
-States. Insights like these are important: Using this information about mask use
+States. Mask use is not as universal as it might seem, and there's substantial
+variation between states on mask use and other social distancing behaviors.
+Insights like these are important: Using this information about mask use
 and activity, authorities can target their emergency orders and provide more
-specific advice to the public. Meanwhile, public health researchers can combine
-this data with other sources to study how the pandemic spreads and what
+specific advice to the public.
+
+While a short blog post can't hope to offer a thorough analysis proving which
+behaviors reduce spread the most, we've make all our data publicly available
+that the public health researchers building detailed models of COVID's spread
+can combine it with other data to study how the pandemic spreads and what
 interventions are most effective to stop it.
 
-All of the data used above is publicly available---see our [COVIDcast Epidata
+If you're one of those researchers, or you think this data could be useful for
+your reporting or decision-making, see our [COVIDcast Epidata
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) for details
 on how to get it. Numerous aggregates from the survey data, including more
 measures of public activity, are [available through the
