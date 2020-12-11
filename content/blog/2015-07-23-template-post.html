@@ -6,14 +6,17 @@ tags:
   - R Markdown
   - plot
   - regression
-draft: true
-authors:
+draft: true # remove this line in new blog posts
+authors: # list of author keys, see /data/authors.yaml
   - frida
 heroImage: /blog/images/blog-lg-img_hello-world.png
 heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
+summary: |
+  Blog summary, the first 150 characters are used for the blog list
+acknowledgements: |
+  List acknowledgements here
 related:
   - 2015-07-23-template-post
-acknowledgements: Test
 output:
   blogdown::html_page:
     toc: true
@@ -34,14 +37,16 @@ output:
 <ul>
 <li><a href="#tags">Tags</a></li>
 </ul></li>
+<li><a href="#linking">Linking</a>
+<ul>
+<li><a href="#linking-to-other-pages-and-blog-posts">Linking to other pages and blog posts:</a></li>
+<li><a href="#linking-to-the-api-doc">Linking to the API doc:</a></li>
+</ul></li>
 </ul>
 </div>
 
 <p>Each blog post is an R Markdown document. For more details on using R Markdown
-see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. The first paragraph or so will appear on the
-front page; by default the first 70 words are used. If you want to specify the
-exact text, you can specify a <code>summary</code> front matter variable. Usually we do
-not include links in the teaser.</p>
+see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
 <p>You can embed an R code chunk like this:</p>
 <pre class="r"><code>summary(cars)
 ##      speed           dist       
@@ -108,13 +113,11 @@ dollars for display math: <span class="math inline">\(x = \sum_{i=1}^n i\)</span
 </div>
 <div id="metadata" class="section level2">
 <h2>Metadata</h2>
-<p>Each post has a title, author, date, and tags. The <code>draft</code> attribute marks a
-post that should not be included in the rendered and published site, such as
-this one. Choose bold, active titles, like “Delphi releases new survey data”,
+<p>Each post has a title, author, date, and tags.
+Choose bold, active titles, like “Delphi releases new survey data”,
 rather than boring titles like “New survey aggregates”.</p>
-<p>The author metadata should credit the post author or authors; as shown at the
-end of this example post, you should also include a block about the authors and
-linking to their home pages. But in the post text, you should also generously
+<p>The author metadata should credit the post author or authors; But in the post acknowledgements,
+you should also generously
 name anyone who helped with parts of your post, e.g., the team members who
 obtained data or set up a server or developed a package you use.</p>
 <div id="tags" class="section level3">
@@ -133,5 +136,20 @@ suggest we consider the following tags as base tags:</p>
 <li>R (for posts containing R, typically, our covidcast R package)</li>
 <li>Python (for posts containing Python, typically, our covicast Python package)</li>
 </ul>
+</div>
+</div>
+<div id="linking" class="section level2">
+<h2>Linking</h2>
+<div id="linking-to-other-pages-and-blog-posts" class="section level3">
+<h3>Linking to other pages and blog posts:</h3>
+<p>using the file name and the Hugo shortcodes, e.g.: <a href="{{< relref "2020-08-26-fb-survey" >}}">Facebook Post</a>.
+Jumping to a specific section/anchor is supported too:
+<a href="{{< relref "2020-08-26-fb-survey#some-interesting-examples" >}}">previous exploratory investigations</a></p>
+</div>
+<div id="linking-to-the-api-doc" class="section level3">
+<h3>Linking to the API doc:</h3>
+<p>there is another shortcode for creating an api link, e.g. 
+<a href="{{< apiref "/" >}}">public API</a> or
+<a href="{{< apiref "api/covidcast.html" >}}">public COVIDCast API</a></p>
 </div>
 </div>
