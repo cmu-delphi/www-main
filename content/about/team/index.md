@@ -177,8 +177,8 @@ team:
 - firstName: Wichada
   lastName: La Motte-Kerr
   image: wichada-lamotte-kerr-photo.png
-  affiliation:
-  team: CMU/MLD
+  affiliation: CMU/MLD
+  team:
   - core
 - firstName: Samuel
   lastName: Gratzl
