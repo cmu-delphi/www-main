@@ -83,23 +83,23 @@ library(directlabels)
 states_of_interest <- c("dc", "ma", "ny", "wy", "sd", "id")
 
 state_masks <- covidcast_signal(
-    "fb-survey", "smoothed_wwearing_mask",
-    start_day = "2020-09-15", end_day = "2020-12-05",
-    geo_type = "state", geo_values = states_of_interest
+  "fb-survey", "smoothed_wwearing_mask",
+  start_day = "2020-09-15", end_day = "2020-12-05",
+  geo_type = "state", geo_values = states_of_interest
 )
 
 ggplot(state_masks, aes(x = time_value, y = value, color = geo_value)) +
-    geom_line() +
-    geom_dl(aes(label = toupper(geo_value)), method = "last.bumpup") +
-    scale_x_date(date_breaks = "1 month",
-                 date_labels = "%b %Y",
-                 date_minor_breaks = "1 week") +
-    labs(x = "Date", y = "% wearing masks in public most/all the time",
-         title = "Self-reported public mask usage",
-         subtitle = "From Delphi's surveys, conducted through Facebook",
-         caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
-    theme_bw() +
-    guides(color = FALSE)
+  geom_line() +
+  geom_dl(aes(label = toupper(geo_value)), method = "last.bumpup") +
+  scale_x_date(date_breaks = "1 month",
+               date_labels = "%b %Y",
+               date_minor_breaks = "1 week") +
+  labs(x = "Date", y = "% wearing masks in public most/all the time",
+       title = "Self-reported public mask usage",
+       subtitle = "From Delphi's surveys, conducted through Facebook",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+  theme_bw() +
+  guides(color = FALSE)
 ```
 
 Despite the gap between states, it also seems clear that self-reported mask use
@@ -123,18 +123,18 @@ cases <- covidcast_signal("indicator-combination",
                           geo_type = "state")
 
 cases %>%
-    group_by(time_value) %>%
-    summarize(cases = sum(value)) %>%
-    ggplot(aes(x = time_value, y = cases)) +
-    geom_line() +
-    scale_x_date(date_breaks = "1 month",
-                 date_labels = "%b %Y",
-                 date_minor_breaks = "1 week") +
-    labs(x = "Date", y = "Reported new cases",
-         title = "Number of reported new cases per day",
-         subtitle = "7-day rolling average",
-         caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
-    theme_bw()
+  group_by(time_value) %>%
+  summarize(cases = sum(value)) %>%
+  ggplot(aes(x = time_value, y = cases)) +
+  geom_line() +
+  scale_x_date(date_breaks = "1 month",
+               date_labels = "%b %Y",
+               date_minor_breaks = "1 week") +
+  labs(x = "Date", y = "Reported new cases",
+       title = "Number of reported new cases per day",
+       subtitle = "7-day rolling average",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+  theme_bw()
 ```
 
 To answer this important question, we must ask:
