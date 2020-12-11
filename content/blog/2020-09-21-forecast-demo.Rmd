@@ -329,7 +329,7 @@ the "Cases + Facebook" and "Cases + Google" models
 appear to deliver some decently small p-values,
 but the story is not as clear with the "Cases + Facebook + Google" model.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 3.5}
+```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 3.5, out.extra = 'class="wide-figure"'}
 # Red, blue (similar to ggplot defaults), then yellow
 ggplot_colors = c("#FC4E07", "#00AFBB", "#E7B800")
 
@@ -408,7 +408,7 @@ The former appears to be below the latter pretty consistently over time,
 with the possible exception of periods where forecasting
 becomes "hard" and the scaled errors shoot above 1.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 5}
+```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 5, out.extra = 'class="wide-figure"'}
 # Plot median errors as a function of time, for models 1 and 2, and both 7 and
 # 14 days ahead
 ggplot(res_err2 %>%

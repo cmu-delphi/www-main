@@ -62,9 +62,21 @@ $blog-list-date-width: 5em;
 
 .blog-blog {
   // center align auto generated images
-  p > img:first-of-type {
+  p > img:first-of-type,
+  .figure > img:first-of-type {
     display: block;
     margin: 0 auto;
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .blog-blog > *,
+  .blog-blog div.section > * {
+    margin-right: 25%;
+  }
+  .blog-blog div.section,
+  .blog-blog .blog-image-wrapper.wide-figure {
+    margin-right: unset !important;
   }
 }
 
