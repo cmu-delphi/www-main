@@ -8,8 +8,8 @@ tags:
   - COVIDcast
 authors:
 - alex
-heroImage: /blog/images/blog-lg-img_hello-world.png
-heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
+heroImage: /blog/images/masks-public-full-size.jpg
+heroImageThumb: /blog/images/masks-public-thumb.jpg
 related:
 - 2020-10-06-survey-wave-4
 acknowledgements: Wichada La Motte-Kerr drafted numerous survey revisions, collected input from experts, and manageed the process of deploying the new survey questions. Sarah LaRocca and Katherine Morris at Facebook gave important input and helped deploy the survey. Kathryn Mazaitis assisted in producing the new aggregate survey data.
