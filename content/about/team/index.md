@@ -463,7 +463,7 @@ team:
   team:
   - google
   note: Founding member 2012–2016, Core member March–April 2020
-  - firstName: Shreenath
+- firstName: Shreenath
   lastName: Regunathan
   image: shreenath-regunathan-head-shot.jpg
   affiliation: Product Manager
