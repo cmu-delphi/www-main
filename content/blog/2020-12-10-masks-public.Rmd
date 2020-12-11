@@ -217,8 +217,7 @@ transit) and see *other* people there, we may get a better estimate of public
 mask use.
 
 Let's see how the data looks. We'll plot the percentage of people answering
-"all" or "most" to each mask question in each state, with a diagonal line
-indicating perfect agreement between the numbers:
+"all" or "most" to each mask question in each state:
 
 ```{r mask_questions_compared, message=FALSE}
 masked <- covidcast_signal("fb-survey", "smoothed_wwearing_mask",
