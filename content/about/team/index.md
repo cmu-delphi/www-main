@@ -29,6 +29,12 @@ team:
   team:
   - core
   - highlight
+- firstName: Nat
+  lastName: DeFries
+  image: nat-defries.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Jodi
   lastName: Forlizzi
   image: jodi-forlizzi-500x500-min.jpg
@@ -121,7 +127,7 @@ team:
 - firstName: Dmitry
   lastName: Shemetov
   image: dmitry-shemetov-500x500-min.jpg
-  affiliation: UC Davis
+  affiliation: CMU/MLD
   team:
   - core
 - firstName: Jingjing
@@ -180,12 +186,6 @@ team:
   affiliation: CMU/HCII
   team:
   - interns
-- firstName: Wael Al
-  lastName: Saeed
-  image: wael-al-saeed-500x50-min.jpg
-  affiliation: CMU/CSD
-  team:
-  - interns
 - firstName: Vishnu
   lastName: Shankar
   image: vishn-hankar-500x500-min.jpg
@@ -234,7 +234,7 @@ team:
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
   affiliation: CMU/LTI
-  note: Core member, March – April 2020
+  note: Core member, March–April 2020
   team:
   - contributors
 - firstName: Wichada
@@ -275,6 +275,13 @@ team:
   affiliation:
   team:
   - contributors
+- firstName: Wael Al
+  lastName: Saeed
+  image: wael-al-saeed-500x50-min.jpg
+  affiliation: CMU/CSD
+  team:
+  - past
+  note: Intern, Summer 2020
 - firstName: Amartya
   lastName: Basu
   image: amartya-basu-500x500-min.jpg
@@ -288,7 +295,7 @@ team:
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March – April 2020
+  note: Core member, March–April 2020
 - firstName: EJ
   lastName: Fox
   image: ej-fox-500x500-min.jpg
@@ -309,7 +316,7 @@ team:
   affiliation: USC
   team:
   - past
-  note: Core member, March – May 2020; Contributor, May - July 2020
+  note: Core member, March–May 2020; Contributor, May–July 2020
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -322,7 +329,7 @@ team:
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March – April 2020
+  note: Core member, March–April 2020
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
@@ -330,35 +337,35 @@ team:
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March – April 2020; Contributor 2020
+  note: Core member, March–April 2020; Contributor 2020
 - firstName: Lester
   lastName: Mackey
   image: lester-mackey-500x500-min.jpg
   affiliation: Microsoft Research/Stanford
   team:
   - past
-  note: Core member, March – May 2020
+  note: Core member, March–May 2020
 - firstName: Pratik
   lastName: Patil
   image: pratik-patil-500x500-min.jpg
   affiliation: CMU/Stat
   team:
   - past
-  note: Core member, March – May 2020
+  note: Core member, March–May 2020
 - firstName: Samyak
   lastName: Rajanala
   image: samyak-rajanala-500x500-min.jpg
   affiliation: Stanford University
   team:
   - past
-  note: Core member, May – July 2020
+  note: Core member, May–July 2020
 - firstName: Noah
   lastName: Simon
   image: noah-simon-500x500-min.jpg
   affiliation: University of Washington
   team:
   - past
-  note: Core member, may – June 2020
+  note: Core member, May–June 2020
 - firstName: Vishakha
   lastName: Srivastava
   image: vishakha-srivastava-500x500-min.jpg
@@ -372,7 +379,7 @@ team:
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March – April 2020; Contributor 2020
+  note: Core member, March–April 2020; Contributor 2020
 - firstName: Mike
   lastName: O'Brien
   image: mike-o'brien_head-shot.jpg
@@ -452,6 +459,13 @@ team:
   team:
   - google
   note: Founding member 2012–2016, Core member March–April 2020
+  - firstName: Shreenath
+  lastName: Regunathan
+  image: shreenath-regunathan-head-shot.jpg
+  affiliation: Product Manager
+  team:
+  - google
+
 
 others: |
  MLD administrators Christy Melucci and Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
