@@ -149,7 +149,7 @@ To answer this important question, we must ask:
    on, but wearing masks, they are nonetheless at greater risk than people who
    do none of those things.
 
-## Potential Survey Biases
+## Addressing Potential Survey Biases
 
 To answer the first question, we must consider what kinds of biases could affect
 the surveys:
