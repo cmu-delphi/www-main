@@ -137,13 +137,14 @@ cases %>%
   theme_bw()
 ```
 
-To answer this important question, we must ask:
+While we can't explain all of COVID in one blog post---nor do we have the data
+and science needed to do so---we *can* address two key questions:
 
 1. Do the surveys reliably measure mask use in public? If they are biased in
    some way, perhaps mask use is not as common as they suggest.
-2. How much mask use is necessary to prevent cases? If some people do not wear
-   masks and interact with each other, they may spread COVID. Also, masks
-   *reduce* risk; [they do not eliminate
+2. Are people adopting other social distancing behaviors alongside masks? If
+   some people do not wear masks and interact with each other, they may spread
+   COVID. Also, masks *reduce* risk; [they do not eliminate
    it](https://www.preprints.org/manuscript/202004.0203/v4). If people are
    working indoors around others, hosting social events, dining indoors, and so
    on, but wearing masks, they are nonetheless at greater risk than people who
@@ -193,9 +194,9 @@ public, we have no way to check exactly how biased results could be. We have
 seen hints, however: when researchers in Philadelphia [studied surveillance
 camera footage to count how many people in public places wear masks
 correctly](https://bloombergcities.medium.com/how-philadelphia-is-cracking-the-code-for-measuring-mask-compliance-7ace18daa9a9),
-only 43% did, despite over 90% of Philadelphia respondents to our survey saying
-they wear masks most or all of the time. Unfortunately this is only one study in
-one city, and doesn't give us a picture of mask usage nationally.
+**only 43% did**, despite over 90% of Philadelphia respondents to our survey
+saying they wear masks most or all of the time. Unfortunately this is only one
+study in one city, and doesn't give us a picture of mask usage nationally.
 
 After consulting with survey experts, we chose a different way to check our mask
 use estimates. In late November, we added a new mask question to the survey:
