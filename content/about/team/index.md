@@ -174,24 +174,6 @@ team:
   affiliation: CMU/Heinz College
   team:
   - core
-- firstName: Eu Jing
-  lastName: Chua
-  image: eu-jing-chua-500x500-min.jpg
-  affiliation: CMU/MLD
-  team:
-  - interns
-- firstName: Jenny
-  lastName: Lee
-  image: jenny-yeon-jin-lee-500x500-min.jpg
-  affiliation: CMU/HCII
-  team:
-  - interns
-- firstName: Vishnu
-  lastName: Shankar
-  image: vishn-hankar-500x500-min.jpg
-  affiliation: Stanford University
-  team:
-  - interns
 - firstName: Samuel
   lastName: Gratzl
   image: sam-gratzl-500x500-min.jpg
@@ -217,17 +199,18 @@ team:
   team:
   - contributors
   note: Core member, May–June 2020
+- firstName: Eu Jing
+  lastName: Chua
+  image: eu-jing-chua-500x500-min.jpg
+  affiliation: CMU/MLD
+  team:
+  - contributors
+  note: Intern, Summer 2020
 - firstName: Alden
   lastName: Green
   image: alden-green-500x500-min.jpg
   affiliation: CMU/Stat
   note: Core member, May–July 2020
-  team:
-  - contributors
-- firstName: Shantanu
-  lastName: Gupta
-  image: profile-placeholder.png
-  affiliation:
   team:
   - contributors
 - firstName: Jimi
@@ -243,6 +226,13 @@ team:
   affiliation:
   team:
   - contributors
+- firstName: Jenny
+  lastName: Lee
+  image: jenny-yeon-jin-lee-500x500-min.jpg
+  affiliation: CMU/HCII
+  team:
+  - contributors
+  note: Intern, Summer 2020
 - firstName: Kenneth
   lastName: Lee
   image: profile-placeholder.png
@@ -263,6 +253,13 @@ team:
   team:
   - contributors
   note: Core member, March - October 2020
+- firstName: Vishnu
+  lastName: Shankar
+  image: vishn-hankar-500x500-min.jpg
+  affiliation: Stanford University
+  team:
+  - contributors
+  note: Intern, Summer 2020
 - firstName: Venkatesh
   lastName: Sivaraman
   image: profile-placeholder.png
@@ -303,6 +300,13 @@ team:
   team:
   - past
   note: Contractor, 2020
+- firstName: Shantanu
+  lastName: Gupta
+  image: profile-placeholder.png
+  affiliation:
+  team:
+  - past
+  note: Contributor, 2020
 - firstName: Robin
   lastName: Han
   image: robin-han-500x500-min.jpg
