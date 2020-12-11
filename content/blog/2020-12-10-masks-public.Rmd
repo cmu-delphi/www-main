@@ -81,13 +81,13 @@ states_of_interest <- c("dc", "ma", "ny", "wy", "sd", "id")
 
 state_masks <- covidcast_signal(
     "fb-survey", "smoothed_wwearing_mask",
-    start_day = "2020-09-15", end_day = "2020-11-30",
+    start_day = "2020-09-15", end_day = "2020-12-05",
     geo_type = "state", geo_values = states_of_interest
 )
 
 ggplot(state_masks, aes(x = time_value, y = value, color = geo_value)) +
     geom_line() +
-    geom_dl(aes(label = toupper(geo_value)), method = "last.points") +
+    geom_dl(aes(label = toupper(geo_value)), method = "last.bumpup") +
     scale_x_date(date_breaks = "1 month",
                  date_labels = "%b %Y",
                  date_minor_breaks = "1 week") +
