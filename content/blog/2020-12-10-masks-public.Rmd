@@ -394,7 +394,7 @@ and activity, authorities can target their emergency orders and provide more
 specific advice to the public.
 
 While a short blog post can't hope to offer a thorough analysis proving which
-behaviors reduce spread the most, we've make all our data publicly available
+behaviors reduce spread the most, we make all our data publicly available so
 that the public health researchers building detailed models of COVID's spread
 can combine it with other data to study how the pandemic spreads and what
 interventions are most effective to stop it.
