@@ -75,10 +75,10 @@ we have asked all respondents a question about mask use:</p>
 <p>Early analysis suggests that mask usage is high in most states, and in those
 where it was lower, it has been gradually increasing. For example, the graph
 below shows the percentage of respondents who answer “Most of the time” or “All
-of the time” in six states (including DC). In three of these (the District of
-Columbia, Massachusetts, and New York), mask usage is among the highest in the
-country; in the other three (South Dakota, Idaho, and Wyoming), it’s among the
-lowest.</p>
+of the time” in five states and the District of Columbia. In three of these (the
+District of Columbia, Massachusetts, and New York), mask usage is among the
+highest in the country; in the other three (South Dakota, Idaho, and Wyoming),
+it’s among the lowest.</p>
 <pre class="r"><code>library(covidcast)
 library(dplyr)
 library(ggplot2)
@@ -383,7 +383,7 @@ ggplot(mask_time,
   theme_bw()</code></pre>
 <p><img src="/blog/2020-12-10-masks-public_files/figure-html/social_distancing-1.svg" width="672" /></p>
 <p>Similarly, SafeGraph collects anonymous data on visits to restaurants by using
-cell phone location data. Using <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/safegraph.html#safegraph-weekly-patterns">county-level aggregates from our
+cell phone location data. Using <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/safegraph.html#safegraph-weekly-patterns">state-level aggregates from our
 API</a>,
 we can compare mask use to the proportion of people visiting restaurants in each state:</p>
 <pre class="r"><code># 2020-11-29 was most recent data available at time of writing
@@ -437,7 +437,8 @@ on how to get it. Numerous aggregates from the survey data, including more
 measures of public activity, are <a href="{{< apiref "api/covidcast-signals/fb-survey.html" >}}">available through the
 API</a>,
 and can be easily downloaded using <a href="{{< apiref "api/covidcast_clients.html" >}}">our R and Python
-packages</a>.</p>
+packages</a>.
+All aggregates are de-identified to protect the privacy of survey respondents.</p>
 <p>We also make the raw response data available to academic and nonprofit
 researchers, and we look forward to seeing more detailed analyses of this data.
 For example, it would be important to know if people who do not wear masks are
@@ -450,5 +451,5 @@ documentation to get
 started</a>. And if
 you’re interested in similar data in numerous other countries around the world,
 check out <a href="https://covidmap.umd.edu/">the University of Maryland’s survey</a>,
-which makes similar data available to researchers.</p>
+which runs in over 50 languages worldwide.</p>
 </div>
