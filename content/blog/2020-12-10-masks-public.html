@@ -1,7 +1,7 @@
 ---
 title: "Are Masks Widely Used in Public?"
 author: "Alex Reinhart"
-date: 2020-12-11
+date: 2020-12-13
 tags:
   - R
   - symptom surveys
@@ -233,6 +233,10 @@ joined &lt;- masked %&gt;%
 ggplot(joined, aes(x = value.self, y = value.other,
                    label = toupper(geo_value))) +
   geom_text() +
+  geom_abline(slope = 1, intercept = 0, linetype = &quot;dashed&quot;,
+              colour = &quot;#888888&quot;) +
+  geom_text(aes(x = 83, y = 85, angle = 15, label = &quot;equal percentages&quot;),
+            colour = &quot;#888888&quot;) +
   labs(x = &quot;% who report wearing masks most/all the time&quot;,
        y = &quot;% who report most/all others wear masks&quot;,
        title = &quot;Mask use reported in symptom survey&quot;,
@@ -241,7 +245,7 @@ ggplot(joined, aes(x = value.self, y = value.other,
   theme_bw()</code></pre>
 <p><img src="/blog/2020-12-10-masks-public_files/figure-html/mask_questions_compared-1.svg" width="672" /></p>
 <p>There are a few things worthy of note. There is clearly a strong relationship
-here—but notice that in South Dakota and Wyoming, where over 80% report they
+here—but notice that in South Dakota and Wyoming, where nearly 80% report they
 wear masks most or all of the time, <strong>fewer than half</strong> of respondents agree that
 most or all <em>other</em> people wear masks in public places. Only in a few states do
 over 90% of respondents agree that most other people wear masks:</p>
