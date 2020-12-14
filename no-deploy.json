@@ -2,7 +2,6 @@
   "type": "delphi deploy config",
   "version": 1,
   "actions": [
-
     "// site-wide favicon",
     {
       "type": "move",
@@ -11,7 +10,7 @@
     },
 
     "// web sources",
-     {
+    {
       "type": "move",
       "src": "site/",
       "dst": "/var/www/html/",
@@ -26,7 +25,6 @@
       "dst": "/var/www/html/images/",
       "match": "^.+\\.(jpg|png)$"
     },
-
 
     "// team images",
     {
@@ -44,6 +42,5 @@
       "match": "^.*\\.html$",
       "add-header-comment": true
     }
-
   ]
 }

@@ -1,10 +1,14 @@
 ---
-title: "Can Symptoms Surveys Improve COVID-19 Forecasts?"
-author: "Ryan Tibshirani"
+title: Can Symptoms Surveys Improve COVID-19 Forecasts?
+author: Ryan Tibshirani
 date: 2020-09-21
-tags: ["symptom surveys", "forecasting", "COVIDcast", "R"]
+tags:
+  - symptom surveys
+  - forecasting
+  - COVIDcast
+  - R
 authors:
-- ryan
+  - ryan
 heroImage: /blog/images/blog-Lg-img_can symptoms surveys improve covid-19.png
 heroImageThumb: /blog/images/blog-thumbnail_can symptoms surveys improve covid-19.png
 summary: |
@@ -14,14 +18,14 @@ summary: |
   % CLI-in-community indicators from our two surveys can be used to improve 
   the accuracy of short-term forecasts of county-level COVID-19 case rates.
 acknowledgements: |
-  *Delphi's forecasting effort involves many people from our
+  Delphi's forecasting effort involves many people from our
   modeling team, from forecaster design, to implementation, to evaluation. The 
   broader insights on forecasting shared in this post certainly cannot be
   attributable to Ryan's work alone, and are a reflection of the work carried out 
-  by all these team members.*
+  by all these team members.
 related:
-- 2020-09-18-google-survey
-- 2020-08-26-fb-survey
+  - 2020-09-18-google-survey
+  - 2020-08-26-fb-survey
 output:
   html_document:
     code_folding: hide
@@ -40,7 +44,7 @@ output:
 <li><a href="#forecasting-code">Forecasting Code</a></li>
 <li><a href="#results-all-four-models">Results: All Four Models</a></li>
 <li><a href="#results-first-two-models">Results: First Two Models</a></li>
-<li><a href="#varying-the-number-of-days-ahead">Varying the Number of Days Ahead*</a></li>
+<li><a href="#varying-the-number-of-days-ahead">Varying the Number of Days Ahead</a></li>
 <li><a href="#wrap-up">Wrap-Up</a></li>
 </ul>
 </div>
@@ -70,7 +74,7 @@ which serves as the official data source for the
 forecasts</a>.</p>
 <p>At the outset, we should state that this post is neither a report on Delphi’s
 current COVID-19 forecasters nor an authoritative take on cutting-edge
-COVID-19 forecasting. Instead, our purpose here to study the Facebook and
+COVID-19 forecasting. Instead, our purpose here is to study the Facebook and
 Google % CLI-in-community signals, and demonstrate their value, when used as
 features, to add predictive power beyond what we can achieve with (fairly
 simple) time series models trained on case rates alone. In a future blog post,
@@ -113,24 +117,28 @@ the Facebook and Google % CLI-in-community signals, respectively,
 for location <span class="math inline">\(\ell\)</span> and time <span class="math inline">\(t\)</span>.
 (We rescale all these signals from their given values in our API
 so that they are true proportions: between 0 and 1.)
-We evaluate the following four models:
-<span class="math display">\[
+We evaluate the following four models:</p>
+<p><span class="math display">\[
 \begin{aligned}
-&amp;\text{Cases:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
-&amp;\text{Cases + Facebook:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases + Facebook:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
-&amp;\text{Cases + Google:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases + Google:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
-&amp;\text{Cases + Facebook + Google:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases + Facebook + Google:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) +
 \sum_{j=0}^2 \tau_j h(G_{\ell,t-7j}).
 \end{aligned}
-\]</span>
-Here <span class="math inline">\(d=7\)</span> or <span class="math inline">\(d=14\)</span>, depending on the target value
+\]</span></p>
+<p>Here <span class="math inline">\(d=7\)</span> or <span class="math inline">\(d=14\)</span>, depending on the target value
 (number of days we predict ahead),
 and <span class="math inline">\(h\)</span> is a transformation to be specified later.</p>
 <p>Informally, the first model bases its predictions of future case rates
@@ -151,12 +159,12 @@ available up to and including time <span class="math inline">\(t_0\)</span>.</p>
 (we apply <span class="math inline">\(h^{-1}\)</span> to the predictions from the fitted LAD model),
 and denoted <span class="math inline">\(\hat{Y}_{\ell,t_0+d}\)</span>.
 For an error metric, we consider <strong>scaled absolute error</strong>
-(or just scaled error for short):
-<span class="math display">\[
+(or just scaled error for short):</p>
+<p><span class="math display">\[
 \frac{|\hat{Y}_{\ell,t_0+d} - Y_{\ell,t_0+d}|}
 {|Y_{\ell,t_0} - Y_{\ell,t_0+d}|},
-\]</span>
-where the error in the denominator is the error of the “strawman” model,
+\]</span></p>
+<p>where the error in the denominator is the error of the “strawman” model,
 which for any target always simply predicts the most recent available case rate.</p>
 <p>This normalization helps for two reasons.
 First, it gives us an interpretable scale,
@@ -428,7 +436,7 @@ library(ggplot2)
 model_names = c(&quot;Cases&quot;, &quot;Cases + Facebook&quot;, &quot;Cases + Google&quot;,
                 &quot;Cases + Facebook + Google&quot;)
 
-# Restrict to common period for all 4 models, then calculate the scaled errors 
+# Restrict to common period for all 4 models, then calculate the scaled errors
 # for each model, that is, the error relative to the strawman&#39;s error
 res_all4 = res %&gt;%
   drop_na() %&gt;%                                       # Restrict to common time
@@ -437,23 +445,23 @@ res_all4 = res %&gt;%
   mutate(dif12 = err1 - err2, dif13 = err1 - err3,    # Compute differences
          dif14 = err1 - err4) %&gt;%                     # relative to cases model
   ungroup() %&gt;%
-  select(-err0) 
-         
+  select(-err0)
+
 # Calculate and print median errors, for all 4 models, and just 7 days ahead
-res_err4 = res_all4 %&gt;% 
+res_err4 = res_all4 %&gt;%
   select(-starts_with(&quot;dif&quot;)) %&gt;%
   pivot_longer(names_to = &quot;model&quot;, values_to = &quot;err&quot;,
                cols = -c(geo_value, time_value, lead)) %&gt;%
   mutate(lead = factor(lead, labels = paste(leads, &quot;days ahead&quot;)),
          model = factor(model, labels = model_names))
 
-knitr::kable(res_err4 %&gt;% 
+knitr::kable(res_err4 %&gt;%
                group_by(model, lead) %&gt;%
-               summarize(err = median(err), n = length(unique(time_value))) %&gt;% 
+               summarize(err = median(err), n = length(unique(time_value))) %&gt;%
                arrange(lead) %&gt;% ungroup() %&gt;%
-               rename(&quot;Model&quot; = model, &quot;Median scaled error&quot; = err, 
+               rename(&quot;Model&quot; = model, &quot;Median scaled error&quot; = err,
                       &quot;Target&quot; = lead, &quot;Test days&quot; = n) %&gt;%
-               filter(Target == &quot;7 days ahead&quot;), 
+               filter(Target == &quot;7 days ahead&quot;),
              caption = paste(&quot;Test period:&quot;, min(res_err4$time_value), &quot;to&quot;,
                              max(res_err4$time_value)),
              format = &quot;html&quot;, table.attr = &quot;style=&#39;width:70%;&#39;&quot;)</code></pre>
@@ -554,17 +562,17 @@ res_dif4 = res_all4 %&gt;%
   pivot_longer(names_to = &quot;model&quot;, values_to = &quot;dif&quot;,
                cols = -c(geo_value, time_value, lead)) %&gt;%
   mutate(lead = factor(lead, labels = paste(leads, &quot;days ahead&quot;)),
-         model = factor(model, 
+         model = factor(model,
                         labels = c(&quot;Cases vs Cases + Facebook&quot;,
                                    &quot;Cases vs Cases + Google&quot;,
-                                   &quot;Cases vs Cases + Facebook + Google&quot;))) 
+                                   &quot;Cases vs Cases + Facebook + Google&quot;)))
 
 knitr::kable(res_dif4 %&gt;%
                group_by(model, lead) %&gt;%
-               summarize(p = binom.test(x = sum(dif &gt; 0, na.rm = TRUE), 
+               summarize(p = binom.test(x = sum(dif &gt; 0, na.rm = TRUE),
                                         n = n(), alt = &quot;greater&quot;)$p.val) %&gt;%
                ungroup() %&gt;% filter(lead == &quot;7 days ahead&quot;) %&gt;%
-               rename(&quot;Comparison&quot; = model, &quot;Target&quot; = lead, &quot;P-value&quot; = p), 
+               rename(&quot;Comparison&quot; = model, &quot;Target&quot; = lead, &quot;P-value&quot; = p),
              format = &quot;html&quot;, table.attr = &quot;style=&#39;width:50%;&#39;&quot;)</code></pre>
 <table style="width:50%;">
 <thead>
@@ -631,18 +639,18 @@ but the story is not as clear with the “Cases + Facebook + Google” model.</p
 <pre class="r"><code># Red, blue (similar to ggplot defaults), then yellow
 ggplot_colors = c(&quot;#FC4E07&quot;, &quot;#00AFBB&quot;, &quot;#E7B800&quot;)
 
-ggplot(res_dif4 %&gt;% 
+ggplot(res_dif4 %&gt;%
          group_by(model, lead, time_value) %&gt;%
-         summarize(p = binom.test(x = sum(dif &gt; 0, na.rm = TRUE), 
+         summarize(p = binom.test(x = sum(dif &gt; 0, na.rm = TRUE),
                                   n = n(), alt = &quot;greater&quot;)$p.val) %&gt;%
          ungroup() %&gt;% filter(lead == &quot;7 days ahead&quot;), aes(p)) +
-  geom_histogram(aes(color = model, fill = model), alpha = 0.4) + 
+  geom_histogram(aes(color = model, fill = model), alpha = 0.4) +
   scale_color_manual(values = ggplot_colors) +
   scale_fill_manual(values = ggplot_colors) +
-  facet_wrap(vars(lead, model)) + 
+  facet_wrap(vars(lead, model)) +
   labs(x = &quot;P-value&quot;, y = &quot;Count&quot;) +
   theme_bw() + theme(legend.pos = &quot;none&quot;)</code></pre>
-<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-4-1.svg" width="864" /></p>
+<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-4-1.svg" width="864" class="wide-figure" /></p>
 </div>
 <div id="results-first-two-models" class="section level2">
 <h2>Results: First Two Models</h2>
@@ -654,7 +662,7 @@ The median scaled errors over the test period are computed and reported below.
 Now we see a decent improvement in median scaled error for the
 “Cases + Facebook” model, and this is true for both 7-day-ahead and
 14-day-ahead forecasts.</p>
-<pre class="r"><code># Restrict to common period for just models 1 and 2, then calculate the scaled 
+<pre class="r"><code># Restrict to common period for just models 1 and 2, then calculate the scaled
 # errors, that is, the error relative to the strawman&#39;s error
 res_all2 = res %&gt;%
   select(-c(err3, err4)) %&gt;%
@@ -664,23 +672,23 @@ res_all2 = res %&gt;%
   mutate(dif12 = err1 - err2) %&gt;%                     # Compute differences
                                                       # relative to cases model
   ungroup() %&gt;%
-  select(-err0) 
-         
-# Calculate and print median errors, for just models 1 and 2, and both 7 and 14 
+  select(-err0)
+
+# Calculate and print median errors, for just models 1 and 2, and both 7 and 14
 # days ahead
-res_err2 = res_all2 %&gt;% 
+res_err2 = res_all2 %&gt;%
   select(-starts_with(&quot;dif&quot;)) %&gt;%
   pivot_longer(names_to = &quot;model&quot;, values_to = &quot;err&quot;,
                cols = -c(geo_value, time_value, lead)) %&gt;%
   mutate(lead = factor(lead, labels = paste(leads, &quot;days ahead&quot;)),
          model = factor(model, labels = model_names[1:2]))
-  
-knitr::kable(res_err2 %&gt;% 
+
+knitr::kable(res_err2 %&gt;%
                select(-starts_with(&quot;dif&quot;)) %&gt;%
                group_by(model, lead) %&gt;%
-               summarize(err = median(err), n = length(unique(time_value))) %&gt;% 
+               summarize(err = median(err), n = length(unique(time_value))) %&gt;%
                arrange(lead) %&gt;% ungroup() %&gt;%
-               rename(&quot;Model&quot; = model, &quot;Median scaled error&quot; = err, 
+               rename(&quot;Model&quot; = model, &quot;Median scaled error&quot; = err,
                       &quot;Target&quot; = lead, &quot;Test days&quot; = n),
              caption = paste(&quot;Test period:&quot;, min(res_err2$time_value), &quot;to&quot;,
                              max(res_err2$time_value)),
@@ -782,17 +790,17 @@ with the possible exception of periods where forecasting
 becomes “hard” and the scaled errors shoot above 1.</p>
 <pre class="r"><code># Plot median errors as a function of time, for models 1 and 2, and both 7 and
 # 14 days ahead
-ggplot(res_err2 %&gt;% 
+ggplot(res_err2 %&gt;%
          group_by(model, lead, time_value) %&gt;%
          summarize(err = median(err)) %&gt;% ungroup(),
-       aes(x = time_value, y = err)) + 
-  geom_line(aes(color = model)) + 
+       aes(x = time_value, y = err)) +
+  geom_line(aes(color = model)) +
   scale_color_manual(values = c(&quot;black&quot;, ggplot_colors)) +
   geom_hline(yintercept = 1, linetype = 2, color = &quot;gray&quot;) +
-  facet_wrap(vars(lead)) + 
+  facet_wrap(vars(lead)) +
   labs(x = &quot;Date&quot;, y = &quot;Median scaled error&quot;) +
   theme_bw() + theme(legend.pos = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-6-1.svg" width="864" /></p>
+<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-6-1.svg" width="864" class="wide-figure" /></p>
 <p>Again, basic hypothesis testing suggests that the results we’re seeing here
 are likely significant, though it’s hard to say definitively
 given the complicated dependence structure present in the data.
@@ -801,7 +809,7 @@ from the “Cases” and “Cases + Facebook” models is centered at zero.
 Given the large sample size: 112 test days for 7-day-ahead forecasts
 and 98 test days for 14-day-ahead forecasts
 (times 440 counties for each day), the p-values are basically zero.</p>
-<pre class="r"><code># Compute p-values using the sign test against a one-sided alternative, just 
+<pre class="r"><code># Compute p-values using the sign test against a one-sided alternative, just
 # for models 1 and 2, and both 7 and 14 days ahead
 res_dif2 = res_all2 %&gt;%
   select(-starts_with(&quot;err&quot;)) %&gt;%
@@ -810,12 +818,12 @@ res_dif2 = res_all2 %&gt;%
   mutate(lead = factor(lead, labels = paste(leads, &quot;days ahead&quot;)),
          model = factor(model, labels = &quot;Cases &gt; Cases + Facebook&quot;))
 
-knitr::kable(res_dif2 %&gt;% 
+knitr::kable(res_dif2 %&gt;%
                group_by(model, lead) %&gt;%
                summarize(p = binom.test(x = sum(dif &gt; 0, na.rm = TRUE),
-                                        n = n(), alt = &quot;greater&quot;)$p.val) %&gt;% 
-               ungroup() %&gt;% 
-               rename(&quot;Comparison&quot; = model, &quot;Target&quot; = lead, &quot;P-value&quot; = p), 
+                                        n = n(), alt = &quot;greater&quot;)$p.val) %&gt;%
+               ungroup() %&gt;%
+               rename(&quot;Comparison&quot; = model, &quot;Target&quot; = lead, &quot;P-value&quot; = p),
              format = &quot;html&quot;, table.attr = &quot;style=&#39;width:50%;&#39;&quot;)</code></pre>
 <table style="width:50%;">
 <thead>
@@ -859,22 +867,21 @@ Cases &gt; Cases + Facebook
 <p>Once we stratify and recompute p-values by forecast date,
 as shown in the histograms below,
 the bulk of p-values are still quite small.</p>
-<pre class="r"><code>ggplot(res_dif2 %&gt;% 
+<pre class="r"><code>ggplot(res_dif2 %&gt;%
          group_by(model, lead, time_value) %&gt;%
-         summarize(p = binom.test(x = sum(dif &gt; 0, na.rm = TRUE), 
+         summarize(p = binom.test(x = sum(dif &gt; 0, na.rm = TRUE),
                                   n = n(), alt = &quot;greater&quot;)$p.val) %&gt;%
          ungroup(), aes(p)) +
-  geom_histogram(aes(color = model, fill = model), alpha = 0.4) + 
+  geom_histogram(aes(color = model, fill = model), alpha = 0.4) +
   scale_color_manual(values = ggplot_colors) +
   scale_fill_manual(values = ggplot_colors) +
-  facet_wrap(vars(lead, model)) + 
+  facet_wrap(vars(lead, model)) +
   labs(x = &quot;P-value&quot;, y = &quot;Count&quot;) +
   theme_bw() + theme(legend.pos = &quot;none&quot;)</code></pre>
 <p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-8-1.svg" width="672" /></p>
 </div>
 <div id="varying-the-number-of-days-ahead" class="section level2">
-<h2>Varying the Number of Days Ahead*</h2>
-<p><strong>[*Added September 25, 2020]</strong></p>
+<h2>Varying the Number of Days Ahead</h2>
 <p>Hypothesis tests (like the sign tests conducted above) tell us
 whether the differences in errors
 (between the forecasters)
@@ -925,14 +932,14 @@ err_by_lead = res %&gt;%
                cols = -c(geo_value, time_value, lead)) %&gt;%
   mutate(model = factor(model, labels = model_names[1:2])) %&gt;%
   group_by(model, lead) %&gt;%
-  summarize(err = median(err)) %&gt;% 
+  summarize(err = median(err)) %&gt;%
   ungroup()
 
-ggplot(err_by_lead, aes(x = lead, y = err)) + 
-  geom_line(aes(color = model)) + 
-  geom_point(aes(color = model)) + 
+ggplot(err_by_lead, aes(x = lead, y = err)) +
+  geom_line(aes(color = model)) +
+  geom_point(aes(color = model)) +
   scale_color_manual(values = c(&quot;black&quot;, ggplot_colors)) +
-  geom_hline(yintercept = err_by_lead %&gt;% 
+  geom_hline(yintercept = err_by_lead %&gt;%
                filter(lead %in% 7, model == &quot;Cases&quot;) %&gt;% pull(err),
              linetype = 2, color = &quot;gray&quot;) +
   labs(title = &quot;Forecasting errors by number of days ahead&quot;,
@@ -1014,6 +1021,8 @@ aggregate data from our survey (beyond CLI indicators) <a href="https://www.symp
 the Challenge</a>, and
 submissions are due September 29, with finalists eligible for cash prizes.
 We look forward to seeing how you put our data to use!</p>
+<p><strong>Note:</strong> <em>This post was updated on September 25, 2020 to include the section
+<a href="#varying-the-number-of-days-ahead">Varying the Number of Days Ahead</a>.</em></p>
 </div>
 <div class="footnotes">
 <hr />

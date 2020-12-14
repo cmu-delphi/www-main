@@ -1,0 +1,457 @@
+---
+title: "Are Masks Widely Used in Public?"
+author: "Alex Reinhart"
+date: 2020-12-13
+tags:
+  - symptom surveys
+  - COVIDcast
+  - R
+authors:
+- alex
+heroImage: /blog/images/masks-public-full-size.jpg
+heroImageThumb: /blog/images/masks-public-thumb.jpg
+related:
+- 2020-10-06-survey-wave-4
+summary: |
+  Delphi's symptom surveys reveal rates of mask use across the country. But do they really show that the vast majority of people wear masks?
+acknowledgements: |
+  Wichada La Motte-Kerr drafted numerous survey revisions, collected input from experts, and manageed the process of deploying the new survey questions. Sarah LaRocca and Katherine Morris at Facebook gave important input and helped deploy the survey. Kathryn Mazaitis assisted in producing the new aggregate survey data.
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#studying-mask-use-with-surveys">Studying Mask Use with Surveys</a></li>
+<li><a href="#addressing-potential-survey-biases">Addressing Potential Survey Biases</a></li>
+<li><a href="#a-probabilistic-argument-for-mask-use">A Probabilistic Argument for Mask Use</a></li>
+<li><a href="#public-activities-social-distancing-and-masks">Public Activities, Social Distancing, and Masks</a></li>
+<li><a href="#more-opportunities-in-survey-data">More Opportunities in Survey Data</a></li>
+</ul>
+</div>
+
+<p>As COVID cases and deaths continue to rise in the United States, we are
+repeatedly reminded that unless we take the appropriate precautions—by wearing
+masks when around other people, working from home whenever possible, and
+avoiding travel and crowded places—there will be a high rate of COVID deaths.
+Vaccines are on their way, but until they arrive, we must continue social
+distancing.</p>
+<p>But after all the precautions we’ve taken and the sacrifices we have made in our
+lives during 2020, we have seen many people ask: Why haven’t these precautions
+prevented the current COVID spike? Some have even argued that this is proof that
+masks and social distancing do not work. Can this claim be justified?</p>
+<p>To answer this question, we must first ask: <em>Is</em> everyone wearing masks? And are
+they also socially distancing in other ways? In this post, we’ll show how
+Delphi’s COVID symptom surveys can help answer these questions and how they can
+enable important research about the pandemic and its spread.</p>
+<div id="studying-mask-use-with-surveys" class="section level2">
+<h2>Studying Mask Use with Surveys</h2>
+<p>Since April, and in partnership with Facebook Data for Good and the <a href="https://covidmap.umd.edu/">University
+of Maryland</a>, Delphi has <a href="{{< ref "2020-08-26-fb-survey" >}}">conducted daily surveys of
+Facebook users</a>
+throughout the United States. These surveys ask respondents about their
+experiences during the pandemic, and ask whether they’re experiencing symptoms,
+whether they are isolating or following precautions, and how they have been
+affected by the pandemic. The survey has been completed over 14 million times
+since April, allowing us an unprecedented level of insight into COVID and
+people’s experiences, down to individual counties around the country.</p>
+<p><a href="{{< ref "2020-10-06-survey-wave-4" >}}">Since early
+September</a>
+we have asked all respondents a question about mask use:</p>
+<blockquote>
+<p>In the past 5 days, how often did you wear a mask when in public?</p>
+<ol style="list-style-type: decimal">
+<li>All the time</li>
+<li>Most of the time</li>
+<li>Some of the time</li>
+<li>A little of the time</li>
+<li>None of the time</li>
+<li>I have not been in public during the past 5 days</li>
+</ol>
+</blockquote>
+<p>Early analysis suggests that mask usage is high in most states, and in those
+where it was lower, it has been gradually increasing. For example, the graph
+below shows the percentage of respondents who answer “Most of the time” or “All
+of the time” in five states and the District of Columbia. In three of these (the
+District of Columbia, Massachusetts, and New York), mask usage is among the
+highest in the country; in the other three (South Dakota, Idaho, and Wyoming),
+it’s among the lowest.</p>
+<pre class="r"><code>library(covidcast)
+library(dplyr)
+library(ggplot2)
+library(directlabels)
+
+states_of_interest &lt;- c(&quot;dc&quot;, &quot;ma&quot;, &quot;ny&quot;, &quot;wy&quot;, &quot;sd&quot;, &quot;id&quot;)
+
+state_masks &lt;- covidcast_signal(
+  &quot;fb-survey&quot;, &quot;smoothed_wwearing_mask&quot;,
+  start_day = &quot;2020-09-15&quot;, end_day = &quot;2020-12-05&quot;,
+  geo_type = &quot;state&quot;, geo_values = states_of_interest
+)
+
+ggplot(state_masks, aes(x = time_value, y = value, color = geo_value)) +
+  geom_line() +
+  geom_dl(aes(label = toupper(geo_value)), method = &quot;last.bumpup&quot;) +
+  scale_x_date(date_breaks = &quot;1 month&quot;,
+               date_labels = &quot;%b %Y&quot;,
+               date_minor_breaks = &quot;1 week&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;% wearing masks in public most/all the time&quot;,
+       title = &quot;Self-reported public mask usage&quot;,
+       subtitle = &quot;From Delphi&#39;s surveys, conducted through Facebook&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw() +
+  guides(color = FALSE)</code></pre>
+<p><img src="/blog/2020-12-10-masks-public_files/figure-html/state_masks_time-1.svg" width="672" /></p>
+<p>Despite the gap between states, it also seems clear that self-reported mask use
+has been on the rise in states whose mask use started low. This is quite
+encouraging.</p>
+<p>(Note that, as with most of Delphi’s blog posts, all the code and data used to
+make these plots is available—simply click the Code button to see how our <a href="{{< apiref "api/covidcast_clients.html" >}}">API
+clients</a>
+make it easy to access aggregated data.)</p>
+<p>Seeing these numbers—particularly the very high reported mask usage in many
+states—might make you wonder: If mask usage is over 80% in most states and
+over 90% in many, why does the rate of new COVID cases in the United States
+currently look like this?</p>
+<pre class="r"><code>cases &lt;- covidcast_signal(
+  &quot;indicator-combination&quot;, &quot;confirmed_7dav_incidence_num&quot;,
+  start_day = &quot;2020-09-15&quot;, end_day = &quot;2020-12-05&quot;,
+  geo_type = &quot;state&quot;)
+
+cases %&gt;%
+  group_by(time_value) %&gt;%
+  summarize(cases = sum(value)) %&gt;%
+  ggplot(aes(x = time_value, y = cases)) +
+  geom_line() +
+  scale_x_date(date_breaks = &quot;1 month&quot;,
+               date_labels = &quot;%b %Y&quot;,
+               date_minor_breaks = &quot;1 week&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;Reported new cases&quot;,
+       title = &quot;Number of reported new cases per day&quot;,
+       subtitle = &quot;7-day rolling average&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw()</code></pre>
+<p><img src="/blog/2020-12-10-masks-public_files/figure-html/national_cases_time-1.svg" width="672" /></p>
+<p>While we can’t explain all of COVID in one blog post—nor do we have the data
+and science needed to do so—we <em>can</em> address two key questions:</p>
+<ol style="list-style-type: decimal">
+<li>Do the surveys reliably measure mask use in public? If they are biased in
+some way, perhaps mask use is not as common as they suggest.</li>
+<li>Are people adopting other social distancing behaviors alongside masks? If
+some people do not wear masks and interact with each other, they may spread
+COVID. Also, masks <em>reduce</em> risk; <a href="https://www.preprints.org/manuscript/202004.0203/v4">they do not eliminate
+it</a>. If people are
+working indoors around others, hosting social events, dining indoors, and so
+on, but wearing masks, they are nonetheless at greater risk than people who
+do none of those things.</li>
+</ol>
+</div>
+<div id="addressing-potential-survey-biases" class="section level2">
+<h2>Addressing Potential Survey Biases</h2>
+<p>To answer the first question, we must consider what kinds of biases could affect
+the surveys:</p>
+<ul>
+<li><strong>Sampling bias.</strong> Survey respondents are sampled from Facebook users, but
+Facebook users may not be representative of the United States population.
+Facebook <a href="https://arxiv.org/abs/2009.14675">produces survey weights</a> designed
+to help us adjust the survey to match the population’s age and gender
+distribution, but there could be other factors besides age and gender that
+differ between Facebook users and the United States population generally.</li>
+<li><strong>Non-response bias.</strong> The survey is voluntary—recruited users are shown an
+invitation in their News Feed but can opt not to click on it—and so people
+who take the survey might be different in some way. For example, perhaps the
+people who take the survey are more concerned about COVID than those who
+choose not to, and hence are more likely to wear masks than the general
+population. Facebook’s weights try to account for this by estimating the
+probability that each person will respond, but it’s difficult to verify that
+this probability is estimated correctly.</li>
+<li><strong>Social desirability bias.</strong> It’s well-known that survey respondents can
+prefer answers that seem socially desirable. If mask usage is widely accepted
+and there is immense social pressure to comply, someone who does not usually
+wear a mask may feel pressure to say they do on a survey. This effect is
+likely smaller on an anonymous online survey than it would be in person, but
+it could still be present.</li>
+<li><strong>Incorrect responses.</strong> Some survey respondents may deliberately give
+incorrect answers because when you post something on the Internet, inevitably
+someone will try to mess with it. Sometimes this is easy to detect (e.g.,
+people indicating that they are experiencing <em>every</em> symptom of a list of 16
+or that they have -20 family members), but not always.</li>
+</ul>
+<p>These biases are hard to measure directly. There’s another problem too: If 90%
+of people say they wear masks when they’re in public, that doesn’t mean that 90%
+of people in public places are wearing masks! For example, if people who wear
+masks also tend to limit the amount of time they spend in public places, while
+people who do not wear masks spend more time in public, people in public may be
+more likely to also be people who don’t wear masks.</p>
+<p>We don’t have a way to tell if a respondent is truthful, and since there’s no
+objective national data on the exact percentage of people wearing masks in
+public, we have no way to check exactly how biased results could be. We have
+seen hints, however: when researchers in Philadelphia <a href="https://bloombergcities.medium.com/how-philadelphia-is-cracking-the-code-for-measuring-mask-compliance-7ace18daa9a9">studied surveillance
+camera footage to count how many people in public places wear masks
+correctly</a>,
+<strong>only 43% did</strong>, despite over 90% of Philadelphia respondents to our survey
+saying they wear masks most or all of the time. Unfortunately this is only one
+study in one city, and doesn’t give us a picture of mask usage nationally.</p>
+<p>After consulting with survey experts, we chose a different way to check our mask
+use estimates. In late November, we added a new mask question to the survey:</p>
+<blockquote>
+<p>In the past 7 days, when out in public places where social distancing is not
+possible, about how many people would you estimate wore masks?</p>
+<ol style="list-style-type: decimal">
+<li>All of the people were wearing masks</li>
+<li>Most of the people were wearing masks</li>
+<li>Some of the people were wearing masks</li>
+<li>A few of the people were wearing masks</li>
+<li>None of the people were wearing masks</li>
+<li>I have not been out in public places in the past 7 days</li>
+</ol>
+</blockquote>
+<p>Because this question asks about <em>other</em> people, it bypasses social desirability
+bias. And even if the survey sample is not representative, as long as the
+respondents visit representative public places (like grocery stores or public
+transit) and see <em>other</em> people there, we may get a better estimate of public
+mask use.</p>
+<p>Let’s see how the data looks. We’ll plot the percentage of people answering
+“all” or “most” to each mask question in each state:</p>
+<pre class="r"><code>masked &lt;- covidcast_signal(
+  &quot;fb-survey&quot;, &quot;smoothed_wwearing_mask&quot;,
+  start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
+  geo_type = &quot;state&quot;)
+
+other_mask &lt;- covidcast_signal(
+  &quot;fb-survey&quot;, &quot;smoothed_wothers_masked&quot;,
+  start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
+  geo_type = &quot;state&quot;)
+
+joined &lt;- masked %&gt;%
+  inner_join(other_mask, by = &quot;geo_value&quot;,
+             suffix = c(&quot;.self&quot;, &quot;.other&quot;))
+
+ggplot(joined, aes(x = value.self, y = value.other,
+                   label = toupper(geo_value))) +
+  geom_text() +
+  geom_abline(slope = 1, intercept = 0, linetype = &quot;dashed&quot;,
+              colour = &quot;#888888&quot;) +
+  geom_text(aes(x = 83, y = 85, angle = 15, label = &quot;equal percentages&quot;),
+            colour = &quot;#888888&quot;) +
+  labs(x = &quot;% who report wearing masks most/all the time&quot;,
+       y = &quot;% who report most/all others wear masks&quot;,
+       title = &quot;Mask use reported in symptom survey&quot;,
+       subtitle = &quot;December 1st, 2020&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw()</code></pre>
+<p><img src="/blog/2020-12-10-masks-public_files/figure-html/mask_questions_compared-1.svg" width="672" /></p>
+<p>There are a few things worthy of note. There is clearly a strong relationship
+here—but notice that in South Dakota and Wyoming, where nearly 80% report they
+wear masks most or all of the time, <strong>fewer than half</strong> of respondents agree that
+most or all <em>other</em> people wear masks in public places. Only in a few states do
+over 90% of respondents agree that most other people wear masks:</p>
+<pre class="r"><code>joined %&gt;%
+  filter(value.other &gt;= 90) %&gt;%
+  arrange(desc(value.other)) %&gt;%
+  select(geo_value, value.other) %&gt;%
+  mutate(geo_value = abbr_to_name(geo_value, ignore.case = TRUE)) %&gt;%
+  knitr::kable(col.names = c(&quot;State&quot;, &quot;% agree that most/all others are masked&quot;),
+               digits = 1)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">State</th>
+<th align="right">% agree that most/all others are masked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Connecticut</td>
+<td align="right">93.3</td>
+</tr>
+<tr class="even">
+<td align="left">Massachusetts</td>
+<td align="right">93.3</td>
+</tr>
+<tr class="odd">
+<td align="left">District of Columbia</td>
+<td align="right">92.8</td>
+</tr>
+<tr class="even">
+<td align="left">Vermont</td>
+<td align="right">92.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Maryland</td>
+<td align="right">91.6</td>
+</tr>
+<tr class="even">
+<td align="left">Rhode Island</td>
+<td align="right">91.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Hawaii</td>
+<td align="right">91.1</td>
+</tr>
+<tr class="even">
+<td align="left">Delaware</td>
+<td align="right">90.5</td>
+</tr>
+<tr class="odd">
+<td align="left">New Jersey</td>
+<td align="right">90.3</td>
+</tr>
+<tr class="even">
+<td align="left">New York</td>
+<td align="right">90.2</td>
+</tr>
+</tbody>
+</table>
+<p>But we should also be careful in interpreting this. In South Dakota and Wyoming,
+fewer than half of respondents agree that most or all other people wear masks.
+We can conclude that it’s clearly untrue that “everyone wears masks”, but this
+is not the same thing as saying that fewer than half of people wear masks. For
+example, if people interpret “most people wear masks” to mean “I only see one or
+two people not wearing masks when I’m in public”, “most” could correspond to 80
+or 90% mask use, rather than just 50%. It’s not obvious how to translate the
+survey question into an estimate of the percent of people wearing masks. So what
+can we learn from this?</p>
+</div>
+<div id="a-probabilistic-argument-for-mask-use" class="section level2">
+<h2>A Probabilistic Argument for Mask Use</h2>
+<p>Permit me to discuss some probability theory for a moment. It’s fine if you
+don’t follow the math—the key point will be the probability it allows me to
+calculate two paragraphs from now.</p>
+<p>Suppose that the true proportion of people who wear masks in public in a certain
+state is <span class="math inline">\(p\)</span>. Suppose those people are uniformly distributed throughout the
+state. If you go out in a public place and see 20 people, the number of those
+people who are wearing masks is a random variable <span class="math inline">\(X\)</span> with distribution
+<span class="math inline">\(\text{Binomial}(20, p)\)</span>.</p>
+<p>Suppose <span class="math inline">\(p = 0.8\)</span>, meaning 80% of people wear masks. With a bit of math, we
+find that on a typical trip into public, the chance of seeing <strong>at least 4
+people</strong> not wearing masks is <span class="math inline">\(\Pr(X \leq 16)\)</span>, or
+<strong>59%.</strong> To
+reduce that chance to 10%, we’d need 91% mask compliance, showing how small
+changes in mask usage can cause big changes in risk.</p>
+<p>This means that the apparent contradiction we saw in the graph above—with
+respondents claiming that they wear masks but disputing that most others
+do—may not be a contradiction. Depending on how respondents interpret “most”,
+it might be expected. After all, if you wear a mask yourself but then run into
+four different people who do not while getting groceries, you could be quite
+justified in denying that “most” people wear masks.</p>
+<p>But more importantly, this shows <strong>why a high rate of mask use is so
+important.</strong> If 80% of people wear masks, you are still likely to run into
+several unmasked people on a trip to any public place, placing you at higher
+risk. The problem only gets worse if our assumption that mask use is uniformly
+distributed is false, and if people without masks tend to visit the same
+locations or events, or gather together for social events, or go out in public
+more often than people who do wear masks.</p>
+<p>In short, there are numerous opportunities for COVID transmission even when
+over three-quarters of people wear masks. Only a very high rate of mask usage
+can dramatically reduce these opportunities.</p>
+</div>
+<div id="public-activities-social-distancing-and-masks" class="section level2">
+<h2>Public Activities, Social Distancing, and Masks</h2>
+<p>Earlier, I pointed out that mask use <em>reduces</em> the risk of COVID transmission
+but does not eliminate it. This is why authorities such as the Centers for
+Disease Control and most state health departments <a href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html">recommend social distancing
+together with mask
+use</a>.
+This means we can’t simply compare states by their level of mask use to see if
+masks are working; we must also compare their level of social distancing.</p>
+<p>Our survey asks respondents a series of questions about activities, by asking,
+“In the last 24 hours, have you done any of the following?” One possible choice
+is “Spent time with someone who isn’t currently staying with you”; whether this
+is done with a mask or not, it represents a higher risk. And the data shows that
+it’s done more often in states where fewer people report wearing masks:</p>
+<pre class="r"><code>spent_time &lt;- covidcast_signal(
+  &quot;fb-survey&quot;, &quot;smoothed_wspent_time_1d&quot;,
+  start_day = &quot;2020-12-01&quot;, end_day = &quot;2020-12-01&quot;,
+  geo_type = &quot;state&quot;)
+
+mask_time &lt;- masked %&gt;%
+  inner_join(spent_time, by = &quot;geo_value&quot;,
+             suffix = c(&quot;.mask&quot;, &quot;.others&quot;))
+
+ggplot(mask_time,
+       aes(x = value.mask, y = value.others, label = toupper(geo_value))) +
+  geom_text() +
+  labs(x = &quot;% who report wearing masks most/all the time&quot;,
+       y = &quot;% who spent time with others in past 24 hours&quot;,
+       title = &quot;Social distancing reported in symptom survey&quot;,
+       subtitle = &quot;December 1st, 2020&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw()</code></pre>
+<p><img src="/blog/2020-12-10-masks-public_files/figure-html/social_distancing-1.svg" width="672" /></p>
+<p>Similarly, SafeGraph collects anonymous data on visits to restaurants by using
+cell phone location data. Using <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/safegraph.html#safegraph-weekly-patterns">state-level aggregates from our
+API</a>,
+we can compare mask use to the proportion of people visiting restaurants in each state:</p>
+<pre class="r"><code># 2020-11-29 was most recent data available at time of writing
+restaurants &lt;- covidcast_signal(
+  &quot;safegraph&quot;, &quot;restaurants_visit_prop&quot;,
+  &quot;2020-11-29&quot;, &quot;2020-11-29&quot;,
+  geo_type = &quot;state&quot;)
+
+mask_rest &lt;- masked %&gt;%
+  inner_join(restaurants, by = &quot;geo_value&quot;,
+             suffix = c(&quot;.mask&quot;, &quot;.restaurant&quot;))
+
+ggplot(mask_rest,
+       aes(x = value.mask, y = value.restaurant, label = toupper(geo_value))) +
+  geom_text() +
+  labs(x = &quot;% who report wearing masks most/all the time&quot;,
+       y = &quot;Visits by SafeGraph panel, per 100,000 population&quot;,
+       title = &quot;Restaurant visits and mask use&quot;,
+       subtitle = &quot;December 1st, 2020&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw()</code></pre>
+<p><img src="/blog/2020-12-10-masks-public_files/figure-html/restaurants-1.svg" width="672" /></p>
+<p>These plots suggest that lower mask use is correlated with other risky
+behaviors, which combine to produce more opportunities to spread the virus.
+While these graphs only show two possible activities, our survey asks about
+others—including working outside the home and attending large events—and our
+API allows researchers to quickly combine this data with <a href="{{< apiref "api/covidcast-signals/safegraph.html" >}}">SafeGraph’s other
+mobility data</a>
+and other data sources that give a clearer picture of how people react to the
+pandemic. By studying this aggregate data and the individual survey
+responses, it will be possible to examine how mask use is associated with other
+social distancing behavior.</p>
+</div>
+<div id="more-opportunities-in-survey-data" class="section level2">
+<h2>More Opportunities in Survey Data</h2>
+<p>Above, we’ve seen how our survey data can shed light on mask use in the United
+States. Mask use is not as universal as it might seem, and there’s substantial
+variation between states on mask use and other social distancing behaviors.
+Insights like these are important: Using this information about mask use
+and activity, authorities can target their emergency orders and provide more
+specific advice to the public.</p>
+<p>While a short blog post can’t hope to offer a thorough analysis proving which
+behaviors reduce spread the most, we make all our data publicly available so
+that the public health researchers building detailed models of COVID’s spread
+can combine it with other data to study how the pandemic spreads and what
+interventions are most effective to stop it.</p>
+<p>If you’re one of those researchers, or you think this data could be useful for
+your reporting or decision-making, see our <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">COVIDcast Epidata
+API</a> for details
+on how to get it. Numerous aggregates from the survey data, including more
+measures of public activity, are <a href="{{< apiref "api/covidcast-signals/fb-survey.html" >}}">available through the
+API</a>,
+and can be easily downloaded using <a href="{{< apiref "api/covidcast_clients.html" >}}">our R and Python
+packages</a>.
+All aggregates are de-identified to protect the privacy of survey respondents.</p>
+<p>We also make the raw response data available to academic and nonprofit
+researchers, and we look forward to seeing more detailed analyses of this data.
+For example, it would be important to know if people who do not wear masks are
+more likely to do activities near other people, such as attending public events
+or spending time with friends who do not live with them, than those who wear
+masks regularly. Our survey asks respondents about these types of activities,
+allowing us to understand how behavior varies. If you’re an academic or
+nonprofit researcher and want to do this kind of research, check out our <a href="https://cmu-delphi.github.io/delphi-epidata/symptom-survey/">survey
+documentation to get
+started</a>. And if
+you’re interested in similar data in numerous other countries around the world,
+check out <a href="https://covidmap.umd.edu/">the University of Maryland’s survey</a>,
+which runs in over 50 languages worldwide.</p>
+</div>
