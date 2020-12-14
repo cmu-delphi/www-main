@@ -1,11 +1,14 @@
 ---
-title: "COVID-19 Symptom Surveys through Facebook"
-author: "Alex Reinhart and Ryan Tibshirani"
+title: COVID-19 Symptom Surveys through Facebook
+author: Alex Reinhart and Ryan Tibshirani
 date: 2020-08-26
-tags: ["symptom surveys", "COVIDcast", "R"]
+tags:
+  - symptom surveys
+  - COVIDcast
+  - R
 authors:
-- alex
-- ryan
+  - alex
+  - ryan
 heroImage: /blog/images/blog-lg-img_facebook-survey-post.png
 heroImageThumb: /blog/images/blog-thumb-img_facebook-survey-post.png
 summary: |
@@ -50,11 +53,11 @@ we've been conducting a massive daily survey to monitor
 the spread and impact of the COVID-19 pandemic in the United States.
 Our survey is advertised through Facebook, but it's run on our own Qualtrics
 platform (Facebook never sees any of the survey responses).
-This is an ongoing operation and our survey is taken by about 74,000 people 
+This is an ongoing operation and our survey is taken by about 74,000 people
 each day. Respondents provide information about COVID-related
 symptoms, contacts, risk factors, and demographics,
 allowing us to examine county-level trends across the US.
-We believe that this combination of *detail* and *scale*
+We believe that this combination of _detail_ and _scale_
 has never before been available in a public health emergency.
 
 We make aggregated data publicly available daily through our
@@ -74,7 +77,7 @@ some of the exciting new directions that we're pursuing now.
 
 ## Short Background
 
-Back in March 2020, we began discussions with Facebook about running a 
+Back in March 2020, we began discussions with Facebook about running a
 survey, advertised through their site, to collect real-time,
 county-level information on people experiencing COVID-like symptoms.
 The basic premise was that we could use this information
@@ -93,7 +96,7 @@ with buy-in from a platform like Facebook.
 Fortunately for us, they agreed!
 
 We launched our survey on April 6, 2020.
-Every day since, Facebook directs a random sample of its users 
+Every day since, Facebook directs a random sample of its users
 to our survey, hosted on [Qualtrics](https://www.qualtrics.com/).
 As part of our agreement with Facebook,
 we receive the data directly from Qualtrics,
@@ -104,15 +107,15 @@ with fully de-identified individual survey responses
 available only to researchers who agree to our
 [data use terms](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/).
 
-As of this writing, our survey is taken by an average of 74,000 people per 
+As of this writing, our survey is taken by an average of 74,000 people per
 day, delivering enough data for us to create meaningful estimates
 for an average of nearly 1,000 counties per week.
-Over the course of the survey so far, we have already collected over 10 million 
+Over the course of the survey so far, we have already collected over 10 million
 responses! An [international version of the survey](https://covidmap.umd.edu/),
-available in over 50 languages, was launched soon after by a team at the 
+available in over 50 languages, was launched soon after by a team at the
 University of Maryland.
 
-Before going into detail later about our survey and our survey-based 
+Before going into detail later about our survey and our survey-based
 indicators, here are a couple maps to ground your intuition.
 On the left is a state-level heatmap of
 the estimated percentage of people with COVID symptoms,
@@ -128,7 +131,7 @@ which already provides a nice sanity check.
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
 ```
 
-```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4}
+```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(dplyr)
 library(gridExtra)
@@ -168,60 +171,60 @@ grid.arrange(p1, p2, nrow = 1)
 We generated these plots using our [covidcast R
 package](https://cmu-delphi.github.io/covidcast/covidcastR/).
 In all, fetching the data from our API and producing the heatmaps
-requires only 15 lines of code. 
-If you're interested, click the "Code" button to reveal the source. 
+requires only 15 lines of code.
+If you're interested, click the "Code" button to reveal the source.
 We'll cover our [R and Python covidcast
 packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`)
 in a future blog post.
 
 ## Why Run These Surveys?
 
-Now let's unpack the main motivation behind our survey a bit: 
-a person typically experiences COVID-like symptoms 
-before they seek medical care or a COVID-19 test, 
+Now let's unpack the main motivation behind our survey a bit:
+a person typically experiences COVID-like symptoms
+before they seek medical care or a COVID-19 test,
 so data on how many people are self-reporting COVID-like symptoms in a
-given county could potentially give us an **early indicator** 
-of COVID activity in that county. And to be clear, it's not just 
-*that* we're looking at symptoms that's important here, 
-it's the *way* we're measuring them: 
-since symptoms can be reported from home, 
-with no special equipment needed, 
-this data isn't subject to the same reporting delays 
+given county could potentially give us an **early indicator**
+of COVID activity in that county. And to be clear, it's not just
+_that_ we're looking at symptoms that's important here,
+it's the _way_ we're measuring them:
+since symptoms can be reported from home,
+with no special equipment needed,
+this data isn't subject to the same reporting delays
 as formal testing metrics like confirmed COVID-19 case counts.
 (Note that confirmed COVID-19 case counts aren't just delayed,
 they are confounded by issues like testing policy and capacity,
-while self-reported symptom data shouldn't be subject to the same problems. 
-This is potentially a very important point, but much more subtle, and we 
+while self-reported symptom data shouldn't be subject to the same problems.
+This is potentially a very important point, but much more subtle, and we
 won't delve into it in this post.)
 
-It's also worth being clear about what we're *not* able to say with these
+It's also worth being clear about what we're _not_ able to say with these
 surveys:
 
 - Symptoms alone are not sufficient to diagnose coronavirus infections: of
-course, COVID-like symptoms can be caused by other conditions, and many true
-infections are asymptomatic. Therefore, even if we ignore the issues brought on
-by self-reporting and survey sampling, we can't expect the estimates we produce
-to reflect the true rate of COVID-19 (and they're not intended to).
+  course, COVID-like symptoms can be caused by other conditions, and many true
+  infections are asymptomatic. Therefore, even if we ignore the issues brought on
+  by self-reporting and survey sampling, we can't expect the estimates we produce
+  to reflect the true rate of COVID-19 (and they're not intended to).
 
 - Our survey responses come from the population of Facebook users in the US,
-which may be a sizeable fraction of the US population, but certainly not all of
-it. We'll also likely see bias because some people on Facebook are more inclined
-to take surveys than others. We attempt to correct for both of these biases
-using a [statistical reweighting
-scheme](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html#survey-weighting")`),
-but these corrections aren't perfect.
+  which may be a sizeable fraction of the US population, but certainly not all of
+  it. We'll also likely see bias because some people on Facebook are more inclined
+  to take surveys than others. We attempt to correct for both of these biases
+  using a [statistical reweighting
+  scheme](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html#survey-weighting")`),
+  but these corrections aren't perfect.
 
 - Our symptom data is entirely self-reported, in contrast to data
-reported by medical professionals. Some fraction of the responses could be
-erroneous, either because a person misunderstood the question or chose to answer
-incorrectly.
+  reported by medical professionals. Some fraction of the responses could be
+  erroneous, either because a person misunderstood the question or chose to answer
+  incorrectly.
 
 To summarize, our survey can't be used to make absolute statements about the
 true prevalence of coronavirus disease in the US; in fact, it shouldn't even be
 regarded as a foolproof way of deriving unbiased estimates of the number of
-people with COVID-19 *symptoms* in the US (mainly due to the self-reporting
-aspect). Nevertheless, as we'll see below, *changes in self-reported symptoms
-over time* can still be a meaningful reflection of the changes in coronavirus
+people with COVID-19 _symptoms_ in the US (mainly due to the self-reporting
+aspect). Nevertheless, as we'll see below, _changes in self-reported symptoms
+over time_ can still be a meaningful reflection of the changes in coronavirus
 infections over time. And in the best case, it can help predict changes to come
 some days into the future.
 
@@ -229,9 +232,9 @@ some days into the future.
 
 Our survey has 4 sections and is about 35 questions long. The first section is
 short and gathers information on a core set of symptoms used to define a
-condition called **COVID-like illness** or **CLI**, which we define as *fever of
+condition called **COVID-like illness** or **CLI**, which we define as _fever of
 at least 100 °F, along with cough, shortness of breath, or difficulty
-breathing*. This mirrors the standard definition of influenza-like illness or
+breathing_. This mirrors the standard definition of influenza-like illness or
 ILI (defined as fever of at least 100 °F, along with sore throat or cough), and
 is in line with the working definition of CLI used by the US Centers for Disease
 Control and Prevention (CDC).
@@ -241,8 +244,8 @@ quantities, in a given location, on a given day:
 
 - % CLI: the percentage of people with COVID-like illness; and
 
-- % CLI-in-community: the percentage of people who *know someone in their local
-community* with COVID-like illness.
+- % CLI-in-community: the percentage of people who _know someone in their local
+  community_ with COVID-like illness.
 
 Details on how we compute the % CLI and % CLI-in-community estimates can be
 found in our [COVIDcast signals
@@ -280,16 +283,16 @@ provided they agree to keep data from individual respondents confidential.
 ## Some Interesting Examples
 
 Now we'll turn to some interesting data examples that provide evidence
-that our survey-based CLI signals can be early indicators of COVID activity. 
-We'll consider the % CLI-in-community indicator, which tends to be more stable 
+that our survey-based CLI signals can be early indicators of COVID activity.
+We'll consider the % CLI-in-community indicator, which tends to be more stable
 than the % CLI indicator (which shows similar, but noisier, trends).
-Let's start by looking at Miami-Dade County, 
-which experienced a surge of new COVID-19 cases 
+Let's start by looking at Miami-Dade County,
+which experienced a surge of new COVID-19 cases
 between June and July: below we plot daily new confirmed COVID-19
 cases over time (using a 7-day trailing average for smoothing) as a blue curve.
-We also plot the % CLI-in-community indicator as a red curve. 
+We also plot the % CLI-in-community indicator as a red curve.
 Note that these two curves, case counts and % CLI-in-community,
-are not measured in the same units, hence our use of two y-axes: 
+are not measured in the same units, hence our use of two y-axes:
 one on the left for case counts, and one on the right for % CLI-in-community.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
@@ -319,11 +322,11 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
   given_geo_value = geo_value
   df_fb_one = df_fb %>% filter(geo_value == given_geo_value)
   df_in_one = df_in %>% filter(geo_value == given_geo_value)
-  
+
   # Compute ranges of the two signals
   range1 = df_in_one %>% select("value") %>% range
   range2 = df_fb_one %>% select("value") %>% range
-  
+
   # Convenience functions for our two signal ranges
   trans12 = function(x) trans(x, range1, range2)
   trans21 = function(x) trans(x, range2, range1)
@@ -339,7 +342,7 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
                     df_in_one), c("time_value", "value"))
   df$signal = c(rep("% CLI-in-community", nrow(df_fb_one)),
                 rep("New COVID-19 cases", nrow(df_in_one)))
-  
+
   # Finally, plot both signals
   pos = ifelse(legend, "bottom", "none")
   return(ggplot(df, aes(x = time_value, y = value)) +
@@ -366,13 +369,13 @@ This example, as with all code examples in this blog post, was produced using
 our [covidcast R package](https://cmu-delphi.github.io/covidcast/covidcastR/).
 
 A first glance reveals that the % CLI-in-community indicator
-clearly rises alongside confirmed COVID-19 cases, 
-a reassuring sanity check: more people indeed report 
-that others are sick in their community at times 
+clearly rises alongside confirmed COVID-19 cases,
+a reassuring sanity check: more people indeed report
+that others are sick in their community at times
 when COVID-19 tests confirm more cases.
 But a closer look shows something quite interesting:
-the % CLI-in-community signal begins to rise steeply on June 19 
-(first dashed vertical line), which happens *6 days before* COVID-19 cases 
+the % CLI-in-community signal begins to rise steeply on June 19
+(first dashed vertical line), which happens _6 days before_ COVID-19 cases
 begin their steep ascent on June 25 (second dashed vertical line).
 
 This is just one county; to investigate further, we pulled the 20 counties with
@@ -382,7 +385,7 @@ indicator in red. We can see that the % CLI-in-community indicator is (a) never
 lagging and (b) leading in many counties; for example, Dallas County, Orange
 County, Hidalgo County, and Nueces County are a few notable examples.
 
-```{r, message = FALSE, fig.width = 10, fig.height = 10}
+```{r, message = FALSE, fig.width = 10, fig.height = 10, out.extra = 'class="wide-figure"'}
 num = 20
 geo_values = df_in %>% group_by(geo_value) %>%
   summarize(diff = last(value) - first(value)) %>%
@@ -395,37 +398,37 @@ for (i in 1:num) {
 do.call(grid.arrange, c(p_list, nrow = 5, ncol = 4))
 ```
 
-The examples above are an informal way of looking 
-at the *recall* of the % CLI-in-community signal. 
-Of course, this is only one half of the story: 
+The examples above are an informal way of looking
+at the _recall_ of the % CLI-in-community signal.
+Of course, this is only one half of the story:
 for the signal to be a useful early indicator,
-we'd also need to know something about its *precision*: 
-we'd need to know that % CLI-in-community seldom rises 
-in periods where new COVID-19 cases remain flat. 
+we'd also need to know something about its _precision_:
+we'd need to know that % CLI-in-community seldom rises
+in periods where new COVID-19 cases remain flat.
 We save a formal precision-recall analysis for future work.
 
 ## Basic Correlation Analysis
 
 To complement the more exploratory, qualitative analysis of the last section,
-we'll conduct a simple quantitative analysis here, 
-by computing some basic measures of correlation 
-between our survey-based indicators and confirmed COVID-19 case rates. 
+we'll conduct a simple quantitative analysis here,
+by computing some basic measures of correlation
+between our survey-based indicators and confirmed COVID-19 case rates.
 There are a couple of ways to slice the data---by day and
 by county---and we'll consider both ways in what follows.
 
 ### Correlations Sliced by Time
 
-First we compute, for each day between April 15 and August 15, 
-the Spearman correlation between the % CLI indicator and COVID-19 case rates, 
-across the counties that had at least 500 cumulative confirmed COVID-19 cases. 
-(Spearman correlation assesses whether one variable is high when another is 
-high, even if their relationship is not linear.) 
-We do the same for the % CLI-in-community indicator, 
+First we compute, for each day between April 15 and August 15,
+the Spearman correlation between the % CLI indicator and COVID-19 case rates,
+across the counties that had at least 500 cumulative confirmed COVID-19 cases.
+(Spearman correlation assesses whether one variable is high when another is
+high, even if their relationship is not linear.)
+We do the same for the % CLI-in-community indicator,
 and plot the results below, with the % CLI indicator correlations in
-red, and the % CLI-in-community correlations in blue. 
-We can see clearly that the % CLI-in-community indicator produces, 
-consistently across all time, *much* higher correlations. 
-Even in an absolute sense, the correlations from the % CLI-in-community are 
+red, and the % CLI-in-community correlations in blue.
+We can see clearly that the % CLI-in-community indicator produces,
+consistently across all time, _much_ higher correlations.
+Even in an absolute sense, the correlations from the % CLI-in-community are
 noteworthy: they reach over 0.8 for a period between July and August.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
@@ -470,19 +473,19 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
 ```
 
 Another interesting observation is that the correlations from either indicator
-increase dramatically sometime around mid-June. 
-This could be because many counties saw big surges in COVID-19 activity around 
-that time. These surges created a larger spread between the COVID-19 case rates 
+increase dramatically sometime around mid-June.
+This could be because many counties saw big surges in COVID-19 activity around
+that time. These surges created a larger spread between the COVID-19 case rates
 across the country, and so county-to-county differences started to become easier
-to track with the indicators, as the magnitude of these differences started to 
+to track with the indicators, as the magnitude of these differences started to
 swamp the noise.
 
-Of course, this is really just speculation, 
-and we can't say for certain that this is the cause. 
-Some decent empirical evidence for our explanation, however, can be found 
-by looking at how COVID-19 case rates vary between counties over time, as shown 
-below. The median absolute deviation (a robust measure of spread) between 
-counties rises sharply sometime around mid-June, 
+Of course, this is really just speculation,
+and we can't say for certain that this is the cause.
+Some decent empirical evidence for our explanation, however, can be found
+by looking at how COVID-19 case rates vary between counties over time, as shown
+below. The median absolute deviation (a robust measure of spread) between
+counties rises sharply sometime around mid-June,
 around the same time as the correlations increased.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 4}
@@ -492,18 +495,18 @@ ggplot(df_in_act %>% group_by(time_value) %>%
   labs(title = "Median absolute deviation in COVID-19 case rates",
        subtitle = sprintf("Over all counties with at least %i cumulative cases",
                           case_num), x = "Date", y = "Median abs deviation") +
-  theme_bw() 
+  theme_bw()
 ```
 
 ### Correlations Sliced by County
 
 Next we compute, for each county with at least 500 cumulative cases,
-the Spearman correlations between each of our indicators and COVID-19 case 
+the Spearman correlations between each of our indicators and COVID-19 case
 rates, across all time. We can visualize this in a few different ways.
-Below we plot estimated densities from these two sets of correlations: 
-from the % CLI indicator in red, and the % CLI-in-community indicator in blue. 
-With this slice of the data (correlations by county, rather than by day), 
-we again see that the % CLI-in-community indicator produces *much* higher 
+Below we plot estimated densities from these two sets of correlations:
+from the % CLI indicator in red, and the % CLI-in-community indicator in blue.
+With this slice of the data (correlations by county, rather than by day),
+we again see that the % CLI-in-community indicator produces _much_ higher
 correlations.
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5}
@@ -525,17 +528,17 @@ ggplot(df_cor, aes(value)) +
   theme_bw() + theme(legend.pos = "bottom", legend.title = element_blank())
 ```
 
-We can also examine choropleth maps of these correlations to learn 
-where (geographically speaking) they're high and where they're not. 
-As we can see from the maps below, the % CLI-in-community indicator 
-yields high correlations throughout much of the US, 
-whereas the % CLI indicator is a bit more spotty. 
-Note that here a gray color denotes a missing value: 
-either that county had below 500 cumulative COVID-19 cases, 
+We can also examine choropleth maps of these correlations to learn
+where (geographically speaking) they're high and where they're not.
+As we can see from the maps below, the % CLI-in-community indicator
+yields high correlations throughout much of the US,
+whereas the % CLI indicator is a bit more spotty.
+Note that here a gray color denotes a missing value:
+either that county had below 500 cumulative COVID-19 cases,
 or we didn't have enough data from the surveys in
 order to estimate % CLI and % CLI-in-community signals there.
 
-```{r, fig.width = 10, fig.height = 4}
+```{r, fig.width = 10, fig.height = 4, out.extra = 'class="wide-figure"'}
 # Set a bunch of fields so that the data frames know how to plot themselves
 df_cor1$time_value = df_cor2$time_value = start_day
 df_cor1$issue = df_cor2$issue = start_day
@@ -555,9 +558,9 @@ grid.arrange(p1, p2, nrow = 1)
 
 You might expect that a survey that reaches tens of thousands of respondents
 within the US daily---and has done so for months during a major pandemic---could
-have *many* possible uses beyond simply surveying symptoms. You would be right.
-Beyond the first section on the core COVID symptoms, our survey contains 
-questions on testing, behavior, medical care, mental health, and related topics, 
+have _many_ possible uses beyond simply surveying symptoms. You would be right.
+Beyond the first section on the core COVID symptoms, our survey contains
+questions on testing, behavior, medical care, mental health, and related topics,
 opening a multitude of possible research questions up to empirical inquiry.
 
 This is why Delphi and the University of Maryland (for the international
@@ -572,34 +575,34 @@ Facebook](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-da
 and our goal is to build a network of researchers committed to fighting the
 pandemic through our survey data.
 
-To take these efforts to the next level, we'll soon release a new version of the 
-survey. Based on feedback from other researchers, public health agencies, the 
+To take these efforts to the next level, we'll soon release a new version of the
+survey. Based on feedback from other researchers, public health agencies, the
 University of Maryland, and Facebook, we've added items asking about:
 
 - More details on COVID testing (including whether the respondent tried to get
-tested but could not).
+  tested but could not).
 - Mask wearing.
 - The types of activities the respondent has done with other people.
 - Mental health and social isolation.
 - Employment.
 - Demographics (including race and education).
 
-These items will give us an unprecedented view into 
-how people have responded to the pandemic, 
+These items will give us an unprecedented view into
+how people have responded to the pandemic,
 how they have been affected by the pandemic and the resulting economic downturn,
-and how specific groups are affected. 
+and how specific groups are affected.
 We hope the mask and behavior items can help researchers studying
-how best to prevent the spread of COVID-19, 
-and can even help inform forecasts, 
-while mental health and isolation items will help researchers to understand 
+how best to prevent the spread of COVID-19,
+and can even help inform forecasts,
+while mental health and isolation items will help researchers to understand
 how social distancing and recession have affected mental health.
-Together with extended demographic data, this may help to inform policies 
+Together with extended demographic data, this may help to inform policies
 designed to help those most affected by the pandemic.
 
-This new survey is currently being deployed, 
-and data should become available in the next few weeks. 
+This new survey is currently being deployed,
+and data should become available in the next few weeks.
 Detailed data will be available to researchers,
-while new aggregates---such as of mask-wearing---will 
+while new aggregates---such as of mask-wearing---will
 be made public, as usual, through our [COVIDcast
-API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`) 
+API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`)
 and [COVIDcast interactive map](`r blogdown::shortcode_html("ref", "covidcast")`).

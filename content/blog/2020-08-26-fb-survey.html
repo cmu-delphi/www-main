@@ -1,11 +1,14 @@
 ---
-title: "COVID-19 Symptom Surveys through Facebook"
-author: "Alex Reinhart and Ryan Tibshirani"
+title: COVID-19 Symptom Surveys through Facebook
+author: Alex Reinhart and Ryan Tibshirani
 date: 2020-08-26
-tags: ["symptom surveys", "COVIDcast", "R"]
+tags:
+  - symptom surveys
+  - COVIDcast
+  - R
 authors:
-- alex
-- ryan
+  - alex
+  - ryan
 heroImage: /blog/images/blog-lg-img_facebook-survey-post.png
 heroImageThumb: /blog/images/blog-thumb-img_facebook-survey-post.png
 summary: |
@@ -170,7 +173,7 @@ p2 = plot(df_in_avg,
           title = &quot;Daily new confirmed COVID-19 cases per 100,000 people&quot;,
           range=c(0, 30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-2-1.svg" width="960" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-2-1.svg" width="960" class="wide-figure" /></p>
 <p>We generated these plots using our <a href="https://cmu-delphi.github.io/covidcast/covidcastR/">covidcast R
 package</a>.
 In all, fetching the data from our API and producing the heatmaps
@@ -315,11 +318,11 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
   given_geo_value = geo_value
   df_fb_one = df_fb %&gt;% filter(geo_value == given_geo_value)
   df_in_one = df_in %&gt;% filter(geo_value == given_geo_value)
-  
+
   # Compute ranges of the two signals
   range1 = df_in_one %&gt;% select(&quot;value&quot;) %&gt;% range
   range2 = df_fb_one %&gt;% select(&quot;value&quot;) %&gt;% range
-  
+
   # Convenience functions for our two signal ranges
   trans12 = function(x) trans(x, range1, range2)
   trans21 = function(x) trans(x, range2, range1)
@@ -335,7 +338,7 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
                     df_in_one), c(&quot;time_value&quot;, &quot;value&quot;))
   df$signal = c(rep(&quot;% CLI-in-community&quot;, nrow(df_fb_one)),
                 rep(&quot;New COVID-19 cases&quot;, nrow(df_in_one)))
-  
+
   # Finally, plot both signals
   pos = ifelse(legend, &quot;bottom&quot;, &quot;none&quot;)
   return(ggplot(df, aes(x = time_value, y = value)) +
@@ -384,7 +387,7 @@ for (i in 1:num) {
   p_list[[i]] = plot_one(geo_values[i], legend = FALSE)
 }
 do.call(grid.arrange, c(p_list, nrow = 5, ncol = 4))</code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-4-1.svg" width="960" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-4-1.svg" width="960" class="wide-figure" /></p>
 <p>The examples above are an informal way of looking
 at the <em>recall</em> of the % CLI-in-community signal.
 Of course, this is only one half of the story:
@@ -475,7 +478,7 @@ around the same time as the correlations increased.</p>
   labs(title = &quot;Median absolute deviation in COVID-19 case rates&quot;,
        subtitle = sprintf(&quot;Over all counties with at least %i cumulative cases&quot;,
                           case_num), x = &quot;Date&quot;, y = &quot;Median abs deviation&quot;) +
-  theme_bw() </code></pre>
+  theme_bw()</code></pre>
 <p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-6-1.svg" width="576" /></p>
 </div>
 <div id="correlations-sliced-by-county" class="section level3">
@@ -527,7 +530,7 @@ p1 = plot(df_cor1, title = &quot;Correlation between % CLI and case rates&quot;,
 p2 = plot(df_cor2, title = &quot;Correlation between % CLI-in-community and case rates&quot;,
           range = c(-1, 1), choro_col = cm.colors(10))
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-8-1.svg" width="960" /></p>
+<p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-8-1.svg" width="960" class="wide-figure" /></p>
 </div>
 </div>
 <div id="whats-next-with-the-surveys" class="section level2">
