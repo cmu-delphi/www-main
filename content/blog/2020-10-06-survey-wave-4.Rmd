@@ -406,7 +406,7 @@ reopening.
 details, see [our surveys page](`r blogdown::shortcode_html("ref", "surveys")`). For
 updates, you can follow [CmuDelphi on Twitter](https://twitter.com/cmudelphi).*
 
-**Note.** *This post was updated on October 17, 2020 to correct an error in the
+**Note:** *This post was updated on October 17, 2020 to correct an error in the
 scatterplot of mask usage and reported case rates. An error in our data
 processing system meant our reported case rates were half the size they should
 have been. This did not affect the trend in the scatterplot, only the scale of
