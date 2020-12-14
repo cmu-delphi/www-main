@@ -56,7 +56,7 @@ forecasts](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-mod
 
 At the outset, we should state that this post is neither a report on Delphi's 
 current COVID-19 forecasters nor an authoritative take on cutting-edge 
-COVID-19 forecasting. Instead, our purpose here to study the Facebook and 
+COVID-19 forecasting. Instead, our purpose here is to study the Facebook and 
 Google % CLI-in-community signals, and demonstrate their value, when used as 
 features, to add predictive power beyond what we can achieve with (fairly 
 simple) time series models trained on case rates alone. In a future blog post, 
@@ -458,9 +458,7 @@ ggplot(res_dif2 %>%
   theme_bw() + theme(legend.pos = "none")
 ```
 
-## Varying the Number of Days Ahead\*
-
-**[\*Added September 25, 2020]**
+## Varying the Number of Days Ahead
 
 Hypothesis tests (like the sign tests conducted above) tell us 
 whether the differences in errors 
@@ -622,3 +620,6 @@ variants](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#Var
 even fairly complicated ones. Being statisticians and computer scientists, we 
 find these statistical models are easier to build, debug, and most importantly, 
 calibrate. More on this in a future blog post. 
+
+**Note:** *This post was updated on September 25, 2020 to include the section 
+ [Varying the Number of Days Ahead](#varying-the-number-of-days-ahead).*
