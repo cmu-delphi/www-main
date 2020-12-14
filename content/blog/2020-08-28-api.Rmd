@@ -25,7 +25,7 @@ summary: |
   is conveniently accessible via easy-to-use Python
   and R packages.
 acknowledgements: |
-  The COVIDcast API builds on the Epidata API, built by
+  *The COVIDcast API builds on the Epidata API, built by
   Delphi founding member David Farrow. Kathryn Mazaitis leads Delphi's engineering
   team, overseeing the COVIDcast API and all related operations. Brian Clark
   manages the API infrastructure, with significant help from Wael Al Saeed, Eu
@@ -39,7 +39,7 @@ acknowledgements: |
   Kim, Zachary Lipton, Natalia Lombardi de Oliveira, Lester Mackey, Pratik Patil,
   Samyak Rajanala, Roni Rosenfeld, Aaron Rumack, James Sharpnack, Noah Simon,
   Jingjing Tang, Robert Tibshirani, Ryan Tibshirani, Valérie Ventura, Larry Wasserman, and
-  Jeremy Weiss.
+  Jeremy Weiss.*
 output:
   html_document:
     code_folding: hide
