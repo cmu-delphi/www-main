@@ -1,18 +1,17 @@
-
 <div class="about-collaborators">
-    <div class="uk-container">
-        <h2 class="uk-text-center">Collaborators</h2>
-        <p class="uk-text-center">We're grateful for financial and other support from our collaborators and supporters:</p>
-        <div class="uk-flex uk-flex-center">
-            <ul>
-                {{range .Site.Data.supporter}}
-                    <li>
-                        {{if eq .group "sponsor"}}With support from {{end}}
+  <div class="uk-container">
+    <h2 class="uk-text-center">Collaborators</h2>
+    <p class="uk-text-center">We're grateful for financial and other support from our collaborators and supporters:</p>
+    <div class="uk-flex uk-flex-center">
+      <ul>
+        {{ range .Site.Data.supporter }}
+          <li>
+            {{ if eq .group "sponsor" }}With support from {{ end }}
 
-                        {{.name}}
-                    </li>
-                {{end}}
-            </ul>
-        </div>
+            {{ .name }}
+          </li>
+        {{ end }}
+      </ul>
     </div>
+  </div>
 </div>

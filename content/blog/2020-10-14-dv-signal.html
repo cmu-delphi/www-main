@@ -1,19 +1,22 @@
 ---
-title: "A Syndromic COVID-19 Indicator Based on Insurance Claims of Outpatient Visits"
-author: "Aaron Rumack and Roni Rosenfeld"
+title: A Syndromic COVID-19 Indicator Based on Insurance Claims of Outpatient Visits
+author: Aaron Rumack and Roni Rosenfeld
 date: 2020-11-05
-tags: ["medical records", "COVIDcast", "R"]
+tags:
+  - medical records
+  - COVIDcast
+  - R
 authors:
-- aaron
-- roni
+  - aaron
+  - roni
 heroImage: /blog/images/blog-img_A Syndromic COVID-19.png
 heroImageThumb: /blog/images/blog-thumb-img_A Syndromic COVID-19.png
 related:
-- 2020-09-18-google-survey
-- 2020-08-26-fb-survey
+  - 2020-09-18-google-survey
+  - 2020-08-26-fb-survey
 summary: |
   In previous posts, we discussed our massive ongoing symptom surveys that have reached over 12 million people in the U.S. since April 2020, in partnership with Facebook and Google. Another one of our major data initiatives is based on partnerships with healthcare systems, granting us access to various aggregate statistics from hospital records and insurance claims covering 10-15% of the United States population. From these data, we can extract informative indicators that can be early indicators of COVID activity. This post focuses on one indicator in particular, based on outpatient visits, and demonstrates both the challenges and promises associated with medical records data.
-acknowledgements: | 
+acknowledgements: |
   Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the indicator. 
   Aaron Rumack devised the weekday adjustment and analyzed the performance of the DV indicator. 
   Roni Rosenfeld worked closely with our health systems partners to get access to the data and provided domain knowledge to ensure that the data was useful. Both Roni and Ryan Tibshirani provided helpful suggestions and insights towards the methodology and analysis.
@@ -102,7 +105,7 @@ p2 = plot(df_in_avg,
           title = &quot;Daily new confirmed COVID-19 cases per 100,000 people&quot;,
           range = c(0, 30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-2-1.svg" width="960" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-2-1.svg" width="960" class="wide-figure" /></p>
 </div>
 <div id="backfill" class="section level2">
 <h2>Backfill</h2>
@@ -143,9 +146,9 @@ ggplot(cmb_df %&gt;% filter(geo_value %in% states_to_plot)) +
   facet_wrap(vars(geo_value)) +
   labs(x = &quot;Date&quot;, y = &quot;% CLI-in-DV&quot;,
        title = &quot;DV indicator, with and without weekday adjustment&quot;) +
-  theme_bw() + 
+  theme_bw() +
   theme(legend.position = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-3-1.svg" width="768" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-3-1.svg" width="768" class="wide-figure" /></p>
 </div>
 <div id="basic-correlation-analyses" class="section level2">
 <h2>Basic Correlation Analyses</h2>
@@ -153,14 +156,14 @@ ggplot(cmb_df %&gt;% filter(geo_value %in% states_to_plot)) +
 <pre class="r"><code>start_day = &quot;2020-04-15&quot;
 end_day = &quot;2020-10-01&quot;
 
-df_adjusted = covidcast_signal(&quot;doctor-visits&quot;, &quot;smoothed_adj_cli&quot;, 
+df_adjusted = covidcast_signal(&quot;doctor-visits&quot;, &quot;smoothed_adj_cli&quot;,
                                start_day, end_day)
-df_cases = covidcast_signal(&quot;usa-facts&quot;, &quot;confirmed_7dav_incidence_prop&quot;, 
+df_cases = covidcast_signal(&quot;usa-facts&quot;, &quot;confirmed_7dav_incidence_prop&quot;,
                             start_day, end_day)
 
 case_num = 500
 cumulative_case_df = covidcast_signal(&quot;usa-facts&quot;, &quot;confirmed_cumulative_num&quot;,
-                                      max(df_cases$time_value), 
+                                      max(df_cases$time_value),
                                       max(df_cases$time_value))
 geo_values = cumulative_case_df %&gt;%
   filter(value &gt;= case_num) %&gt;% pull(geo_value)
@@ -170,7 +173,7 @@ dv_cases_df = bind_rows(df_adjusted, df_cases) %&gt;%
   select(geo_value, signal, time_value, value) %&gt;%
   tidyr::pivot_wider(names_from = signal, values_from = value) %&gt;%
   rename(cases = confirmed_7dav_incidence_prop, dv = smoothed_adj_cli) %&gt;%
-  filter(purrr::map_lgl(geo_value, function(fips) { 
+  filter(purrr::map_lgl(geo_value, function(fips) {
     substr(fips, 3, 5) != &quot;000&quot;})) %&gt;%
   group_by(time_value) %&gt;%
   ungroup()
@@ -193,7 +196,7 @@ ggplot(df_cor_by_space) +
   geom_density(aes(x = value), fill = &quot;gray&quot;) +
   labs(title = &quot;Correlation-by-space between DV indicator and case rates&quot;,
        subtitle = &quot;Over all counties with at least 500 cumulative cases&quot;,
-       x = &quot;Correlation&quot;, y = &quot;Density&quot;) + 
+       x = &quot;Correlation&quot;, y = &quot;Density&quot;) +
   theme_bw()</code></pre>
 <p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-4-1.svg" width="576" /></p>
 <p>Locations with small counts usually have a lower signal-to-noise ratio, which means that their correlations will usually be lower. In the next plot, we show that the average correlation (still sliced by space) is higher when we restrict our attention to counties with higher cumulative case counts. The average correlation increases substantially when considering only counties that have more than 2,000 cumulative COVID-19 cases, and increasing the threshold from there results in only a modest increase in correlation.</p>
@@ -207,7 +210,7 @@ tibble(thresholds = seq(500, 20000, by = 500)) %&gt;%
     thresholds, function(t) {
       mean(df_cor_by_space %&gt;% filter(cases &gt;= t) %&gt;% pull(value), na.rm=T)
     })) %&gt;%
-  ggplot() + 
+  ggplot() +
   geom_line(aes(x = thresholds, y = avg_corr)) +
   labs(x = &quot;Cumulative cases threshold&quot;, y = &quot;Correlation&quot;,
        title = &quot;Mean correlation-by-space between DV indicator and case rates&quot;,
@@ -219,7 +222,7 @@ tibble(thresholds = seq(500, 20000, by = 500)) %&gt;%
   geom_line(aes(x = time_value, y = value)) +
   labs(title = &quot;Correlation-by-time between DV indicator and case rates&quot;,
        subtitle = &quot;Over all counties with at least 500 cumulative cases&quot;,
-       x = &quot;Date&quot;, y = &quot;Correlation&quot;) + 
+       x = &quot;Date&quot;, y = &quot;Correlation&quot;) +
   theme_bw()</code></pre>
 <p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-6-1.svg" width="576" /></p>
 </div>
@@ -269,7 +272,7 @@ p1 = dv_cases_df %&gt;%
   geom_line(aes(x = time_value, y = cases, color = as.factor(hhs))) +
   labs(title = &quot;Mean case rate per HHS region&quot;,
        x = &quot;Date&quot;, y = &quot;New cases per 100,000 people&quot;, color = &quot;HHS&quot;) +
-  theme_bw() 
+  theme_bw()
 
 p2 = dv_cases_df %&gt;%
   group_by(time_value, hhs) %&gt;%
@@ -283,7 +286,7 @@ p2 = dv_cases_df %&gt;%
   theme_bw()
 
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-7-1.svg" width="960" /></p>
+<p><img src="/blog/2020-10-14-dv-signal_files/figure-html/unnamed-chunk-7-1.svg" width="960" class="wide-figure" /></p>
 <p>Let’s look more closely at the behavior of our indicator in HHS 2 (New Jersey and New York). We will compare the two curves in two ways: when the case rate is high (or low) in HHS 2 compared to other days, is the DV indicator also high (or low)? And when the case rate is high (or low) in HHS 2 compared to other HHS regions, is the DV indicator also high (or low) in HHS 2? The first question asks how high the correlation-by-space is, and the second asks how high the correlation-by-time is.</p>
 <p>The answer to the first question is largely yes. The case rate curve is steadily decreasing throughout April and May, flattening out by mid-June. The DV indicator peaks a little later than case rates do, but decreases throughout May and is mostly flat by mid-June. This tells us that the correlation-by-space is good in HHS 2. However, the answer to the second question reveals an issue with the DV indicator. The case rate in HHS 2 is the highest of all HHS regions in May and into June, but by July, HHS 2 is among the lowest in case rate. This is not true with the DV indicator. HHS 2 has the highest % CLI-in-DV almost throughout the entire time period, even when its case rate is one of the lowest. So we see why the correlation-by-time began to decline starting in August: counties in HHS 2 tended to have low case rates but high % CLI-in-DV values, driving down the correlations.</p>
 <p>We have now identified the problem: a % CLI-in-DV of, say, 5% might mean a very low case rate for a county in New York but a very high case rate for a county in Oregon. Since we have six months’ worth of history for both the DV indicator and case rates, we can correct for this problem by regressing case rates on the DV indicator in a location-specific manner. We call this <em>sensorization</em>, that is, the process of turning the DV indicator into a <em>sensor</em>. In the past, the Delphi group has done extensive work in creating sensors from multiple data sources for tracking flu, dengue, and norovirus; and developed sensor fusion methodology for combining multiple sensors into a single unified estimate. For more, see Chapter 4 of <a href="https://delphi.cmu.edu/~dfarrow/thesis.pdf">Farrow 2016</a> and <a href="https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights">Jahja et al. 2019</a>.</p>
@@ -299,9 +302,9 @@ grid.arrange(p1, p2, nrow = 1)</code></pre>
   ungroup()
 
 dv_cases_df = dv_cases_df %&gt;%
-  mutate(slope_6wk = purrr::map_dbl(coef_6wk, function(c) { 
+  mutate(slope_6wk = purrr::map_dbl(coef_6wk, function(c) {
     tryCatch(c[[2]], error = function(x) {NA})})) %&gt;%
-  mutate(int_6wk = purrr::map_dbl(coef_6wk, function(c) { 
+  mutate(int_6wk = purrr::map_dbl(coef_6wk, function(c) {
     tryCatch(c[[1]], error = function(x) {NA})})) %&gt;%
   select(-coef_6wk)
 
@@ -320,9 +323,9 @@ df_cor_by_time_adj = covidcast_cor(
   method = &quot;spearman&quot;)
 
 inner_join(df_cor_by_time %&gt;% rename(orig_cor = value),
-           df_cor_by_time_adj %&gt;% rename(adj_cor = value), 
+           df_cor_by_time_adj %&gt;% rename(adj_cor = value),
            by = &quot;time_value&quot;) %&gt;%
-  ggplot() + 
+  ggplot() +
   geom_line(aes(time_value, orig_cor, color = &quot;Original&quot;)) +
   geom_line(aes(time_value, adj_cor, color = &quot;Sensorized&quot;)) +
   scale_color_manual(values = ggplot_colors[1:2]) +

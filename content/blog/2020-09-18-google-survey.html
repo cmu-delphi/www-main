@@ -1,10 +1,13 @@
 ---
-title: "COVID-19 Symptom Surveys through Google"
-author: "Ryan Tibshirani"
+title: COVID-19 Symptom Surveys through Google
+author: Ryan Tibshirani
 date: 2020-09-18
-tags: ["symptom surveys", "COVIDcast", "R"]
+tags:
+  - symptom surveys
+  - COVIDcast
+  - R
 authors:
-- ryan
+  - ryan
 heroImage: /blog/images/blog-lg-img_google-survey-post.png
 heroImageThumb: /blog/images/blog-thumb-img_google-survey-post.png
 summary: |
@@ -19,7 +22,7 @@ summary: |
   This short post covers some key differences between our Google and Facebook 
   surveys, explains the backstory behind the "CLI-in-community" question
   as it arose through our collaboration with Google, 
-  and shares some of our thinking about next steps for the Google survey. 
+  and shares some of our thinking about next steps for the Google survey.
 acknowledgements: |
   Ryan Tibshirani wrote the initial code for producing 
   estimates from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de 
@@ -147,18 +150,18 @@ df_go = covidcast_signal(&quot;google-survey&quot;, &quot;smoothed_cli&quot;, ge
 start_day = min(df_go$time_value)
 end_day = max(df_go$time_value)
 
-df_fb = covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_hh_cmnty_cli&quot;, 
+df_fb = covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_hh_cmnty_cli&quot;,
                          start_day, end_day, geo_type = &quot;state&quot;)
 df_in = covidcast_signal(&quot;jhu-csse&quot;, &quot;confirmed_7dav_incidence_prop&quot;,
                          start_day, end_day, geo_type = &quot;state&quot;)
 
-# Join by state, average signals, compute correlations 
+# Join by state, average signals, compute correlations
 df1 = inner_join(df_go %&gt;% group_by(geo_value) %&gt;% summarize(x = mean(value)),
                  df_in %&gt;% group_by(geo_value) %&gt;% summarize(y = mean(value)),
-                 by = &quot;geo_value&quot;) 
+                 by = &quot;geo_value&quot;)
 df2 = inner_join(df_fb %&gt;% group_by(geo_value) %&gt;% summarize(x = mean(value)),
-                 df_in %&gt;% group_by(geo_value) %&gt;% summarize(y = mean(value)), 
-                 by = &quot;geo_value&quot;) 
+                 df_in %&gt;% group_by(geo_value) %&gt;% summarize(y = mean(value)),
+                 by = &quot;geo_value&quot;)
 
 # Join again to get state populations
 df1 = inner_join(df1, state_census %&gt;% mutate(ABBR = tolower(ABBR)),
@@ -171,29 +174,29 @@ ggplot_colors = c(&quot;#FC4E07&quot;, &quot;#00AFBB&quot;, &quot;#E7B800&quot;)
 
 # Now make plots
 subtitle = paste(&quot;Averaged over&quot;, start_day, &quot;to&quot;, end_day)
-p1 = ggplot(df1, aes(x = x, y = y, label = toupper(geo_value))) + 
+p1 = ggplot(df1, aes(x = x, y = y, label = toupper(geo_value))) +
   geom_smooth(method = &quot;lm&quot;, col = ggplot_colors[2], se = FALSE) +
-  geom_point(aes(size = POPESTIMATE2019), color = ggplot_colors[2], 
-             alpha = 0.5) + 
-  scale_size(name = &quot;Population&quot;, range = c(1, 10)) + 
+  geom_point(aes(size = POPESTIMATE2019), color = ggplot_colors[2],
+             alpha = 0.5) +
+  scale_size(name = &quot;Population&quot;, range = c(1, 10)) +
   geom_text(alpha = 0.5) +
-  labs(x = &quot;% CLI-in-community from Google surveys&quot;, 
+  labs(x = &quot;% CLI-in-community from Google surveys&quot;,
        y = &quot;Daily new confirmed COVID-19 cases per 100,000 people&quot;,
        title = &quot;COVID-19 case rates vs Google % CLI-in-community&quot;,
        subtitle = subtitle) +
   theme_bw() + theme(legend.position = &quot;bottom&quot;)
-p2 = ggplot(df2, aes(x = x, y = y, label = toupper(geo_value))) + 
+p2 = ggplot(df2, aes(x = x, y = y, label = toupper(geo_value))) +
   geom_smooth(method = &quot;lm&quot;, col = ggplot_colors[1], se = FALSE) +
-  geom_point(aes(size = POPESTIMATE2019), color = ggplot_colors[1], 
-             alpha = 0.5) + 
-  scale_size(name = &quot;Population&quot;, range = c(1, 10)) + 
+  geom_point(aes(size = POPESTIMATE2019), color = ggplot_colors[1],
+             alpha = 0.5) +
+  scale_size(name = &quot;Population&quot;, range = c(1, 10)) +
   geom_text(alpha = 0.5) +
   labs(x = &quot;% CLI-in-community from Facebook surveys&quot;, y = &quot;&quot;,
        title = &quot;COVID-19 case rates vs Facebook % CLI-in-community&quot;,
        subtitle = subtitle) +
   theme_bw() + theme(legend.position = &quot;bottom&quot;)
 grid.arrange(p1, p2, nrow = 1)</code></pre>
-<p><img src="/blog/2020-09-18-google-survey_files/figure-html/unnamed-chunk-2-1.svg" width="960" /></p>
+<p><img src="/blog/2020-09-18-google-survey_files/figure-html/unnamed-chunk-2-1.svg" width="960" class="wide-figure" /></p>
 <p>In both plots, we see a reassuring trend,
 but the trend on the left is noticeably stronger.
 Indeed, the correlation here between the Google signal and case rates is
@@ -261,7 +264,7 @@ df_go = covidcast_signal(&quot;google-survey&quot;, &quot;smoothed_cli&quot;)
 start_day = min(df_go$time_value)
 end_day = &quot;2020-09-01&quot;
 
-df_fb = covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_hh_cmnty_cli&quot;, 
+df_fb = covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_hh_cmnty_cli&quot;,
                          start_day, end_day)
 df_in = covidcast_signal(&quot;jhu-csse&quot;, &quot;confirmed_7dav_incidence_prop&quot;,
                          start_day, end_day)
@@ -293,7 +296,7 @@ ggplot(df_cor, aes(x = time_value, y = value)) +
   scale_color_manual(values = ggplot_colors) +
   labs(title = &quot;Correlation between survey signals and case rates&quot;,
        subtitle = sprintf(&quot;Over all counties with at least %i cumulative cases&quot;,
-                          case_num), 
+                          case_num),
        x = &quot;Date&quot;, y = &quot;Correlation&quot;) +
     theme_bw() + theme(legend.pos = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
 <p><img src="/blog/2020-09-18-google-survey_files/figure-html/unnamed-chunk-3-1.svg" width="576" /></p>

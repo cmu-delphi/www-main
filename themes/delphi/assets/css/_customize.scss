@@ -2,6 +2,9 @@
 $global-font-family: "Open Sans", Roboto, Arial, sans-serif;
 
 $global-color: #666;
+$menu-active-color: #f03f3f;
+$menu-active-border-width: 2px;
+
 $base-em-color: $global-color;
 
 // Breakpoints:
@@ -17,11 +20,16 @@ $navbar-dropdown-padding: 10px;
 $navbar-dropdown-nav-item-color: #232735;
 $nav-default-item-active-color: red;
 
-$button-padding-horizontal: 0px;
-$button-line-height: 0px;
+// size when both the burger menu and the navbar should be visible
+$menu-mode-hybrid: 1140px;
+// size when only the burger menu is visible
+$menu-mode-mobile-only: $breakpoint-small;
 
-
+// Breadcrumb
 $breadcrumb-divider-margin-horizontal: 3px;
 
+// Tab
+$tab-item-active-border: $menu-active-color;
+$tab-item-border-width: $menu-active-border-width;
 
-$grid-gap: (32/1440)*100%;
+$grid-gap: (32/1440) * 100%;
