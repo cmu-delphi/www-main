@@ -1,4 +1,4 @@
 ---
 title: COVIDCast
-type: covidcast_app
+layout: covidcast_app
 ---

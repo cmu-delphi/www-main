@@ -150,8 +150,8 @@ team:
   team:
   - leadership
   - highlight
-- firstName: Ana Karina
-  lastName: Van Nortwick
+- firstName: Ana&nbsp;Karina
+  lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
   affiliation: Tech Writer
   team:
@@ -172,6 +172,12 @@ team:
   lastName: Weiss
   image: jeremy-weiss-500x500-min.jpg
   affiliation: CMU/Heinz College
+  team:
+  - core
+- firstName: Wichada
+  lastName: La&nbsp;Motte&#x2011;Kerr
+  image: wichada-lamotte-kerr-photo.png
+  affiliation: CMU/MLD
   team:
   - core
 - firstName: Samuel
@@ -220,12 +226,6 @@ team:
   note: Core member, March–April 2020
   team:
   - contributors
-- firstName: Wichada
-  lastName: La Motte-Kerr
-  image: wichada-lamotte-kerr-photo.png
-  affiliation:
-  team:
-  - contributors
 - firstName: Jenny
   lastName: Lee
   image: jenny-yeon-jin-lee-500x500-min.jpg
@@ -240,7 +240,7 @@ team:
   team:
   - contributors
 - firstName: Natalia
-  lastName: Lombardi de Oliveira
+  lastName: Lombardi de&nbsp;Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
   affiliation: CMU/Stat
   team:
@@ -489,10 +489,6 @@ abbreviations:
 ## Core Members
 
 {{<team team="core" >}}
-
-## Interns
-
-{{<team team="interns" >}}
 
 ## Google Fellows
 

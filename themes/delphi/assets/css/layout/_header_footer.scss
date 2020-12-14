@@ -31,7 +31,7 @@ $mobile-margin: 15px;
 }
 
 .nav-entries .uk-active {
-  border-bottom: 2px solid #f03f3f !important;
+  border-bottom: $menu-active-border-width solid $menu-active-color !important;
 }
 
 .nav-entries {
@@ -175,4 +175,9 @@ li.nav-entry {
 
 .footer h5 {
   margin-top: 5px;
+}
+
+.breadcrumb-menu {
+  margin-top: 3px;
+  margin-bottom: 5px;
 }
