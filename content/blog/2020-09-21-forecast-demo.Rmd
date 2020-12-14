@@ -18,11 +18,11 @@ summary: |
   % CLI-in-community indicators from our two surveys can be used to improve 
   the accuracy of short-term forecasts of county-level COVID-19 case rates.
 acknowledgements: |
-  *Delphi's forecasting effort involves many people from our
+  Delphi's forecasting effort involves many people from our
   modeling team, from forecaster design, to implementation, to evaluation. The 
   broader insights on forecasting shared in this post certainly cannot be
   attributable to Ryan's work alone, and are a reflection of the work carried out 
-  by all these team members.*
+  by all these team members.
 related:
   - 2020-09-18-google-survey
   - 2020-08-26-fb-survey

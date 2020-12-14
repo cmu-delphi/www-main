@@ -24,7 +24,7 @@ summary: |
   as it arose through our collaboration with Google, 
   and shares some of our thinking about next steps for the Google survey.
 acknowledgements: |
-  *Ryan Tibshirani wrote the initial code for producing 
+  Ryan Tibshirani wrote the initial code for producing 
   estimates from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de 
   Oliveira, and Lester Mackey greatly extended and improved this codebase, and
   they developed, along with Ryan, the underlying statistical methodology. Ryan 
@@ -32,7 +32,7 @@ acknowledgements: |
   this a reality. On the Google side, Brett Slatkin and Hal Varian have been key 
   collaborators; Brett wrote the code to get daily survey data over to Delphi's 
   estimation pipeline; and both contributed numerous important ideas at various 
-  stages of the project.*
+  stages of the project.
 output:
   html_document:
     code_folding: hide

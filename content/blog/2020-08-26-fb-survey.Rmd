@@ -26,7 +26,7 @@ summary: |
   show you how to access the data, and highlight
   some of the exciting new directions that we're pursuing.
 acknowledgements: |
-  *Logan Brooks and Katie Mazaitis
+  Logan Brooks and Katie Mazaitis
   wrote the initial code for processing
   the survey data and producing estimates.
   Taylor Arnold, Amartya Basu, and Alex Reinhart
@@ -39,7 +39,7 @@ acknowledgements: |
   idea of running the surveys, and worked with Facebook to make this a reality. 
   On the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
   University of Maryland team, including Adrianne Bradford and Samantha Chiu and
-  led by Frauke Kreuter, made many contributions to the survey design.*
+  led by Frauke Kreuter, made many contributions to the survey design.
 output:
   html_document:
     code_folding: hide

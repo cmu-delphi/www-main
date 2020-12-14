@@ -15,7 +15,7 @@ authors:
 heroImage: /blog/images/blog-lg-img_New and Improved COVID.png
 heroImageThumb: /blog/images/blog-thumb-img_New and Improved COVID.png
 acknowledgements: |
-  *Many items in Wave 4 of our survey are based on work by
+  Many items in Wave 4 of our survey are based on work by
   the team at the Joint Program in Survey Methodology at the University of
   Maryland led by Frauke Kreuter; Adrianne Bradford and Samantha Chiu helped
   design items and gave feedback. Facebook's survey team, including Sarah LaRocca
@@ -25,7 +25,7 @@ acknowledgements: |
   and Kathryn Mazaitis developed the code needed to process Wave 4. Delphi members
   Roni Rosenfeld and Ryan Tibshirani suggested survey revisions. We thank Jean
   Cox-Ganser, Paul Henneberger, Danielle Iuliano, Robert Kraut, and Jordan Weber
-  for suggesting survey items and revisions for Wave 4.*
+  for suggesting survey items and revisions for Wave 4.
 output:
   blogdown::html_page:
     toc: true
