@@ -115,3 +115,11 @@ $blog-list-date-width: 5em;
     padding: 0;
   }
 }
+
+.blog-acknowledgements {
+  font-style: italic;
+
+  > strong:first-of-type {
+    font-style: normal;
+  }
+}
