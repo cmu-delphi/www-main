@@ -3,9 +3,9 @@ title: "Are Masks Widely Used in Public?"
 author: "Alex Reinhart"
 date: 2020-12-13
 tags:
-  - R
   - symptom surveys
   - COVIDcast
+  - R
 authors:
 - alex
 heroImage: /blog/images/masks-public-full-size.jpg
