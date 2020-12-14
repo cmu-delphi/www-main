@@ -1,3 +1,42 @@
-<footer>
-	{{ partial "footer/desktop.html" . }}
+<footer class="footer">
+  <div class="uk-container uk-margin-remove-vertical">
+    <a class="footer-cmu-delphi-logo" href="{{ relref . "/" }}"><span>DELPHI</span></a>
+    <div class="footer-footer uk-child-width-1-2@s uk-child-width-1-4@m uk-grid-column-small" uk-grid>
+      <div>
+        <h5 class="uk-text-bold">COVIDcast</h5>
+        <ul class="uk-list">
+          <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/methodology" }}">Methods</a></li>
+          <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/surveys" }}">Surveys</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="uk-text-bold">Resources</h5>
+        <ul class="uk-list">
+          <li>
+            <a class="uk-link-text uk-text-small" href="{{ relref . "/about/publications" }}"
+              >Research & Publications</a
+            >
+          </li>
+          <li><a class="uk-link-text uk-text-small" href="{{ .Site.Params.apiUrl }}/">API</a></li>
+          <li><a class="uk-link-text uk-text-small" href="https://github.com/cmu-delphi/">GitHub</a></li>
+          <li><a class="uk-link-text uk-text-small" href="{{ relref . "/blog" }}">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="uk-text-bold">About</h5>
+        <ul class="uk-list">
+          <li><a class="uk-link-text uk-text-small" href="https://www.cmu.edu/">CMU</a></li>
+          <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/terms-of-use" }}">Terms</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="uk-text-bold">Contact</h5>
+        <ul class="uk-list">
+          <li>
+            <a class="uk-link-text uk-text-small" href="https://twitter.com/{{ .Site.Params.twitter }}/">Twitter</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </footer>

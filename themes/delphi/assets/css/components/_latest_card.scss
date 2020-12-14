@@ -1,30 +1,29 @@
-
 .latest-card {
-    background: #FAFAFC;
-    border: 1px solid #D3D4D8;
-    border-radius: 8px;
-    
-    > .uk-card-media-top img {
-        border-radius: 8px 8px 0 0;
-        width: 100%;
-        height: 15em;
-        object-fit: cover;
+  background: #fafafc;
+  border: 1px solid #d3d4d8;
+  border-radius: 8px;
+
+  > .uk-card-media-top img {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    height: 15em;
+    object-fit: cover;
+  }
+
+  > .uk-card-body {
+    flex-grow: 1;
+  }
+
+  > .uk-card-footer {
+    border-top: none;
+
+    a {
+      color: inherit;
     }
-    
-    > .uk-card-body {
-        flex-grow: 1;
-    }
-    
-    > .uk-card-footer {
-        border-top: none;
-        
-        a {
-            color: inherit;
-        }
-    }
+  }
 }
 
 .latest-card-category {
-    font-weight: 600;
-    text-transform: uppercase;
+  font-weight: 600;
+  text-transform: uppercase;
 }

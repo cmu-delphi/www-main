@@ -1,11 +1,11 @@
 <div class="uk-visible@m uk-margin-medium-top">
-    <h2 class="uk-text-center">Latest Stories</h2>
-    {{- $currentPage := . -}}
-    <div class="uk-child-width-1-3 uk-grid-match" uk-grid>
-    {{ range first 3 (where .Parent.Pages ".Title" "!=" $currentPage.Title )}}
-        <div>
-            {{ partial "blog/card.html" . }}
-        </div>
-    {{end}}
-    </div>
+  <h2 class="uk-text-center">Latest Stories</h2>
+  {{- $currentPage := . -}}
+  <div class="uk-child-width-1-3 uk-grid-match" uk-grid>
+    {{ range first 3 (where .Parent.Pages ".Title" "!=" $currentPage.Title ) }}
+      <div>
+        {{ partial "blog/card.html" . }}
+      </div>
+    {{ end }}
+  </div>
 </div>
