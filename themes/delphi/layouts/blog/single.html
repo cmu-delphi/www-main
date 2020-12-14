@@ -45,7 +45,7 @@
       <div class="grid-4-12 blog-blog">
         {{ .Content }}
         {{ if isset .Params "acknowledgements" }}
-          <p>
+          <p class="blog-acknowledgements">
             <strong>Acknowledgements: </strong>
             {{ .Params.acknowledgements | markdownify }}
           </p>
