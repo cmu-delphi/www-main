@@ -24,6 +24,7 @@
 *.woff2
 *.R
 *.xml
+.dockerignore
 *.Rmd
 *.md
 *.jpeg
