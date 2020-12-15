@@ -27,3 +27,5 @@
 .dockerignore
 *.Rmd
 *.md
+*.jpeg
+*.ico

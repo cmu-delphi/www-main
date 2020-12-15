@@ -70,7 +70,7 @@ Below, we plot two maps to explore the indicator. On the left is a heatmap repre
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
 ```
 
-```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4}
+```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(dplyr)
 library(ggplot2)
@@ -104,7 +104,7 @@ p1 = plot(df_dv_avg,
           range = c(0, 15), choro_params = list(subtitle = subtitle))
 p2 = plot(df_in_avg,
           title = "Daily new confirmed COVID-19 cases per 100,000 people",
-          range = c(0, 30), choro_params = list(subtitle = subtitle))
+          range = c(0, 25), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)
 ```
 
@@ -118,7 +118,7 @@ Interestingly, certain types of claims have longer latency than others. We found
 
 Another challenge is the influence of the day of the week on the DV indicator. On weekends, both total counts and COVID-like counts decrease, but proportionally, total counts decrease more. This is because doctor visits during the weekend tend to focus on acute care. The total counts include many visits related to non-acute issues, but almost all COVID-like counts are due to acute issues. Without adjusting for this weekday effect, the DV indicator has a "sawtooth" pattern, spiking on weekends. We derived a method to create an adjusted indicator that accounts for this weekday effect (for a precise description, see our [signal documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/doctor-visits.html#day-of-week-adjustment")`)). Below, we visualize the effect of making these adjustments. When we do not adjust for the weekday effect, we see a sawtooth pattern that clearly does not represent true changes in COVID-like illness within a location. However, after making the weekday adjustment, we get a smooth curve that looks reasonable. It is important to note that this adjustment is _not_ temporal smoothing! Rather, we are making an adjustment each day based on historical patterns of weekday-to-weekend differences.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 8, fig.height = 8}
+```{r, message = FALSE, warning = FALSE, fig.width = 8, fig.height = 8, out.extra = 'class="wide-figure"'}
 start_day = "2020-05-01"
 end_day = "2020-08-01"
 
@@ -242,7 +242,7 @@ ggplot(df_cor_by_time) +
 
 This correlation deterioration was surprising to us, so we set out to find out the reason. After testing many hypotheses, we found one cause: some areas of the country have a higher % CLI-in-DV "baseline" than others. We illustrate this with the plots below, where we plot the average case rate and average DV indicator for each of the 10 HHS regions (each region is comprised of 2-7 states; you can find the details on the [Department of HHS website](https://www.hhs.gov/about/agencies/iea/regional-offices/index.html)).
 
-```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4}
+```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, out.extra = 'class="wide-figure"'}
 fips_to_hhs = function(fips) {
   st = as.integer(substr(fips,1,2))
   if (st %in% c(9,23,25,33,44,50)) {

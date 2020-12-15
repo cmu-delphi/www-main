@@ -18,11 +18,11 @@ summary: |
   % CLI-in-community indicators from our two surveys can be used to improve 
   the accuracy of short-term forecasts of county-level COVID-19 case rates.
 acknowledgements: |
-  *Delphi's forecasting effort involves many people from our
+  Delphi's forecasting effort involves many people from our
   modeling team, from forecaster design, to implementation, to evaluation. The 
   broader insights on forecasting shared in this post certainly cannot be
   attributable to Ryan's work alone, and are a reflection of the work carried out 
-  by all these team members.*
+  by all these team members.
 related:
   - 2020-09-18-google-survey
   - 2020-08-26-fb-survey
@@ -60,7 +60,7 @@ forecasts](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-mod
 
 At the outset, we should state that this post is neither a report on Delphi's
 current COVID-19 forecasters nor an authoritative take on cutting-edge
-COVID-19 forecasting. Instead, our purpose here to study the Facebook and
+COVID-19 forecasting. Instead, our purpose here is to study the Facebook and 
 Google % CLI-in-community signals, and demonstrate their value, when used as
 features, to add predictive power beyond what we can achieve with (fairly
 simple) time series models trained on case rates alone. In a future blog post,
@@ -111,15 +111,19 @@ We evaluate the following four models:
 
 $$
 \begin{aligned}
-&\text{Cases:} \quad && h(Y_{\ell,t+d})
+&\text{Cases:} \\
+& h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
-&\text{Cases + Facebook:} \quad && h(Y_{\ell,t+d})
+&\text{Cases + Facebook:} \\
+& h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
-&\text{Cases + Google:} \quad && h(Y_{\ell,t+d})
+&\text{Cases + Google:} \\
+& h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
-&\text{Cases + Facebook + Google:} \quad && h(Y_{\ell,t+d})
+&\text{Cases + Facebook + Google:} \\
+& h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) +
 \sum_{j=0}^2 \tau_j h(G_{\ell,t-7j}).
@@ -329,7 +333,7 @@ the "Cases + Facebook" and "Cases + Google" models
 appear to deliver some decently small p-values,
 but the story is not as clear with the "Cases + Facebook + Google" model.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 3.5}
+```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 3.5, out.extra = 'class="wide-figure"'}
 # Red, blue (similar to ggplot defaults), then yellow
 ggplot_colors = c("#FC4E07", "#00AFBB", "#E7B800")
 
@@ -408,7 +412,7 @@ The former appears to be below the latter pretty consistently over time,
 with the possible exception of periods where forecasting
 becomes "hard" and the scaled errors shoot above 1.
 
-```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 5}
+```{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 5, out.extra = 'class="wide-figure"'}
 # Plot median errors as a function of time, for models 1 and 2, and both 7 and
 # 14 days ahead
 ggplot(res_err2 %>%
@@ -469,9 +473,7 @@ ggplot(res_dif2 %>%
   theme_bw() + theme(legend.pos = "none")
 ```
 
-## Varying the Number of Days Ahead\*
-
-**[\*Added September 25, 2020]**
+## Varying the Number of Days Ahead
 
 Hypothesis tests (like the sign tests conducted above) tell us
 whether the differences in errors
@@ -634,3 +636,6 @@ We look forward to seeing how you put our data to use!
     even fairly complicated ones. Being statisticians and computer scientists, we
     find these statistical models are easier to build, debug, and most importantly,
     calibrate. More on this in a future blog post.
+
+**Note:** *This post was updated on September 25, 2020 to include the section 
+ [Varying the Number of Days Ahead](#varying-the-number-of-days-ahead).*

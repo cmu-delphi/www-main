@@ -380,7 +380,7 @@ we can examine the percentage
 of outpatient doctor's visits
 due to COVID-Like-Illness (CLI) in the South.
 
-```{r dv-maps, message=FALSE, cache=TRUE, fig.width=10}
+```{r dv-maps, message=FALSE, cache=TRUE, fig.width=10, out.extra = 'class="wide-figure"'}
 library(gridExtra)
 dv <- covidcast_signal(
     data_source = "doctor-visits", signal = "smoothed_adj_cli",

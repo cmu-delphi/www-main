@@ -143,7 +143,7 @@ survey.
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
 ```
 
-```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 5}
+```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 5, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(dplyr)
 library(ggplot2)

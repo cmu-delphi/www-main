@@ -1,6 +1,6 @@
 baseURL = "https://delphi.cmu.edu/"
 languageCode = "en-us"
-title = "The Delphi Team"
+title = "DELPHI"
 theme = "delphi"
 googleAnalytics = "UA-88748454-1"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$", "\\.rda$"]
@@ -48,19 +48,14 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "Data & Methods"
-    url = "/covidcast/methodology"
-    weight = 3
-[[menu.main]]
-    parent = "covidcast"
     name = "Release Log"
     url = "/covidcast/release-log"
-    weight = 4
+    weight = 3
 [[menu.main]]
     parent = "covidcast"
     name = "Terms Of Use"
     url = "/covidcast/terms-of-use"
-    weight = 5
+    weight = 4
 [[menu.main]]
     identifier = "flu"
     name = "Flu and Other Diseases"

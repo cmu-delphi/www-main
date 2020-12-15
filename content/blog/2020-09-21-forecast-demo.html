@@ -18,11 +18,11 @@ summary: |
   % CLI-in-community indicators from our two surveys can be used to improve 
   the accuracy of short-term forecasts of county-level COVID-19 case rates.
 acknowledgements: |
-  *Delphi's forecasting effort involves many people from our
+  Delphi's forecasting effort involves many people from our
   modeling team, from forecaster design, to implementation, to evaluation. The 
   broader insights on forecasting shared in this post certainly cannot be
   attributable to Ryan's work alone, and are a reflection of the work carried out 
-  by all these team members.*
+  by all these team members.
 related:
   - 2020-09-18-google-survey
   - 2020-08-26-fb-survey
@@ -44,7 +44,7 @@ output:
 <li><a href="#forecasting-code">Forecasting Code</a></li>
 <li><a href="#results-all-four-models">Results: All Four Models</a></li>
 <li><a href="#results-first-two-models">Results: First Two Models</a></li>
-<li><a href="#varying-the-number-of-days-ahead">Varying the Number of Days Ahead*</a></li>
+<li><a href="#varying-the-number-of-days-ahead">Varying the Number of Days Ahead</a></li>
 <li><a href="#wrap-up">Wrap-Up</a></li>
 </ul>
 </div>
@@ -74,7 +74,7 @@ which serves as the official data source for the
 forecasts</a>.</p>
 <p>At the outset, we should state that this post is neither a report on Delphi’s
 current COVID-19 forecasters nor an authoritative take on cutting-edge
-COVID-19 forecasting. Instead, our purpose here to study the Facebook and
+COVID-19 forecasting. Instead, our purpose here is to study the Facebook and
 Google % CLI-in-community signals, and demonstrate their value, when used as
 features, to add predictive power beyond what we can achieve with (fairly
 simple) time series models trained on case rates alone. In a future blog post,
@@ -120,15 +120,19 @@ so that they are true proportions: between 0 and 1.)
 We evaluate the following four models:</p>
 <p><span class="math display">\[
 \begin{aligned}
-&amp;\text{Cases:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
-&amp;\text{Cases + Facebook:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases + Facebook:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
-&amp;\text{Cases + Google:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases + Google:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
-&amp;\text{Cases + Facebook + Google:} \quad &amp;&amp; h(Y_{\ell,t+d})
+&amp;\text{Cases + Facebook + Google:} \\
+&amp; h(Y_{\ell,t+d})
 \approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) +
 \sum_{j=0}^2 \tau_j h(G_{\ell,t-7j}).
@@ -646,7 +650,7 @@ ggplot(res_dif4 %&gt;%
   facet_wrap(vars(lead, model)) +
   labs(x = &quot;P-value&quot;, y = &quot;Count&quot;) +
   theme_bw() + theme(legend.pos = &quot;none&quot;)</code></pre>
-<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-4-1.svg" width="864" /></p>
+<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-4-1.svg" width="864" class="wide-figure" /></p>
 </div>
 <div id="results-first-two-models" class="section level2">
 <h2>Results: First Two Models</h2>
@@ -796,7 +800,7 @@ ggplot(res_err2 %&gt;%
   facet_wrap(vars(lead)) +
   labs(x = &quot;Date&quot;, y = &quot;Median scaled error&quot;) +
   theme_bw() + theme(legend.pos = &quot;bottom&quot;, legend.title = element_blank())</code></pre>
-<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-6-1.svg" width="864" /></p>
+<p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-6-1.svg" width="864" class="wide-figure" /></p>
 <p>Again, basic hypothesis testing suggests that the results we’re seeing here
 are likely significant, though it’s hard to say definitively
 given the complicated dependence structure present in the data.
@@ -877,8 +881,7 @@ the bulk of p-values are still quite small.</p>
 <p><img src="/blog/2020-09-21-forecast-demo_files/figure-html/unnamed-chunk-8-1.svg" width="672" /></p>
 </div>
 <div id="varying-the-number-of-days-ahead" class="section level2">
-<h2>Varying the Number of Days Ahead*</h2>
-<p><strong>[*Added September 25, 2020]</strong></p>
+<h2>Varying the Number of Days Ahead</h2>
 <p>Hypothesis tests (like the sign tests conducted above) tell us
 whether the differences in errors
 (between the forecasters)
@@ -1018,6 +1021,8 @@ aggregate data from our survey (beyond CLI indicators) <a href="https://www.symp
 the Challenge</a>, and
 submissions are due September 29, with finalists eligible for cash prizes.
 We look forward to seeing how you put our data to use!</p>
+<p><strong>Note:</strong> <em>This post was updated on September 25, 2020 to include the section
+<a href="#varying-the-number-of-days-ahead">Varying the Number of Days Ahead</a>.</em></p>
 </div>
 <div class="footnotes">
 <hr />
