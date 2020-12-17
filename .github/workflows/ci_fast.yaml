@@ -65,3 +65,9 @@ jobs:
           echo "using tag: --${awsTag}--"
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$awsTag --file ./devops/precompiled/Dockerfile .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$awsTag
+
+          # trigger a webhook update
+          curl -H "Authorization: Bearer ${{ secrets.DELPHI_DEPLOY_WEBHOOK_TOKEN }}" \
+               -X POST ${{ secrets.DELPHI_DEPLOY_WEBHOOK_URL }} \
+               -H "Content-Type: application/x-www-form-urlencoded" \
+               -d "repository=$ECR_REGISTRY/$ECR_REPOSITORY&tag=$awsTag"
