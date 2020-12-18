@@ -1,6 +1,6 @@
 <div class="uk-card uk-card-default latest-card uk-card-small uk-flex uk-flex-column">
   <div class="uk-card-media-top">
-    <img src="{{ .image | relURL }}" alt="{{ .title }}" />
+    {{ partial "webp-image.html" (dict "src" .image "alt" .title) }}
   </div>
   <div class="uk-card-body">
     <div class="latest-card-category">{{ .source }}</div>

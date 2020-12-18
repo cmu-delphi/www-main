@@ -8,7 +8,7 @@
     <ul class="uk-slideshow-items uk-cover-container uk-child-width-1-1 slideshow-container">
       {{ range .Params.carousel }}
         <li>
-          <img src="{{ (path.Join "/images/landing-page/hero-images" .image) | relURL }}" uk-cover />
+          {{ partial "webp-image.html" (dict "src" (path.Join "/images/landing-page/hero-images" .image)) }}
           <div class="uk-container content-grid">
             <div class="carousel-entry grid-2-10">
               <h2>{{ .pre }}</h2>
