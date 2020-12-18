@@ -7,8 +7,8 @@ tags:
 authors:
   - roni
   - ryan
-heroImage: /blog/images/blog-lg-img_hello-world.png
-heroImageThumb: /blog/images/blog-thumb-img_hello-world.png
+heroImage: /blog/images/blog-lg-img_hello-world.jpg
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
 summary: |
   Hello from the Delphi research group at Carnegie Mellon University!
   We're a group of faculty, students, and staff, based primarily out of CMU
