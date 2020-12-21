@@ -17,6 +17,7 @@
 
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
+<meta property="twitter:url" content="{{ .Permalink }}" />
 
 {{- with .Params.tags -}}
   <meta name="keywords" content="{{ delimit . ", " }}" />
@@ -50,9 +51,7 @@
 {{- if .IsPage }}
   {{- if not .PublishDate.IsZero }}
     <meta property="article:published_time" {{ .PublishDate.Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />
-    {{ else if not .Date.IsZero }}<meta
-      property="article:published_time"
-      {{ .Date.Format $iso8601 | printf "content=%q" | safeHTMLAttr }}
+    {{ else if not .Date.IsZero }}<meta property="article:published_time" <!--BPGTBPGT323EPGTEPGT-- />
     />
   {{ end }}
   {{- if not .Lastmod.IsZero }}
