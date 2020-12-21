@@ -1,0 +1,52 @@
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<meta name="twitter:title" content="{{ .Title }}"/>
+<meta property="og:title" content="{{ .Title }}" />
+
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}" />
+
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+
+{{- with .Params.tags -}}
+<meta name="keywords" content="{{ delimit . ", " }}" />
+{{- range . -}}
+    <meta property="article:tag" content="{{ . }}" />
+{{- end -}}
+{{- end -}}
+
+<meta name="author" content="Delphi Group">
+<meta name="twitter:site" content="@{{ .Site.Params.twitter }}"/>
+
+{{- with .Params.authors -}}
+{{- range . -}}
+    {{- range first 1 (where $.Site.Data.authors "key" "eq" .) -}}
+        {{- if isset . "twitter" -}}
+        <meta name="twitter:creator" content="@{{ .twitter }}"/>
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- with .Params.heroImage -}}
+<meta name="twitter:image" content="{{ . | absURL }}" />
+<meta property="og:image" content="{{ . | absURL }}" />
+<meta name="twitter:card" content="summary_large_image"/>
+{{- else -}}
+<meta name="twitter:card" content="summary"/>
+{{- end -}}
+
+{{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
+{{- if .IsPage }}
+{{- if not .PublishDate.IsZero }}<meta property="article:published_time" {{ .PublishDate.Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />
+{{ else if not .Date.IsZero }}<meta property="article:published_time" {{ .Date.Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />
+{{ end }}
+{{- if not .Lastmod.IsZero }}<meta property="article:modified_time" {{ .Lastmod.Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />{{ end }}
+{{- else }}
+{{- if not .Date.IsZero }}<meta property="og:updated_time" {{ .Lastmod.Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />
+{{- end }}
+{{- end }}
+
+{{- with .Params.locale }}<meta property="og:locale" content="{{ . }}" />{{ end }}
+{{- with .Site.Params.title }}<meta property="og:site_name" content="{{ . }}" />{{ end }}
