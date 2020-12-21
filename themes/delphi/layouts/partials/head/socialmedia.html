@@ -51,7 +51,9 @@
 {{- if .IsPage }}
   {{- if not .PublishDate.IsZero }}
     <meta property="article:published_time" {{ .PublishDate.Format $iso8601 | printf "content=%q" | safeHTMLAttr }} />
-    {{ else if not .Date.IsZero }}<meta property="article:published_time" <!--BPGTBPGT323EPGTEPGT-- />
+    {{ else if not .Date.IsZero }}<meta
+      property="article:published_time"
+      {{ .Date.Format $iso8601 | printf "content=%q" | safeHTMLAttr }}
     />
   {{ end }}
   {{- if not .Lastmod.IsZero }}
