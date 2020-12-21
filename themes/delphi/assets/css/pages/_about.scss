@@ -1,6 +1,11 @@
 .about-mission {
   height: 200px;
   display: flex;
+
+  > picture {
+    display: flex;
+    flex: 1 1 0;
+  }
 }
 .about-mission-img {
   flex: 1 1 0;
