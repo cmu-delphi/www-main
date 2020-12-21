@@ -1,38 +1,36 @@
 {{ define "main" }}
-  <div>
-    {{ partial "landing/carousel.html" . }}
-    <div class="white-area">
-      <div class="uk-container content-grid">
-        <div class="landing-entry grid-2-10">
-          <h2>Our Mission</h2>
-          <p>
-            {{ .Site.Params.mission }}
-          </p>
-        </div>
+  {{ partial "landing/carousel.html" . }}
+  <div class="landing-white-area">
+    <div class="uk-container content-grid">
+      <div class="landing-entry grid-2-10">
+        <h2>Our Mission</h2>
+        <p>
+          {{ .Site.Params.mission }}
+        </p>
       </div>
     </div>
-
-    <div class="gray-area">
-      <div class="uk-container content-grid">
-        <div class="landing-entry grid-2-8">
-          <div class="entry-image">
-            {{ partial "landing/teampic.html" (dict "Site" .Site "team" "highlight") }}
-          </div>
-          <h2>Our Team</h2>
-          <p>Meet the Delphi team</p>
-          {{ partial "arrow-link.html" (dict "link" (relref . "team") "alt" "View all") }}
-        </div>
-        <div class="landing-entry grid-8-12">
-          <div class="entry-image">
-            <img src="{{ "/images/landing-page/API-image.png" | relURL }}" />
-          </div>
-          <h2>Our API</h2>
-          <p>Access our data and tools</p>
-          {{ partial "arrow-link.html" (dict "link" .Site.Params.apiUrl "alt" "Learn more") }}
-        </div>
-      </div>
-    </div>
-
-    {{ partial "landing/latest-news.html" . }}
   </div>
+
+  <div class="landing-gray-area">
+    <div class="uk-container content-grid">
+      <div class="landing-entry grid-2-8">
+        <div class="entry-image">
+          {{ partial "landing/teampic.html" (dict "Site" .Site "team" "highlight") }}
+        </div>
+        <h2>Our Team</h2>
+        <p>Meet the Delphi team</p>
+        {{ partial "arrow-link.html" (dict "link" (relref . "team") "alt" "View all") }}
+      </div>
+      <div class="landing-entry grid-8-12">
+        <div class="entry-image">
+          <img src="{{ "/images/landing-page/API-image.jpg" | relURL }}" alt="API Image" width="288" height="296" />
+        </div>
+        <h2>Our API</h2>
+        <p>Access our data and tools</p>
+        {{ partial "arrow-link.html" (dict "link" .Site.Params.apiUrl "alt" "Learn more") }}
+      </div>
+    </div>
+  </div>
+
+  {{ partial "landing/latest-news.html" . }}
 {{ end }}

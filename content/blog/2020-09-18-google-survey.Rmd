@@ -8,8 +8,8 @@ tags:
   - R
 authors:
   - ryan
-heroImage: /blog/images/blog-lg-img_google-survey-post.png
-heroImageThumb: /blog/images/blog-thumb-img_google-survey-post.png
+heroImage: /blog/images/blog-lg-img_google-survey-post.jpg
+heroImageThumb: /blog/images/blog-thumb-img_google-survey-post.jpg
 summary: |
   Since April 2020, in addition to our massive daily survey advertised on 
   Facebook, we've been running (even-more-massive) surveys through Google to 

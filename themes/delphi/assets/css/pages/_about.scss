@@ -1,7 +1,14 @@
 .about-mission {
-  background-image: url("../images/red-bubble-map_mission-pg-short.jpg");
-  background-size: auto;
   height: 200px;
+  display: flex;
+
+  > picture {
+    display: flex;
+    flex: 1 1 0;
+  }
+}
+.about-mission-img {
+  flex: 1 1 0;
 }
 
 .mission-text {
