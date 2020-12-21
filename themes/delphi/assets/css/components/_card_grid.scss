@@ -30,9 +30,14 @@
     margin: 1em 1em 0 8em;
   }
 
+  .card-grid-item > picture {
+    width: 12em;
+    flex-shrink: 0;
+  }
+
   .card-grid-item-img {
-    width: 14em;
-    height: unset;
+    width: 12em;
+    height: 100%;
     border-radius: 8px 0 0 8px;
   }
 

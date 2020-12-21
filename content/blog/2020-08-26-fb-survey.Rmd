@@ -9,8 +9,8 @@ tags:
 authors:
   - alex
   - ryan
-heroImage: /blog/images/blog-lg-img_facebook-survey-post.png
-heroImageThumb: /blog/images/blog-thumb-img_facebook-survey-post.png
+heroImage: /blog/images/blog-lg-img_facebook-survey-post.jpg
+heroImageThumb: /blog/images/blog-thumb-img_facebook-survey-post.jpg
 summary: |
   Since April 2020, in collaboration with Facebook,
   partner universities, and public health officials,

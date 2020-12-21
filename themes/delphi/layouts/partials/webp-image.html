@@ -1,0 +1,9 @@
+{{- $webpImage := (replace .src (path.Ext .src) ".webp") }}
+{{ if fileExists (path.Join "static" $webpImage) }}
+  <picture>
+    <source srcset="{{ $webpImage | relURL | safeURL }}" type="image/webp" />
+    <img src="{{ .src | relURL }}" {{ range $elem_key, $elem_val := . }}{{if ne $elem_key "src"}}{{$elem_key}}="{{$elem_val}}"{{end}}{{end}}/>
+  </picture>
+  {{ else }}
+  <img src="{{ .src | relURL }}" {{ range $elem_key, $elem_val := . }}{{if ne $elem_key "src"}}{{$elem_key}}="{{$elem_val}}"{{end}}{{end}}/>
+{{ end }}

@@ -7,13 +7,7 @@
       {{ range .Paginator.Pages }}
         <div class="card-grid-item uk-card uk-card-default uk-card-small">
           <div class="card-grid-item-date">{{ .Date.Format "Jan _2" }}</div>
-          <img
-            class="card-grid-item-img"
-            src="{{ .Params.heroImageThumb | relURL }}"
-            width="200"
-            height="300"
-            alt="{{ .Title }} - Hero Image"
-          />
+          {{ partial "webp-image.html" (dict "src" .Params.heroImageThumb "alt" .Title "class" "card-grid-item-img") }}
           <div class="uk-flex uk-flex-column">
             <div class="uk-card-body uk-flex-1">
               <h3 class="uk-card-title"><a href="{{ .RelPermalink }}" class="uk-link-heading">{{ .Title }}</a></h3>

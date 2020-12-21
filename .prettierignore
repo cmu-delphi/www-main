@@ -29,3 +29,4 @@
 *.md
 *.jpeg
 *.ico
+/themes/delphi/layouts/partials/webp-image.html
