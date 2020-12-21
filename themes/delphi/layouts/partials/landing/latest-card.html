@@ -4,9 +4,13 @@
   </div>
   <div class="uk-card-body">
     <div class="latest-card-category">{{ .source }}</div>
-    <h3 class="uk-card-title"><a href="{{ .link | relURL }}" class="uk-link-heading" title="Learn more">{{ .title }}</a></h3>
+    <h3 class="uk-card-title">
+      <a href="{{ .link | relURL }}" class="uk-link-heading" title="Learn more">{{ .title }}</a>
+    </h3>
   </div>
   <div class="uk-card-footer">
-    <a href="{{ .link | relURL }}" title="Learn more">Learn more {{ partial "font-awesome.html" "solid/long-arrow-alt-right" }}</a>
+    <a href="{{ .link | relURL }}" title="Learn more"
+      >Learn more {{ partial "font-awesome.html" "solid/long-arrow-alt-right" }}</a
+    >
   </div>
 </div>

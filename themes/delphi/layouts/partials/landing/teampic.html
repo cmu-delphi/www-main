@@ -4,6 +4,11 @@
   {{ $team := where $team.Params.team ".team" "intersect" (slice .team) }}
   {{ range first 8 (sort $team "lastName" "asc" "firstName" "asc") }}
     {{ $img := $images.GetMatch (path.Join "images" .image) }}
-    <img src="{{ ($img.Resize "250x250 .jpg").RelPermalink }}" alt="{{ printf "%s %s" .firstName .lastName }}" width="250" height="250"/>
+    <img
+      src="{{ ($img.Resize "250x250 .jpg").RelPermalink }}"
+      alt="{{ printf "%s %s" .firstName .lastName }}"
+      width="250"
+      height="250"
+    />
   {{ end }}
 </div>
