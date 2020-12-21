@@ -4,3 +4,5 @@ import UIkit from "uikit/dist/js/uikit.js";
 
 // re export for COVIDCast
 window.UIkit = UIkit;
+// define for covidcast at which base url it is embedded
+window.DELPHI_COVIDCAST_PAGE = '/covidcast/';
