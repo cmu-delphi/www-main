@@ -15,9 +15,9 @@
 
   <div class="about-collaborators">
     <div class="uk-container">
-        <div class=" uk-text-center">
-            {{ .Params.supporterText | markdownify }}
-        </div>
+      <div class=" uk-text-center">
+        {{ .Params.supporterText | markdownify }}
+      </div>
       <div class="uk-flex uk-flex-center">
         <ul>
           {{ range .Params.supporters }}
@@ -28,10 +28,10 @@
         </ul>
       </div>
 
-    <div class=" uk-text-center uk-margin-small-bottom">
+      <div class=" uk-text-center uk-margin-small-bottom">
         {{ .Params.mentionText | markdownify }}
-    </div>
-    <div class="uk-flex uk-flex-center">
+      </div>
+      <div class="uk-flex uk-flex-center">
         <ul>
           {{ range .Params.mentions }}
             <li>
@@ -42,5 +42,4 @@
       </div>
     </div>
   </div>
-
 {{ end }}
