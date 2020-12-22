@@ -129,6 +129,8 @@ people:
   team:
   - leadership
   - highlight
+  - blog
+  - center-of-excellence
   description: is a lead researcher in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
 - key: aaron
   firstName: Aaron
@@ -175,6 +177,7 @@ people:
   - leadership
   - highlight
   - blog
+  - center-of-excellence
   description: is a lead researcher in the Delphi group, and an Associate Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
@@ -504,14 +507,18 @@ people:
   location: Pittsburgh, Pennsylvania, United States
   affiliation: Carnegie-Mellon University EPP
   external: true
+  team:
+    - center-of-excellence
 - key: burke
   firstName: Donald S 
   lastName: Burke
-  image: Burke_Donals_S.jpg
+  image: Burke_Donald_S.jpg
   link: https://publichealth.pitt.edu/home/directory/donald-s-burke
   location: Pittsburgh, Pennsylvania, United States
   affiliation: University of Pittsburgh GSPH
   external: true
+  team:
+    - center-of-excellence
 - key: panhuis
   firstName: Wilbert 
   lastName: Van Panhuis
@@ -520,14 +527,18 @@ people:
   location: Pittsburgh, Pennsylvania, United States
   affiliation: University of Pittsburgh GSPH
   external: true
+  team:
+    - center-of-excellence
 - key: lipsitch
   firstName: Marc 
   lastName: Lipsitch
-  image: profile-placeholder.png
+  image: lipsitch.jpg
   link:  https://www.hsph.harvard.edu/marc-lipsitch/
   affiliation: Harvard College CCDD
   location: Cambridge, Massachusetts, United States
   external: true
+  team:
+    - center-of-excellence
 
 others: |
  MLD administrators Christy Melucci and Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.

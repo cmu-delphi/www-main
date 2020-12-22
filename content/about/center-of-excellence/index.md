@@ -11,7 +11,7 @@ partners:
   link: https://www.cmu.edu/epp
   location: Pittsburgh, Pennsylvania, United States
   pi:
-    - baruch
+    - fischhoff
 - name: University of Pittsburgh GSPH
   link: https://publichealth.pitt.edu/
   location: Pittsburgh, Pennsylvania, United States

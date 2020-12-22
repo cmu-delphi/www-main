@@ -1,1 +1,19 @@
-TET
+{{ $currentPage := . }}
+<div class="coe-partners">
+  {{ range .Page.Params.partners }}
+    <div class="coe-partner">
+      <h4><a href="{{ .link }}">{{ .name }}</a></h4>
+      <div>{{ .location }}</div>
+      <div class="coe-partner-pis">
+        {{ range .pi }}
+          <div class="coe-partner-pi">
+            {{ with (partial "get-person.html" (dict "Site" $currentPage.Site "key" .)) }}
+              <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
+              <div class="uk-text-bold"><a href="{{ .link }}">{{ .name | safeHTML }}</a></div>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+</div>
