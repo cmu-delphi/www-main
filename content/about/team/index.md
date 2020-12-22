@@ -235,8 +235,8 @@ team:
   note: Intern, Summer 2020
 - firstName: Kenneth
   lastName: Lee
-  image: profile-placeholder.png
-  affiliation:
+  image: lee-kenneth.png
+  affiliation: UC Davis
   team:
   - contributors
 - firstName: Natalia
