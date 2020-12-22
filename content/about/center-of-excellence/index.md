@@ -5,31 +5,24 @@ partners:
   link: /
   location: Pittsburgh, Pennsylvania, United States
   pi:
-   - name: Ryan Tibshirani
-     link: https://www.stat.cmu.edu/~ryantibs/
-     ref: 
-   - name: Roni Rosenfeld
-     link: http://www.cs.cmu.edu/~roni/
+   - ryan # people keys
+   - roni
 - name: Carnegie-Mellon University EPP
   link: https://www.cmu.edu/epp
   location: Pittsburgh, Pennsylvania, United States
   pi:
-    - name: Baruch Fischhoff
-      link: https://www.cmu.edu/epp/people/faculty/baruch-fischhoff.html
+    - baruch
 - name: University of Pittsburgh GSPH
   link: https://publichealth.pitt.edu/
   location: Pittsburgh, Pennsylvania, United States
   pi:
-    - name: Donald S Burke
-      link: https://publichealth.pitt.edu/home/directory/donald-s-burke
-    - name: Wilbert Van Panhuis
-      link: https://publichealth.pitt.edu/home/directory/willem-g-van-panhuis
+    - burke
+    - panhuis
 - name: Harvard College CCDD
   link: https://www.hsph.harvard.edu/
   location: Cambridge, Massachusetts, United States
   pi:
-    - name: Marc Lipsitch
-      link: https://www.hsph.harvard.edu/marc-lipsitch/
+    - lipsitch
 
 ---
 
@@ -40,6 +33,8 @@ Delphi’s Influenza Forecasting Center of Excellence works to advance influenza
 Our forecast can help inform decision-making concerning behavior and exposure of flu-vulnerable populations (e.g., the elderly, the young, the pregnant, and the immunocompromised). Through our Center of Excellence, Delphi aims to overcome inherent latencies in traditional surveillance, bringing nowcasting and short-term forecasting to the forefront with a few weeks’ advance notice and the goal to save many lives.
 
 ## Partner organizations
+
+{{<coe-partners>}}
 
 
 ## Thanks to our supporting organizations

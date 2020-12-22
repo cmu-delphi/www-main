@@ -496,13 +496,51 @@ people:
   team:
   - google
 
+- key: fischhoff
+  firstName: Baruch 
+  lastName: Fischhoff
+  image: fischhoff-baruch.jpg
+  link: https://www.cmu.edu/epp/people/faculty/baruch-fischhoff.html
+  location: Pittsburgh, Pennsylvania, United States
+  affiliation: Carnegie-Mellon University EPP
+  external: true
+- key: burke
+  firstName: Donald S 
+  lastName: Burke
+  image: Burke_Donals_S.jpg
+  link: https://publichealth.pitt.edu/home/directory/donald-s-burke
+  location: Pittsburgh, Pennsylvania, United States
+  affiliation: University of Pittsburgh GSPH
+  external: true
+- key: panhuis
+  firstName: Wilbert 
+  lastName: Van Panhuis
+  image: Van_Panhuis_Willem.jpg
+  link: https://publichealth.pitt.edu/home/directory/willem-g-van-panhuis
+  location: Pittsburgh, Pennsylvania, United States
+  affiliation: University of Pittsburgh GSPH
+  external: true
+- key: lipsitch
+  firstName: Marc 
+  lastName: Lipsitch
+  image: profile-placeholder.png
+  link:  https://www.hsph.harvard.edu/marc-lipsitch/
+  affiliation: Harvard College CCDD
+  location: Cambridge, Massachusetts, United States
+  external: true
+
 others: |
  MLD administrators Christy Melucci and Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
 
 abbreviations:
-- CompBio is Computational Biology
-- LTI is Language Technologies Institute
-- MLD is Machine Learning Department
-- Stat is Statistics & Data Science
-- HCII is Human-Computer Interaction Institute
+- abbr: CompBio 
+  name: Computational Biology
+- abbr: LTI 
+  name: Language Technologies Institute
+- abbr: MLD
+  name: Machine Learning Department
+- abbr: Stat
+  name: Statistics & Data Science
+- abbr: HCII
+  name: Human-Computer Interaction Institute
 ---
