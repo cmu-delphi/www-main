@@ -10,8 +10,8 @@ tags:
 authors:
   - kathryn
   - alex
-heroImage: /blog/images/blog-lg-img_Accessing Open COVID-19.png
-heroImageThumb: /blog/images/blog-thumb-img_Accessing Open COVID-19.png
+heroImage: /blog/images/blog-lg-img_Accessing Open COVID-19.jpg
+heroImageThumb: /blog/images/blog-thumb-img_Accessing Open COVID-19.jpg
 summary: |
   One of our primary initiatives at the Delphi COVIDcast project
   has been to curate a diverse set of COVID-related data streams,
@@ -380,7 +380,7 @@ we can examine the percentage
 of outpatient doctor's visits
 due to COVID-Like-Illness (CLI) in the South.
 
-```{r dv-maps, message=FALSE, cache=TRUE, fig.width=10}
+```{r dv-maps, message=FALSE, cache=TRUE, fig.width=10, out.extra = 'class="wide-figure"'}
 library(gridExtra)
 dv <- covidcast_signal(
     data_source = "doctor-visits", signal = "smoothed_adj_cli",

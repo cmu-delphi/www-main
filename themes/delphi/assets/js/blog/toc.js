@@ -5,7 +5,7 @@ export default function initializeTableOfContent() {
   }
   toc.remove(); // remove from old place
 
-  const container = document.querySelector(".blog-toc-container");
+  const container = document.querySelector(".toc-container");
   if (!container) {
     return;
   }

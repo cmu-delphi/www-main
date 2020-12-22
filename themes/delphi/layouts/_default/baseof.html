@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <!-- Default base template. Other templates define the "main" portion in this template -->
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
-  {{ partial "head.html" . }}
-  <body>
+  <head>
+    {{ partial "head/meta.html" . }}
+    {{ partial "head/styles.html" . }}
+    {{ block "styles" . }} {{ end }}
+  </head>
+  <body class="{{ block "body_class" . }}{{ end }}">
     {{ partial "nav.html" . }}
-    {{ partial "menu/breadcrumb.html" . }}
+    {{ block "breadcrumb" . }}{{ partial "menu/breadcrumb.html" . }}{{ end }}
     {{ block "main" . }} {{ end }}
     {{ partial "footer.html" . }}
     {{ partial "scripts.html" . }}
+    {{ block "scripts" . }} {{ end }}
   </body>
 </html>

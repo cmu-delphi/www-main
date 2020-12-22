@@ -9,8 +9,8 @@ tags:
 authors:
   - alex
   - ryan
-heroImage: /blog/images/blog-lg-img_facebook-survey-post.png
-heroImageThumb: /blog/images/blog-thumb-img_facebook-survey-post.png
+heroImage: /blog/images/blog-lg-img_facebook-survey-post.jpg
+heroImageThumb: /blog/images/blog-thumb-img_facebook-survey-post.jpg
 summary: |
   Since April 2020, in collaboration with Facebook,
   partner universities, and public health officials,
@@ -131,7 +131,7 @@ which already provides a nice sanity check.
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
 ```
 
-```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4}
+```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(dplyr)
 library(gridExtra)
@@ -385,7 +385,7 @@ indicator in red. We can see that the % CLI-in-community indicator is (a) never
 lagging and (b) leading in many counties; for example, Dallas County, Orange
 County, Hidalgo County, and Nueces County are a few notable examples.
 
-```{r, message = FALSE, fig.width = 10, fig.height = 10}
+```{r, message = FALSE, fig.width = 10, fig.height = 10, out.extra = 'class="wide-figure"'}
 num = 20
 geo_values = df_in %>% group_by(geo_value) %>%
   summarize(diff = last(value) - first(value)) %>%
@@ -538,7 +538,7 @@ either that county had below 500 cumulative COVID-19 cases,
 or we didn't have enough data from the surveys in
 order to estimate % CLI and % CLI-in-community signals there.
 
-```{r, fig.width = 10, fig.height = 4}
+```{r, fig.width = 10, fig.height = 4, out.extra = 'class="wide-figure"'}
 # Set a bunch of fields so that the data frames know how to plot themselves
 df_cor1$time_value = df_cor2$time_value = start_day
 df_cor1$issue = df_cor2$issue = start_day

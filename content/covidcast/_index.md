@@ -1,13 +1,5 @@
 ---
-title: COVIDCast
-type: covidcast_app
-scripts:
-  - ./covidcast/vendors.js
-  - ./covidcast/styles.js
-  - ./covidcast/bundle.js
-styles:
-  - ./covidcast/vendors.css
-  - ./covidcast/styles.css
+title: COVIDcast
+layout: covidcast_app
+description: COVIDcast tracks and forecasts the spread of COVID-19. By Carnegie Mellon's Delphi Research Group.
 ---
-
-{{<covidcast >}}

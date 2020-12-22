@@ -1,12 +1,18 @@
 {{- $currentPage := . -}}
-<nav class="uk-visible@m uk-navbar-container" data-uk-navbar>
-  <div class="uk-navbar-left uk-container">
+<nav class="nav-container">
+  <div class="uk-container uk-navbar-container" data-uk-navbar="offset: 0">
     <ul class="uk-navbar-nav">
       <li>
-        <a class="delphi-text-logo" href="{{ relref . "/" }}">DELPHI</a>
+        <a class="nav-cmu-delphi-logo" href="{{ relref . "/" }}" title="Go to the main page"
+          ><span>Delphi Group</span></a
+        >
       </li>
+    </ul>
+    <ul class="uk-navbar-nav nav-entries">
       {{ range .Site.Menus.main.ByWeight }}
-        <li class="{{ if (eq $currentPage.Section .Identifier) }}nav-active{{ end }}">
+        <li
+          class="nav-entry {{ if (eq $currentPage.Section .Identifier) }}uk-active{{ end }} {{ if .HasChildren }}uk-parent{{ end }}"
+        >
           {{ if .HasChildren }}
             <a href="{{ .URL | relLangURL }}">
               {{ partial "menu/item.html" . }}
@@ -29,31 +35,31 @@
         </li>
       {{ end }}
     </ul>
-  </div>
-</nav>
-
-<!-- Mobile nav -->
-<nav class="uk-hidden@m mobile-nav">
-  {{ partial "delphi-text-logo.html" . }}
-  <a class="uk-navbar-toggle" uk-navbar-toggle-icon href=""></a>
-  <div uk-dropdown="mode: click" class="dropdown-mobile">
-    <ul class="uk-nav uk-navbar-dropdown-nav">
-      {{ range .Site.Menus.main.ByWeight }}
-        <li class="{{ if .HasChildren }}menu-parent{{ end }} menu-element">
-          {{ if .HasChildren }}
-            {{ partial "menu/item.html" . }}
-            {{ range .Children }}
-              <li class="menu-element menu-child">
-                <a href="{{ .URL | relLangURL }}">{{ partial "menu/item.html" . }}</a>
+    <div class="nav-spacer"></div>
+    <ul class="uk-navbar-nav nav-burger">
+      <li>
+        <a class="uk-navbar-toggle nav-toggle" uk-navbar-toggle-icon href="" title="Toggle Menu"></a>
+        <div class="nav-mobile" uk-dropdown="mode: click; offset: 0; position: bottom-right;">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            {{ range .Site.Menus.main.ByWeight }}
+              <li
+                class="nav-dropdown-parent {{ if .HasChildren }}uk-nav-header{{ end }} {{ if (eq $currentPage.Section .Identifier) }}uk-active{{ end }}"
+              >
+                <a href="{{ .URL | relLangURL }}">
+                  {{ partial "menu/item.html" . }}
+                </a>
               </li>
+              {{ if .HasChildren }}
+                {{ range .Children }}
+                  <li class="nav-dropdown-child">
+                    <a href="{{ .URL | relLangURL }}">{{ partial "menu/item.html" . }}</a>
+                  </li>
+                {{ end }}
+              {{ end }}
             {{ end }}
-            {{ else }}
-            <a href="{{ .URL | relLangURL }}">
-              {{ partial "menu/item.html" . }}
-            </a>
-          {{ end }}
-        </li>
-      {{ end }}
+          </ul>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>

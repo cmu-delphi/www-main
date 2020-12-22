@@ -12,9 +12,9 @@ summary: |
   Today we release new public datasets and share maps revealing access to COVID testing, test results, and public use of masks.
 authors:
   - alex
-heroImage: /blog/images/blog-lg-img_New and Improved COVID.png
-heroImageThumb: /blog/images/blog-thumb-img_New and Improved COVID.png
-acknowledgments: |
+heroImage: /blog/images/blog-lg-img_New and Improved COVID.jpg
+heroImageThumb: /blog/images/blog-thumb-img_New and Improved COVID.jpg
+acknowledgements: |
   Many items in Wave 4 of our survey are based on work by
   the team at the Joint Program in Survey Methodology at the University of
   Maryland led by Frauke Kreuter; Adrianne Bradford and Samantha Chiu helped
@@ -136,7 +136,7 @@ such as cough or difficulty breathing). This percentage [correlates very
 well](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#some-interesting-examples")`)
 with COVID case rates as reported by state agencies.
 
-```{r mask-wearing, message=FALSE, fig.width=9}
+```{r mask-wearing, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(ggplot2)
 library(grid)

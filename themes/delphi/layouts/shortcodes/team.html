@@ -3,12 +3,17 @@
   uk-grid
   class="team-members uk-grid-small uk-child-width-1-6@l uk-child-width-1-4@m uk-child-width-1-{{ with .Get "small" }}{{ . }}{{ else }}3{{ end }}"
 >
-  {{ $team := where .Page.Params.team ".team" (.Get "team") }}
+  {{ $team := where .Page.Params.team ".team" "intersect" (slice (.Get "team")) }}
   {{ range sort $team "lastName" "asc" "firstName" "asc" }}
     {{ $img := $images.GetMatch (path.Join "images" .image) }}
     <div class="team-member">
-      <img src="{{ ($img.Resize "250x250").RelPermalink }}" alt="{{ .name }}" />
-      <div class="uk-text-bold">{{ printf "%s %s" .firstName .lastName }}</div>
+      <img
+        src="{{ ($img.Resize "250x250 jpg").RelPermalink }}"
+        alt="{{ printf "%s %s" .firstName .lastName }}"
+        width="250"
+        height="250"
+      />
+      <div class="uk-text-bold">{{ printf "%s %s" .firstName .lastName | safeHTML }}</div>
       <div>{{ .affiliation }}</div>
       {{ if isset . "note" }}
         <div class="uk-text-small">{{ .note }}</div>
