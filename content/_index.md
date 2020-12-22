@@ -5,6 +5,11 @@ layout: landing
 
 carousel:
   - pre: Our Tools
+    title: National COVID Survey Dashboard
+    ref: covidcast/survey-results
+    alt: Explore the Survey Results
+    image: covidcast_survey.jpg
+  - pre: Our Tools
     title: Real-time Indicators of COVID-19 Activity
     ref: covidcast
     alt: Explore COVIDCast
