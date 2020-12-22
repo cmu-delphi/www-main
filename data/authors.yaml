@@ -4,14 +4,14 @@
   description: is a member of the Delphi group and a Ph.D. student in data wrangling at the University of Southern North Dakota at Hoople.
 - key: ryan
   name: Ryan Tibshirani
-  link: http://stat.cmu.edu/~ryantibs
+  link: https://stat.cmu.edu/~ryantibs
   description: is a lead researcher in the Delphi group, and an Associate Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
 - key: aaron
   name: Aaron Rumack
   description: is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.
 - key: roni
   name: Roni Rosenfeld
-  link: http://cs.cmu.edu/~roni
+  link: https://cs.cmu.edu/~roni
   description: is a lead researcher in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
 - key: alex
   name: Alex Reinhart
