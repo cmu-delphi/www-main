@@ -47,7 +47,7 @@
         {{ if isset .Params "acknowledgements" }}
           <p class="blog-acknowledgements">
             <strong>Acknowledgements: </strong>
-            {{ .Params.acknowledgements | markdownify }}
+            {{ .Params.acknowledgements | .RenderString }}
           </p>
         {{ end }}
         {{ if isset .Params "related" }}
