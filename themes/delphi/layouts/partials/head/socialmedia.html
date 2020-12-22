@@ -31,7 +31,7 @@
 
 {{- with .Params.authors -}}
   {{- range . -}}
-    {{- range first 1 (where $.Site.Data.authors "key" "eq" .) -}}
+    {{- range first 1 (where ($.GetPage "/about/team").Params.team "key" "eq" .) -}}
       {{- if isset . "twitter" -}}
         <meta name="twitter:creator" content="@{{ .twitter }}" />
       {{- end -}}

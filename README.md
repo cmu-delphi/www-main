@@ -44,13 +44,6 @@ In RMarkdown things are slightly more different since the R Markdown parser is u
 
 ```
 
-### Data
-
-In addition, there in the `/data` directory there are the following listings in YAML syntax
-
-- `authors.yaml` list of blog authors referenced in the `authors` field in blog posts. This list is used to generated the author information at the end of a blog post
-- `supporters.yaml` list of supporters/collaborators
-
 ## Development Environment
 
 ### Web Editor Only

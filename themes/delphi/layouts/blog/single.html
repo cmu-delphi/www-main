@@ -65,11 +65,11 @@
     <hr class="toc-end" />
     {{ range .Params.authors }}
       <div>
-        {{ range first 1 (where $.Site.Data.authors "key" "eq" .) }}
+        {{ range first 1 (where ($.GetPage "/about/team").Params.team "key" "eq" .) }}
           {{ if isset . "link" }}
-            <a href="{{ .link }}" class="uk-text-bold-600 uk-link-text">{{ .name }}</a>
+            <a href="{{ .link }}" class="uk-text-bold-600 uk-link-text">{{ printf "%s %s" .firstName .lastName | safeHTML }}</a>
             {{ else }}
-            <span>{{ .name }}</span>
+            <span>{{ printf "%s %s" .firstName .lastName | safeHTML }}</span>
           {{ end }}
           {{ .description }}
         {{ end }}

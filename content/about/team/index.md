@@ -3,6 +3,13 @@ title: Delphi Team Members
 layout: team
 
 team:
+- key: frida
+  firstName: Frida
+  lastName: Gomam
+  link: https://example.com
+  team:
+    - blog
+  description: is a member of the Delphi group and a Ph.D. student in data wrangling at the University of Southern North Dakota at Hoople.
 - firstName: Jacob
   lastName: Bien
   image: jacob-bien-500x500-min.jpg
@@ -73,13 +80,15 @@ team:
   team:
   - core
 - firstName: Kathryn
-  lastName: Rivard
   lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
   affiliation: CMU/MLD
   team:
   - core
   - highlight
+  - blog
+  link: https://cs.cmu.edu/~krivard
+  description: manages Delphi's engineering team, and is a Senior Research Programmer in the Machine Learning Department at CMU.
 - firstName: Daniel
   lastName: McDonald
   image: daniel-mcdonald-photo.jpeg
@@ -98,26 +107,37 @@ team:
   affiliation: CMU/MLD
   team:
   - core
-- firstName: Alex
+- key: alex
+  firstName: Alex
   lastName: Reinhart
   image: alex-reinhart-500x500-min.jpg
   affiliation: CMU/Stat
   team:
   - core
-- firstName: Roni
+  - blog
+  link: https://www.refsmmat.com
+  description: manages Delphi's surveys, and is an Assistant Teaching Professor in the Department of Statistics & Data Science at CMU.
+  twitter: capnrefsmmat
+- key: roni
+  firstName: Roni
   lastName: Rosenfeld
+  link: https://cs.cmu.edu/~roni
   image: roni-rosenfeld-500x500-min.jpg
   affiliation: CMU/MLD
   team:
   - leadership
   - highlight
-- firstName: Aaron
+  description: is a lead researcher in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
+- key: aaron
+  firstName: Aaron
   lastName: Rumack
   image: aaron-rumack-500x500-min.jpg
   affiliation: CMU/MLD
   team:
   - core
   - highlight
+  - blog
+  description: is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.
 - firstName: James
   lastName: Sharpnack
   image: james-sharpnack-500x500-min.jpg
@@ -143,13 +163,17 @@ team:
   affiliation: Stanford University
   team:
   - core
-- firstName: Ryan
+- key: ryan
+  firstName: Ryan
   lastName: Tibshirani
+  link: https://stat.cmu.edu/~ryantibs
   image: ryan-tibshirani-500x500-min.jpg
   affiliation: CMU/MLD/Stat
   team:
   - leadership
   - highlight
+  - blog
+  description: is a lead researcher in the Delphi group, and an Associate Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
