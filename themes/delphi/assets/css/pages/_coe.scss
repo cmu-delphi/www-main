@@ -1,0 +1,39 @@
+.coe-partner {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    box-sizing: border-box;
+
+    > h4, h5 {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+.coe-partner-loc {
+    flex: 1 1 auto;
+}
+
+.coe-partner-pis {
+    margin-top: 0.5em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.coe-partner-pi {
+    display: inline-block;
+    width: 45%;
+    text-align: center;
+    // margin: 0.5em;
+
+    > img {
+        margin-bottom: 0.5em;
+    }
+}
+
+.coe-partner-pi-name {
+    min-height: 3em;
+    display: block;
+}
