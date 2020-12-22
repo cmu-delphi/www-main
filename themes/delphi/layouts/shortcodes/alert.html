@@ -1,0 +1,4 @@
+<div class="uk-alert-{{ .Get "category" }}" uk-alert>
+  <a class="uk-alert-close" uk-close></a>
+  <p>{{ .Inner | .Page.RenderString }}</p>
+</div>
