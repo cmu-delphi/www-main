@@ -13,7 +13,7 @@
     {{ partial "blog/tags.html" . }}
     {{ if isset .Params "heroimage" }}
       <div class="uk-margin-top uk-margin-bottom">
-        <img src="{{ .Params.heroImage | relURL }}" width="1120" height="440" alt="{{ .Title }} - Hero Image" />
+        {{ partial "webp-image.html" (dict "src" .Params.heroImage "width" 1120 "height" 440 "alt" .Title) }}
       </div>
     {{ end }}
     <div class="content-grid">
@@ -47,7 +47,7 @@
         {{ if isset .Params "acknowledgements" }}
           <p class="blog-acknowledgements">
             <strong>Acknowledgements: </strong>
-            {{ .Params.acknowledgements | markdownify }}
+            {{ .Params.acknowledgements | .RenderString }}
           </p>
         {{ end }}
         {{ if isset .Params "related" }}

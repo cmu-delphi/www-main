@@ -24,7 +24,9 @@
 *.woff2
 *.R
 *.xml
+.dockerignore
 *.Rmd
 *.md
 *.jpeg
 *.ico
+/themes/delphi/layouts/partials/webp-image.html
