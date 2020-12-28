@@ -4,7 +4,7 @@
   {{- $localPath := path.Join "./themes/delphi/assets/" $fileName -}}
   {{- if fileExists $localPath -}}
     {{ readFile $localPath | safeHTML }}
-  {{- else -}}
+    {{- else -}}
     {{ readFile $faPath | safeHTML }}
   {{- end -}}
 </span>
