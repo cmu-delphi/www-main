@@ -1,3 +1,10 @@
 <span class="inline-svg-icon">
-  {{ readFile (print "./node_modules/@fortawesome/fontawesome-free/svgs/" . ".svg" ) | safeHTML }}
+  {{- $fileName := (print . ".svg" ) -}}
+  {{- $faPath := path.Join "./node_modules/@fortawesome/fontawesome-free/svgs/" $fileName -}}
+  {{- $localPath := path.Join "./themes/delphi/assets/" $fileName -}}
+  {{- if fileExists $localPath -}}
+    {{ readFile $localPath | safeHTML }}
+  {{- else -}}
+    {{ readFile $faPath | safeHTML }}
+  {{- end -}}
 </span>
