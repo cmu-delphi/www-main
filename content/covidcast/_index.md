@@ -6,4 +6,5 @@ app_mode: overview
 order: 1
 modeTitle: Map Overview
 icon: solid/map
+heroImage: /images/landing-page/hero-images/covidcast_withfill.jpg
 ---
