@@ -1,13 +1,13 @@
 {
   "name": "www-main",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "highlight.js": "^10.4.1",
     "katex": "^0.12.0",
     "uikit": "^3.5.9",
-    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v1.12.0/www-covidcast-1.12.0.tgz"
+    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v1.12.1/www-covidcast-1.12.1.tgz"
   },
   "devDependencies": {
     "cpx": "^1.5.0",
