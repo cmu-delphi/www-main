@@ -1,5 +1,5 @@
 ---
-title: COVIDCast Top 10
+title: COVIDcast Top 10
 linkTitle: Top 10
 description: COVIDcast tracks and forecasts the spread of COVID-19. By Carnegie Mellon's Delphi Research Group.
 layout: covidcast_app

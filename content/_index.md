@@ -12,7 +12,7 @@ carousel:
   - pre: Our Tools
     title: Real-time Indicators of COVID-19 Activity
     ref: covidcast
-    alt: Explore COVIDCast
+    alt: Explore COVIDcast
     image: covidcast_withfill.jpg
   - pre: Our Blog Post
     title: New and improved COVID Symptom Survey Tracks Testing and Mask-Wearing
