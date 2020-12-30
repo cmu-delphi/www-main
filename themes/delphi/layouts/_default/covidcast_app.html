@@ -1,11 +1,11 @@
 {{ define "styles" }}
-  <link rel="stylesheet" href="{{ "./covidcast/vendors.css" | relURL }}" />
-  <link rel="stylesheet" href="{{ "./covidcast/styles.css" | relURL }}" />
+  <link rel="stylesheet" href="{{ (partial "covidcast/find-file.html" "vendor.*\\.css$")| relURL }}" />
+  <link rel="stylesheet" href="{{ (partial "covidcast/find-file.html" "styles.*\\.css$")| relURL }}" />
 {{ end }}
 {{ define "scripts" }}
-  <script src="{{ "./covidcast/vendors.js" | relURL }}"></script>
-  <script src="{{ "./covidcast/styles.js" | relURL }}"></script>
-  <script src="{{ "./covidcast/bundle.js" | relURL }}"></script>
+  <script src="{{ (partial "covidcast/find-file.html" "vendor.*\\.js$") | relURL }}"></script>
+  <script src="{{ (partial "covidcast/find-file.html" "styles.*\\.js$")| relURL }}"></script>
+  <script src="{{ (partial "covidcast/find-file.html" "bundle.*\\.js$")| relURL }}"></script>
 {{ end }}
 {{ define "body_class" }}covidcast_wrapper{{ end }}
 {{ define "main" }}

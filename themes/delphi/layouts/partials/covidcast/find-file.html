@@ -1,0 +1,10 @@
+<!--find a file given a prefix and directory -->
+{{ $pattern := . }}
+{{ $matchedFile := false }}
+{{ range (readDir "./static/covidcast") }}
+  {{ $testFile := . }}
+  {{ with (index (findRE $pattern .Name 1) 0) }}
+    {{ $matchedFile = path.Join "./covidcast" $testFile.Name }}
+  {{ end }}
+{{ end }}
+{{ return $matchedFile }}
