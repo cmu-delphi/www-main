@@ -1,6 +1,6 @@
 ---
 date: 2020-04-01
-title: COVIDCast
+title: COVIDcast
 category: update
 ---
 

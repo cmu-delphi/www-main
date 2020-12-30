@@ -1,5 +1,5 @@
 ---
-title: COVIDCast Timelapse
+title: COVIDcast Timelapse
 linkTitle: Timelapse
 description: COVIDcast tracks and forecasts the spread of COVID-19. By Carnegie Mellon's Delphi Research Group.
 layout: covidcast_app
