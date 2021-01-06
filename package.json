@@ -7,7 +7,7 @@
     "highlight.js": "^10.5.0",
     "katex": "^0.12.0",
     "uikit": "^3.6.5",
-    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v1.12.2/www-covidcast-1.12.2.tgz"
+    "www-covidcast": "github:cmu-delphi/www-covidcast#f30ec27902b186acd2265dae27ae0af5f4c56419"
   },
   "devDependencies": {
     "hugo-bin": "^0.67.1",
