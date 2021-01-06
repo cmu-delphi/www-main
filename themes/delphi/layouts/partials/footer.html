@@ -40,6 +40,17 @@
           <li>
             <a class="uk-link-text uk-text-small" href="https://twitter.com/{{ .Site.Params.twitter }}/">Twitter</a>
           </li>
+          <li>
+            <a
+              class="uk-link-text uk-text-small feedback-button"
+              href="{{ .Site.Params.feedbackForm }}"
+              data-delay="{{ .Site.Params.feedbackDelay }}"
+              data-duration="{{ .Site.Params.feedbackDuration }}"
+              data-interval="{{ .Site.Params.feedbackInterval }}"
+              data-request="{{ .Site.Params.feedbackRequest }}"
+              >Submit Feedback</a
+            >
+          </li>
         </ul>
       </div>
     </div>
