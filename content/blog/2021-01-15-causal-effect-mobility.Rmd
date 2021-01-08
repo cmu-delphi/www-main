@@ -62,7 +62,7 @@ To learn more,
 we recommend [the book
 by Hernan and Robins](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/) and
 the paper:
-"[Statistics and Causal inference](https://www.jstor.org/stable/2289064)"
+"[Statistics and Causal Inference](https://www.jstor.org/stable/2289064)"
 by Paul Holland
 (Journal of the American Statistical Association 1986, p 945-960).
 And one can find many tutorials
@@ -202,7 +202,7 @@ $$
 \mathbb{E}[Y^{\overline{a}_t}_t] =
 \int\cdots\int
 \mathbb{E}[Y_t | \overline{A}_t = \overline{a}_t, \overline{Y}_{t-1}=\overline{y}_{t-1}]
-\prod_{s=1}^{t-1} p(y_s|\overline{y}_{s-1},\overline{a}_{s}) \
+\prod_{s=1}^{t-1} p(y_s|\overline{y}_{s-1},\overline{a}_{s})
 d y_s.
 $$
 
@@ -326,7 +326,7 @@ $p(\overline{\ell}_t,\overline{a}_t)$ that satisfy the condition
 $$
 \int\cdots\int
 \mathbb{E}[L_t | \overline{A}_t = \overline{a}_t, \overline{L}_{t-1}=\overline{\ell}_{t-1}]
-\prod_{s=1}^{t-1} p(\ell_s|\overline{\ell}_{s-1},\overline{a}_{s}) \
+\prod_{s=1}^{t-1} p(\ell_s|\overline{\ell}_{s-1},\overline{a}_{s})
 d \ell_s =
 s(t) + \beta M_t.
 $$
