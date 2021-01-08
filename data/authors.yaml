@@ -24,6 +24,7 @@
   description: manages Delphi's engineering team, and is a Senior Research Programmer in the Machine Learning Department at CMU.
 - key: mbonvini
   name: Matteo Bonvini
+  link: https://www.linkedin.com/in/matteobonvini
   description: is a graduate student in the Department of Statistics & Data Science at CMU.
 - key: ekennedy
   name: Edward Kennedy
@@ -31,7 +32,9 @@
   description: is an Assistant Professor in the Department of Statistics & Data Science at CMU
 - key: vventura
   name: Valérie Ventura
+  link: http://www.stat.cmu.edu/~vventura/
   description: is a Professor in the Department of Statistics & Data Science at CMU and a member of Delphi.
 - key: lwasserman
   name: Larry Wasserman
+  link: http://www.stat.cmu.edu/~larry/
   description: is a Professor in the Department of Statistics & Data Science at CMU as well as in the Machine Learning Department and is a member of Delphi.
