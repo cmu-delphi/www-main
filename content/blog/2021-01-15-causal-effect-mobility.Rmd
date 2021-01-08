@@ -289,6 +289,7 @@ The term $\beta M_t$ captures
 the effect of mobility.
 With no change in mobility,
 deaths increase exponentially as $e^{s(t)}$.
+
 The intuition for using cumulative mobility
 comes from ideas from epidemic modeling.
 Roughly,
@@ -364,22 +365,87 @@ we'll consider here is the
 proportion of people of who stay home,
 which is kindly provided to Delphi by
 SafeGraph.
+(We [publish this
+data](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/safegraph.html")`)
+in our [COVIDcast Epidata API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
+so it is available to anyone interested in studying mobility during the pandemic.
 We use data at the state level.
 Note that this is actually a sort of anti-mobility measure:
 the higher it is, the less mobility there is.
 Here are plots of
 weekly deaths and mobility
-starting February 15 2020,
+starting February 15, 2020,
 for a few states:
 
+```{r deaths-by-state, message=FALSE}
+library(covidcast)
+library(directlabels)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
 
-\begin{center}
-\includegraphics[scale=.8]{Matteo_plot1.pdf}
-\end{center}
+# Top 5 most populated states according to
+# https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population
+states_of_interest <- c("ca", "tx", "fl", "ny", "pa")
 
-\begin{center}
-\includegraphics[scale=.8]{Matteo_plot2.pdf}
-\end{center}
+states_deaths <- covidcast_signal(
+  "jhu-csse", "deaths_incidence_num",
+  start_day = "2020-02-15", end_day = "2020-12-16",
+  geo_type = "state", geo_values = states_of_interest
+)
+
+states_mobility <- covidcast_signal(
+  "safegraph", "completely_home_prop",
+  start_day = "2020-02-15", end_day = "2020-12-16",
+  geo_type = "state", geo_values = states_of_interest
+)
+
+dat <- full_join(x = select(states_deaths, time_value, geo_value, value),
+                 y = select(states_mobility, time_value, geo_value, value),
+                 by = c("time_value" = "time_value", "geo_value" = "geo_value"))
+
+dat <- dat %>%
+  rename(date = time_value,
+         state = geo_value,
+         stay_home = value.y,
+         deaths = value.x) %>%
+  group_by(state) %>%
+  # epi week is from saturday to sunday
+  mutate(weekday = wday(date, label = TRUE, week_start = 6),
+         weeknum = wday(date, week_start = 6),
+         week = cumsum(weeknum == 1))
+
+dat_week <- dat %>%
+  group_by(state, week) %>%
+  mutate(weekly_deaths = sum(deaths),
+         weekly_deaths = 1 + weekly_deaths, # avoid 0 in the log scale
+         weekly_stay_home = mean(stay_home)) %>%
+  select(week, state, weekly_stay_home, weekly_deaths, weekly_deaths) %>%
+  unique()
+
+ggplot(dat_week, aes(x = week, y = weekly_deaths, color = state)) +
+  geom_line() +
+  scale_y_log10() +
+  geom_dl(aes(label = toupper(state)), method = "last.bumpup") +
+  labs(x = "Week", y = "# deaths (log scale)",
+       title = "Reported deaths over time",
+       subtitle = "From JHU CSSE COVID-19 data",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+  theme_bw() +
+  guides(color = FALSE)
+```
+
+```{r mobility-by-state}
+ggplot(dat_week, aes(x = week, y = weekly_stay_home, color = state)) +
+  geom_line() +
+  geom_dl(aes(label = toupper(state)), method = "last.bumpup") +
+  labs(x = "Week", y = "Proportion staying at home",
+       title = "(Anti)mobility over time",
+       subtitle = "From SafeGraph",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+  theme_bw() +
+  guides(color = FALSE)
+```
 
 After fitting the MSM,
 we can estimate various quantities.
