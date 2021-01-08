@@ -3,7 +3,7 @@ title: Large Causal Inference for COVID-19
 date: 2021-01-08
 tags:
   - COVIDcast
-authors: # list of author keys, see /data/authors.yaml
+authors:
   - mbonvini
   - ekennedy
   - vventura
