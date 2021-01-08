@@ -1,0 +1,462 @@
+---
+title: Large Causal Inference for COVID-19
+date: 2021-01-08
+tags:
+  - COVIDcast
+authors: # list of author keys, see /data/authors.yaml
+  - mbonvini
+  - ekennedy
+  - vventura
+  - lwasserman
+heroImage: /blog/images/blog-lg-img_hello-world.jpg
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
+summary: |
+  The goal is to describe some work we have been doing on causal inference.
+acknowledgements: |
+  List acknowledgements here
+related:
+  - 2020-08-28-api
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+The goal is to describe some work
+we have been doing on causal inference.
+The details
+will be available
+in two papers that we expect
+to complete soon.
+The first paper deals with mobility and the second
+deals with mask usage.
+Here we will aim to give the high level ideas
+focusing on mobility.
+The results presented here are preliminary
+and may be subject to change.
+
+During a pandemic,
+it is reasonable to expect
+that reduced social mobility
+will lead to fewer deaths.
+But how do we quantify this effect?
+As everyone knows,
+correlation is not causation,
+and so we have to use rigorous causal inference methods.
+
+So let's start with a brief introduction
+to causal inference.
+
+$$
+\global\def\E\mathbb{E}
+$$
+
+
+## Causal Inference
+
+Causal inference
+is a huge, complex topic.
+We give a very brief
+exposition of some key ideas here.
+To learn more,
+we recommend [the book
+by Hernan and Robins](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/) and
+the paper:
+"[Statistics and Causal inference](https://www.jstor.org/stable/2289064)"
+by Paul Holland
+(Journal of the American Statistical Association 1986, p 945-960).
+And one can find many tutorials
+on the web.
+
+Suppose we have
+three variables
+$X$, $A$ and $Y$ where
+$Y$ is the  outcome of interest
+(such as deaths from Covid)
+$A$ is a treatment or exposure
+(such as mobility level)
+and $X$ are confounding variables,
+which are variables that affect both
+$A$ and $Y$ (such as age).
+The joint density is
+
+$$
+p(x,a,y) = p(x)p(a|x)p(y|x,a).
+$$
+
+We want to know: what would be the mean of $Y$
+if we could set $A$ to be equal to some value $a$?
+For example,
+what would the number of covid cases be
+if 92 percent of people wore masks?
+We let $Y^a$
+denote this hypothetical outcome,
+which is called a counterfactual or potential outcome.
+And we denote the mean of $Y^a$ by
+$\E[Y^a]$.
+
+If we have measured all the confounding variables
+then the answer
+(ignoring a few technical details)
+is given by
+Robins' $g$-formula:
+
+$$
+\E[Y^a] = \int \mu(x,a) p(x) dx = \E[\mu(X,a)]
+$$
+
+where
+$\mu(x,a) = \E[Y|X=x,A=a]$
+is the mean of $Y$ given $X$ and $A$.
+This is not equal to
+the mean of $Y$ given $A=a$ which is
+$\E[Y|A=a] = \int \mu(x,a) p(x|a) dx$.
+This is the difference between causation
+and prediction (correlation).
+You can think of
+the g-formula as the mean of $Y$
+if we replace $p(a|x)$
+in the joint density
+with a point mass at $a$.
+Using the g-formula is one example of *adjusting for
+confounding*.
+
+Now suppose we observe data
+$(X_1,A_1,Y_1),\dots,(X_n,A_n,Y_n)$.
+How do we estimate
+$\E[Y^a]$?
+The simplest approach is to
+get an estimate  $\hat\mu(x,a)$ of $\mu(x,a)$
+(this is just regression) and replace the integral
+in the $g$-formula
+with a sample average to get the estimate
+
+$$
+\hat{\E(Y^a)} = \frac{1}{n}\sum_i \hat\mu(X_i,a).
+$$
+
+This is called the plug-in estimator.
+There are often better estimators,
+but we won't get into that here.
+The important thing
+is:
+there is a formula for the causal effect
+and we can estimate it.
+
+Things get trickier
+when there are time varying variables.
+Consider weekly mobility and death data
+$(A_1,Y_1),\dots, (A_T,Y_T)$
+in one state.
+Define
+$\overline{A}_t = (A_1,\dots, A_t)$ and
+$\overline{Y}_t = (Y_1,\dots, Y_t)$
+for $t\geq 1$.
+The density
+of $(\overline{y}_t,\overline{a}_t)$
+can be written as
+
+$$
+p(\overline{y}_t,\overline{a}_t) =
+\prod_{s=1}^t p(y_s|\overline{y}_{s-1},\overline{a}_{s}) p(a_s|\overline{a}_{s-1},\overline{y}_{s-1}).
+$$
+
+Now consider
+the causal question:
+
+What would $Y_t$ be if we set
+$\overline{A}_t$ equal to some value
+$\overline{a}_t  =(a_1,\ldots, a_t)$?
+
+Let
+$Y^{\overline{a}_t}_t$
+denote this counterfactual quantity.
+For example, if $A_t$ is mobility,
+measuring, say, the percentage of people who stay home,
+and
+$\overline{a}_t = (12,12,12,6,6,6)$
+then
+$Y^{\overline{a}_t}_t$
+is the number of deaths
+we would observe if we set mobility to 12 for three weeks
+then set it to 6 for three weeks.
+
+How do we
+find the mean $\E[Y^{\overline{a}_t}_t]$?
+As a general rule,
+we adjust for pre-treatment variables but
+not for post-treatment variables.
+But in the time varying case,
+this rule makes no sense.
+Each $Y_t$ is both a pre-treatment variable
+(it occurs before $A_{t+1}$) and
+a post-treatment variable
+(it occurs after $A_{t-1}$).
+The correct way to
+get the mean of $\E[Y^{\overline{a}_t}]$
+is to use the more general form
+of the $g$-formula:
+
+$$
+\psi(\overline{a}_t)\equiv
+\mathbb{E}[Y^{\overline{a}_t}_t] =
+\int\cdots\int
+\E[Y_t | \overline{A}_t = \overline{a}_t, \overline{Y}_{t-1}=\overline{y}_{t-1}]
+\prod_{s=1}^{t-1} p(y_s|\overline{y}_{s-1},\overline{a}_{s}) \
+d y_s.
+$$
+
+You can ignore that equation
+if you like;
+suffice it to say that
+there is indeed a formula
+for the quantity we are interested in.
+
+We note, by the way, that some authors denote
+$\E[Y^{\overline{a}_t}_t]$ by
+$\E[Y_t| {\rm do}(\overline{a}_t)]$.
+They mean the same thing.
+
+Having a formula for
+$\psi(\overline{a}_t)$
+is great but how do we estimate it?
+Again we could plug-in estimates
+of all the quantities in
+the $g$-formula.
+But there are
+better things we can do
+as we now explain.
+
+## A Marginal Structural Model
+
+The approach we use is
+to make use of
+something called
+a *marginal structural model* (MSM).
+
+Usually when we construct
+a statistical model,
+we are trying to
+come up with
+a way to express the distribution
+of the data, in this case,
+$(A_1,Y_1),\dots, (A_T,Y_T)$.
+In effect, we want a formula
+that explains how we would generate
+a dataset
+like the one we have.
+But to do so in a tractable way
+usually involves making a bunch of
+assumptions about the model.
+Instead, with an MSM,
+we specify a plausible
+model for
+the form of the function
+$\E[Y^{\overline{a}_t}]$
+but we otherwise leave the model
+for the data unspecified.
+For example, we might assume
+that $\E[Y^{\overline{a}_t}]\approx \beta_0 + \beta \sum_s a_s$.
+In a sense, we are spending our modeling assumptions wisely:
+we want the effect of the treatment to be smooth
+and fairly simple.
+But we otherwise don't want to impose assumptions.
+
+The model we use is
+
+$$
+\E[L_t^{\overline{a}_t}]= s(t) + \beta M_t
+$$
+
+where
+$L_t = \log (1+Y_t)$ is log-deaths,
+$s(t)$ is an arbitrary, smooth, increasing function
+and
+
+$$
+M_t = \sum_{s=1}^{t-\delta}(a_s-a_1)
+$$
+
+is cumulative mobility (compared to baseline mobility).
+Based on published studies, we take $\delta = 4$ weeks.
+(We switch from deaths to log-deaths mainly for
+certain numerical reasons related to the software we are using.)
+Here, $s(t)$ represents the
+evolution of the pandemic if there were no
+interventions and no reduction in
+susceptible individuals.
+The term $\beta M_t$ captures
+the effect of mobility.
+With no change in mobility,
+deaths increase exponentially as $e^{s(t)}$.
+The intuition for using cumulative mobility
+comes from ideas from epidemic modeling.
+Roughly,
+if $I_t$ denotes new infections in week $t$,
+we might assume that
+$I_t \approx e^{\nu(t) + \beta A_t} I_{t-1}$
+for some function $\nu(t)$.
+This implies that
+$I_{t-1} \approx e^{\nu(t-1) + \beta A_{t-1}} I_{t-2}$
+and so on.
+If we continue back to $t=1$ we find that
+$I_t \approx e^{s(t) + \beta \sum_s A_s} I_1$
+where $s(t)=\sum_{s=1}^t \nu(s)$.
+If we further assume that
+some fraction of people infected a time $t$
+will die in $\delta$ weeks,
+then we can derive the above model.
+(More complex models are discussed in the paper.)
+
+To re-cap:
+we are leaving the
+distribution $P$ of the data
+$(A_1,Y_1),\dots, (A_T,Y_T)$
+unspecified,
+except that we require:
+if you apply
+the $g$-formula
+to $P$ you must get
+$s(t) + \beta M_t$.
+In other words,
+the statistical model is the
+set of all densities
+$p(\overline{\ell}_t,\overline{a}_t)$ that satisfy the condition
+
+$$
+\int\cdots\int
+\E[L_t | \overline{A}_t = \overline{a}_t, \overline{L}_{t-1}=\overline{\ell}_{t-1}]
+\prod_{s=1}^{t-1} p(\ell_s|\overline{\ell}_{s-1},\overline{a}_{s}) \
+d \ell_s =
+s(t) + \beta M_t.
+$$
+
+This is an example of a semiparametric model:
+a model that has some sort of constraint
+but is otherwise nonparametric.
+
+
+Estimating the MSM is a bit involved.
+A key step is estimating the following function
+
+$$
+W_t = \frac{p(a_t|\overline{a}_{t-1})}{p(a_t| \overline{y}_{t-1},\overline{a}_{t-1},\overline{x}_{t-1})}
+$$
+
+where $\overline{x}_{t-1}$
+represents potential confounding variables.
+The model is fit with these weights
+and the weights are crucial
+because that is how we adjust for confounding in the MSM.
+We won't go into detail here.
+Instead,
+let's look at the data
+and the estimates.
+
+## The Data and the Results
+
+The data we use
+are weekly deaths
+and weekly averaged mobility
+starting February 15 2019.
+The mobility signal
+we'll consider here is the
+proportion of people of who stay home,
+which is kindly provided to Delphi by
+SafeGraph.
+We use data at the state level.
+Note that this is actually a sort of anti-mobility measure:
+the higher it is, the less mobility there is.
+Here are plots of
+weekly deaths and mobility
+starting February 15 2020,
+for a few states:
+
+
+\begin{center}
+\includegraphics[scale=.8]{Matteo_plot1.pdf}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=.8]{Matteo_plot2.pdf}
+\end{center}
+
+After fitting the MSM,
+we can estimate various quantities.
+Let's consider the effect
+of changing the observed
+stay-at-home series
+$(A_1,\dots, A_T)$
+to the hypothetical value
+$\overline{a}_T = (A_1+\gamma,\ldots, A_T+\gamma)$.
+In other words,
+what would have happened
+if we had increased stay-at-home by $\gamma$?
+Below is the estimated
+difference in deaths
+(with 90 percent pointwise confidence bands)
+for a few states:
+Arizona, California, Florida and Georgia.
+The plot shows the mean of
+
+$$
+Y_t^\gamma - Y_t
+$$
+
+where $Y_t$ is the number of deaths
+and
+$Y_t^\gamma$
+is the (counterfactual) number of deaths
+we would have observed of mobility had
+been increases by $\gamma$ at all times,
+were we take $\gamma = 10$
+(a ten percent increase in stay-at-home).
+The fact that the values
+are negative
+indicates that increasing
+stay-at-home decreases deaths, as we would expect.
+(We remind the reader
+that these results are preliminary.)
+
+
+\begin{center}
+\includegraphics[scale=.8]{plot_for_blog2_bigstates}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=.8]{plot_for_blog2}
+\end{center}
+
+## What's Next?
+
+One important question in every
+causal analysis is: what if there
+is unobserved confounding?
+In the current problem,
+a confounder
+is a variable that affects
+both mobility and death from Covid.
+We try to include as many plausible
+observed confounding variables
+as possible.
+So far we use all
+past vaalues of death and mobility as
+cconfounding variables.
+But of course,
+it is always possible
+that there are unobserved confounders.
+Currently,
+we are conducting a sensitivity analysis
+to assess how robust the estimates are
+to unobserved confounders.
+
+In this post we have only
+addressed mobility.
+As soon as the mobility analysis
+is complete
+we will turn our attention
+to estimating
+the causal effect of masks on Covid cases.
