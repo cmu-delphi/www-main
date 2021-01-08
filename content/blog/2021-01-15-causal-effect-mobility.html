@@ -56,9 +56,6 @@ correlation is not causation,
 and so we have to use rigorous causal inference methods.</p>
 <p>So let’s start with a brief introduction
 to causal inference.</p>
-<p><span class="math display">\[
-\global\def\E{\mathbb{E}}
-\]</span></p>
 <div id="causal-inference" class="section level2">
 <h2>Causal Inference</h2>
 <p>Causal inference
@@ -97,21 +94,21 @@ We let <span class="math inline">\(Y^a\)</span>
 denote this hypothetical outcome,
 which is called a counterfactual or potential outcome.
 And we denote the mean of <span class="math inline">\(Y^a\)</span> by
-<span class="math inline">\(\E[Y^a]\)</span>.</p>
+<span class="math inline">\(\mathbb{E}[Y^a]\)</span>.</p>
 <p>If we have measured all the confounding variables
 then the answer
 (ignoring a few technical details)
 is given by
 Robins’ <span class="math inline">\(g\)</span>-formula:</p>
 <p><span class="math display">\[
-\E[Y^a] = \int \mu(x,a) p(x) dx = \E[\mu(X,a)]
+\mathbb{E}[Y^a] = \int \mu(x,a) p(x) dx = \mathbb{E}[\mu(X,a)]
 \]</span></p>
 <p>where
-<span class="math inline">\(\mu(x,a) = \E[Y|X=x,A=a]\)</span>
+<span class="math inline">\(\mu(x,a) = \mathbb{E}[Y|X=x,A=a]\)</span>
 is the mean of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> and <span class="math inline">\(A\)</span>.
 This is not equal to
 the mean of <span class="math inline">\(Y\)</span> given <span class="math inline">\(A=a\)</span> which is
-<span class="math inline">\(\E[Y|A=a] = \int \mu(x,a) p(x|a) dx\)</span>.
+<span class="math inline">\(\mathbb{E}[Y|A=a] = \int \mu(x,a) p(x|a) dx\)</span>.
 This is the difference between causation
 and prediction (correlation).
 You can think of
@@ -124,14 +121,14 @@ confounding</em>.</p>
 <p>Now suppose we observe data
 <span class="math inline">\((X_1,A_1,Y_1),\dots,(X_n,A_n,Y_n)\)</span>.
 How do we estimate
-<span class="math inline">\(\E[Y^a]\)</span>?
+<span class="math inline">\(\mathbb{E}[Y^a]\)</span>?
 The simplest approach is to
 get an estimate <span class="math inline">\(\hat\mu(x,a)\)</span> of <span class="math inline">\(\mu(x,a)\)</span>
 (this is just regression) and replace the integral
 in the <span class="math inline">\(g\)</span>-formula
 with a sample average to get the estimate</p>
 <p><span class="math display">\[
-\hat{\E(Y^a)} = \frac{1}{n}\sum_i \hat\mu(X_i,a).
+\hat{\mathbb{E}(Y^a)} = \frac{1}{n}\sum_i \hat\mu(X_i,a).
 \]</span></p>
 <p>This is called the plug-in estimator.
 There are often better estimators,
@@ -174,7 +171,7 @@ is the number of deaths
 we would observe if we set mobility to 12 for three weeks
 then set it to 6 for three weeks.</p>
 <p>How do we
-find the mean <span class="math inline">\(\E[Y^{\overline{a}_t}_t]\)</span>?
+find the mean <span class="math inline">\(\mathbb{E}[Y^{\overline{a}_t}_t]\)</span>?
 As a general rule,
 we adjust for pre-treatment variables but
 not for post-treatment variables.
@@ -185,14 +182,14 @@ Each <span class="math inline">\(Y_t\)</span> is both a pre-treatment variable
 a post-treatment variable
 (it occurs after <span class="math inline">\(A_{t-1}\)</span>).
 The correct way to
-get the mean of <span class="math inline">\(\E[Y^{\overline{a}_t}]\)</span>
+get the mean of <span class="math inline">\(\mathbb{E}[Y^{\overline{a}_t}]\)</span>
 is to use the more general form
 of the <span class="math inline">\(g\)</span>-formula:</p>
 <p><span class="math display">\[
 \psi(\overline{a}_t)\equiv
 \mathbb{E}[Y^{\overline{a}_t}_t] =
 \int\cdots\int
-\E[Y_t | \overline{A}_t = \overline{a}_t, \overline{Y}_{t-1}=\overline{y}_{t-1}]
+\mathbb{E}[Y_t | \overline{A}_t = \overline{a}_t, \overline{Y}_{t-1}=\overline{y}_{t-1}]
 \prod_{s=1}^{t-1} p(y_s|\overline{y}_{s-1},\overline{a}_{s}) \
 d y_s.
 \]</span></p>
@@ -202,8 +199,8 @@ suffice it to say that
 there is indeed a formula
 for the quantity we are interested in.</p>
 <p>We note, by the way, that some authors denote
-<span class="math inline">\(\E[Y^{\overline{a}_t}_t]\)</span> by
-<span class="math inline">\(\E[Y_t| {\rm do}(\overline{a}_t)]\)</span>.
+<span class="math inline">\(\mathbb{E}[Y^{\overline{a}_t}_t]\)</span> by
+<span class="math inline">\(\mathbb{E}[Y_t| {\rm do}(\overline{a}_t)]\)</span>.
 They mean the same thing.</p>
 <p>Having a formula for
 <span class="math inline">\(\psi(\overline{a}_t)\)</span>
@@ -239,18 +236,18 @@ Instead, with an MSM,
 we specify a plausible
 model for
 the form of the function
-<span class="math inline">\(\E[Y^{\overline{a}_t}]\)</span>
+<span class="math inline">\(\mathbb{E}[Y^{\overline{a}_t}]\)</span>
 but we otherwise leave the model
 for the data unspecified.
 For example, we might assume
-that <span class="math inline">\(\E[Y^{\overline{a}_t}]\approx \beta_0 + \beta \sum_s a_s\)</span>.
+that <span class="math inline">\(\mathbb{E}[Y^{\overline{a}_t}]\approx \beta_0 + \beta \sum_s a_s\)</span>.
 In a sense, we are spending our modeling assumptions wisely:
 we want the effect of the treatment to be smooth
 and fairly simple.
 But we otherwise don’t want to impose assumptions.</p>
 <p>The model we use is</p>
 <p><span class="math display">\[
-\E[L_t^{\overline{a}_t}]= s(t) + \beta M_t
+\mathbb{E}[L_t^{\overline{a}_t}]= s(t) + \beta M_t
 \]</span></p>
 <p>where
 <span class="math inline">\(L_t = \log (1+Y_t)\)</span> is log-deaths,
@@ -305,7 +302,7 @@ set of all densities
 <span class="math inline">\(p(\overline{\ell}_t,\overline{a}_t)\)</span> that satisfy the condition</p>
 <p><span class="math display">\[
 \int\cdots\int
-\E[L_t | \overline{A}_t = \overline{a}_t, \overline{L}_{t-1}=\overline{\ell}_{t-1}]
+\mathbb{E}[L_t | \overline{A}_t = \overline{a}_t, \overline{L}_{t-1}=\overline{\ell}_{t-1}]
 \prod_{s=1}^{t-1} p(\ell_s|\overline{\ell}_{s-1},\overline{a}_{s}) \
 d \ell_s =
 s(t) + \beta M_t.
