@@ -112,11 +112,11 @@ the mean of <span class="math inline">\(Y\)</span> given <span class="math inlin
 This is the difference between causation
 and prediction (correlation).
 You can think of
-the g-formula as the mean of <span class="math inline">\(Y\)</span>
+the <span class="math inline">\(g\)</span>-formula as the mean of <span class="math inline">\(Y\)</span>
 if we replace <span class="math inline">\(p(a|x)\)</span>
 in the joint density
 with a point mass at <span class="math inline">\(a\)</span>.
-Using the g-formula is one example of <em>adjusting for
+Using the <span class="math inline">\(g\)</span>-formula is one example of <em>adjusting for
 confounding</em>.</p>
 <p>Now suppose we observe data
 <span class="math inline">\((X_1,A_1,Y_1),\dots,(X_n,A_n,Y_n)\)</span>.
@@ -157,7 +157,7 @@ p(\overline{y}_t,\overline{a}_t) =
 the causal question:</p>
 <p>What would <span class="math inline">\(Y_t\)</span> be if we set
 <span class="math inline">\(\overline{A}_t\)</span> equal to some value
-<span class="math inline">\(\overline{a}_t =(a_1,\ldots, a_t)\)</span>?</p>
+<span class="math inline">\(\overline{a}_t =(a_1,\dots, a_t)\)</span>?</p>
 <p>Let
 <span class="math inline">\(Y^{\overline{a}_t}_t\)</span>
 denote this counterfactual quantity.
@@ -189,7 +189,7 @@ of the <span class="math inline">\(g\)</span>-formula:</p>
 \psi(\overline{a}_t)\equiv
 \mathbb{E}[Y^{\overline{a}_t}_t] =
 \int\cdots\int
-\mathbb{E}[Y_t | \overline{A}_t = \overline{a}_t, \overline{Y}_{t-1}=\overline{y}_{t-1}]
+\mathbb{E} \left[Y_t | \overline{A}_t = \overline{a}_t, \overline{Y}_{t-1}=\overline{y}_{t-1}\right]
 \prod_{s=1}^{t-1} p(y_s|\overline{y}_{s-1},\overline{a}_{s})
 d y_s.
 \]</span></p>
@@ -339,7 +339,7 @@ SafeGraph.
 (We <a href="{{< apiref "api/covidcast-signals/safegraph.html" >}}">publish this
 data</a>
 in our <a href="{{< apiref "api/covidcast.html" >}}">COVIDcast Epidata API</a>,
-so it is available to anyone interested in studying mobility during the pandemic.
+so it is available to anyone interested in studying mobility during the pandemic.)
 We use data at the state level.
 Note that this is actually a sort of anti-mobility measure:
 the higher it is, the less mobility there is.
@@ -420,7 +420,7 @@ of changing the observed
 stay-at-home series
 <span class="math inline">\((A_1,\dots, A_T)\)</span>
 to the hypothetical value
-<span class="math inline">\(\overline{a}_T = (A_1+\gamma,\ldots, A_T+\gamma)\)</span>.
+<span class="math inline">\(\overline{a}_T = (A_1+\gamma,\dots, A_T+\gamma)\)</span>.
 In other words,
 what would have happened
 if we had increased stay-at-home by <span class="math inline">\(\gamma\)</span>?
@@ -447,8 +447,14 @@ indicates that increasing
 stay-at-home decreases deaths, as we would expect.
 (We remind the reader
 that these results are preliminary.)</p>
-
-
+<div class="figure">
+<img src="/blog/images/causal-effect-mobility-bigstates.svg" alt="Causal effects in large states" />
+<p class="caption">Causal effects in large states</p>
+</div>
+<div class="figure">
+<img src="/blog/images/causal-effect-mobility-states.svg" alt="Causal effects in states" />
+<p class="caption">Causal effects in states</p>
+</div>
 </div>
 <div id="whats-next" class="section level2">
 <h2>What’s Next?</h2>
