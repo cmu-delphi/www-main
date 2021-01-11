@@ -114,11 +114,11 @@ $\mathbb{E}[Y|A=a] = \int \mu(x,a) p(x|a) dx$.
 This is the difference between causation
 and prediction (correlation).
 You can think of
-the g-formula as the mean of $Y$
+the $g$-formula as the mean of $Y$
 if we replace $p(a|x)$
 in the joint density
 with a point mass at $a$.
-Using the g-formula is one example of *adjusting for
+Using the $g$-formula is one example of *adjusting for
 confounding*.
 
 Now suppose we observe data
@@ -166,7 +166,7 @@ the causal question:
 
 What would $Y_t$ be if we set
 $\overline{A}_t$ equal to some value
-$\overline{a}_t  =(a_1,\ldots, a_t)$?
+$\overline{a}_t  =(a_1,\dots, a_t)$?
 
 Let
 $Y^{\overline{a}_t}_t$
@@ -201,7 +201,7 @@ $$
 \psi(\overline{a}_t)\equiv
 \mathbb{E}[Y^{\overline{a}_t}_t] =
 \int\cdots\int
-\mathbb{E}[Y_t | \overline{A}_t = \overline{a}_t, \overline{Y}_{t-1}=\overline{y}_{t-1}]
+\mathbb{E} \left[Y_t | \overline{A}_t = \overline{a}_t, \overline{Y}_{t-1}=\overline{y}_{t-1}\right]
 \prod_{s=1}^{t-1} p(y_s|\overline{y}_{s-1},\overline{a}_{s})
 d y_s.
 $$
@@ -368,7 +368,7 @@ SafeGraph.
 (We [publish this
 data](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/safegraph.html")`)
 in our [COVIDcast Epidata API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
-so it is available to anyone interested in studying mobility during the pandemic.
+so it is available to anyone interested in studying mobility during the pandemic.)
 We use data at the state level.
 Note that this is actually a sort of anti-mobility measure:
 the higher it is, the less mobility there is.
@@ -454,7 +454,7 @@ of changing the observed
 stay-at-home series
 $(A_1,\dots, A_T)$
 to the hypothetical value
-$\overline{a}_T = (A_1+\gamma,\ldots, A_T+\gamma)$.
+$\overline{a}_T = (A_1+\gamma,\dots, A_T+\gamma)$.
 In other words,
 what would have happened
 if we had increased stay-at-home by $\gamma$?
@@ -485,13 +485,10 @@ stay-at-home decreases deaths, as we would expect.
 that these results are preliminary.)
 
 
-\begin{center}
-\includegraphics[scale=.8]{plot_for_blog2_bigstates}
-\end{center}
+![Causal effects in large states](/blog/images/causal-effect-mobility-bigstates.svg)
 
-\begin{center}
-\includegraphics[scale=.8]{plot_for_blog2}
-\end{center}
+![Causal effects in states](/blog/images/causal-effect-mobility-states.svg)
+
 
 ## What's Next?
 
