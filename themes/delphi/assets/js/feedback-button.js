@@ -5,7 +5,6 @@
   }
 
   const delay = Number.parseInt(btn.dataset.delay, 10) * 1000;
-  const interval = Number.parseInt(btn.dataset.interval, 10) * 1000;
   const duration = Number.parseInt(btn.dataset.duration, 10) * 1000;
   const requestText = btn.dataset.request;
 
