@@ -63,6 +63,6 @@ const showFeedbackNotification = () => {
   });
 };
 // initial delay
-if (btn.dataset.popup === 'enable' && !wasRecentlySubmitted()) {
+if (btn.dataset.popup === "enable" && !wasRecentlySubmitted()) {
   setTimeout(showFeedbackNotification, delay);
 }
