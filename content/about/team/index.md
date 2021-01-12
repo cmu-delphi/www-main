@@ -219,6 +219,13 @@ team:
   note: Core member, May–July 2020
   team:
   - contributors
+- firstName: Sangwon (Justin)
+  lastName: Hyun
+  image: sangwon-justin-hyun-500x500-min.jpg
+  affiliation: USC
+  team:
+  - contributors
+  note: Core member, March–May 2020
 - firstName: Jimi
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
@@ -293,6 +300,13 @@ team:
   team:
   - past
   note: Core member, March–April 2020
+- firstName: David
+  lastName: Farrow
+  image: david-farrow_head-shot.jpg
+  affiliation: Software Engineer
+  team:
+  - past
+  note: Founding member 2012–2016, Core member March–April 2020, Google Fellow October–December 2020
 - firstName: EJ
   lastName: Fox
   image: ej-fox-500x500-min.jpg
@@ -314,13 +328,6 @@ team:
   team:
   - past
   notes: Intern, summer 2020
-- firstName: Sangwon (Justin)
-  lastName: Hyun
-  image: sangwon-justin-hyun-500x500-min.jpg
-  affiliation: USC
-  team:
-  - past
-  note: Core member, March–May 2020; Contributor, May–July 2020
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -456,13 +463,6 @@ team:
   affiliation: Software Engineer
   team:
   - google
-- firstName: David
-  lastName: Farrow
-  image: david-farrow_head-shot.jpg
-  affiliation: Software Engineer
-  team:
-  - google
-  note: Founding member 2012–2016, Core member March–April 2020
 - firstName: Shreenath
   lastName: Regunathan
   image: shreenath-regunathan-head-shot.jpg
