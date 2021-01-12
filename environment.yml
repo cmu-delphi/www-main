@@ -32,6 +32,7 @@ dependencies:
   - r-isoband
   - r-ggrepel
   - r-plotly
+  - r-usmap
   - pandoc
   - fiona
   - geopandas
