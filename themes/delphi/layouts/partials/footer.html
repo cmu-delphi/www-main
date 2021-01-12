@@ -46,8 +46,7 @@
               href="{{ .Site.Params.feedbackForm }}"
               data-delay="{{ .Site.Params.feedbackDelay }}"
               data-duration="{{ .Site.Params.feedbackDuration }}"
-              data-interval="{{ .Site.Params.feedbackInterval }}"
-              data-request="{{ .Site.Params.feedbackRequest }}"
+              data-popup="{{ if .Params.feedback }}enable{{end}}"
               >Submit Feedback</a
             >
           </li>
