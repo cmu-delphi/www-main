@@ -1,5 +1,5 @@
 ---
-title: Large Causal Inference for COVID-19
+title: Large Causal Inference for Social Mobility and COVID-19
 author: Matteo Bonvini, Edward Kennedy, Valérie Ventura, and Larry Wasserman
 date: 2021-01-08
 tags:
@@ -12,9 +12,13 @@ authors:
 heroImage: /blog/images/blog-lg-img_hello-world.jpg
 heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
 summary: |
-  The goal is to describe some work we have been doing on causal inference.
+  How can we estimate the causal effect of mobility on COVID-19 when there could
+  be many confounding variables?
 acknowledgements: |
-  List acknowledgements here
+  We'd like to thank the Delphi engineering team for making this data available.
+  And we'd like to thank Roni Rosenfeld and Ryan Tibshirani for posing the
+  challenge of making counterfactual predictions. And thanks to Alex Reinhart
+  for getting our post into the appropriate format.
 related:
   - 2020-08-28-api
 output:
@@ -34,28 +38,25 @@ output:
 </ul>
 </div>
 
-<p>The goal is to describe some work
-we have been doing on causal inference.
-The details
-will be available
-in two papers that we expect
-to complete soon.
-The first paper deals with mobility and the second
-deals with mask usage.
-Here we will aim to give the high level ideas
-focusing on mobility.
-The results presented here are preliminary
-and may be subject to change.</p>
-<p>During a pandemic,
-it is reasonable to expect
-that reduced social mobility
-will lead to fewer deaths.
-But how do we quantify this effect?
-As everyone knows,
-correlation is not causation,
-and so we have to use rigorous causal inference methods.</p>
-<p>So let’s start with a brief introduction
-to causal inference.</p>
+<p>Most pandemic research has focused on questions related to prediction such as:
+how many COVID cases do we expect to see next week in Allegheny County? Causal
+inference, on the other hand, is concerned with “what if” questions. For
+example: what would happen if everyone wore masks? How many cases would there be
+if there was a lockdown? How many deaths would occur if 40 percent of the
+population is vaccinated? These questions involve hypothetical interventions on
+a population.</p>
+<p>Estimating causal effects is tricky. We all know that “correlation
+isn’t causation.” For example, mask usage and cases could both
+increase over time. But that doesn’t mean that masks cause more cases
+to occur. Activation of “Buckle your seatbelt” signs on airplanes is
+correlated with turbulence. But activating the sign does not cause
+turbulence.</p>
+<p>So how do we estimate causal effects? There is a collection of methods
+for this task. The important thing is that we can’t just use standard
+prediction methods. We need to use specialized methods that were designed
+for causal inference. In this post we will discuss our work on
+the causal effect of social mobility on deaths from Covid.</p>
+<p>Let’s start with a brief introduction to causal inference.</p>
 <div id="causal-inference" class="section level2">
 <h2>Causal Inference</h2>
 <p>Causal inference
@@ -451,10 +452,6 @@ that these results are preliminary.)</p>
 <img src="/blog/images/causal-effect-mobility-bigstates.svg" alt="Causal effects in large states" />
 <p class="caption">Causal effects in large states</p>
 </div>
-<div class="figure">
-<img src="/blog/images/causal-effect-mobility-states.svg" alt="Causal effects in states" />
-<p class="caption">Causal effects in states</p>
-</div>
 </div>
 <div id="whats-next" class="section level2">
 <h2>What’s Next?</h2>
@@ -469,8 +466,8 @@ We try to include as many plausible
 observed confounding variables
 as possible.
 So far we use all
-past vaalues of death and mobility as
-cconfounding variables.
+past values of death and mobility as
+confounding variables.
 But of course,
 it is always possible
 that there are unobserved confounders.
