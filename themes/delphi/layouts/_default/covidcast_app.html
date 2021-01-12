@@ -5,7 +5,7 @@
   <script src="{{ (partial "covidcast/find-file.html" "styles.*\\.js$")| relURL }}"></script>
   <script src="{{ (partial "covidcast/find-file.html" "bundle.*\\.js$")| relURL }}"></script>
 {{ end }}
-{{ define "breadcrumb" }}{{ end }}
+{{ define "breadcrumb" }}<!-- no breadcrumb -->{{ end }}
 {{ define "body_class" }}covidcast_wrapper{{ end }}
 {{ define "main" }}
   {{ partial "covidcast/modes.html" . }}
