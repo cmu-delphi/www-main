@@ -9,6 +9,11 @@ import UIkit from "uikit/dist/js/uikit.js";
     const expiresAt = new Date();
     expiresAt.setMonth(expiresAt.getMonth() + 1);
     localStorage.setItem("feedback-submitted", expiresAt.toString());
+
+    // send a google analytics event
+    if (window.ga) {
+      window.ga('send', 'event', 'feedback', 'open', 'show feedback form', 'true');
+    }
   };
   const wasRecentlySubmitted = () => {
     if (!localStorage) {
@@ -40,7 +45,7 @@ import UIkit from "uikit/dist/js/uikit.js";
 
   const container = document.querySelector(".feedback-popup-container");
 
-  if (container && wasRecentlySubmitted()) {
+  if (container && !wasRecentlySubmitted()) {
     const delay = Number.parseInt(container.dataset.delay, 10) * 1000;
     const duration = Number.parseInt(container.dataset.duration, 10) * 1000;
     const formLink = container.dataset.href;
