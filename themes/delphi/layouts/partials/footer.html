@@ -58,7 +58,7 @@
     data-delay="{{ .Site.Params.feedbackDelay }}"
     data-duration="{{ .Site.Params.feedbackDuration }}"
   >
-    <span uk-icon="icon: question"></span>
+    {{ partial "font-awesome.html" "solid/question-circle" }}
     <span class="feedback-text">We'd love to hear from you</span>
     <button class="uk-button uk-button-primary feedback-button">Feedback survey</button>
   </div>
