@@ -8,7 +8,7 @@
   </head>
   <body class="{{ block "body_class" . }}{{ end }}">
     {{ partial "nav.html" . }}
-    {{ partial "menu/breadcrumb.html" . }}
+    {{ block "breadcrumb" . }}{{ partial "menu/breadcrumb.html" . }}{{ end }}
     {{ block "main" . }} {{ end }}
     {{ partial "footer.html" . }}
     {{ partial "scripts.html" . }}
