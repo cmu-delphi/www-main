@@ -12,7 +12,7 @@ import UIkit from "uikit/dist/js/uikit.js";
 
     // send a google analytics event
     if (window.ga) {
-      window.ga('send', 'event', 'feedback', 'open', 'show feedback form', 'true');
+      window.ga("send", "event", "feedback", "open", "show feedback form", "true");
     }
   };
   const wasRecentlySubmitted = () => {
