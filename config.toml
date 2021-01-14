@@ -112,6 +112,8 @@ relativeURLs = false
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
     twitter = "CmuDelphi"
     feedbackForm = "https://docs.google.com/forms/d/e/1FAIpQLSffGhrCsZmDSF4Lbeg9lB-Gp_Uf7z7D9ust-vXk1F5V1SElig/viewform?usp=pp_url&entry.1245962748="
-    feedbackRequest = "We'd love to hear from you"
-    feedbackDelay = 30 # wait for initial 30sec to show the notification
+    feedbackLikelihoodMobile = 0.2
+    feedbackLikelihoodDesktop = 1
+    feedbackDelayMin = 10 # in sec
+    feedbackDelayMax = 100 # in sec
     feedbackDuration = 60 # show it for 60sec

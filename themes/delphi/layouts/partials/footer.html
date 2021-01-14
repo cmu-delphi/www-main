@@ -55,7 +55,10 @@
     class="feedback-popup-container"
     style="display: none"
     data-href="{{ .Site.Params.feedbackForm }}"
-    data-delay="{{ .Site.Params.feedbackDelay }}"
+    data-like-mobile="{{ .Site.Params.feedbackLikelihoodMobile }}"
+    data-like-desktop="{{ .Site.Params.feedbackLikelihoodDesktop }}"
+    data-delay-min="{{ .Site.Params.feedbackDelayMin }}"
+    data-delay-max="{{ .Site.Params.feedbackDelayMax }}"
     data-duration="{{ .Site.Params.feedbackDuration }}"
   >
     {{ partial "font-awesome.html" "solid/question-circle" }}

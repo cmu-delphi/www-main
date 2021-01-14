@@ -46,7 +46,18 @@ import UIkit from "uikit/dist/js/uikit.js";
   const container = document.querySelector(".feedback-popup-container");
 
   if (container && !wasRecentlySubmitted()) {
-    const delay = Number.parseInt(container.dataset.delay, 10) * 1000;
+    const delayMin = Number.parseInt(container.dataset.delayMin, 10) * 1000;
+    const delayMax = Number.parseInt(container.dataset.delayMax, 10) * 1000;
+    const delay = delayMin + Math.random() * (delayMax - delayMin);
+
+    const feedbackLikelihoodDesktop = Number.parseFloat(container.dataset.likeDesktop);
+    const feedbackLikelihoodMobile = Number.parseFloat(container.dataset.likeMobile);
+    const isMobile = window.matchMedia("only screen and (max-width: 700px)").matches;
+
+    const showByChance =
+      (isMobile && Math.random() <= feedbackLikelihoodMobile) ||
+      (!isMobile && Math.random() <= feedbackLikelihoodDesktop);
+
     const duration = Number.parseInt(container.dataset.duration, 10) * 1000;
     const formLink = container.dataset.href;
 
@@ -70,6 +81,8 @@ import UIkit from "uikit/dist/js/uikit.js";
       });
     };
     // initial delay
-    setTimeout(showFeedbackNotification, delay);
+    if (showByChance) {
+      setTimeout(showFeedbackNotification, delay);
+    }
   }
 })();
