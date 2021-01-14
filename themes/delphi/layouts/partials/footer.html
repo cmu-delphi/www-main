@@ -61,8 +61,10 @@
     data-delay-max="{{ .Site.Params.feedbackDelayMax }}"
     data-duration="{{ .Site.Params.feedbackDuration }}"
   >
-    {{ partial "font-awesome.html" "solid/question-circle" }}
-    <span class="feedback-text">We'd love to hear from you</span>
+    <div>
+      {{ partial "font-awesome.html" "solid/question-circle" }}
+      <span class="feedback-text">We'd love to hear from you</span>
+    </div>
     <button class="uk-button uk-button-primary feedback-button">Feedback survey</button>
   </div>
 {{ end }}
