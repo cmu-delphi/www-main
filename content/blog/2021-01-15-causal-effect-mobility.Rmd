@@ -49,7 +49,7 @@ So how do we estimate causal effects? There is a collection of methods
 for this task. The important thing is that we can't just use standard
 prediction methods. We need to use specialized methods that were designed
 for causal inference. In this post we will discuss our work on
-the causal effect of social mobility on deaths from Covid.
+the causal effect of social mobility on deaths from COVID.
 
 Let’s start with a brief introduction to causal inference.
 
@@ -74,7 +74,7 @@ Suppose we have
 three variables
 $X$, $A$ and $Y$ where
 $Y$ is the  outcome of interest
-(such as deaths from Covid)
+(such as deaths from COVID)
 $A$ is a treatment or exposure
 (such as mobility level)
 and $X$ are confounding variables,
@@ -89,7 +89,7 @@ $$
 We want to know: what would be the mean of $Y$
 if we could set $A$ to be equal to some value $a$?
 For example,
-what would the number of covid cases be
+what would the number of COVID cases be
 if 92 percent of people wore masks?
 We let $Y^a$
 denote this hypothetical outcome,
@@ -497,7 +497,7 @@ is unobserved confounding?
 In the current problem,
 a confounder
 is a variable that affects
-both mobility and death from Covid.
+both mobility and death from COVID.
 We try to include as many plausible
 observed confounding variables
 as possible.
@@ -518,4 +518,4 @@ As soon as the mobility analysis
 is complete
 we will turn our attention
 to estimating
-the causal effect of masks on Covid cases.
+the causal effect of masks on COVID cases.
