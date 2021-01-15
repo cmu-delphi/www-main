@@ -1,6 +1,6 @@
 .feedback-modal {
   padding-top: 1.5em;
-  height: 500px;
+  height: calc(100vh - 100px);
   display: block;
   position: relative;
 }
