@@ -67,20 +67,20 @@ exposition of some key ideas here.
 To learn more,
 we recommend [the book
 by Hernan and Robins](https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/) and
-the paper:
+the paper
 "[Statistics and Causal Inference](https://www.jstor.org/stable/2289064)"
 by Paul Holland
-(Journal of the American Statistical Association 1986, p 945-960).
+(*Journal of the American Statistical Association* 1986, pp. 945-960).
 And one can find many tutorials
 on the web.
 
 Suppose we have
 three variables
-$X$, $A$ and $Y$ where
+$X$, $A$ and $Y$, where
 $Y$ is the  outcome of interest
-(such as deaths from COVID)
+(such as deaths from COVID),
 $A$ is a treatment or exposure
-(such as mobility level)
+(such as mobility level),
 and $X$ are confounding variables,
 which are variables that affect both
 $A$ and $Y$ (such as age).
@@ -115,7 +115,7 @@ where
 $\mu(x,a) = \mathbb{E}[Y|X=x,A=a]$
 is the mean of $Y$ given $X$ and $A$.
 This is not equal to
-the mean of $Y$ given $A=a$ which is
+the mean of $Y$ given $A=a$, which is
 $\mathbb{E}[Y|A=a] = \int \mu(x,a) p(x|a) dx$.
 This is the difference between causation
 and prediction (correlation).
@@ -154,7 +154,8 @@ The first plot below shows an example where we would predict
 higher values of $Y$ when $A$ is large.  For pure prediction, this is
 the correct conclusion.  The second plot shows that once we
 account for $X = \text{age}$ (corresponding to different colors) there is
-a negative relationship between $Y$ and $A$. In this case, age is a
+a negative relationship between $Y$ and $A$: for a given person with a fixed
+age, increasing $A$ would *decrease* $Y$. In this case, age is a
 confounder and the $g$-formula would correctly recover the negative
 relationship. For causal inference, this is the correct conclusion.
 
@@ -239,12 +240,12 @@ They mean the same thing.
 
 Having a formula for
 $\psi(\overline{a}_t)$
-is great but how do we estimate it?
+is great, but how do we estimate it?
 Again we could plug-in estimates
 of all the quantities in
 the $g$-formula.
 But there are
-better things we can do
+better things we can do,
 as we now explain.
 
 ## A Marginal Structural Model
@@ -495,7 +496,7 @@ $Y_t^\gamma$
 is the (counterfactual) number of deaths
 we would have observed of mobility had
 been increases by $\gamma$ at all times,
-were we take $\gamma = 10$
+where we take $\gamma = 10$
 (a ten percent increase in stay-at-home).
 The fact that the values
 are negative

@@ -70,19 +70,19 @@ exposition of some key ideas here.
 To learn more,
 we recommend <a href="https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/">the book
 by Hernan and Robins</a> and
-the paper:
+the paper
 “<a href="https://www.jstor.org/stable/2289064">Statistics and Causal Inference</a>”
 by Paul Holland
-(Journal of the American Statistical Association 1986, p 945-960).
+(<em>Journal of the American Statistical Association</em> 1986, pp. 945-960).
 And one can find many tutorials
 on the web.</p>
 <p>Suppose we have
 three variables
-<span class="math inline">\(X\)</span>, <span class="math inline">\(A\)</span> and <span class="math inline">\(Y\)</span> where
+<span class="math inline">\(X\)</span>, <span class="math inline">\(A\)</span> and <span class="math inline">\(Y\)</span>, where
 <span class="math inline">\(Y\)</span> is the outcome of interest
-(such as deaths from COVID)
+(such as deaths from COVID),
 <span class="math inline">\(A\)</span> is a treatment or exposure
-(such as mobility level)
+(such as mobility level),
 and <span class="math inline">\(X\)</span> are confounding variables,
 which are variables that affect both
 <span class="math inline">\(A\)</span> and <span class="math inline">\(Y\)</span> (such as age).
@@ -112,7 +112,7 @@ Robins’ <span class="math inline">\(g\)</span>-formula:</p>
 <span class="math inline">\(\mu(x,a) = \mathbb{E}[Y|X=x,A=a]\)</span>
 is the mean of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span> and <span class="math inline">\(A\)</span>.
 This is not equal to
-the mean of <span class="math inline">\(Y\)</span> given <span class="math inline">\(A=a\)</span> which is
+the mean of <span class="math inline">\(Y\)</span> given <span class="math inline">\(A=a\)</span>, which is
 <span class="math inline">\(\mathbb{E}[Y|A=a] = \int \mu(x,a) p(x|a) dx\)</span>.
 This is the difference between causation
 and prediction (correlation).
@@ -147,7 +147,8 @@ and we can estimate it.</p>
 higher values of <span class="math inline">\(Y\)</span> when <span class="math inline">\(A\)</span> is large. For pure prediction, this is
 the correct conclusion. The second plot shows that once we
 account for <span class="math inline">\(X = \text{age}\)</span> (corresponding to different colors) there is
-a negative relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(A\)</span>. In this case, age is a
+a negative relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(A\)</span>: for a given person with a fixed
+age, increasing <span class="math inline">\(A\)</span> would <em>decrease</em> <span class="math inline">\(Y\)</span>. In this case, age is a
 confounder and the <span class="math inline">\(g\)</span>-formula would correctly recover the negative
 relationship. For causal inference, this is the correct conclusion.</p>
 <p><img src="/blog/images/causal-simple-confounder.svg" /></p>
@@ -221,12 +222,12 @@ for the quantity we are interested in.</p>
 They mean the same thing.</p>
 <p>Having a formula for
 <span class="math inline">\(\psi(\overline{a}_t)\)</span>
-is great but how do we estimate it?
+is great, but how do we estimate it?
 Again we could plug-in estimates
 of all the quantities in
 the <span class="math inline">\(g\)</span>-formula.
 But there are
-better things we can do
+better things we can do,
 as we now explain.</p>
 </div>
 <div id="a-marginal-structural-model" class="section level2">
@@ -456,7 +457,7 @@ and
 is the (counterfactual) number of deaths
 we would have observed of mobility had
 been increases by <span class="math inline">\(\gamma\)</span> at all times,
-were we take <span class="math inline">\(\gamma = 10\)</span>
+where we take <span class="math inline">\(\gamma = 10\)</span>
 (a ten percent increase in stay-at-home).
 The fact that the values
 are negative
