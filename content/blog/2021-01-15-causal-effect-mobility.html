@@ -17,8 +17,9 @@ summary: |
 acknowledgements: |
   We'd like to thank the Delphi engineering team for making this data available.
   And we'd like to thank Roni Rosenfeld and Ryan Tibshirani for posing the
-  challenge of making counterfactual predictions. And thanks to Alex Reinhart
-  for getting our post into the appropriate format.
+  challenge of making counterfactual predictions. We thank Rob Tibshirani for
+  suggesting several improvements on this post, and Alex Reinhart for getting
+  our post into the appropriate format.
 related:
   - 2020-08-28-api
 output:
@@ -55,7 +56,10 @@ turbulence.</p>
 for this task. The important thing is that we can’t just use standard
 prediction methods. We need to use specialized methods that were designed
 for causal inference. In this post we will discuss our work on
-the causal effect of social mobility on deaths from COVID.</p>
+the causal effect of social mobility on deaths from COVID. The social mobility
+variable we will use is the proportion of people staying home. We can think of
+this of anti-mobility, and expect that higher values of this variable will lead
+to fewer deaths from COVID.</p>
 <p>Let’s start with a brief introduction to causal inference.</p>
 <div id="causal-inference" class="section level2">
 <h2>Causal Inference</h2>
@@ -131,18 +135,30 @@ with a sample average to get the estimate</p>
 <p><span class="math display">\[
 \hat{\mathbb{E}(Y^a)} = \frac{1}{n}\sum_i \hat\mu(X_i,a).
 \]</span></p>
-<p>This is called the plug-in estimator.
+<p>This is called the plug-in estimator. (Note that for prediction we would not use
+this formula. We would just use <span class="math inline">\(\hat \mu(X, A)\)</span>.)
 There are often better estimators,
 but we won’t get into that here.
 The important thing
 is:
 there is a formula for the causal effect
 and we can estimate it.</p>
+<p>The first plot below shows an example where we would predict
+higher values of <span class="math inline">\(Y\)</span> when <span class="math inline">\(A\)</span> is large. For pure prediction, this is
+the correct conclusion. The second plot shows that once we
+account for <span class="math inline">\(X = \text{age}\)</span> (corresponding to different colors) there is
+a negative relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(A\)</span>. In this case, age is a
+confounder and the <span class="math inline">\(g\)</span>-formula would correctly recover the negative
+relationship. For causal inference, this is the correct conclusion.</p>
+<p><img src="/blog/images/causal-simple-confounder.svg" /></p>
 <p>Things get trickier
 when there are time varying variables.
 Consider weekly mobility and death data
 <span class="math inline">\((A_1,Y_1),\dots, (A_T,Y_T)\)</span>
 in one state.
+For simplicity, we’ll assume that there are no <span class="math inline">\(X\)</span> variables. But we’ll see that at time <span class="math inline">\(t\)</span>, the
+variables <span class="math inline">\(Y_1, \dots, Y_{t-1}\)</span> are confounding variables for the causal effect of
+mobility on <span class="math inline">\(Y_t\)</span>.
 Define
 <span class="math inline">\(\overline{A}_t = (A_1,\dots, A_t)\)</span> and
 <span class="math inline">\(\overline{Y}_t = (Y_1,\dots, Y_t)\)</span>
