@@ -40,5 +40,6 @@ dependencies:
   - pillow
   - pyproj
   - matplotlib
+  - udunits2
   - pip:
-      - covidcast==0.1.2
+      - covidcast==0.1.3
