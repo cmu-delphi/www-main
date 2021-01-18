@@ -36,7 +36,7 @@ acknowledgements: |
   survey data. The COVIDcast API, which serves these estimates and is updated
   daily, is a much larger effort run by the Delphi group, and our entire
   engineering team is owed a lot of credit here. Ryan came up with the
-  idea of running the surveys, and worked with Facebook to make this a reality.
+  idea of running the surveys, and worked with Facebook to make this a reality. 
   On the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
   University of Maryland team, including Adrianne Bradford and Samantha Chiu and
   led by Frauke Kreuter, made many contributions to the survey design.
@@ -47,7 +47,6 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
@@ -57,8 +56,7 @@ output:
 <li><a href="#why-run-these-surveys">Why Run These Surveys?</a></li>
 <li><a href="#whats-in-the-survey">What’s in the Survey?</a></li>
 <li><a href="#some-interesting-examples">Some Interesting Examples</a></li>
-<li><a href="#basic-correlation-analysis">Basic Correlation Analysis</a>
-<ul>
+<li><a href="#basic-correlation-analysis">Basic Correlation Analysis</a><ul>
 <li><a href="#correlations-sliced-by-time">Correlations Sliced by Time</a></li>
 <li><a href="#correlations-sliced-by-county">Correlations Sliced by County</a></li>
 </ul></li>
@@ -156,22 +154,23 @@ df_in = covidcast_signal(&quot;jhu-csse&quot;, &quot;confirmed_7dav_incidence_pr
 df_fb_avg = df_fb %&gt;% group_by(geo_value) %&gt;% summarize(value = mean(value))
 df_in_avg = df_in %&gt;% group_by(geo_value) %&gt;% summarize(value = mean(value))
 
-# Set a bunch of fields so that the data frames know how to plot themselves
-df_fb_avg$time_value = df_in_avg$time_value = start_day
-df_fb_avg$issue = df_in_avg$issue = start_day
-attributes(df_fb_avg)$metadata$geo_type = &quot;state&quot;
-attributes(df_in_avg)$metadata$geo_type = &quot;state&quot;
-class(df_fb_avg) = c(&quot;covidcast_signal&quot;, class(df_fb_avg))
-class(df_in_avg) = c(&quot;covidcast_signal&quot;, class(df_in_avg))
+# Turn these into covidcast_signal data frames that can be mapped
+df_fb_avg = df_fb_avg %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;fb_avg&quot;, geo_type = &quot;state&quot;)
+
+df_in_avg = df_in_avg %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;in_avg&quot;, geo_type = &quot;state&quot;)
 
 # Plot choropleth maps, using the covidcast plotting functionality
 subtitle = paste(&quot;Averaged over&quot;, start_day, &quot;to&quot;, end_day)
 p1 = plot(df_fb_avg,
           title = &quot;% of people with COVID symptoms, based on Facebook surveys&quot;,
-          range=c(0, 1), choro_params = list(subtitle = subtitle))
+          range = c(0, 1), choro_params = list(subtitle = subtitle))
 p2 = plot(df_in_avg,
           title = &quot;Daily new confirmed COVID-19 cases per 100,000 people&quot;,
-          range=c(0, 30), choro_params = list(subtitle = subtitle))
+          range = c(0, 30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)</code></pre>
 <p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-2-1.svg" width="960" class="wide-figure" /></p>
 <p>We generated these plots using our <a href="https://cmu-delphi.github.io/covidcast/covidcastR/">covidcast R
@@ -517,12 +516,13 @@ Note that here a gray color denotes a missing value:
 either that county had below 500 cumulative COVID-19 cases,
 or we didn’t have enough data from the surveys in
 order to estimate % CLI and % CLI-in-community signals there.</p>
-<pre class="r"><code># Set a bunch of fields so that the data frames know how to plot themselves
-df_cor1$time_value = df_cor2$time_value = start_day
-df_cor1$issue = df_cor2$issue = start_day
-attributes(df_cor1)$metadata$geo_type = &quot;county&quot;
-attributes(df_cor2)$metadata$geo_type = &quot;county&quot;
-class(df_cor1) = class(df_cor2) = c(&quot;covidcast_signal&quot;, &quot;data.frame&quot;)
+<pre class="r"><code># Use as.covidcast_signal to turn these into mappable signals
+df_cor1 = df_cor1 %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;cor1&quot;)
+df_cor2 = df_cor2 %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;cor1&quot;)
 
 # Plot choropleth maps, using the covidcast plotting functionality
 p1 = plot(df_cor1, title = &quot;Correlation between % CLI and case rates&quot;,
