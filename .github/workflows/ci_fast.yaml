@@ -44,6 +44,8 @@ jobs:
           password: ${{ secrets.CR_PAT }}
 
       - name: Build, tag, and push image to Github
+        env:
+          DEVOPS_DOCKER_FILE: ./devops/precompiled.dockerfile
         run: |
           baseRef="${GITHUB_REF#*/}"
           baseRef="${baseRef#*/}"
@@ -56,11 +58,11 @@ jobs:
             ;;
           esac
           echo "using tag: --${imageTag}--"
-          docker build -t ghcr.io/cmu-delphi/www-main:$imageTag --file ./devops/precompiled.dockerfile .
-          docker push ghcr.io/cmu-delphi/www-main:$imageTag
+          docker build -t ghcr.io/${{ github.repository_owner }}/${{ github.repository.name }}:$imageTag --file ${DEVOPS_DOCKER_FILE} .
+          docker push ghcr.io/${{ github.repository_owner }}/${{ github.repository.name }}:$imageTag
 
           # trigger a webhook update
           curl -H "Authorization: Bearer ${{ secrets.DELPHI_DEPLOY_WEBHOOK_TOKEN }}" \
                -X POST ${{ secrets.DELPHI_DEPLOY_WEBHOOK_URL }} \
                -H "Content-Type: application/x-www-form-urlencoded" \
-               -d "repository=ghcr.io/cmu-delphi/www-main&tag=$imageTag"
+               -d "repository=ghcr.io/cmu-delphi/${{ github.repository.name }}&tag=$imageTag"
