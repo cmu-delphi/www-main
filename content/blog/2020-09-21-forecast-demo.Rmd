@@ -111,20 +111,16 @@ We evaluate the following four models:
 
 $$
 \begin{aligned}
-&\text{Cases:} \\
-& h(Y_{\ell,t+d})
-\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
-&\text{Cases + Facebook:} \\
-& h(Y_{\ell,t+d})
-\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
+h(Y_{\ell,t+d})
+&\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) \\
+h(Y_{\ell,t+d})
+&\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) \\
-&\text{Cases + Google:} \\
-& h(Y_{\ell,t+d})
-\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
+h(Y_{\ell,t+d})
+&\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(G_{\ell,t-7j}) \\
-&\text{Cases + Facebook + Google:} \\
-& h(Y_{\ell,t+d})
-\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
+h(Y_{\ell,t+d})
+&\approx \alpha + \sum_{j=0}^2 \beta_j h(Y_{\ell,t-7j}) +
 \sum_{j=0}^2 \gamma_j h(F_{\ell,t-7j}) +
 \sum_{j=0}^2 \tau_j h(G_{\ell,t-7j}).
 \end{aligned}
@@ -134,14 +130,15 @@ Here $d=7$ or $d=14$, depending on the target value
 (number of days we predict ahead),
 and $h$ is a transformation to be specified later.
 
-Informally, the first model bases its predictions of future case rates
-on the following three features:
+Informally, the first model, which we'll call the "Cases" model, 
+bases its predictions of future case rates on the following three features:
 current COVID-19 case rates, and those 1 and 2 weeks back.
-The second model additionally incorporates the current Facebook signal,
-and the Facebook signal from 1 and 2 weeks back.
-The third model is exactly same but substitutes the Google signal
-instead of the Facebook one.
-Finally, the fourth model uses both Facebook and Google signals.
+The second model, "Cases + Facebook", additionally incorporates the 
+current Facebook signal, and the Facebook signal from 1 and 2 weeks back.
+The third model, "Cases + Google", is exactly the same but substitutes the 
+Google signal instead of the Facebook one.
+Finally, the fourth model, "Cases + Facebook + Google", 
+uses both Facebook and Google signals.
 For each model, in order to make a forecast at time $t_0$
 (to predict case rates at time $t_0+d$),
 we fit a linear model using least absolute deviations (LAD) regression,
@@ -293,8 +290,8 @@ is much bigger but still below 0.01.
     test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
     (for paired data, as we have here) is more popular,
     because it tends to be more powerful than the sign test.
-    Applied here, it does indeed give smaller p-values pretty much across the board.
-    However, it assumes symmetry of the distribution in question
+    Applied here, it does indeed give smaller p-values pretty much across the 
+    board. However, it assumes symmetry of the distribution in question
     (in our case, the difference in scaled errors),
     whereas the sign test does not, and thus we show results from the latter.
 

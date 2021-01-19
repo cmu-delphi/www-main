@@ -43,24 +43,49 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "Map"
+    name = "Map Overview"
     url = "/covidcast"
     weight = 1
 [[menu.main]]
     parent = "covidcast"
+    name = "Timelapse"
+    url = "/covidcast/timelapse"
+    weight = 2
+[[menu.main]]
+    parent = "covidcast"
+    name = "Top 10"
+    url = "/covidcast/top10"
+    weight = 3
+[[menu.main]]
+    parent = "covidcast"
+    name = "Single Region"
+    url = "/covidcast/single"
+    weight = 4
+[[menu.main]]
+    parent = "covidcast"
     name = "Surveys"
     url = "/covidcast/surveys"
-    weight = 2
+    weight = 5
+[[menu.main]]
+    parent = "covidcast"
+    name = "Survey Results"
+    url = "/covidcast/survey-results"
+    weight = 6
+[[menu.main]]
+    parent = "covidcast"
+    name = "Export Data"
+    url = "/covidcast/export"
+    weight = 7
 [[menu.main]]
     parent = "covidcast"
     name = "Release Log"
     url = "/covidcast/release-log"
-    weight = 3
+    weight = 8
 [[menu.main]]
     parent = "covidcast"
     name = "Terms Of Use"
     url = "/covidcast/terms-of-use"
-    weight = 4
+    weight = 9
 [[menu.main]]
     identifier = "flu"
     name = "Flu and Other Diseases"

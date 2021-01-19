@@ -1,0 +1,5 @@
+{{- $mainPage := $.GetPage "/covidcast" -}}
+{{- $pages := where $mainPage.Pages ".Params.layout" "eq" "covidcast_app" -}}
+{{- $pages = append (slice $mainPage) $pages -}}
+{{- $pages = sort $pages ".Params.order" -}}
+{{- return $pages -}}

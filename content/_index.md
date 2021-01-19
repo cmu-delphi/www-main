@@ -5,9 +5,14 @@ layout: landing
 
 carousel:
   - pre: Our Tools
+    title: National COVID Survey Dashboard
+    ref: covidcast/survey-results
+    alt: Explore the Survey Results
+    image: covidcast_survey.jpg
+  - pre: Our Tools
     title: Real-time Indicators of COVID-19 Activity
     ref: covidcast
-    alt: Explore COVIDCast
+    alt: Explore COVIDcast
     image: covidcast_withfill.jpg
   - pre: Our Blog Post
     title: New and improved COVID Symptom Survey Tracks Testing and Mask-Wearing

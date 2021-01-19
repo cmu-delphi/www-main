@@ -1,0 +1,18 @@
+<div class="uk-visible@s covidcast-modes">
+  <div class="uk-container uk-margin-remove-vertical">
+    {{ $currentPage := . }}
+    <ul class="uk-tab">
+      {{ range (partial "covidcast/get-modes.html" .) }}
+        <li
+          data-mode="{{ .Params.app_mode }}"
+          class="covidcast-mode {{ if eq $currentPage.Permalink .Permalink }}uk-active{{ end }}"
+        >
+          <a href="{{ .RelPermalink }}">
+            {{ partial "font-awesome.html" .Params.icon }}
+            {{ .Params.modeTitle | default .LinkTitle }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
