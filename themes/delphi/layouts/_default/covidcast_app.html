@@ -1,12 +1,11 @@
 {{ define "styles" }}
-  <link rel="stylesheet" href="{{ (partial "covidcast/find-file.html" "vendor.*\\.css$")| relURL }}" />
   <link rel="stylesheet" href="{{ (partial "covidcast/find-file.html" "styles.*\\.css$")| relURL }}" />
 {{ end }}
 {{ define "scripts" }}
-  <script src="{{ (partial "covidcast/find-file.html" "vendor.*\\.js$") | relURL }}"></script>
   <script src="{{ (partial "covidcast/find-file.html" "styles.*\\.js$")| relURL }}"></script>
   <script src="{{ (partial "covidcast/find-file.html" "bundle.*\\.js$")| relURL }}"></script>
 {{ end }}
+{{ define "breadcrumb" }}<!-- no breadcrumb -->{{ end }}
 {{ define "body_class" }}covidcast_wrapper{{ end }}
 {{ define "main" }}
   {{ partial "covidcast/modes.html" . }}

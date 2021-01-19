@@ -11,3 +11,20 @@
 .covidcast_wrapper > footer {
   display: none;
 }
+
+.covidcast-modes {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .uk-tab::before {
+    display: none;
+  }
+}
