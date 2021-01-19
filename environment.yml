@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - gdal=3.0.2
+  - gdal=3.2.1
   - python=3.7.9
   - pip=20.2.4
   - r-base=3.6.3
