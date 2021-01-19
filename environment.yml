@@ -4,7 +4,7 @@ channels:
   - defaults
 dependencies:
   - gdal=3.2.1
-  - python=3.7.9
+  - python=3.6.12
   - pip=20.2.4
   - r-base=3.6.3
   - glib
@@ -32,6 +32,7 @@ dependencies:
   - r-isoband
   - r-ggrepel
   - r-plotly
+  - r-sf
   - r-lubridate
   - pandoc
   - fiona
