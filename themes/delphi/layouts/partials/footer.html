@@ -40,8 +40,31 @@
           <li>
             <a class="uk-link-text uk-text-small" href="https://twitter.com/{{ .Site.Params.twitter }}/">Twitter</a>
           </li>
+          <li>
+            <a class="uk-link-text uk-text-small feedback-button" href="{{ .Site.Params.feedbackForm }}"
+              >Submit Feedback</a
+            >
+          </li>
         </ul>
       </div>
     </div>
   </div>
 </footer>
+{{ if .Params.feedback }}
+  <div
+    class="feedback-popup-container"
+    style="display: none"
+    data-href="{{ .Site.Params.feedbackForm }}"
+    data-like-mobile="{{ .Site.Params.feedbackLikelihoodMobile }}"
+    data-like-desktop="{{ .Site.Params.feedbackLikelihoodDesktop }}"
+    data-delay-min="{{ .Site.Params.feedbackDelayMin }}"
+    data-delay-max="{{ .Site.Params.feedbackDelayMax }}"
+    data-duration="{{ .Site.Params.feedbackDuration }}"
+  >
+    <div>
+      {{ partial "font-awesome.html" "solid/question-circle" }}
+      <span class="feedback-text">We'd love to hear from you</span>
+    </div>
+    <button class="uk-button uk-button-primary feedback-button">Feedback survey</button>
+  </div>
+{{ end }}
