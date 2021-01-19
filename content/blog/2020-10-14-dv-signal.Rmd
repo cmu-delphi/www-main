@@ -89,13 +89,13 @@ df_in = covidcast_signal("usa-facts", "confirmed_7dav_incidence_prop",
 df_dv_avg = df_dv %>% group_by(geo_value) %>% summarize(value = mean(value))
 df_in_avg = df_in %>% group_by(geo_value) %>% summarize(value = mean(value))
 
-# Set a bunch of fields so that the data frames know how to plot themselves
-df_dv_avg$time_value = df_in_avg$time_value = start_day
-df_dv_avg$issue = df_in_avg$issue = start_day
-attributes(df_dv_avg)$metadata$geo_type = "state"
-attributes(df_in_avg)$metadata$geo_type = "state"
-class(df_dv_avg) = c("covidcast_signal", class(df_dv_avg))
-class(df_in_avg) = c("covidcast_signal", class(df_in_avg))
+# Use as.covidcast_signal to turn these into covidcast data frames
+df_dv_avg <- df_dv_avg %>%
+  mutate(time_value = start_day) %>%
+  as.covidcast_signal(signal = "dv_avg", geo_type = "state")
+df_in_avg <- df_in_avg %>%
+  mutate(time_value = start_day) %>%
+  as.covidcast_signal(signal = "in_avg", geo_type = "state")
 
 # Plot choropleth maps, using the covidcast plotting functionality
 subtitle = paste("Averaged over", start_day, "to", end_day)
@@ -337,8 +337,12 @@ lm_dv_cases_df = dv_cases_df %>%
   ungroup()
 
 df_cor_by_time_adj = covidcast_cor(
-  dv_cases_df %>% mutate(value = dv*slope_6wk + int_6wk, issue = time_value),
-  dv_cases_df %>% mutate(value = cases, issue = time_value),
+  dv_cases_df %>%
+    mutate(value = dv*slope_6wk + int_6wk, issue = time_value) %>%
+    as.covidcast_signal(signal = "dv_cases"),
+  dv_cases_df %>%
+    mutate(value = cases, issue = time_value) %>%
+    as.covidcast_signal(signal = "dv_cases"),
   by = "time_value",
   method = "spearman")
 

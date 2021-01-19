@@ -17,8 +17,8 @@ related:
 summary: |
   In previous posts, we discussed our massive ongoing symptom surveys that have reached over 12 million people in the U.S. since April 2020, in partnership with Facebook and Google. Another one of our major data initiatives is based on partnerships with healthcare systems, granting us access to various aggregate statistics from hospital records and insurance claims covering 10-15% of the United States population. From these data, we can extract informative indicators that can be early indicators of COVID activity. This post focuses on one indicator in particular, based on outpatient visits, and demonstrates both the challenges and promises associated with medical records data.
 acknowledgements: |
-  Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the indicator.
-  Aaron Rumack devised the weekday adjustment and analyzed the performance of the DV indicator.
+  Maria Jahja contributed immensely to every stage of this project, from determining which ICD codes to use to the final implementation of the indicator. 
+  Aaron Rumack devised the weekday adjustment and analyzed the performance of the DV indicator. 
   Roni Rosenfeld worked closely with our health systems partners to get access to the data and provided domain knowledge to ensure that the data was useful. Both Roni and Ryan Tibshirani provided helpful suggestions and insights towards the methodology and analysis.
 
 output:
@@ -28,7 +28,6 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
@@ -88,13 +87,13 @@ df_in = covidcast_signal(&quot;usa-facts&quot;, &quot;confirmed_7dav_incidence_p
 df_dv_avg = df_dv %&gt;% group_by(geo_value) %&gt;% summarize(value = mean(value))
 df_in_avg = df_in %&gt;% group_by(geo_value) %&gt;% summarize(value = mean(value))
 
-# Set a bunch of fields so that the data frames know how to plot themselves
-df_dv_avg$time_value = df_in_avg$time_value = start_day
-df_dv_avg$issue = df_in_avg$issue = start_day
-attributes(df_dv_avg)$metadata$geo_type = &quot;state&quot;
-attributes(df_in_avg)$metadata$geo_type = &quot;state&quot;
-class(df_dv_avg) = c(&quot;covidcast_signal&quot;, class(df_dv_avg))
-class(df_in_avg) = c(&quot;covidcast_signal&quot;, class(df_in_avg))
+# Use as.covidcast_signal to turn these into covidcast data frames
+df_dv_avg &lt;- df_dv_avg %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;dv_avg&quot;, geo_type = &quot;state&quot;)
+df_in_avg &lt;- df_in_avg %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;in_avg&quot;, geo_type = &quot;state&quot;)
 
 # Plot choropleth maps, using the covidcast plotting functionality
 subtitle = paste(&quot;Averaged over&quot;, start_day, &quot;to&quot;, end_day)
@@ -317,8 +316,12 @@ lm_dv_cases_df = dv_cases_df %&gt;%
   ungroup()
 
 df_cor_by_time_adj = covidcast_cor(
-  dv_cases_df %&gt;% mutate(value = dv*slope_6wk + int_6wk, issue = time_value),
-  dv_cases_df %&gt;% mutate(value = cases, issue = time_value),
+  dv_cases_df %&gt;%
+    mutate(value = dv*slope_6wk + int_6wk, issue = time_value) %&gt;%
+    as.covidcast_signal(signal = &quot;dv_cases&quot;),
+  dv_cases_df %&gt;%
+    mutate(value = cases, issue = time_value) %&gt;%
+    as.covidcast_signal(signal = &quot;dv_cases&quot;),
   by = &quot;time_value&quot;,
   method = &quot;spearman&quot;)
 
