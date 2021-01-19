@@ -7,4 +7,5 @@ app_mode: timelapse
 order: 2
 icon: solid/clock
 heroImage: /images/landing-page/hero-images/covidcast_withfill.jpg
+feedback: true
 ---
