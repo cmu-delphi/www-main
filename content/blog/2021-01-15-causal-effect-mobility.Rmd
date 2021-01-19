@@ -1,7 +1,7 @@
 ---
 title: Causal Inference for Social Mobility and COVID-19
 author: Matteo Bonvini, Edward Kennedy, Valérie Ventura, and Larry Wasserman
-date: 2021-01-08
+date: 2021-01-19
 tags:
   - COVIDcast
 authors:
