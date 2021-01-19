@@ -7,4 +7,5 @@ app_mode: export
 order: 6
 icon: solid/download
 heroImage: /images/landing-page/hero-images/covidcast_withfill.jpg
+feedback: true
 ---
