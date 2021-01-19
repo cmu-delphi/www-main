@@ -3,9 +3,9 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - gdal=3.2.1
-  - python=3.6.12
-  - pip=20.2.4
+  - gdal
+  - python=3.8.7
+  - pip
   - r-base=3.6.3
   - glib
   - mscorefonts
