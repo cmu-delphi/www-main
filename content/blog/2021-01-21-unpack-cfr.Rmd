@@ -1,0 +1,249 @@
+---
+title: "Unpacking the Drop in COVID-19 Case Fatality Rates"
+author: "Helen Zhou, Cheng Cheng, Jeremy C. Weiss, Zachary C. Lipton"
+output:
+  bookdown::html_document2: default
+bibliography: refs.bib
+link-citations: yes
+---
+
+<!-- install.packages("bookdown") -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+Since the COVID-19 pandemic first reached the United States, the case fatality (CFR) rate has fallen considerably. Between the first peak in mid-April and the second peak in mid-July, the case fatality rate fell from $7.9\%$ to the $0.7\%$--$2.3\%$ range, where it has since remained despite cases rising again into an (ongoing) third wave:
+
+![cfr from covidcast](img/img_country/national_cases.svg)
+**Figure 1.** _From left to right: confirmed cases, deaths, and case fatality rate, calculated using 7-day trailing averages based on national reporting data available via USAFacts (@usafacts) and pulled from the CMU COVIDcast API (@covidcast2020api). Data outside the April 1st to December 1st time range considered in this study is grayed out._
+
+Since July, our team at CMU DELPHI has been tracking the drop in case fatality rates, driven by the question: **_"What explains the movement (and apparent overall decline) in case fatality rate over the course of the COVID-19 pandemic?"_** Last month, we released a [manuscript](https://arxiv.org/abs/2012.04825) analyzing the data through Thanksgiving. This blog post provides a vignette of our work on unpacking the drop in CFR, with newly updated data released on December 31st. 
+
+## Existing hypotheses
+
+In both academic articles and the broader public discourse, several possible explanations have been floated for the drop in CFR, mostly centering around the following hypotheses:
+
+* (H1) The **age distribution among infected patients has shifted**, altering the fatality rate significantly due to the comparative higher risk among the geriatric populations (@thomp2020, @moser2020changing, @horwitz2020trends).
+
+* (H2) **Testing capacity** has gone up significantly, with case fatality rate driven down primarily due to the rising number of tests performed (@fan2020decreased, @mad2020).
+
+* (H3) Apparent shifts in case fatality rate, are artifacts due to the **delay between detection and fatality** (@thomp2020, @madrigal2020second). 
+
+* (H4) **Treatment has improved** as doctors grow more experienced and new therapeutics become available, lowering the fatality rate over time (@levy2020gates, @horwitz2020trends, @beigel2020remdesivir, @recovery2020dexamethasone, @self2020effect). 
+
+* (H5) **The disease itself is mutating**, leading to changes in the actual infection fatality rate over time (@pachetti2020impact, @fan2020decreased). 
+
+* (H6) Social distancing precautions have **reduced the viral load** that individuals are exposed to, resulting in less severe infections (@eldeclining, @pachetti2020impact, @piubelli2020overall).
+
+Note that when the age distribution shifts to a younger demographic (H1), the dropping aggregate case fatality rate can be misleading due to differences in fatality between different age groups. 
+Additionally, the next two phenomena---testing ramp-up (H2) and delays between detection and fatality (H3)---can cause the behavior of case fatality rate to diverge substantially from the behavior of the true infection fatality rate. 
+Thus, if policy-makers use the aggregate case fatality rate to represent the severity of COVID-19, this could result in misinformed policy decisions.
+
+On the other hand, the last three phenomena---improved treatments, disease mutation, and changing viral load---impact both the case fatality rate and the actual infection fatality rate, 
+and could be reasonable grounds for policy considerations such as re-opening. In this work, we **demonstrate how given accurate, sufficiently granular data, the first three phenomena ("artifacts") can be accounted for when attempting to quantify improvements in treatment** (H4).
+We note, however, that without additional data, H5 and H6 cannot be decisively separated out from H4.
+
+## The importance of age-stratified hospitalization data
+
+We argue that complete and accurate *age-stratified hospitalization data* are essential for distinguishing true improvements from artifacts.
+Hospitalizations should be less influenced by testing capacity than confirmed cases, and less influenced by treatment efficacy than deaths. 
+Additionally, compared to the general population, testing among the inpatient population has been relatively thorough (compared to the general population) throughout the course of the pandemic.
+While there may have been changes in admitting criteria at the very worst moments (@phua_icu_manage, @uptodate_eval), for example, when New York hospital demand exceeded capacity in late March, 
+for the most part, criteria for inpatient hospitalization is relatively consistent across time periods. 
+Regrettably, however, reliable line-level age-stratified hospitalization data is not yet publicly available for most states (@propublica_hosp, @data_problems_nyt), leaving central questions unresolved. 
+
+We center our analysis on (1) state-level data made available by the Florida Department of Health (FDOH, @florida_line_data) and 
+(2) recently released (but incomplete) national line level data made available by the Centers for Disease Control and Prevention (CDC, @cdc_data) from April 1, 2020 to December 1, 2020.
+Both the FDOH and CDC have demonstrated an uncommon openness by sharing _line-level_ data, including date of detection, demographics including age and gender, and indicators of eventual hospitalization and death.
+The line-level nature of the data allows us to perform a cohort-based analysis, generating descriptive statistics comparing case confirmations, hospitalizations, and deaths, among cohorts of patients defined 
+by the date on which their infection was detected.
+By contrast, reported case fatality rates are typically not cohort-based---the patients whose deaths are reported in the numerator are not in general the same patients whose confirmed infections show up in the denominator.
+Because case confirmation tends to precede reported deaths, these signals tend to be misaligned and are subject to fluctuation, even if the actual case fatality rate were fixed (so long as incidence does change). 
+Line-level data enable us to circumvent this problem. Moreover, the availability of age and gender data allows us both to track demographic shifts over time, and to perform age-stratified analyses of fatality rates.
+
+# Methods
+
+For details on the datasets and pre-processing, see [the full manuscript](https://arxiv.org/abs/2012.04825). To reduce noise in our time series plots, we compute 7-day lagged averages for all remaining plots in the post unless otherwise specified.
+
+## Separating Artifacts from True Improvements
+We argue that three main phenomena fuel a dramatic “artificial" decrease in CFR: increased testing capacity (H1), shifting age distributions (H2), and delays between detection and fatality (H3).To separate the effects of these artifacts from those of true improvements, we do the following:
+
+* To avoid artifacts from increased testing (H1), when considering treatment improvements, we examine changes in _hospitalization fatality rates_ rather than case fatality rates.
+
+* To establish and account for shifting age distributions (H2), we examine cases, hospitalizations, and deaths stratified by age groups: 0-9, 10-19, 20-29, 30-39, 40-49, 50-59, 60-69, 70-79, and 80+.
+
+* To account for delays between detection and fatality (H3), we take advantage of line-level data for each individual. For each date, we extract the cohort of individuals confirmed positive on that date, as well as whether those individuals eventually died or were hospitalized. To provide enough time for patients’ eventual hospitalizations or deaths to be recorded, we filter out rows with positive specimen dates within 30 days of the last time the data was updated. Since CDC data was last updated on December 31th, we only use data from December 1st or earlier. Florida data is updated daily, but we use the same time range as the CDC data in order to make the plots comparable.
+
+Taking the above three adjustments into account, our primary quantity of interest for treatment improvements is the age-stratified HFR. For the rest of the post, 
+we define CFR and HFR at day $t$ as follows:
+\begin{align*}
+    \text{CFR}_t &= \frac{\text{cases confirmed (or reported) at day $t$ that eventually die}}{\text{cases confirmed (or reported) at day $t$}}\\
+    \text{HFR}_t &= \frac{\text{cases confirmed (or reported) at day $t$ that eventually get hospitalized and die}}{\text{cases confirmed (or reported) at day $t$ that eventually get hospitalized}}
+\end{align*}
+
+Here, "eventually" means that the hospitalization or death was recorded by the date of data collection (i.e. December 31st), which gives each patient at least 30 days after their case date to have the events recorded.
+
+## Quantifying True Improvements
+Thus far, news and academic sources have highlighted three main ``true improvements": improvements in treatment (H4), disease mutations (H5), and reduced viral loads due to social distancing (H6). 
+We seek to quantify treatment improvements (H4) by computing the decrease in hospitalization fatality rate.
+Although practice is constantly evolving, major improvements in treatment in our study time range such as dexamethasone (@recovery2020dexamethasone) and remdesivir (@beigel2020remdesivir) have primarily targeted hospitalized patients, and we expect that improvements due to those treatments should be reflected in the HFR. 
+
+In order to quantify the change in HFR with uncertainty, we use a block-bootstrapping technique with post-blackening (@bootstrap_davison_hinkley_1997).
+This involves fitting cubic smoothing splines to each age group's 7-day averaged HFRs, computing the residuals, block-bootstrap resampling 1000 replicates of the residuals, 
+and adding the residuals back onto the fitted splines in order to create 1000 replicates sampled from the original data distribution. 
+By re-fitting cubic smoothing splines to each of these datasets, we can estimate each day's HFR with 95% confidence intervals. 
+See [the full manuscript](https://arxiv.org/abs/2012.04825) for details of the procedure applied to our data.
+
+# Cases, Hospitalizations, and Deaths
+
+In both the FDOH and the CDC datasets, one can discern three waves of COVID-19 cases. The first wave peaks around mid-April, the second wave peaks around mid-July, and the surge of cases leading up to December indicates an ongoing third wave:
+![case_hosp_death](img/img1/cases.svg)
+<p style="text-align: center;"><i>(a) Florida FDOH data</i></p>
+
+![case_hosp_death](img/img_country/cases.svg)
+<p style="text-align: center;"><i>(b) United States CDC data</i></p>
+
+**Figure 2.** _Age-stratified cases, (eventual) deaths, and (eventual) hospitalizations in Florida and in the United States, by the date of first positive test result (Florida) and date of report to the CDC (U.S.), respectively. Note that the x-axis is *not* the date of death or date of hospitalization._
+
+**Testing:** While the FDOH and CDC datasets do not contain data for negative test results, it is informative to have the level of testing in mind when interpreting the above plots. 
+Using data from the [COVID Tracking Project](https://covidtracking.com/data), we observe that between April 1st and December 1st, testing has increased significantly, by approximately $964\%$ in Florida and $1080\%$ in the country (Figure 3). 
+In Florida, we observe a spike in testing around the second peak, whereas national-level testing has risen more smoothly.
+However, our data shows that these spikes and increases in testing cannot fully account for the peaks. 
+Despite increased testing inflating the raw number of cases, we still observe two peaks
+in positive test rates in April and July, and a surge in positive test rates leading up to December.
+Note that in Florida, the second peak is larger than the first, whereas nationally the second peak is smaller than the first.
+Leading up to December, positive test rates in Florida are similar to those seen nationally. For Florida, this already places the ongoing third wave at almost the same level as the first peak, and nationally it has already surpassed the second peak.
+
+![testing](img/img1/pos_test_rates.svg)
+**Figure 3.** _COVID-19 positive test rates (right) and amount of testing (left and middle) for Florida and the United States as a whole, calculated using 7-day trailing averages and pulled from the COVID Tracking Project (@covid_tracking_project). Positive test rate is calculated by dividing new positives by total new tests on each day. Data outside the April 1st to December 1st time range considered in this study is grayed out._
+
+**Cases:**  Across all age strata, as measured by cases, Florida's second wave is the most severe out of the three waves. In aggregate, it has approximately $1153\%$ more cases than in the first peak and $46\%$ more cases than in the ongoing third wave (Figure 2a, left panel).
+In contrast, at a national level the ongoing third wave 
+has substantially more cases than the first and second peaks---$392\%$ 
+more than the first peak and $150\%$ more than the second peak (Figure 2b, left panel). 
+Also, note that the relative jump in cases between the first and second peaks is $96\%$, much less than the $1153\%$ jump seen in Florida. This could be due to a combination of the spike in Florida's testing in the second peak, as well as variation in the trajectories of different states (e.g. the populous state of New York was particularly hard-hit in the first wave).
+
+**Hospitalizations and Deaths:**  Overall, hospitalizations and deaths corroborate the story told by positive test rate.
+In Florida, hospitalizations and deaths again indicate a more severe second peak than first peak (Figure 2a, center and right panels), though the contrast in peak size is not as dramatic as in the plot of cases. 
+By contrast, in the national data, the second peak is _smaller_ than the first peak (Figure 2b, center and right panels), which is opposite to the trend seen in national cases. 
+Much of the discrepancies of trends seen in cases versus in hospitalizations and deaths are likely attributable to increases in testing (Figure 3).
+Towards the third wave in December, Florida hospitalizations and deaths are at similar levels to that of the first wave. Nationally, the ongoing third wave appears to be worse than in the second wave.
+
+<span style="color:blue"><b>Key takeaway #1:</b> Testing increased between the first and second waves, but does not explain away these waves.</span>
+
+# Demographic Shift
+
+In this post, we focus primarily on age distribution shift. In our analysis we found that gender ratios in each group remained relatively flat over time, and so we choose not to stratify by gender due to reasonably small shift in the gender distribution over time, and practically to have enough support in each group.
+
+Between the first two peaks, the age distribution of cases shifts substantially, with the median age in Florida falling from 51 to 40, and the median age group in national data falling from 50-59 to 30-39. 
+After the second peak, the age distributions of cases, hospitalizations, and deaths continue to fluctuate. 
+In September, we note an uptick in younger cases, possibly related to the start of the school year.
+Come December 1st, the Florida median age remains at 40 but the national median age group rises to 40-49. 
+Additionally, we note that older individuals comprise a disproportionate share of the hospitalization and death counts (see Figure 4 below):
+
+![case_hosp_death](img/img1/age_ratios.svg)
+<p style="text-align: center;"><i>(a) Florida FDOH data</i></p>
+
+![case_hosp_death](img/img_country/age_ratios.svg)
+<p style="text-align: center;"><i>(b) United States CDC data</i></p>
+
+**Figure 4.** _Age distributions among Florida and national cases, (eventual) hospitalizations, and (eventual) deaths, by the date of first positive test result (Florida) and date of report to the CDC (U.S.), respectively._
+
+<span style="color:blue"><b>Key takeaway #2:</b> Since age distributions shifted substantially between the first and second waves (and continue to fluctuate), age must be accounted for in order to separate out the effects of treatment from age shift.</span>
+
+# Age-Stratified HFR
+
+Using the block-bootstrapping method described previously, we compute estimates of the HFR at the beginning of our study time range (April 1st), the end of our study time range (December 1st), and at the two peaks (April 15th and July 15th). We also compute changes in HFR as $\frac{\text{HFR}_{new} - \text{HFR}_{old}}{\text{HFR}_{old}}$:
+
+<style>
+td {font-size: 13px}
+</style>
+
+<center>
+|||Florida|||National||
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| **Age group**        | **2020-04-15**                          | **2020-07-15**       | **04-15 to 07-15**   | **2020-04-15**      | **2020-07-15**       | **04-15 to 07-15**   |
+| aggregate        | 0.23 (0.21, 0.26)   | 0.23 (0.21, 0.24) | -0.023 (-0.14, 0.13) | 0.29 (0.28, 0.3)     | 0.17 (0.17, 0.18)    | -0.41 (-0.44, -0.37) |
+| 20-29            | \-                   | \-                 | \-                    | 0.021 (0.018, 0.025) | 0.014 (0.012, 0.016) | -0.34 (-0.48, -0.16) |
+| 30-39            | \-                   | \-                 | \-                    | 0.044 (0.041, 0.047) | 0.027 (0.025, 0.03)  | -0.37 (-0.44, -0.3)  |
+| 40-49            | \-                   | \-                 | \-                    | 0.079 (0.074, 0.084) | 0.056 (0.053, 0.059) | -0.29 (-0.35, -0.22) |
+| 50-59            | 0.092 (0.078, 0.11) | 0.1 (0.093, 0.11) | 0.12 (-0.085, 0.38)  | 0.15 (0.14, 0.15)    | 0.1 (0.096, 0.1)     | -0.31 (-0.35, -0.27) |
+| 60-69            | 0.18 (0.15, 0.21)   | 0.21 (0.19, 0.22) | 0.13 (-0.045, 0.38)  | 0.26 (0.25, 0.27)    | 0.18 (0.18, 0.19)    | -0.3 (-0.33, -0.26)  |
+| 70-79            | 0.31 (0.28, 0.34)   | 0.33 (0.31, 0.34) | 0.034 (-0.078, 0.18) | 0.4 (0.39, 0.42)     | 0.27 (0.26, 0.27)    | -0.34 (-0.37, -0.31) |
+| 80+              | 0.46 (0.43, 0.49)   | 0.48 (0.46, 0.49) | 0.029 (-0.055, 0.12) | 0.57 (0.55, 0.59)    | 0.41 (0.4, 0.42)     | -0.27 (-0.3, -0.24)  |
+</center>
+**Table 1.** _Estimates of HFR and drop in HFR on peak dates. Median and $95\%$ confidence intervals are computed using block bootstrapping. Results with inadequate support are omitted._
+
+<center>
+|||Florida|||National||
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| **Age group** |    **2020-04-01**     |     **2020-11-01**      |    **04-01 to 11-01**    |      **2020-04-01**      |      **2020-11-01**      |    **04-01 to 11-01**    |
+| aggregate        | 0.23 (0.2, 0.27)  | 0.16 (0.12, 0.19) | -0.33 (-0.52, -0.094)  | 0.34 (0.32, 0.35)    | 0.13 (0.11, 0.15)      | -0.61 (-0.67, -0.56) |
+| 20-29            | \-                 | \-                 | \-                     | 0.025 (0.019, 0.03)  | 0.0066 (0.0014, 0.012) | -0.73 (-0.95, -0.43) |
+| 30-39            | \-                 | \-                 | \-                     | 0.049 (0.045, 0.054) | 0.019 (0.014, 0.025)   | -0.61 (-0.72, -0.48) |
+| 40-49            | \-                 | \-                 | \-                     | 0.087 (0.08, 0.095)  | 0.031 (0.024, 0.038)   | -0.65 (-0.74, -0.54) |
+| 50-59            | \-                 | \-                 | \-                     | 0.16 (0.15, 0.17)    | 0.06 (0.05, 0.07)      | -0.63 (-0.69, -0.55) |
+| 60-69            | 0.18 (0.14, 0.22) | 0.1 (0.06, 0.14)  | -0.42 (-0.69, -0.096)  | 0.28 (0.27, 0.3)     | 0.11 (0.097, 0.13)     | -0.61 (-0.66, -0.55) |
+| 70-79            | 0.31 (0.26, 0.35) | 0.19 (0.14, 0.23) | -0.38 (-0.57, -0.17)   | 0.45 (0.43, 0.47)    | 0.18 (0.16, 0.2)       | -0.6 (-0.65, -0.54)  |
+| 80+              | 0.44 (0.39, 0.49) | 0.37 (0.32, 0.41) | -0.17 (-0.32, -0.0038) | 0.62 (0.59, 0.64)    | 0.28 (0.25, 0.31)      | -0.55 (-0.59, -0.49) |
+</center>
+**Table 2.** _Estimates of HFR and drop in HFR between April 1st and December 1st. Median and $95\%$ confidence intervals are computed using block bootstrapping. Results with inadequate support are omitted._
+
+Consistent with findings that increased age is associated with higher mortality rates (@Mahasem1327_agedeathrate), we observe that as the age of the group increases, the corresponding HFR increases. 
+Measuring treatment improvements by HFR drop (computed as $\frac{\text{HFR}_{new} - \text{HFR}_{old}}{\text{HFR}_{old}}$), we also note that larger treatment improvements between April and December are correlated with younger age. 
+Note, however, that the younger groups have small HFRs to begin with, so the opposite trend may appear when considering _absolute_ rather than _relative_ improvements. 
+Additionally, the confidence intervals for HFR drops are wider for younger age groups.
+
+Between the first two peaks (April 15th to July 15th, Table 1), the national age-stratified HFR estimates from block bootstrapping decrease by as little as $27\%$ in the 80+ age group, and as much as $37\%$ in the 30-39 age group. On the other hand, in Florida the age-stratified HFR actually _increases_ in each age group by as little as $2.9\%$ in the 80+ age group, and as much as $13\%$ in the 60-69 age group. Note that the HFR changes between peak dates in Florida are an example of Simpson's paradox, where in each age group the HFR increase, but the aggregate HFR actually decreases by $2.3\%$.
+
+Compared to peak-to-peak changes, changes across the entire time range (April 1st to December 1st, Table 2) show a more dramatic decrease. In Florida, the HFR drops by as little as $17\%$ in the 80+ age range, and as much as $42\%$ in the 60-69 age range. Nationally, the HFR drops by as little as $55\%$ in the 80+ age groups, and as much as $73\%$ in the 20-29 age group. In both Florida and national data, as the age group gets older (for those older than 40), we observe an increase in age-stratified HFR and smaller treatment improvements as measured by HFR drop.
+
+While we focus on the two peaks and the endpoints of the study time range, we also include plots of HFR estimates with uncertainty for all dates between April 1st and December 1st: 
+
+![hfr_florida](img/img1/florida_fdoh_full_est.svg)
+<p style="text-align: center;"><i>(a) Florida FDOH data</i></p>
+
+![hfr_florida](img/img_country/national_cleaned_full_est.svg)
+<p style="text-align: center;"><i>(b) United States CDC data</i></p>
+
+**Figure 5.** _Estimate of trend and uncertainty in age-stratified HFRs, derived using residual block-bootstrapping with cubic splines and post-blackening. Solid line corresponds to the age-stratified estimate, shaded region corresponds to the uncertainty around the estimate, and dotted line shows the original 7-day lagged HFR._
+
+Consistent with our point estimates, the overall HFR in Florida appears relatively flat until August, in which the HFR decreases greatly across all age groups (Figure 5a). In the national data, there appears to be an almost monotonic decline in HFR across all age groups for the entire time range, with the decrease slowing down in August, but slightly picking up again in December (Figure 5b).
+
+When stratifying by gender in addition to age, the conclusions surrounding drops in HFR are similar to those when just stratifying by age (see [the full paper](https://arxiv.org/abs/2012.04825) for details). 
+
+<span style="color:blue"><b>Key takeaway #3:</b> Age-stratified hospitalization fatality rates improved substantially between the first and second wave in the national data (improving by at least $27\%$), but did not improve between the first and second wave in Florida (worsening by at least $2.9\%$).</span>
+
+<span style="color:blue"><b>Key takeaway #4:</b> By December 1st, both Florida and national data suggest significant decreases in HFR since April 1st---at least $17\%$ in Florida and at least $55\%$ nationally in every age group.</span>
+
+# Limitations
+
+Here, we summarize some important caveats to our analysis (for more details, see [the full paper](https://arxiv.org/abs/2012.04825)):
+
+* While we aim to quantify treatment improvements (H4) in Florida and the United states by estimating changes in the age-stratified HFR, additional data is needed to decisively separate the influences of disease mutation (H5) and changing viral loads (H6).
+
+* We assume that treatment improvements will be reflected in the HFR because over our study's time range, major treatment improvements (e.g. dexamethosone and remdesivir) targeted hospitalized patients. However,  monoclonal antibody therapies bamlanivimab and the combination of casirivimab and imdevimab were recently authorized for emergency use in November. Unlike dexamethosone and remdesivir, they are not intended for hospitalized patients and instead recommended for patients likely to progress to severe COVID-19 and/or hospitalization. Thus, their effects may not be directly reflected in the HFR. Due to slow roll-out and high cost we assume that as of December 1st these therapies are not a significant proportion of our data. For future studies, however, we note that monoclonal antibody therapies may comprise a more significant proportion of the data. Additionally, we note that vaccines roll-out has started in December, and these treatment improvements may not be directly reflected in the HFR either.
+
+* Missingness in our datasets was high, and CDC dates reflected inconsistent reporting mechanisms between states. We note that estimates from the Florida FDOH data are likely more reliable than CDC data as a result.
+
+<span style="color:blue"><b>Key takeaway #5:</b> Comprehensive age-stratified hospitalization data is of central importance to providing situational awareness during the COVID-19 pandemic, and its lack of availability among public sources for most states (and the extreme incompleteness of national data) constitutes a major obstacle to tracking and planning efforts.</span>
+
+# Summary
+In summary, here are the key takeaways from our analysis:
+
+1. Testing increased between the first and second waves, but does not explain away these waves.
+
+2. Since age distributions shifted substantially between the first and second waves, age must be accounted for in order to separate out the effects of treatment from age shift.
+
+3. Age-stratified hospitalization fatality rates improved substantially between the first and second waves in the national data (with HFR decreasing by as little as $27\%$ in the 80+ age group and as much as $37\%$ in the 30-39 age group), but by contrast were relatively unchanged between the first and second waves in Florida (with a slight _increase_ in HFR by as little as $2.9\%$ in the $80+$ age group and as much as $13\%$ in the 60-69 age group)
+
+4. By December 1st, both Florida and national data suggest significant decreases in HFR since April 1st---at least $17\%$ in Florida and at least $55\%$ nationally in every age group.
+
+5. Comprehensive age-stratified hospitalization data is of central importance to providing situational awareness during the COVID-19 pandemic, and its lack of availability among public sources for most states (and the extreme incompleteness of national data) constitutes a major obstacle to tracking and planning efforts.
+
+For more details, check out our [full manuscript](https://arxiv.org/abs/2012.04825)! Code is available here: https://github.com/Cheng-Cheng2/unpacking-covid19-fatality
+
+# Bibliography
