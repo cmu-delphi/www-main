@@ -7,4 +7,5 @@ app_mode: top10
 order: 3
 icon: solid/list
 heroImage: /images/landing-page/hero-images/covidcast_withfill.jpg
+feedback: true
 ---

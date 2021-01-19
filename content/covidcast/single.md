@@ -7,4 +7,5 @@ app_mode: single
 order: 4
 icon: location-solid
 heroImage: /images/landing-page/hero-images/covidcast_withfill.jpg
+feedback: true
 ---
