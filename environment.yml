@@ -32,7 +32,6 @@ dependencies:
   - r-isoband
   - r-ggrepel
   - r-plotly
-  - r-sf
   - r-lubridate
   - pandoc
   - fiona
