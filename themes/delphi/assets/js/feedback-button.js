@@ -45,7 +45,7 @@ import UIkit from "uikit/dist/js/uikit.js";
 
   const container = document.querySelector(".feedback-popup-container");
 
-  if (container && !wasRecentlySubmitted()) {
+  if (container) {
     const delayMin = Number.parseInt(container.dataset.delayMin, 10) * 1000;
     const delayMax = Number.parseInt(container.dataset.delayMax, 10) * 1000;
     const delay = delayMin + Math.random() * (delayMax - delayMin);

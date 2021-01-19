@@ -112,8 +112,8 @@ relativeURLs = false
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
     twitter = "CmuDelphi"
     feedbackForm = "https://docs.google.com/forms/d/e/1FAIpQLSeIeOJtrAhdOriEyiRY7LkpQX8DZBY19dl6De8l56Q9CZhmxw/viewform?usp=pp_url&entry.1245962748="
-    feedbackLikelihoodMobile = 0.2
+    feedbackLikelihoodMobile = 1
     feedbackLikelihoodDesktop = 1
     feedbackDelayMin = 10 # in sec
-    feedbackDelayMax = 100 # in sec
+    feedbackDelayMax = 11 # in sec
     feedbackDuration = 60 # show it for 60sec
