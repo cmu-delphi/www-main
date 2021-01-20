@@ -185,18 +185,26 @@ people:
   affiliation: Tech Writer
   team:
   - core
-- firstName: Valérie
+- key: vventura
+  firstName: Valérie
   lastName: Ventura
   image: valerie-ventura-500x500-min.jpg
   affiliation: CMU/Stat
+  link: http://www.stat.cmu.edu/~vventura/
+  description: is a Professor in the Department of Statistics & Data Science at CMU and a member of Delphi.
   team:
   - core
-- firstName: Larry
+  - blog
+- key: lwasserman
+  firstName: Larry
   lastName: Wasserman
   image: larry-wasserman-500x500-min.jpg
   affiliation: CMU/Stat
+  link: http://www.stat.cmu.edu/~larry/
+  description: is a Professor in the Department of Statistics & Data Science at CMU as well as in the Machine Learning Department and is a member of Delphi.
   team:
   - core
+  - blog
 - firstName: Jeremy
   lastName: Weiss
   image: jeremy-weiss-500x500-min.jpg
@@ -539,6 +547,23 @@ people:
   external: true
   team:
     - center-of-excellence
+- key: mbonvini
+  firstName: Matteo
+  lastName: Bonvini
+  link: https://www.linkedin.com/in/matteobonvini
+  description: is a graduate student in the Department of Statistics & Data Science at CMU.
+  team:
+    - blog
+- key: ekennedy
+  firstName: Edward
+  lastName: Kennedy
+  link: http://www.ehkennedy.com/
+  description: is an Assistant Professor in the Department of Statistics & Data Science at CMU.
+  team:
+    - blog
+  team:
+    - blog
+
 
 others: |
  MLD administrators Christy Melucci and Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
