@@ -20,6 +20,7 @@
  <defs>
   <style type="text/css">*{stroke-linecap:butt;stroke-linejoin:round;}</style>
  </defs>
+ <rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
  <g id="figure_1">
   <g id="patch_1">
    <path d="M 0 219.506768 
