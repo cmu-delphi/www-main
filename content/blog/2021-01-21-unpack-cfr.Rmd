@@ -16,7 +16,7 @@ heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
 summary: |
   Since the pandemic started, case fatality has plummeted. How can we unpack treatment improvements versus younger patients, increased testing, etc.?
 acknowledgements: |
-  We thank Roni Rosenfeld, Cosma Shalizi, and Marc Lipsitch for their detailed feedback throughout this analysis and the drafting of this manuscript. We also thank Alex Reinhart and Samuel Gratzl for getting our post into the appropriate format. We would also like to thank the Block Center, AWS, UPMC, Abridge, AHN, and NVIDIA, for their generous support of our healthcare research.|
+  We thank Roni Rosenfeld, Cosma Shalizi, and Marc Lipsitch for their detailed feedback throughout this analysis and the drafting of this manuscript. We also thank Alex Reinhart and Samuel Gratzl for getting our post into the appropriate format. We would also like to thank the Block Center, AWS, UPMC, Abridge, AHN, NVIDIA, and Microsoft Azure for their generous support of our healthcare research.|
 output:
   blogdown::html_page:
     toc: true
