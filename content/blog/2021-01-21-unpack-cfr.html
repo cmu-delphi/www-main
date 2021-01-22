@@ -44,16 +44,16 @@ link-citations: yes
 </ul>
 </div>
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
 <p>Since the COVID-19 pandemic first reached the United States, the case fatality (CFR) rate has fallen considerably. Between the first peak in mid-April and the second peak in mid-July, the case fatality rate fell from 7.9% to the 0.7%–2.3% range, where it has since remained despite cases rising again into an (ongoing) third wave:</p>
 <div class="figure">
 <img src="/blog/2021-01-21-unpack-cfr_files/img_country/national_cases.svg" alt="" />
 <p class="caption"><strong>Figure 1.</strong> From left to right: confirmed cases, deaths, and case fatality rate, calculated using 7-day trailing averages based on national reporting data available via USAFacts (<span class="citation"><a href="#ref-usafacts" role="doc-biblioref">USAFacts</a> (<a href="#ref-usafacts" role="doc-biblioref">2020</a>)</span>) and pulled from the CMU COVIDcast API (<span class="citation"><a href="#ref-covidcast2020api" role="doc-biblioref">Project</a> (<a href="#ref-covidcast2020api" role="doc-biblioref">2020</a>)</span>). Data outside the April 1st to December 1st time range considered in this study is grayed out.</p>
 </div>
 <p>Since July, our team at CMU DELPHI has been tracking the drop in case fatality rates, driven by the question: <strong><em>“What explains the movement (and apparent overall decline) in case fatality rate over the course of the COVID-19 pandemic?”</em></strong> Last month, we released a <a href="https://arxiv.org/abs/2012.04825">manuscript</a> analyzing the data through Thanksgiving. This blog post provides a vignette of our work on unpacking the drop in CFR, with newly updated data released on December 31st.</p>
-<div id="existing-hypotheses" class="section level2">
-<h2>Existing hypotheses</h2>
+<div id="existing-hypotheses" class="section level3">
+<h3>Existing hypotheses</h3>
 <p>In both academic articles and the broader public discourse, several possible explanations have been floated for the drop in CFR, mostly centering around the following hypotheses:</p>
 <ul>
 <li><p>(H1) The <strong>age distribution among infected patients has shifted</strong>, altering the fatality rate significantly due to the comparative higher risk among the geriatric populations (<span class="citation"><a href="#ref-thomp2020" role="doc-biblioref">Thompson</a> (<a href="#ref-thomp2020" role="doc-biblioref">2020</a>)</span>, <span class="citation"><a href="#ref-moser2020changing" role="doc-biblioref">Whet</a> (<a href="#ref-moser2020changing" role="doc-biblioref">2020</a>)</span>, <span class="citation"><a href="#ref-horwitz2020trends" role="doc-biblioref">Horwitz et al.</a> (<a href="#ref-horwitz2020trends" role="doc-biblioref">2020</a>)</span>).</p></li>
@@ -70,8 +70,8 @@ Thus, if policy-makers use the aggregate case fatality rate to represent the sev
 and could be reasonable grounds for policy considerations such as re-opening. In this work, we <strong>demonstrate how given accurate, sufficiently granular data, the first three phenomena (“artifacts”) can be accounted for when attempting to quantify improvements in treatment</strong> (H4).
 We note, however, that without additional data, H5 and H6 cannot be decisively separated out from H4.</p>
 </div>
-<div id="the-importance-of-age-stratified-hospitalization-data" class="section level2">
-<h2>The importance of age-stratified hospitalization data</h2>
+<div id="the-importance-of-age-stratified-hospitalization-data" class="section level3">
+<h3>The importance of age-stratified hospitalization data</h3>
 <p>We argue that complete and accurate <em>age-stratified hospitalization data</em> are essential for distinguishing true improvements from artifacts.
 Hospitalizations should be less influenced by testing capacity than confirmed cases, and less influenced by treatment efficacy than deaths.
 Additionally, compared to the general population, testing among the inpatient population has been relatively thorough (compared to the general population) throughout the course of the pandemic.
@@ -88,11 +88,11 @@ Because case confirmation tends to precede reported deaths, these signals tend t
 Line-level data enable us to circumvent this problem. Moreover, the availability of age and gender data allows us both to track demographic shifts over time, and to perform age-stratified analyses of fatality rates.</p>
 </div>
 </div>
-<div id="methods" class="section level1">
-<h1>Methods</h1>
+<div id="methods" class="section level2">
+<h2>Methods</h2>
 <p>For details on the datasets and pre-processing, see <a href="https://arxiv.org/abs/2012.04825">the full manuscript</a>. To reduce noise in our time series plots, we compute 7-day lagged averages for all remaining plots in the post unless otherwise specified.</p>
-<div id="separating-artifacts-from-true-improvements" class="section level2">
-<h2>Separating Artifacts from True Improvements</h2>
+<div id="separating-artifacts-from-true-improvements" class="section level3">
+<h3>Separating Artifacts from True Improvements</h3>
 <p>We argue that three main phenomena fuel a dramatic “artificial” decrease in CFR: increased testing capacity (H1), shifting age distributions (H2), and delays between detection and fatality (H3).To separate the effects of these artifacts from those of true improvements, we do the following:</p>
 <ul>
 <li><p>To avoid artifacts from increased testing (H1), when considering treatment improvements, we examine changes in <em>hospitalization fatality rates</em> rather than case fatality rates.</p></li>
@@ -109,8 +109,8 @@ we define CFR and HFR at day <span class="math inline">\(t\)</span> as follows:<
 \]</span></p>
 <p>Here, “eventually” means that the hospitalization or death was recorded by the date of data collection (i.e. December 31st), which gives each patient at least 30 days after their case date to have the events recorded.</p>
 </div>
-<div id="quantifying-true-improvements" class="section level2">
-<h2>Quantifying True Improvements</h2>
+<div id="quantifying-true-improvements" class="section level3">
+<h3>Quantifying True Improvements</h3>
 <p>Thus far, news and academic sources have highlighted three main “true improvements”: improvements in treatment (H4), disease mutations (H5), and reduced viral loads due to social distancing (H6).
 We seek to quantify treatment improvements (H4) by computing the decrease in hospitalization fatality rate.
 Although practice is constantly evolving, major improvements in treatment in our study time range such as dexamethasone (<span class="citation"><a href="#ref-recovery2020dexamethasone" role="doc-biblioref">Group</a> (<a href="#ref-recovery2020dexamethasone" role="doc-biblioref">2020</a>)</span>) and remdesivir (<span class="citation"><a href="#ref-beigel2020remdesivir" role="doc-biblioref">Beigel et al.</a> (<a href="#ref-beigel2020remdesivir" role="doc-biblioref">2020</a>)</span>) have primarily targeted hospitalized patients, and we expect that improvements due to those treatments should be reflected in the HFR.</p>
@@ -121,8 +121,8 @@ By re-fitting cubic smoothing splines to each of these datasets, we can estimate
 See <a href="https://arxiv.org/abs/2012.04825">the full manuscript</a> for details of the procedure applied to our data.</p>
 </div>
 </div>
-<div id="cases-hospitalizations-and-deaths" class="section level1">
-<h1>Cases, Hospitalizations, and Deaths</h1>
+<div id="cases-hospitalizations-and-deaths" class="section level2">
+<h2>Cases, Hospitalizations, and Deaths</h2>
 <p>In both the FDOH and the CDC datasets, one can discern three waves of COVID-19 cases. The first wave peaks around mid-April, the second wave peaks around mid-July, and the surge of cases leading up to December indicates an ongoing third wave:</p>
 <div class="figure">
 <img src="/blog/2021-01-21-unpack-cfr_files/img1/cases.svg" alt="" />
@@ -142,7 +142,7 @@ Note that in Florida, the second peak is larger than the first, whereas national
 Leading up to December, positive test rates in Florida are similar to those seen nationally. For Florida, this already places the ongoing third wave at almost the same level as the first peak, and nationally it has already surpassed the second peak.</p>
 <div class="figure">
 <img src="/blog/2021-01-21-unpack-cfr_files/img1/pos_test_rates.svg" alt="" />
-<p class="caption">*Figure 3.** COVID-19 positive test rates (right) and amount of testing (left and middle) for Florida and the United States as a whole, calculated using 7-day trailing averages and pulled from the COVID Tracking Project (<span class="citation"><a href="#ref-covid_tracking_project" role="doc-biblioref">Meyer and Madrigal</a> (<a href="#ref-covid_tracking_project" role="doc-biblioref">2020</a>)</span>). Positive test rate is calculated by dividing new positives by total new tests on each day. Data outside the April 1st to December 1st time range considered in this study is grayed out.</p>
+<p class="caption"><strong>Figure 3.</strong> COVID-19 positive test rates (right) and amount of testing (left and middle) for Florida and the United States as a whole, calculated using 7-day trailing averages and pulled from the COVID Tracking Project (<span class="citation"><a href="#ref-covid_tracking_project" role="doc-biblioref">Meyer and Madrigal</a> (<a href="#ref-covid_tracking_project" role="doc-biblioref">2020</a>)</span>). Positive test rate is calculated by dividing new positives by total new tests on each day. Data outside the April 1st to December 1st time range considered in this study is grayed out.</p>
 </div>
 <p><strong>Cases:</strong> Across all age strata, as measured by cases, Florida’s second wave is the most severe out of the three waves. In aggregate, it has approximately 1153% more cases than in the first peak and 46% more cases than in the ongoing third wave (Figure 2a, left panel).
 In contrast, at a national level the ongoing third wave
@@ -154,10 +154,10 @@ In Florida, hospitalizations and deaths again indicate a more severe second peak
 By contrast, in the national data, the second peak is <em>smaller</em> than the first peak (Figure 2b, center and right panels), which is opposite to the trend seen in national cases.
 Much of the discrepancies of trends seen in cases versus in hospitalizations and deaths are likely attributable to increases in testing (Figure 3).
 Towards the third wave in December, Florida hospitalizations and deaths are at similar levels to that of the first wave. Nationally, the ongoing third wave appears to be worse than in the second wave.</p>
-<p><span style="color:blue"><b>Key takeaway #1:</b> Testing increased between the first and second waves, but does not explain away these waves.</span></p>
+<p><strong>Key takeaway #1:</strong> Testing increased between the first and second waves, but does not explain away these waves.</p>
 </div>
-<div id="demographic-shift" class="section level1">
-<h1>Demographic Shift</h1>
+<div id="demographic-shift" class="section level2">
+<h2>Demographic Shift</h2>
 <p>In this post, we focus primarily on age distribution shift. In our analysis we found that gender ratios in each group remained relatively flat over time, and so we choose not to stratify by gender due to reasonably small shift in the gender distribution over time, and practically to have enough support in each group.</p>
 <p>Between the first two peaks, the age distribution of cases shifts substantially, with the median age in Florida falling from 51 to 40, and the median age group in national data falling from 50-59 to 30-39.
 After the second peak, the age distributions of cases, hospitalizations, and deaths continue to fluctuate.
@@ -172,10 +172,10 @@ Additionally, we note that older individuals comprise a disproportionate share o
 <img src="/blog/2021-01-21-unpack-cfr_files/img_country/age_ratios.svg" alt="" />
 <p class="caption"><strong>Figure 4b.</strong> (National CDC data) Age distributions among national cases, (eventual) hospitalizations, and (eventual) deaths, by the date of report to the CDC.</p>
 </div>
-<p><span style="color:blue"><b>Key takeaway #2:</b> Since age distributions shifted substantially between the first and second waves (and continue to fluctuate), age must be accounted for in order to separate out the effects of treatment from age shift.</span></p>
+<p><strong>Key takeaway #2:</strong> Since age distributions shifted substantially between the first and second waves (and continue to fluctuate), age must be accounted for in order to separate out the effects of treatment from age shift.</p>
 </div>
-<div id="age-stratified-hfr" class="section level1">
-<h1>Age-Stratified HFR</h1>
+<div id="age-stratified-hfr" class="section level2">
+<h2>Age-Stratified HFR</h2>
 <p>Using the block-bootstrapping method described previously, we compute estimates of the HFR at the beginning of our study time range (April 1st), the end of our study time range (December 1st), and at the two peaks (April 15th and July 15th). We also compute changes in HFR as <span class="math inline">\(\frac{\text{HFR}_{new} - \text{HFR}_{old}}{\text{HFR}_{old}}\)</span>:</p>
 <style>
 td {font-size: 13px}
@@ -413,21 +413,21 @@ Additionally, the confidence intervals for HFR drops are wider for younger age g
 </div>
 <p>Consistent with our point estimates, the overall HFR in Florida appears relatively flat until August, in which the HFR decreases greatly across all age groups (Figure 5a). In the national data, there appears to be an almost monotonic decline in HFR across all age groups for the entire time range, with the decrease slowing down in August, but slightly picking up again in December (Figure 5b).</p>
 <p>When stratifying by gender in addition to age, the conclusions surrounding drops in HFR are similar to those when just stratifying by age (see <a href="https://arxiv.org/abs/2012.04825">the full paper</a> for details).</p>
-<p><span style="color:blue"><b>Key takeaway #3:</b> Age-stratified hospitalization fatality rates improved substantially between the first and second wave in the national data (improving by at least 27%), but did not improve between the first and second wave in Florida (worsening by at least 2.9%).</span></p>
-<p><span style="color:blue"><b>Key takeaway #4:</b> By December 1st, both Florida and national data suggest significant decreases in HFR since April 1st—at least 17% in Florida and at least 55% nationally in every age group.</span></p>
+<p><strong>Key takeaway #3:</strong> Age-stratified hospitalization fatality rates improved substantially between the first and second wave in the national data (improving by at least 27%), but did not improve between the first and second wave in Florida (worsening by at least 2.9%).</p>
+<p><strong>Key takeaway #4:</strong> By December 1st, both Florida and national data suggest significant decreases in HFR since April 1st—at least 17% in Florida and at least 55% nationally in every age group.</p>
 </div>
-<div id="limitations" class="section level1">
-<h1>Limitations</h1>
+<div id="limitations" class="section level2">
+<h2>Limitations</h2>
 <p>Here, we summarize some important caveats to our analysis (for more details, see <a href="https://arxiv.org/abs/2012.04825">the full paper</a>):</p>
 <ul>
 <li><p>While we aim to quantify treatment improvements (H4) in Florida and the United states by estimating changes in the age-stratified HFR, additional data is needed to decisively separate the influences of disease mutation (H5) and changing viral loads (H6).</p></li>
 <li><p>We assume that treatment improvements will be reflected in the HFR because over our study’s time range, major treatment improvements (e.g. dexamethosone and remdesivir) targeted hospitalized patients. However, monoclonal antibody therapies bamlanivimab and the combination of casirivimab and imdevimab were recently authorized for emergency use in November. Unlike dexamethosone and remdesivir, they are not intended for hospitalized patients and instead recommended for patients likely to progress to severe COVID-19 and/or hospitalization. Thus, their effects may not be directly reflected in the HFR. Due to slow roll-out and high cost we assume that as of December 1st these therapies are not a significant proportion of our data. For future studies, however, we note that monoclonal antibody therapies may comprise a more significant proportion of the data. Additionally, we note that vaccines roll-out has started in December, and these treatment improvements may not be directly reflected in the HFR either.</p></li>
 <li><p>Missingness in our datasets was high, and CDC dates reflected inconsistent reporting mechanisms between states. We note that estimates from the Florida FDOH data are likely more reliable than CDC data as a result.</p></li>
 </ul>
-<p><span style="color:blue"><b>Key takeaway #5:</b> Comprehensive age-stratified hospitalization data is of central importance to providing situational awareness during the COVID-19 pandemic, and its lack of availability among public sources for most states (and the extreme incompleteness of national data) constitutes a major obstacle to tracking and planning efforts.</span></p>
+<p><strong>Key takeaway #5:</strong> Comprehensive age-stratified hospitalization data is of central importance to providing situational awareness during the COVID-19 pandemic, and its lack of availability among public sources for most states (and the extreme incompleteness of national data) constitutes a major obstacle to tracking and planning efforts.</p>
 </div>
-<div id="summary" class="section level1">
-<h1>Summary</h1>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
 <p>In summary, here are the key takeaways from our analysis:</p>
 <ol style="list-style-type: decimal">
 <li><p>Testing increased between the first and second waves, but does not explain away these waves.</p></li>
@@ -438,8 +438,8 @@ Additionally, the confidence intervals for HFR drops are wider for younger age g
 </ol>
 <p>For more details, check out our <a href="https://arxiv.org/abs/2012.04825">full manuscript</a>! Code is available here: <a href="https://github.com/Cheng-Cheng2/unpacking-covid19-fatality" class="uri">https://github.com/Cheng-Cheng2/unpacking-covid19-fatality</a></p>
 </div>
-<div id="bibliography" class="section level1 unnumbered">
-<h1>Bibliography</h1>
+<div id="bibliography" class="section level2 unnumbered">
+<h2>Bibliography</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-beigel2020remdesivir" class="csl-entry">
 Beigel, John H, Kay M Tomashek, Lori E Dodd, Aneesh K Mehta, Barry S Zingman, Andre C Kalil, Elizabeth Hohmann, et al. 2020. <span>“Remdesivir for the Treatment of Covid-19—Preliminary Report.”</span> <em>New England Journal of Medicine</em>.
