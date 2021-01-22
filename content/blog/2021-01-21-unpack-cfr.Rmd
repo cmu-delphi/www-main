@@ -11,12 +11,13 @@ heroImage: /blog/images/blog-lg-img_hello-world.jpg
 heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
 summary: |
   Since the pandemic started, case fatality has plummeted. How can we unpack treatment improvements versus younger patients, increased testing, etc.?
-acknowledgements: |
+# acknowledgements: |
 output:
   blogdown::html_page:
     toc: true
-  bookdown::html_document2: default
-bibliography: unpack-cfr/refs.bib
+  # bookdown::html_document2: default
+bibliography: 
+ - ./unpack-cfr/refs.bib
 link-citations: yes
 ---
 
@@ -28,7 +29,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Since the COVID-19 pandemic first reached the United States, the case fatality (CFR) rate has fallen considerably. Between the first peak in mid-April and the second peak in mid-July, the case fatality rate fell from 7.9% to the 0.7%--2.3% range, where it has since remained despite cases rising again into an (ongoing) third wave:
 
-![**Figure 1.** From left to right: confirmed cases, deaths, and case fatality rate, calculated using 7-day trailing averages based on national reporting data available via USAFacts (@usafacts) and pulled from the CMU COVIDcast API (@covidcast2020api). Data outside the April 1st to December 1st time range considered in this study is grayed out.](unpack-cfr/img_country/national_cases.svg)
+![**Figure 1.** From left to right: confirmed cases, deaths, and case fatality rate, calculated using 7-day trailing averages based on national reporting data available via USAFacts (@usafacts) and pulled from the CMU COVIDcast API (@covidcast2020api). Data outside the April 1st to December 1st time range considered in this study is grayed out.](/blog/2021-01-21-unpack-cfr_files/img_country/national_cases.svg)
 
 Since July, our team at CMU DELPHI has been tracking the drop in case fatality rates, driven by the question: **_"What explains the movement (and apparent overall decline) in case fatality rate over the course of the COVID-19 pandemic?"_** Last month, we released a [manuscript](https://arxiv.org/abs/2012.04825) analyzing the data through Thanksgiving. This blog post provides a vignette of our work on unpacking the drop in CFR, with newly updated data released on December 31st. 
 
@@ -114,9 +115,9 @@ See [the full manuscript](https://arxiv.org/abs/2012.04825) for details of the p
 
 In both the FDOH and the CDC datasets, one can discern three waves of COVID-19 cases. The first wave peaks around mid-April, the second wave peaks around mid-July, and the surge of cases leading up to December indicates an ongoing third wave:
 
-![**Figure 2a.** (Florida FDOH data) Age-stratified cases, (eventual) deaths, and (eventual) hospitalizations in Florida FDOH data, by the date of first positive test result, respectively. Note that the x-axis is *not* the date of death or date of hospitalization.](unpack-cfr/img1/cases.svg)
+![**Figure 2a.** (Florida FDOH data) Age-stratified cases, (eventual) deaths, and (eventual) hospitalizations in Florida FDOH data, by the date of first positive test result, respectively. Note that the x-axis is *not* the date of death or date of hospitalization.](/blog/2021-01-21-unpack-cfr_files/img1/cases.svg)
 
-![**Figure 2b.** (National CDC data) Age-stratified cases, (eventual) deaths, and (eventual) hospitalizations in the United States CDC data, by date of report to the CDC. Note that the x-axis is *not* the date of death or date of hospitalization.](unpack-cfr/img_country/cases.svg)
+![**Figure 2b.** (National CDC data) Age-stratified cases, (eventual) deaths, and (eventual) hospitalizations in the United States CDC data, by date of report to the CDC. Note that the x-axis is *not* the date of death or date of hospitalization.](/blog/2021-01-21-unpack-cfr_files/img_country/cases.svg)
 
 **Testing:** While the FDOH and CDC datasets do not contain data for negative test results, it is informative to have the level of testing in mind when interpreting the above plots. 
 Using data from the [COVID Tracking Project](https://covidtracking.com/data), we observe that between April 1st and December 1st, testing has increased significantly, by approximately 964% in Florida and 1080% in the country (Figure 3). 
@@ -127,7 +128,7 @@ in positive test rates in April and July, and a surge in positive test rates lea
 Note that in Florida, the second peak is larger than the first, whereas nationally the second peak is smaller than the first.
 Leading up to December, positive test rates in Florida are similar to those seen nationally. For Florida, this already places the ongoing third wave at almost the same level as the first peak, and nationally it has already surpassed the second peak.
 
-![*Figure 3.** COVID-19 positive test rates (right) and amount of testing (left and middle) for Florida and the United States as a whole, calculated using 7-day trailing averages and pulled from the COVID Tracking Project (@covid_tracking_project). Positive test rate is calculated by dividing new positives by total new tests on each day. Data outside the April 1st to December 1st time range considered in this study is grayed out.](unpack-cfr/img1/pos_test_rates.svg)
+![*Figure 3.** COVID-19 positive test rates (right) and amount of testing (left and middle) for Florida and the United States as a whole, calculated using 7-day trailing averages and pulled from the COVID Tracking Project (@covid_tracking_project). Positive test rate is calculated by dividing new positives by total new tests on each day. Data outside the April 1st to December 1st time range considered in this study is grayed out.](/blog/2021-01-21-unpack-cfr_files/img1/pos_test_rates.svg)
 
 **Cases:**  Across all age strata, as measured by cases, Florida's second wave is the most severe out of the three waves. In aggregate, it has approximately 1153% more cases than in the first peak and 46% more cases than in the ongoing third wave (Figure 2a, left panel).
 In contrast, at a national level the ongoing third wave 
@@ -153,9 +154,9 @@ In September, we note an uptick in younger cases, possibly related to the start 
 Come December 1st, the Florida median age remains at 40 but the national median age group rises to 40-49. 
 Additionally, we note that older individuals comprise a disproportionate share of the hospitalization and death counts (see Figure 4 below):
 
-![**Figure 4a.** (Florida FDOH data) Age distributions among Florida cases, (eventual) hospitalizations, and (eventual) deaths, by the date of first positive test result.](unpack-cfr/img1/age_ratios.svg)
+![**Figure 4a.** (Florida FDOH data) Age distributions among Florida cases, (eventual) hospitalizations, and (eventual) deaths, by the date of first positive test result.](/blog/2021-01-21-unpack-cfr_files/img1/age_ratios.svg)
 
-![**Figure 4b.** (National CDC data) Age distributions among national cases, (eventual) hospitalizations, and (eventual) deaths, by the date of report to the CDC.](unpack-cfr/img_country/age_ratios.svg)
+![**Figure 4b.** (National CDC data) Age distributions among national cases, (eventual) hospitalizations, and (eventual) deaths, by the date of report to the CDC.](/blog/2021-01-21-unpack-cfr_files/img_country/age_ratios.svg)
 
 <span style="color:blue"><b>Key takeaway #2:</b> Since age distributions shifted substantially between the first and second waves (and continue to fluctuate), age must be accounted for in order to separate out the effects of treatment from age shift.</span>
 
@@ -208,9 +209,9 @@ Compared to peak-to-peak changes, changes across the entire time range (April 1s
 
 While we focus on the two peaks and the endpoints of the study time range, we also include plots of HFR estimates with uncertainty for all dates between April 1st and December 1st: 
 
-![**Figure 5a.** (Florida FDOH data) Estimate of trend and uncertainty in Florida's age-stratified HFRs, derived using residual block-bootstrapping with cubic splines and post-blackening. Solid line corresponds to the age-stratified estimate, shaded region corresponds to the uncertainty around the estimate, and dotted line shows the original 7-day lagged HFR. HFR.](unpack-cfr/img1/florida_fdoh_full_est.svg)
+![**Figure 5a.** (Florida FDOH data) Estimate of trend and uncertainty in Florida's age-stratified HFRs, derived using residual block-bootstrapping with cubic splines and post-blackening. Solid line corresponds to the age-stratified estimate, shaded region corresponds to the uncertainty around the estimate, and dotted line shows the original 7-day lagged HFR. HFR.](/blog/2021-01-21-unpack-cfr_files/img1/florida_fdoh_full_est.svg)
 
-![**Figure 5b.** (National CDC data) Estimate of trend and uncertainty in national age-stratified HFRs, derived using residual block-bootstrapping with cubic splines and post-blackening. Solid line corresponds to the age-stratified estimate, shaded region corresponds to the uncertainty around the estimate, and dotted line shows the original 7-day lagged HFR. HFR.](unpack-cfr/img_country/national_cleaned_full_est.svg)
+![**Figure 5b.** (National CDC data) Estimate of trend and uncertainty in national age-stratified HFRs, derived using residual block-bootstrapping with cubic splines and post-blackening. Solid line corresponds to the age-stratified estimate, shaded region corresponds to the uncertainty around the estimate, and dotted line shows the original 7-day lagged HFR. HFR.](/blog/2021-01-21-unpack-cfr_files/img_country/national_cleaned_full_est.svg)
 
 Consistent with our point estimates, the overall HFR in Florida appears relatively flat until August, in which the HFR decreases greatly across all age groups (Figure 5a). In the national data, there appears to be an almost monotonic decline in HFR across all age groups for the entire time range, with the decrease slowing down in August, but slightly picking up again in December (Figure 5b).
 
