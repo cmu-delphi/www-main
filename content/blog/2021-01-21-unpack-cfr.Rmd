@@ -1,13 +1,24 @@
 ---
 title: "Unpacking the Drop in COVID-19 Case Fatality Rates"
 author: "Helen Zhou, Cheng Cheng, Jeremy C. Weiss, Zachary C. Lipton"
+date: 2021-01-22
+authors:
+- hzhou
+- ccheng
+- jweiss
+- zlipton
+heroImage: /blog/images/blog-lg-img_hello-world.jpg
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
+summary: |
+  Since the pandemic started, case fatality has plummeted. How can we unpack treatment improvements versus younger patients, increased testing, etc.?
+acknowledgements: |
 output:
+  blogdown::html_page:
+    toc: true
   bookdown::html_document2: default
 bibliography: unpack-cfr/refs.bib
 link-citations: yes
 ---
-
-<!-- install.packages("bookdown") -->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
