@@ -1,5 +1,5 @@
 # install.packages(c(), repo="http://cran.rstudio.com/")
-install.packages("bookdown", repo="http://cran.rstudio.com/")
+# install.packages("bookdown", repo="http://cran.rstudio.com/")
 
 # blogdown::install_hugo()
 
