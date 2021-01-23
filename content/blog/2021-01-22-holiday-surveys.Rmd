@@ -9,6 +9,8 @@ tags:
 summary: |
   How did Thanksgiving and Christmas affect travel, social, and preventative
   behaviors in the USA during the COVID-19 pandemic?
+heroImage: /blog/images/blog-lg-img_hello-world.jpg
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
 authors:
   - lmorinishi
   - kbarkume
@@ -36,21 +38,17 @@ gatherings during the holidays and a number of states expanded COVID-19
 restrictions to prevent further escalation in cases.
 [Reports](https://www.washingtonpost.com/travel/2020/12/21/christmas-flights-cdc-restrictions-covid/)
 from airlines suggest air travel was up significantly during the holiday season,
-but [Delphi’s COVID-19 Surveys](https://delphi.cmu.edu/covidcast/surveys/) can
+but `r blogdown::shortcode("reflink", "surveys", "Delphi’s COVID-19 Surveys")` can
 provide a broader picture of the travel Americans took during the holiday
 season. In taking greater risks with travel, did Americans change their
 behaviors in other preventative measures like mask wearing during this time?
 
 For the following analyses, we use publicly available aggregate data from the
-[COVIDcast Epidata
-API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) that have
-been [weighted to better match state
-demographics](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting).
+`r blogdown::shortcode("apireflink", "api/covidcast.html", "COVIDcast Epidata API")` that have
+been `r blogdown::shortcode("apireflink", "api/covidcast-signals/fb-survey.html#survey-weighting", "weighted to better match state demographics")`.
 Here we focus on behavioral signals which have been available since September 8,
-2020, when [Wave 4 of the survey was
-deployed](https://delphi.cmu.edu/blog/2020/10/12/new-and-improved-covid-symptom-survey-tracks-testing-and-mask-wearing/),
-and are now visible in the [Delphi Group’s survey
-dashboard](https://delphi.cmu.edu/covidcast/survey-results/). Additionally, we
+2020, when `r blogdown::shortcode("reflink", "2020-10-06-survey-wave-4", "Wave 4 of the survey was deployed")`,
+and are now visible in the `r blogdown::shortcode("reflink", "survey-results", "Delphi Group’s survey dashboard")`. Additionally, we
 only consider data after November 11, 2020 to avoid any major effects due to the
 US election on November 3. All data below will be based on 7-day rolling
 averages of survey responses.
@@ -395,15 +393,13 @@ Since April 2020, Carnegie Mellon University’s Delphi Group and Facebook’s D
 for Good have partnered to conduct large-scale daily surveys to monitor the
 spread and impact of the COVID-19 pandemic in the United States. To date, the
 survey has collected more than 50 million responses. In this post, we show how
-the data from the [COVID-19 survey](https://delphi.cmu.edu/covidcast/surveys/)
+the data from the `r blogdown::shortcode("reflink", "surveys", "COVID-19 survey")`
 can be used to provide a broader picture of how American’s risk behaviors and
 sentiments amidst a global pandemic.
 
 All of the above plots were built using aggregate data for the United States
-that CMU/Delphi Group & Facebook provide to the public through the [COVIDcast
-Epidata API](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/), and
-visualize in the [Delphi Group's survey
-dashboard](https://delphi.cmu.edu/covidcast/). Public, aggregate data for the
+that CMU/Delphi Group & Facebook provide to the public through the `r blogdown::shortcode("apireflink", "symptom-survey/", "COVIDcast Epidata API")`, and
+visualize in the `r blogdown::shortcode("reflink", "/covidcast", "Delphi Group’s survey dashboard")`. Public, aggregate data for the
 global COVID-19 survey can be accessed via [University of Maryland's
 API](https://covidmap.umd.edu/api.html). We encourage researchers, public health
 officials, and the public to use the survey data and tools for their own
