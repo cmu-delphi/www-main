@@ -54,6 +54,13 @@ jobs:
         run: |
           npm run build:blog
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: blog
+          path: |
+            ./content/blog
+            ./static/blog
+
       - uses: actions/setup-node@v1
         with:
           node-version: "12"
