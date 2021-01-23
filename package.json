@@ -21,7 +21,7 @@
     "copy_fonts": "shx cp -r \"node_modules/katex/dist/fonts/*\" themes/delphi/static/css/fonts/",
     "copy_covidcast": "shx rm -rf \"static/covidcast/*\" && shx cp \"node_modules/www-covidcast/public/**/*.{js,txt,css,map}\" static/covidcast/",
     "postinstall": "npm run copy_fonts && npm run copy_covidcast",
-    "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd=TRUE)\"",
+    "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd='md5sum')\"",
     "build": "hugo --gc --minify",
     "start": "hugo server -D",
     "start:blog": "Rscript -e \"blogdown::serve_site()\"",
