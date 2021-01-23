@@ -61,8 +61,8 @@ We believe that this combination of _detail_ and _scale_
 has never before been available in a public health emergency.
 
 We make aggregated data publicly available daily through our
-[COVIDcast API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
-and visualize it on our [COVIDcast interactive map](`r blogdown::shortcode_html("ref", "covidcast")`).
+`r blogdown::shortcode_html("apireflink", "api/covidcast.html", "COVIDcast API")`,
+and visualize it on our `r blogdown::shortcode_html("reflink", "covidcast", "COVIDcast interactive map")`.
 We also make (fully de-identified) individual survey responses available
 to researchers who agree to
 [data use terms](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/).
@@ -174,8 +174,7 @@ package](https://cmu-delphi.github.io/covidcast/covidcastR/).
 In all, fetching the data from our API and producing the heatmaps
 requires only 15 lines of code.
 If you're interested, click the "Code" button to reveal the source.
-We'll cover our [R and Python covidcast
-packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`)
+We'll cover our `r blogdown::shortcode_html("apireflink", "api/covidcast_clients.html", "R and Python covidcast packages")`
 in a future blog post.
 
 ## Why Run These Surveys?
@@ -211,8 +210,7 @@ surveys:
   which may be a sizeable fraction of the US population, but certainly not all of
   it. We'll also likely see bias because some people on Facebook are more inclined
   to take surveys than others. We attempt to correct for both of these biases
-  using a [statistical reweighting
-  scheme](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html#survey-weighting")`),
+  using a `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/fb-survey.html#survey-weighting", "statistical reweighting scheme")`,
   but these corrections aren't perfect.
 
 - Our symptom data is entirely self-reported, in contrast to data
@@ -249,8 +247,7 @@ quantities, in a given location, on a given day:
   community_ with COVID-like illness.
 
 Details on how we compute the % CLI and % CLI-in-community estimates can be
-found in our [COVIDcast signals
-documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html")`).
+found in our `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/fb-survey.html", "COVIDcast signals documentation")`.
 
 The % CLI-in-community indicator has an interesting backstory: it was sort of a
 "happy accident" from an experiment we tried with surveys we were running in
@@ -272,10 +269,8 @@ public health. They assured us that lengthening the survey wouldn't hurt the
 completion rate too much, and they were right: of the people who complete the
 first section, over 85% go on to finish the full survey!
 
-Our [survey documentation
-site](`r blogdown::shortcode_html("apiref", "symptom-survey/")`) includes more
-details about the survey, including the [full text of every survey
-version](`r blogdown::shortcode_html("apiref", "symptom-survey/coding.html")`).
+Our `r blogdown::shortcode_html("apireflink", "symptom-survey/", "survey documentation site")` includes more
+details about the survey, including the `r blogdown::shortcode_html("apireflink", "symptom-survey/coding.html", "full text of every survey version")`.
 And yes, researchers can [request
 access](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
 to (fully de-identified) individual survey responses for research purposes,
@@ -605,6 +600,5 @@ This new survey is currently being deployed,
 and data should become available in the next few weeks.
 Detailed data will be available to researchers,
 while new aggregates---such as of mask-wearing---will
-be made public, as usual, through our [COVIDcast
-API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`)
-and [COVIDcast interactive map](`r blogdown::shortcode_html("ref", "covidcast")`).
+be made public, as usual, through our `r blogdown::shortcode_html("apireflink", "api/covidcast.html", "COVIDcast API")`
+and `r blogdown::shortcode_html("reflink", "covidcast", "COVIDcast interactive map")`.
