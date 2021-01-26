@@ -33,11 +33,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-Since the COVID-19 pandemic first reached the United States, the case fatality (CFR) rate has fallen considerably. Between the first peak in mid-April and the second peak in mid-July, the case fatality rate fell from 7.9% to the 0.7%--2.3% range, where it has since remained despite cases rising again into an (ongoing) third wave:
+Since July, our team at CMU DELPHI has been tracking the drop in case fatality rates, driven by the question: **_"What explains the movement (and apparent overall decline) in case fatality rate over the course of the COVID-19 pandemic?"_** Last month, we released a [manuscript](https://arxiv.org/abs/2012.04825) analyzing the data through Thanksgiving. This blog post distills our work on unpacking the drop in CFR, with newly updated data released on December 31st. 
+
+Indeed, over the course of the pandemic, the case fatality (CFR) rate has fallen considerably. Between the first peak in mid-April and the second peak in mid-July, the case fatality rate in the United States fell from 7.9% to the 0.7%--2.3% range, where it has since remained despite cases rising again into an (ongoing) third wave:
 
 ![**Figure 1.** From left to right: confirmed cases, deaths, and case fatality rate, calculated using 7-day trailing averages based on national reporting data available via USAFacts (@usafacts) and pulled from the CMU COVIDcast API (@covidcast2020api). Data outside the April 1st to December 1st time range considered in this study is grayed out.](/blog/2021-01-21-unpack-cfr_files/img_country/national_cases.svg)
-
-Since July, our team at CMU DELPHI has been tracking the drop in case fatality rates, driven by the question: **_"What explains the movement (and apparent overall decline) in case fatality rate over the course of the COVID-19 pandemic?"_** Last month, we released a [manuscript](https://arxiv.org/abs/2012.04825) analyzing the data through Thanksgiving. This blog post provides a vignette of our work on unpacking the drop in CFR, with newly updated data released on December 31st. 
 
 ### Existing hypotheses
 
