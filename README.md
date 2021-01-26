@@ -1,5 +1,8 @@
 # Delphi Website
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cmu-delpih/www-main)
+
+
 Delphi's homepage at https://cmu-delphi-main.netlify.app/
 
 This site is based on [Hugo](https://gohugo.io) and uses [Prettier](https://prettier.io) for formatting.
@@ -38,9 +41,9 @@ In RMarkdown things are slightly more different since the R Markdown parser is u
 **Examples**
 
 ```
-[Facebook](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`)
-[previous exploratory investigations](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#some-interesting-examples")`)
-[public API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`)
+`r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey", "Facebook")`
+`r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey#some-interesting-examples", "previous exploratory investigations")`
+`r blogdown::shortcode_html("apireflink", "api/covidcast.html", "public API")`
 
 ```
 
@@ -52,6 +55,8 @@ In addition, there in the `/data` directory there are the following listings in 
 - `supporters.yaml` list of supporters/collaborators
 
 ## Development Environment
+
+One click: [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cmu-delpih/www-main)
 
 ### Web Editor Only
 

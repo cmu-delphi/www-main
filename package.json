@@ -24,7 +24,7 @@
     "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd=TRUE)\"",
     "build": "hugo --gc --minify",
     "start": "hugo server -D",
-    "start:blog": "Rscript -e \"blogdown::serve_site()\"",
+    "start:blog": "Rscript -e \"blogdown::serve_site(port=1313, browser=FALSE)\"",
     "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
     "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check",
     "image": "docker build -t www-main:latest --file ./devops/Dockerfile ."
