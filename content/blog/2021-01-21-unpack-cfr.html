@@ -11,8 +11,8 @@ tags:
 - CDC data
 - FDOH data
 - time series
-heroImage: /blog/images/blog-lg-img_hello-world.jpg
-heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
+heroImage: /blog/images/unpack-cfr-full-size.jpg
+heroImageThumb: /blog/images/unpack-cfr-thumb.jpg
 summary: |
   Since the pandemic started, case fatality has plummeted. How can we unpack treatment improvements versus younger patients, increased testing, etc.?
 acknowledgements: |
@@ -52,12 +52,12 @@ link-citations: yes
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>Since the COVID-19 pandemic first reached the United States, the case fatality (CFR) rate has fallen considerably. Between the first peak in mid-April and the second peak in mid-July, the case fatality rate fell from 7.9% to the 0.7%–2.3% range, where it has since remained despite cases rising again into an (ongoing) third wave:</p>
+<p>Since July, our team at CMU DELPHI has been tracking the drop in case fatality rates, driven by the question: <strong><em>“What explains the movement (and apparent overall decline) in case fatality rate over the course of the COVID-19 pandemic?”</em></strong> Last month, we released a <a href="https://arxiv.org/abs/2012.04825">manuscript</a> analyzing the data through Thanksgiving. This blog post distills our work on unpacking the drop in CFR, with newly updated data released on December 31st.</p>
+<p>Indeed, over the course of the pandemic, the case fatality (CFR) rate has fallen considerably. Between the first peak in mid-April and the second peak in mid-July, the case fatality rate in the United States fell from 7.9% to the 0.7%–2.3% range, where it has since remained despite cases rising again into an (ongoing) third wave:</p>
 <div class="figure">
 <img src="/blog/2021-01-21-unpack-cfr_files/img_country/national_cases.svg" alt="" />
 <p class="caption"><strong>Figure 1.</strong> From left to right: confirmed cases, deaths, and case fatality rate, calculated using 7-day trailing averages based on national reporting data available via USAFacts (<span class="citation"><a href="#ref-usafacts" role="doc-biblioref">USAFacts</a> (<a href="#ref-usafacts" role="doc-biblioref">2020</a>)</span>) and pulled from the CMU COVIDcast API (<span class="citation"><a href="#ref-covidcast2020api" role="doc-biblioref">Project</a> (<a href="#ref-covidcast2020api" role="doc-biblioref">2020</a>)</span>). Data outside the April 1st to December 1st time range considered in this study is grayed out.</p>
 </div>
-<p>Since July, our team at CMU DELPHI has been tracking the drop in case fatality rates, driven by the question: <strong><em>“What explains the movement (and apparent overall decline) in case fatality rate over the course of the COVID-19 pandemic?”</em></strong> Last month, we released a <a href="https://arxiv.org/abs/2012.04825">manuscript</a> analyzing the data through Thanksgiving. This blog post provides a vignette of our work on unpacking the drop in CFR, with newly updated data released on December 31st.</p>
 <div id="existing-hypotheses" class="section level3">
 <h3>Existing hypotheses</h3>
 <p>In both academic articles and the broader public discourse, several possible explanations have been floated for the drop in CFR, mostly centering around the following hypotheses:</p>

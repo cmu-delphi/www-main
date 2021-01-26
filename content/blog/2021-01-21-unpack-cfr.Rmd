@@ -11,8 +11,8 @@ tags:
 - CDC data
 - FDOH data
 - time series
-heroImage: /blog/images/unpack-cfr/unpack-cfr-full-size.jpg
-heroImageThumb: /blog/images/unpack-cfr/unpack-cfr-thumb.jpg
+heroImage: /blog/images/unpack-cfr-full-size.jpg
+heroImageThumb: /blog/images/unpack-cfr-thumb.jpg
 summary: |
   Since the pandemic started, case fatality has plummeted. How can we unpack treatment improvements versus younger patients, increased testing, etc.?
 acknowledgements: |
