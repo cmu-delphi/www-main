@@ -9,6 +9,8 @@ tags:
 summary: |
   How did Thanksgiving and Christmas affect travel, social, and preventative
   behaviors in the USA during the COVID-19 pandemic?
+heroImage: /blog/images/blog-lg-img_hello-world.jpg
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
 authors:
   - lmorinishi
   - kbarkume
@@ -27,8 +29,7 @@ output:
     toc: true
 ---
 
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -47,20 +48,16 @@ gatherings during the holidays and a number of states expanded COVID-19
 restrictions to prevent further escalation in cases.
 <a href="https://www.washingtonpost.com/travel/2020/12/21/christmas-flights-cdc-restrictions-covid/">Reports</a>
 from airlines suggest air travel was up significantly during the holiday season,
-but <a href="https://delphi.cmu.edu/covidcast/surveys/">Delphi’s COVID-19 Surveys</a> can
+but {{< reflink "surveys" "Delphi’s COVID-19 Surveys" >}} can
 provide a broader picture of the travel Americans took during the holiday
 season. In taking greater risks with travel, did Americans change their
 behaviors in other preventative measures like mask wearing during this time?</p>
 <p>For the following analyses, we use publicly available aggregate data from the
-<a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">COVIDcast Epidata
-API</a> that have
-been <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html#survey-weighting">weighted to better match state
-demographics</a>.
+{{< apireflink "api/covidcast.html" "COVIDcast Epidata API" >}} that have
+been {{< apireflink "api/covidcast-signals/fb-survey.html#survey-weighting" "weighted to better match state demographics" >}}.
 Here we focus on behavioral signals which have been available since September 8,
-2020, when <a href="https://delphi.cmu.edu/blog/2020/10/12/new-and-improved-covid-symptom-survey-tracks-testing-and-mask-wearing/">Wave 4 of the survey was
-deployed</a>,
-and are now visible in the <a href="https://delphi.cmu.edu/covidcast/survey-results/">Delphi Group’s survey
-dashboard</a>. Additionally, we
+2020, when {{< reflink "2020-10-06-survey-wave-4" "Wave 4 of the survey was deployed" >}},
+and are now visible in the {{< reflink "survey-results" "Delphi Group’s survey dashboard" >}}. Additionally, we
 only consider data after November 11, 2020 to avoid any major effects due to the
 US election on November 3. All data below will be based on 7-day rolling
 averages of survey responses.</p>
@@ -383,14 +380,12 @@ with friends and family, shopping more, and traveling out-of-state.</p>
 for Good have partnered to conduct large-scale daily surveys to monitor the
 spread and impact of the COVID-19 pandemic in the United States. To date, the
 survey has collected more than 50 million responses. In this post, we show how
-the data from the <a href="https://delphi.cmu.edu/covidcast/surveys/">COVID-19 survey</a>
+the data from the {{< reflink "surveys" "COVID-19 survey" >}}
 can be used to provide a broader picture of how American’s risk behaviors and
 sentiments amidst a global pandemic.</p>
 <p>All of the above plots were built using aggregate data for the United States
-that CMU/Delphi Group &amp; Facebook provide to the public through the <a href="https://cmu-delphi.github.io/delphi-epidata/symptom-survey/">COVIDcast
-Epidata API</a>, and
-visualize in the <a href="https://delphi.cmu.edu/covidcast/">Delphi Group’s survey
-dashboard</a>. Public, aggregate data for the
+that CMU/Delphi Group &amp; Facebook provide to the public through the {{< apireflink "symptom-survey/" "COVIDcast Epidata API" >}}, and
+visualize in the {{< reflink "/covidcast" "Delphi Group’s survey dashboard" >}}. Public, aggregate data for the
 global COVID-19 survey can be accessed via <a href="https://covidmap.umd.edu/api.html">University of Maryland’s
 API</a>. We encourage researchers, public health
 officials, and the public to use the survey data and tools for their own

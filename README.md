@@ -86,6 +86,7 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
    - `local=TRUE` similar to `-D` to process draft files
    - `run_hugo=FALSE` to manually run hugo
    - `build_rmd=TRUE` force a (re)build of the Rmd pages
+1. Run blogdown to convert a single file to HTML: `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE, build_rmd="content/blog/<NAME>.Rmd")'`
 1. Alternatively, run `npm run build:blog`
 1. Run Hugo server as usual
 
