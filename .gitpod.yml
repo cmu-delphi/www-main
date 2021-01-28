@@ -2,7 +2,7 @@ image:
   file: ./devops/gitpod.dockerfile
 tasks:
   - init: npm install && RScript -e "blogdown::install_hugo()"
-  - command: "echo 'run: \"npm start\" or \"npm run start:blog\"'"
+  - command: 'echo ''run: "npm start" or "npm run start:blog"'''
 ports:
   - port: 1313
 vscode:
