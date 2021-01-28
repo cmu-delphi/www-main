@@ -98,3 +98,16 @@ In case you use new dependencies don't forget to either edit `environment.yml` o
 A Github action should runs when Rmd files changes so it will verify that the blog post can be built.
 However, the converted HTML file along with all generated images are committed to the repository.
 This simplifies the deployment and ensures that we have a blog post even when the API or data changes.
+
+
+### Release Process
+
+The release process is based on [release-it](https://github.com/release-it/release-it). To create a release, run
+
+1. create/checkout the release branch `release` and push to origin
+1. run `npm run release` and publish the release
+1. create a PR that merges the `release` branch in the `main` branch
+1. create a PR that merges the `main` branch back into the `dev` branch
+
+Then go to the release page and update short description of the changes made.
+
