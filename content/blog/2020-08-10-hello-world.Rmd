@@ -59,7 +59,7 @@ and making headway into dengue and norovirus.
 To learn about the work our group has done in the past,
 including some papers we've written, software tools we've built,
 and the real-time epidemiological data server we've been deploying since 2016,
-check out [our website](`r blogdown::shortcode("ref", "/")`).
+check out `r blogdown::shortcode_html("reflink", "/", "our website")`.
 
 When the COVID-19 pandemic arrived, we focused all our attention on it.
 Our Delphi team
@@ -70,7 +70,7 @@ including Stanford, UC Davis, and USC, and also from industry.
 The pace has been intense and dizzying at times,
 and we're infinitely grateful for the contributions
 and commitment of all our new members---we'd be nowhere without them.
-See [here](`r blogdown::shortcode("ref", "team")`)
+See `r blogdown::shortcode_html("reflink", "team", "here")`
 for a list of the Delphi team members.
 
 With new members comes a new breadth of expertise:
@@ -145,14 +145,12 @@ Here's a quick summary:
   aggregated counts from massive medical claims data sets through partners like
   Change Healthcare.
 
-- We've built a [public
-  API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
-  and [R and Python
-  packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`),
+- We've built a `r blogdown::shortcode_html("apireflink", "api/covidcast.html", "public API")`,
+  and `r blogdown::shortcode_html("apireflink", "api/covidcast_clients.html", "R and Python packages")`,
   to serve our indicators to researchers and the public. This API provides new
   data daily.
 
-- We've built [interactive maps and graphics](`r blogdown::shortcode("ref", "covidcast")`) to
+- We've built `r blogdown::shortcode_html("reflink", "covidcast", "interactive maps and graphics")` to
   display our indicators, and better inform the public and decision-makers.
 
 - We've developed forecasts of the future spread of the pandemic,

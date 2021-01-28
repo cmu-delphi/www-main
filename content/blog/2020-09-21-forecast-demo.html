@@ -34,8 +34,6 @@ output:
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 <div id="TOC">
 <ul>
@@ -51,9 +49,9 @@ output:
 
 <p>In our past two posts, we wrote about the COVID-19 symptom surveys that Delphi
 runs through
-<a href="{{< ref "2020-08-26-fb-survey" >}}">Facebook</a>
+{{< reflink "2020-08-26-fb-survey" "Facebook" >}}
 and
-<a href="{{< ref "2020-09-18-google-survey" >}}">Google</a>.
+{{< reflink "2020-09-18-google-survey" "Google" >}}.
 These surveys have asked millions of people in the United States whether they
 (or people they know) are experiencing COVID-like symptoms, allowing us to
 calculate a “% CLI-in-community” signal for counties across the United States:
@@ -86,8 +84,7 @@ where the goal is to predict whether case rates will rise significantly,
 rather than to predict the future case rates directly, as in forecasting.
 To motivate why we might be optimistic about the utility of incorporating
 our survey signals into forecasting or hotspot detection models, you can
-check out our <a href="{{< ref "2020-08-26-fb-survey#some-interesting-examples" >}}">previous exploratory
-investigations</a>,
+check out our {{< reflink "2020-08-26-fb-survey#some-interesting-examples" "previous exploratory investigations" >}},
 which suggested that they can serve as <strong>early indicators</strong> of COVID-19
 activity. Stay tuned to the Delphi blog for a post on hotspot detection
 soon.</p>
@@ -411,8 +408,7 @@ which ends up being May 6 through May 14 for 7-day-ahead forecasts,
 and only May 13 through May 14 for 14-day-ahead forecasts.
 (The reason for this shortened period:
 we paused running the Google survey on May 14 so its data ends there,
-but as we explained in our last post, we <a href="{{% ref "2020-09-18-google-survey#google-survey-redux" %}}">plan to bring it
-back</a>
+but as we explained in our last post, we {{< reflink "2020-09-18-google-survey#google-survey-redux" "plan to bring it back" >}}
 later this fall.) Hence we skip studying the 14-day-ahead forecasts results
 in this four-way model discussion, as they’re only based on 2 days of test data.</p>
 <p>Below we compute and print the median scaled errors for each of the four models
@@ -1005,9 +1001,8 @@ so that data gets pulled “as of” the forecast date
 <p>Hopefully these preliminary findings have gotten you excited
 about the possible uses of our symptom survey data.
 To get started playing with our data yourself,
-take a look at our <a href="{{< ref "covidcast" >}}">interactive COVIDcast map</a>,
-or our <a href="{{< apiref "api/covidcast.html" >}}">COVIDcast
-API</a>,
+take a look at our {{< reflink "covidcast" "interactive COVIDcast map" >}},
+or our {{< apireflink "api/covidcast.html" "COVIDcast API" >}},
 through our <a href="https://cmu-delphi.github.io/covidcast/covidcastR/">R client</a>
 or <a href="https://cmu-delphi.github.io/covidcast/covidcast-py/html/">Python client</a>.
 And if you’re feeling adventurous, consider competing in the
