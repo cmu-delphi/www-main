@@ -11,27 +11,27 @@ authors:
 heroImage: /blog/images/blog-lg-img_google-survey-post.jpg
 heroImageThumb: /blog/images/blog-thumb-img_google-survey-post.jpg
 summary: |
-  Since April 2020, in addition to our massive daily survey advertised on
-  Facebook, we've been running (even-more-massive) surveys through Google to
-  track the spread of COVID-19 in the United States.
-  At its peak, our Google survey was taken by over 1.2 million people in a single
-  day, and over its first month in operation, averaged over 600,000 daily
-  respondents. In mid-May, we paused daily dissemination of this survey in order
+  Since April 2020, in addition to our massive daily survey advertised on 
+  Facebook, we've been running (even-more-massive) surveys through Google to 
+  track the spread of COVID-19 in the United States. 
+  At its peak, our Google survey was taken by over 1.2 million people in a single 
+  day, and over its first month in operation, averaged over 600,000 daily 
+  respondents. In mid-May, we paused daily dissemination of this survey in order 
   to focus on our (longer, more complex) survey through Facebook,
-  but we plan to bring back the Google survey this fall.
-  This short post covers some key differences between our Google and Facebook
+  but we plan to bring back the Google survey this fall. 
+  This short post covers some key differences between our Google and Facebook 
   surveys, explains the backstory behind the "CLI-in-community" question
-  as it arose through our collaboration with Google,
+  as it arose through our collaboration with Google, 
   and shares some of our thinking about next steps for the Google survey.
 acknowledgements: |
-  Ryan Tibshirani wrote the initial code for producing
-  estimates from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de
+  Ryan Tibshirani wrote the initial code for producing 
+  estimates from the aggregated survey data. Sangwon Hyun, Natalia Lombardi de 
   Oliveira, and Lester Mackey greatly extended and improved this codebase, and
-  they developed, along with Ryan, the underlying statistical methodology. Ryan
-  came up with the idea of running the surveys, and worked with Google to make
-  this a reality. On the Google side, Brett Slatkin and Hal Varian have been key
-  collaborators; Brett wrote the code to get daily survey data over to Delphi's
-  estimation pipeline; and both contributed numerous important ideas at various
+  they developed, along with Ryan, the underlying statistical methodology. Ryan 
+  came up with the idea of running the surveys, and worked with Google to make 
+  this a reality. On the Google side, Brett Slatkin and Hal Varian have been key 
+  collaborators; Brett wrote the code to get daily survey data over to Delphi's 
+  estimation pipeline; and both contributed numerous important ideas at various 
   stages of the project.
 output:
   html_document:
@@ -41,8 +41,6 @@ output:
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 <div id="TOC">
 <ul>
@@ -53,14 +51,12 @@ output:
 </ul>
 </div>
 
-<p>Since April 2020, in addition to our <a href="{{< ref "2020-08-26-fb-survey" >}}">massive daily survey advertised on
-Facebook</a>,
+<p>Since April 2020, in addition to our {{< reflink "2020-08-26-fb-survey" "massive daily survey advertised on Facebook" >}},
 we’ve been running (even-more-massive) surveys through Google to track the
 spread of COVID-19 in the United States. At its peak, our Google survey was
 taken by over 1.2 million people in a single day, and over its first month in
 operation, averaged about 600,000 daily respondents. As usual, we make
-aggregated data from this survey available through our <a href="{{< apiref "api/covidcast.html" >}}">COVIDcast
-API</a>.</p>
+aggregated data from this survey available through our {{< apireflink "api/covidcast.html" "COVIDcast API" >}}.</p>
 <p>In mid-May, we decided to pause daily dissemination of this survey in order to
 focus on our (longer, more complex) survey through Facebook,
 but we plan to bring back the Google survey this fall.
@@ -73,8 +69,7 @@ and shares some of our thinking about next steps for the Google survey.</p>
 <h2>Short Background</h2>
 <p>Back in March 2020, around the time we began discussions with Facebook about
 COVID-19 symptom surveys, we pitched the same idea to Google.
-Our motivation, <a href="{{< ref "2020-08-26-fb-survey#why-run-these-surveys" >}}">as we explained in our last
-post</a>,
+Our motivation, {{< reflink "2020-08-26-fb-survey#why-run-these-surveys" "as we explained in our last post" >}},
 has been to produce real-time, county-level data streams of self-reported COVID
 symptoms that can potentially serve as <strong>early indicators</strong> of COVID activity in
 the US. As we noted in that post, we weren’t the only data scientists
@@ -216,8 +211,7 @@ about 74,000 responses per day.)
 The actual sampling scheme behind our Google survey is more complicated,
 and involves two-level stratification, across both counties and states.
 For details, including those on statistical estimation,
-visit our <a href="{{< apiref "api/covidcast-signals/google-survey.html" >}}">COVIDcast signals
-documentation</a>.
+visit our {{< apireflink "api/covidcast-signals/google-survey.html" "COVIDcast signals documentation" >}}.
 On May 15, we paused our Google survey to focus on our Facebook survey,
 which is both longer and more complex.
 Importantly, the latter is <em>not</em> a replacement for the former,
@@ -253,8 +247,7 @@ which for the most part holds a substantial gap over the
 correlations between the Facebook signal and case rates.
 This is no doubt encouraging, especially because we’d hope
 that the Google correlations would have only improved later in
-the year (as did the Facebook correlations, which we <a href="{{< ref "2020-08-26-fb-survey#basic-correlation-analysis" >}}">previously
-suggested</a>
+the year (as did the Facebook correlations, which we {{< reflink "2020-08-26-fb-survey#basic-correlation-analysis" "previously suggested" >}}
 could have been due to the increase in the diversity of county-level
 case rates around mid-June).</p>
 <pre class="r"><code># Fetch county-level Google and Facebook % CLI-in-community signals, and JHU
@@ -324,8 +317,7 @@ in that we can pick the counties we want to sample from ahead of time.</p></li>
 the two survey schemes are complementary,
 and could be used synergistically.
 Our Facebook survey is a continuously-running, wide-reaching instrument
-that provides answers to a <a href="{{< apiref "symptom-survey/coding.html" >}}">rich set of
-questions</a>
+that provides answers to a {{< apireflink "symptom-survey/coding.html" "rich set of questions" >}}
 (beyond COVID-related symptoms, it asks about
 contacts, risk factors, behavior, and demographics).
 When we find something interesting that warrants follow-up
@@ -345,8 +337,7 @@ journalists). Stay tuned to the Delphi blog for updates.</p>
 the subject is asked to report on someone else. The traditional view seems to
 be that proxy questions can undermine survey data quality, but in our setting
 it’s critical: not only does it provide a safeguard against revealing personal
-health information, it turned out to deliver <a href="{{< ref "2020-08-26-fb-survey#basic-correlation-analysis" >}}">much higher
-correlations</a>
+health information, it turned out to deliver {{< reflink "2020-08-26-fb-survey#basic-correlation-analysis" "much higher correlations" >}}
 with case rates than the direct (non-proxy) question.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>A closer look reveals that the relationship between the Google
 % CLI-in-community and Facebook % CLI-in-community signals is not 1:1. For
@@ -361,8 +352,7 @@ trend that seems pretty consistent across location and time. We’ll save rigoro
 analysis for when we work on deploying these two surveys in tandem; for now, we
 emphasize that this observation reiterates the importance of focusing on
 <em>time-varying trends</em> in the survey signals, not the signal values themselves
-(a point we <a href="{{< ref "2020-08-26-fb-survey#why-run-these-surveys" >}}">made in our last
-post</a>).
+(a point we {{< reflink "2020-08-26-fb-survey#why-run-these-surveys" "made in our last post" >}}).
 Here, the self-reporting aspect must somehow be creating greatly different
 levels of bias in the two surveys; in an absolute sense, the subsequent
 estimates of % CLI-in-community strongly disagree, so both can’t be right, and

@@ -159,7 +159,7 @@ age, increasing $A$ would *decrease* $Y$. In this case, age is a
 confounder and the $g$-formula would correctly recover the negative
 relationship. For causal inference, this is the correct conclusion.
 
-![](/blog/images/causal-simple-confounder.svg)
+![](/blog/2021-01-15-causal-effect-mobility_files/causal-simple-confounder.svg)
 
 Things get trickier
 when there are time varying variables.
@@ -386,9 +386,8 @@ we'll consider here is the
 proportion of people of who stay home,
 which is kindly provided to Delphi by
 SafeGraph.
-(We [publish this
-data](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/safegraph.html")`)
-in our [COVIDcast Epidata API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
+(We `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/safegraph.html", "publish this data")`
+in our `r blogdown::shortcode_html("apireflink", "api/covidcast.html", "COVIDcast Epidata API")`,
 so it is available to anyone interested in studying mobility during the pandemic.)
 We use data at the state level.
 Note that this is actually a sort of anti-mobility measure:
@@ -506,7 +505,7 @@ stay-at-home decreases deaths, as we would expect.
 that these results are preliminary.)
 
 
-![](/blog/images/causal-effect-mobility-bigstates.svg)
+![](/blog/2021-01-15-causal-effect-mobility_files/causal-effect-mobility-bigstates.svg)
 
 ## What's Next?
 
