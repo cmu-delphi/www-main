@@ -38,3 +38,12 @@
   name: Larry Wasserman
   link: http://www.stat.cmu.edu/~larry/
   description: is a Professor in the Department of Statistics & Data Science at CMU as well as in the Machine Learning Department and is a member of Delphi.
+- key: ekim
+  name: Esther Kim
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+- key: agarcia
+  name: Andy Garcia
+  description: is a Data Scientist on the Health team at Facebook.
+- key: slarocca
+  name: Sarah LaRocca
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.

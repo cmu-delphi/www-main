@@ -1,0 +1,330 @@
+---
+title: "Using the COVID-19 Symptom Survey to Track Vaccination Uptake and Sentiment in the United States"
+author: "Alex Reinhart, Esther Kim, Andy Garcia, Sarah LaRocca"
+date: 2021-01-28
+tags:
+  - COVIDcast
+  - R
+  - symptom surveys
+  - vaccine
+authors:
+  - alex
+  - ekim
+  - agarcia
+  - slarocca
+heroImage: /blog/images/blog-lg-vaccine-survey.jpg
+heroImageThumb: /blog/images/blog-thumb-vaccine-survey.jpg
+related:
+  - 2020-12-10-masks-public
+  - 2020-10-06-survey-wave-4
+  - 2020-08-26-fb-survey
+summary: |
+  Data from the Symptom Survey reveal how COVID-19 vaccinations are rolling out
+  across the nation.
+acknowledgements: |
+  Facebook's team, including Kelsey Mulcahy, Katherine Morris, Leanna Morinishi,
+  Kris Barkume, Sid Palani, and Patrick Xu, assisted with the analysis and
+  writing of this post. At Carnegie Mellon, Wichada La Motte-Kerr assisted in
+  the development and deployment of many of these survey questions.
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#new-vaccine-surveillance-module">New Vaccine Surveillance Module</a></li>
+<li><a href="#insights-from-the-symptom-surveys-covid-19-vaccination-data">Insights from the Symptom Survey’s COVID-19 Vaccination Data</a></li>
+<li><a href="#vaccine-uptake-among-priority-groups">Vaccine Uptake Among Priority Groups</a></li>
+<li><a href="#vaccine-acceptance">Vaccine Acceptance</a></li>
+<li><a href="#increasing-the-likelihood-of-vaccination">Increasing the Likelihood of Vaccination</a></li>
+<li><a href="#concerns-about-side-effects">Concerns About Side Effects</a></li>
+<li><a href="#how-you-can-analyze-this-data">How You Can Analyze This Data</a></li>
+<li><a href="#privacy-statement">Privacy Statement</a></li>
+</ul>
+</div>
+
+<p>The COVID-19 Symptom Survey, which is conducted by the Delphi Group in
+partnership with Facebook Data for Good, is one of the largest COVID-19 data
+collection efforts in the United States. To date, over 16 million responses have
+been collected since its launch in April 2020. Using the Symptom Survey, we have
+been able to track and inform trends on
+{{< reflink "2020-09-21-forecast-demo" "daily symptoms" >}},
+{{< reflink "2020-10-06-survey-wave-4" "testing" >}},
+{{< reflink "2020-12-10-masks-public" "mask-wearing" >}},
+social distancing, mental health, and more across the U.S. Check out our
+{{< reflink "survey-results" "dashboard" >}} to see how our
+data can support your community needs and check out the international version
+conducted internationally in 200+ countries and territories in 55+ languages by
+our partner, the <a href="https://covidmap.umd.edu/">University of Maryland</a>.</p>
+<p>We encourage researchers, public health officials, and the public to use the
+survey data and tools available. Public, aggregate data is available through
+{{< apireflink "symptom-survey/" "Carnegie Mellon University’s API" >}}
+for the US and
+through <a href="https://covidmap.umd.edu/api.html">University of Maryland’s API</a> for
+the global survey. Microdata is also available upon
+<a href="https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/">request</a>
+to academic and nonprofit researchers under data usage agreements to protect the
+confidentiality of responses.</p>
+<div id="new-vaccine-surveillance-module" class="section level2">
+<h2>New Vaccine Surveillance Module</h2>
+<p>In support of the COVID-19 vaccination campaigns that are currently underway
+across the country, we collaborated with the U.S. Centers for Disease Control
+and Prevention (CDC) to incorporate several vaccine surveillance questions that
+enable our survey to track vaccination uptake and measure vaccine-related
+sentiments as the states plan and progress through the different phases of the
+federal priority criteria and their own vaccination programs. We aimed to
+address the following critical public health topics:</p>
+<ul>
+<li><p>How many people are vaccinated? Of those who are vaccinated, how many received
+the complete set of doses?</p></li>
+<li><p>How many people are hesitant about getting vaccinated? Why? How many are
+worried about experiencing a side effect?</p></li>
+<li><p>Are there barriers to accessing either vaccinations or information about
+vaccinations?</p></li>
+<li><p>Would people be more likely to get vaccinated if it were recommended to them
+by certain information sources?</p></li>
+<li><p>How do the responses to these questions vary by sociodemographic status such
+as occupation, age, gender, and race or ethnicity? How do these vary by
+clinical risk factors?</p></li>
+</ul>
+<p>Though a few of these questions are not yet incorporated into our survey, the
+Symptom Survey now includes daily responses that can be used to answer many of
+these questions. The other items will be incorporated soon, so stay tuned and
+check back here!</p>
+</div>
+<div id="insights-from-the-symptom-surveys-covid-19-vaccination-data" class="section level2">
+<h2>Insights from the Symptom Survey’s COVID-19 Vaccination Data</h2>
+<p>As COVID-19 vaccination programs ramp up across the country, we can use data
+from the Symptom Survey to estimate percentages of individuals who report having
+been vaccinated. We used 300,000 survey responses received between January 9th
+and January 15th to calculate the percentage of respondents in each state who
+say they have received a COVID-19 vaccination, shown below:</p>
+<p><img src="/blog/images/vaccine_blog_uptake_overall.svg" /></p>
+<p>The map suggests that the estimated proportion of individuals vaccinated is
+highest in some states in the midwestern, southern, and northeastern regions,
+which is a similar pattern to <a href="https://www.bloomberg.com/graphics/covid-vaccine-tracker-global-distribution/">what is shown in CDC vaccine dose administration
+data</a>.
+Alaska and West Virginia also <a href="https://www.nytimes.com/2021/01/24/us/west-virginia-vaccine.html">stand
+out</a> with some
+of the highest per capita self-reported vaccination rates.</p>
+<p>This signal may differ from CDC data on vaccine administration across the U.S.
+because of survey biases combined with lag in official reporting and should not
+be treated as authoritative. We will continue to assess these biases as we collect
+more data. To establish confidence in the insights from the survey, we conducted a
+simple correlation analysis between the most recently available survey data and the
+official <a href="https://covid.cdc.gov/covid-data-tracker/#cases_casesper100klast7days">CDC vaccine data</a>.
+We found a correlation of 0.83 between the survey’s self-reported vaccine uptake and
+the CDC’s reported number of people with 1+ doses per 100K. This gives confidence that
+the survey aligns with official data and that the unique, granular insights showcased
+match reality.</p>
+<p>One of the unique values of our survey is that we are able to further break down the
+percentages by population subgroups, such as various race and ethnicity
+groups, which is important for policymakers to consider given the <a href="https://jamanetwork.com/journals/jama/fullarticle/2769837">health and
+vaccination
+disparities</a> that
+exist by race and ethnicity. In the figures below, we illustrate how
+self-reported vaccination rates vary by racial and ethnic groups.</p>
+<p><img src="/blog/images/vaccine_blog_uptake_race.svg" /></p>
+<p>There seems to be a large variation in self-reported vaccination by race and
+ethnicity: We observe the highest rates among Asians and American Indians or
+Alaska Natives, and the lowest rates among the Black or African American group.
+The high uptake among American Indians or Alaska Natives is particularly
+noteworthy, as it corroborates the efficient widespread vaccination rollouts by
+the <a href="https://www.ihs.gov/newsroom/pressreleases/2020-press-releases/ihs-releases-covid-19-pandemic-vaccine-plan-november-2020/">Indian Health
+Service</a>.</p>
+<p>We are also able to further examine disparities across the states in our data.
+Below, we illustrate how self-reported vaccination rates for Black individuals
+compare to White individuals:</p>
+<p><img src="/blog/images/vaccine_blog_uptake_black_to_white.svg" /></p>
+<p>While we are not currently able to make comparisons for all states due to a
+small sample size of Black respondents in several states that prevents aggregate
+reporting, we observe that for most of the remaining states, the estimated
+percentages of vaccinations are lower among Black adults compared to White
+adults, with most states showing a relative ratio less than 1, meaning a lower
+likelihood of self-reported vaccinations among Black adults compared to White
+adults. As we make comparisons using these data, we should acknowledge that
+vaccinations are currently being prioritized among healthcare workers and older
+individuals, so the trends that we observe today may not necessarily be what we
+observe once vaccinations reach other population groups.</p>
+</div>
+<div id="vaccine-uptake-among-priority-groups" class="section level2">
+<h2>Vaccine Uptake Among Priority Groups</h2>
+<p>State and local health authorities are currently allocating the COVID vaccine
+first to certain priority groups, taking into consideration
+<a href="https://www.cdc.gov/mmwr/volumes/69/wr/mm695152e2.htm">recommendations</a> by the
+CDC and the Advisory Committee on Immunization Practices. For most states, the
+priority groups currently include healthcare workers and those over age 65 or
+75.</p>
+<p>Using survey responses from early January, we used the Symptom Survey to examine
+estimated vaccination rates among healthcare workers and people age 65 and
+older. For several months, the survey has been asking a few questions related to
+occupation, so we classified respondents as healthcare workers if they indicated
+that their job can be categorized as either “healthcare practitioner or
+technician” or “healthcare support”. (This includes, doctors, nurses,
+pharmacists, dentists, technicians, and many related fields.) Below, we depict
+1) self-reported vaccination rates among the priority groups, 2) differences in
+the percentages by gender, and 3) differences in the percentages by race and
+ethnicity groups.</p>
+<p><img src="/blog/images/vaccine_blog_priority_by_gender.svg" /></p>
+<p>Self-reported vaccination rates are higher among healthcare workers than among
+individuals aged 65+ years, which is reasonable given that they were the first
+group to be given priority. When comparing by gender, the proportions are
+slightly higher for men compared to women, and this difference is more prominent
+among healthcare workers.</p>
+<p><img src="/blog/images/vaccine_blog_priority_by_race.svg" /></p>
+<p>We also notice a consistent trend in self-reported vaccination rates when broken
+down by race and ethnicity: the rate among the Black or African American group
+is consistently lower than other groups such as White and Asian. This is
+<a href="https://ajph.aphapublications.org/doi/10.2105/AJPH.2020.305990">consistent with
+research</a> on
+health disparities during the COVID pandemic and many years of disparities long
+before it, highlighting the importance of actions to reduce disparity in
+healthcare and access.</p>
+<p>(<em>Note that when a race and ethnicity group is missing in the figures, it does
+not necessarily indicate the absence of the group among our respondents; it is
+more likely that there are too few responses among that group for aggregated
+reporting in a given area.</em>)</p>
+</div>
+<div id="vaccine-acceptance" class="section level2">
+<h2>Vaccine Acceptance</h2>
+<p>There are still many who have not yet received a vaccination in the U.S.,
+including among priority groups. This raises the question: of those not yet
+vaccinated, how many are willing to receive a COVID-19 vaccination? We mapped
+the estimated proportion of vaccine acceptance, which is defined here as
+<em>definitely</em> or <em>probably</em> choosing to receive a COVID-19 vaccination if it were
+offered to them today.</p>
+<p>We find that in most states, the majority of people are vaccine-accepting, and
+that the highest acceptance rates are observed in states in the western,
+midwestern, and northeastern regions (see figure below). While researchers are
+not yet certain about the proportion of the population that should be vaccinated
+to reach <a href="https://www.who.int/news-room/q-a-detail/herd-immunity-lockdowns-and-covid-19">herd
+immunity</a>
+against COVID-19, our data on vaccine acceptance and uptake still provide
+valuable insights into where and who we can better target to improve
+vaccine-related sentiments.</p>
+<p><img src="/blog/images/vaccine_blog_acceptance_overall.svg" /></p>
+<p>Similar to what we have observed with self-reported vaccination rates, our data
+depict a wide range of vaccine acceptance by race and ethnicity groups (shown
+below). This disparity is similar to <a href="https://jamanetwork.com/journals/jama/fullarticle/2769837">what has been seen previously for other
+vaccines</a>, and is
+<a href="https://www.cdc.gov/coronavirus/2019-ncov/community/health-equity/race-ethnicity.html">likely the result of many
+factors</a>:
+in particular, in the United States, minority groups are less likely to have
+affordable access to healthcare, and decades of discriminatory treatment have
+reduced their trust in medicine.</p>
+<p><img src="/blog/images/vaccine_blog_acceptance_race.svg" /></p>
+</div>
+<div id="increasing-the-likelihood-of-vaccination" class="section level2">
+<h2>Increasing the Likelihood of Vaccination</h2>
+<p>Our new survey data shows not only the prevalence of self-reported vaccination
+uptake and acceptance, but also how we may be able to improve
+vaccination-related messaging. One of the questions that we ask on our survey
+is, “Would you be more or less likely to get a COVID-19 vaccination if it were
+recommended to you by each of the following? Friends or family, local healthcare
+providers, World Health Organization (WHO), politicians, or government health
+officials” (adapted from the <a href="https://covidsurvey.mit.edu/">MIT COVID-19
+Survey</a>).</p>
+<p>With this information, we are able to examine which of the five sources of
+information may be trusted more by individuals who have not yet reported getting
+vaccinated. Below, we break down the responses by two groups of respondents:
+those who are vaccine-accepting (i.e., indicated that they are <em>definitely</em> or
+<em>probably</em> choosing to get vaccinated) and those who are vaccine-hesitant (i.e.,
+indicated that they are <em>definitely not</em> or <em>probably not</em> choosing to get
+vaccinated).</p>
+<p><img src="/blog/images/vaccine_blog_priority_trust.svg" /></p>
+<p>Interestingly, but perhaps not surprisingly, there seems to be a large
+difference in responses between the vaccine-accepting and vaccine-hesitant
+groups. We find that among individuals who have not yet been vaccinated
+(self-reported), those who are vaccine-hesitant are much less likely to get
+vaccinated based on recommendations in general compared to the vaccine-accepting
+group.</p>
+<p>Among those who are vaccine-accepting, they are more likely to get vaccinated if
+the recommendations come from more authoritative sources like the World Health
+Organization (WHO), local healthcare workers, or government health officials.
+Those who are vaccine-hesitant are less likely to report that they would get
+vaccinated in general; however, they also seem to trust their local healthcare
+workers the most as a vaccine-related information source. Interestingly, this
+group is also more likely to take recommendations from friends or family members
+than from the WHO or government health officials. Taken together, our results
+can be used to inform how policymakers and health organizations should leverage
+various information sources in future messaging campaigns to potentially
+increase vaccine acceptance and ultimately, vaccine uptake.</p>
+</div>
+<div id="concerns-about-side-effects" class="section level2">
+<h2>Concerns About Side Effects</h2>
+<p><a href="https://www.cdc.gov/vaccines/hcp/acip-recs/general-recs/programs.html">To improve and sustain high vaccination
+rates</a>,
+it will also be critical to understand potential barriers to uptake or reasons
+for vaccine hesitancy. One major barrier may be concerns related to side
+effects, and we can track the percentages of those who may be concerned about
+side effects using one of our newly-added questions: <em>“How concerned are you
+that you would experience a side effect from a COVID-19 vaccination?”</em></p>
+<p>When we examine the state-level estimated percentages (shown in the figure
+below), we find that the proportion of those who are very or somewhat worried
+about side effects vary from 30% to 50% in the U.S., and we observe the highest
+rates concentrated in the South.</p>
+<p><img src="/blog/images/vaccine_blog_concern_sideeffects.svg" /></p>
+<p>Based on our earlier results demonstrating differences in vaccination rates and
+acceptance by race and ethnicity, we also illustrate below how concerns about
+side effects compare between Black and White adults.</p>
+<p><img src="/blog/images/vaccine_blog_concern_sideeffects_bw.svg" /></p>
+<p>In all of the states with adequate survey sample sizes for both Black and White
+respondents, we find that Black individuals are consistently more likely to
+worry about experiencing a side effect compared to White individuals, as
+indicated by relative ratios that are greater than 1 (meaning a higher
+likelihood of worrying about a side effect). In fact, in some states, this ratio
+reaches 2, which means that Black adults are twice as likely to worry about
+experiencing a side effect compared to White adults When we further break down
+this comparison by vaccine acceptance/hesitancy (see the figure below), we find
+that Black individuals are always more likely to be concerned about experiencing
+side effects compared to White individuals, regardless of being
+vaccine-accepting or vaccine-hesitant. Future research is warranted to better
+understand how we can address these concerns in various subpopulation groups and
+if addressing concerns related to side effects can lead to higher vaccination
+rates.</p>
+<p><img src="/blog/images/vaccine_blog_concern_sideeffects_hesitance.svg" /></p>
+</div>
+<div id="how-you-can-analyze-this-data" class="section level2">
+<h2>How You Can Analyze This Data</h2>
+<p>In this post, we provided an introduction and an overview of the
+vaccination-related data that are available in the COVID Symptom Survey and how
+we can use the data to answer important public health questions related to
+vaccinations. There are, however, many more questions that you can help answer.
+For example, how do self-reported vaccinations and vaccination-related
+sentiments change over time? How do these change in response to guidelines and
+public health interventions? Is vaccine hesitancy associated with other
+behavioral measures or social activities? How is your local community responding
+to all of the vaccination-related efforts? You can answer all of these and more
+by analyzing these data!</p>
+<p>To get started, check out our
+{{< reflink "/covidcast" "interactive map" >}} and {{< reflink "survey-results" "survey dashboard" >}}
+to play with the data. Then dive into our
+{{< apireflink "/symptom-survey/" "documentation" >}} on
+the COVID Symptom Survey.
+{{< apireflink "/api/covidcast-signals/fb-survey.html" "County and state-level aggregates" >}}
+are available publicly through the Delphi Group’s
+{{< apireflink "/api/covidcast.html" "COVIDcast API" >}}. In the
+coming weeks we plan to release additional aggregates, including many of the
+demographic breakdowns you’ve seen above, as data files for public research use.
+(These will only contain aggregated data, not individual survey responses.)
+Academic and non-profit researchers can also
+{{< apireflink "/symptom-survey/data-access.html" "request access to the microdata" >}}.</p>
+<p>For those interested, you can also read about the <a href="https://covidmap.umd.edu/">international Symptom
+Survey</a>, which is conducted by our partner the
+University of Maryland in over 200 countries and territories worldwide.</p>
+</div>
+<div id="privacy-statement" class="section level2">
+<h2>Privacy Statement</h2>
+<p>This survey was designed with privacy in mind from the start. Carnegie Mellon
+University and the University of Maryland do not share individual survey
+responses with Facebook, and while Facebook recruits participants to the survey,
+participants can’t be linked back to their Facebook profiles. When non-aggregated
+survey data is shared with eligible academic and nonprofit institutions, Facebook
+shares a single statistic known as a weight value, which doesn’t identify a person but
+helps researchers correct for any sample bias. This helps ensure that the survey
+sample more accurately reflects the characteristics of the population represented
+in the data.</p>
+</div>
