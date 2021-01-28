@@ -323,9 +323,9 @@ to all of the vaccination-related efforts? You can answer all of these and more
 by analyzing these data!
 
 To get started, check out our [interactive
-map](https://delphi.cmu.edu/covidcast/?date=20210121&region=42003) and [survey
-dashboard](https://delphi.cmu.edu/covidcast/survey-results/?date=20210123) to
-play with the data. Then dive into our
+map](https://delphi.cmu.edu/covidcast/) and [survey
+dashboard](https://delphi.cmu.edu/covidcast/survey-results/) to play with the
+data. Then dive into our
 [documentation](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/) on
 the COVID Symptom Survey. [County and state-level
 aggregates](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html)
