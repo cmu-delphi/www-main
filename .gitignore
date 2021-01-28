@@ -11,3 +11,5 @@
 /assets/jsconfig.json
 /static/uikit/**
 .DS_Store
+*.zip
+*.tgz
