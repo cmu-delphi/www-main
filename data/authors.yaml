@@ -54,3 +54,12 @@
   name: Zachary Chase Lipton
   link: https://acmilab.org
   description: is an Assistant Professor of Operations Research and Machine Learning at CMU and is a member of Delphi.
+- key: ekim
+  name: Esther Kim
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+- key: agarcia
+  name: Andy Garcia
+  description: is a Data Scientist on the Health team at Facebook.
+- key: slarocca
+  name: Sarah LaRocca
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
