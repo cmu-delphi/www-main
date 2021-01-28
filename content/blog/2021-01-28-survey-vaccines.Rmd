@@ -12,6 +12,8 @@ authors:
   - ekim
   - agarcia
   - slarocca
+heroImage: /blog/images/blog-lg-vaccine-survey.jpg
+heroImageThumb: /blog/images/blog-thumb-vaccine-survey.jpg
 summary: |
   Data from the Symptom Survey reveal how COVID-19 vaccinations are rolling out
   across the nation.
