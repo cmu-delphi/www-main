@@ -69,9 +69,9 @@ Getting access to survey data for research: [complete this form](https://datafor
 
 ### Media inquiries:
 
-[Byron Spice](mailto:bspice@cs.cmu.edu)  
-Director, Media Relations  
-School of Computer Science  
+[Stacy Kish](mailto:skish@andrew.cmu.edu)  
+Associate Director, Research Communications  
+Dietrich College  
 Carnegie Mellon University
 
 ### All other questions:
