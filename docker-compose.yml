@@ -5,7 +5,7 @@ services:
   r:
     build:
       context: .
-      dockerfile: devops/r/Dockerfile
+      dockerfile: devops/r.dockerfile
     working_dir: "/app"
     command: tail -F anything
     volumes:

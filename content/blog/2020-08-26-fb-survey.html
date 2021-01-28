@@ -36,7 +36,7 @@ acknowledgements: |
   survey data. The COVIDcast API, which serves these estimates and is updated
   daily, is a much larger effort run by the Delphi group, and our entire
   engineering team is owed a lot of credit here. Ryan came up with the
-  idea of running the surveys, and worked with Facebook to make this a reality.
+  idea of running the surveys, and worked with Facebook to make this a reality. 
   On the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
   University of Maryland team, including Adrianne Bradford and Samantha Chiu and
   led by Frauke Kreuter, made many contributions to the survey design.
@@ -48,8 +48,6 @@ output:
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 <div id="TOC">
 <ul>
@@ -79,8 +77,8 @@ allowing us to examine county-level trends across the US.
 We believe that this combination of <em>detail</em> and <em>scale</em>
 has never before been available in a public health emergency.</p>
 <p>We make aggregated data publicly available daily through our
-<a href="{{< apiref "api/covidcast.html" >}}">COVIDcast API</a>,
-and visualize it on our <a href="{{< ref "covidcast" >}}">COVIDcast interactive map</a>.
+{{< apireflink "api/covidcast.html" "COVIDcast API" >}},
+and visualize it on our {{< reflink "covidcast" "COVIDcast interactive map" >}}.
 We also make (fully de-identified) individual survey responses available
 to researchers who agree to
 <a href="https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/">data use terms</a>.</p>
@@ -156,22 +154,23 @@ df_in = covidcast_signal(&quot;jhu-csse&quot;, &quot;confirmed_7dav_incidence_pr
 df_fb_avg = df_fb %&gt;% group_by(geo_value) %&gt;% summarize(value = mean(value))
 df_in_avg = df_in %&gt;% group_by(geo_value) %&gt;% summarize(value = mean(value))
 
-# Set a bunch of fields so that the data frames know how to plot themselves
-df_fb_avg$time_value = df_in_avg$time_value = start_day
-df_fb_avg$issue = df_in_avg$issue = start_day
-attributes(df_fb_avg)$metadata$geo_type = &quot;state&quot;
-attributes(df_in_avg)$metadata$geo_type = &quot;state&quot;
-class(df_fb_avg) = c(&quot;covidcast_signal&quot;, class(df_fb_avg))
-class(df_in_avg) = c(&quot;covidcast_signal&quot;, class(df_in_avg))
+# Turn these into covidcast_signal data frames that can be mapped
+df_fb_avg = df_fb_avg %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;fb_avg&quot;, geo_type = &quot;state&quot;)
+
+df_in_avg = df_in_avg %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;in_avg&quot;, geo_type = &quot;state&quot;)
 
 # Plot choropleth maps, using the covidcast plotting functionality
 subtitle = paste(&quot;Averaged over&quot;, start_day, &quot;to&quot;, end_day)
 p1 = plot(df_fb_avg,
           title = &quot;% of people with COVID symptoms, based on Facebook surveys&quot;,
-          range=c(0, 1), choro_params = list(subtitle = subtitle))
+          range = c(0, 1), choro_params = list(subtitle = subtitle))
 p2 = plot(df_in_avg,
           title = &quot;Daily new confirmed COVID-19 cases per 100,000 people&quot;,
-          range=c(0, 30), choro_params = list(subtitle = subtitle))
+          range = c(0, 30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)</code></pre>
 <p><img src="/blog/2020-08-26-fb-survey_files/figure-html/unnamed-chunk-2-1.svg" width="960" class="wide-figure" /></p>
 <p>We generated these plots using our <a href="https://cmu-delphi.github.io/covidcast/covidcastR/">covidcast R
@@ -179,8 +178,7 @@ package</a>.
 In all, fetching the data from our API and producing the heatmaps
 requires only 15 lines of code.
 If you’re interested, click the “Code” button to reveal the source.
-We’ll cover our <a href="{{< apiref "api/covidcast_clients.html" >}}">R and Python covidcast
-packages</a>
+We’ll cover our {{< apireflink "api/covidcast_clients.html" "R and Python covidcast packages" >}}
 in a future blog post.</p>
 </div>
 <div id="why-run-these-surveys" class="section level2">
@@ -214,8 +212,7 @@ to reflect the true rate of COVID-19 (and they’re not intended to).</p></li>
 which may be a sizeable fraction of the US population, but certainly not all of
 it. We’ll also likely see bias because some people on Facebook are more inclined
 to take surveys than others. We attempt to correct for both of these biases
-using a <a href="{{< apiref "api/covidcast-signals/fb-survey.html#survey-weighting" >}}">statistical reweighting
-scheme</a>,
+using a {{< apireflink "api/covidcast-signals/fb-survey.html#survey-weighting" "statistical reweighting scheme" >}},
 but these corrections aren’t perfect.</p></li>
 <li><p>Our symptom data is entirely self-reported, in contrast to data
 reported by medical professionals. Some fraction of the responses could be
@@ -249,8 +246,7 @@ quantities, in a given location, on a given day:</p>
 community</em> with COVID-like illness.</p></li>
 </ul>
 <p>Details on how we compute the % CLI and % CLI-in-community estimates can be
-found in our <a href="{{< apiref "api/covidcast-signals/fb-survey.html" >}}">COVIDcast signals
-documentation</a>.</p>
+found in our {{< apireflink "api/covidcast-signals/fb-survey.html" "COVIDcast signals documentation" >}}.</p>
 <p>The % CLI-in-community indicator has an interesting backstory: it was sort of a
 “happy accident” from an experiment we tried with surveys we were running in
 partnership with Google. (We’ll cover our Google survey in a future blog post.)
@@ -269,10 +265,8 @@ gathered ideas for more questions from several different research groups in
 public health. They assured us that lengthening the survey wouldn’t hurt the
 completion rate too much, and they were right: of the people who complete the
 first section, over 85% go on to finish the full survey!</p>
-<p>Our <a href="{{< apiref "symptom-survey/" >}}">survey documentation
-site</a> includes more
-details about the survey, including the <a href="{{< apiref "symptom-survey/coding.html" >}}">full text of every survey
-version</a>.
+<p>Our {{< apireflink "symptom-survey/" "survey documentation site" >}} includes more
+details about the survey, including the {{< apireflink "symptom-survey/coding.html" "full text of every survey version" >}}.
 And yes, researchers can <a href="https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/">request
 access</a>
 to (fully de-identified) individual survey responses for research purposes,
@@ -517,12 +511,13 @@ Note that here a gray color denotes a missing value:
 either that county had below 500 cumulative COVID-19 cases,
 or we didn’t have enough data from the surveys in
 order to estimate % CLI and % CLI-in-community signals there.</p>
-<pre class="r"><code># Set a bunch of fields so that the data frames know how to plot themselves
-df_cor1$time_value = df_cor2$time_value = start_day
-df_cor1$issue = df_cor2$issue = start_day
-attributes(df_cor1)$metadata$geo_type = &quot;county&quot;
-attributes(df_cor2)$metadata$geo_type = &quot;county&quot;
-class(df_cor1) = class(df_cor2) = c(&quot;covidcast_signal&quot;, &quot;data.frame&quot;)
+<pre class="r"><code># Use as.covidcast_signal to turn these into mappable signals
+df_cor1 = df_cor1 %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;cor1&quot;)
+df_cor2 = df_cor2 %&gt;%
+  mutate(time_value = start_day) %&gt;%
+  as.covidcast_signal(signal = &quot;cor1&quot;)
 
 # Plot choropleth maps, using the covidcast plotting functionality
 p1 = plot(df_cor1, title = &quot;Correlation between % CLI and case rates&quot;,
@@ -579,7 +574,6 @@ designed to help those most affected by the pandemic.</p>
 and data should become available in the next few weeks.
 Detailed data will be available to researchers,
 while new aggregates—such as of mask-wearing—will
-be made public, as usual, through our <a href="{{< apiref "api/covidcast.html" >}}">COVIDcast
-API</a>
-and <a href="{{< ref "covidcast" >}}">COVIDcast interactive map</a>.</p>
+be made public, as usual, through our {{< apireflink "api/covidcast.html" "COVIDcast API" >}}
+and {{< reflink "covidcast" "COVIDcast interactive map" >}}.</p>
 </div>

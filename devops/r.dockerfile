@@ -1,8 +1,10 @@
 # docker image for setting up an R environment
 FROM continuumio/miniconda
 
+RUN conda install --name base --channel conda-forge mamba=*
+
 ADD ./environment.yml .
-RUN conda env create -f environment.yml
+RUN mamba env create -f environment.yml
 
 ADD ./dependencies.R .
 

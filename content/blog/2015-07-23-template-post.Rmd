@@ -9,8 +9,8 @@ tags:
 draft: true # remove this line in new blog posts
 authors: # list of author keys, see /data/authors.yaml
   - frida
-heroImage: /blog/images/blog-lg-img_hello-world.jpg
-heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
+heroImage: /blog/images/blog-lg-img_hello-world.jpg # size: 1120x440 jpg and webp format
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg # size: 300x200 jpg and webp format
 summary: |
   Blog summary, the first 150 characters are used for the blog list
 acknowledgements: |
@@ -110,12 +110,12 @@ suggest we consider the following tags as base tags:
 
 ### Linking to other pages and blog posts:
 
-using the file name and the Hugo shortcodes, e.g.: [Facebook Post](`r blogdown::shortcode_html("relref", "2020-08-26-fb-survey")`).
+using the file name and the Hugo shortcodes, e.g.: `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey", "Facebook Post")`.
 Jumping to a specific section/anchor is supported too: 
-[previous exploratory investigations](`r blogdown::shortcode_html("relref", "2020-08-26-fb-survey#some-interesting-examples")`)
+`r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey#some-interesting-examples", "previous exploratory investigations")`
 
 ### Linking to the API doc:
 
 there is another shortcode for creating an api link, e.g. 
-[public API](`r blogdown::shortcode_html("apiref", "/")`) or
-[Doctor's Visits signal](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/doctor-visits.html")`) 
+`r blogdown::shortcode_html("apireflink", "/", "public API")` or
+`r blogdown::shortcode_html("apireflink", "api/covidcast-signals/doctor-visits.html", "Doctor's Visits signal")` 

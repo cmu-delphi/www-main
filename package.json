@@ -1,6 +1,6 @@
 {
   "name": "www-main",
-  "version": "1.12.4",
+  "version": "1.12.5",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
@@ -10,24 +10,31 @@
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v1.12.4/www-covidcast-1.12.4.tgz"
   },
   "devDependencies": {
+    "bestzip": "^2.1.7",
     "hugo-bin": "^0.67.1",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "prettier-plugin-go-template": "^0.0.10",
+    "release-it": "^14.2.2",
+    "rimraf": "^3.0.2",
     "shx": "^0.3.3"
   },
   "scripts": {
+    "clean": "rimraf \"*.zip\" \"*.tgz\" public",
     "copy_fonts": "shx cp -r \"node_modules/katex/dist/fonts/*\" themes/delphi/static/css/fonts/",
     "copy_covidcast": "shx rm -rf \"static/covidcast/*\" && shx cp \"node_modules/www-covidcast/public/**/*.{js,txt,css,map}\" static/covidcast/",
     "postinstall": "npm run copy_fonts && npm run copy_covidcast",
-    "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd=TRUE)\"",
+    "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd='md5sum')\"",
+    "prebuild": "npm run clean",
     "build": "hugo --gc --minify",
     "start": "hugo server -D",
-    "start:blog": "Rscript -e \"blogdown::serve_site()\"",
+    "start:blog": "Rscript -e \"blogdown::serve_site(port=1313, browser=FALSE)\"",
     "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
     "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check",
-    "image": "docker build -t www-main:latest --file ./devops/Dockerfile ."
+    "image": "docker build -t www-main:latest --file ./devops/Dockerfile .",
+    "release": "release-it --disable-metrics",
+    "zip": "cd public && bestzip ../website.zip *"
   },
   "hugo-bin": {
     "buildTags": "extended"

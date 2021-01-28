@@ -29,4 +29,7 @@
 *.md
 *.jpeg
 *.ico
+*.bib
 /themes/delphi/layouts/partials/webp-image.html
+/themes/delphi/layouts/shortcodes/apireflink.html
+/themes/delphi/layouts/shortcodes/reflink.html

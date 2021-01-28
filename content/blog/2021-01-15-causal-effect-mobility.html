@@ -27,8 +27,7 @@ output:
     toc: true
 ---
 
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -151,7 +150,7 @@ a negative relationship between <span class="math inline">\(Y\)</span> and <span
 age, increasing <span class="math inline">\(A\)</span> would <em>decrease</em> <span class="math inline">\(Y\)</span>. In this case, age is a
 confounder and the <span class="math inline">\(g\)</span>-formula would correctly recover the negative
 relationship. For causal inference, this is the correct conclusion.</p>
-<p><img src="/blog/images/causal-simple-confounder.svg" /></p>
+<p><img src="/blog/2021-01-15-causal-effect-mobility_files/causal-simple-confounder.svg" /></p>
 <p>Things get trickier
 when there are time varying variables.
 Consider weekly mobility and death data
@@ -354,9 +353,8 @@ we’ll consider here is the
 proportion of people of who stay home,
 which is kindly provided to Delphi by
 SafeGraph.
-(We <a href="{{< apiref "api/covidcast-signals/safegraph.html" >}}">publish this
-data</a>
-in our <a href="{{< apiref "api/covidcast.html" >}}">COVIDcast Epidata API</a>,
+(We {{< apireflink "api/covidcast-signals/safegraph.html" "publish this data" >}}
+in our {{< apireflink "api/covidcast.html" "COVIDcast Epidata API" >}},
 so it is available to anyone interested in studying mobility during the pandemic.)
 We use data at the state level.
 Note that this is actually a sort of anti-mobility measure:
@@ -465,7 +463,7 @@ indicates that increasing
 stay-at-home decreases deaths, as we would expect.
 (We remind the reader
 that these results are preliminary.)</p>
-<p><img src="/blog/images/causal-effect-mobility-bigstates.svg" /></p>
+<p><img src="/blog/2021-01-15-causal-effect-mobility_files/causal-effect-mobility-bigstates.svg" /></p>
 </div>
 <div id="whats-next" class="section level2">
 <h2>What’s Next?</h2>
