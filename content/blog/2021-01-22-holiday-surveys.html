@@ -1,5 +1,5 @@
 ---
-title: "Home for the holidays? The impact of US holidays on social behaviors and preventative measures"
+title: "Home for the Holidays? The Impact of US Holidays on Social Behaviors and Preventative Measures"
 author: "Leanna Morinishi, Kris Barkume, Esther Kim, and Alex Reinhart"
 date: 2021-01-22
 tags:
@@ -29,7 +29,8 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 <div id="TOC">
 <ul>
@@ -111,8 +112,8 @@ travel_normed &lt;- travel %&gt;%
 
 regionmap &lt;- travel %&gt;%
   filter(geo_value %in% str_to_lower(statelist)) %&gt;%
-  mutate(value=plyr::mapvalues(geo_value, str_to_lower(statelist), regions),
-         value=as.integer(factor(value)))
+  mutate(value = plyr::mapvalues(geo_value, str_to_lower(statelist), regions),
+         value = as.integer(factor(value)))
 
 grid_label &lt;- textGrob(&quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;,
                        hjust = 1, x = 1, gp = gpar(fontsize = 9))
@@ -125,7 +126,7 @@ g1 &lt;- travel_normed %&gt;%
              linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
   geom_line(aes(x = date, y = mean, color = Region)) +
   geom_ribbon(aes(x = date, ymin = mean - se, ymax = mean + se, fill = Region),
-              alpha=0.2) +
+              alpha = 0.2) +
   scale_x_date(date_breaks = &quot;2 weeks&quot;,
                date_labels = &quot;%b %d %Y&quot;,
                date_minor_breaks = &quot;1 week&quot;) +
@@ -133,17 +134,20 @@ g1 &lt;- travel_normed %&gt;%
        title = &quot;Relative out-of-state travel by US region&quot;,
        subtitle = &quot;From Delphi&#39;s surveys, conducted through Facebook&quot;) +
   theme_bw() +
-  theme(legend.position = c(.075, .9)) +
+  theme(legend.position = c(0.095, 0.8)) +
   guides(color = FALSE)
 
 g2 &lt;- plot(regionmap,
-           title = &quot;US Regions&quot;, range = c(1, 4),
-           choro_col = c(&quot;#F8766D&quot;, &quot;#7CAE00&quot;, &quot;#00BFC4&quot;, &quot;#C77CFF&quot;))
+           title = &quot;US Regions&quot;,
+           choro_col = c(&quot;#F8766D&quot;, &quot;#7CAE00&quot;, &quot;#00BFC4&quot;, &quot;#C77CFF&quot;),
+           choro_params = list(breaks = c(1, 2, 3, 4),
+                               legend_position = &quot;none&quot;)) +
+    theme(legend.position = &quot;none&quot;)
 
 lay &lt;- rbind(c(1,1,1,2),
              c(1,1,1,2))
 grid.arrange(g1, g2, nrow = 1, bottom = grid_label, layout_matrix=lay)</code></pre>
-<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/traveled-recently-1.svg" width="960" class="wide-figure" /></p>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/traveled-recently-1.svg" width="864" class="wide-figure" /></p>
 <p>In the COVID-19 survey, we see an increase in self-reported out-of-state travel
 in this time frame by surveyed adults. The figure above depicts the normalized
 percent of survey respondents who recently traveled out-of-state for 4 US

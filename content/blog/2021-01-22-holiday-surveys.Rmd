@@ -67,7 +67,7 @@ from airlines suggested that travel reached its highest levels since the start
 of the pandemic during the Christmas holiday with about 1% of the US population
 taking flights in just the few days surrounding the holiday.
 
-```{r traveled-recently, message=FALSE, fig.width=10, out.extra = 'class="wide-figure"'}
+```{r traveled-recently, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(ggplot2)
 library(stringr)
@@ -105,8 +105,8 @@ travel_normed <- travel %>%
 
 regionmap <- travel %>%
   filter(geo_value %in% str_to_lower(statelist)) %>%
-  mutate(value=plyr::mapvalues(geo_value, str_to_lower(statelist), regions),
-         value=as.integer(factor(value)))
+  mutate(value = plyr::mapvalues(geo_value, str_to_lower(statelist), regions),
+         value = as.integer(factor(value)))
 
 grid_label <- textGrob("Data from Delphi COVIDcast, delphi.cmu.edu",
                        hjust = 1, x = 1, gp = gpar(fontsize = 9))
@@ -119,7 +119,7 @@ g1 <- travel_normed %>%
              linetype = "dashed", size = 1.5, color = "darkgrey") +
   geom_line(aes(x = date, y = mean, color = Region)) +
   geom_ribbon(aes(x = date, ymin = mean - se, ymax = mean + se, fill = Region),
-              alpha=0.2) +
+              alpha = 0.2) +
   scale_x_date(date_breaks = "2 weeks",
                date_labels = "%b %d %Y",
                date_minor_breaks = "1 week") +
@@ -127,12 +127,14 @@ g1 <- travel_normed %>%
        title = "Relative out-of-state travel by US region",
        subtitle = "From Delphi's surveys, conducted through Facebook") +
   theme_bw() +
-  theme(legend.position = c(.075, .9)) +
+  theme(legend.position = c(0.095, 0.8)) +
   guides(color = FALSE)
 
 g2 <- plot(regionmap,
-           title = "US Regions", range = c(1, 4),
-           choro_col = c("#F8766D", "#7CAE00", "#00BFC4", "#C77CFF"))
+           title = "US Regions",
+           choro_col = c("#F8766D", "#7CAE00", "#00BFC4", "#C77CFF"),
+           choro_params = list(breaks = c(1, 2, 3, 4))) +
+    theme(legend.position = "none")
 
 lay <- rbind(c(1,1,1,2),
              c(1,1,1,2))
