@@ -123,7 +123,7 @@ g1 <- travel_normed %>%
   scale_x_date(date_breaks = "2 weeks",
                date_labels = "%b %d %Y",
                date_minor_breaks = "1 week") +
-  labs(x = "Date", y = "% Out-of-state travel in last 5 days",
+  labs(x = "Date", y = "% traveled out-of-state in last 5 days",
        title = "Relative out-of-state travel by US region",
        subtitle = "From Delphi's surveys, conducted through Facebook") +
   theme_bw() +
@@ -166,7 +166,7 @@ estimates from the Bureau of Transportation Statistics of 23%. Overall though,
 the out-of-state travel reported in the CSS is still down compared to earlier
 months in the pandemic.
 
-```{r spent-time, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
+```{r spent-time, message=FALSE}
 spent_time <- covidcast_signal("fb-survey",
                                "smoothed_wspent_time_1d",
                                start_day = start_after_election, end_day = end_day,
@@ -194,11 +194,12 @@ spent_time_stats %>%
   scale_x_date(date_breaks = "2 weeks",
                date_labels = "%b %d %Y",
                date_minor_breaks = "1 week") +
-  labs(x = "Date", y = "% Spent time with non-household member in past 24h",
-       title = "Percent surveyed that spent time with a non-household member by US region",
-       subtitle = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+  labs(x = "Date", y = "% spent time with non-household member in past 24h",
+       title = "Percent surveyed that spent time with a non-household member",
+       subtitle = "7-day rolling average",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
   theme_bw() +
-  theme(legend.position = c(.075,.15)) +
+  theme(legend.position = c(0.095, 0.2)) +
   guides(color = FALSE)
 
 ```
@@ -222,7 +223,7 @@ Overall, we don’t see strong evidence in the data of people proactively
 quarantining between the Thanksgiving and Christmas holidays to reduce the
 potential for community spread of COVID-19.
 
-```{r went-shopping, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
+```{r went-shopping, message=FALSE}
 shopped <- covidcast_signal("fb-survey",
                             "smoothed_wshop_1d",
                             start_day = start_after_election, end_day = end_day,
@@ -251,10 +252,11 @@ shopped_stats %>%
                date_labels = "%b %d %Y",
                date_minor_breaks = "1 week") +
   labs(x = "Date", y = "% Went shopping in past 24h",
-       title = "Percent surveyed that went shopping recently by US region",
-       subtitle = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+       title = "Percent surveyed that went shopping recently",
+       subtitle = "7-day rolling average",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
   theme_bw() +
-  theme(legend.position = c(.075, .15)) +
+  theme(legend.position = c(.095, 0.2)) +
   guides(color = FALSE)
 ```
 
@@ -272,7 +274,7 @@ survey question.
 
 ## Preventative Measures and Testing During the US Holidays
 
-```{r wore-mask, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
+```{r wore-mask, message=FALSE}
 masked <- covidcast_signal("fb-survey",
                            "smoothed_wwearing_mask",
                            start_day = start_after_election, end_day = end_day,
@@ -300,11 +302,12 @@ masked_stats %>%
   scale_x_date(date_breaks = "2 weeks",
                date_labels = "%b %d %Y",
                date_minor_breaks = "1 week") +
-  labs(x = "Date", y = "% Wore a mask in public in past 5 days",
-       title = "Percent surveyed that wore a mask in public by US region",
-       subtitle = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+  labs(x = "Date", y = "% wore a mask in public in past 5 days",
+       title = "Percent surveyed who reported wearing a mask in public",
+       subtitle = "7-day rolling average",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
   theme_bw() +
-  theme(legend.position = c(.075, .15)) +
+  theme(legend.position = c(0.9, 0.2)) +
   guides(color = FALSE)
 
 ```
@@ -316,7 +319,17 @@ of people who say they wore masks most or all of the time while in public in the
 past 5 days increased across the nation prior to Thanksgiving and held steady
 through the end of the year (mean ± s.e. of states in region).
 
-```{r tested-recently, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
+Note, however, that this can't be directly interpreted to mean that a certain
+percentage of people wear masks in public places---the survey question asks
+respondents if they wear masks *most* or all of the time in public, and since
+mask usage is self-reported, it might be biased. A recent [Preventing Epidemics
+comparison](https://preventepidemics.org/covid19/science/weekly-science-review/january-9-15-2020/)
+found that this self-reported data tends to give higher rates of mask use when
+compared to direct observations of people in public places, such as through
+surveillance cameras at stores, but also found that these direct observations
+agree that mask use is increasing.
+
+```{r tested-recently, message=FALSE}
 tested <- covidcast_signal("fb-survey",
                            "smoothed_wtested_14d",
                            start_day = start_after_election, end_day = end_day,
@@ -346,11 +359,12 @@ tested_normed %>%
   scale_x_date(date_breaks = "2 weeks",
                date_labels = "%b %d %Y",
                date_minor_breaks = "1 week") +
-  labs(x = "Date", y = "% Tested in past 14 days",
-       title = "Percent surveyed that were tested recently by US region",
-       subtitle = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+  labs(x = "Date", y = "% tested in past 14 days",
+       title = "Percent surveyed that were tested recently",
+       subtitle = "7-day rolling average",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
   theme_bw() +
-  theme(legend.position = c(.075, .15)) +
+  theme(legend.position = c(0.095, 0.2)) +
   guides(color = FALSE)
 
 ```

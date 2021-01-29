@@ -130,7 +130,7 @@ g1 &lt;- travel_normed %&gt;%
   scale_x_date(date_breaks = &quot;2 weeks&quot;,
                date_labels = &quot;%b %d %Y&quot;,
                date_minor_breaks = &quot;1 week&quot;) +
-  labs(x = &quot;Date&quot;, y = &quot;% Out-of-state travel in last 5 days&quot;,
+  labs(x = &quot;Date&quot;, y = &quot;% traveled out-of-state in last 5 days&quot;,
        title = &quot;Relative out-of-state travel by US region&quot;,
        subtitle = &quot;From Delphi&#39;s surveys, conducted through Facebook&quot;) +
   theme_bw() +
@@ -140,8 +140,7 @@ g1 &lt;- travel_normed %&gt;%
 g2 &lt;- plot(regionmap,
            title = &quot;US Regions&quot;,
            choro_col = c(&quot;#F8766D&quot;, &quot;#7CAE00&quot;, &quot;#00BFC4&quot;, &quot;#C77CFF&quot;),
-           choro_params = list(breaks = c(1, 2, 3, 4),
-                               legend_position = &quot;none&quot;)) +
+           choro_params = list(breaks = c(1, 2, 3, 4))) +
     theme(legend.position = &quot;none&quot;)
 
 lay &lt;- rbind(c(1,1,1,2),
@@ -198,13 +197,14 @@ spent_time_stats %&gt;%
   scale_x_date(date_breaks = &quot;2 weeks&quot;,
                date_labels = &quot;%b %d %Y&quot;,
                date_minor_breaks = &quot;1 week&quot;) +
-  labs(x = &quot;Date&quot;, y = &quot;% Spent time with non-household member in past 24h&quot;,
-       title = &quot;Percent surveyed that spent time with a non-household member by US region&quot;,
-       subtitle = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;% spent time with non-household member in past 24h&quot;,
+       title = &quot;Percent surveyed that spent time with a non-household member&quot;,
+       subtitle = &quot;7-day rolling average&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
   theme_bw() +
-  theme(legend.position = c(.075,.15)) +
+  theme(legend.position = c(0.095, 0.2)) +
   guides(color = FALSE)</code></pre>
-<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/spent-time-1.svg" width="864" class="wide-figure" /></p>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/spent-time-1.svg" width="672" /></p>
 <p>Through the survey, we also find that more people in many states spent time with
 people outside of their household in social gatherings for Thanksgiving and
 Christmas when compared to the preceding week. In the above figure, the percent
@@ -250,12 +250,13 @@ shopped_stats %&gt;%
                date_labels = &quot;%b %d %Y&quot;,
                date_minor_breaks = &quot;1 week&quot;) +
   labs(x = &quot;Date&quot;, y = &quot;% Went shopping in past 24h&quot;,
-       title = &quot;Percent surveyed that went shopping recently by US region&quot;,
-       subtitle = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+       title = &quot;Percent surveyed that went shopping recently&quot;,
+       subtitle = &quot;7-day rolling average&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
   theme_bw() +
-  theme(legend.position = c(.075, .15)) +
+  theme(legend.position = c(.095, 0.2)) +
   guides(color = FALSE)</code></pre>
-<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/went-shopping-1.svg" width="864" class="wide-figure" /></p>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/went-shopping-1.svg" width="672" /></p>
 <p>Additionally, Thanksgiving and Christmas are major shopping holidays. When asked
 if they had gone to the “market, grocery store, or pharmacy” in the past 24
 hours, a high percentage of survey respondents responded they had on
@@ -297,19 +298,29 @@ masked_stats %&gt;%
   scale_x_date(date_breaks = &quot;2 weeks&quot;,
                date_labels = &quot;%b %d %Y&quot;,
                date_minor_breaks = &quot;1 week&quot;) +
-  labs(x = &quot;Date&quot;, y = &quot;% Wore a mask in public in past 5 days&quot;,
-       title = &quot;Percent surveyed that wore a mask in public by US region&quot;,
-       subtitle = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;% wore a mask in public in past 5 days&quot;,
+       title = &quot;Percent surveyed who reported wearing a mask in public&quot;,
+       subtitle = &quot;7-day rolling average&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
   theme_bw() +
-  theme(legend.position = c(.075, .15)) +
+  theme(legend.position = c(0.9, 0.2)) +
   guides(color = FALSE)</code></pre>
-<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/wore-mask-1.svg" width="864" class="wide-figure" /></p>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/wore-mask-1.svg" width="672" /></p>
 <p>While people in the US may have traveled more, shopped more, and spent more time
 with non-household members during the holidays, they also reported participating
 in preventative measures in public to a greater degree. For example, the percent
 of people who say they wore masks most or all of the time while in public in the
 past 5 days increased across the nation prior to Thanksgiving and held steady
 through the end of the year (mean ± s.e. of states in region).</p>
+<p>Note, however, that this can’t be directly interpreted to mean that a certain
+percentage of people wear masks in public places—the survey question asks
+respondents if they wear masks <em>most</em> or all of the time in public, and since
+mask usage is self-reported, it might be biased. A recent <a href="https://preventepidemics.org/covid19/science/weekly-science-review/january-9-15-2020/">Preventing Epidemics
+comparison</a>
+found that this self-reported data tends to give higher rates of mask use when
+compared to direct observations of people in public places, such as through
+surveillance cameras at stores, but also found that these direct observations
+agree that mask use is increasing.</p>
 <pre class="r"><code>tested &lt;- covidcast_signal(&quot;fb-survey&quot;,
                            &quot;smoothed_wtested_14d&quot;,
                            start_day = start_after_election, end_day = end_day,
@@ -339,13 +350,14 @@ tested_normed %&gt;%
   scale_x_date(date_breaks = &quot;2 weeks&quot;,
                date_labels = &quot;%b %d %Y&quot;,
                date_minor_breaks = &quot;1 week&quot;) +
-  labs(x = &quot;Date&quot;, y = &quot;% Tested in past 14 days&quot;,
-       title = &quot;Percent surveyed that were tested recently by US region&quot;,
-       subtitle = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;% tested in past 14 days&quot;,
+       title = &quot;Percent surveyed that were tested recently&quot;,
+       subtitle = &quot;7-day rolling average&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
   theme_bw() +
-  theme(legend.position = c(.075, .15)) +
+  theme(legend.position = c(0.095, 0.2)) +
   guides(color = FALSE)</code></pre>
-<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/tested-recently-1.svg" width="864" class="wide-figure" /></p>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/tested-recently-1.svg" width="672" /></p>
 <p>Several news agencies reported that the demand for COVID-19 tests <a href="https://www.wsj.com/articles/how-do-i-get-a-covid-19-test-before-thanksgiving-11605918004">surged before
 Thanksgiving</a>.
 While this was in large part due to rising COVID-19 cases nationwide, it is also
