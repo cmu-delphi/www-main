@@ -17,6 +17,7 @@ authors:
   - ekim
   - alex
 related:
+  - 2021-01-28-survey-vaccines
   - 2020-12-10-masks-public
   - 2020-10-06-survey-wave-4
 acknowledgements: |
