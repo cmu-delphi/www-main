@@ -37,7 +37,7 @@ jobs:
           path: ./public
           
       - name: Login to GitHub Container Registry
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/release') && github.event_name == 'push'
+        if: (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/release') && github.event_name == 'push'
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
@@ -45,7 +45,7 @@ jobs:
           password: ${{ secrets.CMU_DELPHI_DEPLOY_MACHINE_PAT }}
 
       - name: Build, tag, and push image to Github
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/release') && github.event_name == 'push'
+        if: (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/release') && github.event_name == 'push'
         env:
           DEVOPS_DOCKER_FILE: ./devops/precompiled.dockerfile
         run: |
