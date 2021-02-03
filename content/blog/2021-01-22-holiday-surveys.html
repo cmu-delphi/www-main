@@ -1,0 +1,411 @@
+---
+title: "Home for the Holidays? The Impact of US Holidays on Social Behaviors and Preventative Measures"
+author: "Leanna Morinishi, Kris Barkume, Esther Kim, and Alex Reinhart"
+date: 2021-02-02
+tags:
+  - COVIDcast
+  - symptom surveys
+  - R
+summary: |
+  How did Thanksgiving and Christmas affect travel, social, and preventative
+  behaviors in the USA during the COVID-19 pandemic?
+heroImage: /blog/images/holiday-gathering.jpg
+heroImageThumb: /blog/images/holiday-gathering-small.jpg
+authors:
+  - lmorinishi
+  - kbarkume
+  - ekim
+  - alex
+related:
+  - 2021-01-28-survey-vaccines
+  - 2020-12-10-masks-public
+  - 2020-10-06-survey-wave-4
+acknowledgements: |
+  Facebook's survey team, including Andy Garcia, Travis Leleu, Patrick Xu, Sarah
+  LaRocca, and Katherine Morris assisted with the analysis for this post. Kelsey
+  Mulcahy at Facebook Data For Good helped coordinate data access for numerous
+  researchers.
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#travel-and-other-social-behaviors-during-us-holidays">Travel and Other Social Behaviors During US Holidays</a></li>
+<li><a href="#preventative-measures-and-testing-during-the-us-holidays">Preventative Measures and Testing During the US Holidays</a></li>
+<li><a href="#see-the-data-yourself">See the Data Yourself!</a></li>
+</ul>
+</div>
+
+<p>With pandemic fatigue setting in across the United States after a long year
+filled with uncertainty, many felt the temptation to celebrate a “normal”
+Thanksgiving and Christmas. However, with cases steeply rising across the US,
+the risk of transmission when gathering with friends and family only increased
+throughout the fall. Many health organizations strongly discouraged large
+gatherings during the holidays and a number of states expanded COVID-19
+restrictions to prevent further escalation in cases.
+<a href="https://www.washingtonpost.com/travel/2020/12/21/christmas-flights-cdc-restrictions-covid/">Reports</a>
+from airlines suggest air travel was up significantly during the holiday season,
+but {{< reflink "surveys" "Delphi’s COVID-19 Surveys" >}} can
+provide a broader picture of the travel Americans took during the holiday
+season. In taking greater risks with travel, did Americans change their
+behaviors in other preventative measures like mask wearing during this time?</p>
+<p>For the following analyses, we use publicly available aggregate data from the
+{{< apireflink "api/covidcast.html" "COVIDcast Epidata API" >}} that have
+been {{< apireflink "api/covidcast-signals/fb-survey.html#survey-weighting" "weighted to better match state demographics" >}}.
+Here we focus on behavioral signals which have been available since September 8,
+2020, when {{< reflink "2020-10-06-survey-wave-4" "Wave 4 of the survey was deployed" >}},
+and are now visible in the {{< reflink "survey-results" "Delphi Group’s survey dashboard" >}}. Additionally, we
+only consider data after November 11, 2020 to avoid any major effects due to the
+US election on November 3. All data below will be based on 7-day rolling
+averages of survey responses.</p>
+<div id="travel-and-other-social-behaviors-during-us-holidays" class="section level2">
+<h2>Travel and Other Social Behaviors During US Holidays</h2>
+<p>Despite <a href="https://www.cdc.gov/coronavirus/2019-ncov/daily-life-coping/holidays.html">warnings from the
+CDC</a>
+that the “safest way to celebrate is at home with people who live with you”, the
+<a href="https://www.tsa.gov/news/press/releases/2020/12/01/tsa-holiday-screening-volumes-tick-above-1m-several-days-during">TSA screened approximately 9.5 million airline
+passengers</a>
+during the 2020 Thanksgiving holiday travel period (about 35-45% of 2019 volumes
+during the same time frame).
+<a href="https://www.washingtonpost.com/travel/2020/12/21/christmas-flights-cdc-restrictions-covid/">Reports</a>
+from airlines suggested that travel reached its highest levels since the start
+of the pandemic during the Christmas holiday with about 1% of the US population
+taking flights in just the few days surrounding the holiday.</p>
+<pre class="r"><code>library(covidcast)
+library(ggplot2)
+library(stringr)
+library(dplyr)
+library(grid)
+library(gridExtra)
+
+start_after_election &lt;- &quot;2020-11-10&quot;
+end_day &lt;- &quot;2021-01-05&quot;
+
+statelist &lt;- c(&#39;AK&#39;, &#39;AZ&#39;, &#39;CA&#39;, &#39;CO&#39;, &#39;ID&#39;, &#39;MT&#39;, &#39;NV&#39;, &#39;NM&#39;, &#39;OR&#39;, &#39;UT&#39;,
+               &#39;WA&#39;, &#39;WY&#39;, &#39;HI&#39;, &#39;IL&#39;, &#39;IN&#39;, &#39;IA&#39;, &#39;KS&#39;, &#39;MI&#39;, &#39;MN&#39;, &#39;MO&#39;,
+               &#39;NE&#39;, &#39;ND&#39;, &#39;OH&#39;, &#39;SD&#39;, &#39;WI&#39;, &#39;CT&#39;, &#39;ME&#39;, &#39;MA&#39;, &#39;NH&#39;, &#39;NJ&#39;,
+               &#39;NY&#39;, &#39;PA&#39;, &#39;RI&#39;, &#39;VT&#39;, &#39;AL&#39;, &#39;AR&#39;, &#39;DE&#39;, &#39;FL&#39;, &#39;GA&#39;, &#39;KY&#39;,
+               &#39;LA&#39;, &#39;MD&#39;, &#39;MS&#39;, &#39;NC&#39;, &#39;OK&#39;, &#39;SC&#39;, &#39;TN&#39;, &#39;TX&#39;, &#39;WV&#39;, &#39;VA&#39;)
+regions &lt;- rep(c(&#39;West&#39;, &#39;Midwest&#39;, &#39;Northeast&#39;, &#39;South&#39;),
+               times = c(13, 12, 9, 16))
+
+travel &lt;- covidcast_signal(&quot;fb-survey&quot;,
+                           &quot;smoothed_wtravel_outside_state_5d&quot;,
+                           start_day = start_after_election, end_day = end_day,
+                           geo_type = &quot;state&quot;)
+
+travel_normed &lt;- travel %&gt;%
+  rename(state = geo_value, date = time_value) %&gt;%
+  select(date, state, value, sample_size) %&gt;%
+  mutate(state = str_to_upper(state)) %&gt;%
+  filter(state %in% statelist) %&gt;%
+  mutate(Region = plyr::mapvalues(state, statelist, regions)) %&gt;%
+  group_by(state) %&gt;%
+  mutate(normed = value * 100 / first(value) - 100) %&gt;%
+  ungroup() %&gt;%
+  group_by(date, Region) %&gt;%
+  summarise_at(&quot;normed&quot;, list(mean = ~mean(.), sd = ~sd(.), se = ~sd(.)/sqrt(n()) ))
+
+regionmap &lt;- travel %&gt;%
+  filter(geo_value %in% str_to_lower(statelist)) %&gt;%
+  mutate(value = plyr::mapvalues(geo_value, str_to_lower(statelist), regions),
+         value = as.integer(factor(value)))
+
+grid_label &lt;- textGrob(&quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;,
+                       hjust = 1, x = 1, gp = gpar(fontsize = 9))
+
+g1 &lt;- travel_normed %&gt;%
+  ggplot() +
+  geom_vline(xintercept = as.Date(&quot;2020-11-26&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_vline(xintercept = as.Date(&quot;2020-12-25&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_line(aes(x = date, y = mean, color = Region)) +
+  geom_ribbon(aes(x = date, ymin = mean - se, ymax = mean + se, fill = Region),
+              alpha = 0.2) +
+  scale_x_date(date_breaks = &quot;2 weeks&quot;,
+               date_labels = &quot;%b %d %Y&quot;,
+               date_minor_breaks = &quot;1 week&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;% traveled out-of-state in last 5 days&quot;,
+       title = &quot;Relative out-of-state travel by US region&quot;,
+       subtitle = &quot;From Delphi&#39;s surveys, conducted through Facebook&quot;) +
+  theme_bw() +
+  theme(legend.position = c(0.095, 0.8)) +
+  guides(color = FALSE)
+
+g2 &lt;- plot(regionmap,
+           title = &quot;US Regions&quot;,
+           choro_col = c(&quot;#F8766D&quot;, &quot;#7CAE00&quot;, &quot;#00BFC4&quot;, &quot;#C77CFF&quot;),
+           choro_params = list(breaks = c(1, 2, 3, 4))) +
+    theme(legend.position = &quot;none&quot;)
+
+lay &lt;- rbind(c(1,1,1,2),
+             c(1,1,1,2))
+grid.arrange(g1, g2, nrow = 1, bottom = grid_label, layout_matrix=lay)</code></pre>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/traveled-recently-1.svg" width="864" class="wide-figure" /></p>
+<p>In the COVID-19 survey, we see an increase in self-reported out-of-state travel
+in this time frame by surveyed adults. The figure above depicts the normalized
+percent of survey respondents who recently traveled out-of-state for 4 US
+regions (mean ± s.e. of states in region). Because different states have
+different baseline travel behaviors, values in the above figure are relative to
+out-of-state travel reported on November 11, 2020. While there was some
+variation between states, it appears that out-of-state travel around
+Thanksgiving and Christmas day (vertical gray dashed lines) rose steeply in all
+regions in the US. We note that since we are using a 7-day average, a travel
+peak on or very close to Thanksgiving day would show up 3 to 4 days later in our
+data, which is what we observe.</p>
+<p>While the increase in out-of-state travel appears dramatic during Thanksgiving,
+the observed increase is less than the typical increase in travel around the
+holiday. The <a href="https://www.bts.gov/archive/publications/america_on_the_go/us_holiday_travel/entire">Bureau of Transportation
+Statistics</a>
+notes that long distance trips (as defined by travel greater than 50 miles away)
+usually increase by 54% in the 6 days surrounding Thanksgiving. In contrast, the
+percentage increase in travel found in the survey was closer to 20%. For the
+Christmas through New Years time period, the increase in individuals reporting
+out-of-state travel in the survey is ~30%, which more closely matches prior year
+estimates from the Bureau of Transportation Statistics of 23%. Overall though,
+the out-of-state travel reported in the CSS is still down compared to earlier
+months in the pandemic.</p>
+<pre class="r"><code>spent_time &lt;- covidcast_signal(&quot;fb-survey&quot;,
+                               &quot;smoothed_wspent_time_1d&quot;,
+                               start_day = start_after_election, end_day = end_day,
+                               geo_type = &quot;state&quot;)
+
+spent_time_stats &lt;- spent_time %&gt;%
+  rename(state = geo_value, date = time_value) %&gt;%
+  select(date, state, value, sample_size) %&gt;%
+  mutate(state = str_to_upper(state)) %&gt;%
+  filter(state %in% statelist) %&gt;%
+  mutate(Region = plyr::mapvalues(state, statelist, regions)) %&gt;%
+  group_by(date, Region) %&gt;%
+  summarise_at(&quot;value&quot;, list(mean = ~mean(.), sd = ~sd(.), se = ~sd(.)/sqrt(n()) ))
+
+spent_time_stats %&gt;%
+  ggplot() +
+  geom_vline(xintercept = as.Date(&quot;2020-11-26&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_vline(xintercept = as.Date(&quot;2020-12-25&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_line(aes(x = date, y = mean, color = Region)) +
+  geom_line(aes(x = date, y = mean, color = Region)) +
+  geom_ribbon(aes(x = date, ymin = mean - se, ymax = mean + se, fill = Region),
+              alpha = 0.2) +
+  scale_x_date(date_breaks = &quot;2 weeks&quot;,
+               date_labels = &quot;%b %d %Y&quot;,
+               date_minor_breaks = &quot;1 week&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;% spent time with non-household member in past 24h&quot;,
+       title = &quot;Percent surveyed that spent time with a non-household member&quot;,
+       subtitle = &quot;7-day rolling average&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw() +
+  theme(legend.position = c(0.095, 0.2)) +
+  guides(color = FALSE)</code></pre>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/spent-time-1.svg" width="672" /></p>
+<p>Through the survey, we also find that more people in many states spent time with
+people outside of their household in social gatherings for Thanksgiving and
+Christmas when compared to the preceding week. In the above figure, the percent
+of surveyed adults who recently spent time with non-household members clearly
+rises around the holidays for all 4 US regions (mean ± s.e. of states in
+region).</p>
+<p>Experts had suggested quarantining before the holiday to lower the risk of
+spreading COVID-19 during family gatherings. We see a steady decrease in the
+number of people reporting contact outside of the household in the 14 days
+before Thanksgiving across all regions, possibly due to rising case counts
+across the nation. However this strong trend is not observed for the Christmas
+holiday. The Northeast and South show only very modest decreases in outside
+contact in the days just before Christmas, and rates of contact outside the
+household in the Midwest and West actually rose steadily during this time.
+Overall, we don’t see strong evidence in the data of people proactively
+quarantining between the Thanksgiving and Christmas holidays to reduce the
+potential for community spread of COVID-19.</p>
+<pre class="r"><code>shopped &lt;- covidcast_signal(&quot;fb-survey&quot;,
+                            &quot;smoothed_wshop_1d&quot;,
+                            start_day = start_after_election, end_day = end_day,
+                            geo_type = &quot;state&quot;)
+
+shopped_stats &lt;- shopped %&gt;%
+  rename(state = geo_value, date = time_value) %&gt;%
+  select(date, state, value, sample_size) %&gt;%
+  mutate(state = str_to_upper(state)) %&gt;%
+  filter(state %in% statelist) %&gt;%
+  mutate(Region = plyr::mapvalues(state, statelist, regions)) %&gt;%
+  group_by(date, Region) %&gt;%
+  summarise_at(&quot;value&quot;, list(mean = ~mean(.), sd = ~sd(.), se = ~sd(.)/sqrt(n()) ))
+
+shopped_stats %&gt;%
+  ggplot() +
+  geom_vline(xintercept = as.Date(&quot;2020-11-26&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_vline(xintercept = as.Date(&quot;2020-12-25&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_line(aes(x = date, y = mean, color = Region)) +
+  geom_line(aes(x = date, y = mean, color = Region)) +
+  geom_ribbon(aes(x = date, ymin = mean - se, ymax = mean + se, fill = Region),
+              alpha = 0.2) +
+  scale_x_date(date_breaks = &quot;2 weeks&quot;,
+               date_labels = &quot;%b %d %Y&quot;,
+               date_minor_breaks = &quot;1 week&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;% Went shopping in past 24h&quot;,
+       title = &quot;Percent surveyed that went shopping recently&quot;,
+       subtitle = &quot;7-day rolling average&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw() +
+  theme(legend.position = c(.095, 0.2)) +
+  guides(color = FALSE)</code></pre>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/went-shopping-1.svg" width="672" /></p>
+<p>Additionally, Thanksgiving and Christmas are major shopping holidays. When asked
+if they had gone to the “market, grocery store, or pharmacy” in the past 24
+hours, a high percentage of survey respondents responded they had on
+Thanksgiving, Christmas Eve, and Christmas Day (mean ± s.e. of states in
+region). Notably, there were steep falls in shopping in the following weeks,
+perhaps as people instead chose to spend time indoors with their families.
+Typically the days after Thanksgiving and Christmas are among the 10 busiest
+in-store retail days of the year, though this trend does not necessarily extend
+to grocery stores, pharmacies and the like. As such, the lack of evidence for
+the typical post-holiday shopping binges likely reflects the specificity of the
+survey question.</p>
+</div>
+<div id="preventative-measures-and-testing-during-the-us-holidays" class="section level2">
+<h2>Preventative Measures and Testing During the US Holidays</h2>
+<pre class="r"><code>masked &lt;- covidcast_signal(&quot;fb-survey&quot;,
+                           &quot;smoothed_wwearing_mask&quot;,
+                           start_day = start_after_election, end_day = end_day,
+                           geo_type = &quot;state&quot;)
+
+masked_stats &lt;- masked %&gt;%
+  rename(state = geo_value, date = time_value) %&gt;%
+  select(date, state, value, sample_size) %&gt;%
+  mutate(state = str_to_upper(state)) %&gt;%
+  filter(state %in% statelist) %&gt;%
+  mutate(Region = plyr::mapvalues(state, statelist, regions)) %&gt;%
+  group_by(date, Region) %&gt;%
+  summarise_at(&quot;value&quot;, list(mean = ~mean(.), sd = ~sd(.), se = ~sd(.)/sqrt(n()) ))
+
+masked_stats %&gt;%
+  ggplot() +
+  geom_vline(xintercept = as.Date(&quot;2020-11-26&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_vline(xintercept = as.Date(&quot;2020-12-25&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_line(aes(x = date, y = mean, color = Region)) +
+  geom_line(aes(x = date, y = mean, color = Region)) +
+  geom_ribbon(aes(x = date, ymin = mean - se, ymax = mean + se, fill = Region),
+              alpha = 0.2) +
+  scale_x_date(date_breaks = &quot;2 weeks&quot;,
+               date_labels = &quot;%b %d %Y&quot;,
+               date_minor_breaks = &quot;1 week&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;% wore a mask in public in past 5 days&quot;,
+       title = &quot;Percent surveyed who reported wearing a mask in public&quot;,
+       subtitle = &quot;7-day rolling average&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw() +
+  theme(legend.position = c(0.9, 0.2)) +
+  guides(color = FALSE)</code></pre>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/wore-mask-1.svg" width="672" /></p>
+<p>While people in the US may have traveled more, shopped more, and spent more time
+with non-household members during the holidays, they also reported participating
+in preventative measures in public to a greater degree. For example, the percent
+of people who say they wore masks most or all of the time while in public in the
+past 5 days increased across the nation prior to Thanksgiving and held steady
+through the end of the year (mean ± s.e. of states in region).</p>
+<p>Note, however, that this can’t be directly interpreted to mean that a certain
+percentage of people wear masks in public places—the survey question asks
+respondents if they wear masks <em>most</em> or all of the time in public, and since
+mask usage is self-reported, it might be biased. A recent <a href="https://preventepidemics.org/covid19/science/weekly-science-review/january-9-15-2020/">Preventing Epidemics
+comparison</a>
+found that this self-reported data tends to give higher rates of mask use when
+compared to direct observations of people in public places, such as through
+surveillance cameras at stores, but also found that these direct observations
+agree that mask use is increasing.</p>
+<pre class="r"><code>tested &lt;- covidcast_signal(&quot;fb-survey&quot;,
+                           &quot;smoothed_wtested_14d&quot;,
+                           start_day = start_after_election, end_day = end_day,
+                           geo_type = &quot;state&quot;)
+
+tested_normed &lt;- tested %&gt;%
+  rename(state = geo_value, date = time_value) %&gt;%
+  select(date, state, value, sample_size) %&gt;%
+  mutate(state = str_to_upper(state)) %&gt;%
+  filter(state %in% statelist) %&gt;%
+  mutate(Region = plyr::mapvalues(state, statelist, regions)) %&gt;%
+  group_by(state) %&gt;%
+  mutate(normed = value*100/first(value) - 100) %&gt;% ungroup() %&gt;%
+  group_by(date, Region) %&gt;%
+  summarise_at(&quot;normed&quot;, list(mean = ~mean(.), sd = ~sd(.), se = ~sd(.)/sqrt(n()) ))
+
+tested_normed %&gt;%
+  ggplot() +
+  geom_vline(xintercept = as.Date(&quot;2020-11-26&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_vline(xintercept = as.Date(&quot;2020-12-25&quot;),
+             linetype = &quot;dashed&quot;, size = 1.5, color = &quot;darkgrey&quot;) +
+  geom_line(aes(x = date, y = mean, color = Region)) +
+  geom_line(aes(x = date, y = mean, color = Region)) +
+  geom_ribbon(aes(x = date, ymin = mean - se, ymax = mean + se, fill = Region),
+              alpha = 0.2) +
+  scale_x_date(date_breaks = &quot;2 weeks&quot;,
+               date_labels = &quot;%b %d %Y&quot;,
+               date_minor_breaks = &quot;1 week&quot;) +
+  labs(x = &quot;Date&quot;, y = &quot;% tested in past 14 days&quot;,
+       title = &quot;Percent surveyed that were tested recently&quot;,
+       subtitle = &quot;7-day rolling average&quot;,
+       caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
+  theme_bw() +
+  theme(legend.position = c(0.095, 0.2)) +
+  guides(color = FALSE)</code></pre>
+<p><img src="/blog/2021-01-22-holiday-surveys_files/figure-html/tested-recently-1.svg" width="672" /></p>
+<p>Several news agencies reported that the demand for COVID-19 tests <a href="https://www.wsj.com/articles/how-do-i-get-a-covid-19-test-before-thanksgiving-11605918004">surged before
+Thanksgiving</a>.
+While this was in large part due to rising COVID-19 cases nationwide, it is also
+possible that many people chose to test before seeing friends or family during
+the holidays. The CDC had urged Americans not to travel for the holidays, but
+stated that <a href="https://www.cdc.gov/coronavirus/2019-ncov/daily-life-coping/holidays.html">for those “who decide to travel, testing can help you do so more
+safely.”</a>
+In addition, several government agencies <a href="https://governor.nc.gov/news/north-carolina-provides-covid-19-tests-colleges-universities-across-state-support-testing">expanded
+testing</a>
+prior to the holiday season to support testing for people who elected to travel
+and gather.</p>
+<p>In the above figure, we do see an increase in survey respondents who had
+recently been tested for COVID-19 prior to Thanksgiving, and a slight increase
+before Christmas (mean ± s.e. of states in region). However, these effects are
+fairly weak, and dominated by longer-term trends that likely reflect case count
+trends in the region. For example, from mid-November through the end of the year
+we see a ~20% fall in self-reported testing in the Midwest, probably an effect
+of the <a href="https://covidtracking.com/data/charts/regional-cases-per-million">~50% decrease in COVID-19 cases in the
+region</a> in the
+same time period. We therefore see only weak evidence of prophylactic COVID-19
+testing before the holidays.</p>
+<p>Altogether, it is clear that many Americans opted to travel out-of-state and
+gather with friends and family for the Thanksgiving and Christmas holidays.
+Public health experts provided a variety of recommendations to reduce the risks
+associated with holiday celebrations. Unfortunately, the survey data does not
+indicate widespread adherence to these guidelines, as we see only weak evidence
+of preemptive quarantining or testing for safer holiday gatherings. Overall, our
+analysis suggests conflicting pandemic behaviors during the 2020 holidays, where
+a vast majority of Americans used preventative measures like mask-wearing in
+public, but simultaneously increased the risk for disease spread by gathering
+with friends and family, shopping more, and traveling out-of-state.</p>
+</div>
+<div id="see-the-data-yourself" class="section level2">
+<h2>See the Data Yourself!</h2>
+<p>Since April 2020, Carnegie Mellon University’s Delphi Group and Facebook’s Data
+for Good have partnered to conduct large-scale daily surveys to monitor the
+spread and impact of the COVID-19 pandemic in the United States. To date, the
+survey has collected more than 50 million responses. In this post, we show how
+the data from the {{< reflink "surveys" "COVID-19 survey" >}}
+can be used to provide a broader picture of how American’s risk behaviors and
+sentiments amidst a global pandemic.</p>
+<p>All of the above plots were built using aggregate data for the United States
+that CMU/Delphi Group &amp; Facebook provide to the public through the {{< apireflink "symptom-survey/" "COVIDcast Epidata API" >}}, and
+visualize in the {{< reflink "/covidcast" "Delphi Group’s survey dashboard" >}}. Public, aggregate data for the
+global COVID-19 survey can be accessed via <a href="https://covidmap.umd.edu/api.html">University of Maryland’s
+API</a>. We encourage researchers, public health
+officials, and the public to use the survey data and tools for their own
+analyses. Microdata is also <a href="https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/">available upon
+request</a>
+to academic and nonprofit researchers under data license agreements.</p>
+</div>

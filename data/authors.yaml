@@ -38,6 +38,12 @@
   name: Larry Wasserman
   link: http://www.stat.cmu.edu/~larry/
   description: is a Professor in the Department of Statistics & Data Science at CMU as well as in the Machine Learning Department and is a member of Delphi.
+- key: lmorinishi
+  name: Leanna Morinishi
+  description: is a data scientist on the Physical Modeling team at Facebook.
+- key: kbarkume
+  name: Kris Barkume
+  description: is a research scientist on the Physical Modeling team at Facebook
 - key: hzhou
   name: Helen Zhou
   link: https://www.helen-zhou.com
