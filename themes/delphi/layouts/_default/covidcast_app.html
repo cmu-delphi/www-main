@@ -9,9 +9,12 @@
 {{ define "body_class" }}covidcast_wrapper{{ end }}
 {{ define "main" }}
   {{ partial "covidcast/modes.html" . }}
-  <div class="uk-alert-warning uk-margin-small-top uk-margin-small-bottom" uk-alert >
+  <div class="uk-alert-warning uk-margin-small-top uk-margin-small-bottom" uk-alert>
     <a class="uk-alert-close" uk-close></a>
-    <p>We are experiencing problems with out data backend are currently upgrading our systems. Therefore, data are only available till <strong>February 1st, 2021</strong></p>
+    <p>
+      We are experiencing problems with out data backend are currently upgrading our systems. Therefore, data are only
+      available till <strong>February 1st, 2021</strong>
+    </p>
   </div>
   <div id="vizbox">
     <div class="ie-banner" style="display: none">
