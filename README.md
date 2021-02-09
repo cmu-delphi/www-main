@@ -1,5 +1,8 @@
 # Delphi Website
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cmu-delpih/www-main)
+
+
 Delphi's homepage at https://cmu-delphi-main.netlify.app/
 
 This site is based on [Hugo](https://gohugo.io) and uses [Prettier](https://prettier.io) for formatting.
@@ -38,13 +41,15 @@ In RMarkdown things are slightly more different since the R Markdown parser is u
 **Examples**
 
 ```
-[Facebook](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`)
-[previous exploratory investigations](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#some-interesting-examples")`)
-[public API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`)
+`r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey", "Facebook")`
+`r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey#some-interesting-examples", "previous exploratory investigations")`
+`r blogdown::shortcode_html("apireflink", "api/covidcast.html", "public API")`
 
 ```
 
 ## Development Environment
+
+One click: [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cmu-delpih/www-main)
 
 ### Web Editor Only
 
@@ -79,6 +84,7 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
    - `local=TRUE` similar to `-D` to process draft files
    - `run_hugo=FALSE` to manually run hugo
    - `build_rmd=TRUE` force a (re)build of the Rmd pages
+1. Run blogdown to convert a single file to HTML: `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE, build_rmd="content/blog/<NAME>.Rmd")'`
 1. Alternatively, run `npm run build:blog`
 1. Run Hugo server as usual
 
@@ -91,3 +97,16 @@ In case you use new dependencies don't forget to either edit `environment.yml` o
 A Github action should runs when Rmd files changes so it will verify that the blog post can be built.
 However, the converted HTML file along with all generated images are committed to the repository.
 This simplifies the deployment and ensures that we have a blog post even when the API or data changes.
+
+
+### Release Process
+
+The release process is based on [release-it](https://github.com/release-it/release-it). To create a release, run
+
+1. create/checkout the release branch `release` and push to origin
+1. run `npm run release` and publish the release
+1. create a PR that merges the `release` branch in the `main` branch
+1. create a PR that merges the `main` branch back into the `dev` branch
+
+Then go to the release page and update short description of the changes made.
+

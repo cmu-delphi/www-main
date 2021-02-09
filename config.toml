@@ -119,6 +119,6 @@ relativeURLs = false
     feedbackForm = "https://docs.google.com/forms/d/e/1FAIpQLSeIeOJtrAhdOriEyiRY7LkpQX8DZBY19dl6De8l56Q9CZhmxw/viewform?usp=pp_url&entry.1245962748="
     feedbackLikelihoodMobile = 0.2
     feedbackLikelihoodDesktop = 1
-    feedbackDelayMin = 10 # in sec
-    feedbackDelayMax = 100 # in sec
-    feedbackDuration = 60 # show it for 60sec
+    feedbackDelayMin = 45  # in sec
+    feedbackDelayMax = 180 # in sec
+    feedbackDuration = 60  # show it for 60sec

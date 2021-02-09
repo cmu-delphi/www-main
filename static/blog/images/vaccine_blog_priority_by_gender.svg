@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 1080.00 576.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, polygon, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU='>
+    <rect x='56.74' y='81.05' width='1017.78' height='405.55' />
+  </clipPath>
+</defs>
+<polyline points='56.74,422.07 1074.52,422.07 ' style='stroke-width: 0.53; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='56.74,329.90 1074.52,329.90 ' style='stroke-width: 0.53; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='56.74,237.73 1074.52,237.73 ' style='stroke-width: 0.53; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='56.74,145.56 1074.52,145.56 ' style='stroke-width: 0.53; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='56.74,468.16 1074.52,468.16 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='56.74,375.99 1074.52,375.99 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='56.74,283.82 1074.52,283.82 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='56.74,191.65 1074.52,191.65 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='56.74,99.48 1074.52,99.48 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='334.32,486.59 334.32,81.05 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<polyline points='796.94,486.59 796.94,81.05 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<rect x='126.13' y='273.67' width='138.79' height='194.49' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #BEBEBE;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<rect x='264.92' y='280.46' width='138.79' height='187.70' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #E9A3C9;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<rect x='403.71' y='249.10' width='138.79' height='219.05' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #A1D76A;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<rect x='588.76' y='436.04' width='138.79' height='32.12' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #BEBEBE;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<rect x='727.55' y='436.62' width='138.79' height='31.54' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #E9A3C9;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<rect x='866.34' y='435.37' width='138.79' height='32.79' style='stroke-width: 1.07; stroke: none; stroke-linecap: square; stroke-linejoin: miter; fill: #A1D76A;' clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)' />
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='165.48' y='245.61' style='font-size: 14.23px; font-family: Arial;' textLength='60.10px' lengthAdjust='spacingAndGlyphs'>Everyone</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='170.62' y='266.10' style='font-size: 14.23px; font-family: Arial;' textLength='49.81px' lengthAdjust='spacingAndGlyphs'>(52.8%)</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='310.60' y='252.41' style='font-size: 14.23px; font-family: Arial;' textLength='47.44px' lengthAdjust='spacingAndGlyphs'>Female</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='309.41' y='272.89' style='font-size: 14.23px; font-family: Arial;' textLength='49.81px' lengthAdjust='spacingAndGlyphs'>(50.9%)</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='457.69' y='221.05' style='font-size: 14.23px; font-family: Arial;' textLength='30.84px' lengthAdjust='spacingAndGlyphs'>Male</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='448.20' y='241.54' style='font-size: 14.23px; font-family: Arial;' textLength='49.81px' lengthAdjust='spacingAndGlyphs'>(59.4%)</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='628.10' y='407.99' style='font-size: 14.23px; font-family: Arial;' textLength='60.10px' lengthAdjust='spacingAndGlyphs'>Everyone</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='637.20' y='428.47' style='font-size: 14.23px; font-family: Arial;' textLength='41.90px' lengthAdjust='spacingAndGlyphs'>(8.7%)</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='773.22' y='408.57' style='font-size: 14.23px; font-family: Arial;' textLength='47.44px' lengthAdjust='spacingAndGlyphs'>Female</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='775.99' y='429.05' style='font-size: 14.23px; font-family: Arial;' textLength='41.90px' lengthAdjust='spacingAndGlyphs'>(8.6%)</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='920.31' y='407.32' style='font-size: 14.23px; font-family: Arial;' textLength='30.84px' lengthAdjust='spacingAndGlyphs'>Male</text></g>
+<g clip-path='url(#cpNTYuNzR8MTA3NC41Mnw0ODYuNTl8ODEuMDU=)'><text x='914.78' y='427.80' style='font-size: 14.23px; font-family: Arial;' textLength='41.90px' lengthAdjust='spacingAndGlyphs'>(8.9%)</text></g>
+<defs>
+  <clipPath id='cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw'>
+    <rect x='0.00' y='0.00' width='1080.00' height='576.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='42.35' y='474.00' style='font-size: 17.00px; font-family: Arial;' textLength='9.45px' lengthAdjust='spacingAndGlyphs'>0</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='32.90' y='381.84' style='font-size: 17.00px; font-family: Arial;' textLength='18.91px' lengthAdjust='spacingAndGlyphs'>25</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='32.90' y='289.67' style='font-size: 17.00px; font-family: Arial;' textLength='18.91px' lengthAdjust='spacingAndGlyphs'>50</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='32.90' y='197.50' style='font-size: 17.00px; font-family: Arial;' textLength='18.91px' lengthAdjust='spacingAndGlyphs'>75</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='23.44' y='105.33' style='font-size: 17.00px; font-family: Arial;' textLength='28.36px' lengthAdjust='spacingAndGlyphs'>100</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='261.09' y='506.75' style='font-size: 17.00px; font-family: Arial;' textLength='146.44px' lengthAdjust='spacingAndGlyphs'>Healthcare workers</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='759.38' y='506.75' style='font-size: 17.00px; font-family: Arial;' textLength='75.13px' lengthAdjust='spacingAndGlyphs'>65+ years</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text transform='translate(17.18,353.27) rotate(-90)' style='font-size: 17.00px; font-family: Arial;' textLength='138.91px' lengthAdjust='spacingAndGlyphs'>% Vaccine Uptake</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='56.74' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='87.89px' lengthAdjust='spacingAndGlyphs'>Vaccination</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='149.35' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='63.32px' lengthAdjust='spacingAndGlyphs'>reported</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='217.39' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='17.95px' lengthAdjust='spacingAndGlyphs'>by</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='240.07' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='79.39px' lengthAdjust='spacingAndGlyphs'>healthcare</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='324.18' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='59.51px' lengthAdjust='spacingAndGlyphs'>workers</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='388.41' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='28.36px' lengthAdjust='spacingAndGlyphs'>and</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='421.50' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='37.80px' lengthAdjust='spacingAndGlyphs'>older</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='464.02' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='79.38px' lengthAdjust='spacingAndGlyphs'>individuals</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='548.13' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='28.84px' lengthAdjust='spacingAndGlyphs'>65+</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='581.69' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='41.57px' lengthAdjust='spacingAndGlyphs'>years</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='627.98' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='43.46px' lengthAdjust='spacingAndGlyphs'>within</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='676.17' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='36.86px' lengthAdjust='spacingAndGlyphs'>each</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='717.75' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='100.16px' lengthAdjust='spacingAndGlyphs'>race/ethnicity</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='822.63' y='41.55' style='font-size: 17.00px; font-family: Arial;' textLength='43.48px' lengthAdjust='spacingAndGlyphs'>group</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='56.74' y='56.80' style='font-size: 17.00px; font-family: Arial;' textLength='60.48px' lengthAdjust='spacingAndGlyphs'>January</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='121.94' y='56.80' style='font-size: 17.00px; font-family: Arial;' textLength='9.45px' lengthAdjust='spacingAndGlyphs'>6</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='136.12' y='56.80' style='font-size: 17.00px; font-family: Arial;' textLength='5.66px' lengthAdjust='spacingAndGlyphs'>-</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='146.50' y='56.80' style='font-size: 17.00px; font-family: Arial;' textLength='60.48px' lengthAdjust='spacingAndGlyphs'>January</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='211.71' y='56.80' style='font-size: 17.00px; font-family: Arial;' textLength='23.63px' lengthAdjust='spacingAndGlyphs'>20,</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='240.06' y='56.80' style='font-size: 17.00px; font-family: Arial;' textLength='37.82px' lengthAdjust='spacingAndGlyphs'>2021</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='56.74' y='19.93' style='font-size: 21.00px; font-weight: bold; font-family: Arial;' textLength='96.86px' lengthAdjust='spacingAndGlyphs'>COVID-19</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='159.43' y='19.93' style='font-size: 21.00px; font-weight: bold; font-family: Arial;' textLength='115.54px' lengthAdjust='spacingAndGlyphs'>vaccination</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='280.81' y='19.93' style='font-size: 21.00px; font-weight: bold; font-family: Arial;' textLength='67.69px' lengthAdjust='spacingAndGlyphs'>uptake</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='354.33' y='19.93' style='font-size: 21.00px; font-weight: bold; font-family: Arial;' textLength='68.83px' lengthAdjust='spacingAndGlyphs'>among</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='429.00' y='19.93' style='font-size: 21.00px; font-weight: bold; font-family: Arial;' textLength='72.34px' lengthAdjust='spacingAndGlyphs'>priority</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='507.17' y='19.93' style='font-size: 21.00px; font-weight: bold; font-family: Arial;' textLength='71.16px' lengthAdjust='spacingAndGlyphs'>groups</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='587.59' y='553.96' style='font-size: 15.00px; font-style: italic; font-family: Arial;' textLength='35.02px' lengthAdjust='spacingAndGlyphs'>Have</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='626.78' y='553.96' style='font-size: 15.00px; font-style: italic; font-family: Arial;' textLength='24.18px' lengthAdjust='spacingAndGlyphs'>you</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='655.13' y='553.96' style='font-size: 15.00px; font-style: italic; font-family: Arial;' textLength='25.03px' lengthAdjust='spacingAndGlyphs'>had</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='684.32' y='553.96' style='font-size: 15.00px; font-style: italic; font-family: Arial;' textLength='8.34px' lengthAdjust='spacingAndGlyphs'>a</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='696.83' y='553.96' style='font-size: 15.00px; font-style: italic; font-family: Arial;' textLength='69.18px' lengthAdjust='spacingAndGlyphs'>COVID-19</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='770.18' y='553.96' style='font-size: 15.00px; font-style: italic; font-family: Arial;' textLength='83.39px' lengthAdjust='spacingAndGlyphs'>vaccination?</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='857.74' y='553.96' style='font-size: 15.00px; font-family: Arial;' textLength='41.69px' lengthAdjust='spacingAndGlyphs'>Asked</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='903.60' y='553.96' style='font-size: 15.00px; font-family: Arial;' textLength='12.51px' lengthAdjust='spacingAndGlyphs'>of</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='920.27' y='553.96' style='font-size: 15.00px; font-family: Arial;' textLength='15.01px' lengthAdjust='spacingAndGlyphs'>all</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='939.45' y='553.96' style='font-size: 15.00px; font-family: Arial;' textLength='44.18px' lengthAdjust='spacingAndGlyphs'>survey</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='987.79' y='553.96' style='font-size: 15.00px; font-family: Arial;' textLength='86.73px' lengthAdjust='spacingAndGlyphs'>respondents.</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='272.50' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='31.68px' lengthAdjust='spacingAndGlyphs'>Data</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='308.36' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='30.00px' lengthAdjust='spacingAndGlyphs'>from</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='342.52' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='47.50px' lengthAdjust='spacingAndGlyphs'>COVID</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='394.20' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='63.35px' lengthAdjust='spacingAndGlyphs'>Symptom</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='461.71' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='46.68px' lengthAdjust='spacingAndGlyphs'>Survey</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='512.56' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='59.20px' lengthAdjust='spacingAndGlyphs'>collected</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='575.93' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='15.84px' lengthAdjust='spacingAndGlyphs'>by</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='595.94' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='60.87px' lengthAdjust='spacingAndGlyphs'>Carnegie</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='660.98' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='44.19px' lengthAdjust='spacingAndGlyphs'>Mellon</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='709.34' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='65.84px' lengthAdjust='spacingAndGlyphs'>University</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='779.35' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='11.67px' lengthAdjust='spacingAndGlyphs'>in</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='795.19' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='75.04px' lengthAdjust='spacingAndGlyphs'>partnership</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='874.40' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='26.67px' lengthAdjust='spacingAndGlyphs'>with</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='905.24' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='70.04px' lengthAdjust='spacingAndGlyphs'>Facebook,</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='979.45' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='53.36px' lengthAdjust='spacingAndGlyphs'>January</text></g>
+<g clip-path='url(#cpMC4wMHwxMDgwLjAwfDU3Ni4wMHwwLjAw)'><text x='1036.98' y='567.41' style='font-size: 15.00px; font-family: Arial;' textLength='37.54px' lengthAdjust='spacingAndGlyphs'>2021.</text></g>
+</svg>

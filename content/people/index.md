@@ -75,12 +75,16 @@ people:
   affiliation: CMU/CSD
   team:
   - core
-- firstName: Zack
+- key: zlipton
+  firstName: Zack Chase
   lastName: Lipton
+  link: https://acmilab.org
   image: zachary-lipton-500x500-min.jpg
   affiliation: CMU/MLD
+  description: is an Assistant Professor of Operations Research and Machine Learning at CMU and is a member of Delphi.
   team:
   - core
+  - blog
 - firstName: Kathryn
   lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
@@ -205,12 +209,16 @@ people:
   team:
   - core
   - blog
-- firstName: Jeremy
+- key: jweiss
+  firstName: Jeremy Chen
   lastName: Weiss
   image: jeremy-weiss-500x500-min.jpg
+  link: https://www.andrew.cmu.edu/user/jweiss2/
   affiliation: CMU/Heinz College
+  description: is an Assistant Professor of Health Informatics at CMU and is a member of Delphi.
   team:
   - core
+  - blog
 - firstName: Wichada
   lastName: La&nbsp;Motte&#x2011;Kerr
   image: wichada-lamotte-kerr-photo.png
@@ -310,12 +318,16 @@ people:
   affiliation:
   team:
   - contributors
-- firstName: Helen
+- key: hzhou
+  firstName: Helen
   lastName: Zhou
   image: profile-placeholder.png
+  link: https://www.helen-zhou.com
+  description: is a PhD student in the Machine Learning Department at CMU and is a member of Delphi.
   affiliation:
   team:
   - contributors
+  - blog
 - firstName: Wael Al
   lastName: Saeed
   image: wael-al-saeed-500x50-min.jpg
@@ -561,6 +573,41 @@ people:
   description: is an Assistant Professor in the Department of Statistics & Data Science at CMU.
   team:
     - blog
+- key: lmorinishi
+  firstName: Leanna
+  lastName: Morinishi
+  description: is a data scientist on the Physical Modeling team at Facebook.
+  team:
+    - blog
+- key: kbarkume
+  firstName: Kris
+  lastName: Barkume
+  description: is a research scientist on the Physical Modeling team at Facebook.
+  team:
+    - blog
+- key: ccheng
+  firstName: Cheng
+  lastName: Cheng
+  link: https://linkedin.com/in/cheng-cheng-419718106
+  description: is a PhD student in Machine Learning and Public Policy at CMU and is a member of Delphi.
+  team:
+    - blog
+- key: ekim
+  firstName: Esther
+  lastName: Kim
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  team:
+    - blog
+- key: agarcia
+  firstName: Andy
+  lastName: Garcia
+  description: is a Data Scientist on the Health team at Facebook.
+  team:
+    - blog
+- key: slarocca
+  firstName: Sarah
+  lastName: LaRocca
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
   team:
     - blog
 

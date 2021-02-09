@@ -46,13 +46,21 @@ jobs:
         with:
           path: |
             ./blogdown
-          key: ${{ runner.os }}-blogdown2-${{ hashFiles('content/blog/**.Rmd') }}
+          key: ${{ runner.os }}-blogdown2-${{ hashFiles('environment.yml') }}-${{ hashFiles('content/blog/**.Rmd') }}
           restore-keys: |
+            ${{ runner.os }}-blogdown2-${{ hashFiles('environment.yml') }}-
             ${{ runner.os }}-blogdown2-
       - name: Build site
         shell: bash -l {0}
         run: |
           npm run build:blog
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: blog
+          path: |
+            ./content/blog
+            ./static/blog
 
       - uses: actions/setup-node@v1
         with:

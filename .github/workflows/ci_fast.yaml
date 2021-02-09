@@ -36,38 +36,35 @@ jobs:
           name: website
           path: ./public
           
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Login to GitHub Container Registry
+        if: (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/release') && github.event_name == 'push'
+        uses: docker/login-action@v1
         with:
-          aws-access-key-id: ${{ secrets.DELPHI_ECR_ACCESS_ID }}
-          aws-secret-access-key: ${{ secrets.DELPHI_ECR_ACCESS_KEY }}
-          aws-region: us-east-1
+          registry: ghcr.io
+          username: cmu-delphi-deploy-machine
+          password: ${{ secrets.CMU_DELPHI_DEPLOY_MACHINE_PAT }}
 
-      - name: Login to Amazon ECR
-        id: login-ecr
-        uses: aws-actions/amazon-ecr-login@v1
-
-      - name: Build, tag, and push image to Amazon ECR
+      - name: Build, tag, and push image to Github
+        if: (startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/release') && github.event_name == 'push'
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: ${{ github.event.repository.name }}
+          DEVOPS_DOCKER_FILE: ./devops/precompiled.dockerfile
         run: |
           baseRef="${GITHUB_REF#*/}"
           baseRef="${baseRef#*/}"
           case "${baseRef}" in
           main)
-            awsTag="latest"
+            imageTag="latest"
             ;;
           *)
-            awsTag="${baseRef//\//_}" # replace `/` with `_` in branch name
+            imageTag="${baseRef//\//_}" # replace `/` with `_` in branch name
             ;;
           esac
-          echo "using tag: --${awsTag}--"
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$awsTag --file ./devops/precompiled/Dockerfile .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$awsTag
+          echo "using tag: --${imageTag}--"
+          docker build -t ghcr.io/${{ github.repository }}:$imageTag --file ${DEVOPS_DOCKER_FILE} .
+          docker push ghcr.io/${{ github.repository }}:$imageTag
 
           # trigger a webhook update
           curl -H "Authorization: Bearer ${{ secrets.DELPHI_DEPLOY_WEBHOOK_TOKEN }}" \
                -X POST ${{ secrets.DELPHI_DEPLOY_WEBHOOK_URL }} \
                -H "Content-Type: application/x-www-form-urlencoded" \
-               -d "repository=$ECR_REGISTRY/$ECR_REPOSITORY&tag=$awsTag"
+               -d "repository=ghcr.io/${{ github.repository }}&tag=$imageTag"
