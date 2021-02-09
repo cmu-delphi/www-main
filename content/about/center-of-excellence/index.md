@@ -1,5 +1,5 @@
 ---
-title: Center of Excellence
+title: National Center of Excellence for Flu Forecasting
 layout: coe
 partners:
 - name: Carnegie-Mellon University
@@ -31,7 +31,7 @@ partners:
 supporterText: |
   ## Thanks to our supporting organizations
 
-  Over the years we’ve been very lucky to work alongside many accomplished organizations and researchers. We're very grateful for your support and  contributions. Thank you for helping us along the way. 
+  We are grateful to the following organizations for their steadfast support of our center:
 supporters:
 - Allegheny County Dept of Health
 - Kaiser Permanente Washington Health Research Institute
@@ -46,6 +46,6 @@ mentions:
 - College of Engineering at UMass Amherst
 ---
 
-Delphi’s Influenza Forecasting Center of Excellence works to advance influenza forecasting, enabling and improving the usefulness of forecasts of both seasonal and pandemic influenza. Our goal is to inform public health responses and policy developments at the national, regional, and state levels. Another goal is to inform the general public, providing reliable short term forecasts that increase the credibility of and trust in public health authorities, bridging between greater adherence to recommendations and trustworthy information. 
+Delphi’s Influenza Forecasting Center of Excellence was established in 2019 and works to advance influenza forecasting, enabling and improving the usefulness of forecasts of both seasonal and pandemic influenza. Our goal is to inform public health responses and policy developments at the national, regional, and state levels. Another goal is to inform the general public, providing reliable short term forecasts that increase the credibility of and trust in public health authorities, bridging between greater adherence to recommendations and trustworthy information. 
 
 Our forecast can help inform decision-making concerning behavior and exposure of flu-vulnerable populations (e.g., the elderly, the young, the pregnant, and the immunocompromised). Through our Center of Excellence, Delphi aims to overcome inherent latencies in traditional surveillance, bringing nowcasting and short-term forecasting to the forefront with a few weeks’ advance notice and the goal to save many lives.

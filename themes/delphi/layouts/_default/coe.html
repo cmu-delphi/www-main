@@ -4,7 +4,7 @@
   </div>
   <div class="uk-container content-grid">
     <div class="grid-3-11 about-description">
-      <h2 class="mission-header">Center of Excellence</h2>
+      <h2 class="mission-header">{{ .Title }}</h2>
       {{ .Content }}
     </div>
   </div>
@@ -12,6 +12,7 @@
     <h2>Partner Organizations</h2>
     {{ partial "coe/partners.html" . }}
   </div>
+  {{ partial "coe/research-papers.html" . }}
 
   <div class="about-collaborators">
     <div class="uk-container">
