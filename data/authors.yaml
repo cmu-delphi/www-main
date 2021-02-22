@@ -22,3 +22,50 @@
   name: Kathryn Mazaitis
   link: https://cs.cmu.edu/~krivard
   description: manages Delphi's engineering team, and is a Senior Research Programmer in the Machine Learning Department at CMU.
+- key: mbonvini
+  name: Matteo Bonvini
+  link: https://www.linkedin.com/in/matteobonvini
+  description: is a graduate student in the Department of Statistics & Data Science at CMU.
+- key: ekennedy
+  name: Edward Kennedy
+  link: http://www.ehkennedy.com/
+  description: is an Assistant Professor in the Department of Statistics & Data Science at CMU
+- key: vventura
+  name: Valérie Ventura
+  link: http://www.stat.cmu.edu/~vventura/
+  description: is a Professor in the Department of Statistics & Data Science at CMU and a member of Delphi.
+- key: lwasserman
+  name: Larry Wasserman
+  link: http://www.stat.cmu.edu/~larry/
+  description: is a Professor in the Department of Statistics & Data Science at CMU as well as in the Machine Learning Department and is a member of Delphi.
+- key: lmorinishi
+  name: Leanna Morinishi
+  description: is a data scientist on the Physical Modeling team at Facebook.
+- key: kbarkume
+  name: Kris Barkume
+  description: is a research scientist on the Physical Modeling team at Facebook
+- key: hzhou
+  name: Helen Zhou
+  link: https://www.helen-zhou.com
+  description: is a PhD student in the Machine Learning Department at CMU and is a member of Delphi.
+- key: ccheng
+  name: Cheng Cheng
+  link: https://linkedin.com/in/cheng-cheng-419718106
+  description: is a PhD student in Machine Learning and Public Policy at CMU and is a member of Delphi.
+- key: jweiss
+  name: Jeremy Chen Weiss
+  link: https://www.andrew.cmu.edu/user/jweiss2/
+  description: is an Assistant Professor of Health Informatics at CMU and is a member of Delphi.
+- key: zlipton
+  name: Zachary Chase Lipton
+  link: https://acmilab.org
+  description: is an Assistant Professor of Operations Research and Machine Learning at CMU and is a member of Delphi.
+- key: ekim
+  name: Esther Kim
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+- key: agarcia
+  name: Andy Garcia
+  description: is a Data Scientist on the Health team at Facebook.
+- key: slarocca
+  name: Sarah LaRocca
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.

@@ -40,14 +40,12 @@ output:
     toc: true
 ---
 
-Since April 2020, in addition to our [massive daily survey advertised on
-Facebook](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey")`),
+Since April 2020, in addition to our `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey", "massive daily survey advertised on Facebook")`,
 we've been running (even-more-massive) surveys through Google to track the
 spread of COVID-19 in the United States. At its peak, our Google survey was
 taken by over 1.2 million people in a single day, and over its first month in
 operation, averaged about 600,000 daily respondents. As usual, we make
-aggregated data from this survey available through our [COVIDcast
-API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`).
+aggregated data from this survey available through our `r blogdown::shortcode_html("apireflink", "api/covidcast.html", "COVIDcast API")`.
 
 In mid-May, we decided to pause daily dissemination of this survey in order to
 focus on our (longer, more complex) survey through Facebook,
@@ -62,8 +60,7 @@ and shares some of our thinking about next steps for the Google survey.
 
 Back in March 2020, around the time we began discussions with Facebook about
 COVID-19 symptom surveys, we pitched the same idea to Google.
-Our motivation, [as we explained in our last
-post](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#why-run-these-surveys")`),
+Our motivation, `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey#why-run-these-surveys", "as we explained in our last post")`,
 has been to produce real-time, county-level data streams of self-reported COVID
 symptoms that can potentially serve as **early indicators** of COVID activity in
 the US. As we noted in that post, we weren't the only data scientists
@@ -127,8 +124,7 @@ this CLI-in-community question to our survey through Facebook.
     the subject is asked to report on someone else. The traditional view seems to
     be that proxy questions can undermine survey data quality, but in our setting
     it's critical: not only does it provide a safeguard against revealing personal
-    health information, it turned out to deliver [much higher
-    correlations](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#basic-correlation-analysis")`)
+    health information, it turned out to deliver `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey#basic-correlation-analysis", "much higher correlations")`
     with case rates than the direct (non-proxy) question.
 
 To give you a feel for the data, below we plot
@@ -224,8 +220,7 @@ about 74,000 responses per day.)
 The actual sampling scheme behind our Google survey is more complicated,
 and involves two-level stratification, across both counties and states.
 For details, including those on statistical estimation,
-visit our [COVIDcast signals
-documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/google-survey.html")`).
+visit our `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/google-survey.html", "COVIDcast signals documentation")`.
 On May 15, we paused our Google survey to focus on our Facebook survey,
 which is both longer and more complex.
 Importantly, the latter is _not_ a replacement for the former,
@@ -262,8 +257,7 @@ which for the most part holds a substantial gap over the
 correlations between the Facebook signal and case rates.
 This is no doubt encouraging, especially because we'd hope
 that the Google correlations would have only improved later in
-the year (as did the Facebook correlations, which we [previously
-suggested](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#basic-correlation-analysis")`)
+the year (as did the Facebook correlations, which we `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey#basic-correlation-analysis", "previously suggested")`
 could have been due to the increase in the diversity of county-level
 case rates around mid-June).
 
@@ -281,8 +275,7 @@ case rates around mid-June).
     analysis for when we work on deploying these two surveys in tandem; for now, we
     emphasize that this observation reiterates the importance of focusing on
     _time-varying trends_ in the survey signals, not the signal values themselves
-    (a point we [made in our last
-    post](`r blogdown::shortcode_html("ref", "2020-08-26-fb-survey#why-run-these-surveys")`)).
+    (a point we `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey#why-run-these-surveys", "made in our last post")`).
     Here, the self-reporting aspect must somehow be creating greatly different
     levels of bias in the two surveys; in an absolute sense, the subsequent
     estimates of % CLI-in-community strongly disagree, so both can't be right, and
@@ -359,8 +352,7 @@ As we can see from the above summary,
 the two survey schemes are complementary,
 and could be used synergistically.
 Our Facebook survey is a continuously-running, wide-reaching instrument
-that provides answers to a [rich set of
-questions](`r blogdown::shortcode_html("apiref", "symptom-survey/coding.html")`)
+that provides answers to a `r blogdown::shortcode_html("apireflink", "symptom-survey/coding.html", "rich set of questions")`
 (beyond COVID-related symptoms, it asks about
 contacts, risk factors, behavior, and demographics).
 When we find something interesting that warrants follow-up

@@ -61,8 +61,8 @@ We believe that this combination of _detail_ and _scale_
 has never before been available in a public health emergency.
 
 We make aggregated data publicly available daily through our
-[COVIDcast API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`),
-and visualize it on our [COVIDcast interactive map](`r blogdown::shortcode_html("ref", "covidcast")`).
+`r blogdown::shortcode_html("apireflink", "api/covidcast.html", "COVIDcast API")`,
+and visualize it on our `r blogdown::shortcode_html("reflink", "covidcast", "COVIDcast interactive map")`.
 We also make (fully de-identified) individual survey responses available
 to researchers who agree to
 [data use terms](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/).
@@ -149,22 +149,23 @@ df_in = covidcast_signal("jhu-csse", "confirmed_7dav_incidence_prop",
 df_fb_avg = df_fb %>% group_by(geo_value) %>% summarize(value = mean(value))
 df_in_avg = df_in %>% group_by(geo_value) %>% summarize(value = mean(value))
 
-# Set a bunch of fields so that the data frames know how to plot themselves
-df_fb_avg$time_value = df_in_avg$time_value = start_day
-df_fb_avg$issue = df_in_avg$issue = start_day
-attributes(df_fb_avg)$metadata$geo_type = "state"
-attributes(df_in_avg)$metadata$geo_type = "state"
-class(df_fb_avg) = c("covidcast_signal", class(df_fb_avg))
-class(df_in_avg) = c("covidcast_signal", class(df_in_avg))
+# Turn these into covidcast_signal data frames that can be mapped
+df_fb_avg = df_fb_avg %>%
+  mutate(time_value = start_day) %>%
+  as.covidcast_signal(signal = "fb_avg", geo_type = "state")
+
+df_in_avg = df_in_avg %>%
+  mutate(time_value = start_day) %>%
+  as.covidcast_signal(signal = "in_avg", geo_type = "state")
 
 # Plot choropleth maps, using the covidcast plotting functionality
 subtitle = paste("Averaged over", start_day, "to", end_day)
 p1 = plot(df_fb_avg,
           title = "% of people with COVID symptoms, based on Facebook surveys",
-          range=c(0, 1), choro_params = list(subtitle = subtitle))
+          range = c(0, 1), choro_params = list(subtitle = subtitle))
 p2 = plot(df_in_avg,
           title = "Daily new confirmed COVID-19 cases per 100,000 people",
-          range=c(0, 30), choro_params = list(subtitle = subtitle))
+          range = c(0, 30), choro_params = list(subtitle = subtitle))
 grid.arrange(p1, p2, nrow = 1)
 ```
 
@@ -173,8 +174,7 @@ package](https://cmu-delphi.github.io/covidcast/covidcastR/).
 In all, fetching the data from our API and producing the heatmaps
 requires only 15 lines of code.
 If you're interested, click the "Code" button to reveal the source.
-We'll cover our [R and Python covidcast
-packages](`r blogdown::shortcode_html("apiref", "api/covidcast_clients.html")`)
+We'll cover our `r blogdown::shortcode_html("apireflink", "api/covidcast_clients.html", "R and Python covidcast packages")`
 in a future blog post.
 
 ## Why Run These Surveys?
@@ -210,8 +210,7 @@ surveys:
   which may be a sizeable fraction of the US population, but certainly not all of
   it. We'll also likely see bias because some people on Facebook are more inclined
   to take surveys than others. We attempt to correct for both of these biases
-  using a [statistical reweighting
-  scheme](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html#survey-weighting")`),
+  using a `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/fb-survey.html#survey-weighting", "statistical reweighting scheme")`,
   but these corrections aren't perfect.
 
 - Our symptom data is entirely self-reported, in contrast to data
@@ -248,8 +247,7 @@ quantities, in a given location, on a given day:
   community_ with COVID-like illness.
 
 Details on how we compute the % CLI and % CLI-in-community estimates can be
-found in our [COVIDcast signals
-documentation](`r blogdown::shortcode_html("apiref", "api/covidcast-signals/fb-survey.html")`).
+found in our `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/fb-survey.html", "COVIDcast signals documentation")`.
 
 The % CLI-in-community indicator has an interesting backstory: it was sort of a
 "happy accident" from an experiment we tried with surveys we were running in
@@ -271,10 +269,8 @@ public health. They assured us that lengthening the survey wouldn't hurt the
 completion rate too much, and they were right: of the people who complete the
 first section, over 85% go on to finish the full survey!
 
-Our [survey documentation
-site](`r blogdown::shortcode_html("apiref", "symptom-survey/")`) includes more
-details about the survey, including the [full text of every survey
-version](`r blogdown::shortcode_html("apiref", "symptom-survey/coding.html")`).
+Our `r blogdown::shortcode_html("apireflink", "symptom-survey/", "survey documentation site")` includes more
+details about the survey, including the `r blogdown::shortcode_html("apireflink", "symptom-survey/coding.html", "full text of every survey version")`.
 And yes, researchers can [request
 access](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
 to (fully de-identified) individual survey responses for research purposes,
@@ -539,12 +535,13 @@ or we didn't have enough data from the surveys in
 order to estimate % CLI and % CLI-in-community signals there.
 
 ```{r, fig.width = 10, fig.height = 4, out.extra = 'class="wide-figure"'}
-# Set a bunch of fields so that the data frames know how to plot themselves
-df_cor1$time_value = df_cor2$time_value = start_day
-df_cor1$issue = df_cor2$issue = start_day
-attributes(df_cor1)$metadata$geo_type = "county"
-attributes(df_cor2)$metadata$geo_type = "county"
-class(df_cor1) = class(df_cor2) = c("covidcast_signal", "data.frame")
+# Use as.covidcast_signal to turn these into mappable signals
+df_cor1 = df_cor1 %>%
+  mutate(time_value = start_day) %>%
+  as.covidcast_signal(signal = "cor1")
+df_cor2 = df_cor2 %>%
+  mutate(time_value = start_day) %>%
+  as.covidcast_signal(signal = "cor1")
 
 # Plot choropleth maps, using the covidcast plotting functionality
 p1 = plot(df_cor1, title = "Correlation between % CLI and case rates",
@@ -603,6 +600,5 @@ This new survey is currently being deployed,
 and data should become available in the next few weeks.
 Detailed data will be available to researchers,
 while new aggregates---such as of mask-wearing---will
-be made public, as usual, through our [COVIDcast
-API](`r blogdown::shortcode_html("apiref", "api/covidcast.html")`)
-and [COVIDcast interactive map](`r blogdown::shortcode_html("ref", "covidcast")`).
+be made public, as usual, through our `r blogdown::shortcode_html("apireflink", "api/covidcast.html", "COVIDcast API")`
+and `r blogdown::shortcode_html("reflink", "covidcast", "COVIDcast interactive map")`.
