@@ -6,9 +6,8 @@
   <script src="{{ (partial "covidcast/find-file.html" "bundle.*\\.js$")| relURL }}"></script>
 {{ end }}
 {{ define "breadcrumb" }}<!-- no breadcrumb -->{{ end }}
-{{ define "body_class" }}covidcast_wrapper{{ end }}
+{{ define "body_class" }}covidcast_wrapper {{ if .Params.footer }}covidcast_wrapper_footer{{ end }}{{ end }}
 {{ define "main" }}
-  {{ partial "covidcast/modes.html" . }}
   <div id="vizbox">
     <div class="ie-banner" style="display: none">
       <div>
