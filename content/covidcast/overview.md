@@ -7,5 +7,4 @@ app_mode: overview
 order: 3
 heroImage: /images/landing-page/hero-images/covidcast_withfill.jpg
 feedback: true
-footer: true
 ---
