@@ -12,7 +12,7 @@ authors:
   - roni
   - cscott
 heroImage: /blog/images/blog-lg-c2b.jpg # size: 1120x440 jpg and webp format
-heroImageThumb: /blog/images/blog-thumb-c2bjpg # size: 300x200 jpg and webp format
+heroImageThumb: /blog/images/blog-thumb-c2b.jpg # size: 300x200 jpg and webp format
 # related:
 summary: |
 In our partnership with the Allegheny County Health Department, we explored a
