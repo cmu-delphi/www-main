@@ -1,26 +1,62 @@
 ---
-title: "Cases2Beds"
-author: "Ananya Joshi, Roni Rosenfeld, Chris Scott, and Phil McGuinness"
+title: "Cases2Beds: A Case Study in Actionable Intelligence"
+author: "Ananya Joshi, Roni Rosenfeld, and Chris Scott"
 date: 2021-03-10
-# tags:
+tags:
+  - hospital utilization
+  - actionable intelligence
+  - Excel
+  - Allegheny County
 authors:
   - ajoshi
   - roni
   - cscott
-  - pmcguiness
-heroImage: /blog/images/blog-lg-img_hello-world.jpg # size: 1120x440 jpg and webp format
-heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg # size: 300x200 jpg and webp format
+heroImage: /blog/images/blog-lg-c2b.jpg # size: 1120x440 jpg and webp format
+heroImageThumb: /blog/images/blog-thumb-c2b.jpg # size: 300x200 jpg and webp format
 # related:
-summary: |
-  TODO
+summary: | 
+  In our partnership with the Allegheny County Health Department, 
+  we explored avariety of solutions to different pressing challenges 
+  during the pandemic. Cases2Beds was one such tool that came as a 
+  result of rising COVID cases in Allegheny County. 
+  
+  The goal of Cases2Beds is to project likely hospital bed 
+  utilization from any given set of lab-confirmed cases. The intuition of 
+  Cases2Beds is that some fraction ((hospitalization rate) of individuals who 
+  test positive today will be hospitalized after a time delay 
+  (from test date to admit date) and for a varying duration 
+  (from admit date to discharge date). These values and distributions vary by 
+  individual traits (primarily age group, and then race or gender). 
+  Using the current relevant hospitalization rates, delay distributions,
+  and duration distributions, we show what bed usage might be for the inputted 
+  positive cases. We are not aware of other generative approaches for 
+  hospital utilization.
+  
 acknowledgements: |
-  TODO Andrew Chin, Ananya Joshi, Katie Mazaitis, Phil McGuinness, Chris Scott, Benjamin Smith, Roni Rosenfeld, Spencer Whitman, DELPHI Group at CMU
+ Thank you to the Allegheny County Health Department (especially Antony Gnalian,
+ LuAnn Brinks, and Debra Bogen) for their invaluable feedback, efforts, and
+ shared interest in actionable intelligence. 
+ 
+ Many members of the Delphi Group, including Roni Rosenfeld, 
+ Sumit Agrawal, Chris Scott, Katie Mazaitis, Ananya Joshi, 
+ and Phil McGuinness met regularly with the Allegheny County 
+ Health Department and investigated various solutions other than Cases2Beds. 
+ 
+ Cases2Beds was designed by Roni Rosenfeld, Ananya Joshi and Chris Scott. 
+ Ananya Joshi implemented Cases2Beds and Chris Scott provided related analytics. 
+ Andrew Chin, Chris Scott, and Benjamin Weaver investigated Cases2Beds alternatives.
+ 
+ Zachary Lipton, Helen Zhou, and Cheng Cheng 
+ provided historical data from Florida and valuable support. 
+ 
+ Ananya Joshi, Chris Scott, Roni Rosenfeld, Spencer Whitman, 
+ Phil McGuinness, and Samuel Gratzl wrote, edited and formatted 
+ this blog post. 
 output:
   blogdown::html_page:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -79,13 +115,13 @@ An alternative to Monte Carlo: the analytical model
 As an alternative, we developed an analytical model for Microsoft Excel that offered a much faster run time than a full Monte Carlo simulation.</p>
 <p>The analytical model had the same idea as the Monte Carlo simulation. Some fraction of individuals who test positive today will be hospitalized after a varying offset (from test date to admit date) and variable duration (from admit date to discharge date) based on their characteristics. In the spreadsheet, anyone can (and should) change these parameters to fit their region.</p>
 <p>The characteristics are:
-- Age Group: (Most important) [unspecified, 0-9, 10-19, 20-29 … 70-79, 80+]
-- Sex: [unspecified, M, F]
-- Race: [unspecified, Black, White, Hispanic, Asian]</p>
+1. Age Group: (Most important) [unspecified, 0-9, 10-19, 20-29 … 70-79, 80+]
+2. Sex: [unspecified, M, F]
+3. Race: [unspecified, Black, White, Hispanic, Asian]</p>
 <p>And the parameters are:
-- Hospitalization Rate
-- Offset Distribution Parameter Set: Parameters describing the number of days before someone who tests positive is hospitalized
-- Duration Distribution Parameter Set: Parameters describing the number of days someone will be in the hospital</p>
+1. Hospitalization Rate
+2. Offset Distribution Parameter Set: Parameters describing the number of days before someone who tests positive is hospitalized
+3. Duration Distribution Parameter Set: Parameters describing the number of days someone will be in the hospital</p>
 <p>The second types of inputs are the positive cases split by their traits. This is the input that the user actively changes on their end.</p>
 <p>Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the positive case breakdown (second input) give us the mean and variance of the number of patients in the hospital per day based on the cases already seen up to 1 month in the future. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month.</p>
 <div class="figure">
@@ -113,10 +149,8 @@ As an alternative, we developed an analytical model for Microsoft Excel that off
 </div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
-<ul>
-<li><a href="https://www.cmu.edu/delphi-web/cases2beds-v0.2.3.xlsm">Cases2Beds Worksheet</a></li>
-<li><a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">HHS Protect Hospital Utilization Data</a></li>
-<li><a href="https://tableau.alleghenycounty.us/t/PublicSite/views/AlleghenyCountyCOVID-19Information_15912788131180/OutcomesofCases?iframeSizedToWindow=true&amp;%3Aembed=y&amp;%3AshowAppBanner=false&amp;%3Adisplay_count=no&amp;%3AshowVizHome=no&amp;%3Aorigin=viz_share_link">ACHD COVID-19 Dashboard</a></li>
-<li><a href="https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429">Florida line-level COVID dataset</a></li>
-</ul>
+<p>[1] <a href="https://www.cmu.edu/delphi-web/cases2beds-v0.2.3.xlsm">Cases2Beds Worksheet</a>
+[2] <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">HHS Protect Hospital Utilization Data</a>
+[3] <a href="https://tableau.alleghenycounty.us/t/PublicSite/views/AlleghenyCountyCOVID-19Information_15912788131180/OutcomesofCases?iframeSizedToWindow=true&amp;%3Aembed=y&amp;%3AshowAppBanner=false&amp;%3Adisplay_count=no&amp;%3AshowVizHome=no&amp;%3Aorigin=viz_share_link">ACHD COVID-19 Dashboard</a>
+[4] <a href="https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429">Florida line-level COVID dataset</a></p>
 </div>
