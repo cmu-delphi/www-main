@@ -6,16 +6,8 @@
   <script src="{{ (partial "covidcast/find-file.html" "bundle.*\\.js$")| relURL }}"></script>
 {{ end }}
 {{ define "breadcrumb" }}<!-- no breadcrumb -->{{ end }}
-{{ define "body_class" }}covidcast_wrapper{{ end }}
+{{ define "body_class" }}{{ if eq .Params.footer false }}covidcast_wrapper{{ end }}{{ end }}
 {{ define "main" }}
-  {{ partial "covidcast/modes.html" . }}
-  <div class="uk-alert-warning uk-margin-small-top uk-margin-small-bottom" uk-alert>
-    <a class="uk-alert-close" uk-close></a>
-    <p>
-      Due to an issue with our backend, no data newer than <strong>February 1st</strong> is being added to the system.
-      We expect to resume daily updates or provide a new estimate by February 15th.
-    </p>
-  </div>
   <div id="vizbox">
     <div class="ie-banner" style="display: none">
       <div>
