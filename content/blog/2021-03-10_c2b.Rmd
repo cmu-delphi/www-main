@@ -16,7 +16,7 @@ heroImageThumb: /blog/images/blog-thumb-c2bjpg # size: 300x200 jpg and webp form
 # related:
 summary: |
 In our partnership with the Allegheny County Health Department, we explored a
-variety of solutions to different pressing challenges during the pandemic. 
+ variety of solutions to different pressing challenges during the pandemic. 
 Cases2Beds was one such tool that came as a result of rising COVID cases in 
 Allegheny County. 
 
