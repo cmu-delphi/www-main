@@ -38,23 +38,18 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "About"
+    name = "COVIDcast Overview"
     url = "/covidcast"
     weight = 1
 [[menu.main]]
     parent = "covidcast"
-    name = "Indicator Overview"
-    url = "/covidcast/overview"
+    name = "Location Summary"
+    url = "/covidcast/summary"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "Indicator Details"
-    url = "/covidcast/indicator"
-    weight = 3
-[[menu.main]]
-    parent = "covidcast"
-    name = "Old Map Overview"
-    url = "/covidcast/old"
+    name = "Classic COVIDcast"
+    url = "/covidcast/classic"
     weight = 4
 [[menu.main]]
     parent = "covidcast"
