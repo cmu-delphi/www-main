@@ -61,7 +61,7 @@ One of the Delphi Group's goals is to create informative tools for healthcare or
 
 The ACHD needed at least a weeks’ notice to open emergency COVID facilities. If the emergency space wasn't open and hospital beds ran out, mortality rates would soar. But, if we didn't need the facility, that decision would have stretched ACHD's already thin resources. Many of the hospitals in Allegheny County were already in contact with each other, but each hospital system only had visibility into its facilities. We wondered if we could offer a higher-level view for the county.
 
-![Fig. 1: Hospital beds occupancy in Allegheny county through Dec 11th from HHS Protect Data <sup>2</sup>](/blog/2021-03-10_c2b/fig1.png)
+![**Fig. 1:** Hospital beds occupancy in Allegheny county through Dec 11th from HHS Protect Data <sup>2</sup>](/blog/2021-03-10_c2b/fig1.png)
 
 ## Actionable intelligence during the pandemic
 
@@ -88,7 +88,7 @@ To extrapolate beds utilization 1-2 weeks in the future, we needed to estimate:
 These numbers varied widely across three demographic factors: age, sex, and race.
 
 
-![Fig. 2: Demographic Comparisons from the Allegheny County COVID-19 Tableau <sup>3</sup>](/blog/2021-03-10_c2b/fig2.png)
+![**Fig. 2:** Demographic Comparisons from the Allegheny County COVID-19 Tableau <sup>3</sup>](/blog/2021-03-10_c2b/fig2.png)
 
 We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate by the aforementioned demographic factors. Of these characteristics, we found that age-group was the most important.
 
@@ -130,7 +130,7 @@ The second types of inputs are the daily positive cases split by their traits. T
 
 Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the mean and variance of the number of patients in the hospital per day based on the cases already seen up to 1 month in the future. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month. 
 
-![Fig. 3: Output of Cases2Beds using historical data until January 21st for a Random US County ](/blog/2021-03-10_c2b/fig3.png)
+![**Fig. 3:** Output of Cases2Beds using historical data until January 21st for a Random US County ](/blog/2021-03-10_c2b/fig3.png)
 
 
 If we assume independence between patients, the mean and variance calculations are exact. However, our quantile estimates are based on approximating the sum of independent binary variables, which is inaccurate near the tails. So the accuracy of the more extreme quantiles (95%+) depends on the number of cases present, which in practice makes them less trustworthy.
@@ -140,11 +140,11 @@ If we assume independence between patients, the mean and variance calculations a
 By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the health departments did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from various national public resources, like the Florida line-level COVID dataset<sup>4</sup>. Based on these users' feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs include current hospital bed utilization (from HHS Protect<sup>2</sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power where Cases2Beds is an important factor in these regressions: 
 
 
-![Fig. 4: Hospital Utilization Prediction vs. Usage for a Random Region](/blog/2021-03-10_c2b/fig4.png)
+![**Fig. 4:** Hospital Utilization Prediction vs. Usage for a Random Region](/blog/2021-03-10_c2b/fig4.png)
 
 At the peak of bed utilization, hospital systems themselves increased their COVID beds capacity by up to *6x*. Fortunately, in Allegheny County, we never reached a point where demand for cases exceeded this somewhat elastic supply. By early January, multiple organizations told us that the pandemic's most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over. 
 
-![Fig. 5: Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>2</sup>](/blog/2021-03-10_c2b/fig5.png)
+![**Fig. 5:** Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>2</sup>](/blog/2021-03-10_c2b/fig5.png)
 
 ## Conclusion
 
