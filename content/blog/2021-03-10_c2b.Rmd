@@ -104,29 +104,33 @@ Estimating the future given a set of probabilities is a common problem and is po
 
 Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be.  For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds - after many simulations, we had a good idea of how many beds might be needed in the next two weeks. 
 
-Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately, offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out.  Even asking ACHD to run our Python software on their machines fell into a legal grey area.  However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.
+Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately and offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out.  Even asking ACHD to run our Python software on their machines fell into a legal grey area.  However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.
 
 It is relatively straight-forward to port the Python application to VBscript macros.  Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
-An alternative to Monte Carlo: the analytical model
+
+## An alternative to Monte Carlo: the analytical model
+
 As an alternative, we developed an analytical model for Microsoft Excel that offered a much faster run time than a full Monte Carlo simulation.
 
 The analytical model had the same idea as the Monte Carlo simulation. Some fraction of individuals who test positive today will be hospitalized after a varying offset (from test date to admit date) and variable duration (from admit date to discharge date) based on their characteristics. In the spreadsheet, anyone can (and should) change these parameters to fit their region. 
 
 The characteristics are: 
+
 1.  Age Group: (Most important) [unspecified, 0-9, 10-19, 20-29 … 70-79, 80+]
-2.  Sex: [unspecified, M, F]
-3.  Race: [unspecified, Black, White, Hispanic, Asian]
+1.  Sex: [unspecified, M, F]
+1.  Race: [unspecified, Black, White, Hispanic, Asian]
 
 And the parameters are: 
+
 1.  Hospitalization Rate
-2.  Offset Distribution Parameter Set: Parameters describing the number of days before someone who tests positive is hospitalized
-3.  Duration Distribution Parameter Set: Parameters describing the number of days someone will be in the hospital
+1.  Offset Distribution Parameter Set: Parameters describing the number of days before someone who tests positive is hospitalized
+1.  Duration Distribution Parameter Set: Parameters describing the number of days someone will be in the hospital
 
-The second types of inputs are the positive cases split by their traits. This is the input that the user actively changes on their end. 
+The second types of inputs are the daily positive cases split by their traits. This is the input that the user actively changes on their end. 
 
-Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the positive case breakdown (second input) give us the mean and variance of the number of patients in the hospital per day based on the cases already seen up to 1 month in the future. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month. 
+Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the mean and variance of the number of patients in the hospital per day based on the cases already seen up to 1 month in the future. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month. 
 
-![Fig. 3: Output of Cases2Beds using historical data until January 21st for Random US County ](/blog/2021-03-10_c2b/fig3.png)
+![Fig. 3: Output of Cases2Beds using historical data until January 21st for a Random US County ](/blog/2021-03-10_c2b/fig3.png)
 
 
 If we assume independence between patients, the mean and variance calculations are exact. However, our quantile estimates are based on approximating the sum of independent binary variables, which is inaccurate near the tails. So the accuracy of the more extreme quantiles (95%+) depends on the number of cases present, which in practice makes them less trustworthy.
@@ -138,7 +142,7 @@ By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. 
 
 ![Fig. 4: Hospital Utilization Prediction vs. Usage for a Random Region](/blog/2021-03-10_c2b/fig4.png)
 
-At the peak of bed utilization, hospital systems themselves increased their COVID beds capacity by up to 6x. Fortunately, in Allegheny County, we never reached a point where demand for cases exceeded this somewhat elastic supply. By early January, multiple organizations told us that the pandemic's most acute problem had changed to vaccine distribution and the number of beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over. 
+At the peak of bed utilization, hospital systems themselves increased their COVID beds capacity by up to *6x*. Fortunately, in Allegheny County, we never reached a point where demand for cases exceeded this somewhat elastic supply. By early January, multiple organizations told us that the pandemic's most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over. 
 
 ![Fig. 5: Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>2</sup>](/blog/2021-03-10_c2b/fig5.png)
 
@@ -149,6 +153,9 @@ Cases2Beds was a case study about the realities of research institutions offerin
 ## Resources
 
  [1] [Cases2Beds Worksheet](https://www.cmu.edu/delphi-web/cases2beds-v0.2.3.xlsm)
+ 
  [2] [HHS Protect Hospital Utilization Data](https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility)
+ 
  [3] [ACHD COVID-19 Dashboard](https://tableau.alleghenycounty.us/t/PublicSite/views/AlleghenyCountyCOVID-19Information_15912788131180/OutcomesofCases?iframeSizedToWindow=true&%3Aembed=y&%3AshowAppBanner=false&%3Adisplay_count=no&%3AshowVizHome=no&%3Aorigin=viz_share_link)
+ 
 [4] [Florida line-level COVID dataset](https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429)

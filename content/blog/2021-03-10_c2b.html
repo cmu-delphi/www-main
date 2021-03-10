@@ -63,6 +63,7 @@ output:
 <li><a href="#actionable-intelligence-during-the-pandemic">Actionable intelligence during the pandemic</a></li>
 <li><a href="#a-probabilistic-approach">A probabilistic approach</a></li>
 <li><a href="#the-logistics-of-actionable-intelligence">The logistics of actionable intelligence</a></li>
+<li><a href="#an-alternative-to-monte-carlo-the-analytical-model">An alternative to Monte Carlo: the analytical model</a></li>
 <li><a href="#the-only-constant-during-the-pandemic-is-change">The only constant during the pandemic is change</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#resources">Resources</a></li>
@@ -109,24 +110,30 @@ output:
 <div id="the-logistics-of-actionable-intelligence" class="section level2">
 <h2>The logistics of actionable intelligence</h2>
 <p>Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be. For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds - after many simulations, we had a good idea of how many beds might be needed in the next two weeks.</p>
-<p>Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately, offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out. Even asking ACHD to run our Python software on their machines fell into a legal grey area. However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.</p>
-<p>It is relatively straight-forward to port the Python application to VBscript macros. Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
-An alternative to Monte Carlo: the analytical model
-As an alternative, we developed an analytical model for Microsoft Excel that offered a much faster run time than a full Monte Carlo simulation.</p>
+<p>Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately and offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out. Even asking ACHD to run our Python software on their machines fell into a legal grey area. However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.</p>
+<p>It is relatively straight-forward to port the Python application to VBscript macros. Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.</p>
+</div>
+<div id="an-alternative-to-monte-carlo-the-analytical-model" class="section level2">
+<h2>An alternative to Monte Carlo: the analytical model</h2>
+<p>As an alternative, we developed an analytical model for Microsoft Excel that offered a much faster run time than a full Monte Carlo simulation.</p>
 <p>The analytical model had the same idea as the Monte Carlo simulation. Some fraction of individuals who test positive today will be hospitalized after a varying offset (from test date to admit date) and variable duration (from admit date to discharge date) based on their characteristics. In the spreadsheet, anyone can (and should) change these parameters to fit their region.</p>
-<p>The characteristics are:
-1. Age Group: (Most important) [unspecified, 0-9, 10-19, 20-29 … 70-79, 80+]
-2. Sex: [unspecified, M, F]
-3. Race: [unspecified, Black, White, Hispanic, Asian]</p>
-<p>And the parameters are:
-1. Hospitalization Rate
-2. Offset Distribution Parameter Set: Parameters describing the number of days before someone who tests positive is hospitalized
-3. Duration Distribution Parameter Set: Parameters describing the number of days someone will be in the hospital</p>
-<p>The second types of inputs are the positive cases split by their traits. This is the input that the user actively changes on their end.</p>
-<p>Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the positive case breakdown (second input) give us the mean and variance of the number of patients in the hospital per day based on the cases already seen up to 1 month in the future. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month.</p>
+<p>The characteristics are:</p>
+<ol style="list-style-type: decimal">
+<li>Age Group: (Most important) [unspecified, 0-9, 10-19, 20-29 … 70-79, 80+]</li>
+<li>Sex: [unspecified, M, F]</li>
+<li>Race: [unspecified, Black, White, Hispanic, Asian]</li>
+</ol>
+<p>And the parameters are:</p>
+<ol style="list-style-type: decimal">
+<li>Hospitalization Rate</li>
+<li>Offset Distribution Parameter Set: Parameters describing the number of days before someone who tests positive is hospitalized</li>
+<li>Duration Distribution Parameter Set: Parameters describing the number of days someone will be in the hospital</li>
+</ol>
+<p>The second types of inputs are the daily positive cases split by their traits. This is the input that the user actively changes on their end.</p>
+<p>Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the mean and variance of the number of patients in the hospital per day based on the cases already seen up to 1 month in the future. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month.</p>
 <div class="figure">
 <img src="/blog/2021-03-10_c2b/fig3.png" alt="" />
-<p class="caption">Fig. 3: Output of Cases2Beds using historical data until January 21st for Random US County</p>
+<p class="caption">Fig. 3: Output of Cases2Beds using historical data until January 21st for a Random US County</p>
 </div>
 <p>If we assume independence between patients, the mean and variance calculations are exact. However, our quantile estimates are based on approximating the sum of independent binary variables, which is inaccurate near the tails. So the accuracy of the more extreme quantiles (95%+) depends on the number of cases present, which in practice makes them less trustworthy.</p>
 </div>
@@ -137,7 +144,7 @@ As an alternative, we developed an analytical model for Microsoft Excel that off
 <img src="/blog/2021-03-10_c2b/fig4.png" alt="" />
 <p class="caption">Fig. 4: Hospital Utilization Prediction vs. Usage for a Random Region</p>
 </div>
-<p>At the peak of bed utilization, hospital systems themselves increased their COVID beds capacity by up to 6x. Fortunately, in Allegheny County, we never reached a point where demand for cases exceeded this somewhat elastic supply. By early January, multiple organizations told us that the pandemic’s most acute problem had changed to vaccine distribution and the number of beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over.</p>
+<p>At the peak of bed utilization, hospital systems themselves increased their COVID beds capacity by up to <em>6x</em>. Fortunately, in Allegheny County, we never reached a point where demand for cases exceeded this somewhat elastic supply. By early January, multiple organizations told us that the pandemic’s most acute problem had changed to vaccine distribution and the number of beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over.</p>
 <div class="figure">
 <img src="/blog/2021-03-10_c2b/fig5.png" alt="" />
 <p class="caption">Fig. 5: Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>2</sup></p>
@@ -149,8 +156,8 @@ As an alternative, we developed an analytical model for Microsoft Excel that off
 </div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
-<p>[1] <a href="https://www.cmu.edu/delphi-web/cases2beds-v0.2.3.xlsm">Cases2Beds Worksheet</a>
-[2] <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">HHS Protect Hospital Utilization Data</a>
-[3] <a href="https://tableau.alleghenycounty.us/t/PublicSite/views/AlleghenyCountyCOVID-19Information_15912788131180/OutcomesofCases?iframeSizedToWindow=true&amp;%3Aembed=y&amp;%3AshowAppBanner=false&amp;%3Adisplay_count=no&amp;%3AshowVizHome=no&amp;%3Aorigin=viz_share_link">ACHD COVID-19 Dashboard</a>
-[4] <a href="https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429">Florida line-level COVID dataset</a></p>
+<p>[1] <a href="https://www.cmu.edu/delphi-web/cases2beds-v0.2.3.xlsm">Cases2Beds Worksheet</a></p>
+<p>[2] <a href="https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility">HHS Protect Hospital Utilization Data</a></p>
+<p>[3] <a href="https://tableau.alleghenycounty.us/t/PublicSite/views/AlleghenyCountyCOVID-19Information_15912788131180/OutcomesofCases?iframeSizedToWindow=true&amp;%3Aembed=y&amp;%3AshowAppBanner=false&amp;%3Adisplay_count=no&amp;%3AshowVizHome=no&amp;%3Aorigin=viz_share_link">ACHD COVID-19 Dashboard</a></p>
+<p>[4] <a href="https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429">Florida line-level COVID dataset</a></p>
 </div>
