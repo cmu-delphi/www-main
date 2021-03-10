@@ -5,9 +5,9 @@
 .covidcast_wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
+  height: 100vh;
 
-.covidcast_wrapper:not(.covidcast_wrapper_footer) > footer {
-  display: none;
+  > footer {
+    display: none;
+  }
 }
