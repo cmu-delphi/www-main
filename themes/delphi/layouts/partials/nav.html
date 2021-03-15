@@ -27,12 +27,14 @@
             <div class="uk-navbar-dropdown">
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 {{ range .Children }}
-                  <li><a href="{{ .URL | relLangURL }}">
-                    {{ partial "menu/item.html" . }}
-                    {{ if (in (split $currentPage.Site.Params.highlightLinks ",") .URL) }}
-                      <span class="uk-badge">New</span>
-                    {{ end }}
-                  </a></li>
+                  <li>
+                    <a href="{{ .URL | relLangURL }}">
+                      {{ partial "menu/item.html" . }}
+                      {{ if (in (split $currentPage.Site.Params.highlightLinks ",") .URL) }}
+                        <span class="uk-badge">New</span>
+                      {{ end }}
+                    </a>
+                  </li>
                 {{ end }}
               </ul>
             </div>
@@ -60,7 +62,7 @@
                     <a href="{{ .URL | relLangURL }}">
                       {{ partial "menu/item.html" . }}
                       {{ if (in (split $currentPage.Site.Params.highlightLinks ",") .URL) }}
-                      <span class="uk-badge">New</span>
+                        <span class="uk-badge">New</span>
                       {{ end }}
                     </a>
                   </li>
