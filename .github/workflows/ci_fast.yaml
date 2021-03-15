@@ -16,15 +16,15 @@ jobs:
           # submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 3 # Fetch all history for .GitInfo and .Lastmod
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2.1.5
         with:
-          node-version: "12"
+          node-version: "14"
       - uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-node3-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-node3-
       - run: npm ci
       - name: Lint
         run: npm run lint
