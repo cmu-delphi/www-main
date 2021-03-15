@@ -6,7 +6,7 @@ command = "npm ci && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 HUGO_VERSION = "0.81.0"
 HUGO_ENV = "production"
 NODE_VERSION = "14.16.0"
-NPM_VERSION = "7.6.3"
+NPM_VERSION = "6.14.11"
 
 [context.deploy-preview]
 command = "npm ci && hugo --gc --minify --buildDrafts --buildFuture -b $DEPLOY_PRIME_URL"
@@ -15,7 +15,7 @@ command = "npm ci && hugo --gc --minify --buildDrafts --buildFuture -b $DEPLOY_P
 HUGO_VERSION = "0.81.0"
 HUGO_ENABLEGITINFO = "true"
 NODE_VERSION = "14.16.0"
-NPM_VERSION = "7.6.3"
+NPM_VERSION = "6.14.11"
 
 [context.branch-deploy]
 command = "npm ci && hugo --gc --minify -b $DEPLOY_PRIME_URL"
@@ -24,4 +24,4 @@ command = "npm ci && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 HUGO_VERSION = "0.81.0"
 HUGO_ENABLEGITINFO = "true"
 NODE_VERSION = "14.16.0"
-NPM_VERSION = "7.6.3"
+NPM_VERSION = "6.14.11"
