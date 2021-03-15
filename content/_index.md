@@ -18,7 +18,7 @@ carousel:
     title: Forecast Evaluation Dashboard
     ref: covidcast
     alt: Explore the new COVID-19 forecast evaluation dashboard
-    image: covidcast_withfill.jpg
+    image: forecast_evaluation_dashboard.jpg
   - pre: Our Blog Post
     title: New and improved COVID Symptom Survey Tracks Testing and Mask-Wearing
     ref: 2020-10-06-survey-wave-4
