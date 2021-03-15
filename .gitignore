@@ -13,3 +13,5 @@
 .DS_Store
 *.zip
 *.tgz
+.Rhistory
+*.log
