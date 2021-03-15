@@ -34,12 +34,12 @@ relativeURLs = false
     identifier = "covidcast"
     name = "COVIDcast"
     pre = "solid/map"
-    url = "/covidcast"
+    url = "/covidcast/"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
     name = "COVIDcast Overview"
-    url = "/covidcast"
+    url = "/covidcast/"
     weight = 1
 [[menu.main]]
     parent = "covidcast"
@@ -122,3 +122,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
+    highlightLinks = "/covidcast/,/covidcast/summary,/signals-dashboard/,/forecast-eval/"
