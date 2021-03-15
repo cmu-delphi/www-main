@@ -43,12 +43,12 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "covidcast"
-    name = "Location Summary"
+    name = "Region Summary"
     url = "/covidcast/summary"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "Classic COVIDcast"
+    name = "Classic Map"
     url = "/covidcast/classic"
     weight = 4
 [[menu.main]]
@@ -78,10 +78,20 @@ relativeURLs = false
     weight = 90
 [[menu.main]]
     identifier = "flu"
-    name = "Flu and Other Diseases"
+    name = "Tools and Resources"
     pre = "solid/virus"
     url = "/flu"
     weight = 3
+[[menu.main]]
+    parent = "flu"
+    name = "Signals Dashboard"
+    url = "/signals-dashboard/"
+    weight = 10
+[[menu.main]]
+    parent = "flu"
+    name = "Forecast Evaluator"
+    url = "/forecast-eval/"
+    weight = 20
 [[menu.main]]
     identifier = "blog"
     name = "Blog"
