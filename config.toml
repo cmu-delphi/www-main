@@ -34,27 +34,22 @@ relativeURLs = false
     identifier = "covidcast"
     name = "COVIDcast"
     pre = "solid/map"
-    url = "/covidcast"
+    url = "/covidcast/"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "About"
-    url = "/covidcast"
+    name = "COVIDcast Overview"
+    url = "/covidcast/"
     weight = 1
 [[menu.main]]
     parent = "covidcast"
-    name = "Indicator Overview"
-    url = "/covidcast/overview"
+    name = "Region Summary"
+    url = "/covidcast/summary"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "Indicator Details"
-    url = "/covidcast/indicator"
-    weight = 3
-[[menu.main]]
-    parent = "covidcast"
-    name = "Old Map Overview"
-    url = "/covidcast/old"
+    name = "Classic Map"
+    url = "/covidcast/classic"
     weight = 4
 [[menu.main]]
     parent = "covidcast"
@@ -83,10 +78,20 @@ relativeURLs = false
     weight = 90
 [[menu.main]]
     identifier = "flu"
-    name = "Flu and Other Diseases"
+    name = "Tools and Resources"
     pre = "solid/virus"
     url = "/flu"
     weight = 3
+[[menu.main]]
+    parent = "flu"
+    name = "Signals Dashboard"
+    url = "/signals-dashboard/"
+    weight = 10
+[[menu.main]]
+    parent = "flu"
+    name = "Forecast Evaluator"
+    url = "/forecast-eval/"
+    weight = 20
 [[menu.main]]
     identifier = "blog"
     name = "Blog"
@@ -117,3 +122,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
+    highlightLinks = "/covidcast/,/covidcast/summary,/signals-dashboard/,/forecast-eval/"
