@@ -53,11 +53,11 @@ output:
     toc: true
 ---
 
-One of the Delphi Group's goals is to create informative tools for healthcare organizations (actionable intelligence). To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November, 2020, as the case rates in the county continued to increase, was if Allegheny County would run out of hospital beds for COVID patients. 
+One of the Delphi Group's goals is to create informative tools for healthcare organizations (actionable intelligence). To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November 2020, as the case rates in the county continued to increase, was if Allegheny County would run out of hospital beds for COVID patients. 
 
 The ACHD needed at least a weeks’ notice to open emergency COVID facilities. If the emergency space wasn't open and hospital beds ran out, mortality rates would soar. But, if we didn't need the facility, that decision would have stretched ACHD's already thin resources. Many of the hospitals in Allegheny County were already in contact with each other, but each hospital system only had visibility into its facilities. We wondered if we could offer a higher-level view for the county.
 
-![**Fig. 1:** Hospital beds occupancy in Allegheny county through Dec 11th from HHS Protect Data <sup>2</sup>](/blog/2021-03-10_c2b/fig1.png)
+![**Fig. 1:** Hospital beds occupancy in Allegheny county through Dec 11th from HHS Protect Data <sup>[2](#HHSLink)</sup>](/blog/2021-03-10_c2b/fig1.png)
 
 ## Actionable intelligence during the pandemic
 
@@ -66,11 +66,11 @@ Our early conversations with ACHD revealed two fundamental problems:
 1. Data visualization was complex and time intensive
 2. Trend detection was manual and labor-intensive
 
-The ACHD team spent hours each day wrangling data and then only had time to look at a handful of the data slices worth monitoring. The ACHD worried they would miss a rise in cases in specific demographics due to this confluence of factors. 
+The ACHD team spent hours each day wrangling data and then only had time to look at a handful of the data slices worth monitoring. ACHD was worried that they would miss a rise in cases in specific demographics due to this confluence of factors. 
 
 As the Delphi Group tried to develop solutions to these problems, we consistently ran into data access challenges and bureaucratic limitations to develop solutions at the granularity needed. Carnegie Mellon University did not have a Business Associates Agreement, or BAA, in place with the ACHD. Due to HIPAA laws, that meant we could only operate on public, aggregated and/or redacted data sets. BAAs are commonplace in healthcare, but it is a complex legal agreement that can take months to execute, even in normal circumstances. Without a BAA in place, we couldn't use detailed COVID testing data classified as Protected Health Information (PHI). Intended projects like setting up mobile testing sites in specific neighborhoods became impossible because public data is aggregated only to the county level. We could not do finer-grained intelligence.
 
-Cases2Beds was more feasible than these monitoring projects because we didn't need full line-level case and test data, and we could provide intelligence at a county level. The problem specifically called for estimating bed utilization across the entire county. So, Cases2Beds<sup>1</sup> was a project we could take forward with the ACHD.
+Cases2Beds<sup>[1](#ACHDDashboardLink)</sup> was more feasible than these monitoring projects because we didn't need full line-level case and test data, and we could provide intelligence at a county level. 
 
 ## A probabilistic approach
 
@@ -83,8 +83,7 @@ To extrapolate beds utilization 1-2 weeks in the future, we needed to estimate:
 
 These numbers varied widely across three demographic factors: age, sex, and race.
 
-
-![**Fig. 2:** Demographic Comparisons from the Allegheny County COVID-19 Tableau <sup>3</sup>](/blog/2021-03-10_c2b/fig2.png)
+![**Fig. 2:** Demographic Comparisons from the Allegheny County COVID-19 Tableau <sup>[3](#ACHDDashboardLink)</sup>](/blog/2021-03-10_c2b/fig2.png)
 
 We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate by the aforementioned demographic factors. Of these characteristics, we found that age-group was the most important.
 
@@ -106,7 +105,7 @@ It is relatively straight-forward to port the Python application to VBscript mac
 
 ## An alternative to Monte Carlo: the analytical model
 
-As an alternative, we developed an analytical model for Microsoft Excel that offered a much faster run time than a full Monte Carlo simulation.
+As an alternative, we developed an analytical model for Microsoft Excel that offered a much faster run time compared to full Monte Carlo simulation.
 
 The analytical model had the same idea as the Monte Carlo simulation. Some fraction of individuals who test positive today will be hospitalized after a varying offset (from test date to admit date) and variable duration (from admit date to discharge date) based on their characteristics. In the spreadsheet, anyone can (and should) change these parameters to fit their region. 
 
@@ -133,25 +132,26 @@ If we assume independence between patients, the mean and variance calculations a
 
 ## The only constant during the pandemic is change
 
-By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the health departments did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from various national public resources, like the Florida line-level COVID dataset<sup>4</sup>. Based on these users' feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs include current hospital bed utilization (from HHS Protect<sup>2</sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power where Cases2Beds is an important factor in these regressions: 
-
+By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the health departments did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from various national public resources, like the Florida line-level COVID dataset<sup>[4](#FloridaLineLevelLink)</sup>. Based on these users' feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs include current hospital bed utilization (from HHS Protect<sup>[2](#HHSLink)</sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power where Cases2Beds is an important factor in these regressions: 
 
 ![**Fig. 4:** Hospital Utilization Prediction vs. Usage for a Specific Region](/blog/2021-03-10_c2b/fig4.png)
 
 At the peak of bed utilization, hospital systems themselves increased their COVID beds utilization to *6x* more than in October 2020. Fortunately, in Allegheny County, we never reached a point where demand for cases exceeded this somewhat elastic supply. By early January, multiple organizations told us that the pandemic's most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over. 
 
-![**Fig. 5:** Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>2</sup>](/blog/2021-03-10_c2b/fig5.png)
+![**Fig. 5:** Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>[2](#HHSLink)</sup>](/blog/2021-03-10_c2b/fig5.png)
 
 ## Conclusion
 
-Cases2Beds was a case study about the realities of research institutions offering actionable intelligence in healthcare.  Due to the ever-changing nature of the problems introduced by the pandemic and because of logistical and legal restrictions in getting access to line-level PHI data, offering timely, actionable intelligence was complex. The lessons learned will help us prepare for future challenges in providing actionable intelligence. We also hope that the C2B infrastructure will apply to other public health inquiries in the future.
+Cases2Beds was a case study about the realities of research institutions offering actionable intelligence in healthcare.  While the Cases2Beds tool demonstrated reasonable predictive power, it was difficult deploy this tool in a way that was both timely and actionable. 
+
+Research institutions can be effective partners to health organizations, but the next set of challenges of this pandemic--or the next--will require quick action.  It is recommended that health organizations establish long-term partnerships so these challenges can be addressed promptly.
 
 ## Resources
 
- [1] [Cases2Beds Worksheet](https://www.cmu.edu/delphi-web/cases2beds-v0.2.3.xlsm)
+<a id="ACHDDashboardLink">1.</a> [Cases2Beds Worksheet](https://www.cmu.edu/delphi-web/cases2beds-v0.2.3.xlsm)
  
- [2] [HHS Protect Hospital Utilization Data](https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility)
+<a id="HHSLink">2.</a>  [HHS Protect Hospital Utilization Data](https://healthdata.gov/dataset/covid-19-reported-patient-impact-and-hospital-capacity-facility)
  
- [3] [ACHD COVID-19 Dashboard](https://tableau.alleghenycounty.us/t/PublicSite/views/AlleghenyCountyCOVID-19Information_15912788131180/OutcomesofCases?iframeSizedToWindow=true&%3Aembed=y&%3AshowAppBanner=false&%3Adisplay_count=no&%3AshowVizHome=no&%3Aorigin=viz_share_link)
+<a id="ACHDDashboardLink">3.</a>  [ACHD COVID-19 Dashboard](https://tableau.alleghenycounty.us/t/PublicSite/views/AlleghenyCountyCOVID-19Information_15912788131180/OutcomesofCases?iframeSizedToWindow=true&%3Aembed=y&%3AshowAppBanner=false&%3Adisplay_count=no&%3AshowVizHome=no&%3Aorigin=viz_share_link)
  
-[4] [Florida line-level COVID dataset](https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429)
+<a id="FloridaLineLevelLink">4.</a>  [Florida line-level COVID dataset](https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429)
