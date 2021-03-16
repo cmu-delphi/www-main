@@ -10,15 +10,15 @@ carousel:
     alt: Explore the Survey Results
     image: covidcast_survey.jpg
   - pre: Our Tools
-    title: Real-time Indicators of COVID-19 Activity
-    ref: covidcast
-    alt: Explore COVIDcast
-    image: covidcast_withfill.jpg
-  - pre: Our Tools
     title: Forecast Evaluation Dashboard
     ref: forecast-eval
     alt: Explore the new COVID-19 forecast evaluation dashboard
     image: forecast_evaluation_dashboard.jpg
+  - pre: Our Tools
+    title: Real-time Indicators of COVID-19 Activity
+    ref: covidcast
+    alt: Explore COVIDcast
+    image: covidcast_withfill.jpg
   - pre: Our Blog Post
     title: New and improved COVID Symptom Survey Tracks Testing and Mask-Wearing
     ref: 2020-10-06-survey-wave-4
