@@ -53,7 +53,7 @@ output:
     toc: true
 ---
 
-One of the Delphi Group's goals is to create informative tools for healthcare organizations (actionable intelligence). To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November 2020, as the case rates in the county continued to increase, was if Allegheny County would run out of hospital beds for COVID patients. 
+One of the Delphi Group's goals is to create informative tools for healthcare organizations. Tools are only useful, however, if the insights they provide can inform concrete actions.  That is to say, these tools must provide actionable intelligence.  To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November 2020, as the case rates in the county continued to increase, was if Allegheny County would run out of hospital beds for COVID patients. 
 
 The ACHD needed at least a weeks’ notice to open emergency COVID facilities. If the emergency space wasn't open and hospital beds ran out, mortality rates would soar. But, if we didn't need the facility, that decision would have stretched ACHD's already thin resources. Many of the hospitals in Allegheny County were already in contact with each other, but each hospital system only had visibility into its facilities. We wondered if we could offer a higher-level view for the county.
 
@@ -66,7 +66,7 @@ Our early conversations with ACHD revealed two fundamental problems:
 1. Data visualization was complex and time intensive
 2. Trend detection was manual and labor-intensive
 
-The ACHD team spent hours each day wrangling data and then only had time to look at a handful of the data slices worth monitoring. ACHD was worried that they would miss a rise in cases in specific demographics due to this confluence of factors. 
+The ACHD team spent hours each day wrangling data and then only had time to look at a handful of the data slices worth monitoring. The ACHD was worried that they would miss a rise in cases in specific demographics due to this confluence of factors. 
 
 As the Delphi Group tried to develop solutions to these problems, we consistently ran into data access challenges and bureaucratic limitations to develop solutions at the granularity needed. Carnegie Mellon University did not have a Business Associates Agreement, or BAA, in place with the ACHD. Due to HIPAA laws, that meant we could only operate on public, aggregated and/or redacted data sets. BAAs are commonplace in healthcare, but it is a complex legal agreement that can take months to execute, even in normal circumstances. Without a BAA in place, we couldn't use detailed COVID testing data classified as Protected Health Information (PHI). Intended projects like setting up mobile testing sites in specific neighborhoods became impossible because public data is aggregated only to the county level. We could not do finer-grained intelligence.
 
