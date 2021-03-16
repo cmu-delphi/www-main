@@ -11,7 +11,7 @@ carousel:
     image: covidcast_survey.jpg
   - pre: Our Tools
     title: Forecast Evaluation Dashboard
-    ref: forecast-eval
+    ref: covidcast
     alt: Explore the new COVID-19 forecast evaluation dashboard
     image: forecast_evaluation_dashboard.jpg
   - pre: Our Tools
