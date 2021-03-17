@@ -68,7 +68,7 @@ Our early conversations with ACHD revealed two fundamental problems:
 
 The ACHD team spent hours each day wrangling data and then only had time to look at a handful of the data slices worth monitoring. The ACHD was worried that they would miss a rise in cases in specific demographics due to this confluence of factors. 
 
-As the Delphi Group tried to develop solutions to these problems, we consistently ran into data access challenges and bureaucratic limitations to develop solutions at the granularity needed. Carnegie Mellon University did not have a Business Associates Agreement, or BAA, in place with the ACHD. Due to HIPAA laws, that meant we could only operate on public, aggregated and/or redacted data sets. BAAs are commonplace in healthcare, but it is a complex legal agreement that can take months to execute, even in normal circumstances. Without a BAA in place, we couldn't use detailed COVID testing data classified as Protected Health Information (PHI). Intended projects like setting up mobile testing sites in specific neighborhoods became impossible because public data is aggregated only to the county level. We could not do finer-grained intelligence.
+As the Delphi Group tried to develop solutions to these problems, we consistently ran into data access challenges and bureaucratic limitations to develop solutions at the granularity needed. Carnegie Mellon University did not have a Business Associates Agreement, or BAA, in place with the ACHD. Due to HIPAA laws, that meant we could only operate on public, aggregated and/or redacted data sets. BAAs are commonplace in healthcare, but are complex legal agreements that can take months to execute, even in normal circumstances. Without a BAA in place, we couldn't use detailed COVID testing data classified as Protected Health Information (PHI). Intended projects like setting up mobile testing sites in specific neighborhoods became impossible because public data is aggregated only to the county level. We could not do finer-grained intelligence.
 
 Cases2Beds<sup>[1](#ACHDDashboardLink)</sup> was more feasible than these monitoring projects because we didn't need full line-level case and test data, and we could provide intelligence at a county level. 
 
@@ -85,7 +85,7 @@ These numbers varied widely across three demographic factors: age, sex, and race
 
 ![**Fig. 2:** Demographic Comparisons from the Allegheny County COVID-19 Tableau <sup>[3](#ACHDDashboardLink)</sup>](/blog/2021-03-10_c2b/fig2.png)
 
-We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate by the aforementioned demographic factors. Of these characteristics, we found that age-group was the most important.
+We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate, broken down by the aforementioned demographic factors. Of these characteristics, we found that age group was the most important.
 
 We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).  
 
@@ -97,11 +97,11 @@ Estimating the future given a set of probabilities is a common problem and is po
 
 ## The logistics of actionable intelligence
 
-Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be.  For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds - after many simulations, we had a good idea of how many beds might be needed in the next two weeks. 
+Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be.  For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds -- after many simulations, we had a good idea of how many beds might be needed in the next two weeks. 
 
 Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately and offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out.  Even asking ACHD to run our Python software on their machines fell into a legal grey area.  However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.
 
-It is relatively straight-forward to port the Python application to VBscript macros.  Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
+It is relatively straight-forward to port the Python application to VBScript macros.  Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
 
 ## An alternative to Monte Carlo: the analytical model
 
