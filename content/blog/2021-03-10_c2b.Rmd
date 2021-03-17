@@ -97,7 +97,7 @@ Estimating the future given a set of probabilities is a common problem and is po
 
 ## The logistics of actionable intelligence
 
-Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be.  For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds - after many simulations, we had a good idea of how many beds might be needed in the next two weeks. 
+Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be.  For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds -- after many simulations, we had a good idea of how many beds might be needed in the next two weeks. 
 
 Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately and offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out.  Even asking ACHD to run our Python software on their machines fell into a legal grey area.  However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.
 
