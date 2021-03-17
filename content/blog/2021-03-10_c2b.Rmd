@@ -89,7 +89,7 @@ We used public data from Allegheny County about the number of people tested, tes
 
 We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).  
 
-The length of stay is how long someone was in the hospital. The length of stay is approximately how long a person uses a bed for (± 1 day). This data helped us understand how long people would be in the hospital.
+The length of stay is approximately how many days a person uses a bed in the hospital (± 1 day). This data helped us understand how long people would be in the hospital.
 
 Given the hospitalization rate, the offset distribution, and the length of stay distribution, we could simulate multiple futures for any given set of positive cases and their testing dates. This process ultimately shows the distribution of the number of beds needed each day.
 
