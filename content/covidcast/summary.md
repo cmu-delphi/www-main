@@ -1,6 +1,6 @@
 ---
-title: Location Summary
-linkTitle: Location Summary
+title: COVIDcast | Explore a Location
+linkTitle: Explore a Location
 description: COVIDcast tracks and forecasts the spread of COVID-19. By Carnegie Mellon's Delphi Research Group.
 layout: covidcast_app
 app_mode: summary
