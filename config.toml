@@ -84,9 +84,14 @@ relativeURLs = false
     weight = 3
 [[menu.main]]
     parent = "flu"
+    name = "Signals Dashboard"
+    url = "/signals-dashboard/"
+    weight = 10
+[[menu.main]]
+    parent = "flu"
     name = "Forecast Evaluator"
     url = "/forecast-eval/"
-    weight = 10
+    weight = 20
 [[menu.main]]
     identifier = "blog"
     name = "Blog"
