@@ -101,7 +101,7 @@ Monte Carlo simulations involve running a huge number of scenarios based on a se
 
 Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately and offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out.  Even asking ACHD to run our Python software on their machines fell into a legal grey area.  However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.
 
-It is relatively straight-forward to port the Python application to VBscript macros.  Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
+It is relatively straight-forward to port the Python application to VBScript macros.  Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
 
 ## An alternative to Monte Carlo: the analytical model
 
