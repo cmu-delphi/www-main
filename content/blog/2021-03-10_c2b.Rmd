@@ -85,7 +85,7 @@ These numbers varied widely across three demographic factors: age, sex, and race
 
 ![**Fig. 2:** Demographic Comparisons from the Allegheny County COVID-19 Tableau <sup>[3](#ACHDDashboardLink)</sup>](/blog/2021-03-10_c2b/fig2.png)
 
-We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate by the aforementioned demographic factors. Of these characteristics, we found that age-group was the most important.
+We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate, broken down by the aforementioned demographic factors. Of these characteristics, we found that age group was the most important.
 
 We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).  
 
