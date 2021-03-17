@@ -86,7 +86,7 @@ relativeURLs = false
     parent = "flu"
     name = "Forecast Evaluator"
     url = "/forecast-eval/"
-    weight = 20
+    weight = 10
 [[menu.main]]
     identifier = "blog"
     name = "Blog"
