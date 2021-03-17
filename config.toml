@@ -43,9 +43,14 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "covidcast"
-    name = "Region Summary"
+    name = "Explore a Location"
     url = "/covidcast/summary"
     weight = 2
+[[menu.main]]
+    parent = "covidcast"
+    name = "Explore an Indicator"
+    url = "/covidcast/indicator"
+    weight = 3
 [[menu.main]]
     parent = "covidcast"
     name = "Classic Map"
@@ -122,4 +127,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
-    highlightLinks = "/covidcast/,/covidcast/summary,/signals-dashboard/,/forecast-eval/"
+    highlightLinks = "/covidcast/,/covidcast/summary,/covidcast/indicator,/signals-dashboard/,/forecast-eval/"
