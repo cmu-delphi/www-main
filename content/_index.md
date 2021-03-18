@@ -10,6 +10,11 @@ carousel:
     alt: Explore the Survey Results
     image: covidcast_survey.jpg
   - pre: Our Tools
+    title: Forecast Evaluation Dashboard
+    link: /forecast-eval
+    alt: Explore the new COVID-19 forecast evaluation dashboard
+    image: forecast_evaluation_dashboard.jpg
+  - pre: Our Tools
     title: Real-time Indicators of COVID-19 Activity
     ref: covidcast
     alt: Explore COVIDcast
