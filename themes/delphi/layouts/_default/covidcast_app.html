@@ -2,13 +2,11 @@
   <link rel="stylesheet" href="{{ (partial "covidcast/find-file.html" "styles.*\\.css$")| relURL }}" />
 {{ end }}
 {{ define "scripts" }}
-  <script src="{{ (partial "covidcast/find-file.html" "styles.*\\.js$")| relURL }}"></script>
   <script src="{{ (partial "covidcast/find-file.html" "bundle.*\\.js$")| relURL }}"></script>
 {{ end }}
 {{ define "breadcrumb" }}<!-- no breadcrumb -->{{ end }}
-{{ define "body_class" }}covidcast_wrapper{{ end }}
+{{ define "body_class" }}{{ if eq .Params.footer false }}covidcast_wrapper{{ end }}{{ end }}
 {{ define "main" }}
-  {{ partial "covidcast/modes.html" . }}
   <div id="vizbox">
     <div class="ie-banner" style="display: none">
       <div>
