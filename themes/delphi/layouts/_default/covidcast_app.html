@@ -2,7 +2,6 @@
   <link rel="stylesheet" href="{{ (partial "covidcast/find-file.html" "styles.*\\.css$")| relURL }}" />
 {{ end }}
 {{ define "scripts" }}
-  <script src="{{ (partial "covidcast/find-file.html" "styles.*\\.js$")| relURL }}"></script>
   <script src="{{ (partial "covidcast/find-file.html" "bundle.*\\.js$")| relURL }}"></script>
 {{ end }}
 {{ define "breadcrumb" }}<!-- no breadcrumb -->{{ end }}
