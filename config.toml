@@ -58,7 +58,7 @@ relativeURLs = false
     weight = 4
 [[menu.main]]
     parent = "covidcast"
-    name = "Forecast Evaluator"
+    name = "Forecast Evaluation"
     url = "/forecast-eval/"
     weight = 40
 [[menu.main]]
