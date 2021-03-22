@@ -18,7 +18,7 @@ carousel:
     title: Real-time Indicators of COVID-19 Activity
     ref: covidcast
     alt: Explore COVIDcast
-    image: covidcast_withfill.jpg
+    image: covidcast_v2.jpg
   - pre: Our Blog Post
     title: New and improved COVID Symptom Survey Tracks Testing and Mask-Wearing
     ref: 2020-10-06-survey-wave-4
