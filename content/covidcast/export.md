@@ -6,6 +6,6 @@ layout: covidcast_app
 app_mode: export
 order: 6
 icon: solid/download
-heroImage: /images/landing-page/hero-images/covidcast_withfill.jpg
+heroImage: /images/landing-page/hero-images/covidcast_v2.jpg
 feedback: true
 ---
