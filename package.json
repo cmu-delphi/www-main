@@ -1,18 +1,18 @@
 {
   "name": "www-main",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "highlight.js": "^10.6.0",
-    "katex": "^0.12.0",
-    "uikit": "^3.6.17",
-    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.0.0/www-covidcast-2.0.0.tgz"
+    "katex": "^0.13.0",
+    "uikit": "^3.6.18",
+    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.0.1/www-covidcast-2.0.1.tgz"
   },
   "devDependencies": {
-    "bestzip": "^2.1.7",
+    "bestzip": "^2.2.0",
     "hugo-bin": "^0.69.0",
-    "husky": "^4.3.6",
+    "husky": "^5.1.3",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "prettier-plugin-go-template": "^0.0.10",
@@ -34,15 +34,11 @@
     "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check",
     "image": "docker build -t www-main:latest --file ./devops/Dockerfile .",
     "release": "release-it --disable-metrics",
-    "zip": "cd public && bestzip ../website.zip *"
+    "zip": "cd public && bestzip ../website.zip *",
+    "prepare": "husky install"
   },
   "hugo-bin": {
     "buildTags": "extended"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.{js,scss,css,yaml,md,html,json,yml}": "prettier --write"

@@ -58,6 +58,11 @@ relativeURLs = false
     weight = 4
 [[menu.main]]
     parent = "covidcast"
+    name = "Forecast Evaluation"
+    url = "/forecast-eval/"
+    weight = 40
+[[menu.main]]
+    parent = "covidcast"
     name = "Surveys"
     url = "/covidcast/surveys"
     weight = 50
@@ -83,15 +88,10 @@ relativeURLs = false
     weight = 90
 [[menu.main]]
     identifier = "flu"
-    name = "Tools and Resources"
+    name = "Flu and Other Diseases"
     pre = "solid/virus"
     url = "/flu"
     weight = 3
-[[menu.main]]
-    parent = "flu"
-    name = "Forecast Evaluator"
-    url = "/forecast-eval/"
-    weight = 20
 [[menu.main]]
     identifier = "blog"
     name = "Blog"
