@@ -1,0 +1,176 @@
+---
+title: "Visualizing indicator correlation"
+author: "Chris Scott, Daniel LaLiberty, Alex Reinhart"
+date: 2021-03-24
+tags:
+  - COVIDcast
+  - R
+  - symptom surveys
+authors:
+  - chrissco
+heroImage: /blog/images/blog-lg-img_hello-world.jpg # TODO
+heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg # TODO
+summary: |
+  Explore how lagging correlation plots can indicate leading indicators.
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#visualizing-correlation-in-indicators">Visualizing Correlation in Indicators</a></li>
+<li><a href="#interactive-correlation-visualization">Interactive Correlation Visualization</a></li>
+</ul>
+</div>
+
+<div id="visualizing-correlation-in-indicators" class="section level2">
+<h2>Visualizing Correlation in Indicators</h2>
+<p>One the primary goals of gathering different indicators is seeing which have
+some predictive power. In other words, can we get a sense of how the rates of
+hospitalizations or COVID-related deaths will change over the next few weeks?</p>
+<p>Our forecasting efforts use a complex approach to this topic, but there are
+simpler mechanisms available to start exploring the relationships between our
+indicators.</p>
+<p>For example, we can examine how our survey can yield insight into COVID-related
+death rates. Specifically, we ask respondents if they know anybody in their
+community that has COVID like illness (aka CLI in Community). Presumably, if we
+know where people are starting to hear about sick people, we can assume there
+may be a corresponding increase in COVID-related deaths.</p>
+<p>Let’s start with a simple scatter-plot of Deaths per 100K population and CLI in
+Community. We can also fit a linear regression, which tells us a metric called
+the <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">coefficient of determination</a> or <span class="math inline">\(R^{2}\)</span>. Put simply, <span class="math inline">\(R^{2}\)</span> is a measure
+of how much of the movement in one variable can be explained by the movement of
+another.</p>
+<p>Furthermore, let’s connect the dots by the date the indicators were reported:</p>
+<pre class="r"><code>start_date = &quot;2020-10-30&quot;
+end_date = &quot;2021-03-21&quot;
+
+deaths_indicator = covidcast_signal(
+  data_source = &quot;indicator-combination&quot;, 
+  signal = &quot;deaths_7dav_incidence_prop&quot;, 
+  start_day = start_date, end_day = end_date, 
+  geo_type = &quot;county&quot;,
+  geo_values = c(42003)
+) 
+## Fetched day 2020-10-30 to 2021-03-21: num_entries = 143
+
+cli_indicator = covidcast_signal(
+  data_source = &quot;fb-survey&quot;, 
+  signal = &quot;smoothed_hh_cmnty_cli&quot;, 
+  start_day = start_date, end_day = end_date, 
+  geo_type = &quot;county&quot;,
+  geo_values = c(42003)
+)
+## Fetched day 2020-10-30 to 2021-03-21: num_entries = 143
+
+dv &lt;- deaths_indicator %&gt;% mutate(deaths_value = value) %&gt;% select(time_value, deaths_value)
+cliv &lt;- cli_indicator %&gt;% mutate(cli_value = value) %&gt;% select(time_value, cli_value)
+
+pa &lt;- dv %&gt;% left_join(cliv)
+## Joining, by = &quot;time_value&quot;
+
+model &lt;- lm(deaths_value ~ cli_value, data=pa)
+r2_at_0 &lt;- summary(model)$r.squared
+
+pa %&gt;% ggplot(aes(cli_value,deaths_value,color=time_value)) + 
+  geom_point() +
+  geom_smooth(method=&#39;lm&#39;,se = FALSE)+
+  geom_path()+
+  xlab(&quot;CLI in Community&quot;)+
+  annotate(&quot;text&quot;,x=33,y=1.9,label=paste(&quot;R^2:&quot;,format(r2_at_0,digits=2)), parse=TRUE)+
+  labs(
+    color=&quot;Date&quot;,
+    title=&quot;Deaths per 100K vs. CLI in Community over time&quot;,
+    subtitle = &quot;Allegheny County, PA&quot;,
+    caption = &quot;Delphi Group, delphi.cmu.edu/covidcast&quot;
+  )
+## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/blog/2021-03-24-indicator-correlation_files/figure-html/correlation-at-lag-zero-1.svg" width="672" /></p>
+<p>This plot tells a story. We can see CLI in Community increased without a corresponding increase in deaths for a number of days in November. Then starting in about December, we observe an increase in deaths while CLI in Community continues to increase. Eventually, CLI in Community starts to decrease, followed sometime later in deaths.</p>
+<p>There is a reasonable correlation here and the <span class="math inline">\(R^2\)</span> metric is 0.43. At <span class="math inline">\(R^2=0\)</span> the data would look completely like noise, at <span class="math inline">\(R^2=1\)</span>, all of the data would fall on the regression line.</p>
+<p>If we hypothesize that there is a lag in the number of days it takes to start feeling sick, have a positive test and ultimately be admitted to a hospital, can we tell about how many days that might be?</p>
+<p>The simplest approach would be to draw a new correlation plot by shifting the data by time.</p>
+<p>So let’s shift the data, also known as lagging, by up to 28 days in either direction. High <span class="math inline">\(R^2\)</span> in a positive shift means that CLI in Community is a leading indicator of deaths, which would fit our hypothesis.</p>
+<p>If there, however, was more correlation in the negative direction, that would indicate that people in the community fell ill <em>after</em> rises in COVID related deaths. This would be odd indeed! Such an observation would possibly indicate a problem in the data surveillance.</p>
+<p>Let us figure out which lag <span class="math inline">\(R^2\)</span> is maximized:</p>
+<pre class="r"><code>d &lt;- pa %&gt;% pull(deaths_value)
+cli &lt;- pa %&gt;% pull(cli_value)
+
+lag=28
+
+getR2Lags = function(ref, hyp, lag=28, omit_zero=FALSE){
+  getR2 = function (x){
+    summary(lm(x ~ d_window))$r.squared
+  }
+  timeframe = length(ref)
+  d_window &lt;- ref[lag:timeframe]  
+  
+  start_index = if(omit_zero) 1 else 0
+  # Generate the sequence of lag offsets, pull the corresponding window
+  # and fit an r^2
+  r2_lag &lt;- seq(start_index,lag-1) %&gt;% 
+    map(~ hyp[(lag-.x):(timeframe-.x)]) %&gt;%
+    map(getR2) %&gt;%
+    unlist()
+  
+  r2_lag
+}
+
+dvc_lag &lt;- getR2Lags(d,cli)
+cvd_lag &lt;- rev(getR2Lags(cli,d,omit_zero=TRUE))
+
+lag_df &lt;- tibble(lag = seq(-1*(lag-1),lag-1), r2 = c(cvd_lag,dvc_lag))
+
+max &lt;- lag_df %&gt;% filter(r2 == max(r2))
+
+lag_df %&gt;% 
+  ggplot(aes(lag,r2)) + 
+  geom_line() +
+  geom_point(data = max, color=&quot;red&quot;, size=2)+
+  geom_text(
+    data=max, 
+    aes(
+      label=paste(&quot;R^{2}:&quot;,format(r2, digits=2),&quot;~at~Lag:&quot;,lag)
+    ), 
+    parse = TRUE,
+    nudge_y = 0.05
+  )+
+  xlab(&quot;Days lagged&quot;) +
+  ggtitle(expression(paste(R^2,&quot; of Deaths vs. CLI in Community ± 28 days&quot;)))+
+  labs(
+    subtitle = &quot;Allegheny County, PA&quot;,
+    caption = &quot;Delphi Group, delphi.cmu.edu/covidcast&quot;
+  )</code></pre>
+<p><img src="/blog/2021-03-24-indicator-correlation_files/figure-html/r2-by-lag-1.svg" width="672" />
+Here we see that <span class="math inline">\(R^2\)</span> is maximized at around 20 days. This both fits our hypothesis and makes intuitive sense. It takes a number of days for the illness to progress from initial symptoms, so perhaps our survey-based measurement is a good indicator of early illness.</p>
+<p>This means that one would expect that if there is an increase in CLI in Community, there will be a corresponding increase in COVID-related deaths 20 days later.</p>
+<p>So see how much differently this correlates, let us draw our correlation plot again, this time by shifting the date of CLI in Community by 20 days:</p>
+<pre class="r"><code>cli_lagged &lt;- cliv %&gt;% mutate(time_value = time_value+20)
+pa_lagged &lt;- dv %&gt;% inner_join(cli_lagged)
+## Joining, by = &quot;time_value&quot;
+
+model &lt;- lm(deaths_value ~ cli_value, data=pa_lagged)
+r2_at_0 &lt;- summary(model)$r.squared
+
+pa_lagged %&gt;% ggplot(aes(cli_value,deaths_value,color=time_value)) + 
+  geom_point() +
+  geom_smooth(method=&#39;lm&#39;,se = FALSE)+
+  geom_path()+
+  xlab(&quot;CLI in Community + 20 Days&quot;)+
+  annotate(&quot;text&quot;,x=33,y=1.9,label=paste(&quot;R^2:&quot;,format(r2_at_0,digits=2)), parse=TRUE)+
+  labs(
+    color=&quot;Date&quot;,
+    title=&quot;Deaths per 100K vs. CLI in Community over time&quot;,
+    caption = &quot;Delphi Group, delphi.cmu.edu/covidcast&quot;
+  )
+## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/blog/2021-03-24-indicator-correlation_files/figure-html/correlation-at-max-r2-1.svg" width="672" />
+You can see that the data points are much closer to the regression line which indicates a strong correlation and reasonable predictive power of this indicator.</p>
+</div>
+<div id="interactive-correlation-visualization" class="section level1">
+<h1>Interactive Correlation Visualization</h1>
+<p>TODO: Demonstrate the new correlation visualization</p>
+</div>
