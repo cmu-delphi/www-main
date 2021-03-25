@@ -18,6 +18,9 @@
     "rimraf": "^3.0.2",
     "shx": "^0.3.3"
   },
+  "files": [
+    "public"
+  ],
   "scripts": {
     "clean": "rimraf \"*.tgz\" public",
     "copy_fonts": "shx cp -r \"node_modules/katex/dist/fonts/*\" themes/delphi/static/css/fonts/",
@@ -31,7 +34,8 @@
     "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
     "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check",
     "image": "docker build -t www-main:latest --file ./devops/Dockerfile .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepack": "npm run build"
   },
   "hugo-bin": {
     "buildTags": "extended"
