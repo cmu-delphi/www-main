@@ -1,6 +1,10 @@
 name-template: "v$RESOLVED_VERSION"
 tag-template: "v$RESOLVED_VERSION"
 categories:
+  - title: "📚 Content Changes"
+    labels:
+      - "blog"
+      - "documentation"
   - title: "🚀 Features"
     labels:
       - "enhancement"
@@ -8,9 +12,6 @@ categories:
   - title: "🐛 Bugs Fixes"
     labels:
       - "bug"
-  - title: "Documentation"
-    labels:
-      - "documentation"
   - title: "🧰 Development"
     labels:
       - "chore"
