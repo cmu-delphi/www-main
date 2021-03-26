@@ -10,18 +10,19 @@
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.0.1/www-covidcast-2.0.1.tgz"
   },
   "devDependencies": {
-    "bestzip": "^2.2.0",
     "hugo-bin": "^0.69.0",
     "husky": "^5.1.3",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "prettier-plugin-go-template": "^0.0.10",
-    "release-it": "^14.4.1",
     "rimraf": "^3.0.2",
     "shx": "^0.3.3"
   },
+  "files": [
+    "public"
+  ],
   "scripts": {
-    "clean": "rimraf \"*.zip\" \"*.tgz\" public",
+    "clean": "rimraf \"*.tgz\" public",
     "copy_fonts": "shx cp -r \"node_modules/katex/dist/fonts/*\" themes/delphi/static/css/fonts/",
     "copy_covidcast": "shx rm -rf \"static/covidcast/*\" && shx cp \"node_modules/www-covidcast/public/**/*.{js,txt,css,map}\" static/covidcast/",
     "postinstall": "npm run copy_fonts && npm run copy_covidcast",
@@ -33,9 +34,8 @@
     "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
     "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check",
     "image": "docker build -t www-main:latest --file ./devops/Dockerfile .",
-    "release": "release-it --disable-metrics",
-    "zip": "cd public && bestzip ../website.zip *",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepack": "npm run build"
   },
   "hugo-bin": {
     "buildTags": "extended"
