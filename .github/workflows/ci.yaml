@@ -55,8 +55,8 @@ jobs:
         run: |
           baseRef="${GITHUB_REF#*/}"
           imageTag="${baseRef#*/}"
-          echo -n "::set-output name=tag::$imageTag"
-          echo -n "::set-output name=repo::ghcr.io/${{ github.repository }}"
+          echo "::set-output name=tag::$imageTag"
+          echo "::set-output name=repo::ghcr.io/${{ github.repository }}"
       - name: Push Image Tag
         run: |
           docker tag repo ${{ steps.tagname.outputs.repo }}:${{ steps.tagname.outputs.tag }}
