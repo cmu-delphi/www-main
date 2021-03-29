@@ -35,6 +35,8 @@ dependencies:
   - r-sf
   - r-lubridate
   - r-plyr
+  - r-ggthemes
+  - r-xfun=0.20
   - pandoc
   - fiona
   - geopandas
