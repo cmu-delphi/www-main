@@ -34,7 +34,7 @@ summary: |
   
 acknowledgements: |
  Thank you to the Allegheny County Health Department (especially Antony Gnalian,
- Dr. LuAnn Brinks, and Dr. Debra Bogen) for their invaluable feedback, efforts, and
+ Dr. LuAnn Brink, and Dr. Debra Bogen) for their invaluable feedback, efforts, and
  shared interest in actionable intelligence. 
  
  Many members of the Delphi Group, including 
@@ -66,21 +66,21 @@ output:
 </ul>
 </div>
 
-<p>One of the Delphi Group’s goals is to create informative tools for healthcare organizations. Tools are only useful, however, if the insights they provide can inform concrete actions. That is to say, these tools must provide actionable intelligence. To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November 2020, as the case rates in the county continued to increase, was if Allegheny County would run out of hospital beds for COVID patients.</p>
-<p>The ACHD needed at least a weeks’ notice to open emergency COVID facilities. If the emergency space wasn’t open and hospital beds ran out, mortality rates would soar. But, if we didn’t need the facility, that decision would have stretched ACHD’s already thin resources. Many of the hospitals in Allegheny County were already in contact with each other, but each hospital system only had visibility into its facilities. We wondered if we could offer a higher-level view for the county.</p>
+<p>One of the Delphi Group’s goals is to create informative tools for healthcare organizations. Tools are only useful, however, if the insights they provide can inform concrete actions. That is to say, these tools must provide actionable intelligence. To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November 2020, as the case rates in the region continued to increase, was if hospitals located in the county would run out of hospital beds for COVID patients.</p>
+<p>Based on its planning, the ACHD needed at least a weeks’ time to open emergency COVID facilities. If the emergency space wasn’t open and hospital beds ran out, mortality rates could soar. But, if we didn’t need the facility, that decision would have stretched ACHD’s already thin resources. Many of the hospitals in Allegheny County were already in contact with each other, but each hospital system only had visibility into its own facilities. We wondered if we could offer a higher-level view for ACHD to assist in its planning.</p>
 <div class="figure">
-<img src="/blog/2021-03-10_c2b/fig1.png" alt="Fig. 1: Hospital beds occupancy in Allegheny county through Dec 11th from HHS Protect Data 2" />
+<img src="/blog/2021-03-10_c2b/fig1.png" alt="" />
 <p class="caption"><strong>Fig. 1:</strong> Hospital beds occupancy in Allegheny county through Dec 11th from HHS Protect Data <sup><a href="#HHSLink">2</a></sup></p>
 </div>
 <div id="actionable-intelligence-during-the-pandemic" class="section level2">
 <h2>Actionable intelligence during the pandemic</h2>
-<p>Our early conversations with ACHD revealed two fundamental problems:</p>
+<p>Our early conversations with ACHD revealed two fundamental challenges:</p>
 <ol style="list-style-type: decimal">
 <li>Data visualization was complex and time intensive</li>
 <li>Trend detection was manual and labor-intensive</li>
 </ol>
-<p>The ACHD team spent hours each day wrangling data and then only had time to look at a handful of the data slices worth monitoring. The ACHD was worried that they would miss a rise in cases in specific demographics due to this confluence of factors.</p>
-<p>As the Delphi Group tried to develop solutions to these problems, we consistently ran into data access challenges and bureaucratic limitations to develop solutions at the granularity needed. Carnegie Mellon University did not have a Business Associates Agreement, or BAA, in place with the ACHD. Due to HIPAA laws, that meant we could only operate on public, aggregated and/or redacted data sets. BAAs are commonplace in healthcare, but it is a complex legal agreement that can take months to execute, even in normal circumstances. Without a BAA in place, we couldn’t use detailed COVID testing data classified as Protected Health Information (PHI). Intended projects like setting up mobile testing sites in specific neighborhoods became impossible because public data is aggregated only to the county level. We could not do finer-grained intelligence.</p>
+<p>The ACHD team spent significant time each day examining data and then only had time to look at a handful of the data slices worth monitoring. The concern was that a rise in cases would be missed in specific demographics due to this confluence of factors.</p>
+<p>As the Delphi Group tried to develop solutions to these problems, we consistently ran into data access challenges and bureaucratic limitations to develop solutions at the granularity needed. Carnegie Mellon University did not have a Business Associates Agreement, or BAA, in place with the ACHD. Due to HIPAA laws, that meant we could only operate on public, aggregated and/or redacted data sets. BAAs are commonplace in healthcare, but are complex legal agreements that can take months to execute, even in normal circumstances. Without a BAA in place, we couldn’t use detailed COVID testing data classified as Protected Health Information (PHI). Intended projects, like helping determine the best places for mobile testing sites in specific neighborhoods, became impossible because public data is aggregated only to the county level. ACHD was able to do this on its own.</p>
 <p>Cases2Beds<sup><a href="#ACHDDashboardLink">1</a></sup> was more feasible than these monitoring projects because we didn’t need full line-level case and test data, and we could provide intelligence at a county level.</p>
 </div>
 <div id="a-probabilistic-approach" class="section level2">
@@ -94,20 +94,20 @@ output:
 </ol>
 <p>These numbers varied widely across three demographic factors: age, sex, and race.</p>
 <div class="figure">
-<img src="/blog/2021-03-10_c2b/fig2.png" alt="Fig. 2: Demographic Comparisons from the Allegheny County COVID-19 Tableau 3" />
+<img src="/blog/2021-03-10_c2b/fig2.png" alt="" />
 <p class="caption"><strong>Fig. 2:</strong> Demographic Comparisons from the Allegheny County COVID-19 Tableau <sup><a href="#ACHDDashboardLink">3</a></sup></p>
 </div>
-<p>We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate by the aforementioned demographic factors. Of these characteristics, we found that age-group was the most important.</p>
+<p>We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate, broken down by the aforementioned demographic factors. Of these characteristics, we found that age group was the most important.</p>
 <p>We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).</p>
-<p>The length of stay is how long someone was in the hospital. The length of stay is approximately how long a person uses a bed for (± 1 day). This data helped us understand how long people would be in the hospital.</p>
+<p>The length of stay is approximately how many days a person uses a bed in the hospital (± 1 day). This data helped us understand how long people would be in the hospital.</p>
 <p>Given the hospitalization rate, the offset distribution, and the length of stay distribution, we could simulate multiple futures for any given set of positive cases and their testing dates. This process ultimately shows the distribution of the number of beds needed each day.</p>
 <p>Estimating the future given a set of probabilities is a common problem and is possible with an approach called a Monte Carlo simulation.</p>
 </div>
 <div id="the-logistics-of-actionable-intelligence" class="section level2">
 <h2>The logistics of actionable intelligence</h2>
-<p>Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be. For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds - after many simulations, we had a good idea of how many beds might be needed in the next two weeks.</p>
+<p>Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be. For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds – after many simulations, we had a good idea of how many beds might be needed in the next two weeks.</p>
 <p>Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately and offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out. Even asking ACHD to run our Python software on their machines fell into a legal grey area. However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.</p>
-<p>It is relatively straight-forward to port the Python application to VBscript macros. Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.</p>
+<p>It is relatively straight-forward to port the Python application to VBScript macros. Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.</p>
 </div>
 <div id="an-alternative-to-monte-carlo-the-analytical-model" class="section level2">
 <h2>An alternative to Monte Carlo: the analytical model</h2>
@@ -128,7 +128,7 @@ output:
 <p>The second types of inputs are the daily positive cases split by their traits. This is the input that the user actively changes on their end.</p>
 <p>Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the mean and variance of the number of patients in the hospital per day based on the cases already seen up to 1 month in the future. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month.</p>
 <div class="figure">
-<img src="/blog/2021-03-10_c2b/fig3.png" alt="Fig. 3: Output of Cases2Beds using historical data until January 21st for a Specific US County" />
+<img src="/blog/2021-03-10_c2b/fig3.png" alt="" />
 <p class="caption"><strong>Fig. 3:</strong> Output of Cases2Beds using historical data until January 21st for a Specific US County</p>
 </div>
 <p>If we assume independence between patients, the mean and variance calculations are exact. However, our quantile estimates are based on approximating the sum of independent binary variables, which is inaccurate near the tails. So the accuracy of the more extreme quantiles (95%+) depends on the number of cases present, which in practice makes them less trustworthy.</p>
@@ -137,12 +137,12 @@ output:
 <h2>The only constant during the pandemic is change</h2>
 <p>By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the health departments did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from various national public resources, like the Florida line-level COVID dataset<sup><a href="#FloridaLineLevelLink">4</a></sup>. Based on these users’ feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs include current hospital bed utilization (from HHS Protect<sup><a href="#HHSLink">2</a></sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power where Cases2Beds is an important factor in these regressions:</p>
 <div class="figure">
-<img src="/blog/2021-03-10_c2b/fig4.png" alt="Fig. 4: Hospital Utilization Prediction vs. Usage for a Specific Region" />
+<img src="/blog/2021-03-10_c2b/fig4.png" alt="" />
 <p class="caption"><strong>Fig. 4:</strong> Hospital Utilization Prediction vs. Usage for a Specific Region</p>
 </div>
 <p>At the peak of bed utilization, hospital systems themselves increased their COVID beds utilization to <em>6x</em> more than in October 2020. Fortunately, in Allegheny County, we never reached a point where demand for cases exceeded this somewhat elastic supply. By early January, multiple organizations told us that the pandemic’s most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over.</p>
 <div class="figure">
-<img src="/blog/2021-03-10_c2b/fig5.png" alt="Fig. 5: Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data2" />
+<img src="/blog/2021-03-10_c2b/fig5.png" alt="" />
 <p class="caption"><strong>Fig. 5:</strong> Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup><a href="#HHSLink">2</a></sup></p>
 </div>
 </div>
