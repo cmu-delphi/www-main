@@ -5,8 +5,17 @@
   {{ $team := where (partial "get-persons.html" .) ".team" "intersect" (slice (.Get "team")) }}
   {{ range $team }}
     <div class="team-member">
-      <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
-      <div class="uk-text-bold">{{ .name | safeHTML }}</div>
+      {{ if isset . "link" }}
+        <a href="{{ .link }}">
+          <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
+        </a>
+        <a href="{{ .link }}" class="team-member-name uk-link-muted">{{ .name | safeHTML }}</a>
+        {{ else }}
+        <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
+        <div class="team-member-name">
+          {{ .name | safeHTML }}
+        </div>
+      {{ end }}
       <div>{{ .affiliation }}</div>
       {{ if isset . "note" }}
         <div class="uk-text-small">{{ .note }}</div>
