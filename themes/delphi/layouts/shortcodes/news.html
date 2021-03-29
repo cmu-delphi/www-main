@@ -1,4 +1,4 @@
-{{ $news := .Site.GetPage "/news" }}
+{{ $news := .Site.GetPage "/about/news/headless" }}
 {{ range (sort ($news.Resources.ByType "page") ".PublishDate" "desc") }}
   <h3>{{ .PublishDate.Format "January 2006" }}</h3>
   {{ .Content }}
