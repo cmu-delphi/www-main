@@ -9,8 +9,6 @@
     </h3>
   </div>
   <div class="uk-card-footer">
-    <a href="{{ .link | relURL }}" title="Learn more"
-      >Learn more {{ partial "font-awesome.html" "solid/long-arrow-alt-right" }}</a
-    >
+    {{ partial "arrow-link.html" (dict "link" .link "alt" "Learn more") }}
   </div>
 </div>
