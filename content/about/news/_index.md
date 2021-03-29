@@ -1,8 +1,7 @@
 ---
-title: News
+title: News from the Delphi Team
+linkTitle: News
 layout: single
 ---
-
-Delphi’s notable achievements
 
 {{<news>}}
