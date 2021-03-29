@@ -42,6 +42,9 @@ Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}})
 
 ### Blog posts and presentations
 
+- Joseph Friedman, Silvia Montoya and Emmanuela Gakidou, March 8, 2021. [Gender Equality in the Global Return to School](https://www.thinkglobalhealth.org/article/gender-equality-global-return-school). Think Global Health.
+- Leanna Morinishi, Kris Barkume, Esther Kim, and Alex Reinhart, February 2, 2021. [Home for the Holidays? The Impact of US Holidays on Social Behaviors and Preventative Measures]({{< relref "2021-01-22-holiday-surveys" >}}). Delphi blog.
+- Alex Reinhart, Esther Kim, Andy Garcia, and Sarah LaRocca, January 28, 2021. [Using the COVID-19 Symptom Survey to Track Vaccination Uptake and Sentiment in the United States]({{< relref "2021-01-28-survey-vaccines" >}}). Delphi blog.
 - Alex Reinhart, October 12, 2020. [New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing]({{< relref "2020-10-06-survey-wave-4" >}}). Delphi blog.
 - Ryan Tibshirani, September 21, 2020. [Can Symptom Surveys Improve COVID-19 Forecasts?]({{< relref "2020-09-21-forecast-demo" >}}) Delphi blog.
 - Alex Reinhart and Ryan Tibshirani, August 26, 2020. [COVID-19 Symptom Surveys through Facebook]({{< relref "2020-08-26-fb-survey" >}}). Delphi blog.
@@ -50,6 +53,7 @@ Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}})
 
 Research results from universities studying the survey data will be listed here as soon as they are available.
 
+- Rader, White, Burns, Chen, Brilliant, Cohen, Shaman, Brilliant, Kraemer, Moritz, Hawkins, Scarpino, Astley, and Brownstein. [Mask-wearing and control of SARS-CoV-2 transmission in the USA: a cross-sectional study](https://doi.org/10.1016/S2589-7500(20)30293-4). *Lancet Digital Health* 2021, volume 3, issue 3, e148-e157.
 -  Flaxman AD, Henning DJ and Duber HC. [The relative incidence of COVID-19 in healthcare workers versus non-healthcare workers: evidence from a web-based survey of Facebook users in the United States](https://doi.org/10.12688/gatesopenres.13202.1). *Gates Open Research* 2020, 4:174.
 - Kreuter, F., Barkay, N., Bilinski, A., Bradford, A., Chiu, S., Eliat, R., Fan, J., Galili, T., Haimovich, D., Kim, B., LaRocca, S., Li, Y., Morris, K., Presser, S., Sarig, T., Salomon, J. A., Stewart, K., Stuart, E. A., & Tibshirani, R. J. (2020). [Partnering with a global platform to inform research and public policy making](https://doi.org/10.18148/srm/2020.v14i2.7761). *Survey Research Methods*, 14(2), 159-163.
 

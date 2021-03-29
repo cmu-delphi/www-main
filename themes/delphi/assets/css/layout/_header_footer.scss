@@ -28,6 +28,18 @@ $mobile-margin: 15px;
     margin-bottom: 0;
     align-items: flex-end;
   }
+
+  .uk-badge {
+    border-radius: 3px;
+    margin-left: 10px;
+    background: #2d9cdb;
+    text-transform: uppercase;
+    padding: 4px 8px;
+  }
+
+  .uk-navbar-dropdown {
+    width: 220px;
+  }
 }
 
 .nav-entries .uk-active {

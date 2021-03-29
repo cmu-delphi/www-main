@@ -39,28 +39,33 @@ relativeURLs = false
     identifier = "covidcast"
     name = "COVIDcast"
     pre = "solid/map"
-    url = "/covidcast"
+    url = "/covidcast/"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "About"
-    url = "/covidcast"
+    name = "COVIDcast Overview"
+    url = "/covidcast/"
     weight = 1
 [[menu.main]]
     parent = "covidcast"
-    name = "Indicator Overview"
-    url = "/covidcast/overview"
+    name = "Explore a Location"
+    url = "/covidcast/summary"
     weight = 2
 [[menu.main]]
     parent = "covidcast"
-    name = "Indicator Details"
+    name = "Explore an Indicator"
     url = "/covidcast/indicator"
     weight = 3
 [[menu.main]]
     parent = "covidcast"
-    name = "Old Map Overview"
-    url = "/covidcast/old"
+    name = "Classic Map"
+    url = "/covidcast/classic"
     weight = 4
+[[menu.main]]
+    parent = "covidcast"
+    name = "Forecast Evaluation"
+    url = "/forecast-eval/"
+    weight = 40
 [[menu.main]]
     parent = "covidcast"
     name = "Surveys"
@@ -122,3 +127,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
+    highlightLinks = "/covidcast/,/covidcast/summary,/covidcast/indicator,/signals-dashboard/,/forecast-eval/"
