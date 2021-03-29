@@ -62,22 +62,28 @@ $carousel-height: 500px;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+
 .landing-gray-area {
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   background-color: #eee;
 }
+
 .landing-entry {
   line-height: 48px;
+  margin-bottom: 2rem;
+
   .inline-svg-icon {
     font-size: x-large;
   }
+
   h2 {
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
+
   p {
     font-weight: 500;
     font-size: 28px;
@@ -99,12 +105,40 @@ $carousel-height: 500px;
 
 .entry-image {
   width: 100%;
+
   img {
     max-width: 100%;
     max-height: 100%;
   }
   > img {
     border-radius: 5px;
+  }
+}
+
+.landing-aspect-2-1 {
+  padding-top: 50% * 6 / 4 * 1.025;
+  position: relative;
+
+  > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: $breakpoint-small) {
+  .landing-aspect-2-1 {
+    padding-top: 0;
+    height: 200px;
+    text-align: center;
+
+    > img {
+      position: relative;
+      width: initial;
+      height: initial;
+    }
   }
 }
 

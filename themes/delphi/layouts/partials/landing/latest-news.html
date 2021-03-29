@@ -6,11 +6,15 @@
   {{ end }}
   {{ $items := apply (.Site.GetPage "/blog").Pages "partial" "latest-blog" "." }}
 
+  <!-- {range first 0 ((.Site.GetPage "/news").Resources.ByType "page") }
+  { $items = $items | append (dict "source" "news" "title" .Title "date" .PublishDate "link" (relref $currentPage "flu#updates" ) ) }
+  {end} -->
+
   {{ $top := 6 }}
 
   <div class="uk-position-relative" tabindex="-1" uk-slider>
     <div class="uk-slider-container">
-      <ul class="uk-slider-items uk-child-width-1-2@s uk-child-width-1-4@m uk-grid uk-grid-match">
+      <ul class="uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m uk-grid uk-grid-match">
         {{ range first $top (sort $items "date" "desc") }}
           <li>
             {{ partial "landing/latest-card.html" . }}
