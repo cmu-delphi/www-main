@@ -1,6 +1,25 @@
 ---
 title: Delphi Research Group
 layout: about
+
+collaborators:
+- name: Amazon
+  group: collaborator
+- name: CDC
+  group: collaborator
+- name: Change Healthcare
+  group: collaborator
+- name: Defense Threat Reduction Agency
+  group: collaborator
+- name: Facebook
+  group: collaborator
+- name: Uptake
+  group: collaborator
+- name: Optum
+  group: collaborator
+- name: Google.org
+  group: sponsor
+
 ---
 
 ### Who are we?

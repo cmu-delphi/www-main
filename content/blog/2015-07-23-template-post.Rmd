@@ -7,7 +7,7 @@ tags:
   - plot
   - regression
 draft: true # remove this line in new blog posts
-authors: # list of author keys, see /data/authors.yaml
+authors: # list of team member keys, see /content/about/team/index.md -> team
   - frida
 heroImage: /blog/images/blog-lg-img_hello-world.jpg # size: 1120x440 jpg and webp format
 heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg # size: 300x200 jpg and webp format

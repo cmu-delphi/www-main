@@ -29,7 +29,7 @@ relativeURLs = false
     parent = "about"
     name = "Publications"
     url = "/about/publications"
-    weight = 3
+    weight = 4
 [[menu.main]]
     identifier = "covidcast"
     name = "COVIDcast"

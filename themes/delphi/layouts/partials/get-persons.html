@@ -1,0 +1,11 @@
+<!-- generates a full person data structure -->
+{{- $peoplePage := (.Site.GetPage "/people") -}}
+{{- $images := $peoplePage.Resources.ByType "image" -}}
+{{- $people := $peoplePage.Params.people -}}
+{{- $full := (slice ) -}}
+{{- range $people -}}
+  {{- $img := $images.GetMatch (path.Join "headshots" .image) -}}
+  {{- $fullPerson := (merge (dict "name" (printf "%s %s" .firstName .lastName) "img" $img "key" (.firstName | lower)) . ) -}}
+  {{- $full = $full | append $fullPerson -}}
+{{- end -}}
+{{- return (sort $full "lastName" "asc" "firstName" "asc") -}}

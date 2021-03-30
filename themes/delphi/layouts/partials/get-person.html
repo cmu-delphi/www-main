@@ -1,0 +1,2 @@
+{{- $persons := partial "get-persons.html" . -}}
+{{- return index (where $persons ".key" "eq" .key) 0 -}}
