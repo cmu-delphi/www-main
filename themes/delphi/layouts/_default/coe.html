@@ -1,0 +1,39 @@
+{{ define "main" }}
+  <div class="about-mission">
+    {{ partial "webp-image.html" (dict "src" "/images/red-bubble-map_mission-pg-short.jpg" "class" "about-mission-img" "width" 1920 "height" 250 "alt" "Banner") }}
+  </div>
+  <div class="uk-container content-grid">
+    <div class="grid-3-11 about-description">
+      <h2 class="mission-header">{{ .Title }}</h2>
+      {{ .Content }}
+    </div>
+  </div>
+  <div class="uk-container">
+    <h2>Partner Organizations</h2>
+    {{ partial "coe/partners.html" . }}
+  </div>
+  <div class="uk-container">
+    <h2>Valued Sister Organizations</h2>
+    {{ partial "coe/sisters.html" . }}
+  </div>
+  {{ partial "coe/research-papers.html" . }}
+
+  <div class="about-collaborators">
+    <div class="uk-container">
+      <div class=" uk-text-center">
+        {{ .Params.supporterText | markdownify }}
+      </div>
+      <div class="uk-flex uk-flex-center">
+        <ul>
+          {{ range .Params.supporters }}
+            <li>
+              {{ . }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class=" uk-text-center uk-margin-small-bottom">Special thanks to</div>
+      <div class=" uk-text-center uk-text-large">Center of Disease Control (CDC)</div>
+    </div>
+  </div>
+{{ end }}

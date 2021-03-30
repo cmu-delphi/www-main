@@ -1,0 +1,30 @@
+{{ $base := $.GetPage "publications" }}
+{{ $images := $base.Resources.ByType "image" }}
+{{ $papers := (where $base.Params.papers ".coe" true) }}
+
+{{ if gt (len $papers) 0 }}
+  <div class="uk-container">
+    <h2>Related Research Papers</h2>
+    <div class="card-grid">
+      {{ range $papers }}
+        {{ $img := $images.GetMatch (path.Join "images" .image) }}
+        <div class="card-grid-item uk-card uk-card-default uk-card-small">
+          <div class="card-grid-item-date">{{ .year }}</div>
+          <img class="card-grid-item-img" src="{{ $img.RelPermalink }}" width="240" height="300" alt="Banner" />
+          <div class="uk-flex uk-flex-column">
+            <div class="uk-card-body uk-flex-1">
+              <h3 class="uk-card-title"><a href="{{ .link }}" class="uk-link-heading">{{ .title }}</a></h3>
+              <div class="uk-text-uppercase">
+                {{ .authors }}
+              </div>
+              <div>{{ .journal }}, {{ .year }}</div>
+            </div>
+            <div class="uk-card-footer">
+              {{ partial "arrow-link.html" (dict "alt" "View Paper" "link" .link) }}
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

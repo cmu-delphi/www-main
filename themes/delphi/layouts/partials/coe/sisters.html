@@ -1,0 +1,9 @@
+{{ $currentPage := . }}
+<div uk-grid class="coe-partners uk-grid-small uk-child-width-1-4@l uk-child-width-1-2@s">
+  {{ range .Page.Params.sisters }}
+    <div class="coe-partner">
+      <h4><a href="{{ .link }}" class="uk-link-heading">{{ .name }}</a></h4>
+      <h5><a href="{{ .link }}" class="uk-link-heading">{{ .group }}</a></h5>
+    </div>
+  {{ end }}
+</div>
