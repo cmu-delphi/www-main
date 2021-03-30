@@ -565,6 +565,7 @@ people:
   lastName: Bonvini
   link: https://www.linkedin.com/in/matteobonvini
   description: is a graduate student in the Department of Statistics & Data Science at CMU.
+  external: true
   team:
     - blog
 - key: ekennedy
@@ -572,18 +573,21 @@ people:
   lastName: Kennedy
   link: http://www.ehkennedy.com/
   description: is an Assistant Professor in the Department of Statistics & Data Science at CMU.
+  external: true
   team:
     - blog
 - key: lmorinishi
   firstName: Leanna
   lastName: Morinishi
   description: is a data scientist on the Physical Modeling team at Facebook.
+  external: true
   team:
     - blog
 - key: kbarkume
   firstName: Kris
   lastName: Barkume
   description: is a research scientist on the Physical Modeling team at Facebook.
+  external: true
   team:
     - blog
 - key: ccheng
@@ -591,24 +595,28 @@ people:
   lastName: Cheng
   link: https://linkedin.com/in/cheng-cheng-419718106
   description: is a PhD student in Machine Learning and Public Policy at CMU and is a member of Delphi.
+  external: true
   team:
     - blog
 - key: ekim
   firstName: Esther
   lastName: Kim
   description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  external: true
   team:
     - blog
 - key: agarcia
   firstName: Andy
   lastName: Garcia
   description: is a Data Scientist on the Health team at Facebook.
+  external: true
   team:
     - blog
 - key: slarocca
   firstName: Sarah
   lastName: LaRocca
   description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  external: true
   team:
     - blog
 
