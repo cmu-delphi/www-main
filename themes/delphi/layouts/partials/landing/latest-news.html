@@ -2,15 +2,22 @@
   <h2 class="uk-text-center">Latest News</h2>
   {{- $currentPage := . -}}
   {{ define "partials/latest-blog" }}
-    {{ return (dict "source" "blog" "image" .Params.heroImageThumb "title" .Title "link" .RelPermalink "date" .PublishDate ) }}
+    {{ return (dict "source" "blog" "image" .Params.heroImageThumb "title" .Title "link" .RelPermalink "date" .PublishDate "summary" "" ) }}
   {{ end }}
   {{ $items := apply (.Site.GetPage "/blog").Pages "partial" "latest-blog" "." }}
 
-  {{ $top := 6 }}
+  {{ define "partials/latest-news-item" }}
+    {{ return (dict "source" "news" "image" "/blog/images/blog-thumb.jpg" "title" .Title "date" .PublishDate "link" (.Site.GetPage "/about/news").RelPermalink "summary" (.Summary | safeHTML | truncate 100) ) }}
+  {{ end }}
+  {{ $newsItems := apply ((.Site.GetPage "/about/news/headless").Resources.ByType "page") "partial" "latest-news-item" "." }}
+
+  {{ $items = $items | append $newsItems }}
+
+  {{ $top := 10 }}
 
   <div class="uk-position-relative" tabindex="-1" uk-slider>
     <div class="uk-slider-container">
-      <ul class="uk-slider-items uk-child-width-1-2@s uk-child-width-1-4@m uk-grid uk-grid-match">
+      <ul class="uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m uk-grid uk-grid-match">
         {{ range first $top (sort $items "date" "desc") }}
           <li>
             {{ partial "landing/latest-card.html" . }}
