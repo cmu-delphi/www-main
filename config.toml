@@ -73,6 +73,11 @@ relativeURLs = false
     weight = 51
 [[menu.main]]
     parent = "covidcast"
+    name = "Indicator Status Overview"
+    url = "/covidcast/indicator-status"
+    weight = 60
+[[menu.main]]
+    parent = "covidcast"
     name = "Export Data"
     url = "/covidcast/export"
     weight = 70
