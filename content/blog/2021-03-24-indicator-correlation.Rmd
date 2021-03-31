@@ -1,6 +1,6 @@
 ---
 title: "Visualizing indicator correlation"
-author: "Chris Scott, Daniel LaLiberty, Alex Reinhart"
+author: "Chris Scott, Daniel LaLiberte, Alex Reinhart"
 date: 2021-03-24
 tags:
   - COVIDcast
@@ -154,7 +154,7 @@ max <- lag_df %>% filter(r2 == max(r2))
 lag_df %>% 
   ggplot(aes(lag,r2)) + 
   geom_line() +
-  geom_point(data = max, color="red", size=2)+
+  geom_point(data = max, color="red", size=2) +
   geom_text(
     data=max, 
     aes(
@@ -162,7 +162,7 @@ lag_df %>%
     ), 
     parse = TRUE,
     nudge_y = 0.05
-  )+
+  ) +
   xlab("Days lagged") +
   ggtitle(expression(paste(R^2," of Deaths vs. CLI in Community ± 28 days")))+
   labs(
