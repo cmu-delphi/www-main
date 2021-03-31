@@ -5,7 +5,7 @@ on:
     paths: # run only when an Rmd file changes
       - "**.Rmd"
       - "environment.yml"
-      - ".github/workflows/ci.yaml"
+      - ".github/workflows/blog.yaml"
 
 jobs:
   build:
