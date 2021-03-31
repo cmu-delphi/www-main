@@ -55,7 +55,7 @@ output:
 
 One of the Delphi Group's goals is to create informative tools for healthcare organizations. Tools are only useful, however, if the insights they provide can inform concrete actions.  That is to say, these tools must provide actionable intelligence.  To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November 2020, as the case rates in the region continued to increase, was if hospitals located in the county would run out of hospital beds for COVID patients (Fig 1). 
 
-```{r WPRDC, message=FALSE, warning=FALSE}
+```{r WPRDC, message=FALSE, warning=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 library(ggplot2)
 library(scales)
 library(dplyr)
@@ -66,12 +66,12 @@ full_df <- tibble(read.csv(file="../../public/blog/2021-03-10_c2b/test_and_hosp.
 full_df$collection_date <- as.Date(full_df$collection_date, "%m/%d/%y")
 df2 <- data.frame(Key=rep(c("Hospitalization", "Positive Cases"), each=nrow(full_df)),
                 CollectionDate=rep(c(full_df$collection_date),2),
-                Counts=c(full_df$hospital_flag, full_df$test_result))
+                Counts=c(full_df$hospital_flag*7, full_df$test_result*7))
 ggplot(data=df2, aes(x=CollectionDate, y=Counts, fill=Key), show.legend = FALSE) +
   geom_bar(stat="identity") + 
   labs(x = "", y="",
        title = "New COVID-19 Hospitalizations and Cases in Allegheny County",
-       subtitle = "Weekly Count Averages",
+       subtitle = "Total Weekly Counts",
        caption = "Delphi Group, delphi.cmu.edu\nData from WPRDC") +
   theme_bw() +
   guides(color = FALSE) + facet_wrap(.~Key, scales = "free") + scale_x_date(name="Specimen Collection Date", date_breaks="1 month", minor_breaks=NULL, date_labels="%b %Y")+ theme(legend.position = "none")
@@ -80,7 +80,7 @@ ggplot(data=df2, aes(x=CollectionDate, y=Counts, fill=Key), show.legend = FALSE)
 
 **Fig. 1:** Hospitalizations Due to COVID-19 and New Cases from Positive PCR Tests in Allegheny County (WPRDC Data <sup>[1](#WPRDCLink)</sup>)
 
-Based on its planning, the ACHD needed at least a weeks’ time to open emergency COVID facilities. If the emergency space wasn't open and hospital beds ran out, mortality rates could soar. But, if we didn't need the facility, that decision would have stretched already thin resources. Many of the hospitals in Allegheny County were already in contact with each other, but each hospital system only had visibility into its own facilities. We wondered if we could offer a higher-level view for ACHD to assist in its planning.
+Based on its planning, the ACHD needed at least a weeks’ time to open emergency COVID facilities. If the emergency space wasn't open and hospital beds ran out, mortality rates could soar. But, if we didn't need the facility, that decision would have stretched already thin resources. Many of the hospitals in Allegheny County were in contact with each other, but each hospital system only had visibility into its own facilities. We wondered if we could offer a higher-level view for ACHD to assist in its planning.
 
 
 ## Actionable intelligence during the pandemic
@@ -107,7 +107,7 @@ To extrapolate beds utilization 1-2 weeks in the future, we needed to estimate:
 
 These values vary by demographic factors, most notably age (Fig 2), and to a lesser extent, sex and race. 
 
-```{r rates, message=FALSE}
+```{r rates, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 df4 <- data.frame(
                 Race=c('0-9','10-19','20-29','30-39','40-49','50-59','60-69','70+','Unspec.'),
                 Rate=c(0.1*0.01,0.14*0.01, 0.14*0.01, 0.13*0.02, 0.15*0.03, 0.16*0.06, 0.15*0.11, 0.18*0.26, 0.01*0.01 ))
@@ -140,7 +140,7 @@ Monte Carlo simulations involve running a huge number of scenarios based on a se
 
 Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately and offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out.  Even asking ACHD to run our Python software on their machines fell into a legal grey area.  However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.
 
-It is relatively straight-forward to port the Python application to VBScript macrosn for Microsoft Excel. Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
+It is relatively straight-forward to port the Python application to VBScript macros for Microsoft Excel. Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
 
 ## An alternative to Monte Carlo: the analytical model
 
@@ -162,9 +162,9 @@ And the parameters are:
 
 The second types of inputs are the daily positive cases split by their traits. This is the input that the user actively changes on their end. 
 
-Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the expected mean and variance up to 1 month in the future of the number of patients in the hospital per day based on the cases already seen. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month. 
+Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the expected mean and variance up to 1 month in the future of the number of patients in the hospital per day based on the cases already seen. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we know, very few people will remain hospitalized after a month. 
 
-```{r C2B, message=FALSE, warning=FALSE}
+```{r C2B, message=FALSE, warning=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 
 full_df <- tibble(read.csv(file="../../public/blog/2021-03-10_c2b/C2B_output.csv"))
 full_df$dates <- as.Date(full_df$dates, "%m/%d/%y")
@@ -187,11 +187,45 @@ If we assume independence between patients, the mean and variance calculations a
 
 ## The only constant during the pandemic is change
 
-By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from various national public resources, like the Florida line-level COVID dataset<sup>[4](#FloridaLineLevelLink)</sup>. Based on these users' feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup>[5](#HHSLink)</sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are *tailored to a location*. 
+By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from different national public resources, like the Florida line-level COVID dataset<sup>[4](#FloridaLineLevelLink)</sup>. Based on these users' feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup>[5](#HHSLink)</sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are *tailored to a location*. In Fig 4, we show the hospital utilization prediction with *generic parameters*.  
+
+```{r HospUtil, message=FALSE, warning=FALSE}
+full_df <- tibble(read.csv(file="../../public/blog/2021-03-10_c2b/hosp_util.csv"))
+full_df$Train_dates <- as.Date(full_df$Train_dates, "%m/%d/%y")
+full_df$Pred_dates <- as.Date(full_df$Pred_dates, "%m/%d/%y")
+full_df$All_dates <- as.Date(full_df$All_dates, "%m/%d/%y")
+dat <- full_df$All_dates[seq(1, length(full_df$All_dates), 7)]
+length(dat) <- nrow(full_df)
+
+pred <- full_df$All_pred_y[seq(1, length(full_df$All_pred_y), 7)]
+length(pred) <- nrow(full_df)
+pred2 <- full_df$Train_y[seq(1, length(full_df$Train_y), 7)]
+length(pred2) <- nrow(full_df)
+
+full_df$dat <-dat
+full_df$pred <-pred
+full_df$pred2 <-pred2
+
+ggplot(data=full_df) + 
+  geom_ribbon(aes(x = All_dates, ymin = Q5, ymax = Q95, fill="Q5-Q95"))+ 
+  geom_ribbon(aes(x = All_dates, ymin = Q25, ymax = Q75, fill="Q25-Q75")) +
+  geom_line(aes(x = dat, y = pred, color = "Predicted Values"))+
+  geom_point(aes(x = dat, y = pred2, color = "Actual Values"))+
+  labs(x = "", y = "",
+       title = "Hospital Utilization Prediction for Allegheny County",
+       subtitle = "With Cases2Beds Input",
+        caption = "Delphi Group, delphi.cmu.edu") +
+      scale_colour_manual("",values=c( "#00bfc4", "black", "black"))+
+      scale_fill_manual("",values=c(alpha("red", 0.5), alpha("#FF9999", 0.5)))+ theme(legend.position="bottom")
+
+
+```
+
+**Fig. 4:** Hospital Utilization Prediction vs. Usage for Allegheny County with Public Parameters
 
 At the peak of bed utilization, hospital systems themselves increased their COVID beds utilization to *6x* more than in October 2020. Fortunately, in Allegheny County, we never reached a point where demand for beds exceeded a somewhat elastic supply. By early January, multiple organizations told us that the pandemic's most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over. 
 
-```{r HHS, message=FALSE}
+```{r HHS, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 
 full_df <- tibble(read.csv(file="../../public/blog/2021-03-10_c2b/uncensored_HHS.csv"))
 full_df$dates <- as.Date(full_df$dates, "%m/%d/%y")
@@ -209,7 +243,7 @@ ggplot(data=df2, aes(x=Date, y=Counts, fill=Key)) +
   guides(color = FALSE)+ theme(legend.position = "none")
 ```
 
-**Fig. 4:** Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>[5](#HHSLink)
+**Fig. 5:** Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>[5](#HHSLink)
 
 ## Conclusion
 
