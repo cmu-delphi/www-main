@@ -132,4 +132,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
-    highlightLinks = "/covidcast/,/covidcast/summary,/covidcast/indicator,/signals-dashboard/,/forecast-eval/"
+    highlightLinks = "/covidcast/,/covidcast/summary,/covidcast/indicator,/covidcast/indicator-status,/forecast-eval/"
