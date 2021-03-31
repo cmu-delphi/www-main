@@ -35,6 +35,7 @@ dependencies:
   - r-sf
   - r-lubridate
   - r-plyr
+  - r-ggpubr
   - pandoc
   - fiona
   - geopandas
