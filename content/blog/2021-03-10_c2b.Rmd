@@ -187,41 +187,7 @@ If we assume independence between patients, the mean and variance calculations a
 
 ## The only constant during the pandemic is change
 
-By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from different national public resources, like the Florida line-level COVID dataset<sup>[4](#FloridaLineLevelLink)</sup>. Based on these users' feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup>[5](#HHSLink)</sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are *tailored to a location*. In Fig 4, we show the hospital utilization prediction with *generic parameters*.  
-
-```{r HospUtil, message=FALSE, warning=FALSE}
-full_df <- tibble(read.csv(file="../../public/blog/2021-03-10_c2b/hosp_util.csv"))
-full_df$Train_dates <- as.Date(full_df$Train_dates, "%m/%d/%y")
-full_df$Pred_dates <- as.Date(full_df$Pred_dates, "%m/%d/%y")
-full_df$All_dates <- as.Date(full_df$All_dates, "%m/%d/%y")
-dat <- full_df$All_dates[seq(1, length(full_df$All_dates), 7)]
-length(dat) <- nrow(full_df)
-
-pred <- full_df$All_pred_y[seq(1, length(full_df$All_pred_y), 7)]
-length(pred) <- nrow(full_df)
-pred2 <- full_df$Train_y[seq(1, length(full_df$Train_y), 7)]
-length(pred2) <- nrow(full_df)
-
-full_df$dat <-dat
-full_df$pred <-pred
-full_df$pred2 <-pred2
-
-ggplot(data=full_df) + 
-  geom_ribbon(aes(x = All_dates, ymin = Q5, ymax = Q95, fill="Q5-Q95"))+ 
-  geom_ribbon(aes(x = All_dates, ymin = Q25, ymax = Q75, fill="Q25-Q75")) +
-  geom_line(aes(x = dat, y = pred, color = "Predicted Values"))+
-  geom_point(aes(x = dat, y = pred2, color = "Actual Values"))+
-  labs(x = "", y = "",
-       title = "Hospital Utilization Prediction for Allegheny County",
-       subtitle = "With Cases2Beds Input",
-        caption = "Delphi Group, delphi.cmu.edu") +
-      scale_colour_manual("",values=c( "#00bfc4", "black", "black"))+
-      scale_fill_manual("",values=c(alpha("red", 0.5), alpha("#FF9999", 0.5)))+ theme(legend.position="bottom")
-
-
-```
-
-**Fig. 4:** Hospital Utilization Prediction vs. Usage for Allegheny County with Public Parameters
+By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from different national public resources, like the Florida line-level COVID dataset<sup>[4](#FloridaLineLevelLink)</sup>. Based on these users' feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup>[5](#HHSLink)</sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are *tailored to a location*. 
 
 At the peak of bed utilization, hospital systems themselves increased their COVID beds utilization to *6x* more than in October 2020. Fortunately, in Allegheny County, we never reached a point where demand for beds exceeded a somewhat elastic supply. By early January, multiple organizations told us that the pandemic's most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over. 
 
@@ -243,7 +209,7 @@ ggplot(data=df2, aes(x=Date, y=Counts, fill=Key)) +
   guides(color = FALSE)+ theme(legend.position = "none")
 ```
 
-**Fig. 5:** Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>[5](#HHSLink)
+**Fig. 4:** Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup>[5](#HHSLink)
 
 ## Conclusion
 
