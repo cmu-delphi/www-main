@@ -3,7 +3,9 @@
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cmu-delphi/www-main)
 
 
-Delphi's homepage at https://cmu-delphi-main.netlify.app/
+The current stable `main` version is deployed at https://delphi.cmu.edu and https://cmu-delphi-main.netlify.app/.
+
+The next `dev` version is deployed at https://staging.delphi.cmu.edu/ and https://dev--cmu-delphi-main.netlify.app/.
 
 This site is based on [Hugo](https://gohugo.io) and uses [Prettier](https://prettier.io) for formatting.
 
@@ -84,7 +86,7 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
    - `local=TRUE` similar to `-D` to process draft files
    - `run_hugo=FALSE` to manually run hugo
    - `build_rmd=TRUE` force a (re)build of the Rmd pages
-1. Run blogdown to convert a single file to HTML: `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE, build_rmd="content/blog/<NAME>.Rmd")'`
+1. Run blogdown to convert a single file to HTML: `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE, build_rmd="content/blog/<NAME>.Rmd")'` where `<NAME>` should be replaced by the name of the Rmd file.
 1. Alternatively, run `npm run build:blog`
 1. Run Hugo server as usual
 
@@ -101,12 +103,16 @@ This simplifies the deployment and ensures that we have a blog post even when th
 
 ### Release Process
 
-The release process is based on [release-it](https://github.com/release-it/release-it). To create a release, run
+The release consists of multiple stets which can be all done via the GitHub website:
 
-1. create/checkout the release branch `release` and push to origin
-1. run `npm run release` and publish the release
-1. create a PR that merges the `release` branch in the `main` branch
-1. create a PR that merges the `main` branch back into the `dev` branch
-
-Then go to the release page and update short description of the changes made.
+1. Go to [create_release GitHub Action](https://github.com/cmu-delphi/www-main/actions/workflows/create_release.yml) and click the `Run workflow` button. Enter the next version number or one of the magic keywords (patch, minor, major) and hit the green `Run workflow` button.
+1. The action will prepare a new release and will end up with a new [Pull Request](https://github.com/cmu-delphi/www-main/pulls)
+1. Let the code owner review the PR and its changes and let the CI check whether everything builds successfully
+1. Once approved and merged, another GitHub action job starts which automatically will
+   1. create a git tag
+   1. create another [Pull Request](https://github.com/cmu-delphi/www-main/pulls) to merge the changes back to the `dev` branch
+   1. create a [GitHub release](https://github.com/cmu-delphi/www-main/releases) with automatically derived release notes
+   1. create docker image and the production system will be notified to pull this update
+1. Once the jobs are completed the new release should be available at https://delphi.cmu.edu within minutes.
+1. Done
 
