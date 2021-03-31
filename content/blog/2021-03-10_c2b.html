@@ -77,16 +77,16 @@ full_df &lt;- tibble(read.csv(file=&quot;../../public/blog/2021-03-10_c2b/test_a
 full_df$collection_date &lt;- as.Date(full_df$collection_date, &quot;%m/%d/%y&quot;)
 df2 &lt;- data.frame(Key=rep(c(&quot;Hospitalization&quot;, &quot;Positive Cases&quot;), each=nrow(full_df)),
                 CollectionDate=rep(c(full_df$collection_date),2),
-                Counts=c(full_df$hospital_flag, full_df$test_result))
+                Counts=c(full_df$hospital_flag*7, full_df$test_result*7))
 ggplot(data=df2, aes(x=CollectionDate, y=Counts, fill=Key), show.legend = FALSE) +
   geom_bar(stat=&quot;identity&quot;) + 
   labs(x = &quot;&quot;, y=&quot;&quot;,
        title = &quot;New COVID-19 Hospitalizations and Cases in Allegheny County&quot;,
-       subtitle = &quot;Weekly Count Averages&quot;,
+       subtitle = &quot;Total Weekly Counts&quot;,
        caption = &quot;Delphi Group, delphi.cmu.edu\nData from WPRDC&quot;) +
   theme_bw() +
   guides(color = FALSE) + facet_wrap(.~Key, scales = &quot;free&quot;) + scale_x_date(name=&quot;Specimen Collection Date&quot;, date_breaks=&quot;1 month&quot;, minor_breaks=NULL, date_labels=&quot;%b %Y&quot;)+ theme(legend.position = &quot;none&quot;)</code></pre>
-<p><img src="/blog/2021-03-10_c2b_files/figure-html/WPRDC-1.svg" width="672" /></p>
+<p><img src="/blog/2021-03-10_c2b_files/figure-html/WPRDC-1.svg" width="864" class="wide-figure" /></p>
 <p><strong>Fig. 1:</strong> Hospitalizations Due to COVID-19 and New Cases from Positive PCR Tests in Allegheny County (WPRDC Data <sup><a href="#WPRDCLink">1</a></sup>)</p>
 <p>Based on its planning, the ACHD needed at least a weeks’ time to open emergency COVID facilities. If the emergency space wasn’t open and hospital beds ran out, mortality rates could soar. But, if we didn’t need the facility, that decision would have stretched already thin resources. Many of the hospitals in Allegheny County were in contact with each other, but each hospital system only had visibility into its own facilities. We wondered if we could offer a higher-level view for ACHD to assist in its planning.</p>
 <div id="actionable-intelligence-during-the-pandemic" class="section level2">
@@ -123,7 +123,7 @@ ggplot(data=df4, aes(x=Race, y=Rate)) +
   theme_bw() +
   guides(color = FALSE) +
   scale_x_discrete(guide = guide_axis(n.dodge=2)) +scale_y_continuous(labels = scales::percent) </code></pre>
-<p><img src="/blog/2021-03-10_c2b_files/figure-html/rates-1.svg" width="672" />
+<p><img src="/blog/2021-03-10_c2b_files/figure-html/rates-1.svg" width="864" class="wide-figure" />
 <strong>Fig. 2:</strong> Age Group Comparisons based on the Allegheny County COVID-19 Tableau <sup><a href="#ACHDDashboardLink">3</a></sup></p>
 <p>We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate, broken down by the aforementioned demographic factors.</p>
 <p>We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test date was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).</p>
@@ -168,42 +168,13 @@ ggplot(data=full_df) +
         caption = &quot;Delphi Group, delphi.cmu.edu&quot;) +
       scale_colour_manual(&quot;&quot;,values=&quot;black&quot;)+
       scale_fill_manual(&quot;&quot;,values=c(alpha(&quot;red&quot;, 0.5), alpha(&quot;#FF9999&quot;, 0.5)))+ theme(legend.position=&quot;bottom&quot;)</code></pre>
-<p><img src="/blog/2021-03-10_c2b_files/figure-html/C2B-1.svg" width="672" />
+<p><img src="/blog/2021-03-10_c2b_files/figure-html/C2B-1.svg" width="864" class="wide-figure" />
 <strong>Fig. 3:</strong> Output of Cases2Beds using historical data until January 21st for Allegheny County Using Public Parameters</p>
 <p>If we assume independence between patients, the mean and variance calculations are exact. However, our quantile estimates are based on approximating the sum of independent binary variables, which is inaccurate near the tails. So the accuracy of the more extreme quantiles (95%+) depends on the number of cases present, which in practice makes them less trustworthy.</p>
 </div>
 <div id="the-only-constant-during-the-pandemic-is-change" class="section level2">
 <h2>The only constant during the pandemic is change</h2>
-<p>By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from different national public resources, like the Florida line-level COVID dataset<sup><a href="#FloridaLineLevelLink">4</a></sup>. Based on these users’ feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup><a href="#HHSLink">5</a></sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are <em>tailored to a location</em>. In Fig 4, we show the hospital utilization prediction with <em>generic parameters</em>.</p>
-<pre class="r"><code>full_df &lt;- tibble(read.csv(file=&quot;../../public/blog/2021-03-10_c2b/hosp_util.csv&quot;))
-full_df$Train_dates &lt;- as.Date(full_df$Train_dates, &quot;%m/%d/%y&quot;)
-full_df$Pred_dates &lt;- as.Date(full_df$Pred_dates, &quot;%m/%d/%y&quot;)
-full_df$All_dates &lt;- as.Date(full_df$All_dates, &quot;%m/%d/%y&quot;)
-dat &lt;- full_df$All_dates[seq(1, length(full_df$All_dates), 7)]
-length(dat) &lt;- nrow(full_df)
-
-pred &lt;- full_df$All_pred_y[seq(1, length(full_df$All_pred_y), 7)]
-length(pred) &lt;- nrow(full_df)
-pred2 &lt;- full_df$Train_y[seq(1, length(full_df$Train_y), 7)]
-length(pred2) &lt;- nrow(full_df)
-
-full_df$dat &lt;-dat
-full_df$pred &lt;-pred
-full_df$pred2 &lt;-pred2
-
-ggplot(data=full_df) + 
-  geom_ribbon(aes(x = All_dates, ymin = Q5, ymax = Q95, fill=&quot;Q5-Q95&quot;))+ 
-  geom_ribbon(aes(x = All_dates, ymin = Q25, ymax = Q75, fill=&quot;Q25-Q75&quot;)) +
-  geom_line(aes(x = dat, y = pred, color = &quot;Predicted Values&quot;))+
-  geom_point(aes(x = dat, y = pred2, color = &quot;Actual Values&quot;))+
-  labs(x = &quot;&quot;, y = &quot;&quot;,
-       title = &quot;Hospital Utilization Prediction for Allegheny County&quot;,
-       subtitle = &quot;With Cases2Beds Input&quot;,
-        caption = &quot;Delphi Group, delphi.cmu.edu&quot;) +
-      scale_colour_manual(&quot;&quot;,values=c( &quot;#00bfc4&quot;, &quot;black&quot;, &quot;black&quot;))+
-      scale_fill_manual(&quot;&quot;,values=c(alpha(&quot;red&quot;, 0.5), alpha(&quot;#FF9999&quot;, 0.5)))+ theme(legend.position=&quot;bottom&quot;)</code></pre>
-<p><img src="/blog/2021-03-10_c2b_files/figure-html/HospUtil-1.svg" width="672" /></p>
-<p><strong>Fig. 4:</strong> Hospital Utilization Prediction vs. Usage for Allegheny County with Public Parameters</p>
+<p>By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from different national public resources, like the Florida line-level COVID dataset<sup><a href="#FloridaLineLevelLink">4</a></sup>. Based on these users’ feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup><a href="#HHSLink">5</a></sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are <em>tailored to a location</em>.</p>
 <p>At the peak of bed utilization, hospital systems themselves increased their COVID beds utilization to <em>6x</em> more than in October 2020. Fortunately, in Allegheny County, we never reached a point where demand for beds exceeded a somewhat elastic supply. By early January, multiple organizations told us that the pandemic’s most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over.</p>
 <pre class="r"><code>full_df &lt;- tibble(read.csv(file=&quot;../../public/blog/2021-03-10_c2b/uncensored_HHS.csv&quot;))
 full_df$dates &lt;- as.Date(full_df$dates, &quot;%m/%d/%y&quot;)
@@ -219,8 +190,8 @@ ggplot(data=df2, aes(x=Date, y=Counts, fill=Key)) +
         caption = &quot;Delphi Group, delphi.cmu.edu, \n Data from HHS Protect &quot;) +
   theme_bw() +
   guides(color = FALSE)+ theme(legend.position = &quot;none&quot;)</code></pre>
-<p><img src="/blog/2021-03-10_c2b_files/figure-html/HHS-1.svg" width="672" /></p>
-<p><strong>Fig. 5:</strong> Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup><a href="#HHSLink">5</a></p>
+<p><img src="/blog/2021-03-10_c2b_files/figure-html/HHS-1.svg" width="864" class="wide-figure" /></p>
+<p><strong>Fig. 4:</strong> Numbers of staffed COVID beds over time vs. capacity from the HHS Protect Data<sup><a href="#HHSLink">5</a></p>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
