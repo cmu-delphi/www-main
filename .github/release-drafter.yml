@@ -4,7 +4,7 @@ categories:
   - title: "📚 Content Changes"
     labels:
       - "blog"
-      - "documentation"
+      - "content"
   - title: "🚀 Features"
     labels:
       - "enhancement"
@@ -12,9 +12,13 @@ categories:
   - title: "🐛 Bugs Fixes"
     labels:
       - "bug"
+  - title: "📕 Documentation"
+    labels:
+      - "documentation"
   - title: "🧰 Development"
     labels:
       - "chore"
+      - "documentation"
 change-template: "- #$NUMBER $TITLE"
 change-title-escapes: '\<*_&`#@'
 template: |

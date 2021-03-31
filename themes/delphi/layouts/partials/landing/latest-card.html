@@ -7,10 +7,11 @@
     <h3 class="uk-card-title">
       <a href="{{ .link | relURL }}" class="uk-link-heading" title="Learn more">{{ .title }}</a>
     </h3>
+    <p>
+      {{ .summary }}
+    </p>
   </div>
   <div class="uk-card-footer">
-    <a href="{{ .link | relURL }}" title="Learn more"
-      >Learn more {{ partial "font-awesome.html" "solid/long-arrow-alt-right" }}</a
-    >
+    {{ partial "arrow-link.html" (dict "link" .link "alt" "Learn more") }}
   </div>
 </div>

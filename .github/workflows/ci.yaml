@@ -33,8 +33,8 @@ jobs:
 
   image:
     needs: build
-    # only on tags and dev branch
-    if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/dev'
+    # only on main and dev branch
+    if: startsWith(github.ref, 'refs/heads/main') || github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -55,12 +55,25 @@ jobs:
         run: |
           baseRef="${GITHUB_REF#*/}"
           imageTag="${baseRef#*/}"
+          if [ "$imageTag" = "main" ] ; then
+            imageTag="latest"
+          fi
           echo "::set-output name=tag::$imageTag"
           echo "::set-output name=repo::ghcr.io/${{ github.repository }}"
-      - name: Push Image Tag
+      - name: Push Dev Tag
+        if: startsWith(github.ref, 'refs/heads/dev')
         run: |
           docker tag repo ${{ steps.tagname.outputs.repo }}:${{ steps.tagname.outputs.tag }}
           docker push ${{ steps.tagname.outputs.repo }}:${{ steps.tagname.outputs.tag }}
+      - name: Extract version
+        if: startsWith(github.ref, 'refs/heads/main')
+        id: extract_version
+        run: node -pe "'::set-output name=version::' + require('./package.json').version"
+      - name: Push Version Tag Tag
+        if: startsWith(github.ref, 'refs/heads/main')
+        run: |
+          docker tag repo ${{ steps.tagname.outputs.repo }}:v{{ steps.extract_version.outputs.version }}
+          docker push ${{ steps.tagname.outputs.repo }}:v{{ steps.extract_version.outputs.version }}
       - name: Trigger Webhook
         run: |
           # trigger a webhook update
@@ -68,16 +81,3 @@ jobs:
                -X POST ${{ secrets.DELPHI_DEPLOY_WEBHOOK_URL }} \
                -H "Content-Type: application/x-www-form-urlencoded" \
                -d "repository=${{ steps.tagname.outputs.repo }}&tag=${{ steps.tagname.outputs.tag }}"
-      - name: Push Latest Tag
-        if: startsWith(github.ref, 'refs/tags/v')
-        run: |
-          docker tag repo ${{ steps.tagname.outputs.repo }}:latest
-          docker push ${{ steps.tagname.outputs.repo }}:latest
-      - name: Trigger Latest Webhook
-        if: startsWith(github.ref, 'refs/tags/v')
-        run: |
-          # trigger a webhook update
-          curl -H "Authorization: Bearer ${{ secrets.DELPHI_DEPLOY_WEBHOOK_TOKEN }}" \
-               -X POST ${{ secrets.DELPHI_DEPLOY_WEBHOOK_URL }} \
-               -H "Content-Type: application/x-www-form-urlencoded" \
-               -d "repository=${{ steps.tagname.outputs.repo }}&tag=latest"

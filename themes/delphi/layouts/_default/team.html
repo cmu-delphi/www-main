@@ -1,8 +1,9 @@
 {{ define "main" }}
+  {{ $peoplePage := $.GetPage "/people" }}
   <div class="uk-container">
     <h1 class="team-header">
-      Thank you to our {{ len .Params.team }} members around the world, all the students, faculty, staff, and volunteers
-      who have contributed to the COVIDcast project.
+      Thank you to our {{ len (where $peoplePage.Params.people ".external" "ne" true) }} members around the world, all
+      the students, faculty, staff, and volunteers who have contributed to the COVIDcast project.
     </h1>
 
     <img
@@ -19,8 +20,8 @@
 
     <strong>Abbreviations</strong>
     <ul class="uk-list">
-      {{ range .Params.abbreviations }}
-        <li>{{ . }}</li>
+      {{ range $peoplePage.Params.abbreviations }}
+        <li>{{ .abbr }} is {{ .name }}</li>
       {{ end }}
     </ul>
 
@@ -28,7 +29,7 @@
     <div class="uk-margin-large-top uk-margin-large-bottom">
       <h2 class="uk-text-center">Thank you for your contributions</h2>
       <p class="uk-text-center">
-        {{ .Params.others | .RenderString }}
+        {{ $peoplePage.Params.others | .RenderString }}
       </p>
     </div>
   </div>
