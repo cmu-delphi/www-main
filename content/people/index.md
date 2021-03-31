@@ -69,12 +69,16 @@ people:
   team:
   - core
   - highlight
-- firstName: Ananya
+- key: ajoshi
+  firstName: Ananya
   lastName: Joshi
   image: ananya-joshi-500x500-min.jpg
   affiliation: CMU/CSD
+  link: https://csd.cmu.edu/people/graduate-student/ananya-joshi
+  description: is a Ph.D. student in the Computer Science Department and is a member of Delphi supported by the NSF GRFP.
   team:
   - core
+  - blog
 - key: zlipton
   firstName: Zack Chase
   lastName: Lipton
@@ -501,12 +505,15 @@ people:
   affiliation: Site Reliability Engineer, Data Scientist
   team:
   - google
-- firstName: Chris
+- key: cscott
+  firstName: Chris
   lastName: Scott
   image: chris-scott_head-shot.jpg
+  description: is a Google.org Fellow and is a member of Delphi.
   affiliation: Tech Lead Software Engineer
   team:
   - google
+  - blog
 - firstName: Daniel
   lastName: LaLiberte
   image: daniel-laliberte_head-shot.jpg
