@@ -1,6 +1,6 @@
 # Delphi Website
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cmu-delpih/www-main)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cmu-delphi/www-main)
 
 
 Delphi's homepage at https://cmu-delphi-main.netlify.app/
@@ -49,7 +49,7 @@ In RMarkdown things are slightly more different since the R Markdown parser is u
 
 ## Development Environment
 
-One click: [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cmu-delpih/www-main)
+One click: [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cmu-delphi/www-main)
 
 ### Web Editor Only
 
