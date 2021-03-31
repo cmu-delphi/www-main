@@ -4,7 +4,7 @@
     <p class="uk-text-center">We're grateful for financial and other support from our collaborators and supporters:</p>
     <div class="uk-flex uk-flex-center">
       <ul>
-        {{ range .Site.Data.supporter }}
+        {{ range .Params.collaborators }}
           <li>
             {{ if eq .group "sponsor" }}With support from {{ end }}
 
