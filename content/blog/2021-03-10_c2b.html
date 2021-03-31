@@ -14,45 +14,46 @@ authors:
 heroImage: /blog/images/blog-lg-c2b.jpg # size: 1120x440 jpg and webp format
 heroImageThumb: /blog/images/blog-thumb-c2b-1.jpg # size: 300x200 jpg and webp format
 # related:
-summary: | 
-  In our partnership with the Allegheny County Health Department, 
-  we explored avariety of solutions to different pressing challenges 
-  during the pandemic. Cases2Beds was one such tool that came as a 
-  result of rising COVID cases in Allegheny County. 
-  
-  The goal of Cases2Beds is to project likely hospital bed 
-  utilization from any given set of lab-confirmed cases. The intuition of 
-  Cases2Beds is that some fraction ((hospitalization rate) of individuals who 
-  test positive today will be hospitalized after a time delay 
-  (from test date to admit date) and for a varying duration 
-  (from admit date to discharge date). These values and distributions vary by 
-  individual traits (primarily age group, and then race or gender). 
+summary: |
+  In our partnership with the Allegheny County Health Department,
+  we explored avariety of solutions to different pressing challenges
+  during the pandemic. Cases2Beds was one such tool that came as a
+  result of rising COVID cases in Allegheny County.
+
+  The goal of Cases2Beds is to project likely hospital bed
+  utilization from any given set of lab-confirmed cases. The intuition of
+  Cases2Beds is that some fraction ((hospitalization rate) of individuals who
+  test positive today will be hospitalized after a time delay
+  (from test date to admit date) and for a varying duration
+  (from admit date to discharge date). These values and distributions vary by
+  individual traits (primarily age group, and then race or gender).
   Using the current relevant hospitalization rates, delay distributions,
-  and duration distributions, we show what bed usage might be for the inputted 
-  positive cases. We are not aware of other generative approaches for 
+  and duration distributions, we show what bed usage might be for the inputted
+  positive cases. We are not aware of other generative approaches for
   hospital utilization.
-  
+
 acknowledgements: |
  Thank you to the Allegheny County Health Department (especially Antony Gnalian,
  Dr. LuAnn Brink, and Dr. Debra Bogen) for their invaluable feedback, efforts, and
- shared interest in actionable intelligence. 
- 
- Many members of the Delphi Group, including 
- Sumit Agrawal, Katie Mazaitis, 
- and Phil McGuinness met regularly with the Allegheny County 
- Health Department and investigated various solutions other than Cases2Beds. 
+ shared interest in actionable intelligence.
+
+ Many members of the Delphi Group, including
+ Sumit Agrawal, Katie Mazaitis,
+ and Phil McGuinness met regularly with the Allegheny County
+ Health Department and investigated various solutions other than Cases2Beds.
  Andrew Chin and Benjamin Smith investigated Cases2Beds alternatives.
- 
- Zachary Lipton, Helen Zhou, and Cheng Cheng 
- provided historical data from Florida and valuable support. 
- 
- Spencer Whitman, Phil McGuinness, and Sam Gratzl helped edit and format 
- this blog post. 
+
+ Zachary Lipton, Helen Zhou, and Cheng Cheng
+ provided historical data from Florida and valuable support.
+
+ Spencer Whitman, Phil McGuinness, and Sam Gratzl helped edit and format
+ this blog post.
 output:
   blogdown::html_page:
     toc: true
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -73,13 +74,13 @@ library(dplyr)
 library(&quot;ggpubr&quot;)
 library(scales)
 
-full_df &lt;- tibble(read.csv(file=&quot;../../public/blog/2021-03-10_c2b/test_and_hosp.csv&quot;))
+full_df &lt;- tibble(read.csv(file=&quot;./c2b/test_and_hosp.csv&quot;))
 full_df$collection_date &lt;- as.Date(full_df$collection_date, &quot;%m/%d/%y&quot;)
 df2 &lt;- data.frame(Key=rep(c(&quot;Hospitalization&quot;, &quot;Positive Cases&quot;), each=nrow(full_df)),
                 CollectionDate=rep(c(full_df$collection_date),2),
                 Counts=c(full_df$hospital_flag*7, full_df$test_result*7))
 ggplot(data=df2, aes(x=CollectionDate, y=Counts, fill=Key), show.legend = FALSE) +
-  geom_bar(stat=&quot;identity&quot;) + 
+  geom_bar(stat=&quot;identity&quot;) +
   labs(x = &quot;&quot;, y=&quot;&quot;,
        title = &quot;New COVID-19 Hospitalizations and Cases in Allegheny County&quot;,
        subtitle = &quot;Total Weekly Counts&quot;,
@@ -115,8 +116,8 @@ ggplot(data=df2, aes(x=CollectionDate, y=Counts, fill=Key), show.legend = FALSE)
                 Rate=c(0.1*0.01,0.14*0.01, 0.14*0.01, 0.13*0.02, 0.15*0.03, 0.16*0.06, 0.15*0.11, 0.18*0.26, 0.01*0.01 ))
 
 ggplot(data=df4, aes(x=Race, y=Rate)) +
-  geom_bar(stat=&quot;identity&quot;, fill=&quot;#FF9999&quot;) + 
-  labs(x = &quot;Age Category&quot;, y = &quot;&quot;, 
+  geom_bar(stat=&quot;identity&quot;, fill=&quot;#FF9999&quot;) +
+  labs(x = &quot;Age Category&quot;, y = &quot;&quot;,
        title = &quot;Percent Hospitalized Cases of Total Tested by Age Group &quot;,
        subtitle = &quot;Allegheny County&quot;,
        caption = &quot;Delphi Group, delphi.cmu.edu, \nData from Allegheny County Dashboard &quot;) +
@@ -155,11 +156,11 @@ ggplot(data=df4, aes(x=Race, y=Rate)) +
 </ol>
 <p>The second types of inputs are the daily positive cases split by their traits. This is the input that the user actively changes on their end.</p>
 <p>Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the expected mean and variance up to 1 month in the future of the number of patients in the hospital per day based on the cases already seen. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we know, very few people will remain hospitalized after a month.</p>
-<pre class="r"><code>full_df &lt;- tibble(read.csv(file=&quot;../../public/blog/2021-03-10_c2b/C2B_output.csv&quot;))
+<pre class="r"><code>full_df &lt;- tibble(read.csv(file=&quot;./c2b/C2B_output.csv&quot;))
 full_df$dates &lt;- as.Date(full_df$dates, &quot;%m/%d/%y&quot;)
 
 ggplot(data=full_df) +
-  geom_ribbon(aes(x = dates, ymin = Q5, ymax = Q95, fill=&quot;Q5-Q95&quot;))+ 
+  geom_ribbon(aes(x = dates, ymin = Q5, ymax = Q95, fill=&quot;Q5-Q95&quot;))+
   geom_ribbon(aes(x = dates, ymin = Q25, ymax = Q75, fill=&quot;Q25-Q75&quot;)) +
   geom_line(aes(x = dates, y = mean,color = &quot;mean&quot;), fill=&quot;black&quot;) +
   labs(x = &quot;&quot;, y = &quot;&quot;,
@@ -176,7 +177,7 @@ ggplot(data=full_df) +
 <h2>The only constant during the pandemic is change</h2>
 <p>By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from different national public resources, like the Florida line-level COVID dataset<sup><a href="#FloridaLineLevelLink">4</a></sup>. Based on these users’ feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup><a href="#HHSLink">5</a></sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are <em>tailored to a location</em>.</p>
 <p>At the peak of bed utilization, hospital systems themselves increased their COVID beds utilization to <em>6x</em> more than in October 2020. Fortunately, in Allegheny County, we never reached a point where demand for beds exceeded a somewhat elastic supply. By early January, multiple organizations told us that the pandemic’s most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over.</p>
-<pre class="r"><code>full_df &lt;- tibble(read.csv(file=&quot;../../public/blog/2021-03-10_c2b/uncensored_HHS.csv&quot;))
+<pre class="r"><code>full_df &lt;- tibble(read.csv(file=&quot;./c2b/uncensored_HHS.csv&quot;))
 full_df$dates &lt;- as.Date(full_df$dates, &quot;%m/%d/%y&quot;)
 
 df2 &lt;- data.frame(Key=rep(c(&quot;7d-Avg COVID Adult Beds Used&quot;), each=nrow(full_df)),
