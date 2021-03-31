@@ -80,14 +80,14 @@ df2 &lt;- data.frame(Key=rep(c(&quot;Hospitalization&quot;, &quot;Positive Cases
                 Counts=c(full_df$hospital_flag, full_df$test_result))
 ggplot(data=df2, aes(x=CollectionDate, y=Counts, fill=Key), show.legend = FALSE) +
   geom_bar(stat=&quot;identity&quot;) + 
-  labs(x = &quot;Specimen Collection Date&quot;, y=&quot;&quot;,
-       title = &quot;Hospitalizations and Cases in Allegheny County&quot;,
-       subtitle = &quot;Hospitalizations Due to COVID-19 and New Cases from Positive PCR Tests&quot;,
-       caption = &quot;Delphi Group, delphi.cmu.edu, \nData from WPRDC&quot;) +
+  labs(x = &quot;&quot;, y=&quot;&quot;,
+       title = &quot;New COVID-19 Hospitalizations and Cases in Allegheny County&quot;,
+       subtitle = &quot;Weekly Count Averages&quot;,
+       caption = &quot;Delphi Group, delphi.cmu.edu\nData from WPRDC&quot;) +
   theme_bw() +
-  guides(color = FALSE) + facet_wrap(.~Key, scales = &quot;free&quot;) + scale_x_date(name=&quot;Month&quot;, date_breaks=&quot;1 month&quot;, minor_breaks=NULL, date_labels=&quot;%b %Y&quot;)+ theme(legend.position = &quot;none&quot;)</code></pre>
+  guides(color = FALSE) + facet_wrap(.~Key, scales = &quot;free&quot;) + scale_x_date(name=&quot;Specimen Collection Date&quot;, date_breaks=&quot;1 month&quot;, minor_breaks=NULL, date_labels=&quot;%b %Y&quot;)+ theme(legend.position = &quot;none&quot;)</code></pre>
 <p><img src="/blog/2021-03-10_c2b_files/figure-html/WPRDC-1.svg" width="672" /></p>
-<p><strong>Fig. 1:</strong> Hospitalization and Positive Case Counts in Allegheny County From October 1st Through Dec 11th from WPRDC Data <sup><a href="#WPRDCLink">1</a></sup></p>
+<p><strong>Fig. 1:</strong> Hospitalizations Due to COVID-19 and New Cases from Positive PCR Tests in Allegheny County (WPRDC Data <sup><a href="#WPRDCLink">1</a></sup>)</p>
 <p>Based on its planning, the ACHD needed at least a weeks’ time to open emergency COVID facilities. If the emergency space wasn’t open and hospital beds ran out, mortality rates could soar. But, if we didn’t need the facility, that decision would have stretched already thin resources. Many of the hospitals in Allegheny County were already in contact with each other, but each hospital system only had visibility into its own facilities. We wondered if we could offer a higher-level view for ACHD to assist in its planning.</p>
 <div id="actionable-intelligence-during-the-pandemic" class="section level2">
 <h2>Actionable intelligence during the pandemic</h2>
@@ -168,14 +168,13 @@ ggplot(data=full_df) +
         caption = &quot;Delphi Group, delphi.cmu.edu&quot;) +
       scale_colour_manual(&quot;&quot;,values=&quot;black&quot;)+
       scale_fill_manual(&quot;&quot;,values=c(alpha(&quot;red&quot;, 0.5), alpha(&quot;#FF9999&quot;, 0.5)))+ theme(legend.position=&quot;bottom&quot;)</code></pre>
-<pre><code>## Warning: Ignoring unknown parameters: fill</code></pre>
 <p><img src="/blog/2021-03-10_c2b_files/figure-html/C2B-1.svg" width="672" />
 <strong>Fig. 3:</strong> Output of Cases2Beds using historical data until January 21st for Allegheny County Using Public Parameters and Case Counts from COVIDcast</p>
 <p>If we assume independence between patients, the mean and variance calculations are exact. However, our quantile estimates are based on approximating the sum of independent binary variables, which is inaccurate near the tails. So the accuracy of the more extreme quantiles (95%+) depends on the number of cases present, which in practice makes them less trustworthy.</p>
 </div>
 <div id="the-only-constant-during-the-pandemic-is-change" class="section level2">
 <h2>The only constant during the pandemic is change</h2>
-<p>By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the health departments did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from various national public resources, like the Florida line-level COVID dataset<sup><a href="#FloridaLineLevelLink">4</a></sup>. Based on these users’ feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs include current hospital bed utilization (from HHS Protect<sup><a href="#HHSLink">5</a></sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are <em>tailored to a location</em>. In Fig 4, we show the hospital utilization prediction with generic parameters.</p>
+<p>By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from various national public resources, like the Florida line-level COVID dataset<sup><a href="#FloridaLineLevelLink">4</a></sup>. Based on these users’ feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup><a href="#HHSLink">5</a></sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are <em>tailored to a location</em>. In Fig 4, we show the hospital utilization prediction with generic parameters.</p>
 <pre class="r"><code>full_df &lt;- tibble(read.csv(file=&quot;../../public/blog/2021-03-10_c2b/hosp_util.csv&quot;))
 full_df$Train_dates &lt;- as.Date(full_df$Train_dates, &quot;%m/%d/%y&quot;)
 full_df$Pred_dates &lt;- as.Date(full_df$Pred_dates, &quot;%m/%d/%y&quot;)

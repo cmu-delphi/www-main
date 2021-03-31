@@ -55,7 +55,7 @@ output:
 
 One of the Delphi Group's goals is to create informative tools for healthcare organizations. Tools are only useful, however, if the insights they provide can inform concrete actions.  That is to say, these tools must provide actionable intelligence.  To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November 2020, as the case rates in the region continued to increase, was if hospitals located in the county would run out of hospital beds for COVID patients (Fig 1). 
 
-```{r WPRDC, message=FALSE}
+```{r WPRDC, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(scales)
 library(dplyr)
@@ -69,16 +69,16 @@ df2 <- data.frame(Key=rep(c("Hospitalization", "Positive Cases"), each=nrow(full
                 Counts=c(full_df$hospital_flag, full_df$test_result))
 ggplot(data=df2, aes(x=CollectionDate, y=Counts, fill=Key), show.legend = FALSE) +
   geom_bar(stat="identity") + 
-  labs(x = "Specimen Collection Date", y="",
-       title = "Hospitalizations and Cases in Allegheny County",
-       subtitle = "Hospitalizations Due to COVID-19 and New Cases from Positive PCR Tests",
-       caption = "Delphi Group, delphi.cmu.edu, \nData from WPRDC") +
+  labs(x = "", y="",
+       title = "New COVID-19 Hospitalizations and Cases in Allegheny County",
+       subtitle = "Weekly Count Averages",
+       caption = "Delphi Group, delphi.cmu.edu\nData from WPRDC") +
   theme_bw() +
-  guides(color = FALSE) + facet_wrap(.~Key, scales = "free") + scale_x_date(name="Month", date_breaks="1 month", minor_breaks=NULL, date_labels="%b %Y")+ theme(legend.position = "none")
+  guides(color = FALSE) + facet_wrap(.~Key, scales = "free") + scale_x_date(name="Specimen Collection Date", date_breaks="1 month", minor_breaks=NULL, date_labels="%b %Y")+ theme(legend.position = "none")
 
 ```
 
-**Fig. 1:** Hospitalization and Positive Case Counts in Allegheny County From October 1st Through Dec 11th from WPRDC Data <sup>[1](#WPRDCLink)</sup>
+**Fig. 1:** Hospitalizations Due to COVID-19 and New Cases from Positive PCR Tests in Allegheny County (WPRDC Data <sup>[1](#WPRDCLink)</sup>)
 
 Based on its planning, the ACHD needed at least a weeks’ time to open emergency COVID facilities. If the emergency space wasn't open and hospital beds ran out, mortality rates could soar. But, if we didn't need the facility, that decision would have stretched already thin resources. Many of the hospitals in Allegheny County were already in contact with each other, but each hospital system only had visibility into its own facilities. We wondered if we could offer a higher-level view for ACHD to assist in its planning.
 
@@ -90,7 +90,7 @@ Our early conversations with ACHD revealed two fundamental challenges:
 1. Data visualization was complex and time intensive
 2. Trend detection was manual and labor-intensive
 
-The ACHD team spent a significant amount of time every day examining many data streams and then only had time to look at a handful of the data slices worth monitoring. There was concern that a rise in cases within specific demographic groups would be missed due to a confluence of factors.
+The ACHD team spent a significant amount of time every day examining many data streams and then only had time to look at a handful of the data slices worth monitoring. There was concern that a rise in cases within specific demographic groups would be missed due to the confluence of factors.
 
 As the Delphi Group tried to develop solutions to these problems, we consistently ran into data access challenges and bureaucratic limitations to develop solutions at the granularity needed. Carnegie Mellon University did not have a Business Associates Agreement, or BAA, in place with the ACHD. Due to HIPAA laws, that meant we could only operate on public, aggregated and/or redacted data sets. BAAs are commonplace in healthcare, but are complex legal agreements that can take months to execute, even in normal circumstances. Without a BAA in place, we couldn't use detailed COVID testing data classified as Protected Health Information (PHI). Intended projects, like determining the best places for mobile testing sites in specific neighborhoods, became impossible because public data is aggregated only to the county level. ACHD was able to do this on its own.
 
@@ -105,7 +105,7 @@ To extrapolate beds utilization 1-2 weeks in the future, we needed to estimate:
 1. How long a person with COVID would stay in the hospital
 1. The current number of positive COVID tests
 
-These vary most by age (Fig 2), and to a lesser extent sex and race. 
+These values vary by demographic factors, most notably age (Fig 2), and to a lesser extent, sex and race. 
 
 ```{r rates, message=FALSE}
 df4 <- data.frame(
@@ -124,9 +124,9 @@ ggplot(data=df4, aes(x=Race, y=Rate)) +
 ```
 **Fig. 2:** Age Group Comparisons based on the Allegheny County COVID-19 Tableau <sup>[3](#ACHDDashboardLink)</sup>
 
-We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate, broken down by the aforementioned demographic factors. Of these characteristics, we found that age group was the most important.
+We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate, broken down by the aforementioned demographic factors. 
 
-We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).  
+We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test date was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).  
 
 The length of stay is approximately how many days a person uses a bed in the hospital (± 1 day). 
 
@@ -140,7 +140,7 @@ Monte Carlo simulations involve running a huge number of scenarios based on a se
 
 Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately and offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out.  Even asking ACHD to run our Python software on their machines fell into a legal grey area.  However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.
 
-It is relatively straight-forward to port the Python application to VBScript macros. Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
+It is relatively straight-forward to port the Python application to VBScript macrosn for Microsoft Excel. Those macros, however, aren’t designed to run large simulations and we saw that the time required to generate a model was far, far worse, bordering on unusable.
 
 ## An alternative to Monte Carlo: the analytical model
 
@@ -162,7 +162,7 @@ And the parameters are:
 
 The second types of inputs are the daily positive cases split by their traits. This is the input that the user actively changes on their end. 
 
-Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the mean and variance of the number of patients in the hospital per day based on the cases already seen up to 1 month in the future. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month. 
+Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the expected mean and variance up to 1 month in the future of the number of patients in the hospital per day based on the cases already seen. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we already know, very few people will remain hospitalized after a month. 
 
 ```{r C2B, message=FALSE, warning=FALSE}
 
@@ -174,13 +174,13 @@ ggplot(data=full_df) +
   geom_ribbon(aes(x = dates, ymin = Q25, ymax = Q75, fill="Q25-Q75")) +
   geom_line(aes(x = dates, y = mean,color = "mean"), fill="black") +
   labs(x = "", y = "",
-       title = "Cases2Beds Example Output for Allegheny County",
-       subtitle = "Expected Beds Occupancy Based on Current Cases Using Publicly Derived Parameters",
+       title = "Cases2Beds Expected Beds Output for Allegheny County",
+       subtitle = "Based on Cases Known By 1/21/21 Using Publicly Derived Parameters",
         caption = "Delphi Group, delphi.cmu.edu") +
       scale_colour_manual("",values="black")+
       scale_fill_manual("",values=c(alpha("red", 0.5), alpha("#FF9999", 0.5)))+ theme(legend.position="bottom")
 ```
-**Fig. 3:** Output of Cases2Beds using historical data until January 21st for Allegheny County Using Public Parameters and Case Counts from COVIDcast
+**Fig. 3:** Output of Cases2Beds using historical data until January 21st for Allegheny County Using Public Parameters 
 
 
 If we assume independence between patients, the mean and variance calculations are exact. However, our quantile estimates are based on approximating the sum of independent binary variables, which is inaccurate near the tails. So the accuracy of the more extreme quantiles (95%+) depends on the number of cases present, which in practice makes them less trustworthy.
