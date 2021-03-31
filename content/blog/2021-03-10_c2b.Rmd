@@ -14,46 +14,46 @@ authors:
 heroImage: /blog/images/blog-lg-c2b.jpg # size: 1120x440 jpg and webp format
 heroImageThumb: /blog/images/blog-thumb-c2b-1.jpg # size: 300x200 jpg and webp format
 # related:
-summary: | 
-  In our partnership with the Allegheny County Health Department, 
-  we explored avariety of solutions to different pressing challenges 
-  during the pandemic. Cases2Beds was one such tool that came as a 
-  result of rising COVID cases in Allegheny County. 
-  
-  The goal of Cases2Beds is to project likely hospital bed 
-  utilization from any given set of lab-confirmed cases. The intuition of 
-  Cases2Beds is that some fraction ((hospitalization rate) of individuals who 
-  test positive today will be hospitalized after a time delay 
-  (from test date to admit date) and for a varying duration 
-  (from admit date to discharge date). These values and distributions vary by 
-  individual traits (primarily age group, and then race or gender). 
+summary: |
+  In our partnership with the Allegheny County Health Department,
+  we explored avariety of solutions to different pressing challenges
+  during the pandemic. Cases2Beds was one such tool that came as a
+  result of rising COVID cases in Allegheny County.
+
+  The goal of Cases2Beds is to project likely hospital bed
+  utilization from any given set of lab-confirmed cases. The intuition of
+  Cases2Beds is that some fraction ((hospitalization rate) of individuals who
+  test positive today will be hospitalized after a time delay
+  (from test date to admit date) and for a varying duration
+  (from admit date to discharge date). These values and distributions vary by
+  individual traits (primarily age group, and then race or gender).
   Using the current relevant hospitalization rates, delay distributions,
-  and duration distributions, we show what bed usage might be for the inputted 
-  positive cases. We are not aware of other generative approaches for 
+  and duration distributions, we show what bed usage might be for the inputted
+  positive cases. We are not aware of other generative approaches for
   hospital utilization.
-  
+
 acknowledgements: |
  Thank you to the Allegheny County Health Department (especially Antony Gnalian,
  Dr. LuAnn Brink, and Dr. Debra Bogen) for their invaluable feedback, efforts, and
- shared interest in actionable intelligence. 
- 
- Many members of the Delphi Group, including 
- Sumit Agrawal, Katie Mazaitis, 
- and Phil McGuinness met regularly with the Allegheny County 
- Health Department and investigated various solutions other than Cases2Beds. 
+ shared interest in actionable intelligence.
+
+ Many members of the Delphi Group, including
+ Sumit Agrawal, Katie Mazaitis,
+ and Phil McGuinness met regularly with the Allegheny County
+ Health Department and investigated various solutions other than Cases2Beds.
  Andrew Chin and Benjamin Smith investigated Cases2Beds alternatives.
- 
- Zachary Lipton, Helen Zhou, and Cheng Cheng 
- provided historical data from Florida and valuable support. 
- 
- Spencer Whitman, Phil McGuinness, and Sam Gratzl helped edit and format 
- this blog post. 
+
+ Zachary Lipton, Helen Zhou, and Cheng Cheng
+ provided historical data from Florida and valuable support.
+
+ Spencer Whitman, Phil McGuinness, and Sam Gratzl helped edit and format
+ this blog post.
 output:
   blogdown::html_page:
     toc: true
 ---
 
-One of the Delphi Group's goals is to create informative tools for healthcare organizations. Tools are only useful, however, if the insights they provide can inform concrete actions.  That is to say, these tools must provide actionable intelligence.  To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November 2020, as the case rates in the region continued to increase, was if hospitals located in the county would run out of hospital beds for COVID patients (Fig 1). 
+One of the Delphi Group's goals is to create informative tools for healthcare organizations. Tools are only useful, however, if the insights they provide can inform concrete actions.  That is to say, these tools must provide actionable intelligence.  To address local challenges during the pandemic, we partnered with the Allegheny County Health Department (ACHD). One of our shared worries in early November 2020, as the case rates in the region continued to increase, was if hospitals located in the county would run out of hospital beds for COVID patients (Fig 1).
 
 ```{r WPRDC, message=FALSE, warning=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 library(ggplot2)
@@ -62,13 +62,13 @@ library(dplyr)
 library("ggpubr")
 library(scales)
 
-full_df <- tibble(read.csv(file="../../public/blog/2021-03-10_c2b/test_and_hosp.csv"))
+full_df <- tibble(read.csv(file="./c2b/test_and_hosp.csv"))
 full_df$collection_date <- as.Date(full_df$collection_date, "%m/%d/%y")
 df2 <- data.frame(Key=rep(c("Hospitalization", "Positive Cases"), each=nrow(full_df)),
                 CollectionDate=rep(c(full_df$collection_date),2),
                 Counts=c(full_df$hospital_flag*7, full_df$test_result*7))
 ggplot(data=df2, aes(x=CollectionDate, y=Counts, fill=Key), show.legend = FALSE) +
-  geom_bar(stat="identity") + 
+  geom_bar(stat="identity") +
   labs(x = "", y="",
        title = "New COVID-19 Hospitalizations and Cases in Allegheny County",
        subtitle = "Total Weekly Counts",
@@ -85,7 +85,7 @@ Based on its planning, the ACHD needed at least a weeks’ time to open emergenc
 
 ## Actionable intelligence during the pandemic
 
-Our early conversations with ACHD revealed two fundamental challenges: 
+Our early conversations with ACHD revealed two fundamental challenges:
 
 1. Data visualization was complex and time intensive
 2. Trend detection was manual and labor-intensive
@@ -94,7 +94,7 @@ The ACHD team spent a significant amount of time every day examining many data s
 
 As the Delphi Group tried to develop solutions to these problems, we consistently ran into data access challenges and bureaucratic limitations to develop solutions at the granularity needed. Carnegie Mellon University did not have a Business Associates Agreement, or BAA, in place with the ACHD. Due to HIPAA laws, that meant we could only operate on public, aggregated and/or redacted data sets. BAAs are commonplace in healthcare, but are complex legal agreements that can take months to execute, even in normal circumstances. Without a BAA in place, we couldn't use detailed COVID testing data classified as Protected Health Information (PHI). Intended projects, like determining the best places for mobile testing sites in specific neighborhoods, became impossible because public data is aggregated only to the county level. ACHD was able to do this on its own.
 
-Cases2Beds<sup>[2](#Cases2BedsLink)</sup> was more feasible than these monitoring projects because we didn't need full line-level case and test data, and we could provide intelligence at a county level. 
+Cases2Beds<sup>[2](#Cases2BedsLink)</sup> was more feasible than these monitoring projects because we didn't need full line-level case and test data, and we could provide intelligence at a county level.
 
 ## A probabilistic approach
 
@@ -105,7 +105,7 @@ To extrapolate beds utilization 1-2 weeks in the future, we needed to estimate:
 1. How long a person with COVID would stay in the hospital
 1. The current number of positive COVID tests
 
-These values vary by demographic factors, most notably age (Fig 2), and to a lesser extent, sex and race. 
+These values vary by demographic factors, most notably age (Fig 2), and to a lesser extent, sex and race.
 
 ```{r rates, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 df4 <- data.frame(
@@ -113,22 +113,22 @@ df4 <- data.frame(
                 Rate=c(0.1*0.01,0.14*0.01, 0.14*0.01, 0.13*0.02, 0.15*0.03, 0.16*0.06, 0.15*0.11, 0.18*0.26, 0.01*0.01 ))
 
 ggplot(data=df4, aes(x=Race, y=Rate)) +
-  geom_bar(stat="identity", fill="#FF9999") + 
-  labs(x = "Age Category", y = "", 
+  geom_bar(stat="identity", fill="#FF9999") +
+  labs(x = "Age Category", y = "",
        title = "Percent Hospitalized Cases of Total Tested by Age Group ",
        subtitle = "Allegheny County",
        caption = "Delphi Group, delphi.cmu.edu, \nData from Allegheny County Dashboard ") +
   theme_bw() +
   guides(color = FALSE) +
-  scale_x_discrete(guide = guide_axis(n.dodge=2)) +scale_y_continuous(labels = scales::percent) 
+  scale_x_discrete(guide = guide_axis(n.dodge=2)) +scale_y_continuous(labels = scales::percent)
 ```
 **Fig. 2:** Age Group Comparisons based on the Allegheny County COVID-19 Tableau <sup>[3](#ACHDDashboardLink)</sup>
 
-We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate, broken down by the aforementioned demographic factors. 
+We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate, broken down by the aforementioned demographic factors.
 
-We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test date was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).  
+We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test date was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).
 
-The length of stay is approximately how many days a person uses a bed in the hospital (± 1 day). 
+The length of stay is approximately how many days a person uses a bed in the hospital (± 1 day).
 
 Given the hospitalization rate, the offset distribution, and the length of stay distribution, we could simulate multiple futures for any given set of positive cases and their testing dates. This process ultimately shows the distribution of the number of beds needed each day.
 
@@ -136,7 +136,7 @@ Estimating the future given a set of probabilities is a common problem and is po
 
 ## The logistics of actionable intelligence
 
-Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be.  For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds -- after many simulations, we had a good idea of how many beds might be needed in the next two weeks. 
+Monte Carlo simulations involve running a huge number of scenarios based on a set of probabilities. The more scenarios run, the more accurate the model tends to be.  For example, if you gave 1000 people one dart to throw at a dart board, even though each individual throw may not be very good, you’d still be able to get a pretty good idea of where the bull’s eye is after 1000 throws. This is the same principle we applied for Cases2Beds -- after many simulations, we had a good idea of how many beds might be needed in the next two weeks.
 
 Our prototype Monte Carlo simulation was written in Python and completed in minutes. However, because the simulation works best with probabilities derived from PHI, ACHD needed to run it privately and offline so there would be no data transmission. Thus, any type of web-application (which would transmit data to our servers) was ruled out.  Even asking ACHD to run our Python software on their machines fell into a legal grey area.  However, Microsoft Excel was easy to use and supported by ACHD. So we converted Cases2Beds into a spreadsheet.
 
@@ -146,31 +146,31 @@ It is relatively straight-forward to port the Python application to VBScript mac
 
 As an alternative, we developed an analytical model for Microsoft Excel that offered a much faster run time compared to full Monte Carlo simulation.
 
-The analytical model had the same idea as the Monte Carlo simulation. Some fraction of individuals who test positive today will be hospitalized after a varying offset (from test date to admit date) and variable duration (from admit date to discharge date) based on their characteristics. In the spreadsheet, anyone can (and should) change these parameters to fit their region. 
+The analytical model had the same idea as the Monte Carlo simulation. Some fraction of individuals who test positive today will be hospitalized after a varying offset (from test date to admit date) and variable duration (from admit date to discharge date) based on their characteristics. In the spreadsheet, anyone can (and should) change these parameters to fit their region.
 
-The characteristics are: 
+The characteristics are:
 
 1.  Age Group: (Most important) [unspecified, 0-9, 10-19, 20-29 … 70-79, 80+]
 1.  Sex: [unspecified, M, F]
 1.  Race: [unspecified, Black, White, Hispanic, Asian]
 
-And the parameters are: 
+And the parameters are:
 
 1.  Hospitalization Rate
 1.  Offset Distribution Parameter Set: Parameters describing the number of days before someone who tests positive is hospitalized
 1.  Duration Distribution Parameter Set: Parameters describing the number of days someone will be in the hospital
 
-The second types of inputs are the daily positive cases split by their traits. This is the input that the user actively changes on their end. 
+The second types of inputs are the daily positive cases split by their traits. This is the input that the user actively changes on their end.
 
-Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the expected mean and variance up to 1 month in the future of the number of patients in the hospital per day based on the cases already seen. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we know, very few people will remain hospitalized after a month. 
+Behind the scenes, we take these parameters (first input) and generate Offset Fractions, which is the probability that a patient with given traits will occupy a bed on k days after the specimen testing date. These Offset Fractions and the daily positive case breakdown (second input) give us the expected mean and variance up to 1 month in the future of the number of patients in the hospital per day based on the cases already seen. This information can be used to generate plots like Fig 3. This graph isn’t to suggest that there won’t be any need for beds after February! It is just that based on the cases we know, very few people will remain hospitalized after a month.
 
 ```{r C2B, message=FALSE, warning=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 
-full_df <- tibble(read.csv(file="../../public/blog/2021-03-10_c2b/C2B_output.csv"))
+full_df <- tibble(read.csv(file="./c2b/C2B_output.csv"))
 full_df$dates <- as.Date(full_df$dates, "%m/%d/%y")
 
 ggplot(data=full_df) +
-  geom_ribbon(aes(x = dates, ymin = Q5, ymax = Q95, fill="Q5-Q95"))+ 
+  geom_ribbon(aes(x = dates, ymin = Q5, ymax = Q95, fill="Q5-Q95"))+
   geom_ribbon(aes(x = dates, ymin = Q25, ymax = Q75, fill="Q25-Q75")) +
   geom_line(aes(x = dates, y = mean,color = "mean"), fill="black") +
   labs(x = "", y = "",
@@ -180,20 +180,20 @@ ggplot(data=full_df) +
       scale_colour_manual("",values="black")+
       scale_fill_manual("",values=c(alpha("red", 0.5), alpha("#FF9999", 0.5)))+ theme(legend.position="bottom")
 ```
-**Fig. 3:** Output of Cases2Beds using historical data until January 21st for Allegheny County Using Public Parameters 
+**Fig. 3:** Output of Cases2Beds using historical data until January 21st for Allegheny County Using Public Parameters
 
 
 If we assume independence between patients, the mean and variance calculations are exact. However, our quantile estimates are based on approximating the sum of independent binary variables, which is inaccurate near the tails. So the accuracy of the more extreme quantiles (95%+) depends on the number of cases present, which in practice makes them less trustworthy.
 
 ## The only constant during the pandemic is change
 
-By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from different national public resources, like the Florida line-level COVID dataset<sup>[4](#FloridaLineLevelLink)</sup>. Based on these users' feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup>[5](#HHSLink)</sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are *tailored to a location*. 
+By November, we had a prototype Cases2Beds spreadsheet for ACHD that they used. Over the following months, we made various modifications with their feedback. For example, the ACHD staff did not have time to input the case numbers. So, we were able to use the granular public data to give them estimates of future hospital utilization without any inputs on their end. We were also able to showcase the spreadsheet to other health departments and hospitals by generating public parameters for offset and length of stay from different national public resources, like the Florida line-level COVID dataset<sup>[4](#FloridaLineLevelLink)</sup>. Based on these users' feedback, we started to use Cases2Beds as an input to hospital utilization forecasting models. Other inputs included current hospital bed utilization (from HHS Protect<sup>[5](#HHSLink)</sup>), how long current patients are likely to continue to be hospitalized, and how many new cases there will be in the near future. A preliminary evaluation of such a method shows decent predictive power when parameters are *tailored to a location*.
 
-At the peak of bed utilization, hospital systems themselves increased their COVID beds utilization to *6x* more than in October 2020. Fortunately, in Allegheny County, we never reached a point where demand for beds exceeded a somewhat elastic supply. By early January, multiple organizations told us that the pandemic's most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over. 
+At the peak of bed utilization, hospital systems themselves increased their COVID beds utilization to *6x* more than in October 2020. Fortunately, in Allegheny County, we never reached a point where demand for beds exceeded a somewhat elastic supply. By early January, multiple organizations told us that the pandemic's most acute problem had changed to vaccine distribution and the number of COVID-19 beds needed dropped. Cases2Beds continues to act as an early warning system if the number of cases rise quickly, but hopefully the worst is now over.
 
 ```{r HHS, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 
-full_df <- tibble(read.csv(file="../../public/blog/2021-03-10_c2b/uncensored_HHS.csv"))
+full_df <- tibble(read.csv(file="./c2b/uncensored_HHS.csv"))
 full_df$dates <- as.Date(full_df$dates, "%m/%d/%y")
 
 df2 <- data.frame(Key=rep(c("7d-Avg COVID Adult Beds Used"), each=nrow(full_df)),
@@ -213,14 +213,14 @@ ggplot(data=df2, aes(x=Date, y=Counts, fill=Key)) +
 
 ## Conclusion
 
-Cases2Beds was a case study about the realities of research institutions offering actionable intelligence in healthcare.  While the Cases2Beds tool demonstrated reasonable predictive power, it was difficult deploy this tool in a way that was both timely and actionable. 
+Cases2Beds was a case study about the realities of research institutions offering actionable intelligence in healthcare.  While the Cases2Beds tool demonstrated reasonable predictive power, it was difficult deploy this tool in a way that was both timely and actionable.
 
 Research institutions can be effective partners to health organizations, but the next set of challenges of this pandemic--or the next--will require quick action.  It is recommended that health organizations establish long-term partnerships so these challenges can be addressed promptly.
 
 ## Resources
 
 
- 
+
 <a id="WPRDCLink">1.</a>  [WPRDC Allegheny County COVID dataset](https://data.wprdc.org/dataset/allegheny-county-covid-19-tests-cases-and-deaths)
 
 <a id="Cases2BedsLink">2.</a> [Cases2Beds Worksheet](https://www.cmu.edu/delphi-web/cases2beds-v0.2.3.xlsm)
@@ -230,8 +230,8 @@ Research institutions can be effective partners to health organizations, but the
 <a id="FloridaLineLevelLink">4.</a>  [Florida line-level COVID dataset](https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429)
 
 <a id="HHSLink">5.</a>  [HHS Protect Hospital Utilization Data](https://healthdata.gov/Hospital/COVID-19-Reported-Patient-Impact-and-Hospital-Capa/anag-cw7u)
- 
- 
+
+
 
 
 
