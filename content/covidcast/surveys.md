@@ -38,7 +38,7 @@ To account for the differences between Facebook users and the United States popu
 
 ## Where can I see the results?
 
-Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}}) shows aggregate survey results, ranging from rates of COVID-like symptoms over mask usage to mental health. In addition, our [COVIDcast map]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States. The data used by both tools is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}) and our [COVIDcast Exporter]({{< relref "covidcast/export" >}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
+Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}}) shows aggregate survey results, ranging from rates of COVID-like symptoms over mask usage to mental health. In addition, our [COVIDcast dashboard]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States. The data used by both tools is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}) and our [COVIDcast Exporter]({{< relref "covidcast/export" >}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
 
 ### Blog posts and presentations
 
@@ -51,8 +51,8 @@ Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}})
 
 ### Publications
 
-Research results from universities studying the survey data will be listed here as soon as they are available.
-
+- Bilinski, A., Emanuel, E., Salomon, J.A. and Venkataramani, A. [Better Late Than Never: Trends in COVID-19 Infection Rates, Risk Perceptions, and Behavioral Responses in the USA](https://doi.org/10.1007/s11606-021-06633-8). *Journal of General Internal Medicine* (2021).
+- Rebeiro, P., Aronoff, D, and Smith, M.K. [The Impact of State Mask-Wearing Requirements on the Growth of COVID-19 Cases, Hospitalizations, and Deaths in the United States](https://doi.org/10.1093/cid/ciab101). *Clinical Infectious Diseases* (2021), ciab101.
 - Rader, White, Burns, Chen, Brilliant, Cohen, Shaman, Brilliant, Kraemer, Moritz, Hawkins, Scarpino, Astley, and Brownstein. [Mask-wearing and control of SARS-CoV-2 transmission in the USA: a cross-sectional study](https://doi.org/10.1016/S2589-7500(20)30293-4). *Lancet Digital Health* 2021, volume 3, issue 3, e148-e157.
 -  Flaxman AD, Henning DJ and Duber HC. [The relative incidence of COVID-19 in healthcare workers versus non-healthcare workers: evidence from a web-based survey of Facebook users in the United States](https://doi.org/10.12688/gatesopenres.13202.1). *Gates Open Research* 2020, 4:174.
 - Kreuter, F., Barkay, N., Bilinski, A., Bradford, A., Chiu, S., Eliat, R., Fan, J., Galili, T., Haimovich, D., Kim, B., LaRocca, S., Li, Y., Morris, K., Presser, S., Sarig, T., Salomon, J. A., Stewart, K., Stuart, E. A., & Tibshirani, R. J. (2020). [Partnering with a global platform to inform research and public policy making](https://doi.org/10.18148/srm/2020.v14i2.7761). *Survey Research Methods*, 14(2), 159-163.
