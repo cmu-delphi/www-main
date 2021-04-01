@@ -29,9 +29,10 @@
 <meta name="author" content="Delphi Group" />
 <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
 
+{{- $currentPage := . -}}
 {{- with .Params.authors -}}
   {{- range . -}}
-    {{- range first 1 (where $.Site.Data.authors "key" "eq" .) -}}
+    {{- with (partial "get-person.html" (dict "Site" $currentPage.Site "key" .)) -}}
       {{- if isset . "twitter" -}}
         <meta name="twitter:creator" content="@{{ .twitter }}" />
       {{- end -}}

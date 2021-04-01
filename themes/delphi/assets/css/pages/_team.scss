@@ -2,8 +2,17 @@
   width: 100%;
 }
 
-.team-member > img {
+.team-member img {
   border-radius: 5px;
+}
+
+.team-member-name {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+a.team-member-name {
+  color: inherit;
 }
 
 .team-header {
