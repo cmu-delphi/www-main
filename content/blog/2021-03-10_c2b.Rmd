@@ -15,22 +15,10 @@ heroImage: /blog/images/blog-lg-c2b.jpg # size: 1120x440 jpg and webp format
 heroImageThumb: /blog/images/blog-thumb-c2b-1.jpg # size: 300x200 jpg and webp format
 # related:
 summary: |
-  In our partnership with the Allegheny County Health Department,
-  we explored avariety of solutions to different pressing challenges
+  In partnership with the Allegheny County Health Department,
+  we explored a variety of solutions to different pressing challenges
   during the pandemic. Cases2Beds was one such tool that came as a
   result of rising COVID cases in Allegheny County.
-
-  The goal of Cases2Beds is to project likely hospital bed
-  utilization from any given set of lab-confirmed cases. The intuition of
-  Cases2Beds is that some fraction ((hospitalization rate) of individuals who
-  test positive today will be hospitalized after a time delay
-  (from test date to admit date) and for a varying duration
-  (from admit date to discharge date). These values and distributions vary by
-  individual traits (primarily age group, and then race or gender).
-  Using the current relevant hospitalization rates, delay distributions,
-  and duration distributions, we show what bed usage might be for the inputted
-  positive cases. We are not aware of other generative approaches for
-  hospital utilization.
 
 acknowledgements: |
  Thank you to the Allegheny County Health Department (especially Antony Gnalian,
@@ -39,7 +27,7 @@ acknowledgements: |
 
  Many members of the Delphi Group, including
  Sumit Agrawal, Katie Mazaitis,
- and Phil McGuinness met regularly with the Allegheny County
+ and Phil McGuinness, met regularly with the Allegheny County
  Health Department and investigated various solutions other than Cases2Beds.
  Andrew Chin and Benjamin Smith investigated Cases2Beds alternatives.
 
