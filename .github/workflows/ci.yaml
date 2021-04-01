@@ -61,7 +61,6 @@ jobs:
           echo "::set-output name=tag::$imageTag"
           echo "::set-output name=repo::ghcr.io/${{ github.repository }}"
       - name: Push Dev Tag
-        if: startsWith(github.ref, 'refs/heads/dev')
         run: |
           docker tag repo ${{ steps.tagname.outputs.repo }}:${{ steps.tagname.outputs.tag }}
           docker push ${{ steps.tagname.outputs.repo }}:${{ steps.tagname.outputs.tag }}
