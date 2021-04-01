@@ -69,11 +69,6 @@ jobs:
         if: startsWith(github.ref, 'refs/heads/main')
         id: extract_version
         run: node -pe "'::set-output name=version::' + require('./package.json').version"
-      - name: Push Version Tag Tag
-        if: startsWith(github.ref, 'refs/heads/main')
-        run: |
-          docker tag repo ${{ steps.tagname.outputs.repo }}:v{{ steps.extract_version.outputs.version }}
-          docker push ${{ steps.tagname.outputs.repo }}:v{{ steps.extract_version.outputs.version }}
       - name: Trigger Webhook
         run: |
           # trigger a webhook update
@@ -81,3 +76,8 @@ jobs:
                -X POST ${{ secrets.DELPHI_DEPLOY_WEBHOOK_URL }} \
                -H "Content-Type: application/x-www-form-urlencoded" \
                -d "repository=${{ steps.tagname.outputs.repo }}&tag=${{ steps.tagname.outputs.tag }}"
+      - name: Push Version Tag Tag
+        if: startsWith(github.ref, 'refs/heads/main')
+        run: |
+          docker tag repo ${{ steps.tagname.outputs.repo }}:v${{ steps.extract_version.outputs.version }}
+          docker push ${{ steps.tagname.outputs.repo }}:v${{ steps.extract_version.outputs.version }}
