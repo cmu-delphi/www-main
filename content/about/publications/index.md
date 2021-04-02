@@ -4,8 +4,8 @@ papers:
   - title: "Causal inference in the time of COVID-19"
     image: causal.jpg
     authors: Bonvini, Kennedy, Ventura, Wasserman
-    link: https://publishing.andrew.cmu.edu/collections/delphi-web/publications/causal-inference-in-the-time-of-covid-19.pdf
-    journal: (in review) Annals of Applied Statistics
+    link: https://arxiv.org/abs/2103.04472
+    journal: ArXiv preprint
     year: 2021
   - title: "Pancasting: forecasting epidemics from provisional data"
     image: pancasting.jpg
