@@ -1,6 +1,12 @@
 ---
 title: Research and White Papers
 papers:
+  - title: "Causal inference in the time of COVID-19"
+    image: causal.jpg
+    authors: Bonvini, Kennedy, Ventura, Wasserman
+    link: https://publishing.andrew.cmu.edu/collections/delphi-web/publications/causal-inference-in-the-time-of-covid-19.pdf
+    journal: (in review) Annals of Applied Statistics
+    year: 2021
   - title: "Pancasting: forecasting epidemics from provisional data"
     image: pancasting.jpg
     authors: Brooks
