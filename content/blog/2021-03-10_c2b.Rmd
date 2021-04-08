@@ -16,10 +16,9 @@ heroImageThumb: /blog/images/blog-thumb-c2b-1.jpg # size: 300x200 jpg and webp f
 # related:
 summary: |
   In partnership with the Allegheny County Health Department,
-  we explored a variety of solutions to different pressing challenges
-  during the pandemic. Cases2Beds was one such tool that came as a
-  result of rising COVID cases in Allegheny County.
-
+  we explored solutions to pressing challenges
+  during the pandemic. 
+  
 acknowledgements: |
  Thank you to the Allegheny County Health Department (especially Antony Gnalian,
  Dr. LuAnn Brink, and Dr. Debra Bogen) for their invaluable feedback, efforts, and
@@ -114,7 +113,7 @@ ggplot(data=df4, aes(x=Race, y=Rate)) +
 
 We used public data from Allegheny County about the number of people tested, test positivity rate, and hospitalization rate, broken down by the aforementioned demographic factors.
 
-We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test date was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning you may have been tested some days or weeks after being admitted (presumably for an unrelated reason).
+We also acquired information for two critical parameters: offset and length of stay. Offset is the number of days between the day of testing (called specimen collection date) and the first day of hospitalization. For example, if the test date is around the hospital admit date, the offset would be 0 days (or sometimes -1 or +1 days). Otherwise, if the test date was 5 days before hospitalization, the offset would be 5 days. Notably, the offset can be negative, meaning a person may have been tested some days or weeks after being admitted (presumably for an unrelated reason).
 
 The length of stay is approximately how many days a person uses a bed in the hospital (± 1 day).
 
