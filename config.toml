@@ -88,6 +88,11 @@ relativeURLs = false
     weight = 70
 [[menu.main]]
     parent = "covidcast"
+    name = "Data Anomalies"
+    url = "/covidcast/data-anomalies"
+    weight = 71
+[[menu.main]]
+    parent = "covidcast"
     name = "Release Log"
     url = "/covidcast/release-log"
     weight = 80
@@ -132,4 +137,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
-    highlightLinks = "/covidcast/,/covidcast/summary,/covidcast/indicator,/covidcast/indicator-status,/forecast-eval/"
+    highlightLinks = "/covidcast/data-anomalies"
