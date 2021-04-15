@@ -58,9 +58,14 @@ relativeURLs = false
     weight = 3
 [[menu.main]]
     parent = "covidcast"
+    name = "Explore Correlations"
+    url = "/covidcast/correlation"
+    weight = 4
+[[menu.main]]
+    parent = "covidcast"
     name = "Classic Map"
     url = "/covidcast/classic"
-    weight = 4
+    weight = 30
 [[menu.main]]
     parent = "covidcast"
     name = "Forecast Evaluation"
@@ -137,4 +142,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
-    highlightLinks = "/covidcast/data-anomalies"
+    highlightLinks = "/covidcast/correlation,/covidcast/data-anomalies"
