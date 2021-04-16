@@ -285,21 +285,20 @@ can change for _weeks_ as new data arrives:
 ```{r q-versioning, warning=FALSE, message=FALSE, cache=TRUE}
 library(covidcast)
 library(dplyr)
-# DISABLED for now since the API is not ready
 query_date <- "2020-08-01"
-# covidcast_signal(
-#   data_source = "quidel",
-#   signal = "covid_ag_raw_pct_positive",
-#   start_day = query_date,
-#   end_day = query_date,
-#   geo_type = "state",
-#   geo_value = "ny",
-#   issues = c(query_date, "2020-09-04")) %>%
-#     select(time_value, value, sample_size, issue, lag) %>%
-#     distinct(value, .keep_all=TRUE) %>%
-#     knitr::kable("html", digits = 2,
-#                  col.names = c("Test date", "Positivity rate (%)", "Sample size",
-#                                "Issued on", "Lag (days)"))
+covidcast_signal(
+  data_source = "quidel",
+  signal = "covid_ag_raw_pct_positive",
+  start_day = query_date,
+  end_day = query_date,
+  geo_type = "state",
+  geo_value = "ny",
+  issues = c(query_date, "2020-09-04")) %>%
+    select(time_value, value, sample_size, issue, lag) %>%
+    distinct(value, .keep_all=TRUE) %>%
+    knitr::kable("html", digits = 2,
+                 col.names = c("Test date", "Positivity rate (%)", "Sample size",
+                               "Issued on", "Lag (days)"))
 ```
 
 Many data sources are subject to revisions:
