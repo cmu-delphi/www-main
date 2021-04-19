@@ -1,21 +1,66 @@
-.coe-partner {
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
-  box-sizing: border-box;
+.coe-section {
+  margin-top: 4rem;
 
-  > h4,
-  h5 {
+  h2,
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 2rem 0;
     text-align: center;
-    margin: 0;
   }
 }
 
-.coe-partner-loc {
+.coe-member {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid #d3d4d8;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+
+  > h4 {
+    text-align: center;
+    font-size: inherit;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 1rem 0;
+    text-transform: uppercase;
+  }
+
+  > h5 {
+    text-align: center;
+    margin: 0;
+    font-size: inherit;
+    letter-spacing: 3px;
+    margin: 0;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  > p {
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+.coe-members-loc {
   flex: 1 1 auto;
 }
 
-.coe-partner-pis {
+.coe-member-logo {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > img {
+    width: 40%;
+  }
+}
+
+.coe-member-pis {
   margin-top: 0.5em;
   display: flex;
   align-items: flex-start;
@@ -23,18 +68,23 @@
   position: relative;
 }
 
-.coe-partner-pi {
+.coe-member-pi {
   display: inline-block;
-  width: 45%;
+  width: 42%;
   text-align: center;
   // margin: 0.5em;
 
   > img {
+    border-radius: 5px;
     margin-bottom: 0.5em;
   }
 }
 
-.coe-partner-pi-name {
+.coe-member-pi-name {
   min-height: 3em;
   display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: inherit;
 }

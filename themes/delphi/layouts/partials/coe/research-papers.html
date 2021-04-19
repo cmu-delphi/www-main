@@ -3,7 +3,7 @@
 {{ $papers := (where $base.Params.papers ".coe" true) }}
 
 {{ if gt (len $papers) 0 }}
-  <div class="uk-container">
+  <div class="uk-container coe-section">
     <h2>Related Research Papers</h2>
     <div class="card-grid">
       {{ range $papers }}

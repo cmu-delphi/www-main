@@ -5,24 +5,31 @@
   <div class="uk-container content-grid">
     <div class="grid-3-11 about-description">
       <h2 class="mission-header">{{ .Title }}</h2>
+      <h3 class="mission-subheader">About the Center</h3>
       {{ .Content }}
     </div>
   </div>
-  <div class="uk-container">
-    <h2>Partner Organizations</h2>
-    {{ partial "coe/partners.html" . }}
+  <div class="uk-container content-grid coe-section">
+    <div class="grid-2-12">
+      <h2>Member Organizations</h2>
+      {{ partial "coe/members.html" . }}
+    </div>
   </div>
-  <div class="uk-container">
-    <h2>Valued Sister Organizations</h2>
-    {{ partial "coe/sisters.html" . }}
+  <div class="uk-container content-grid coe-section">
+    <div class="grid-2-12">
+      <h2>We work closely with</h2>
+      {{ partial "coe/sisters.html" . }}
+    </div>
   </div>
+
   {{ partial "coe/research-papers.html" . }}
 
-  <div class="about-collaborators">
+  <div class="about-collaborators coe-section about-collaborators-v2">
     <div class="uk-container">
-      <div class=" uk-text-center">
-        {{ .Params.supporterText | markdownify }}
-      </div>
+      <h2>Supporters</h2>
+      <p class="uk-text-center">
+        We are grateful to the following organizations for their steadfast support of our center
+      </p>
       <div class="uk-flex uk-flex-center">
         <ul>
           {{ range .Params.supporters }}
@@ -32,8 +39,12 @@
           {{ end }}
         </ul>
       </div>
-      <div class=" uk-text-center uk-margin-small-bottom">Special thanks to</div>
-      <div class=" uk-text-center uk-text-large">Center of Disease Control (CDC)</div>
+      <div class="about-collaborator-special">
+        <h3>Special thank to</h3>
+        <ul>
+          <li>Center of Disease Control (CDC)</li>
+        </ul>
+      </div>
     </div>
   </div>
 {{ end }}
