@@ -3,12 +3,12 @@ updates:
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
-    branch: dev
+    target-branch: dev
     schedule:
       interval: "weekly"
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
-    branch: dev
+    target-branch: dev
     schedule:
       interval: "weekly"
