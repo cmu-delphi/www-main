@@ -47,9 +47,8 @@ jobs:
         with:
           path: |
             ./blogdown
-          key: ${{ runner.os }}-blogdown2-${{ hashFiles('environment.yml') }}-${{ hashFiles('content/blog/**.Rmd') }}
+          key: ${{ runner.os }}-blogdown2-${{ hashFiles('environment.yml') }}
           restore-keys: |
-            ${{ runner.os }}-blogdown2-${{ hashFiles('environment.yml') }}-
             ${{ runner.os }}-blogdown2-
       - name: Build site
         shell: bash -l {0}
