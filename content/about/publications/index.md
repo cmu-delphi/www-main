@@ -1,6 +1,12 @@
 ---
 title: Research and White Papers
 papers:
+  - title: "Causal inference in the time of COVID-19"
+    image: causal.jpg
+    authors: Bonvini, Kennedy, Ventura, Wasserman
+    link: https://arxiv.org/abs/2103.04472
+    journal: ArXiv preprint
+    year: 2021
   - title: "Pancasting: forecasting epidemics from provisional data"
     image: pancasting.jpg
     authors: Brooks

@@ -1,13 +1,13 @@
 {
   "name": "www-main",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "highlight.js": "^10.6.0",
     "katex": "^0.13.0",
     "uikit": "^3.6.18",
-    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.1.0/www-covidcast-2.1.0.tgz"
+    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.3.1/www-covidcast-2.3.1.tgz"
   },
   "devDependencies": {
     "hugo-bin": "^0.69.0",
