@@ -11,10 +11,6 @@ layout: team
 
 {{<team team="core" >}}
 
-## Google Fellows
-
-{{<team team="google" >}}
-
 ## Contractors
 
 {{<team team="contractors" >}}
@@ -26,6 +22,10 @@ layout: team
 ## Contributors
 
 {{<team team="contributors" >}}
+
+## Past Google Fellows
+
+{{<team team="google" >}}
 
 ## Past Members
 

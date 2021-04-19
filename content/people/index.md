@@ -455,8 +455,9 @@ people:
   lastName: Harwood
   image: kate-harwood_head-shot.jpg
   affiliation: Software Engineer
+  note: Google Fellow October 2020 – March 2021, Contributor since April 2021
   team:
-  - google
+  - contributors
 - firstName: Sumit
   lastName: Agrawal
   image: sumit-agrawal_head-shot.png
@@ -484,9 +485,10 @@ people:
 - firstName: Raphael
   lastName: Hyde
   image: raphael-hyde_head-shot.jpg
-  affiliation: UX Designer
+  affiliation: UK Designer
+  note: Google Fellow October 2020 – March 2021, Contributor since April 2021
   team:
-  - google
+  - contributors
 - firstName: Phil
   lastName: McGuinness
   image: phil-mcguinness_head-shot.png
