@@ -1,0 +1,27 @@
+{{ $currentPage := . }}
+<div
+  uk-grid
+  class="coe-members uk-grid-match uk-grid-small uk-child-width-1-2@m uk-grid-column-medium uk-grid-row-medium"
+>
+  {{ range .Page.Params.members }}
+    <div>
+      <div class="coe-member">
+        <h4><a href="{{ .link }}" class="uk-link-heading">{{ .name }}</a></h4>
+        <h5><a href="{{ .link }}" class="uk-link-heading">{{ .group }}</a></h5>
+        <div class="coe-member-pis">
+          {{ range .pi }}
+            <div class="coe-member-pi">
+              {{ with (partial "get-person.html" (dict "Site" $currentPage.Site "key" .)) }}
+                <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
+                <a href="{{ .link }}" class="coe-member-pi-name uk-link-heading">
+                  {{ .firstName | safeHTML }} <br />
+                  {{ .lastName | safeHTML }}</a
+                >
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  {{ end }}
+</div>

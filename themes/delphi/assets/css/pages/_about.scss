@@ -11,10 +11,30 @@
   flex: 1 1 0;
 }
 
+.mission-subheader {
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
 .mission-text {
   font-weight: 600;
   font-size: 24px;
   line-height: 36px;
+}
+
+.about-description {
+  padding: 2em;
+
+  p {
+    text-align: justify;
+  }
+
+  h3 {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
 }
 
 @media screen and (max-width: $breakpoint-medium) {
@@ -38,18 +58,29 @@
   }
 }
 
-.about-description {
-  padding: 2em;
-  margin-bottom: 3rem;
-
-  h3 {
-    letter-spacing: 3px;
-    text-transform: uppercase;
-  }
-}
-
 .about-collaborators {
   background: #fafafc;
   padding: 0;
   padding: 2em 0;
+}
+
+.about-collaborators-v2 {
+  ul > li {
+    display: block;
+    list-style: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 6px 0;
+  }
+}
+
+.about-collaborator-special {
+  margin-top: 3rem;
+
+  ul > li {
+    font-size: 1.25rem;
+  }
 }

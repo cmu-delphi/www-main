@@ -27,6 +27,11 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "about"
+    name = "Center of Excellence"
+    url = "/about/center-of-excellence"
+    weight = 3
+[[menu.main]]
+    parent = "about"
     name = "Publications"
     url = "/about/publications"
     weight = 4
