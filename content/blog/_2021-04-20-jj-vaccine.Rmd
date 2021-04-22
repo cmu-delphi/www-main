@@ -367,7 +367,7 @@ d %>%
   as.covidcast_signal(signal = "side-effects", geo_type = "state") %>%
   plot(plot_type = "choro", range = c(10, 45)) +
   labs(title = "Hesitancy related to concerns about side effects",
-       subtitle = "Among unvaccinated respondents, April 14–20",
+       subtitle = "Among unvaccinated respondents, April 14-20",
        caption = "Data from Delphi COVIDcast, delphi.cmu.edu")
 ```
 
