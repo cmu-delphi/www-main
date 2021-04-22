@@ -337,15 +337,18 @@ pre_post_table(d, "Frequency of hesitancy reasons among unvaccinated respondents
 
 As you can see, each reason has been increasing over time. (Respondents can
 select multiple reasons from a list of about 15, so the numbers do not add to
-100%.) But that is **exactly what we would expect to happen** in normal
-circumstances: As more people get vaccinated, the people who remain unvaccinated
-are those who either don't want to be vaccinated or haven't yet been able to.
+100%.) But that is **what we would expect to happen** in normal circumstances:
+As more people get vaccinated, the people who remain unvaccinated are those who
+either don't want to be vaccinated or haven't yet been able to.
 
 Given the other reasons commonly selected -- a lack of trust in the vaccines and
 the government, a preference to wait and see if the vaccines are safe -- the
 concerns about side effects are likely part of the common concern that the COVID
 vaccines are unsafe because they were developed very quickly. Those concerns
-predate the Johnson & Johnson vaccine announcement.
+predate the Johnson & Johnson vaccine announcement. The largest increases are
+among choices about side effects and trust in the vaccines, suggesting the
+announcement may have exacerbated existing concerns among people skeptical of
+the vaccines.
 
 Hesitancy and concerns about side effects are also not distributed evenly across
 the United States, instead being concentrated in southern and southwestern
@@ -502,12 +505,13 @@ samples](https://www.kff.org/coronavirus-covid-19/poll-finding/kff-covid-19-vacc
 Based on survey responses from hundreds of thousands of Facebook users, we do
 not see evidence that the Johnson & Johnson vaccine pause has caused major
 changes in public willingness to get vaccinated. While there have been some
-shifts, they're relatively small and are consistent with long-term trends. To
-expand acceptance of COVID vaccines, public health officials will need a
-combination of approaches and a good understanding of the reasons people are
-hesitant. Surveys like ours can help target this work and track progress, but it
-will take much more than just surveys to reach out to all Americans and ensure
-they both have access to vaccines and the willingness to receive them.
+shifts, they're relatively small and connect to existing skepticism about the
+safety of the COVID vaccines. To expand acceptance of COVID vaccines, public
+health officials will need a combination of approaches and a good understanding
+of the reasons people are hesitant. Surveys like ours can help target this work
+and track progress, but it will take much more than just surveys to reach out to
+all Americans and ensure they both have access to vaccines and the willingness
+to receive them.
 
 Nonetheless, this demonstrates the value of Delphi's [COVID Symptom
 Surveys](https://delphi.cmu.edu/covidcast/surveys/) for studying public
