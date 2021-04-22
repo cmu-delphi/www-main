@@ -1,0 +1,526 @@
+---
+title: "Vaccine Hesitancy and the J&J Vaccine Suspension"
+author: Alex Reinhart
+date: 2021-04-22
+tags:
+  - COVIDcast
+  - symptom surveys
+  - vaccine
+authors:
+  - alex
+heroImage: /blog/images/blog-lg-vaccine-survey.jpg
+heroImageThumb: /blog/images/blog-thumb-vaccine-survey.jpg
+related: 2021-01-28-survey-vaccines
+summary: |
+  Did the suspension of the Johnson & Johnson COVID vaccine increase vaccine
+  hesitancy in the United States?
+acknowledgements: |
+  Esther Kim, Curtiss Cobb, Sarah LaRocca, and Katherine Morris at Facebook
+  contributed ideas for the analysis in this post. At Delphi, Wichada La
+  Motte-Kerr implemented many of the survey questions used in this analysis,
+  while Nat DeFries maintained the data processing systems needed to make the
+  data available.
+output:
+  html_document:
+    code_folding: hide
+  blogdown::html_page:
+    toc: true
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+## This post's filename starts with _ so it is not run by blogdown during the
+## post build process, since it depends on private microdata. Instead, we commit
+## the HTML.
+
+library(data.table)
+library(dplyr)
+library(purrr)
+library(covidcast)
+library(ggplot2)
+library(scales)
+library(gt)
+
+knitr::opts_chunk$set(echo = FALSE)
+
+dfs <- lapply(list.files("jj-data/", "*.csv.gz$", include.dirs = TRUE),
+              function(f) { fread(paste0("jj-data/", f)) })
+d <- rbindlist(dfs)
+
+# some cleaning
+d <- d %>%
+  filter(!is.na(fips)) %>%
+  mutate(fips = sprintf("%05d", fips),
+         state = fips_to_abbr(fips),
+         vaccinated = case_when(
+           V1 == 1 ~ 1,
+           V1 == 2 ~ 0,
+           V1 == 3 ~ 0,
+           TRUE ~ NA_real_
+         ),
+         accepting = V3 == 1 | V3 == 2,
+         vaccinated_or_accept = case_when(
+           V1 == 1 ~ 1,
+           V3 == 1 ~ 1,
+           V3 == 2 ~ 1,
+           V3 == 3 ~ 0,
+           V3 == 4 ~ 0,
+           TRUE ~ NA_real_
+         ),
+         hesitancy_level = case_when(
+           V1 == 1 ~ "Vaccinated",
+           V3 == 1 ~ "Definitely would",
+           V3 == 2 ~ "Probably would",
+           V3 == 3 ~ "Probably not",
+           V3 == 4 ~ "Definitely not",
+           TRUE ~ NA_character_
+         ),
+         gender = case_when(
+           D1 == 1 ~ "Male",
+           D1 == 2 ~ "Female",
+           D1 == 3 ~ "Non-binary",
+           D1 == 4 ~ "Self-describe",
+           TRUE ~ NA_character_
+         ),
+         date = as.Date(StartDatetime)
+         )
+
+# Set interpretable ordering
+d$hesitancy_level <- factor(d$hesitancy_level,
+                            levels = rev(c("Vaccinated", "Definitely would",
+                                           "Probably would", "Probably not",
+                                           "Definitely not")))
+# Now let's code hesitancy reasons
+split_options <- function(column) {
+  return(strsplit(column, ",", fixed = TRUE))
+}
+
+d$hesitancy_reasons_logic <- ifelse(
+  !is.na(d$V5b),
+  split_options(d$V5b),
+  split_options(d$V5c))
+
+is_selected <- function(vec, selection) {
+  selections <- unlist(lapply(
+    vec,
+    function(resp) {
+      if (length(resp) == 0 || all(is.na(resp))) {
+        # Qualtrics files code no selection as "" (empty string), which is
+        # parsed by `read_csv` as `NA` (missing) by default. Since all our
+        # selection items include "None of the above" or similar, treat both no
+        # selection ("") or missing (NA) as missing, for generality.
+        NA
+      } else {
+        selection %in% resp
+      }
+    }))
+
+  return(selections)
+}
+```
+
+```{r}
+## Time series plot tools
+ga_date <- as.Date("2021-04-09")
+national_date <- as.Date("2021-04-13")
+
+axes_me_up <- function(g, date_breaks = "4 days", accuracy = 1.0) {
+  g +
+    geom_line() +
+    scale_x_date(date_breaks = date_breaks,
+                 date_minor_breaks = "1 day",
+                 date_labels = "%b %d") +
+    scale_y_continuous(labels = label_percent(accuracy = accuracy)) +
+    geom_vline(xintercept = national_date, color = "red", linetype = "dashed") +
+    geom_vline(xintercept = ga_date, color = "red", linetype = "dashed") +
+    labs(x = "", caption = "Data from Delphi COVIDcast, delphi.cmu.edu") +
+    theme_bw()
+}
+
+## Tools for pre/post tables of common hesitancy reasons
+raisins <- c("Concerned about side effects",
+             "Concerned about allergic reaction",
+             "Don't know if vaccine works",
+             "Don't need a COVID vaccine",
+             "Don't like vaccines",
+             "Not recommended by doctor",
+             "Plan to wait and see if it's safe",
+             "Other people need it more",
+             "Concerned about cost",
+             "Don't trust COVID-19 vaccines",
+             "Don't trust the government",
+             "Concerned about safety for health condition",
+             "Other",
+             "Concerned about safety during pregnancy/breastfeeding",
+             "Against religious beliefs")
+
+reason_frequency <- function(data) {
+  map_dfr(seq_along(raisins),
+          function(r) {
+            data.frame(reason = raisins[r],
+                       frequency = weighted.mean(
+                         is_selected(data$hesitancy_reasons_logic, as.character(r)),
+                         data$weight, na.rm = TRUE),
+                       n = sum(!is.na(data$V5b)) + sum(!is.na(data$V5c)))
+          })
+}
+
+# logic:
+# if they're vaccinated, V3 and is_selected are both NA, so they get NA
+# if they're unvaccinated and accepted, the reason is not present, so 0
+# otherwise, count the reason occurrence
+reason_frequency_unvaccinated <- function(data) {
+  map_dfr(seq_along(raisins),
+          function(r) {
+            data.frame(
+              reason = raisins[r],
+              frequency = weighted.mean(
+                  ifelse(data$V3 == 1 | data$V3 == 2, 0,
+                         is_selected(data$hesitancy_reasons_logic, as.character(r))),
+                  data$weight, na.rm = TRUE),
+              n = sum(!is.na(data$V3)))
+          })
+}
+
+# Given a data set (national or subset as desired), make a pre/post comparison
+# table.
+pre_post_table <- function(data, title, subtitle, n = 6, include_unvaccinated = FALSE) {
+  reason_fn <- if (include_unvaccinated) {
+    reason_frequency_unvaccinated
+  }  else {
+    reason_frequency
+  }
+
+  pre_announcement <- data %>%
+    filter(date >= "2021-04-02", date <= "2021-04-08") %>%
+    reason_fn()
+  post_announcement <- data %>%
+    filter(date >=  "2021-04-13") %>%
+    reason_fn()
+
+  n_pre <- pre_announcement$n[1]
+  n_post <- post_announcement$n[1]
+
+  # margins of error
+  p_pre <- max(pre_announcement$frequency)
+  p_post <- max(post_announcement$frequency)
+  moe_pre <- prettyNum(sqrt(p_pre * (1 - p_pre) / n_pre) * 200,
+                       digits = 1)
+  moe_post <- prettyNum(sqrt(p_post * (1 - p_post) / n_post) * 200,
+                        digits = 1)
+
+  pre_announcement %>%
+    inner_join(post_announcement, by = "reason", suffix = c(".pre", ".post")) %>%
+    select(reason, frequency.pre, frequency.post) %>%
+    arrange(desc(frequency.pre)) %>%
+    head(n = n) %>%
+    gt() %>%
+    tab_header(title, subtitle) %>%
+    tab_footnote(paste0("April 2 – April 8, n = ", prettyNum(n_pre, big.mark = ","),
+                        ", margin ±", moe_pre, " points"),
+                 cells_column_labels("frequency.pre")) %>%
+    tab_footnote(paste0("April 13 – April 20, n = ", prettyNum(n_post, big.mark = ","),
+                        ", margin ±", moe_post, " points"),
+                 cells_column_labels("frequency.post")) %>%
+    cols_label(reason = "Reason",
+               frequency.pre = "Before",
+               frequency.post = "After") %>%
+    fmt_percent(columns = c("frequency.pre", "frequency.post"),
+                decimals = 0)
+}
+```
+
+As the United States races to vaccinate its residents, allowing COVID
+restrictions to loosen and much of normal life to resume, it's crucial that
+everyone is confident in the COVID vaccines and willing to receive them. That's
+why it was concerning when, on April 13th, the Centers for Disease Control and
+Prevention (CDC) and the Food and Drug Administration
+[announced](https://www.fda.gov/news-events/press-announcements/joint-cdc-and-fda-statement-johnson-johnson-covid-19-vaccine)
+their recommendation to pause use of the Johnson & Johnson vaccine until they
+can investigate severe blood clots developed by several women after they
+received the vaccine. This followed news reports of adverse effects reported
+several days earlier. Though all signs suggest the Pfizer and Moderna vaccines
+-- which make up the bulk of the US's doses -- are safe, and the blood clots are
+being carefully investigated, it would be unfortunate if this incident lowers
+public confidence in vaccine.
+
+Some polls already suggest [the public is now less confident in the Johnson &
+Johnson
+vaccine](https://today.yougov.com/topics/politics/articles-reports/2021/04/15/johnson-johnson-vaccine-confidence),
+but it's difficult to track changes over time with most polls, and to put the
+changes into context. That's why the Delphi Group has been tracking COVID
+vaccination using its [COVID Symptom
+Survey](https://delphi.cmu.edu/covidcast/surveys/), a massive survey distributed
+daily across the United States through our partnership with Facebook. We've
+successfully used this survey to track
+`r blogdown::shortcode_html("reflink", "2021-01-22-holiday-surveys", "social distancing")` and
+`r blogdown::shortcode_html("reflink", "2020-12-10-masks-public", "mask use")`, and
+it's part of Delphi's COVID forecasting system.
+
+Since the beginning of January 2021, we have asked all respondents about whether
+they have been vaccinated, whether they'd be willing to be vaccinated, and any
+reasons they may choose not to be vaccinated -- and because the survey is taken
+by nearly 40,000 respondents per day, we can detect sudden changes and make
+geographic comparisons across the United States.
+
+The good news is that, while there may be a temporary setback, we don't see
+major changes in vaccine hesitancy yet. But our data also suggests this is the
+time for action -- that public health officials must work to earn public trust
+and boost confidence in COVID vaccines, and must do so quickly.
+
+## National changes in vaccine acceptance
+
+Let's start with vaccine acceptance. We ask respondents whether they are already
+vaccinated; if not, we ask whether they would accept a vaccine if one was
+offered to them today. If we count everyone who either is already vaccinated or
+is willing to be, then among `r prettyNum(sum(!is.na(d$vaccinated_or_accept)),
+big.mark=",")` survey responses, we see a consistent increasing trend that stops
+as the news broke, followed by a delay of a few days and a recovery:
+
+```{r uptake-acceptance, fig.height=4}
+d %>%
+  group_by(date) %>%
+  summarize(vaccinated_or_accept = weighted.mean(vaccinated_or_accept, weight,
+                                                 na.rm = TRUE)) %>%
+  ggplot(aes(x = date, y = vaccinated_or_accept)) %>%
+  axes_me_up() +
+  labs(y = "Vaccinated or accepting",
+       title = "Vaccine uptake and acceptance in the US")
+```
+
+The red lines mark April 9th, when some of the first reports of adverse effects
+made it onto the news, and April 13th, when the CDC and FDA issued their
+recommendation to suspend the vaccine. The resulting dip in acceptance lasted a
+few days before rates returned to their previous levels. But note the *Y* axis
+scale: we're looking at a change of **less than 1 percentage point**, which is
+only noticeable because of the size of our survey.
+
+It's more useful to look at the reasons. When respondents say they probably or
+definitely would not choose to get vaccinated, we also ask them to select from a
+list of possible reasons. We might expect an increase in the number of
+respondents indicating concern about side effects as a reason, and we might also
+expect a larger increase among women -- since the early blood clots all affected
+women. But among all respondents (counting those already vaccinated as not
+having side effect-related hesitancy), the percentage who are unwilling to get
+vaccinated and indicate side effects as a cause shows only a small bump:
+
+```{r side-effect-hesitancy, fig.height=4, message=FALSE}
+d %>%
+  filter(gender == "Female" | gender == "Male") %>%
+  group_by(date, gender) %>%
+  summarize(
+    side_effects = weighted.mean(
+      ifelse(V1 == 1 | V3 == 1 | V3 == 2, 0,
+             is_selected(hesitancy_reasons_logic, "1")),
+      weight, na.rm = TRUE)) %>%
+  ggplot(aes(x = date, y = side_effects, color = gender)) %>%
+  axes_me_up(accuracy = 0.1) +
+  labs(y = "Hesitant and concerned about side effects",
+       title = "Hesitancy related to concern about vaccine side effects",
+       subtitle = "Among all respondents, nationally",
+       color = "Gender")
+```
+
+The bump is larger among men than women, although the difference is quite small
+(around half a percentage point) and could easily reflect measurement error
+rather than a true difference.
+
+Now let's look just at unvaccinated respondents. Concerns about side effects
+have consistently been one of the most common reasons unvaccinated respondents
+give for hesitancy, even before the announcement:
+
+```{r}
+pre_post_table(d, "Frequency of hesitancy reasons among unvaccinated respondents",
+               "Before and after J&J vaccine pause, nationally",
+               include_unvaccinated = TRUE)
+```
+
+As you can see, each reason has been increasing over time. (Respondents can
+select multiple reasons from a list of about 15, so the numbers do not add to
+100%.) But that is **exactly what we would expect to happen** in normal
+circumstances: As more people get vaccinated, the people who remain unvaccinated
+are those who either don't want to be vaccinated or haven't yet been able to.
+
+Given the other reasons commonly selected -- a lack of trust in the vaccines and
+the government, a preference to wait and see if the vaccines are safe -- the
+concerns about side effects are likely part of the common concern that the COVID
+vaccines are unsafe because they were developed very quickly. Those concerns
+predate the Johnson & Johnson vaccine announcement.
+
+Hesitancy and concerns about side effects are also not distributed evenly across
+the United States, instead being concentrated in southern and southwestern
+states like Louisiana, South Carolina, and New Mexico, as well as north-central
+states like Wyoming, North Dakota, and Montana:
+
+```{r side-effect-hesitancy-map}
+d %>%
+  filter(date >= "2021-04-14") %>%
+  group_by(state) %>%
+  summarize(
+    side_effects = 100 * weighted.mean(
+      ifelse(V3 == 1 | V3 == 2, 0,
+             is_selected(hesitancy_reasons_logic, "1")),
+      weight, na.rm = TRUE)) %>%
+  mutate(state = tolower(state),
+         time_value = "2021-04-13") %>%
+  rename(geo_value = state, value = side_effects) %>%
+  as.covidcast_signal(signal = "side-effects", geo_type = "state") %>%
+  plot(plot_type = "choro", range = c(10, 45)) +
+  labs(title = "Hesitancy related to concerns about side effects",
+       subtitle = "Among unvaccinated respondents, April 14–20",
+       caption = "Data from Delphi COVIDcast, delphi.cmu.edu")
+```
+
+This disparity across the country suggests that concerns about side effects are
+not just driven by the news. They're partly driven by longstanding demographic
+and historical differences, and as [other researchers have
+noted](https://www.kff.org/coronavirus-covid-19/poll-finding/kff-covid-19-vaccine-monitor-what-weve-learned-april-2021/),
+"no group is monolithic in their vaccine attitudes, and in every demographic
+segment there are large shares of people who are ready to get the vaccine,
+others who are in “wait and see” mode, and some who are more resistant." There
+is hence no magic solution, only thoughtful and considerate approaches that work
+to earn the trust of each potential vaccine recipient.
+
+## Who would respondents trust?
+
+This, of course, raises a question: What would convince hesitant people to get
+vaccinated? What messages work best, delivered by whom? But while our survey
+helps us understand their reasoning, it doesn't say how best to convince them --
+after all, it's hard to ask a survey respondent "Tell us the best way to change
+your mind." There are some steps that are clearly necessary, such as a thorough
+and public investigation of any adverse effects so they can be understood and
+prevented. But our survey doesn't directly say what information should be
+provided to the public.
+
+Other researchers have been studying the reasons people are hesitant in more
+depth, to better understand the messaging that would convince them. For example,
+Surgo Ventures has developed [a grouping of hesitancy
+reasons](https://surgoventures.org/newsroom-all/analysis-surgo-projects-us-covid-19-vaccination-rates-will-plateau-in-late-april),
+so messaging can be targeted separately to "the watchful" -- those who want to
+wait and see if the vaccines are safe -- and to other groups like those anxious
+about medical costs or those who distrust the system. We're currently working to
+expand our survey to facilitate this analysis at a national scale.
+
+We also ask *who* respondents would trust to recommend COVID vaccines to them.
+We ask all unvaccinated respondents "Would you be more or less likely to get a
+COVID-19 vaccination if it were recommended to you by each of the following?"
+Looking just at respondents who are concerned about side effects, here's what we
+see:
+
+```{r}
+sef <- d %>%
+  filter(is_selected(hesitancy_reasons_logic, "1"))
+
+count_responses <- function(data, var) {
+  var <- enquo(var)
+
+  data %>%
+    filter(!is.na(!!var)) %>%
+    group_by(!!var) %>%
+    summarize(sum_weights = sum(weight)) %>%
+    mutate(sum_weights = sum_weights / sum(sum_weights)) %>%
+    arrange(!!var) %>%
+    pull(sum_weights)
+}
+
+responses <- as.data.frame(rbind(
+  count_responses(sef, V4_1),
+  count_responses(sef, V4_2),
+  count_responses(sef, V4_3),
+  count_responses(sef, V4_4),
+  count_responses(sef, V4_5)
+))
+
+names(responses) <- c("more", "same", "less")
+
+responses$group <- c("Friends and family",
+                     "Doctors and other health professionals you go to for medical care",
+                     "World Health Organization",
+                     "Government health officials",
+                     "Politicians")
+
+responses %>%
+  arrange(desc(more)) %>%
+  gt() %>%
+  tab_header("How recommedations by different sources would change vaccine intent",
+             "Among respondents hesitant because of concerns about side effects") %>%
+  cols_move_to_start("group") %>%
+  cols_label(group = "Source",
+             more = "More likely",
+             same = "About the same",
+             less = "Less likely") %>%
+  fmt_percent(columns = c("more", "same", "less"),
+              decimals = 0)
+```
+
+It seems most respondents don't anticipate anyone changing their minds -- but
+if anyone did, it would be the healthcare providers they already trust, or their
+own friends and family members. This suggests strategies that involve enlisting
+the support of primary care doctors, nurses, and other healthcare providers
+across the country who see patients regularly, know their histories, and
+understand their concerns about vaccines. And these results certainly suggest
+that announcements by politicians would achieve little among people already
+skeptical of vaccines and the government.
+
+## Limitations
+
+As with any scientific study, there are limitations to the results seen above.
+Here are a few important things to keep in mind:
+
+* **We're surveying Facebook users.** While we [weight survey
+  responses](https://arxiv.org/abs/2009.14675) to ensure their age and gender
+  distribution matches the United States population, our respondents do tend to
+  be more educated than the national average, and the weights cannot correct for
+  everything.
+* **The survey is voluntary.** Facebook draws a random sample of active users
+  every day and invites them to take the survey via a blurb in their News Feed.
+  But many people don't respond to the invitation, and so our respondents won't
+  be representative of the Facebook user base. Our survey weights also attempt
+  to account for this using Facebook's models for predicting the probability
+  each user will respond -- but it's hard to account for every possible
+  difference between responding and non-responding users, so there may be biases
+  remaining.
+* **Survey responses are simplifications.** Our respondents can select reasons
+  for hesitancy from a list, but ticking boxes can't fully represent the
+  complexity of their beliefs and the reasons for their lack of trust in COVID
+  vaccines. Also, their responses may not always match their behavior: a
+  respondent who says they "probably wouldn't" get vaccinated may decide to get
+  vaccinated when a dose is offered to them, and a respondent who "definitely
+  would" get vaccinated might change their mind.
+
+One result of these biases is that our estimate of the percent of Americans who
+have already received a COVID vaccine is too high when compared against official
+CDC data. So while our survey can detect changes over time, it's possible
+there's a consistent upwards bias to some of our vaccine uptake and acceptance
+estimates. Fortunately our results, and particularly the prominent role of
+concerns about side effects from vaccines, match well with [results from other
+surveys conducted with nationally representative
+samples](https://www.kff.org/coronavirus-covid-19/poll-finding/kff-covid-19-vaccine-monitor-rural-america/).
+
+## Conclusions
+
+Based on survey responses from hundreds of thousands of Facebook users, we do
+not see evidence that the Johnson & Johnson vaccine pause has caused major
+changes in public willingness to get vaccinated. While there have been some
+shifts, they're relatively small and are consistent with long-term trends. To
+expand acceptance of COVID vaccines, public health officials will need a
+combination of approaches and a good understanding of the reasons people are
+hesitant. Surveys like ours can help target this work and track progress, but it
+will take much more than just surveys to reach out to all Americans and ensure
+they both have access to vaccines and the willingness to receive them.
+
+Nonetheless, this demonstrates the value of Delphi's [COVID Symptom
+Surveys](https://delphi.cmu.edu/covidcast/surveys/) for studying public
+attitudes and behavior during the pandemic. In partnership with Facebook, who
+help us distribute the surveys, and the University of Maryland, who run [an
+international version](https://covidmap.umd.edu/) in 56 languages worldwide, we
+have been able to track the pandemic and its effects on society for over a year
+now. And much of our data is easily accessible to researchers, through
+aggregates in the [Delphi COVIDcast Epidata
+API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/fb-survey.html)
+and [tables available for
+download](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/contingency-tables.html),
+and as de-identified individual responses for [researchers who sign Data Use
+Agreements](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/data-access.html).
+With so many responses daily, we can react quickly and spot local changes. If
+you're conducting COVID-related research, we encourage you to explore the data
+and see how it can help you.
