@@ -1,7 +1,7 @@
 ---
 title: "Vaccine Hesitancy and the J&J Vaccine Suspension"
 author: Alex Reinhart
-date: 2021-04-22
+date: 2021-04-23
 tags:
   - COVIDcast
   - symptom surveys
@@ -219,7 +219,7 @@ pre_post_table <- function(data, title, subtitle, n = 6, include_unvaccinated = 
     tab_footnote(paste0("April 2 – April 8, n = ", prettyNum(n_pre, big.mark = ","),
                         ", margin ±", moe_pre, " points"),
                  cells_column_labels("frequency.pre")) %>%
-    tab_footnote(paste0("April 13 – April 20, n = ", prettyNum(n_post, big.mark = ","),
+    tab_footnote(paste0("April 13 – April 21, n = ", prettyNum(n_post, big.mark = ","),
                         ", margin ±", moe_post, " points"),
                  cells_column_labels("frequency.post")) %>%
     cols_label(reason = "Reason",
@@ -292,17 +292,20 @@ The red lines mark April 9th, when some of the first reports of adverse effects
 made it onto the news, and April 13th, when the CDC and FDA issued their
 recommendation to suspend the vaccine. The resulting dip in acceptance lasted a
 few days before rates returned to their previous levels. But note the *Y* axis
-scale: we're looking at a change of **less than 1 percentage point**, which is
-only noticeable because of the size of our survey.
+scale: we're looking at a change of **around 1 percentage point**, which is only
+noticeable because of the size of our survey. While it is not yet clear if
+acceptance will resume its upward trend or if we've reached a ceiling, it is
+reassuring that it has not dramatically fallen.
 
-It's more useful to look at the reasons. When respondents say they probably or
-definitely would not choose to get vaccinated, we also ask them to select from a
-list of possible reasons. We might expect an increase in the number of
-respondents indicating concern about side effects as a reason, and we might also
-expect a larger increase among women -- since the early blood clots all affected
-women. But among all respondents (counting those already vaccinated as not
-having side effect-related hesitancy), the percentage who are unwilling to get
-vaccinated and indicate side effects as a cause shows only a small bump:
+But these numbers don't tell the whole story. It's more useful to look at the
+reasons for hesitancy. When respondents say they probably or definitely would
+not choose to get vaccinated, we also ask them to select from a list of possible
+reasons. We might expect an increase in the number of respondents indicating
+concern about side effects as a reason, and we might also expect a larger
+increase among women -- since the early blood clots all affected women. But
+among all respondents (counting those already vaccinated as not having side
+effect-related hesitancy), the percentage who are unwilling to get vaccinated
+and indicate side effects as a cause shows only a small bump:
 
 ```{r side-effect-hesitancy, fig.height=4, message=FALSE}
 d %>%
@@ -370,7 +373,7 @@ d %>%
   as.covidcast_signal(signal = "side-effects", geo_type = "state") %>%
   plot(plot_type = "choro", range = c(10, 45)) +
   labs(title = "Hesitancy related to concerns about side effects",
-       subtitle = "Among unvaccinated respondents, April 14-20",
+       subtitle = "Among unvaccinated respondents, April 14-21",
        caption = "Data from Delphi COVIDcast, delphi.cmu.edu")
 ```
 
@@ -473,16 +476,14 @@ Here are a few important things to keep in mind:
 * **We're surveying Facebook users.** While we [weight survey
   responses](https://arxiv.org/abs/2009.14675) to ensure their age and gender
   distribution matches the United States population, our respondents do tend to
-  be more educated than the national average, and the weights cannot correct for
-  everything.
+  be more educated than the national average, which the weights do not correct
+  for.
 * **The survey is voluntary.** Facebook draws a random sample of active users
-  every day and invites them to take the survey via a blurb in their News Feed.
-  But many people don't respond to the invitation, and so our respondents won't
-  be representative of the Facebook user base. Our survey weights also attempt
-  to account for this using Facebook's models for predicting the probability
-  each user will respond -- but it's hard to account for every possible
-  difference between responding and non-responding users, so there may be biases
-  remaining.
+  every day and invites them to take the survey via a promotion in their News
+  Feed. Many people don't respond to the invitation, and while the
+  Facebook-provided survey weights attempt to account for this by using models
+  to predict the probability each user will respond, there may still be
+  unobserved biases remaining.
 * **Survey responses are simplifications.** Our respondents can select reasons
   for hesitancy from a list, but ticking boxes can't fully represent the
   complexity of their beliefs and the reasons for their lack of trust in COVID
