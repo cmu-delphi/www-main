@@ -641,7 +641,7 @@ people:
   team:
     - blog
 - firstName: Michael
-  lastName: Fink
+  lastName: Finke
   image: michael-fink.jpg
   affiliation: "M*Modal"
   team:
