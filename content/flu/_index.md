@@ -9,7 +9,7 @@ layout: single
 
 ## Activities
 
-We have participated, and [have done very well](http://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf), in all epidemiological forecasting challenges organized by the US government to date:
+We have participated, and [have done very well](https://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf), in all epidemiological forecasting challenges organized by the US government to date:
 
 <!--            : 2013--2014, 2014--2015 (winner),
     <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/spotlights/flu-activity-forecasts-2016-2017.htm">2015--2016 (winner)</a>
@@ -27,7 +27,7 @@ by the [White House](https://www.whitehouse.gov/) [OSTP](https://www.whitehouse.
 
 ### [Forecasting the Chikungunya invasion of the Americas](https://www.innocentive.com/ar/challenge/9933617")
 
-by [DARPA](http://www.darpa.mil/)
+by [DARPA](https://www.darpa.mil/)
 
 ## Publicly Available Tools
 

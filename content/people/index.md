@@ -198,7 +198,7 @@ people:
   lastName: Ventura
   image: valerie-ventura-500x500-min.jpg
   affiliation: CMU/Stat
-  link: http://www.stat.cmu.edu/~vventura/
+  link: https://www.stat.cmu.edu/~vventura/
   description: is a Professor in the Department of Statistics & Data Science at CMU and a member of Delphi.
   team:
   - core
@@ -208,7 +208,7 @@ people:
   lastName: Wasserman
   image: larry-wasserman-500x500-min.jpg
   affiliation: CMU/Stat
-  link: http://www.stat.cmu.edu/~larry/
+  link: https://www.stat.cmu.edu/~larry/
   description: is a Professor in the Department of Statistics & Data Science at CMU as well as in the Machine Learning Department and is a member of Delphi.
   team:
   - core
