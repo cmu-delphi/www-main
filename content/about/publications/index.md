@@ -46,7 +46,7 @@ papers:
   - title: "Predicting the predictable"
     image: predicting.jpg
     authors: Rosenfeld
-    link: https://delphi.cmu.edu/files/PredictingThePredictable_13-04-03.pdf
+    link: https://www.cmu.edu/delphi-web/publications/PredictingThePredictable_13-04-03.pdf
     journal: presentation
     year: 2013
   - title: "A proposal for standardized evaluation of epidemiological models"
