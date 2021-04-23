@@ -28,6 +28,7 @@
 *.Rmd
 *.md
 *.jpeg
+*.csv
 *.ico
 *.bib
 *.xcf

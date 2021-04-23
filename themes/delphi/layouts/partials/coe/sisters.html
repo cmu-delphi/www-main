@@ -1,0 +1,24 @@
+{{ $currentPage := . }}
+<div
+  uk-grid
+  class="coe-members uk-grid-match uk-grid-small uk-child-width-1-2@m uk-grid-column-medium uk-grid-row-medium"
+>
+  {{ range .Page.Params.sisters }}
+    <div>
+      <div class="coe-member">
+        <h4><a href="{{ .link }}" class="uk-link-heading">{{ .name }}</a></h4>
+        <p>
+          {{ .description | markdownify }}
+        </p>
+        <div class="coe-member-logo">
+          <img
+            src="{{ (($currentPage.Resources.GetMatch .img).Resize "250x250 jpg").RelPermalink }}"
+            alt="{{ .name }}"
+            width="250"
+            height="250"
+          />
+        </div>
+      </div>
+    </div>
+  {{ end }}
+</div>
