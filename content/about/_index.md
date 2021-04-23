@@ -32,7 +32,7 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 
 ### Delphi's milestones
 
-- Since 2013, we've supported U.S. CDC's Influenza Division in advancing and growing a [scientific community around flu forecasting](https://www.cdc.gov/flu/weekly/flusight/index.html). We've been perennial leaders in forecasting accuracy.
+- Since 2013, we've supported U.S. CDC's Influenza Division in advancing and growing a [scientific community around flu forecasting](https://www.cdc.gov/flu/weekly/flusight/index.html). We've been [perennial leaders in forecasting accuracy](https://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf).
 
 - Since 2016, we've developed the [Delphi Epidata API]({{< apiref "/" >}}), which provides real-time access to epidemiological surveillance data.
 
