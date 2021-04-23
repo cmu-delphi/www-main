@@ -11,10 +11,6 @@ layout: team
 
 {{<team team="core" >}}
 
-## Contractors
-
-{{<team team="contractors" >}}
-
 ## Advisors
 
 {{<team team="advisors" >}}
