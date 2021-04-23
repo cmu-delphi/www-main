@@ -44,6 +44,12 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+- firstName: Christy
+  lastName: Melucci
+  image: christy-melucci.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Jodi
   lastName: Forlizzi
   image: jodi-forlizzi-500x500-min.jpg
@@ -192,7 +198,8 @@ people:
   image: ana-karina-van-nortwick.jpeg
   affiliation: Tech Writer
   team:
-  - core
+  - past
+  note: October 2020-January 2021
 - key: vventura
   firstName: Valérie
   lastName: Ventura
@@ -235,7 +242,7 @@ people:
   affiliation: Data visualization consultant
   link: https://www.sgratzl.com
   team:
-  - contractors
+  - core
 - firstName: Dawn
   lastName: Rucker
   image: dawn-rucker-500x500-min.jpg
@@ -254,7 +261,7 @@ people:
   affiliation: University of Richmond
   team:
   - contributors
-  note: Core member, May–June 2020
+  note: Core member, May-June 2020
 - firstName: Eu Jing
   lastName: Chua
   image: eu-jing-chua-500x500-min.jpg
@@ -266,7 +273,7 @@ people:
   lastName: Green
   image: alden-green-500x500-min.jpg
   affiliation: CMU/Stat
-  note: Core member, May–July 2020
+  note: Core member, May-July 2020
   team:
   - contributors
 - firstName: Sangwon (Justin)
@@ -275,20 +282,21 @@ people:
   affiliation: USC
   team:
   - contributors
-  note: Core member, March–May 2020
+  note: Core member, March-May 2020
 - firstName: Jimi
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
-  affiliation: CMU/LTI
-  note: Core member, March–April 2020
+  affiliation: University of Texas at Dallas
+  note: Core member, March-April 2020
   team:
   - contributors
 - firstName: Jenny
   lastName: Lee
   image: jenny-yeon-jin-lee-500x500-min.jpg
   affiliation: CMU/HCII
+  note: Intern, Summer 2020
   team:
-  - contributors
+  - past
   note: Intern, Summer 2020
 - firstName: Kenneth
   lastName: Lee
@@ -300,29 +308,33 @@ people:
   lastName: Lombardi de&nbsp;Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
   affiliation: CMU/Stat
+  note: Core member, March-May 2020
   team:
-  - contributors
-  note: Core member, March – May 2020
+  - past
+  note: Core member, March-May 2020
 - firstName: Adam
   lastName: Perer
   image: adam-perer-500x500-min.jpg
   affiliation: CMU/HCII
+  note: Core member, March-October 2020
   team:
-  - contributors
-  note: Core member, March - October 2020
+  - past
+  note: Core member, March-October 2020
 - firstName: Vishnu
   lastName: Shankar
   image: vishn-hankar-500x500-min.jpg
   affiliation: Stanford University
+  note: Intern, Summer 2020
   team:
-  - contributors
+  - past
   note: Intern, Summer 2020
 - firstName: Venkatesh
   lastName: Sivaraman
   image: profile-placeholder.png
-  affiliation:
+  affiliation: CMU/HCII
+  note: Summer 2020
   team:
-  - contributors
+  - past
 - key: hzhou
   firstName: Helen
   lastName: Zhou
@@ -346,21 +358,21 @@ people:
   affiliation: CMU/INI
   team:
   - past
-  note: Intern, 2020
+  note: Intern, Summer 2020
 - firstName: Angel (Alex)
   lastName: Cabrera
   image: angel-alex-cabrera-500x500-min.jpg
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March–April 2020
+  note: Core member, March-April 2020
 - firstName: David
   lastName: Farrow
   image: david-farrow_head-shot.jpg
   affiliation: Software Engineer
   team:
   - past
-  note: Founding member 2012–2016, Core member March–April 2020, Google Fellow October–December 2020
+  note: Founding member 2012-2016, Core member March-April 2020, Google Fellow October-December 2020
 - firstName: EJ
   lastName: Fox
   image: ej-fox-500x500-min.jpg
@@ -381,7 +393,7 @@ people:
   affiliation: CMU/HCII
   team:
   - past
-  notes: Intern, summer 2020
+  note: Intern, Summer 2020
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -394,7 +406,7 @@ people:
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March–April 2020
+  note: Core member, March-April 2020
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
@@ -402,35 +414,35 @@ people:
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March–April 2020; Contributor 2020
+  note: Core member, March-April 2020; Contributor Summer 2020
 - firstName: Lester
   lastName: Mackey
   image: lester-mackey-500x500-min.jpg
   affiliation: Microsoft Research/Stanford
   team:
   - past
-  note: Core member, March–May 2020
+  note: Core member, March-May 2020
 - firstName: Pratik
   lastName: Patil
   image: pratik-patil-500x500-min.jpg
   affiliation: CMU/Stat
   team:
   - past
-  note: Core member, March–May 2020
+  note: Core member, March-May 2020
 - firstName: Samyak
   lastName: Rajanala
   image: samyak-rajanala-500x500-min.jpg
   affiliation: Stanford University
   team:
   - past
-  note: Core member, May–July 2020
+  note: Core member, May-July 2020
 - firstName: Noah
   lastName: Simon
   image: noah-simon-500x500-min.jpg
   affiliation: University of Washington
   team:
   - past
-  note: Core member, May–June 2020
+  note: Core member, May-June 2020
 - firstName: Vishakha
   lastName: Srivastava
   image: vishakha-srivastava-500x500-min.jpg
@@ -444,7 +456,7 @@ people:
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March–April 2020; Contributor 2020
+  note: Core member, March-April 2020; Contributor Summer 2020
 - firstName: Mike
   lastName: O'Brien
   image: mike-o'brien_head-shot.jpg
@@ -455,7 +467,7 @@ people:
   lastName: Harwood
   image: kate-harwood_head-shot.jpg
   affiliation: Software Engineer
-  note: Google Fellow October 2020 – March 2021, Contributor since April 2021
+  note: Google Fellow October 2020-March 2021, Contributor since April 2021
   team:
   - contributors
 - firstName: Sumit
@@ -486,7 +498,7 @@ people:
   lastName: Hyde
   image: raphael-hyde_head-shot.jpg
   affiliation: UK Designer
-  note: Google Fellow October 2020 – March 2021, Contributor since April 2021
+  note: Google Fellow October 2020-March 2021, Contributor since April 2021
   team:
   - contributors
 - firstName: Phil
@@ -628,10 +640,15 @@ people:
   external: true
   team:
     - blog
-
+- firstName: Michael
+  lastName: Fink
+  image: michael-fink.jpg
+  affiliation: "M*Modal"
+  team:
+    - advisors
 
 others: |
- MLD administrators Christy Melucci and Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
+ MLD administrators Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
 
 abbreviations:
 - abbr: CompBio
