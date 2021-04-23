@@ -42,6 +42,7 @@ Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}})
 
 ### Blog posts and presentations
 
+- Alejandra Arrieta, Emmanuela Gakidou, Heidi Larson, Erin Mullany, and Christopher Troeger, April 1, 2021. [Through Understanding and Empathy, We Can Convince Women to Get the COVID-19 Vaccine](https://www.thinkglobalhealth.org/article/through-understanding-and-empathy-we-can-convince-women-get-covid-19-vaccine). Think Global Health.
 - Joseph Friedman, Silvia Montoya and Emmanuela Gakidou, March 8, 2021. [Gender Equality in the Global Return to School](https://www.thinkglobalhealth.org/article/gender-equality-global-return-school). Think Global Health.
 - Leanna Morinishi, Kris Barkume, Esther Kim, and Alex Reinhart, February 2, 2021. [Home for the Holidays? The Impact of US Holidays on Social Behaviors and Preventative Measures]({{< relref "2021-01-22-holiday-surveys" >}}). Delphi blog.
 - Alex Reinhart, Esther Kim, Andy Garcia, and Sarah LaRocca, January 28, 2021. [Using the COVID-19 Symptom Survey to Track Vaccination Uptake and Sentiment in the United States]({{< relref "2021-01-28-survey-vaccines" >}}). Delphi blog.

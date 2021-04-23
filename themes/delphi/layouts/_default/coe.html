@@ -1,0 +1,50 @@
+{{ define "main" }}
+  <div class="about-mission">
+    {{ partial "webp-image.html" (dict "src" "/images/red-bubble-map_mission-pg-short.jpg" "class" "about-mission-img" "width" 1920 "height" 250 "alt" "Banner") }}
+  </div>
+  <div class="uk-container content-grid">
+    <div class="grid-3-11 about-description">
+      <h2 class="mission-header">{{ .Title }}</h2>
+      <h3 class="mission-subheader">About the Center</h3>
+      {{ .Content }}
+    </div>
+  </div>
+  <div class="uk-container content-grid coe-section">
+    <div class="grid-2-12">
+      <h2>Member Organizations</h2>
+      {{ partial "coe/members.html" . }}
+    </div>
+  </div>
+  <div class="uk-container content-grid coe-section">
+    <div class="grid-2-12">
+      <h2>We work closely with</h2>
+      {{ partial "coe/sisters.html" . }}
+    </div>
+  </div>
+
+  {{ partial "coe/research-papers.html" . }}
+
+  <div class="about-collaborators coe-section about-collaborators-v2">
+    <div class="uk-container">
+      <h2>Supporters</h2>
+      <p class="uk-text-center">
+        We are grateful to the following organizations for their steadfast support of our center
+      </p>
+      <div class="uk-flex uk-flex-center">
+        <ul>
+          {{ range .Params.supporters }}
+            <li>
+              {{ . }}
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="about-collaborator-special">
+        <h3>Special thank to</h3>
+        <ul>
+          <li>U.S. Centers for Disease Control and Prevention (US CDC)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{{ end }}

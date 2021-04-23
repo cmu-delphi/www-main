@@ -19,6 +19,7 @@ categories:
     labels:
       - "chore"
       - "documentation"
+      - "dependencies"
 change-template: "- #$NUMBER $TITLE"
 change-title-escapes: '\<*_&`#@'
 template: |

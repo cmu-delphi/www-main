@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         with:
           node-version: "14"
-      - uses: actions/cache@v2
+      - uses: actions/cache@v2.1.5
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node3-${{ hashFiles('**/package-lock.json') }}
@@ -61,7 +61,6 @@ jobs:
           echo "::set-output name=tag::$imageTag"
           echo "::set-output name=repo::ghcr.io/${{ github.repository }}"
       - name: Push Dev Tag
-        if: startsWith(github.ref, 'refs/heads/dev')
         run: |
           docker tag repo ${{ steps.tagname.outputs.repo }}:${{ steps.tagname.outputs.tag }}
           docker push ${{ steps.tagname.outputs.repo }}:${{ steps.tagname.outputs.tag }}
@@ -69,11 +68,6 @@ jobs:
         if: startsWith(github.ref, 'refs/heads/main')
         id: extract_version
         run: node -pe "'::set-output name=version::' + require('./package.json').version"
-      - name: Push Version Tag Tag
-        if: startsWith(github.ref, 'refs/heads/main')
-        run: |
-          docker tag repo ${{ steps.tagname.outputs.repo }}:v{{ steps.extract_version.outputs.version }}
-          docker push ${{ steps.tagname.outputs.repo }}:v{{ steps.extract_version.outputs.version }}
       - name: Trigger Webhook
         run: |
           # trigger a webhook update
@@ -81,3 +75,8 @@ jobs:
                -X POST ${{ secrets.DELPHI_DEPLOY_WEBHOOK_URL }} \
                -H "Content-Type: application/x-www-form-urlencoded" \
                -d "repository=${{ steps.tagname.outputs.repo }}&tag=${{ steps.tagname.outputs.tag }}"
+      - name: Push Version Tag Tag
+        if: startsWith(github.ref, 'refs/heads/main')
+        run: |
+          docker tag repo ${{ steps.tagname.outputs.repo }}:v${{ steps.extract_version.outputs.version }}
+          docker push ${{ steps.tagname.outputs.repo }}:v${{ steps.extract_version.outputs.version }}
