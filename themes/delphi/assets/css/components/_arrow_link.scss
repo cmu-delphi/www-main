@@ -1,6 +1,11 @@
-.arrow-link {
+a.arrow-link {
   display: flex;
   align-items: center;
+  color: black;
+
+  &:hover {
+    color: black;
+  }
 
   > .inline-svg-icon {
     border-radius: 50%;
