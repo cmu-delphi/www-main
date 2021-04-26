@@ -1,6 +1,6 @@
 ---
 date: 2019-10-01
-title: Center of Excellence
+title: Delphi named 'Center of Excellence'
 category: accomplishment
 ---
 
