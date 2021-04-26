@@ -1,6 +1,6 @@
 ---
 date: 2020-04-01
-title: COVIDcast
+title: Launch of COVIDcast v1
 category: update
 ---
 

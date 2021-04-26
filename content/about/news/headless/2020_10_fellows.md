@@ -1,6 +1,6 @@
 ---
 date: 2020-10-01
-title: Welcome Fellows
+title: 13 Google Fellows join Delphi for 6 months
 category: update
 ---
 
