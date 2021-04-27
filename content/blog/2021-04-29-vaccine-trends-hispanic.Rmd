@@ -136,9 +136,11 @@ population.
 The large disparity in vaccine hesitancy observed in MA, CT, RI, PA, MI, and CO
 mirrors disparities in vaccine uptake. These states have one of the largest
 disparities in vaccination rates in the country (White-to-Hispanic vaccination
-rate ratios > 2.0 according to KFF), which suggests that addressing the
-disparity in hesitancy among unvaccinated adults may also help address the
-disparity in vaccine uptake between Hispanic and White adults.
+rate ratios > 2.0 [according to
+KFF](https://www.kff.org/coronavirus-covid-19/issue-brief/latest-data-on-covid-19-vaccinations-race-ethnicity/)),
+which suggests that addressing the disparity in hesitancy among unvaccinated
+adults may also help address the disparity in vaccine uptake between Hispanic
+and White adults.
 
 The top ten states where Hispanic adults are less likely to be
 vaccine-hesitant compared to White adults are TX (0.76×), NV (0.84×), GA
