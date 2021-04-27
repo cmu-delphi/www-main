@@ -1,6 +1,7 @@
 ---
 title: "COVID Vaccination Trends Among the Hispanic Community in the United States"
 author: "Alex Reinhart, Esther Kim, Sarah LaRocca, Katherine Morris"
+date: 2021-04-27
 tags:
   - COVIDcast
   - symptom surveys
