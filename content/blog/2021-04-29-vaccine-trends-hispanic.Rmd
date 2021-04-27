@@ -108,7 +108,7 @@ adults.
   rates among Hispanic adults are now similar to those among non-Hispanic White
   adults (16.9%) [Figure 1].
 
-![Vaccine hesitancy among Hispanic and non-Hispanic White adults](/blog/2021-04-29-vaccine-trends-hispanic/hesitancy_over_time_hispanic_and_white_adults.png)
+![Vaccine hesitancy among Hispanic and non-Hispanic White adults](/blog/2021-04-29-vaccine-trends-hispanic_files/hesitancy_over_time_hispanic_and_white_adults.png)
 
 * Vaccine hesitancy among Hispanic adults continues to remain high in several
   states. AL (30.8%), TN (29.1%), OH (26.3%), MT (29.1%), and WY (27.3%) have
@@ -116,7 +116,7 @@ adults.
   CA (13.7%), MD (14%), IL (14.6%), and CT (15.8%) have the lowest proportion of
   vaccine hesitancy among Hispanic adults [Figure 2].
 
-![Vaccine hesitancy among Hispanic adults in the US](/blog/2021-04-29-vaccine-trends-hispanic/map_hesitancy_among_hispanic.png)
+![Vaccine hesitancy among Hispanic adults in the US](/blog/2021-04-29-vaccine-trends-hispanic_files/map_hesitancy_among_hispanic.png)
 
 ## Disparities in vaccine hesitancy between Hispanic and non-Hispanic White adults
 
@@ -159,9 +159,9 @@ adults.
   (including MA, CO, PA, CT, NJ, and MI) is either decreasing or stable over
   time [Figure 3].
 
-![](/blog/2021-04-29-vaccine-trends-hispanic/table1.png)
+![](/blog/2021-04-29-vaccine-trends-hispanic_files/table1.png)
 
-![Relative vaccine hesitancy among Hispanic adults compared to White adults](/blog/2021-04-29-vaccine-trends-hispanic/hesitancy_over_time_hispanic_and_white_adults_select_states.png)
+![Relative vaccine hesitancy among Hispanic adults compared to White adults](/blog/2021-04-29-vaccine-trends-hispanic_files/hesitancy_over_time_hispanic_and_white_adults_select_states.png)
 
 ## Potential drivers of disparities in vaccination and vaccine hesitancy across states
 
@@ -222,9 +222,9 @@ that the reasons for hesitancy are related to [Figure 5]:
 
   + They believe other people need it more: CO (+5.5pp), NJ (+2.8pp)
 
-![Reasons for vaccine hesitancy among Hispanic adults by state](/blog/2021-04-29-vaccine-trends-hispanic/reasons_among_hispanic_top10_states.png)
+![Reasons for vaccine hesitancy among Hispanic adults by state](/blog/2021-04-29-vaccine-trends-hispanic_files/reasons_among_hispanic_top10_states.png)
 
-![Reasons for vaccine hesitancy among Hispanic adults compared to White adults](/blog/2021-04-29-vaccine-trends-hispanic/reasons_among_hispanic_and_white_adults_top10_states.png)
+![Reasons for vaccine hesitancy among Hispanic adults compared to White adults](/blog/2021-04-29-vaccine-trends-hispanic_files/reasons_among_hispanic_and_white_adults_top10_states.png)
 
 ### Feeling informed about how to get a vaccination
 
@@ -255,9 +255,9 @@ that the reasons for hesitancy are related to [Figure 5]:
     to have tried to make a vaccination appointment (0.49x in GA, 0.58x in KS,
     0.53x in CT). More results shown in the next section.
 
-![Proportion of Hispanic adults who feel very or moderately informed about how to get vaccinated](/blog/2021-04-29-vaccine-trends-hispanic/map_informed_among_hispanic.png)
+![Proportion of Hispanic adults who feel very or moderately informed about how to get vaccinated](/blog/2021-04-29-vaccine-trends-hispanic_files/map_informed_among_hispanic.png)
 
-![](/blog/2021-04-29-vaccine-trends-hispanic/table2.png)
+![](/blog/2021-04-29-vaccine-trends-hispanic_files/table2.png)
 
 ###	Having a vaccination appointment and trying to make an appointment
 
@@ -295,11 +295,11 @@ that the reasons for hesitancy are related to [Figure 5]:
     who also tried to make an appointment (52.4% compared to the national
     average of 31.8%) [Figure 8, Table 4].
 
-![Proportion of vaccine-accepting Hispanic adults who have a vaccination appointment](/blog/2021-04-29-vaccine-trends-hispanic/map_appt_have_among_hispanic.png)
+![Proportion of vaccine-accepting Hispanic adults who have a vaccination appointment](/blog/2021-04-29-vaccine-trends-hispanic_files/map_appt_have_among_hispanic.png)
 
-![](/blog/2021-04-29-vaccine-trends-hispanic/table3.png)
+![](/blog/2021-04-29-vaccine-trends-hispanic_files/table3.png)
 
-![](/blog/2021-04-29-vaccine-trends-hispanic/table4.png)
+![](/blog/2021-04-29-vaccine-trends-hispanic_files/table4.png)
 
 ## Conclusion
 
