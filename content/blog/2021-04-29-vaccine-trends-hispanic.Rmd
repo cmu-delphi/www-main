@@ -11,6 +11,8 @@ authors:
   - ekim
   - slarocca
   - kmorris
+heroImage: /blog/images/blog-lg-vaccine-survey.jpg
+heroImageThumb: /blog/images/blog-thumb-vaccine-survey.jpg
 related:
   - _2021-04-20-jj-vaccine
   - 2021-01-28-survey-vaccines
