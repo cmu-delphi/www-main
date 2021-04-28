@@ -1,6 +1,9 @@
 <div class="landing-team-grid">
   {{ $team := where (partial "get-persons.html" .) ".team" "intersect" (slice .team) }}
   {{ range first 8 $team }}
-    <img src="{{ (.img.Resize "150x150 jpg").RelPermalink }}" alt="{{ .name }}" width="150" height="150" />
+    <picture>
+      <source srcset="{{ (.img.Resize "150x150 webp").RelPermalink }}" type="image/webp" />
+      <img src="{{ (.img.Resize "150x150 jpg").RelPermalink }}" alt="{{ .name }}" width="150" height="150" />
+    </picture>
   {{ end }}
 </div>

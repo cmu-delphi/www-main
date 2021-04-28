@@ -40,9 +40,11 @@
   {{- end -}}
 {{- end -}}
 
+{{- $blogImages := ($.GetPage "/blog/images").Resources.ByType "image" }}
 {{- with .Params.heroImage -}}
-  <meta name="twitter:image" content="{{ . | absURL }}" />
-  <meta property="og:image" content="{{ . | absURL }}" />
+  {{- $img := $blogImages.GetMatch . | default (resources.Get .) }}
+  <meta name="twitter:image" content="{{ ($img.Resize "1120x440 jpg").Permalink }}" />
+  <meta property="og:image" content="{{ ($img.Resize "1120x440 jpg").Permalink }}" />
   <meta name="twitter:card" content="summary_large_image" />
   {{- else -}}
   <meta name="twitter:card" content="summary" />

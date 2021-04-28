@@ -7,11 +7,17 @@
     <div class="team-member">
       {{ if isset . "link" }}
         <a href="{{ .link }}">
-          <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
+          <picture>
+            <source srcset="{{ (.img.Resize "250x250 webp").RelPermalink }}" type="image/webp" />
+            <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
+          </picture>
         </a>
         <a href="{{ .link }}" class="team-member-name uk-link-muted">{{ .name | safeHTML }}</a>
         {{ else }}
-        <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
+        <picture>
+          <source srcset="{{ (.img.Resize "250x250 webp").RelPermalink }}" type="image/webp" />
+          <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
+        </picture>
         <div class="team-member-name">
           {{ .name | safeHTML }}
         </div>

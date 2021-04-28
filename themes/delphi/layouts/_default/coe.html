@@ -1,7 +1,5 @@
 {{ define "main" }}
-  <div class="about-mission">
-    {{ partial "webp-image.html" (dict "src" "/images/red-bubble-map_mission-pg-short.jpg" "class" "about-mission-img" "width" 1920 "height" 250 "alt" "Banner") }}
-  </div>
+  {{ partial "about/banner.html" }}
   <div class="uk-container content-grid">
     <div class="grid-3-11 about-description">
       <h2 class="mission-header">{{ .Title }}</h2>

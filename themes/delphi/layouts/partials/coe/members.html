@@ -12,7 +12,15 @@
           {{ range .pi }}
             <div class="coe-member-pi">
               {{ with (partial "get-person.html" (dict "Site" $currentPage.Site "key" .)) }}
-                <img src="{{ (.img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
+                <picture>
+                  <source srcset="{{ (.img.Resize "250x250 webp").RelPermalink }}" type="image/webp" />
+                  <img
+                    src="{{ (.img.Resize "250x250 jpg").RelPermalink }}"
+                    alt="{{ .name }}"
+                    width="250"
+                    height="250"
+                  />
+                </picture>
                 <a href="{{ .link }}" class="coe-member-pi-name uk-link-heading">
                   {{ .firstName | safeHTML }} <br />
                   {{ .lastName | safeHTML }}</a
