@@ -8,8 +8,8 @@ tags:
   - vaccine
 authors:
   - alex
-heroImage: /blog/images/blog-lg-vaccine-survey.jpg
-heroImageThumb: /blog/images/blog-thumb-vaccine-survey.jpg
+heroImage: blog-lg-vaccine-survey.jpg
+heroImageThumb: blog-thumb-vaccine-survey.jpg
 related:
   - 2021-01-28-survey-vaccines
 summary: |
