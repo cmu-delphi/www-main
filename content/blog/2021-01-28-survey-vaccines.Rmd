@@ -35,8 +35,8 @@ The COVID-19 Symptom Survey, which is conducted by the Delphi Group in
 partnership with Facebook Data for Good, is one of the largest COVID-19 data
 collection efforts in the United States. To date, over 16 million responses have
 been collected since its launch in April 2020. Using the Symptom Survey, we have
-been able to track and inform trends on 
-`r blogdown::shortcode_html("reflink", "2020-09-21-forecast-demo", "daily symptoms")`, 
+been able to track and inform trends on
+`r blogdown::shortcode_html("reflink", "2020-09-21-forecast-demo", "daily symptoms")`,
 `r blogdown::shortcode_html("reflink", "2020-10-06-survey-wave-4", "testing")`,
 `r blogdown::shortcode_html("reflink", "2020-12-10-masks-public", "mask-wearing")`,
 social distancing, mental health, and more across the U.S. Check out our
@@ -46,7 +46,7 @@ conducted internationally in 200+ countries and territories in 55+ languages by
 our partner, the [University of Maryland](https://covidmap.umd.edu/).
 
 We encourage researchers, public health officials, and the public to use the
-survey data and tools available. Public, aggregate data is available through 
+survey data and tools available. Public, aggregate data is available through
 `r blogdown::shortcode_html("apireflink", "symptom-survey/", "Carnegie Mellon University’s API")`
 for the US and
 through [University of Maryland’s API](https://covidmap.umd.edu/api.html) for
@@ -96,7 +96,7 @@ been vaccinated. We used 300,000 survey responses received between January 9th
 and January 15th to calculate the percentage of respondents in each state who
 say they have received a COVID-19 vaccination, shown below:
 
-![](/blog/images/vaccine_blog_uptake_overall.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_uptake_overall.svg)
 
 The map suggests that the estimated proportion of individuals vaccinated is
 highest in some states in the midwestern, southern, and northeastern regions,
@@ -125,7 +125,7 @@ disparities](https://jamanetwork.com/journals/jama/fullarticle/2769837) that
 exist by race and ethnicity. In the figures below, we illustrate how
 self-reported vaccination rates vary by racial and ethnic groups.
 
-![](/blog/images/vaccine_blog_uptake_race.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_uptake_race.svg)
 
 There seems to be a large variation in self-reported vaccination by race and
 ethnicity: We observe the highest rates among Asians and American Indians or
@@ -139,7 +139,7 @@ We are also able to further examine disparities across the states in our data.
 Below, we illustrate how self-reported vaccination rates for Black individuals
 compare to White individuals:
 
-![](/blog/images/vaccine_blog_uptake_black_to_white.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_uptake_black_to_white.svg)
 
 While we are not currently able to make comparisons for all states due to a
 small sample size of Black respondents in several states that prevents aggregate
@@ -172,7 +172,7 @@ pharmacists, dentists, technicians, and many related fields.) Below, we depict
 the percentages by gender, and 3) differences in the percentages by race and
 ethnicity groups.
 
-![](/blog/images/vaccine_blog_priority_by_gender.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_priority_by_gender.svg)
 
 Self-reported vaccination rates are higher among healthcare workers than among
 individuals aged 65+ years, which is reasonable given that they were the first
@@ -180,7 +180,7 @@ group to be given priority. When comparing by gender, the proportions are
 slightly higher for men compared to women, and this difference is more prominent
 among healthcare workers.
 
-![](/blog/images/vaccine_blog_priority_by_race.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_priority_by_race.svg)
 
 We also notice a consistent trend in self-reported vaccination rates when broken
 down by race and ethnicity: the rate among the Black or African American group
@@ -215,7 +215,7 @@ against COVID-19, our data on vaccine acceptance and uptake still provide
 valuable insights into where and who we can better target to improve
 vaccine-related sentiments.
 
-![](/blog/images/vaccine_blog_acceptance_overall.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_acceptance_overall.svg)
 
 Similar to what we have observed with self-reported vaccination rates, our data
 depict a wide range of vaccine acceptance by race and ethnicity groups (shown
@@ -227,7 +227,7 @@ in particular, in the United States, minority groups are less likely to have
 affordable access to healthcare, and decades of discriminatory treatment have
 reduced their trust in medicine.
 
-![](/blog/images/vaccine_blog_acceptance_race.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_acceptance_race.svg)
 
 ## Increasing the Likelihood of Vaccination
 
@@ -248,7 +248,7 @@ those who are vaccine-accepting (i.e., indicated that they are *definitely* or
 indicated that they are *definitely not* or *probably not* choosing to get
 vaccinated).
 
-![](/blog/images/vaccine_blog_priority_trust.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_priority_trust.svg)
 
 Interestingly, but perhaps not surprisingly, there seems to be a large
 difference in responses between the vaccine-accepting and vaccine-hesitant
@@ -284,13 +284,13 @@ below), we find that the proportion of those who are very or somewhat worried
 about side effects vary from 30% to 50% in the U.S., and we observe the highest
 rates concentrated in the South.
 
-![](/blog/images/vaccine_blog_concern_sideeffects.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_concern_sideeffects.svg)
 
 Based on our earlier results demonstrating differences in vaccination rates and
 acceptance by race and ethnicity, we also illustrate below how concerns about
 side effects compare between Black and White adults.
 
-![](/blog/images/vaccine_blog_concern_sideeffects_bw.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_concern_sideeffects_bw.svg)
 
 In all of the states with adequate survey sample sizes for both Black and White
 respondents, we find that Black individuals are consistently more likely to
@@ -307,7 +307,7 @@ understand how we can address these concerns in various subpopulation groups and
 if addressing concerns related to side effects can lead to higher vaccination
 rates.
 
-![](/blog/images/vaccine_blog_concern_sideeffects_hesitance.svg)
+![](/blog/2021-01-28-survey-vaccines_files/vaccine_blog_concern_sideeffects_hesitance.svg)
 
 ## How You Can Analyze This Data
 
@@ -322,18 +322,18 @@ behavioral measures or social activities? How is your local community responding
 to all of the vaccination-related efforts? You can answer all of these and more
 by analyzing these data!
 
-To get started, check out our 
-`r blogdown::shortcode_html("reflink", "/covidcast", "interactive map")` and `r blogdown::shortcode_html("reflink", "survey-results", "survey dashboard")` 
+To get started, check out our
+`r blogdown::shortcode_html("reflink", "/covidcast", "interactive map")` and `r blogdown::shortcode_html("reflink", "survey-results", "survey dashboard")`
 to play with the data. Then dive into our
 `r blogdown::shortcode_html("apireflink", "/symptom-survey/", "documentation")` on
-the COVID Symptom Survey. 
+the COVID Symptom Survey.
 `r blogdown::shortcode_html("apireflink", "/api/covidcast-signals/fb-survey.html", "County and state-level aggregates")`
-are available publicly through the Delphi Group’s 
+are available publicly through the Delphi Group’s
 `r blogdown::shortcode_html("apireflink", "/api/covidcast.html", "COVIDcast API")`. In the
 coming weeks we plan to release additional aggregates, including many of the
 demographic breakdowns you’ve seen above, as data files for public research use.
 (These will only contain aggregated data, not individual survey responses.)
-Academic and non-profit researchers can also 
+Academic and non-profit researchers can also
 `r blogdown::shortcode_html("apireflink", "/symptom-survey/data-access.html", "request access to the microdata")`.
 
 For those interested, you can also read about the [international Symptom
