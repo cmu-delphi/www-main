@@ -1,7 +1,7 @@
 ---
 title: "COVID Vaccination Trends Among the Hispanic Community in the United States"
 author: "Alex Reinhart, Esther Kim, Sarah LaRocca, Katherine Morris"
-date: 2021-04-27
+date: 2021-04-29
 tags:
   - COVIDcast
   - symptom surveys
@@ -18,8 +18,7 @@ related:
   - 2021-01-28-survey-vaccines
 summary: |
   Data from the Symptom Survey show vaccine hesitancy and obstacles to
-  vaccination for Hispanic adults across the United States, and how their
-  experiences differ from non-Hispanic adults.
+  vaccination for Hispanic adults across the United States.
 output:
   html_document:
     code_folding: hide
