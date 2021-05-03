@@ -10,7 +10,7 @@
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.3.1/www-covidcast-2.3.1.tgz"
   },
   "devDependencies": {
-    "hugo-bin": "^0.70.2",
+    "hugo-bin": "^0.71.1",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
