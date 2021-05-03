@@ -9,19 +9,19 @@ tags:
   - R
 authors:
   - ryan
-heroImage: /blog/images/blog-Lg-img_can symptoms surveys improve covid-19.jpg
-heroImageThumb: /blog/images/blog-thumbnail_can symptoms surveys improve covid-19.jpg
+heroImage: blog-Lg-img_can symptoms surveys improve covid-19.jpg
+heroImageThumb: blog-thumbnail_can symptoms surveys improve covid-19.jpg
 summary: |
   Building on our previous two posts (on our COVID-19 symptom surveys through
   Facebook and Google)
-  this post offers a deeper dive into empirical analysis, examining whether the 
-  % CLI-in-community indicators from our two surveys can be used to improve 
+  this post offers a deeper dive into empirical analysis, examining whether the
+  % CLI-in-community indicators from our two surveys can be used to improve
   the accuracy of short-term forecasts of county-level COVID-19 case rates.
 acknowledgements: |
   Delphi's forecasting effort involves many people from our
-  modeling team, from forecaster design, to implementation, to evaluation. The 
+  modeling team, from forecaster design, to implementation, to evaluation. The
   broader insights on forecasting shared in this post certainly cannot be
-  attributable to Ryan's work alone, and are a reflection of the work carried out 
+  attributable to Ryan's work alone, and are a reflection of the work carried out
   by all these team members.
 related:
   - 2020-09-18-google-survey
@@ -60,7 +60,7 @@ forecasts](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/mathematical-mod
 
 At the outset, we should state that this post is neither a report on Delphi's
 current COVID-19 forecasters nor an authoritative take on cutting-edge
-COVID-19 forecasting. Instead, our purpose here is to study the Facebook and 
+COVID-19 forecasting. Instead, our purpose here is to study the Facebook and
 Google % CLI-in-community signals, and demonstrate their value, when used as
 features, to add predictive power beyond what we can achieve with (fairly
 simple) time series models trained on case rates alone. In a future blog post,
@@ -129,14 +129,14 @@ Here $d=7$ or $d=14$, depending on the target value
 (number of days we predict ahead),
 and $h$ is a transformation to be specified later.
 
-Informally, the first model, which we'll call the "Cases" model, 
+Informally, the first model, which we'll call the "Cases" model,
 bases its predictions of future case rates on the following three features:
 current COVID-19 case rates, and those 1 and 2 weeks back.
-The second model, "Cases + Facebook", additionally incorporates the 
+The second model, "Cases + Facebook", additionally incorporates the
 current Facebook signal, and the Facebook signal from 1 and 2 weeks back.
-The third model, "Cases + Google", is exactly the same but substitutes the 
+The third model, "Cases + Google", is exactly the same but substitutes the
 Google signal instead of the Facebook one.
-Finally, the fourth model, "Cases + Facebook + Google", 
+Finally, the fourth model, "Cases + Facebook + Google",
 uses both Facebook and Google signals.
 For each model, in order to make a forecast at time $t_0$
 (to predict case rates at time $t_0+d$),
@@ -288,7 +288,7 @@ is much bigger but still below 0.01.
     test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
     (for paired data, as we have here) is more popular,
     because it tends to be more powerful than the sign test.
-    Applied here, it does indeed give smaller p-values pretty much across the 
+    Applied here, it does indeed give smaller p-values pretty much across the
     board. However, it assumes symmetry of the distribution in question
     (in our case, the difference in scaled errors),
     whereas the sign test does not, and thus we show results from the latter.
@@ -631,5 +631,5 @@ We look forward to seeing how you put our data to use!
     find these statistical models are easier to build, debug, and most importantly,
     calibrate. More on this in a future blog post.
 
-**Note:** *This post was updated on September 25, 2020 to include the section 
+**Note:** *This post was updated on September 25, 2020 to include the section
  [Varying the Number of Days Ahead](#varying-the-number-of-days-ahead).*

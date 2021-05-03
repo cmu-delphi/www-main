@@ -1,0 +1,13 @@
+<div class="about-mission">
+  {{- $img := resources.Get "images/red-bubble-map_mission-pg-short.jpg" }}
+  <picture>
+    <source srcset="{{ ($img.Resize "1920x250 webp").RelPermalink }}" type="image/webp" />
+    <img
+      class="about-mission-img"
+      src="{{ ($img.Resize "1920x250 jpg").RelPermalink }}"
+      alt="Banner"
+      width="1920"
+      height="250"
+    />
+  </picture>
+</div>

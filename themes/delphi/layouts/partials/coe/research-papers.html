@@ -10,7 +10,10 @@
         {{ $img := $images.GetMatch (path.Join "images" .image) }}
         <div class="card-grid-item uk-card uk-card-default uk-card-small">
           <div class="card-grid-item-date">{{ .year }}</div>
-          <img class="card-grid-item-img" src="{{ $img.RelPermalink }}" width="240" height="300" alt="Banner" />
+          <picture>
+            <source srcset="{{ ($img.Resize "webp").RelPermalink }}" type="image/webp" />
+            <img class="card-grid-item-img" src="{{ $img.RelPermalink }}" width="240" height="300" alt="Banner" />
+          </picture>
           <div class="uk-flex uk-flex-column">
             <div class="uk-card-body uk-flex-1">
               <h3 class="uk-card-title"><a href="{{ .link }}" class="uk-link-heading">{{ .title }}</a></h3>

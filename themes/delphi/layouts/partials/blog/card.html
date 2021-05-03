@@ -1,7 +1,11 @@
 <div class="uk-card uk-card-default blog-card">
   <div class="uk-card-media-top">
     <a href="{{ .RelPermalink }}">
-      {{ partial "webp-image.html" (dict "src" .Params.heroImageThumb "width" 300 "height" 200 "alt" .Title) }}
+      {{ $img := ($.GetPage "/blog/images").Resources.GetMatch .Params.heroImageThumb }}
+      <picture>
+        <source srcset="{{ ($img.Resize "300x200 webp").RelPermalink }}" type="image/webp" />
+        <img src="{{ ($img.Resize "300x200 jpg").RelPermalink }}" width="300" height="200" alt="{{ .Title }}" />
+      </picture>
     </a>
   </div>
   <div class="uk-card-body">

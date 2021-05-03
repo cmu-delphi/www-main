@@ -1,5 +1,5 @@
 ---
-title: News from the Delphi Team
+title: Delphi Team News
 linkTitle: News
 layout: single
 ---

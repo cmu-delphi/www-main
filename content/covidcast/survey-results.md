@@ -7,6 +7,6 @@ layout: covidcast_app
 app_mode: survey-results
 order: 5
 icon: solid/poll
-heroImage: /images/landing-page/hero-images/covidcast_survey.jpg
+heroImage: images/landing-page/hero-images/covidcast_survey.jpg
 feedback: true
 ---

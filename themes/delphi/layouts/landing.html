@@ -23,7 +23,11 @@
       </div>
       <div class="landing-entry grid-8-12">
         <div class="entry-image landing-aspect-2-1">
-          <img src="{{ "/images/landing-page/API-image.jpg" | relURL }}" alt="API Image" width="288" height="296" />
+          {{ $img := resources.Get "images/landing-page/API-image.jpg" }}
+          <picture>
+            <source srcset="{{ ($img.Resize "288x webp").RelPermalink }}" type="image/webp" />
+            <img src="{{ ($img).RelPermalink }}" width="288" height="296" alt="API Image" />
+          </picture>
         </div>
         <h2>Our API</h2>
         <p>Access our data and tools</p>

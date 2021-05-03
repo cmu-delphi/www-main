@@ -1,5 +1,5 @@
 {{ $news := .Site.GetPage "/about/news/headless" }}
-<div class="card-grid">
+<div class="card-grid news-grid">
   {{ range (sort ($news.Resources.ByType "page") ".PublishDate" "desc") }}
     <div class="card-grid-item uk-card uk-card-default uk-card-small">
       <div class="card-grid-item-date">{{ .PublishDate.Format "Jan 2006" }}</div>
