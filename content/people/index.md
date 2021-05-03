@@ -640,6 +640,13 @@ people:
   external: true
   team:
     - blog
+- key: kmorris
+  firstName: Katherine
+  lastName: Morris
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  external: true
+  team:
+    - blog
 - firstName: Michael
   lastName: Finke
   image: michael-fink.jpg
