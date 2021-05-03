@@ -10,8 +10,8 @@
         <li>
           {{ $img := resources.Get (path.Join "images/landing-page/hero-images" .image) }}
           <picture>
-            <source srcset="{{ ($img.Resize "1140x webp").RelPermalink }}" type="image/webp" />
-            <img src="{{ ($img.Resize "1140x jpg").RelPermalink }}" width="1140" height="500" alt="{{ .title }}" />
+            <source srcset="{{ ($img.Resize "1440x webp").RelPermalink }}" type="image/webp" />
+            <img src="{{ ($img.Resize "1440x jpg").RelPermalink }}" width="1440" height="500" alt="{{ .title }}" />
           </picture>
           <div class="uk-container content-grid">
             <div class="carousel-entry grid-2-10">
