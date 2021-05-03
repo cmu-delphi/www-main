@@ -6,13 +6,17 @@
       the students, faculty, staff, and volunteers who have contributed to the COVIDcast project.
     </h1>
 
-    <img
-      src="{{ (.Resources.GetMatch "map-and-pins.png").RelPermalink }}"
-      alt="World map of team members"
-      width="1120"
-      height="592"
-      class="team-hero-image"
-    />
+    {{- $img := .Resources.GetMatch "map-and-pins.png" }}
+    <picture>
+      <source srcset="{{ ($img.Resize "1120x webp").RelPermalink }}" type="image/webp" />
+      <img
+        class="team-hero-image"
+        src="{{ $img.RelPermalink }}"
+        width="1120"
+        height="592"
+        alt="World map of team members"
+      />
+    </picture>
 
     {{ .Content }}
 

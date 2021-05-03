@@ -8,7 +8,11 @@
     <ul class="uk-slideshow-items uk-cover-container uk-child-width-1-1 slideshow-container">
       {{ range .Params.carousel }}
         <li>
-          {{ partial "webp-image.html" (dict "src" (path.Join "/images/landing-page/hero-images" .image) "alt" .title "width" 1140 "height" 500) }}
+          {{ $img := resources.Get (path.Join "images/landing-page/hero-images" .image) }}
+          <picture>
+            <source srcset="{{ ($img.Resize "1440x webp").RelPermalink }}" type="image/webp" />
+            <img src="{{ ($img.Resize "1440x jpg").RelPermalink }}" width="1440" height="500" alt="{{ .title }}" />
+          </picture>
           <div class="uk-container content-grid">
             <div class="carousel-entry grid-2-10">
               <h2>{{ .pre }}</h2>

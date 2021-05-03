@@ -8,12 +8,17 @@
 {{ end }}
 {{ define "main" }}
   {{ $currentPage := . }}
+  {{ $images := ($.GetPage "/blog/images").Resources.ByType "image" }}
   <div class="uk-container">
     <h1>{{ .Title }}</h1>
     {{ partial "blog/tags.html" . }}
     {{ if isset .Params "heroimage" }}
       <div class="uk-margin-top uk-margin-bottom">
-        {{ partial "webp-image.html" (dict "src" .Params.heroImage "width" 1120 "height" 440 "alt" .Title) }}
+        {{ $img := $images.GetMatch (path.Join .Params.heroImage) }}
+        <picture>
+          <source srcset="{{ ($img.Resize "1120x440 webp").RelPermalink }}" type="image/webp" />
+          <img src="{{ ($img.Resize "1120x440 jpg").RelPermalink }}" width="1120" height="440" alt="{{ .Title }}" />
+        </picture>
       </div>
     {{ end }}
     <div class="content-grid">

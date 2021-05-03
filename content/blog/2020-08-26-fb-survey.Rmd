@@ -9,8 +9,8 @@ tags:
 authors:
   - alex
   - ryan
-heroImage: /blog/images/blog-lg-img_facebook-survey-post.jpg
-heroImageThumb: /blog/images/blog-thumb-img_facebook-survey-post.jpg
+heroImage: blog-lg-img_facebook-survey-post.jpg
+heroImageThumb: blog-thumb-img_facebook-survey-post.jpg
 summary: |
   Since April 2020, in collaboration with Facebook,
   partner universities, and public health officials,
@@ -36,7 +36,7 @@ acknowledgements: |
   survey data. The COVIDcast API, which serves these estimates and is updated
   daily, is a much larger effort run by the Delphi group, and our entire
   engineering team is owed a lot of credit here. Ryan came up with the
-  idea of running the surveys, and worked with Facebook to make this a reality. 
+  idea of running the surveys, and worked with Facebook to make this a reality.
   On the Facebook side, Curtiss Cobb and Jonathan McKay played big roles. The
   University of Maryland team, including Adrianne Bradford and Samantha Chiu and
   led by Frauke Kreuter, made many contributions to the survey design.

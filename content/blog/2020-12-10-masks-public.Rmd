@@ -8,8 +8,8 @@ tags:
   - R
 authors:
 - alex
-heroImage: /blog/images/masks-public-full-size.jpg
-heroImageThumb: /blog/images/masks-public-thumb.jpg
+heroImage: masks-public-full-size.jpg
+heroImageThumb: masks-public-thumb.jpg
 related:
 - 2020-10-06-survey-wave-4
 summary: |
@@ -405,7 +405,7 @@ If you're one of those researchers, or you think this data could be useful for
 your reporting or decision-making, see our [COVIDcast Epidata
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html) for details
 on how to get it. Numerous aggregates from the survey data, including more
-measures of public activity, are `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/fb-survey.html", "available through the API")`, 
+measures of public activity, are `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/fb-survey.html", "available through the API")`,
 and can be easily downloaded using `r blogdown::shortcode_html("apireflink", "api/covidcast_clients.html", "our R and Python packages")`.
 All aggregates are de-identified to protect the privacy of survey respondents.
 

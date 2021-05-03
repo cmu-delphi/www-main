@@ -7,18 +7,18 @@ tags:
 authors:
   - roni
   - ryan
-heroImage: /blog/images/blog-lg-img_hello-world.jpg
-heroImageThumb: /blog/images/blog-thumb-img_hello-world.jpg
+heroImage: blog-lg-img_hello-world.jpg
+heroImageThumb: blog-thumb-img_hello-world.jpg
 summary: |
   Hello from the Delphi research group at Carnegie Mellon University!
   We're a group of faculty, students, and staff, based primarily out of CMU
   together with strong collaborators from other universities and industry.
-  Our group was founded in 2012 to advance the theory and practice of epidemic 
-  forecasting. Since March 2020, we have refocused efforts towards helping combat 
+  Our group was founded in 2012 to advance the theory and practice of epidemic
+  forecasting. Since March 2020, we have refocused efforts towards helping combat
   the COVID-19 pandemic, by supporting informed decision-making at federal, state,
   and local levels of government and in the healthcare sector. Until now, we've
-  been pretty “heads down” with our work, and slow to communicate what we've been 
-  up to. But at last ... Delphi finally has a blog! This first post serves as an 
+  been pretty “heads down” with our work, and slow to communicate what we've been
+  up to. But at last ... Delphi finally has a blog! This first post serves as an
   introduction of sorts. Future posts will dive deeper into our various projects.
 output:
   blogdown::html_page:

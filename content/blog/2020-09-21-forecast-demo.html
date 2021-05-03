@@ -9,19 +9,19 @@ tags:
   - R
 authors:
   - ryan
-heroImage: /blog/images/blog-Lg-img_can symptoms surveys improve covid-19.jpg
-heroImageThumb: /blog/images/blog-thumbnail_can symptoms surveys improve covid-19.jpg
+heroImage: blog-Lg-img_can symptoms surveys improve covid-19.jpg
+heroImageThumb: blog-thumbnail_can symptoms surveys improve covid-19.jpg
 summary: |
   Building on our previous two posts (on our COVID-19 symptom surveys through
   Facebook and Google)
-  this post offers a deeper dive into empirical analysis, examining whether the 
-  % CLI-in-community indicators from our two surveys can be used to improve 
+  this post offers a deeper dive into empirical analysis, examining whether the
+  % CLI-in-community indicators from our two surveys can be used to improve
   the accuracy of short-term forecasts of county-level COVID-19 case rates.
 acknowledgements: |
   Delphi's forecasting effort involves many people from our
-  modeling team, from forecaster design, to implementation, to evaluation. The 
+  modeling team, from forecaster design, to implementation, to evaluation. The
   broader insights on forecasting shared in this post certainly cannot be
-  attributable to Ryan's work alone, and are a reflection of the work carried out 
+  attributable to Ryan's work alone, and are a reflection of the work carried out
   by all these team members.
 related:
   - 2020-09-18-google-survey
@@ -211,17 +211,17 @@ append_shifts = function(df, shifts) {
                                     as.Date(max(time_value)),
                                     by = &quot;day&quot;)) %&gt;% ungroup()
   df = full_join(df, df_all, by = c(&quot;geo_value&quot;, &quot;time_value&quot;))
-  
+
   # Group by geo value, sort rows by increasing time
-  df = df %&gt;% group_by(geo_value) %&gt;% arrange(time_value) 
-  
+  df = df %&gt;% group_by(geo_value) %&gt;% arrange(time_value)
+
   # Load over shifts, and add lag value or lead value
   for (shift in shifts) {
     fun = ifelse(shift &lt; 0, lag, lead)
     varname = sprintf(&quot;value%+d&quot;, shift)
     df = mutate(df, !!varname := fun(value, n = abs(shift)))
   }
-  
+
   # Ungroup and return
   return(ungroup(df))
 }
@@ -255,40 +255,40 @@ verbose = TRUE # Print intermediate progress to console?
 case_num = 200
 geo_values = covidcast_signal(&quot;jhu-csse&quot;, &quot;confirmed_cumulative_num&quot;,
                               &quot;2020-05-14&quot;, &quot;2020-05-14&quot;) %&gt;%
-  filter(value &gt;= case_num) %&gt;% pull(geo_value) 
+  filter(value &gt;= case_num) %&gt;% pull(geo_value)
 
 # Fetch county-level Google and Facebook % CLI-in-community signals, and JHU
 # confirmed case incidence proportion
 start_day = &quot;2020-04-11&quot;
 end_day = &quot;2020-09-01&quot;
 g = covidcast_signal(&quot;google-survey&quot;, &quot;smoothed_cli&quot;) %&gt;%
-  filter(geo_value %in% geo_values) %&gt;% 
-  select(geo_value, time_value, value) 
-f = covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_hh_cmnty_cli&quot;, 
+  filter(geo_value %in% geo_values) %&gt;%
+  select(geo_value, time_value, value)
+f = covidcast_signal(&quot;fb-survey&quot;, &quot;smoothed_hh_cmnty_cli&quot;,
                      start_day, end_day) %&gt;%
-  filter(geo_value %in% geo_values) %&gt;% 
-  select(geo_value, time_value, value) 
+  filter(geo_value %in% geo_values) %&gt;%
+  select(geo_value, time_value, value)
 c = covidcast_signal(&quot;jhu-csse&quot;, &quot;confirmed_7dav_incidence_prop&quot;,
                      start_day, end_day) %&gt;%
-  filter(geo_value %in% geo_values) %&gt;% 
+  filter(geo_value %in% geo_values) %&gt;%
   select(geo_value, time_value, value)
 
-# Find &quot;complete&quot; counties, present in all three data signals at all times 
+# Find &quot;complete&quot; counties, present in all three data signals at all times
 geo_values_complete = intersect(intersect(g$geo_value, f$geo_value),
                                 c$geo_value)
 
-# Filter to complete counties, transform the signals, append 1-2 week lags to 
+# Filter to complete counties, transform the signals, append 1-2 week lags to
 # all three, and also 1-2 week leads to case rates
-lags = 1:2 * -7 
+lags = 1:2 * -7
 leads = 1:2 * 7
-g = g %&gt;% filter(geo_value %in% geo_values_complete) %&gt;% 
-  mutate(value = trans(value * rescale_g)) %&gt;% 
-  append_shifts(shifts = lags) 
-f = f %&gt;% filter(geo_value %in% geo_values_complete) %&gt;% 
-  mutate(value = trans(value * rescale_f)) %&gt;% 
-  append_shifts(shifts = lags) 
+g = g %&gt;% filter(geo_value %in% geo_values_complete) %&gt;%
+  mutate(value = trans(value * rescale_g)) %&gt;%
+  append_shifts(shifts = lags)
+f = f %&gt;% filter(geo_value %in% geo_values_complete) %&gt;%
+  mutate(value = trans(value * rescale_f)) %&gt;%
+  append_shifts(shifts = lags)
 c = c %&gt;% filter(geo_value %in% geo_values_complete) %&gt;%
-  mutate(value = trans(value * rescale_c)) %&gt;% 
+  mutate(value = trans(value * rescale_c)) %&gt;%
   append_shifts(shifts = c(lags, leads))
 
 # Rename columns
@@ -304,47 +304,47 @@ z = full_join(full_join(g, f, by = c(&quot;geo_value&quot;, &quot;time_value&quo
 
 # Use quantgen for LAD regression (this package supports quantile regression and
 # more; you can find it on GitHub here: https://github.com/ryantibs/quantgen)
-library(quantgen) 
+library(quantgen)
 
 res_list = vector(&quot;list&quot;, length = length(leads))
 
 # Loop over lead, forecast dates, build models and record errors (warning: this
 # computation takes a while)
-for (i in 1:length(leads)) { 
+for (i in 1:length(leads)) {
   lead = leads[i]; if (verbose) cat(&quot;***&quot;, lead, &quot;***\n&quot;)
-  
+
   # Create a data frame to store our forecast results. Code below populates its
-  # rows in a way that breaks from typical dplyr operations, done for efficiency 
-  res_list[[i]] = z %&gt;% 
-    filter(between(time_value, as.Date(start_day) - min(lags) + lead, 
+  # rows in a way that breaks from typical dplyr operations, done for efficiency
+  res_list[[i]] = z %&gt;%
+    filter(between(time_value, as.Date(start_day) - min(lags) + lead,
                    as.Date(end_day) - lead)) %&gt;%
     select(geo_value, time_value) %&gt;%
-    mutate(err0 = as.double(NA), err1 = as.double(NA), err2 = as.double(NA), 
-           err3 = as.double(NA), err4 = as.double(NA), lead = lead) 
+    mutate(err0 = as.double(NA), err1 = as.double(NA), err2 = as.double(NA),
+           err3 = as.double(NA), err4 = as.double(NA), lead = lead)
   valid_dates = unique(res_list[[i]]$time_value)
-  
+
   for (k in 1:length(valid_dates)) {
     date = valid_dates[k]; if (verbose) cat(format(date), &quot;... &quot;)
-    
+
     # Filter down to training set and test set
     z_tr = z %&gt;% filter(between(time_value, date - lead - n, date - lead))
     z_te = z %&gt;% filter(time_value == date)
     inds = which(res_list[[i]]$time_value == date)
-    
+
     # Create training and test responses
     y_tr = z_tr %&gt;% pull(paste0(&quot;case+&quot;, lead))
     y_te = z_te %&gt;% pull(paste0(&quot;case+&quot;, lead))
-    
+
     # Strawman model
     if (verbose) cat(&quot;0&quot;)
     y_hat = z_te %&gt;% pull(case)
     res_list[[i]][inds,]$err0 = abs(inv_trans(y_hat) - inv_trans(y_te))
-    
+
     # Cases only model
     if (verbose) cat(&quot;1&quot;)
     x_tr_case = z_tr %&gt;% select(starts_with(&quot;case&quot;) &amp; !contains(&quot;+&quot;))
     x_te_case = z_te %&gt;% select(starts_with(&quot;case&quot;) &amp; !contains(&quot;+&quot;))
-    x_tr = x_tr_case; x_te = x_te_case # For symmetry wrt what follows 
+    x_tr = x_tr_case; x_te = x_te_case # For symmetry wrt what follows
     ok = complete.cases(x_tr, y_tr)
     if (sum(ok) &gt; 0) {
       obj = quantile_lasso(as.matrix(x_tr[ok,]), y_tr[ok], tau = 0.5,
@@ -352,7 +352,7 @@ for (i in 1:length(leads)) {
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err1 = abs(inv_trans(y_hat) - inv_trans(y_te))
     }
-    
+
     # Cases and Facebook model
     if (verbose) cat(&quot;2&quot;)
     x_tr_fb = z_tr %&gt;% select(starts_with(&quot;fb&quot;))
@@ -380,7 +380,7 @@ for (i in 1:length(leads)) {
       y_hat = as.numeric(predict(obj, newx = as.matrix(x_te)))
       res_list[[i]][inds,]$err3 = abs(inv_trans(y_hat) - inv_trans(y_te))
     }
-    
+
     # Cases, Facebook, and Google model
     if (verbose) cat(&quot;4\n&quot;)
     x_tr = cbind(x_tr_case, x_tr_fb, x_tr_goog)
@@ -395,7 +395,7 @@ for (i in 1:length(leads)) {
   }
 }
 
-# Bind results over different leads into one big data frame, and save 
+# Bind results over different leads into one big data frame, and save
 res = do.call(rbind, res_list)
 save(list = ls(), file = &quot;demo.rda&quot;)</code></pre>
 </div>

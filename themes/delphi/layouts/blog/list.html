@@ -1,13 +1,18 @@
 {{ define "main" }}
+  {{ $images := ($.GetPage "/blog/images").Resources.ByType "image" }}
   <div class="uk-container">
     <h1>{{ .Title }}</h1>
     <h2>{{ .Description }}</h2>
 
     <div class="card-grid">
       {{ range .Paginator.Pages }}
+        {{ $img := $images.GetMatch (path.Join .Params.heroImageThumb) }}
         <div class="card-grid-item uk-card uk-card-default uk-card-small">
           <div class="card-grid-item-date">{{ .Date.Format "Jan _2" }}</div>
-          {{ partial "webp-image.html" (dict "src" .Params.heroImageThumb "alt" .Title "class" "card-grid-item-img" "width" 300 "height" 200) }}
+          <picture>
+            <source srcset="{{ ($img.Resize "300x200 webp").RelPermalink }}" type="image/webp" />
+            <img class="card-grid-item-img" src="{{ $img.RelPermalink }}" width="300" height="200" alt="{{ .Title }}" />
+          </picture>
           <div class="uk-flex uk-flex-column">
             <div class="uk-card-body uk-flex-1">
               <h3 class="uk-card-title"><a href="{{ .RelPermalink }}" class="uk-link-heading">{{ .Title }}</a></h3>
