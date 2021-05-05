@@ -5,10 +5,11 @@ on:
     paths: # run only when an Rmd file changes
       - "**.Rmd"
       - "environment.yml"
+      - "dependencies.R"
       - ".github/workflows/blog.yaml"
 
 jobs:
-  build:
+  blog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
