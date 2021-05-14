@@ -1,6 +1,7 @@
 import UIkit from "uikit/dist/js/uikit.js";
 import plugin from "uikit/dist/js/uikit-icons.js";
 import "./feedback-button";
+import "./contact_form";
 UIkit.use(plugin);
 
 // re export for COVIDcast

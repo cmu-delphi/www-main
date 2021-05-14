@@ -1,0 +1,10 @@
+{{ define "main" }}
+  {{ partial "about/banner.html" }}
+  <div class="uk-container content-grid">
+    <div class="grid-3-11">
+      <h2 class="mission-header">Contact</h2>
+      {{ .Content }}
+      {{ partial "contact/contact_form.html" }}
+    </div>
+  </div>
+{{ end }}

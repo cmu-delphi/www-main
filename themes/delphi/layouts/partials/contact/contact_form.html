@@ -1,0 +1,36 @@
+<form class="contact-form uk-form-stacked" method="GET" action="mailto:delphi+inquiries@cmu.edu">
+  <div class="uk-margin-medium-top">
+    <label class="uk-form-label">Name</label>
+    <div class="uk-form-controls">
+      <input class="uk-input" type="text" autocomplete="name" placeholder="Your name" name="_name" required />
+    </div>
+  </div>
+  <div class="uk-margin-small-top">
+    <label class="uk-form-label uk-bold">Inquiry Category</label>
+    <div class="uk-form-controls">
+      <select class="uk-select" name="_category" required>
+        <option value="">Pick what best fits you</option>
+        <option value="press">Press</option>
+        <option value="research">Research</option>
+        <option value="government">Government</option>
+        <option value="public_health">Public Health</option>
+        <option value="inquiries">Other</option>
+      </select>
+    </div>
+  </div>
+  <div class="uk-margin-small-top">
+    <label class="uk-form-label">Subject</label>
+    <div class="uk-form-controls">
+      <input class="uk-input" type="text" name="subject" placeholder="What is it about" required />
+    </div>
+  </div>
+  <div class="uk-margin-small-top">
+    <label class="uk-form-label">Message</label>
+    <div class="uk-form-controls">
+      <textarea class="uk-textarea" name="body" required rows="10" placeholder="Type your message here"></textarea>
+    </div>
+  </div>
+  <div class="uk-margin-small-top">
+    <button class="uk-button uk-button-default" type="submit">Open Mail Program</button>
+  </div>
+</form>
