@@ -1,5 +1,10 @@
-#vizbox {
+#vizbox,
+#epivis {
   margin-top: 5px !important;
+}
+
+#epivis {
+  flex-grow: 1;
 }
 
 .covidcast_wrapper {

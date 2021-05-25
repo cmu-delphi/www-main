@@ -7,7 +7,8 @@
     "highlight.js": "^10.7.2",
     "katex": "^0.13.11",
     "uikit": "^3.6.22",
-    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.4.0/www-covidcast-2.4.0.tgz"
+    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.4.0/www-covidcast-2.4.0.tgz",
+    "www-epivis": "github:cmu-delphi/www-epivis#dev"
   },
   "devDependencies": {
     "hugo-bin": "^0.71.1",
@@ -25,7 +26,8 @@
     "clean": "rimraf \"*.tgz\" public",
     "copy_fonts": "shx cp -r \"node_modules/katex/dist/fonts/*\" themes/delphi/static/css/fonts/",
     "copy_covidcast": "shx rm -rf \"static/covidcast/*\" && shx cp \"node_modules/www-covidcast/public/**/*.{js,txt,css,map}\" static/covidcast/",
-    "postinstall": "npm run copy_fonts && npm run copy_covidcast",
+    "copy_epivis": "shx rm -rf \"static/epivis/*\" && shx cp \"node_modules/www-epivis/public/**/*.{js,txt,css,map}\" static/epivis/",
+    "postinstall": "npm run copy_fonts && npm run copy_covidcast && npm run copy_epivis",
     "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd='md5sum')\"",
     "prebuild": "npm run clean",
     "build": "hugo --gc --minify",
