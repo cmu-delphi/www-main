@@ -15,6 +15,8 @@ relativeURLs = false
     pre = "solid/info-circle"
     url = "/about"
     weight = 1
+
+# About
 [[menu.main]]
     parent = "about"
     name = "Delphi Research Group"
@@ -37,104 +39,168 @@ relativeURLs = false
     weight = 4
 [[menu.main]]
     parent = "about"
+    name = "Blog"
+    url = "/blog"
+    weight = 5
+[[menu.main]]
+    parent = "about"
     name = "News"
     url = "/about/news"
-    weight = 4
+    weight = 6
 [[menu.main]]
-    identifier = "covidcast"
-    name = "COVIDcast"
-    pre = "solid/map"
-    url = "/covidcast/"
+    parent = "about"
+    name = "GitHub"
+    url = "https://github.com/cmu-delphi/"
+    weight = 7
+
+# covid19
+[[menu.main]]
+    identifier = "covid19"
+    name = "COVID-19"
+    pre = "solid/virus"
+    url = "/covid19/"
     weight = 2
 [[menu.main]]
-    parent = "covidcast"
-    name = "COVIDcast Overview"
-    url = "/covidcast/"
+    parent = "covid19"
+    name = "Delphi's COVID-19 Response Team"
+    url = "/covid19/"
     weight = 1
 [[menu.main]]
-    parent = "covidcast"
-    name = "Explore a Location"
-    url = "/covidcast/summary"
-    weight = 2
-[[menu.main]]
-    parent = "covidcast"
-    name = "Explore an Indicator"
-    url = "/covidcast/indicator"
-    weight = 3
-[[menu.main]]
-    parent = "covidcast"
-    name = "Explore Correlations"
-    url = "/covidcast/correlation"
-    weight = 4
-[[menu.main]]
-    parent = "covidcast"
-    name = "Classic Map"
-    url = "/covidcast/classic"
-    weight = 30
-[[menu.main]]
-    parent = "covidcast"
-    name = "Forecast Evaluation"
-    url = "/forecast-eval/"
-    weight = 40
-[[menu.main]]
-    parent = "covidcast"
+    parent = "covid19"
     name = "Surveys"
     url = "/covidcast/surveys"
-    weight = 50
+    weight = 10
 [[menu.main]]
-    parent = "covidcast"
+    parent = "covid19"
     name = "Survey Results"
     url = "/covidcast/survey-results"
-    weight = 51
+    weight = 11
 [[menu.main]]
-    parent = "covidcast"
-    name = "Indicator Status Overview"
-    url = "/covidcast/indicator-status"
-    weight = 60
+    identifier = "covid19-covidcast"
+    parent = "covid19"
+    name = "COVIDcast"
+    url = "/covidcast/"
+    weight = 20
 [[menu.main]]
-    parent = "covidcast"
+    parent = "covid19"
     name = "Export Data"
     url = "/covidcast/export"
-    weight = 70
+    weight = 30
 [[menu.main]]
-    parent = "covidcast"
-    name = "Data Anomalies"
-    url = "/covidcast/data-anomalies"
-    weight = 71
-[[menu.main]]
-    parent = "covidcast"
-    name = "Release Log"
-    url = "/covidcast/release-log"
-    weight = 80
-[[menu.main]]
-    parent = "covidcast"
+    parent = "covid19"
     name = "Terms Of Use"
     url = "/covidcast/terms-of-use"
-    weight = 90
+    weight = 40
+
+# flu
 [[menu.main]]
     identifier = "flu"
-    name = "Flu and Other Diseases"
-    pre = "solid/virus"
-    url = "/flu"
+    name = "Flu"
+    pre = "solid/disease"
+    url = "/flu/"
     weight = 3
 [[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    pre = "solid/book"
-    url = "/blog"
+    parent = "flu"
+    name = "Delphi's Influenca Task Group"
+    url = "/flu/"
+    weight = 1
+[[menu.main]]
+    identifier = "flu-nowcast"
+    parent = "flu"
+    name = "Nowcast"
+    url = "/nowcast/"
+    weight = 10
+[[menu.main]]
+    identifier = "flu-crowdcast"
+    parent = "flu"
+    name = "Crowdcast"
+    url = "/crowdcast/"
+    weight = 20
+[[menu.main]]
+    identifier = "flu-fluscores"
+    parent = "flu"
+    name = "FluScores"
+    url = "/misc/fluscores/"
+    weight = 30
+
+# forecasting
+[[menu.main]]
+    identifier = "forecasting"
+    name = "Forecasting"
+    pre = "solid/binoculars"
+    url = "/forecasting/"
     weight = 4
 [[menu.main]]
-    identifier = "github"
-    name = "GitHub"
-    pre = "brands/github"
-    url = "https://github.com/cmu-delphi/"
+    parent = "forecasting"
+    name = "Epidemiologic Forecasting"
+    url = "/forecasting/"
+    weight = 1
+[[menu.main]]
+    identifier = "forecasting-eval"
+    parent = "forecasting"
+    name = "Forecast Evaluation"
+    url = "/forecast-eval/"
+    weight = 10
+
+# tools
+[[menu.main]]
+    identifier = "tools"
+    name = "Tools"
+    pre = "solid/tools"
+    url = "/tools/"
     weight = 5
+[[menu.main]]
+    parent = "tools"
+    name = "Delphi Tools"
+    url = "/tools/"
+    weight = 1
+[[menu.main]]
+    parent = "tools"
+    name = "EpiVis"
+    url = "/epivis/"
+    weight = 10
+[[menu.main]]
+    parent = "tools"
+    name = "COVIDcast"
+    url = "/covidcast/"
+    weight = 20
+[[menu.main]]
+    parent = "tools"
+    name = "Indicator Status Overview"
+    url = "/covidcast/indicator-status"
+    weight = 30
+[[menu.main]]
+    parent = "tools"
+    name = "Dashboard Builder"
+    url = "/covidcast/dashboard"
+    weight = 40
+[[menu.main]]
+    parent = "tools"
+    name = "Forecast Evaluation"
+    url = "/forecast-eval/"
+    weight = 50
+[[menu.main]]
+    parent = "tools"
+    name = "Nowcast"
+    url = "/nowcast/"
+    weight = 60
+[[menu.main]]
+    parent = "tools"
+    name = "Crowdcast"
+    url = "/crowdcast/"
+    weight = 70
+[[menu.main]]
+    parent = "tools"
+    name = "FluScores"
+    url = "/misc/fluscores/"
+    weight = 80
+
 [[menu.main]]
     identifier = "api"
     name = "API"
     pre = "solid/database"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
-    weight = 6
+    weight = 100
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"

@@ -1,5 +1,5 @@
 ---
-title: Flu
+title: COVID-19
 layout: single
 ---
 
