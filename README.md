@@ -101,7 +101,7 @@ A shortcut is available through `npm run start:blog`.
 
 ### Create new blog file
 
-Create a new file `content/blog` with a naming convention of `YYYY-MM-DD-short-title.Rmd`. The date is the creation date. Copy the template post or another example to start with. *Note*: Starting the file with an underscore (e.g. `_2021-04-20-jj-vaccine.Rmd`), will prohibit that this file is automatically checked by the Github Action CI. This should only be used in case private data is used and thus the public CI cannot built this post.
+Create a new file `content/blog` with a naming convention of `YYYY-MM-DD-short-title.Rmd`. The date is the creation date. Copy the template post or another example to start with. *Note*: Starting the file with an underscore (e.g. `_2021-04-20-jj-vaccine.Rmd`), will stop this file from being automatically checked by the Github Action CI. Only do this when the public CI cannot build this post, if for example private data is used.
 
 In case you use new dependencies don't forget to either edit `environment.yml` or `dependencies.R`.
 A Github action should run when Rmd files changes so it will verify that the blog post can be built.
@@ -110,9 +110,9 @@ This simplifies the deployment and ensures that we have a blog post even when th
 
 ### Edit Blog Header
 
-The header of a blog files contains numerous attributes to be defined. Including name, publication date (`date`), tags, a short summary (at most 150 characters), and a list of authors. The author list `authors` is a list of people keys, see below for how to add people.
+The header of a blog file contains numerous attributes to be defined, including: name, publication date (`date`), tags, a short summary (at most 150 characters), and a list of authors. The author list `authors` is a list of people keys, see below for how to add people.
 
-The `heroImage` is an optional hero image banner. The image is optional but its thumbnail version is not. However, the template post has good default value for this one. The hero image should be a JPG file with 1120x440 pixels. The thumbnail hero image should be JPG file with 300x200 pixels. The files should be stored in `/content/blog/images`.
+The `heroImage` is an optional hero image banner. The image is optional but its thumbnail version is not. However, the template post has good default value for this one. The hero image should be a JPG file with 1120x440 pixels. The thumbnail hero image should be a JPG file with 300x200 pixels. The files should be stored in `/content/blog/images`.
 
 The `related` list is a list of related blog links identified by their file name without the Rmd suffix.
 
@@ -122,15 +122,15 @@ In order to generate links that are relative to the whole website there are two 
 
 #### Linking to another page
 
-using the `reflink` shortcode. e.g., `r blogdown::shortcode_html("reflink", "2020-09-18-google-survey", "Google")`, will generate a relative link to the blog post with the filename `2020-09-18-google-survey` and the link has a label of `Google`.
+using the `reflink` shortcode. For example, `r blogdown::shortcode_html("reflink", "2020-09-18-google-survey", "Google")` will generate a relative link to the blog post with the filename `2020-09-18-google-survey` and anchor text `Google`.
 
 #### Linking to the API docs
 
-using the `apireflink` shortcode. e.g., `r blogdown::shortcode_html("apireflink", "api/covidcast.html", "COVIDcast API")` will generate a link to the API docs and its sub page `api/covidcast.html` and will look like: [`COVIDcast API`](https://cmu-delphi.github.io/delphi-epidata/).
+using the `apireflink` shortcode. For example, `r blogdown::shortcode_html("apireflink", "api/covidcast.html", "COVIDcast API")` will generate a link to the API docs and its sub page `api/covidcast.html` and will look like: [`COVIDcast API`](https://cmu-delphi.github.io/delphi-epidata/).
 
 ### Creating wide figures
 
-In case of a wide figure, one can breakout the layout by adding the `out.extra = 'class="wide-figure"'` extra argument to the corresponding R chunk.
+In case of a wide figure, one can break out of the layout by adding the `out.extra = 'class="wide-figure"'` extra argument to the corresponding R chunk.
 
 e.g.,
 ```
@@ -140,7 +140,7 @@ ggplot(...)
 
 ### Adding static images
 
-Static images (e.g. pre-generated plots) should be stored in `/static/blog/<BLOGFILE_NAME>_files` directory and referenced using something like
+Static images (e.g. pre-generated plots) should be stored in a `/static/blog/<BLOGFILE_NAME>_files` directory and referenced using something like
 
 ```
 ![](/blog/2021-04-29-vaccine-trends-hispanic_files/hesitancy_over_time_hispanic_and_white_adults.png)
@@ -148,14 +148,14 @@ Static images (e.g. pre-generated plots) should be stored in `/static/blog/<BLOG
 
 ### Building the blog file
 
-see before using `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE, build_rmd="content/blog/<NAME>.Rmd")'` where `<NAME>` should be replaced by the name of the Rmd file. The generated files should be commited to this repository to ensure reproducibility.
+see before using `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE, build_rmd="content/blog/<NAME>.Rmd")'` where `<NAME>` should be replaced by the name of the Rmd file. **The generated files should be committed to this repository to ensure reproducibility.**
 
 
 ## Adding new people (team, blog authors)
 
-People on this website are centrally managed in the `/content/people/index.md` file. Each entry should have the following entries
+People on this website are centrally managed in the `/content/people/index.md` file. Each entry should have the following attributes:
 
- * `key` ... short key to identify this person when referencing it in the blog section
+ * `key` ... short key to identify this person when referencing them in the blog section
  * `firstName`, `lastName`, `affiliation`
  * `image` ... name of the head shot image (preferred 500x500px in JPG format) stored in `/content/people/headshots`
  * `description` ... used within the blog footer as an about the author text
@@ -165,7 +165,7 @@ People on this website are centrally managed in the `/content/people/index.md` f
     * `core` ... core member
     * `blog` ... blog author
     * `highlight` ... highlight person on front page
-    * `external` ... external person don't be listed in the teams page
+    * `external` ... external person not to be listed in the teams page
     * `past` ... past member team section
     * `leadership` ... ryan and roni
     * `contributors` ... contributor team section
@@ -174,7 +174,7 @@ People on this website are centrally managed in the `/content/people/index.md` f
 
 ## Adding new news item
 
-News items are short announcement that should be persistent. The are centrally managed in the `/content/news/headless` directory. Each news item is its own file with a content, title, and publication date.
+News items are short announcements that should be persistent. The are centrally managed in the `/content/news/headless` directory. Each news item is its own file with content, title, and publication date.
 
 ## Release Process
 
@@ -190,4 +190,3 @@ The release consists of multiple steps which can be all done via the GitHub webs
    1. create docker image and the production system will be notified to pull this update
 1. Once the jobs are completed the new release should be available at https://delphi.cmu.edu within minutes.
 1. Done
-
