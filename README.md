@@ -79,6 +79,8 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
 1. Activate the environment: `conda activate www-main`
 1. Install extra R dependencies: `Rscript ./dependencies.R`
 
+As an alternative you can use Docker and Docker Compose. Then it reduces to `docker-compose up -d` to create a docker container for the current environment. In the following you would need to jump into the container to execute the upcoming command via `docker-compose exec r bash`.
+
 #### Commands
 
 1. Activate the environment: `conda activate www-main`
@@ -93,15 +95,88 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
 blogdown also has an integrated server `blogdown::serve_site()` which will render RMarkdown files on the fly and does a similar thing as `hugo server -D`.
 A shortcut is available through `npm run start:blog`.
 
-#### Adding a new blog post
+## Adding a new blog post
+
+*Prerequisite*: Installed Blog Editor environment from the previous section
+
+### Create new blog file
+
+Create a new file `content/blog` with a naming convention of `YYYY-MM-DD-short-title.Rmd`. The date is the creation date. Copy the template post or another example to start with. *Note*: Starting the file with an underscore (e.g. `_2021-04-20-jj-vaccine.Rmd`), will prohibit that this file is automatically checked by the Github Action CI. This should only be used in case private data is used and thus the public CI cannot built this post.
 
 In case you use new dependencies don't forget to either edit `environment.yml` or `dependencies.R`.
-A Github action should runs when Rmd files changes so it will verify that the blog post can be built.
+A Github action should run when Rmd files changes so it will verify that the blog post can be built.
 However, the converted HTML file along with all generated images are committed to the repository.
 This simplifies the deployment and ensures that we have a blog post even when the API or data changes.
 
+### Edit Blog Header
 
-### Release Process
+The header of a blog files contains numerous attributes to be defined. Including name, publication date (`date`), tags, a short summary (at most 150 characters), and a list of authors. The author list `authors` is a list of people keys, see below for how to add people.
+
+The `heroImage` is an optional hero image banner. The image is optional but its thumbnail version is not. However, the template post has good default value for this one. The hero image should be a JPG file with 1120x440 pixels. The thumbnail hero image should be JPG file with 300x200 pixels. The files should be stored in `/content/blog/images`.
+
+The `related` list is a list of related blog links identified by their file name without the Rmd suffix.
+
+### Linking within the blog post
+
+In order to generate links that are relative to the whole website there are two short codes for R Markdown available.
+
+#### Linking to another page
+
+using the `reflink` shortcode. e.g., `r blogdown::shortcode_html("reflink", "2020-09-18-google-survey", "Google")`, will generate a relative link to the blog post with the filename `2020-09-18-google-survey` and the link has a label of `Google`.
+
+#### Linking to the API docs
+
+using the `apireflink` shortcode. e.g., `r blogdown::shortcode_html("apireflink", "api/covidcast.html", "COVIDcast API")` will generate a link to the API docs and its sub page `api/covidcast.html` and will look like: [`COVIDcast API`](https://cmu-delphi.github.io/delphi-epidata/).
+
+### Creating wide figures
+
+In case of a wide figure, one can breakout the layout by adding the `out.extra = 'class="wide-figure"'` extra argument to the corresponding R chunk.
+
+e.g.,
+```
+{r, message = FALSE, warning = FALSE, fig.width = 9, fig.height = 5, out.extra = 'class="wide-figure"'}
+ggplot(...)
+```
+
+### Adding static images
+
+Static images (e.g. pre-generated plots) should be stored in `/static/blog/<BLOGFILE_NAME>_files` directory and referenced using something like
+
+```
+![](/blog/2021-04-29-vaccine-trends-hispanic_files/hesitancy_over_time_hispanic_and_white_adults.png)
+```
+
+### Building the blog file
+
+see before using `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE, build_rmd="content/blog/<NAME>.Rmd")'` where `<NAME>` should be replaced by the name of the Rmd file. The generated files should be commited to this repository to ensure reproducibility.
+
+
+## Adding new people (team, blog authors)
+
+People on this website are centrally managed in the `/content/people/index.md` file. Each entry should have the following entries
+
+ * `key` ... short key to identify this person when referencing it in the blog section
+ * `firstName`, `lastName`, `affiliation`
+ * `image` ... name of the head shot image (preferred 500x500px in JPG format) stored in `/content/people/headshots`
+ * `description` ... used within the blog footer as an about the author text
+ * `note` ...optional note about past contributors
+ * `link` ... optional used for linking to a personal website
+ * `team` ... list of teams this person is part of. used to assign places on the teams page. possible values are:
+    * `core` ... core member
+    * `blog` ... blog author
+    * `highlight` ... highlight person on front page
+    * `external` ... external person don't be listed in the teams page
+    * `past` ... past member team section
+    * `leadership` ... ryan and roni
+    * `contributors` ... contributor team section
+    * `google` ... google team section
+
+
+## Adding new news item
+
+News items are short announcement that should be persistent. The are centrally managed in the `/content/news/headless` directory. Each news item is its own file with a content, title, and publication date.
+
+## Release Process
 
 The release consists of multiple steps which can be all done via the GitHub website:
 
