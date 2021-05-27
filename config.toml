@@ -19,12 +19,12 @@ relativeURLs = false
 # About
 [[menu.main]]
     parent = "about"
-    name = "Delphi Research Group"
+    name = "About Delphi"
     url = "/about"
     weight = 1
 [[menu.main]]
     parent = "about"
-    name = "Team"
+    name = "Our Team"
     url = "/about/team"
     weight = 2
 [[menu.main]]
@@ -34,7 +34,7 @@ relativeURLs = false
     weight = 3
 [[menu.main]]
     parent = "about"
-    name = "Publications"
+    name = "Research & White Papers"
     url = "/about/publications"
     weight = 4
 [[menu.main]]
@@ -47,11 +47,6 @@ relativeURLs = false
     name = "News"
     url = "/about/news"
     weight = 6
-[[menu.main]]
-    parent = "about"
-    name = "Delphi on GitHub"
-    url = "https://github.com/cmu-delphi/"
-    weight = 7
 
 # covid19
 [[menu.main]]
@@ -123,25 +118,6 @@ relativeURLs = false
     url = "/misc/fluscores/"
     weight = 30
 
-# forecasting
-[[menu.main]]
-    identifier = "forecasting"
-    name = "Forecasting"
-    pre = "solid/binoculars"
-    url = "/forecasting/"
-    weight = 4
-[[menu.main]]
-    parent = "forecasting"
-    name = "Epidemiologic Forecasting"
-    url = "/forecasting/"
-    weight = 1
-[[menu.main]]
-    identifier = "forecasting-eval"
-    parent = "forecasting"
-    name = "Forecast Evaluation"
-    url = "/forecast-eval/"
-    weight = 10
-
 # tools
 [[menu.main]]
     identifier = "tools"
@@ -194,6 +170,15 @@ relativeURLs = false
     name = "FluScores"
     url = "/misc/fluscores/"
     weight = 80
+
+
+[[menu.main]]
+    identier = "github"
+    pre = "brands/github"
+    name = "GitHub"
+    url = "https://github.com/cmu-delphi/"
+    weight = 90
+
 
 [[menu.main]]
     identifier = "api"
