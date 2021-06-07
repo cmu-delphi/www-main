@@ -3,8 +3,8 @@
     <a href="{{ .RelPermalink }}">
       {{ $img := ($.GetPage "/blog/images").Resources.GetMatch .Params.heroImageThumb }}
       <picture>
-        <source srcset="{{ ($img.Resize "300x200 webp").RelPermalink }}" type="image/webp" />
-        <img src="{{ ($img.Resize "300x200 jpg").RelPermalink }}" width="300" height="200" alt="{{ .Title }}" />
+        <source srcset="{{ ($img.Resize "300x webp q85 Gaussian").RelPermalink }}" type="image/webp" />
+        <img src="{{ ($img).RelPermalink }}" width="300" height="200" alt="{{ .Title }}" />
       </picture>
     </a>
   </div>
