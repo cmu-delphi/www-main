@@ -61,6 +61,12 @@ relativeURLs = false
     url = "/covid19/"
     weight = 1
 [[menu.main]]
+    identifier = "covid19-covidcast"
+    parent = "covid19"
+    name = "COVIDcast"
+    url = "/covidcast/"
+    weight = 20
+[[menu.main]]
     parent = "covid19"
     name = "Surveys"
     url = "/covidcast/surveys"
@@ -70,12 +76,6 @@ relativeURLs = false
     name = "Survey Results"
     url = "/covidcast/survey-results"
     weight = 11
-[[menu.main]]
-    identifier = "covid19-covidcast"
-    parent = "covid19"
-    name = "COVIDcast"
-    url = "/covidcast/"
-    weight = 20
 [[menu.main]]
     parent = "covid19"
     name = "Export Data"
@@ -90,13 +90,13 @@ relativeURLs = false
 # flu
 [[menu.main]]
     identifier = "flu"
-    name = "Flu"
+    name = "Flu & Other Pathogens"
     pre = "solid/disease"
     url = "/flu/"
     weight = 3
 [[menu.main]]
     parent = "flu"
-    name = "Delphi's Influenca Task Group"
+    name = "Delphi Systems for Flu and Other Diseases"
     url = "/flu/"
     weight = 1
 [[menu.main]]
