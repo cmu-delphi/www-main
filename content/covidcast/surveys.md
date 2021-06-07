@@ -52,14 +52,15 @@ Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}})
 
 ### Publications
 
-- J. Lessler, M. K. Grabowski, K. H. Grantz, E. Badillo-Goicoechea, C. J. E. Metcalf, C. Lupton-Smith, A. S. Azman, and E. A. Stuart (2021). [Household COVID-19 risk and in-person schooling](https://doi.org/10.1126/science.abh2939). *Science*.
+- C. M. Zipfel, V. Colizza, and S. Bansal (2021). [The missing season: The impacts of the COVID-19 pandemic on influenza](https://doi.org/10.1016/j.vaccine.2021.05.049). *Vaccine*.
+- J. Lessler, M. K. Grabowski, K. H. Grantz, E. Badillo-Goicoechea, C. J. E. Metcalf, C. Lupton-Smith, A. S. Azman, and E. A. Stuart (2021). [Household COVID-19 risk and in-person schooling](https://doi.org/10.1126/science.abh2939). *Science* 372 (6545), 1092-1097.
 - Doerr, A.J. (2021). [Locked (Down) and Loaded (Language): Effect of Policy and Speech on COVID-19 Outcomes](https://doi.org/10.1177/15480518211012404). *Journal of Leadership & Organizational Studies*.
 - Bilinski, A., Emanuel, E., Salomon, J.A. and Venkataramani, A. (2021). [Better Late Than Never: Trends in COVID-19 Infection Rates, Risk Perceptions, and Behavioral Responses in the USA](https://doi.org/10.1007/s11606-021-06633-8). *Journal of General Internal Medicine*.
 - Molteni, E., Astley, C.M., Ma, W. et al. (2021). [Symptoms and syndromes associated with SARS-CoV-2 infection and severity in pregnant women from two community cohorts](https://doi.org/10.1038/s41598-021-86452-3). *Scientific Reports* 11, 6928.
 - Rebeiro, P., Aronoff, D, and Smith, M.K. (2021). [The Impact of State Mask-Wearing Requirements on the Growth of COVID-19 Cases, Hospitalizations, and Deaths in the United States](https://doi.org/10.1093/cid/ciab101). *Clinical Infectious Diseases*, ciab101.
-- Rader, White, Burns, Chen, Brilliant, Cohen, Shaman, Brilliant, Kraemer, Moritz, Hawkins, Scarpino, Astley, and Brownstein (2021). [Mask-wearing and control of SARS-CoV-2 transmission in the USA: a cross-sectional study](https://doi.org/10.1016/S2589-7500(20)30293-4). *Lancet Digital Health* volume 3, issue 3, e148-e157.
+- Rader, White, Burns, Chen, Brilliant, Cohen, Shaman, Brilliant, Kraemer, Moritz, Hawkins, Scarpino, Astley, and Brownstein (2021). [Mask-wearing and control of SARS-CoV-2 transmission in the USA: a cross-sectional study](https://doi.org/10.1016/S2589-7500(20)30293-4). *Lancet Digital Health* 3 (3), e148-e157.
 -  Flaxman AD, Henning DJ and Duber HC (2020). [The relative incidence of COVID-19 in healthcare workers versus non-healthcare workers: evidence from a web-based survey of Facebook users in the United States](https://doi.org/10.12688/gatesopenres.13202.1). *Gates Open Research*, 4:174.
-- Kreuter, F., Barkay, N., Bilinski, A., Bradford, A., Chiu, S., Eliat, R., Fan, J., Galili, T., Haimovich, D., Kim, B., LaRocca, S., Li, Y., Morris, K., Presser, S., Sarig, T., Salomon, J. A., Stewart, K., Stuart, E. A., & Tibshirani, R. J. (2020). [Partnering with a global platform to inform research and public policy making](https://doi.org/10.18148/srm/2020.v14i2.7761). *Survey Research Methods*, 14(2), 159-163.
+- Kreuter, F., Barkay, N., Bilinski, A., Bradford, A., Chiu, S., Eliat, R., Fan, J., Galili, T., Haimovich, D., Kim, B., LaRocca, S., Li, Y., Morris, K., Presser, S., Sarig, T., Salomon, J. A., Stewart, K., Stuart, E. A., & Tibshirani, R. J. (2020). [Partnering with a global platform to inform research and public policy making](https://doi.org/10.18148/srm/2020.v14i2.7761). *Survey Research Methods*, 14 (2), 159-163.
 
 If you have used the survey data, or the aggregate data available in the COVIDcast API, to publish research results, please [contact us](#who-can-i-contact) so we can include your work here.
 
