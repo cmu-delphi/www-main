@@ -328,9 +328,9 @@ plot_one = function(geo_value, title = NULL, xlab = NULL,
   trans21 = function(x) trans(x, range2, range1)
 
   # Find state name, find abbreviation, then set title
-  state_name = fips_to_name(paste0(substr(geo_value, 1, 2), "000"))
+  state_name = state_fips_to_name(paste0(substr(geo_value, 1, 2), "000"))
   state_abbr = name_to_abbr(state_name)
-  title = paste0(fips_to_name(geo_value), ", ", state_abbr)
+  title = paste0(county_fips_to_name(geo_value), ", ", state_abbr)
 
   # Transform the combined signal to the incidence range, then stack
   # these rowwise into one data frame
