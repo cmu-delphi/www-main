@@ -5,10 +5,11 @@ on:
     paths: # run only when an Rmd file changes
       - "**.Rmd"
       - "environment.yml"
+      - "dependencies.R"
       - ".github/workflows/blog.yaml"
 
 jobs:
-  build:
+  blog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,7 +17,7 @@ jobs:
           # submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 3
       - name: Cache Conda
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v2.1.6
         with:
           path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda6-${{ hashFiles('environment.yml') }}
@@ -42,7 +43,7 @@ jobs:
         run: |
           Rscript ./dependencies.R
       - name: Restore Blogdown Cache
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v2.1.6
         with:
           path: |
             ./blogdown
@@ -65,7 +66,7 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         with:
           node-version: "12"
-      - uses: actions/cache@v2.1.5
+      - uses: actions/cache@v2.1.6
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}

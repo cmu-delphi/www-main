@@ -1,0 +1,11 @@
+{{ define "styles" }}
+  <link rel="stylesheet" href="{{ (partial "epivis/find-file.html" "bundle.*\\.css$")| relURL }}" />
+{{ end }}
+{{ define "scripts" }}
+  <script src="{{ (partial "epivis/find-file.html" "bundle.*\\.js$")| relURL }}"></script>
+{{ end }}
+{{ define "breadcrumb" }}<!-- no breadcrumb -->{{ end }}
+{{ define "body_class" }}{{ if eq .Params.footer false }}covidcast_wrapper{{ end }}{{ end }}
+{{ define "main" }}
+  <div id="epivis"></div>
+{{ end }}

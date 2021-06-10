@@ -7,3 +7,5 @@ UIkit.use(plugin);
 window.UIkit = UIkit;
 // define for covidcast at which base url it is embedded
 window.DELPHI_COVIDCAST_PAGE = "/covidcast/";
+// define for covidcast at which base url it is embedded
+window.DELPHI_EPIVIS_PAGE = "/epivis/";

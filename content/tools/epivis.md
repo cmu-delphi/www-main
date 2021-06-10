@@ -1,6 +1,6 @@
 ---
 title: EpiVis
-link: https://delphi.cmu.edu/epivis/epivis.html
+link: /epivis/
 order: 1
 ---
 

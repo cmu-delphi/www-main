@@ -10,8 +10,8 @@
         <div class="card-grid-item uk-card uk-card-default uk-card-small">
           <div class="card-grid-item-date">{{ .Date.Format "Jan _2" }}</div>
           <picture>
-            <source srcset="{{ ($img.Resize "300x200 webp").RelPermalink }}" type="image/webp" />
-            <img class="card-grid-item-img" src="{{ $img.RelPermalink }}" width="300" height="200" alt="{{ .Title }}" />
+            <source srcset="{{ ($img.Resize "300x webp Gaussian").RelPermalink }}" type="image/webp" />
+            <img class="card-grid-item-img" src="{{ $img.RelPermalink }}" width="300" height="300" alt="{{ .Title }}" />
           </picture>
           <div class="uk-flex uk-flex-column">
             <div class="uk-card-body uk-flex-1">
