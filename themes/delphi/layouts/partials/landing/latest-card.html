@@ -1,8 +1,8 @@
 <div class="uk-card uk-card-default latest-card uk-card-small uk-flex uk-flex-column">
   <div class="uk-card-media-top">
     <picture>
-      <source srcset="{{ (.img.Resize "300x200 webp").RelPermalink }}" type="image/webp" />
-      <img src="{{ (.img.Resize "300x200 jpg").RelPermalink }}" width="300" height="200" alt="{{ .title }}" />
+      <source srcset="{{ (.img.Resize "300x webp Gaussian").RelPermalink }}" type="image/webp" />
+      <img src="{{ (.img.Resize "300x jpg Gaussian").RelPermalink }}" width="300" height="300" alt="{{ .title }}" />
     </picture>
   </div>
   <div class="uk-card-body">

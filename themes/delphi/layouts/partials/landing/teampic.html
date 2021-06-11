@@ -2,8 +2,8 @@
   {{ $team := where (partial "get-persons.html" .) ".team" "intersect" (slice .team) }}
   {{ range first 8 $team }}
     <picture>
-      <source srcset="{{ (.img.Resize "150x150 webp").RelPermalink }}" type="image/webp" />
-      <img src="{{ (.img.Resize "150x150 jpg").RelPermalink }}" alt="{{ .name }}" width="150" height="150" />
+      <source srcset="{{ (.img.Resize "150x webp Gaussian").RelPermalink }}" type="image/webp" />
+      <img src="{{ (.img.Resize "150x jpg Gaussian").RelPermalink }}" alt="{{ .name }}" width="150" height="150" />
     </picture>
   {{ end }}
 </div>

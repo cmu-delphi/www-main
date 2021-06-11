@@ -112,7 +112,7 @@ This simplifies the deployment and ensures that we have a blog post even when th
 
 The header of a blog file contains numerous attributes to be defined, including: name, publication date (`date`), tags, a short summary (at most 150 characters), and a list of authors. The author list `authors` is a list of people keys, see below for how to add people.
 
-The `heroImage` is an optional hero image banner. The image is optional but its thumbnail version is not. However, the template post has good default value for this one. The hero image should be a JPG file with 1120x440 pixels. The thumbnail hero image should be a JPG file with 300x200 pixels. The files should be stored in `/content/blog/images`.
+The `heroImage` is an optional hero image banner. The image is optional but its thumbnail version is not. However, the template post has good default value for this one. The hero image should be a JPG file with 1120x440 pixels. The thumbnail hero image should be a JPG file with 300x300 pixels. The files should be stored in `/content/blog/images`.
 
 The `related` list is a list of related blog links identified by their file name without the Rmd suffix.
 
