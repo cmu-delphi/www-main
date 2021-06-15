@@ -68,7 +68,7 @@ relativeURLs = false
     weight = 4
 [[menu.main]]
     parent = "covidcast"
-    name = "COVIDCast Dashboard"
+    name = "Dashboard Builder"
     url = "/covidcast/dashboard"
     weight = 20
 [[menu.main]]
