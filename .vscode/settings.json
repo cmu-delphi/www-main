@@ -2,6 +2,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "modifications",
+  "prettier.prettierPath": "./node_modules/prettier",
   "[scss]": {
     "files.trimTrailingWhitespace": true,
     "editor.formatOnSave": true,
@@ -16,5 +17,6 @@
     "files.trimTrailingWhitespace": true,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "prettier.enableDebugLogs": true
 }
