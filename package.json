@@ -8,7 +8,7 @@
     "katex": "^0.13.11",
     "uikit": "^3.6.22",
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.5.0/www-covidcast-2.5.0.tgz",
-    "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.0.0/www-epivis-2.0.0.tgz"
+    "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.0.1/www-epivis-2.0.1.tgz"
   },
   "devDependencies": {
     "hugo-bin": "^0.71.1",
