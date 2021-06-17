@@ -68,6 +68,11 @@ relativeURLs = false
     weight = 4
 [[menu.main]]
     parent = "covidcast"
+    name = "Dashboard Builder"
+    url = "/covidcast/dashboard"
+    weight = 20
+[[menu.main]]
+    parent = "covidcast"
     name = "Classic Map"
     url = "/covidcast/classic"
     weight = 30
@@ -148,4 +153,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
-    highlightLinks = "/covidcast/correlation,/covidcast/data-anomalies"
+    highlightLinks = "/covidcast/dashboard"
