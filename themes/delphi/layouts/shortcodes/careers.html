@@ -1,0 +1,14 @@
+{{ $careers := .Site.GetPage "/about/careers/headless" }}
+<div class="card-grid careers-grid">
+  {{ range (sort ($careers.Resources.ByType "page") ".PublishDate" "desc") }}
+    <div class="card-grid-item uk-card uk-card-default uk-card-small">
+      <div class="card-grid-item-date">{{ .PublishDate.Format "Jan 2006" }}</div>
+      <div class="uk-flex uk-flex-column">
+        <div class="uk-card-body uk-flex-1">
+          <h3 class="uk-card-title">{{ .Title }}</h3>
+          <div>{{ .Content }}</div>
+        </div>
+      </div>
+    </div>
+  {{ end }}
+</div>
