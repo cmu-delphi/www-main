@@ -40,8 +40,9 @@ To account for the differences between Facebook users and the United States popu
 
 Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}}) shows aggregate survey results, ranging from rates of COVID-like symptoms over mask usage to mental health. In addition, our [COVIDcast dashboard]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States. The data used by both tools is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}) and our [COVIDcast Exporter]({{< relref "covidcast/export" >}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
 
-### Blog posts and presentations
+### Blog posts and reports
 
+- Surgo Ventures, Resolve to Save Lives (2021). [COVID-19 Vaccine Precision Response Toolkit: An End-to-End Vaccination Improvement Framework to Improve COVID-19 Vaccine Uptake](https://surgoventures.org/resource-library/increasing-covid-19vaccine-uptake-a-four-step-framework-to-promote-access-acceptance-and-equity).
 - Alejandra Arrieta, Emmanuela Gakidou, Heidi Larson, Erin Mullany, and Christopher Troeger, April 1, 2021. [Through Understanding and Empathy, We Can Convince Women to Get the COVID-19 Vaccine](https://www.thinkglobalhealth.org/article/through-understanding-and-empathy-we-can-convince-women-get-covid-19-vaccine). Think Global Health.
 - Joseph Friedman, Silvia Montoya and Emmanuela Gakidou, March 8, 2021. [Gender Equality in the Global Return to School](https://www.thinkglobalhealth.org/article/gender-equality-global-return-school). Think Global Health.
 - Leanna Morinishi, Kris Barkume, Esther Kim, and Alex Reinhart, February 2, 2021. [Home for the Holidays? The Impact of US Holidays on Social Behaviors and Preventative Measures]({{< relref "2021-01-22-holiday-surveys" >}}). Delphi blog.
@@ -55,6 +56,7 @@ Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}})
 - C. M. Zipfel, V. Colizza, and S. Bansal (2021). [The missing season: The impacts of the COVID-19 pandemic on influenza](https://doi.org/10.1016/j.vaccine.2021.05.049). *Vaccine*.
 - J. Lessler, M. K. Grabowski, K. H. Grantz, E. Badillo-Goicoechea, C. J. E. Metcalf, C. Lupton-Smith, A. S. Azman, and E. A. Stuart (2021). [Household COVID-19 risk and in-person schooling](https://doi.org/10.1126/science.abh2939). *Science* 372 (6545), 1092-1097.
 - Doerr, A.J. (2021). [Locked (Down) and Loaded (Language): Effect of Policy and Speech on COVID-19 Outcomes](https://doi.org/10.1177/15480518211012404). *Journal of Leadership & Organizational Studies*.
+- Fischer CB, Adrien N, Silguero JJ, Hopper JJ, Chowdhury AI, Werler MM (2021). [Mask adherence and rate of COVID-19 across the United States](https://doi.org/10.1371/journal.pone.0249891). *PLoS ONE* 16 (4), e0249891.
 - Bilinski, A., Emanuel, E., Salomon, J.A. and Venkataramani, A. (2021). [Better Late Than Never: Trends in COVID-19 Infection Rates, Risk Perceptions, and Behavioral Responses in the USA](https://doi.org/10.1007/s11606-021-06633-8). *Journal of General Internal Medicine*.
 - Molteni, E., Astley, C.M., Ma, W. et al. (2021). [Symptoms and syndromes associated with SARS-CoV-2 infection and severity in pregnant women from two community cohorts](https://doi.org/10.1038/s41598-021-86452-3). *Scientific Reports* 11, 6928.
 - Rebeiro, P., Aronoff, D, and Smith, M.K. (2021). [The Impact of State Mask-Wearing Requirements on the Growth of COVID-19 Cases, Hospitalizations, and Deaths in the United States](https://doi.org/10.1093/cid/ciab101). *Clinical Infectious Diseases*, ciab101.
