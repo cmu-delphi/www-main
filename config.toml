@@ -47,6 +47,11 @@ relativeURLs = false
     name = "News"
     url = "/about/news"
     weight = 6
+[[menu.main]]
+    parent = "about"
+    name = "Careers"
+    url = "/about/careers"
+    weight = 7
 
 # covid19
 [[menu.main]]
