@@ -1,5 +1,5 @@
 ---
-title: COVID-19
+title: Delphi's COVID-19 Response Team
 layout: single
 ---
 
