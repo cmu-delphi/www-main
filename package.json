@@ -9,7 +9,7 @@
     "uikit": "^3.7.0",
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.5.2/www-covidcast-2.5.2.tgz",
     "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.0.1/www-epivis-2.0.1.tgz",
-    "www-covidcast-classic": "github:cmu-delphi/www-covidcast-classic#dev"
+    "www-covidcast-classic": "https://github.com/cmu-delphi/www-covidcast-classic/releases/download/v2.5.3/www-covidcast-classic-2.5.3.tgz"
   },
   "devDependencies": {
     "hugo-bin": "^0.72.4",
