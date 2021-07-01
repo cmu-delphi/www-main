@@ -80,14 +80,14 @@ Getting access to survey data for research: [complete this form](https://datafor
 
 ### Media inquiries:
 
-[Stacy Kish](mailto:skish@andrew.cmu.edu)
-Associate Director, Research Communications
-Dietrich College
-Carnegie Mellon University
+[Stacy Kish](mailto:skish@andrew.cmu.edu)  
+Associate Director, Research Communications  
+Dietrich College  
+Carnegie Mellon University  
 
 ### All other questions:
 
-[Alex Reinhart](mailto:areinhar@stat.cmu.edu)
-Assistant Teaching Professor
-Department of Statistics & Data Science
-Carnegie Mellon University
+[Alex Reinhart](mailto:areinhar@stat.cmu.edu)  
+Assistant Teaching Professor  
+Department of Statistics & Data Science  
+Carnegie Mellon University  
