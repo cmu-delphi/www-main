@@ -111,17 +111,11 @@ relativeURLs = false
     url = "/nowcast/"
     weight = 10
 [[menu.main]]
-    identifier = "flu-crowdcast"
-    parent = "flu"
-    name = "Crowdcast"
-    url = "/crowdcast/"
-    weight = 20
-[[menu.main]]
     identifier = "flu-fluscores"
     parent = "flu"
     name = "FluScores"
     url = "/misc/fluscores/"
-    weight = 30
+    weight = 20
 
 # tools
 [[menu.main]]
@@ -167,13 +161,13 @@ relativeURLs = false
     weight = 60
 [[menu.main]]
     parent = "tools"
-    name = "Crowdcast"
-    url = "/crowdcast/"
+    name = "FluScores"
+    url = "/misc/fluscores/"
     weight = 70
 [[menu.main]]
     parent = "tools"
-    name = "FluScores"
-    url = "/misc/fluscores/"
+    name = "Archived Tools"
+    url = "/tools/archive/"
     weight = 80
 
 
