@@ -1,6 +1,10 @@
 <div
   uk-grid
-  class="team-members uk-grid-small uk-child-width-1-6@l uk-child-width-1-4@m uk-child-width-1-{{ with .Get "small" }}{{ . }}{{ else }}3{{ end }}"
+  class="team-members uk-grid-small uk-child-width-1-6@l uk-child-width-1-4@m uk-child-width-1-{{- with .Get "small" -}}
+    {{ . }}
+  {{- else -}}
+    3
+  {{- end -}}"
 >
   {{ $team := where (partial "get-persons.html" .) ".team" "intersect" (slice (.Get "team")) }}
   {{ range $team }}
@@ -18,7 +22,7 @@
           </picture>
         </a>
         <a href="{{ .link }}" class="team-member-name uk-link-muted">{{ .name | safeHTML }}</a>
-        {{ else }}
+      {{ else }}
         <picture>
           <source srcset="{{ (.img.Resize "250x webp Gaussian").RelPermalink }}" type="image/webp" />
           <img src="{{ (.img.Resize "250x jpg Gaussian").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />

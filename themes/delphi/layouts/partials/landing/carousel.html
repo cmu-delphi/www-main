@@ -19,7 +19,7 @@
               <p>{{ .title }}</p>
               {{ if isset . "ref" }}
                 {{ partial "arrow-link.html" (dict "link" (relref $currentPage .ref) "alt" .alt) }}
-                {{ else }}
+              {{ else }}
                 {{ partial "arrow-link.html" (dict "link" .link "alt" .alt) }}
               {{ end }}
             </div>
