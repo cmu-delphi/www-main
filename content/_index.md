@@ -20,9 +20,9 @@ carousel:
     alt: Explore the new COVID-19 forecast evaluation dashboard
     image: forecast_evaluation_dashboard.jpg
   - pre: Our Tools
-    title: National COVID Survey Dashboard
+    title: CTIS Survey Dashboard
     ref: covidcast/survey-results
-    alt: Explore the Survey Results
+    alt: Explore the COVID Trends and Impact Survey Results
     image: covidcast_survey.jpg
   - pre: Our Blog Post
     title: New and improved COVID Symptom Survey Tracks Testing and Mask-Wearing

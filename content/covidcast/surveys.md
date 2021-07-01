@@ -1,12 +1,12 @@
 ---
-title: Delphi's COVID-19 Surveys
+title: Delphi's COVID Trends and Impact Surveys (CTIS)
 ---
 
 {{< alert category="primary">}}
   Summary results for the survey are now available. [Click here to explore]({{< relref "covidcast/survey-results" >}})
 {{< /alert >}}
 
-In collaboration with Facebook, along with a consortium of universities and public health officials, the [Delphi group]({{< relref "/" >}}) at [Carnegie Mellon University](https://www.cmu.edu/) conducts research surveys to monitor the spread and impact of the COVID-19 pandemic in the United States. This survey is advertised through Facebook. It has run continuously since early April 2020, and about 50,000 people in the United States participate **every day**. Survey results are publicly available on our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}}), [COVIDcast Map]({{< relref "covidcast" >}}), [COVIDcast Exporter]({{< relref "covidcast/export" >}}), and in our [COVIDcast API]({{< apiref "api/covidcast.html" >}}).
+In collaboration with Facebook, along with a consortium of universities and public health officials, the [Delphi group]({{< relref "/" >}}) at [Carnegie Mellon University](https://www.cmu.edu/) conducts research surveys to monitor the spread and impact of the COVID-19 pandemic in the United States. This survey is advertised through Facebook. It has run continuously since early April 2020, and about 50,000 people in the United States participate **every day**. Survey results are publicly available on our [CTIS Survey Dashboard]({{< relref "covidcast/survey-results" >}}), [COVIDcast Map]({{< relref "covidcast" >}}), [COVIDcast Exporter]({{< relref "covidcast/export" >}}), and in our [COVIDcast API]({{< apiref "api/covidcast.html" >}}).
 
 Such detailed data has never before been available during a public health emergency, and it will help public health officials understand how to save lives and how to safely reopen public life. The data will also help researchers understand the social, economic, and health effects of the COVID-19 pandemic.
 
@@ -38,7 +38,7 @@ To account for the differences between Facebook users and the United States popu
 
 ## Where can I see the results?
 
-Our [National COVID Survey Dashboard]({{< relref "covidcast/survey-results" >}}) shows aggregate survey results, ranging from rates of COVID-like symptoms over mask usage to mental health. In addition, our [COVIDcast dashboard]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States. The data used by both tools is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}) and our [COVIDcast Exporter]({{< relref "covidcast/export" >}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
+Our [CTIS Survey Dashboard]({{< relref "covidcast/survey-results" >}}) shows aggregate survey results, ranging from rates of COVID-like symptoms over mask usage to mental health. In addition, our [COVIDcast dashboard]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States. The data used by both tools is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}) and our [COVIDcast Exporter]({{< relref "covidcast/export" >}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
 
 ### Blog posts and reports
 
@@ -80,14 +80,14 @@ Getting access to survey data for research: [complete this form](https://datafor
 
 ### Media inquiries:
 
-[Stacy Kish](mailto:skish@andrew.cmu.edu)  
-Associate Director, Research Communications  
-Dietrich College  
+[Stacy Kish](mailto:skish@andrew.cmu.edu)
+Associate Director, Research Communications
+Dietrich College
 Carnegie Mellon University
 
 ### All other questions:
 
-[Alex Reinhart](mailto:areinhar@stat.cmu.edu)  
-Assistant Teaching Professor  
-Department of Statistics & Data Science  
+[Alex Reinhart](mailto:areinhar@stat.cmu.edu)
+Assistant Teaching Professor
+Department of Statistics & Data Science
 Carnegie Mellon University
