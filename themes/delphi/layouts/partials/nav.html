@@ -11,14 +11,16 @@
     <ul class="uk-navbar-nav nav-entries">
       {{ range .Site.Menus.main.ByWeight }}
         <li
-          class="nav-entry {{ if (eq $currentPage.Section .Identifier) }}uk-active{{ end }} {{ if .HasChildren }}uk-parent{{ end }}"
+          class="nav-entry {{- if (eq $currentPage.Section .Identifier) -}}uk-active{{- end -}} {{- if .HasChildren -}}
+            uk-parent
+          {{- end -}}"
         >
           {{ if .HasChildren }}
             <a href="{{ .URL | relLangURL }}">
               {{ partial "menu/item.html" . }}
               {{ partial "font-awesome.html" "solid/angle-down" }}
             </a>
-            {{ else }}
+          {{ else }}
             <a href="{{ .URL | relLangURL }}">
               {{ partial "menu/item.html" . }}
             </a>
@@ -50,7 +52,9 @@
           <ul class="uk-nav uk-navbar-dropdown-nav">
             {{ range .Site.Menus.main.ByWeight }}
               <li
-                class="nav-dropdown-parent {{ if .HasChildren }}uk-nav-header{{ end }} {{ if (eq $currentPage.Section .Identifier) }}uk-active{{ end }}"
+                class="nav-dropdown-parent {{ if .HasChildren -}}
+                  uk-nav-header
+                {{- end -}} {{ if (eq $currentPage.Section .Identifier) -}}uk-active{{- end -}}"
               >
                 <a href="{{ .URL | relLangURL }}">
                   {{ partial "menu/item.html" . }}

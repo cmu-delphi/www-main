@@ -3,8 +3,7 @@
   <link rel="stylesheet" href="{{ $blog_style.RelPermalink }}" />
 {{ end }}
 {{ define "scripts" }}
-  {{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}
-  <script src="{{ $script_blog.RelPermalink }}"></script>
+  {{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}  <script src="{{ $script_blog.RelPermalink }}"></script>
 {{ end }}
 {{ define "main" }}
   {{ $currentPage := . }}
@@ -33,7 +32,7 @@
             <span class="uk-icon-button">
               {{ if gt (len .Params.authors) 1 }}
                 {{ partial "font-awesome.html" "solid/users" }}
-                {{ else }}
+              {{ else }}
                 {{ partial "font-awesome.html" "solid/user" }}
               {{ end }}
             </span>
@@ -78,7 +77,7 @@
         {{ with (partial "get-person.html" (dict "Site" $currentPage.Site "key" .)) }}
           {{ if isset . "link" }}
             <a href="{{ .link }}" class="uk-text-bold-600 uk-link-text">{{ .name | safeHTML }}</a>
-            {{ else }}
+          {{ else }}
             <span>{{ .name | safeHTML }}</span>
           {{ end }}
           {{ .description }}

@@ -6,16 +6,16 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "highlight.js": "^11.0.1",
     "katex": "^0.13.11",
-    "uikit": "^3.6.22",
+    "uikit": "^3.7.0",
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.5.2/www-covidcast-2.5.2.tgz",
     "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.0.1/www-epivis-2.0.1.tgz"
   },
   "devDependencies": {
-    "hugo-bin": "^0.72.3",
-    "husky": "^6.0.0",
+    "hugo-bin": "^0.72.4",
+    "husky": "^7.0.0",
     "lint-staged": "^11.0.0",
-    "prettier": "~2.2.1",
-    "prettier-plugin-go-template": "^0.0.10",
+    "prettier": "^2.3.2",
+    "prettier-plugin-go-template": "^0.0.11",
     "rimraf": "^3.0.2",
     "shx": "^0.3.3"
   },
