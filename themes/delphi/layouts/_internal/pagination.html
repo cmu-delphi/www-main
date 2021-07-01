@@ -1,10 +1,10 @@
 {{ $pag := $.Paginator }}
 {{ if gt $pag.TotalPages 1 -}}
   <ul class="uk-pagination uk-flex-center">
-    <li class="{{ if not $pag.HasPrev }} uk-disabled{{ end }}">
+    <li class="{{ if not $pag.HasPrev }}uk-disabled{{ end }}">
       {{ if $pag.HasPrev }}
         <a href="{{ $pag.Prev.URL }}" aria-label="Previous"><span uk-pagination-previous></span></a>
-        {{ else }}
+      {{ else }}
         <a aria-label="Previous"><span uk-pagination-previous></span></a>
       {{ end }}
     </li>
@@ -18,24 +18,24 @@
       {{- if $showNumber -}}
         {{- $ellipsed = false -}}
         {{- $shouldEllipse = false -}}
-        {{- else -}}
+      {{- else -}}
         {{- $shouldEllipse = not $ellipsed -}}
         {{- $ellipsed = true -}}
       {{- end -}}
       {{- if $showNumber }}
-        <li class="{{ if eq . $pag }} uk-active{{ end }}">
+        <li class="{{ if eq . $pag }}uk-active{{ end }}">
           <a href="{{ .URL }}">{{ .PageNumber }}</a>
         </li>
-        {{- else if $shouldEllipse }}
+      {{- else if $shouldEllipse }}
         <li class="uk-disabled">
           <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
         </li>
       {{- end -}}
     {{- end }}
-    <li class="{{ if not $pag.HasNext }} uk-disabled{{ end }}">
+    <li class="{{ if not $pag.HasNext }}uk-disabled{{ end }}">
       {{ if $pag.HasNext }}
         <a href="{{ $pag.Next.URL }}" aria-label="Next"><span uk-pagination-next></span></a>
-        {{ else }}
+      {{ else }}
         <a aria-label="Next"><span uk-pagination-next></span></a>
       {{ end }}
     </li>

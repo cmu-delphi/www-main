@@ -4,14 +4,14 @@
   <head>
     {{ partial "head/meta.html" . }}
     {{ partial "head/styles.html" . }}
-    {{ block "styles" . }} {{ end }}
+    {{ block "styles" . }}{{ end }}
   </head>
   <body class="{{ block "body_class" . }}{{ end }}">
     {{ partial "nav.html" . }}
     {{ block "breadcrumb" . }}{{ partial "menu/breadcrumb.html" . }}{{ end }}
-    {{ block "main" . }} {{ end }}
+    {{ block "main" . }}{{ end }}
     {{ partial "footer.html" . }}
     {{ partial "scripts.html" . }}
-    {{ block "scripts" . }} {{ end }}
+    {{ block "scripts" . }}{{ end }}
   </body>
 </html>

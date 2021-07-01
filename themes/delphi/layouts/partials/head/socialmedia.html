@@ -4,15 +4,27 @@
 
 <meta
   name="description"
-  content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"
+  content="{{- with .Description -}}
+    {{ . }}
+  {{- else -}}
+    {{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}
+  {{- end -}}"
 />
 <meta
   name="twitter:description"
-  content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"
+  content="{{- with .Description -}}
+    {{ . }}
+  {{- else -}}
+    {{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}
+  {{- end -}}"
 />
 <meta
   property="og:description"
-  content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"
+  content="{{- with .Description -}}
+    {{ . }}
+  {{- else -}}
+    {{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}
+  {{- end -}}"
 />
 
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
@@ -25,6 +37,7 @@
     <meta property="article:tag" content="{{ . }}" />
   {{- end -}}
 {{- end -}}
+
 
 <meta name="author" content="Delphi Group" />
 <meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
@@ -46,7 +59,7 @@
   <meta name="twitter:image" content="{{ ($img.Resize "1120x440 jpg").Permalink }}" />
   <meta property="og:image" content="{{ ($img.Resize "1120x440 jpg").Permalink }}" />
   <meta name="twitter:card" content="summary_large_image" />
-  {{- else -}}
+{{- else -}}
   <meta name="twitter:card" content="summary" />
 {{- end -}}
 
@@ -54,12 +67,13 @@
 {{- if .IsPage }}
   {{- if not .PublishDate.IsZero }}
     <meta property="article:published_time" content="{{ .PublishDate.Format $iso8601 }}" />
-    {{ else if not .Date.IsZero }}<meta property="article:published_time" content="{{ .Date.Format $iso8601 }}" />
+  {{ else if not .Date.IsZero }}
+    <meta property="article:published_time" content="{{ .Date.Format $iso8601 }}" />
   {{ end }}
   {{- if not .Lastmod.IsZero }}
-    <meta property="article:modified_time" content="{{ .Lastmod.Format $iso8601 }}"
-  />{{ end }}
-  {{- else }}
+    <meta property="article:modified_time" content="{{ .Lastmod.Format $iso8601 }}" />
+  {{ end }}
+{{- else }}
   {{- if not .Date.IsZero }}
     <meta property="og:updated_time" content="{{ .Date.Format $iso8601 }}" />
   {{- end }}
