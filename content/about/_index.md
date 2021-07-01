@@ -49,3 +49,18 @@ Public health authorities (federal, state, local), the healthcare industry, the 
   - An enormous database of medical insurance claims that have been de-identified in accordance with HIPAA privacy regulations, covering more than half the US population, made possible through health system partners including Change Healthcare. We use this to produce a new [syndromic COVID-19 indicator based on doctor visits]({{< relref "2020-10-14-dv-signal" >}}), and other indicators based on hospitalizations and ICU admissions.
 
 - Since April 2020, we've been supporting and advising U.S. CDC in their community-driven COVID-19 forecasting effort, which includes [creating and evaluating an ensemble forecast]({{< relref "2020-09-21-forecast-demo" >}}) from the 70+ forecasts under submission that serves as the basis for the [CDC's official COVID-19 forecast communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html). We also contribute our own short-term forecasts of COVID-19 cases and deaths, which can be found in the [COVID-19 Forecast Hub](https://covid19forecasthub.org).
+
+
+### Activities
+
+We have participated, and [have done very well](https://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf), in all epidemiological forecasting challenges organized by the US government to date:
+
+<!--            : 2013--2014, 2014--2015 (winner),
+    <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/spotlights/flu-activity-forecasts-2016-2017.htm">2015--2016 (winner)</a>
+    ,
+    <a target="_blank" rel="noopener" href="https://predict.phiresearchlab.org/post/57f3f440123b0f563ece2576">2016--2017 (winner)</a>
+    <a target="_blank" rel="noopener" href="https://www.cdc.gov/flu/weekly/flusight/index.html#nav-group-aeff9">2017--2018 (winner)</a>-->
+
+* [Forecasting Seasonal Influenza in the US](https://www.cdc.gov/flu/weekly/flusight/) by [CDC](https://www.cdc.gov) 2013 -- current
+* [Forecasting Dengue in Puerto Rico and Peru](https://predict.cdc.gov/post/5a4fcc3e2c1b1669c22aa261) by the [White House](https://www.whitehouse.gov/) [OSTP](https://www.whitehouse.gov/administration/eop/ostp)
+* [Forecasting the Chikungunya invasion of the Americas](https://www.innocentive.com/ar/challenge/9933617") by [DARPA](https://www.darpa.mil/)
