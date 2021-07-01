@@ -27,7 +27,7 @@
     "clean": "rimraf \"*.tgz\" public",
     "copy_fonts": "shx cp -r \"node_modules/katex/dist/fonts/*\" themes/delphi/static/css/fonts/",
     "copy_covidcast": "shx rm -rf \"static/covidcast/*\" && shx cp \"node_modules/www-covidcast/public/**/*.{js,txt,css,map}\" static/covidcast/",
-    "copy_covidcast_classic": "shx rm -rf \"static/covidcast/classic/*\" && shx cp \"node_modules/www-covidcast-classic/public/**/*.{js,txt,css,map}\" static/covidcast/classic/",
+    "copy_covidcast_classic": "shx rm -rf \"static/covidcast/classic/*\" && shx mkdir -p static/covidcast/classic/ && shx cp \"node_modules/www-covidcast-classic/public/**/*.{js,txt,css,map}\" static/covidcast/classic/",
     "copy_epivis": "shx rm -rf \"static/epivis/*\" && shx cp \"node_modules/www-epivis/public/**/*.{js,txt,css,map}\" static/epivis/",
     "postinstall": "npm run copy_fonts && npm run copy_covidcast && npm run copy_epivis && npm run copy_covidcast_classic",
     "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd='md5sum')\"",
