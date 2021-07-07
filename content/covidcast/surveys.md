@@ -1,12 +1,12 @@
 ---
-title: Delphi's COVID Trends and Impact Surveys (CTIS)
+title: Delphi's COVID-19 Trends and Impact Surveys (CTIS)
 ---
 
 {{< alert category="primary">}}
   Summary results for the survey are now available. [Click here to explore]({{< relref "covidcast/survey-results" >}})
 {{< /alert >}}
 
-In collaboration with Facebook, along with a consortium of universities and public health officials, the [Delphi group]({{< relref "/" >}}) at [Carnegie Mellon University](https://www.cmu.edu/) conducts research surveys to monitor the spread and impact of the COVID-19 pandemic in the United States. This survey is advertised through Facebook. It has run continuously since early April 2020, and about 50,000 people in the United States participate **every day**. Survey results are publicly available on our [CTIS Survey Dashboard]({{< relref "covidcast/survey-results" >}}), [COVIDcast Map]({{< relref "covidcast" >}}), [COVIDcast Exporter]({{< relref "covidcast/export" >}}), and in our [COVIDcast API]({{< apiref "api/covidcast.html" >}}).
+In collaboration with Facebook, along with a consortium of universities and public health officials, the [Delphi group]({{< relref "/" >}}) at [Carnegie Mellon University](https://www.cmu.edu/) conducts the COVID-19 Trends and Impact Survey to monitor the spread and impact of the COVID-19 pandemic in the United States. This survey is advertised through Facebook. It has run continuously since early April 2020, and about 50,000 people in the United States participate **every day**. Survey results are publicly available on our [CTIS Survey Dashboard]({{< relref "covidcast/survey-results" >}}), [COVIDcast Map]({{< relref "covidcast" >}}), [COVIDcast Exporter]({{< relref "covidcast/export" >}}), and in our [COVIDcast API]({{< apiref "api/covidcast.html" >}}).
 
 Such detailed data has never before been available during a public health emergency, and it will help public health officials understand how to save lives and how to safely reopen public life. The data will also help researchers understand the social, economic, and health effects of the COVID-19 pandemic.
 

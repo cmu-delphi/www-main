@@ -22,7 +22,7 @@ carousel:
   - pre: Our Tools
     title: CTIS Survey Dashboard
     ref: covidcast/survey-results
-    alt: Explore the COVID Trends and Impact Survey Results
+    alt: Explore the COVID-19 Trends and Impact Survey Results
     image: covidcast_survey.jpg
   - pre: Our Blog Post
     title: New and improved COVID Symptom Survey Tracks Testing and Mask-Wearing
