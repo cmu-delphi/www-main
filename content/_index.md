@@ -20,7 +20,7 @@ carousel:
     alt: Explore the new COVID-19 forecast evaluation dashboard
     image: forecast_evaluation_dashboard.jpg
   - pre: Our Tools
-    title: CTIS Survey Dashboard
+    title: CTIS Results Dashboard
     ref: covidcast/survey-results
     alt: Explore the COVID-19 Trends and Impact Survey Results
     image: covidcast_survey.jpg
