@@ -6,7 +6,7 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "highlight.js": "^11.0.1",
     "katex": "^0.13.11",
-    "uikit": "^3.7.0",
+    "uikit": "^3.7.1",
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v2.7.1/www-covidcast-2.7.1.tgz",
     "www-covidcast-classic": "https://github.com/cmu-delphi/www-covidcast-classic/releases/download/v2.6.0/www-covidcast-classic-2.6.0.tgz",
     "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.0.1/www-epivis-2.0.1.tgz"
