@@ -3,7 +3,7 @@
   "version": "2.12.1",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "highlight.js": "^11.2.0",
     "katex": "^0.13.13",
     "uikit": "^3.7.2",
