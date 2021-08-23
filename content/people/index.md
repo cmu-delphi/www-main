@@ -160,8 +160,9 @@ people:
   lastName: Sharpnack
   image: james-sharpnack-500x500-min.jpg
   affiliation: UC Davis
+  note: Core member, April 2020-November 2020
   team:
-  - core
+  - past 
 - firstName: Dmitry
   lastName: Shemetov
   image: dmitry-shemetov-500x500-min.jpg
