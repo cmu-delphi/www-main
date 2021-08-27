@@ -241,8 +241,9 @@ people:
   image: sam-gratzl-500x500-min.jpg
   affiliation: Data visualization consultant
   link: https://www.sgratzl.com
+  note: Core member, July 2020-August 2021
   team:
-  - core
+  - past
 - firstName: Dawn
   lastName: Rucker
   image: dawn-rucker-500x500-min.jpg
