@@ -61,7 +61,7 @@ people:
 - firstName: Christy
   lastName: Melucci
   image: christy-melucci.jpg
-  affiliation:  CMU/MLD
+  affiliation: CMU/MLD
   team:
   - core
 - firstName: Jodi
@@ -587,7 +587,7 @@ people:
   description: is a Google.org Fellow and is a member of Delphi.
   affiliation: Google
   team:
-  - past
+  - Google
   - blog
   note: Google Fellow, October 2020-March 2021
 - firstName: Daniel
