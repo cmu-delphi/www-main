@@ -61,7 +61,7 @@ people:
 - firstName: Christy
   lastName: Melucci
   image: christy-melucci.jpg
-  affiliation: CMU/MLD
+  affiliation:  CMU/MLD
   team:
   - core
 - firstName: Jodi
