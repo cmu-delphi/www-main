@@ -67,7 +67,7 @@ people:
   image: addison-hu-500x500-min.jpg
   affiliation: CMU/Stat
   team:
-  - core
+  - contributors
 - firstName: Maria
   lastName: Jahja
   image: maria-jahja-500x500-min.jpg
