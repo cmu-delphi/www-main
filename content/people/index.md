@@ -558,7 +558,7 @@ people:
   affiliation: Google
   team:
   - past
-   note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
+  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
 - firstName: Phil
   lastName: McGuinness
   image: phil-mcguinness_head-shot.png
@@ -587,7 +587,7 @@ people:
   description: is a Google.org Fellow and is a member of Delphi.
   affiliation: Google
   team:
-  - Google
+  - past
   - blog
   note: Google Fellow, October 2020-March 2021
 - firstName: Daniel
