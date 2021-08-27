@@ -8,9 +8,9 @@ people:
   firstName: Frida
   lastName: Gomam
   link: https://example.com
-  external: true # mark as an external non-team member
+  external: true # mark as an external non-team member and hide from display
   team:
-    - blog
+  - blog
   description: is a member of the Delphi group and a Ph.D. student in data wrangling at the University of Southern North Dakota at Hoople.
 - firstName: Jacob
   lastName: Bien
@@ -220,7 +220,7 @@ people:
   description: is a lead researcher in the Delphi group, and an Associate Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
 - firstName: Elena
   lastName: Tuzhilina
-  image:
+  image: profile-placeholder.png
   affiliation: Stanford University
   team:
   - contributors
