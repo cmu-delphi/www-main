@@ -68,6 +68,7 @@ people:
   affiliation: CMU/Stat
   team:
   - contributors
+  note: Core member, March 2020-August 2021
 - firstName: Maria
   lastName: Jahja
   image: maria-jahja-500x500-min.jpg
