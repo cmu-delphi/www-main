@@ -509,7 +509,7 @@ people:
   image: qi-xuan-teo.jpg
   affiliation: CMU/MLD
   team:
-  -  core
+  - core
 - firstName: Mike
   lastName: O'Brien
   image: mike-o'brien_head-shot.jpg
