@@ -25,12 +25,26 @@ people:
   team:
   - core
   - highlight
+- firstName: Zhuoran (Cheryl)
+  lastName: Cheng
+  image: zhuoran-cheng.jpg
+  affiliation: CMU/ECE
+  team:
+  -  past
+  note: Intern, Summer 2021
 - firstName: Andrew
   lastName: Chin
   image: andrew-chin-500x500-min.jpg
-  affiliation:  CMU/MLD
+  affiliation: CMU/MLD
   team:
-  - core
+  -  contributors
+  note: Core member, October 2020-August 2021 
+- firstName: Derek
+  lastName: Bell
+  image: derek-bell.jpg
+  affiliation: Aetna Informatics
+  team:
+  -  contributors
 - firstName: Brian
   lastName: Clark
   image: brian-clark-500x500-min.jpg
@@ -94,8 +108,9 @@ people:
   affiliation: CMU/MLD
   description: is an Assistant Professor of Operations Research and Machine Learning at CMU and is a member of Delphi.
   team:
-  - core
+  - contributors
   - blog
+  note: Core member, April 2020-March 2021
 - firstName: Kathryn
   lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
@@ -123,7 +138,8 @@ people:
   image: collin-politsch-500x500-min.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
+  note: Core member, August 2020-August 2021
 - key: alex
   firstName: Alex
   lastName: Reinhart
@@ -157,6 +173,13 @@ people:
   - highlight
   - blog
   description: is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.
+- firstName: Abhijeet
+  lastName: Savant
+  image: 
+  affiliation: Arizona State University
+  team:
+  - past
+  note: Contributor, Summer 2021
 - firstName: James
   lastName: Sharpnack
   image: james-sharpnack-500x500-min.jpg
@@ -195,10 +218,16 @@ people:
   - blog
   - center-of-excellence
   description: is a lead researcher in the Delphi group, and an Associate Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
+- firstName: Elena
+  lastName: Tuzhilina
+  image:
+  affiliation: Stanford University
+  team:
+  -  contributors
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
-  affiliation: Tech Writer
+  affiliation:
   team:
   - past
   note: October 2020-January 2021
@@ -234,17 +263,18 @@ people:
   - blog
 - firstName: Wichada
   lastName: La&nbsp;Motte&#x2011;Kerr
-  image: wichada-lamotte-kerr-photo.png
+  image: wichada-la-motte-kerr.jpg
   affiliation: CMU/MLD
   team:
   - core
 - firstName: Samuel
   lastName: Gratzl
   image: sam-gratzl-500x500-min.jpg
-  affiliation: Data visualization consultant
+  affiliation: Consultant
   link: https://www.sgratzl.com
   team:
-  - core
+  - contributors
+  note: Core member, July 2020-August 2021
 - firstName: Dawn
   lastName: Rucker
   image: dawn-rucker-500x500-min.jpg
@@ -269,8 +299,8 @@ people:
   image: eu-jing-chua-500x500-min.jpg
   affiliation: CMU/MLD
   team:
-  - contributors
-  note: Intern, Summer 2020
+  - past
+  note: Intern, Summer 2020; Contributor, September 2020-May 2021
 - firstName: Alden
   lastName: Green
   image: alden-green-500x500-min.jpg
@@ -283,8 +313,8 @@ people:
   image: sangwon-justin-hyun-500x500-min.jpg
   affiliation: USC
   team:
-  - contributors
-  note: Core member, March-May 2020
+  - past
+  note: Core member, March-May 2020; Contributor, June 2020-May 2021
 - firstName: Jimi
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
@@ -305,7 +335,8 @@ people:
   image: lee-kenneth.png
   affiliation: UC Davis
   team:
-  - contributors
+  - past
+  note: Contributor, August 2020-February 2021
 - firstName: Natalia
   lastName: Lombardi de&nbsp;Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
@@ -332,21 +363,22 @@ people:
   note: Intern, Summer 2020
 - firstName: Venkatesh
   lastName: Sivaraman
-  image: profile-placeholder.png
+  image: venkatesh-sivaraman.jpg
   affiliation: CMU/HCII
-  note: Summer 2020
   team:
   - past
+  note: Summer 2020
 - key: hzhou
-  firstName: Helen
+- firstName: Helen
   lastName: Zhou
-  image: profile-placeholder.png
+  image: helen-zhou.jpg
   link: https://www.helen-zhou.com
   description: is a PhD student in the Machine Learning Department at CMU and is a member of Delphi.
   affiliation:
   team:
   - contributors
   - blog
+  note: Core member, April 2020-March 2021
 - firstName: Wael Al
   lastName: Saeed
   image: wael-al-saeed-500x50-min.jpg
@@ -374,21 +406,21 @@ people:
   affiliation: Software Engineer
   team:
   - past
-  note: Founding member 2012-2016, Core member March-April 2020, Google Fellow October-December 2020
+  note: Founding member, 2012-2016; Core member, March-April 2020; Google Fellow, October-December 2020
 - firstName: EJ
   lastName: Fox
   image: ej-fox-500x500-min.jpg
-  affiliation: Data visualization consultant
+  affiliation: 
   team:
   - past
   note: Contractor, 2020
 - firstName: Shantanu
   lastName: Gupta
-  image: profile-placeholder.png
-  affiliation:
+  image: shantanu-gupta.jpg
+  affiliation: CMU/MLD
   team:
   - past
-  note: Contributor, 2020
+  note: Contributor, April-May 2020
 - firstName: Robin
   lastName: Han
   image: robin-han-500x500-min.jpg
@@ -416,7 +448,7 @@ people:
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March-April 2020; Contributor Summer 2020
+  note: Core member, March-April 2020; Contributor, Summer 2020
 - firstName: Lester
   lastName: Mackey
   image: lester-mackey-500x500-min.jpg
@@ -452,96 +484,126 @@ people:
   team:
   - past
   note: Intern, Summer 2020
+- firstName: Tara
+  lastName: Lakdawala
+  image: tarannum-lakdawala.jpeg
+  affiliation: CMU/CSD
+  team:
+  - core
+- firstName: Kenneth
+  lastName: Tay
+  image: profile-placeholder.png
+  affiliation: Stanford University
+  team:
+  -  past
+  note: Intern, Summer 2021
 - firstName: Kristin
   lastName: Williams
   image: kristin-williams-500x500-min.jpg
   affiliation: CMU/HCII
   team:
   - past
-  note: Core member, March-April 2020; Contributor Summer 2020
+  note: Core member, March-April 2020; Contributor, Summer 2020
+- firstName: Qi Xuan
+  lastName: Teo
+  image: qi-xuan-teo.jpg
+  affiliation: CMU/MLD
+  team:
+  -  core
 - firstName: Mike
   lastName: O'Brien
   image: mike-o'brien_head-shot.jpg
-  affiliation: Software Engineer
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, September 2020-March 2021
 - firstName: Kate
   lastName: Harwood
   image: kate-harwood_head-shot.jpg
-  affiliation: Software Engineer
-  note: Google Fellow October 2020-March 2021, Contributor since April 2021
+  affiliation: Columbia University
+  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
   team:
-  - contributors
+  - past
 - firstName: Sumit
   lastName: Agrawal
   image: sumit-agrawal_head-shot.png
-  affiliation: Program Manager Lead
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Benjamin
   lastName: Weaver
   image: benjamin-weaver_head-shot.png
-  affiliation: Program / Project Manager
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Spencer
   lastName: Whitman
   image: specer-whitman_head-shot.jpg
-  affiliation: Product Manager
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Benjamin
   lastName: Smith
   image: benjamin-smith_head-shot.jpg
-  affiliation: Tech Lead Software Engineer
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Raphael
   lastName: Hyde
   image: raphael-hyde_head-shot.jpg
-  affiliation: UK Designer
-  note: Google Fellow October 2020-March 2021, Contributor since April 2021
+  affiliation: Google
   team:
-  - contributors
+  - past
+   note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
 - firstName: Phil
   lastName: McGuinness
   image: phil-mcguinness_head-shot.png
-  affiliation: UX Researcher
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Jed
   lastName: Grabman
   image: jed-gradmn_head-shot.png
-  affiliation: Site Reliability Engineer, Data Scientist
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Sarah
   lastName: Colquhoun
   image: sarah-colquhoun_head-shot.jpg
-  affiliation: Site Reliability Engineer, Data Scientist
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, October 2020-March 2021
 - key: cscott
   firstName: Chris
   lastName: Scott
   image: chris-scott_head-shot.jpg
   description: is a Google.org Fellow and is a member of Delphi.
-  affiliation: Tech Lead Software Engineer
+  affiliation: Google
   team:
-  - google
+  - past
   - blog
+  note: Google Fellow, October 2020-March 2021
 - firstName: Daniel
   lastName: LaLiberte
   image: daniel-laliberte_head-shot.jpg
-  affiliation: Software Engineer
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, September 2020-March 2021
 - firstName: Shreenath
   lastName: Regunathan
   image: shreenath-regunathan-head-shot.jpg
-  affiliation: Product Manager
+  affiliation: Google
   team:
-  - google
+  - past
+  note: Google Fellow, October 2020-March 2021
 
 - key: fischhoff
   firstName: Baruch
