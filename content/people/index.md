@@ -30,21 +30,21 @@ people:
   image: zhuoran-cheng.jpg
   affiliation: CMU/ECE
   team:
-  -  past
+  - past
   note: Intern, Summer 2021
 - firstName: Andrew
   lastName: Chin
   image: andrew-chin-500x500-min.jpg
   affiliation: CMU/MLD
   team:
-  -  contributors
+  - contributors
   note: Core member, October 2020-August 2021 
 - firstName: Derek
   lastName: Bell
   image: derek-bell.jpg
   affiliation: Aetna Informatics
   team:
-  -  contributors
+  - contributors
 - firstName: Brian
   lastName: Clark
   image: brian-clark-500x500-min.jpg
@@ -223,7 +223,7 @@ people:
   image:
   affiliation: Stanford University
   team:
-  -  contributors
+  - contributors
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
@@ -413,7 +413,7 @@ people:
   affiliation: 
   team:
   - past
-  note: Contractor, 2020
+  note: Contributor, 2020
 - firstName: Shantanu
   lastName: Gupta
   image: shantanu-gupta.jpg
@@ -433,7 +433,8 @@ people:
   image: jaemin-jo-500x500-min.jpg
   affiliation: Seoul National University
   team:
-  - Contributor, 2020
+  - past
+  note: Contributor, 2020
 - firstName: Andrew
   lastName: Kuznetsov
   image: andrew-kuznetsov-500x500-min.jpg
@@ -495,7 +496,7 @@ people:
   image: profile-placeholder.png
   affiliation: Stanford University
   team:
-  -  past
+  - past
   note: Intern, Summer 2021
 - firstName: Kristin
   lastName: Williams
