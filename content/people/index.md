@@ -175,7 +175,7 @@ people:
   description: is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.
 - firstName: Abhijeet
   lastName: Savant
-  image: 
+  image: profile-placeholder.png
   affiliation: Arizona State University
   team:
   - past
