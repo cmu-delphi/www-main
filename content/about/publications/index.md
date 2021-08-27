@@ -1,6 +1,12 @@
 ---
 title: Research and White Papers
 papers:
+  - title: The U.S. COVID-19 Trends and Impact Survey, 2020-2021: Continuous real-time measurement of COVID-19 symptoms, risks, protective behaviors, testing and vaccination
+    image: causal.jpg
+    authors: Joshua A. Salomon, Alex Reinhart, Alyssa Bilinski, Eu Jing Chua, Wichada La Motte-Kerr, Minttu M. Rönn, Marissa Reitsma, Katherine Ann Morris, Sarah LaRocca, Tamar Farag, Frauke Kreuter, Roni Rosenfeld, Ryan J. Tibshirani
+    link: https://doi.org/10.1101/2021.07.24.21261076
+    journal: medRxiv
+    year: 2021
   - title: "Causal inference in the time of COVID-19"
     image: causal.jpg
     authors: Bonvini, Kennedy, Ventura, Wasserman
