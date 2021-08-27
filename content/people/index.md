@@ -17,7 +17,7 @@ people:
   image: jacob-bien-500x500-min.jpg
   affiliation: University of Southern California
   team:
-    - core
+   - core
 - firstName: Logan
   lastName: Brooks
   image: logan-brooks-500x500-min.jpg
