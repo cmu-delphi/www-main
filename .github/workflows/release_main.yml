@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.5
+      - uses: actions/setup-node@v2.4.0
         with:
           node-version: "14"
       - name: Extract version
@@ -43,7 +43,7 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.1.5
+      - uses: actions/setup-node@v2.4.0
         with:
           node-version: "14"
       - name: Cache Node.js modules
@@ -84,7 +84,7 @@ jobs:
           base: dev
           title: "chore: sync main->dev"
           labels: chore
-          reviewers: krivard,sgratzl
-          assignees: sgratzl
+          reviewers: krivard
+          # assignees:
           body: |
             Syncing Main->Dev.

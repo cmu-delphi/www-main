@@ -78,7 +78,7 @@ relativeURLs = false
     weight = 10
 [[menu.main]]
     parent = "covid19"
-    name = "Survey Results"
+    name = "CTIS Results Dashboard"
     url = "/covidcast/survey-results"
     weight = 11
 [[menu.main]]

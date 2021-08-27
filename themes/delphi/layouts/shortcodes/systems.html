@@ -3,7 +3,7 @@
   <h3>
     {{ if isset .Params "externallink" }}
       <a href="{{ .Params.externallink }}">{{ .Title }}</a>
-      {{ else }}
+    {{ else }}
       {{ .Title }}
     {{ end }}
   </h3>
