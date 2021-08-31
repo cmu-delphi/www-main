@@ -1,11 +1,10 @@
 ---
 title: Research and White Papers
 papers:
-
-  - title: "Can Auxiliary Indicators Improve COVID-19 Forecasting and Hotspot Prediction?"
-    image: forecasting.jpg
-    authors: McDonald, Bien, Green, Hu, DeFries, Hyun, Oliveira, Sharpnack, Tang, Tibshirani, Ventura, Wasserman, Tibshirani
-    link: https://www.medrxiv.org/content/10.1101/2021.06.22.21259346
+  - title: "The U.S. COVID-19 Trends and Impact Survey, 2020-2021: Continuous real-time measurement of COVID-19 symptoms, risks, protective behaviors, testing and vaccination"
+    image: survey.jpg
+    authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani
+    link: https://doi.org/10.1101/2021.07.24.21261076
     journal: medRxiv
     year: 2021
   - title: "An Open Repository of Real-Time COVID-19 Indicators"
@@ -15,10 +14,10 @@ papers:
     link: https://www.medrxiv.org/content/10.1101/2021.07.12.21259660
     journal: medRxiv
     year: 2021
-  - title: "The U.S. COVID-19 Trends and Impact Survey, 2020-2021: Continuous real-time measurement of COVID-19 symptoms, risks, protective behaviors, testing and vaccination"
-    image: survey.jpg
-    authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani
-    link: https://doi.org/10.1101/2021.07.24.21261076
+  - title: "Can Auxiliary Indicators Improve COVID-19 Forecasting and Hotspot Prediction?"
+    image: forecasting.jpg
+    authors: McDonald, Bien, Green, Hu, DeFries, Hyun, Oliveira, Sharpnack, Tang, Tibshirani, Ventura, Wasserman, Tibshirani
+    link: https://www.medrxiv.org/content/10.1101/2021.06.22.21259346
     journal: medRxiv
     year: 2021
   - title: "Causal inference in the time of COVID-19"
