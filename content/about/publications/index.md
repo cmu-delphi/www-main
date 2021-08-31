@@ -9,7 +9,7 @@ papers:
     year: 2021
   - title: "An Open Repository of Real-Time COVID-19 Indicators"
     image: indicators.jpg
-    authors: Reinhart, Brooks, Jahja, Rumack, Tang, Al Saeed, Arnold, Basu, Bien, Cabrera, Chin, Chua, Clark, DeFries, Forlizzi, Gratzl, Green, Haff, Han,  Hu,  Hyun, Joshi, Kim, Kuznetsov, La Motte-Kerr, Jin Lee, Lee, Lipton, Liu, Mackey, Mazaitis, McDonald, Narasimhan, Oliveira, Patil, Perer, Politsch, Rajanala,  Rucker, Shah,  Shankar, Sharpnack, Shemetov, Simon, Srivastava, Tan, Tibshirani, Tuzhilina, Van Nortwick, Ventura, Wasserman, Weiss,  Williams, Rosenfeld, Tibshirani
+    authors: Reinhart, Brooks, Jahja, Rumack, Tang, Al Saeed, Arnold, Basu, Bien, Cabrera, Chin, Chua, Clark, DeFries, Forlizzi, Gratzl, Green, Haff, Han, Hu,  Hyun, Joshi, Kim, Kuznetsov, La Motte-Kerr, Jin Lee, Lee, Lipton, Liu, Mackey, Mazaitis, McDonald, Narasimhan, Oliveira, Patil, Perer, Politsch, Rajanala, Rucker, Shah, Shankar, Sharpnack, Shemetov, Simon, Srivastava, Tan, Tibshirani, Tuzhilina, Van Nortwick, Ventura, Wasserman, Weiss, Williams, Rosenfeld, Tibshirani
     link: https://www.medrxiv.org/content/10.1101/2021.07.12.21259660
     journal: medRxiv
     year: 2021
