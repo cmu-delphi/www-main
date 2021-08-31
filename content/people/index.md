@@ -227,10 +227,10 @@ people:
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
-  affiliation:
+  affiliation: CMU/MLD
   team:
   - past
-  note: October 2020-January 2021
+  note: Contributor, October 2020-January 2021
 - key: vventura
   firstName: Valérie
   lastName: Ventura
@@ -410,7 +410,7 @@ people:
 - firstName: EJ
   lastName: Fox
   image: ej-fox-500x500-min.jpg
-  affiliation: 
+  affiliation: CMU/MLD
   team:
   - past
   note: Contributor, 2020
