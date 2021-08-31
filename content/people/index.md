@@ -12,6 +12,13 @@ people:
   team:
   - blog
   description: is a member of the Delphi group and a Ph.D. student in data wrangling at the University of Southern North Dakota at Hoople.
+- firstName: Sumit
+  lastName: Agrawal
+  image: sumit-agrawal_head-shot.png
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Jacob
   lastName: Bien
   image: jacob-bien-500x500-min.jpg
@@ -301,6 +308,13 @@ people:
   team:
   - past
   note: Intern, Summer 2020; Contributor, September 2020-May 2021
+- firstName: Sarah
+  lastName: Colquhoun
+  image: sarah-colquhoun_head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Alden
   lastName: Green
   image: alden-green-500x500-min.jpg
@@ -414,6 +428,13 @@ people:
   team:
   - past
   note: Contributor, 2020
+- firstName: Jed
+  lastName: Grabman
+  image: jed-gradmn_head-shot.png
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Shantanu
   lastName: Gupta
   image: shantanu-gupta.jpg
@@ -428,6 +449,20 @@ people:
   team:
   - past
   note: Intern, Summer 2020
+- firstName: Kate
+  lastName: Harwood
+  image: kate-harwood_head-shot.jpg
+  affiliation: Columbia University
+  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
+  team:
+  - past
+- firstName: Raphael
+  lastName: Hyde
+  image: raphael-hyde_head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -442,6 +477,13 @@ people:
   team:
   - past
   note: Core member, March-April 2020
+- firstName: Daniel
+  lastName: LaLiberte
+  image: daniel-laliberte_head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, September 2020-March 2021
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
@@ -457,6 +499,20 @@ people:
   team:
   - past
   note: Core member, March-May 2020
+- firstName: Phil
+  lastName: McGuinness
+  image: phil-mcguinness_head-shot.png
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
+- firstName: Mike
+  lastName: O'Brien
+  image: mike-o'brien_head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, September 2020-March 2021
 - firstName: Pratik
   lastName: Patil
   image: pratik-patil-500x500-min.jpg
@@ -464,6 +520,13 @@ people:
   team:
   - past
   note: Core member, March-May 2020
+- firstName: Shreenath
+  lastName: Regunathan
+  image: shreenath-regunathan-head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Samyak
   lastName: Rajanala
   image: samyak-rajanala-500x500-min.jpg
@@ -471,6 +534,16 @@ people:
   team:
   - past
   note: Core member, May-July 2020
+- key: cscott
+  firstName: Chris
+  lastName: Scott
+  image: chris-scott_head-shot.jpg
+  description: is a Google.org Fellow and is a member of Delphi.
+  affiliation: Google
+  team:
+  - past
+  - blog
+  note: Google Fellow, October 2020-March 2021
 - firstName: Noah
   lastName: Simon
   image: noah-simon-500x500-min.jpg
@@ -511,23 +584,9 @@ people:
   affiliation: CMU/MLD
   team:
   - core
-- firstName: Mike
-  lastName: O'Brien
-  image: mike-o'brien_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, September 2020-March 2021
-- firstName: Kate
-  lastName: Harwood
-  image: kate-harwood_head-shot.jpg
-  affiliation: Columbia University
-  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
-  team:
-  - past
-- firstName: Sumit
-  lastName: Agrawal
-  image: sumit-agrawal_head-shot.png
+- firstName: Benjamin
+  lastName: Smith
+  image: benjamin-smith_head-shot.jpg
   affiliation: Google
   team:
   - past
@@ -542,65 +601,6 @@ people:
 - firstName: Spencer
   lastName: Whitman
   image: specer-whitman_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- firstName: Benjamin
-  lastName: Smith
-  image: benjamin-smith_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- firstName: Raphael
-  lastName: Hyde
-  image: raphael-hyde_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
-- firstName: Phil
-  lastName: McGuinness
-  image: phil-mcguinness_head-shot.png
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- firstName: Jed
-  lastName: Grabman
-  image: jed-gradmn_head-shot.png
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- firstName: Sarah
-  lastName: Colquhoun
-  image: sarah-colquhoun_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- key: cscott
-  firstName: Chris
-  lastName: Scott
-  image: chris-scott_head-shot.jpg
-  description: is a Google.org Fellow and is a member of Delphi.
-  affiliation: Google
-  team:
-  - past
-  - blog
-  note: Google Fellow, October 2020-March 2021
-- firstName: Daniel
-  lastName: LaLiberte
-  image: daniel-laliberte_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, September 2020-March 2021
-- firstName: Shreenath
-  lastName: Regunathan
-  image: shreenath-regunathan-head-shot.jpg
   affiliation: Google
   team:
   - past
@@ -720,7 +720,7 @@ people:
     - advisors
 
 others: |
- MLD administrators Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
+ MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
 
 abbreviations:
 - abbr: CompBio
