@@ -32,7 +32,7 @@ people:
   description: is a research scientist on the Physical Modeling team at Facebook.
   external: true
   team:
-    - blog
+  - blog
 - firstName: Amartya
   lastName: Basu
   image: amartya-basu-500x500-min.jpg
