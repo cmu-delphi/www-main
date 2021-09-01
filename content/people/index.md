@@ -29,6 +29,7 @@ people:
 - key: kbarkume
   firstName: Kris
   lastName: Barkume
+  image: profile-placeholder.png
   description: is a research scientist on the Physical Modeling team at Facebook.
   external: true
   team:
@@ -603,7 +604,7 @@ people:
   - highlight
 - firstName: Kenneth
   lastName: Tay
-  image: profile-placeholder.png
+  image: kenneth-tay.jpg
   affiliation: Stanford University
   team:
   - past
