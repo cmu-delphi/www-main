@@ -136,7 +136,7 @@ people:
 - firstName: David
   lastName: Farrow
   image: david-farrow_head-shot.jpg
-  affiliation: Software Engineer
+  affiliation: Google
   team:
   - past
   note: Founding member, 2012-2016; Core member, March-April 2020; Google Fellow, October-December 2020
