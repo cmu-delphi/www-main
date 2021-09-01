@@ -29,6 +29,7 @@ people:
 - key: kbarkume
   firstName: Kris
   lastName: Barkume
+  image: profile-placeholder.png
   description: is a research scientist on the Physical Modeling team at Facebook.
   external: true
   team:
