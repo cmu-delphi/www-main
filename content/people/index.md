@@ -200,7 +200,7 @@ people:
   - contributors
 - firstName: Shantanu
   lastName: Gupta
-  image: shantanu-gupta.jpg
+  image: shantanu-gupta.jp
   affiliation: CMU/MLD
   team:
   - past
@@ -379,7 +379,7 @@ people:
 - firstName: Lester
   lastName: Mackey
   image: lester-mackey-500x500-min.jpg
-  affiliation: Microsoft Research/Stanford
+  affiliation: Microsoft Research and Stanford University
   team:
   - past
   note: Core member, March-May 2020
