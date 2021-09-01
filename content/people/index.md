@@ -59,7 +59,7 @@ people:
   description: is a graduate student in the Department of Statistics & Data Science at CMU.
   external: true
   team:
-    - blog
+  - blog
 - firstName: Logan
   lastName: Brooks
   image: logan-brooks-500x500-min.jpg
@@ -91,7 +91,7 @@ people:
   description: is a PhD student in Machine Learning and Public Policy at CMU and is a member of Delphi.
   external: true
   team:
-    - blog
+  - blog
 - firstName: Zhuoran (Cheryl)
   lastName: Cheng
   image: zhuoran-cheng.jpg
@@ -175,7 +175,7 @@ people:
   description: is a Data Scientist on the Health team at Facebook.
   external: true
   team:
-    - blog
+  - blog
 - firstName: Jed
   lastName: Grabman
   image: jed-gradmn_head-shot.png
@@ -277,14 +277,14 @@ people:
   description: is an Assistant Professor in the Department of Statistics & Data Science at CMU.
   external: true
   team:
-    - blog
+  - blog
 - key: ekim
   firstName: Esther
   lastName: Kim
   description: is a Research Scientist on the Demography and Survey Science team at Facebook.
   external: true
   team:
-    - blog
+  - blog
 - firstName: Jimi
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
@@ -324,7 +324,7 @@ people:
   description: is a Research Scientist on the Demography and Survey Science team at Facebook.
   external: true
   team:
-    - blog
+  - blog
 - firstName: Jenny
   lastName: Lee
   image: jenny-yeon-jin-lee-500x500-min.jpg
@@ -418,14 +418,14 @@ people:
   description: is a data scientist on the Physical Modeling team at Facebook.
   external: true
   team:
-    - blog
+  - blog
 - key: kmorris
   firstName: Katherine
   lastName: Morris
   description: is a Research Scientist on the Demography and Survey Science team at Facebook.
   external: true
   team:
-    - blog
+  - blog
 - firstName: Balasubramanian
   lastName: Narasimhan
   image: balasubramanian-narasimhan-500x500-min.jpg
