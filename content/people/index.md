@@ -186,7 +186,7 @@ people:
   note: Google Fellow, October 2020-March 2021
 - firstName: Samuel
   lastName: Gratzl
-  image: sam-gratzl-500x500-min.jp
+  image: sam-gratzl-500x500-min.jpg
   affiliation: Consultant
   link: https://www.sgratzl.com
   team:
@@ -201,7 +201,7 @@ people:
   - contributors
 - firstName: Shantanu
   lastName: Gupta
-  image: shantanu-gupta.jp
+  image: shantanu-gupta.jpg
   affiliation: CMU/MLD
   team:
   - past
