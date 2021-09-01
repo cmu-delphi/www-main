@@ -76,7 +76,7 @@ people:
   affiliation: University of Pittsburgh GSPH
   external: true
   team:
-    - center-of-excellence
+  - center-of-excellence
 - firstName: Angel (Alex)
   lastName: Cabrera
   image: angel-alex-cabrera-500x500-min.jpg
@@ -155,7 +155,7 @@ people:
   affiliation: Carnegie-Mellon University EPP
   external: true
   team:
-    - center-of-excellence
+  - center-of-excellence
 - firstName: Jodi
   lastName: Forlizzi
   image: jodi-forlizzi-500x500-min.jpg
@@ -218,7 +218,6 @@ people:
   team:
   - past
   note: Intern, Summer 2020
-- firstName: Addison
 - firstName: Kate
   lastName: Harwood
   image: kate-harwood_head-shot.jpg
@@ -226,6 +225,7 @@ people:
   note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
   team:
   - past
+- firstName: Addison
   lastName: Hu
   image: addison-hu-500x500-min.jpg
   affiliation: CMU/Stat
@@ -349,7 +349,7 @@ people:
   location: Cambridge, Massachusetts, United States
   external: true
   team:
-    - center-of-excellence
+  - center-of-excellence
 - key: zlipton
   firstName: Zack Chase
   lastName: Lipton
@@ -654,7 +654,7 @@ people:
   affiliation: University of Pittsburgh GSPH
   external: true
   team:
-    - center-of-excellence
+  - center-of-excellence
 - key: vventura
   firstName: Valérie
   lastName: Ventura
@@ -719,7 +719,7 @@ people:
   note: Core member, April 2020-March 2021
 
 others: |
- MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
+MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
 
 abbreviations:
 - abbr: CompBio
