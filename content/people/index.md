@@ -19,6 +19,13 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: Taylor
+  lastName: Arnold
+  image: taylor-arnold-500x500-min.jpg
+  affiliation: University of Richmond
+  team:
+  - contributors
+  note: Core member, May-June 2020
 - key: kbarkume
   firstName: Kris
   lastName: Barkume
@@ -26,6 +33,19 @@ people:
   external: true
   team:
     - blog
+- firstName: Amartya
+  lastName: Basu
+  image: amartya-basu-500x500-min.jpg
+  affiliation: CMU/INI
+  team:
+  - past
+  note: Intern, Summer 2020
+- firstName: Derek
+  lastName: Bell
+  image: derek-bell.jpg
+  affiliation: Aetna Informatics
+  team:
+  - contributors
 - firstName: Jacob
   lastName: Bien
   image: jacob-bien-500x500-min.jpg
@@ -57,6 +77,21 @@ people:
   external: true
   team:
     - center-of-excellence
+- firstName: Angel (Alex)
+  lastName: Cabrera
+  image: angel-alex-cabrera-500x500-min.jpg
+  affiliation: CMU/HCII
+  team:
+  - past
+  note: Core member, March-April 2020
+- key: ccheng
+  firstName: Cheng
+  lastName: Cheng
+  link: https://linkedin.com/in/cheng-cheng-419718106
+  description: is a PhD student in Machine Learning and Public Policy at CMU and is a member of Delphi.
+  external: true
+  team:
+    - blog
 - firstName: Zhuoran (Cheryl)
   lastName: Cheng
   image: zhuoran-cheng.jpg
@@ -71,12 +106,13 @@ people:
   team:
   - contributors
   note: Core member, October 2020-August 2021 
-- firstName: Derek
-  lastName: Bell
-  image: derek-bell.jpg
-  affiliation: Aetna Informatics
+- firstName: Eu Jing
+  lastName: Chua
+  image: eu-jing-chua-500x500-min.jpg
+  affiliation: CMU/MLD
   team:
-  - contributors
+  - past
+  note: Intern, Summer 2020; Contributor, September 2020-May 2021
 - firstName: Brian
   lastName: Clark
   image: brian-clark-500x500-min.jpg
@@ -84,12 +120,32 @@ people:
   team:
   - core
   - highlight
+- firstName: Sarah
+  lastName: Colquhoun
+  image: sarah-colquhoun_head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
   affiliation: CMU/MLD
   team:
   - core
+- firstName: David
+  lastName: Farrow
+  image: david-farrow_head-shot.jpg
+  affiliation: Software Engineer
+  team:
+  - past
+  note: Founding member, 2012-2016; Core member, March-April 2020; Google Fellow, October-December 2020
+- firstName: Michael
+  lastName: Finke
+  image: michael-fink.jpg
+  affiliation: "M*Modal"
+  team:
+    - advisors
 - key: fischhoff
   firstName: Baruch
   lastName: Fischhoff
@@ -106,6 +162,13 @@ people:
   affiliation: CMU/HCII
   team:
   - core
+- firstName: EJ
+  lastName: Fox
+  image: ej-fox-500x500-min.jpg
+  affiliation: CMU/MLD
+  team:
+  - past
+  note: Contributor, 2020
 - key: agarcia
   firstName: Andy
   lastName: Garcia
@@ -113,19 +176,76 @@ people:
   external: true
   team:
     - blog
+- firstName: Jed
+  lastName: Grabman
+  image: jed-gradmn_head-shot.png
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
+- firstName: Samuel
+  lastName: Gratzl
+  image: sam-gratzl-500x500-min.jp
+  affiliation: Consultant
+  link: https://www.sgratzl.com
+  team:
+  - contributors
+  note: Core member, July 2020-August 2021
+- firstName: Alden
+  lastName: Green
+  image: alden-green-500x500-min.jpg
+  affiliation: CMU/Stat
+  note: Core member, May-July 2020
+  team:
+  - contributors
+- firstName: Shantanu
+  lastName: Gupta
+  image: shantanu-gupta.jpg
+  affiliation: CMU/MLD
+  team:
+  - past
+  note: Contributor, April-May 2020
 - firstName: George
   lastName: Haff
   image: george-haff-photo.jpg
   affiliation: CMU/CSD
   team:
   - core
+- firstName: Robin
+  lastName: Han
+  image: robin-han-500x500-min.jpg
+  affiliation: CMU/HCII
+  team:
+  - past
+  note: Intern, Summer 2020
 - firstName: Addison
+- firstName: Kate
+  lastName: Harwood
+  image: kate-harwood_head-shot.jpg
+  affiliation: Columbia University
+  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
+  team:
+  - past
   lastName: Hu
   image: addison-hu-500x500-min.jpg
   affiliation: CMU/Stat
   team:
   - contributors
   note: Core member, March 2020-August 2021
+- firstName: Raphael
+  lastName: Hyde
+  image: raphael-hyde_head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
+- firstName: Sangwon (Justin)
+  lastName: Hyun
+  image: sangwon-justin-hyun-500x500-min.jpg
+  affiliation: USC
+  team:
+  - past
+  note: Core member, March-May 2020; Contributor, June 2020-May 2021
 - firstName: Maria
   lastName: Jahja
   image: maria-jahja-500x500-min.jpg
@@ -133,6 +253,13 @@ people:
   team:
   - core
   - highlight
+- firstName: Jaemin
+  lastName: Jo
+  image: jaemin-jo-500x500-min.jpg
+  affiliation: Seoul National University
+  team:
+  - past
+  note: Contributor, 2020  
 - key: ajoshi
   firstName: Ananya
   lastName: Joshi
@@ -143,6 +270,86 @@ people:
   team:
   - core
   - blog
+- key: ekennedy
+  firstName: Edward
+  lastName: Kennedy
+  link: http://www.ehkennedy.com/
+  description: is an Assistant Professor in the Department of Statistics & Data Science at CMU.
+  external: true
+  team:
+    - blog
+- key: ekim
+  firstName: Esther
+  lastName: Kim
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  external: true
+  team:
+    - blog
+- firstName: Jimi
+  lastName: Kim
+  image: jimi-kim-500x500-min.jpg
+  affiliation: University of Texas at Dallas
+  note: Core member, March-April 2020
+  team:
+  - contributors
+- firstName: Andrew
+  lastName: Kuznetsov
+  image: andrew-kuznetsov-500x500-min.jpg
+  affiliation: CMU/HCII
+  team:
+  - past
+  note: Core member, March-April 2020
+- firstName: Tara
+  lastName: Lakdawala
+  image: tarannum-lakdawala.jpeg
+  affiliation: CMU/CSD
+  team:
+  - core
+- firstName: Daniel
+  lastName: LaLiberte
+  image: daniel-laliberte_head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, September 2020-March 2021
+- firstName: Wichada
+  lastName: La&nbsp;Motte&#x2011;Kerr
+  image: wichada-la-motte-kerr.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
+- key: slarocca
+  firstName: Sarah
+  lastName: LaRocca
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  external: true
+  team:
+    - blog
+- firstName: Jenny
+  lastName: Lee
+  image: jenny-yeon-jin-lee-500x500-min.jpg
+  affiliation: CMU/HCII
+  note: Intern, Summer 2020
+  team:
+  - past
+  note: Intern, Summer 2020
+- firstName: Kenneth
+  lastName: Lee
+  image: lee-kenneth.png
+  affiliation: UC Davis
+  team:
+  - past
+  note: Contributor, August 2020-February 2021
+- key: lipsitch
+  firstName: Marc
+  lastName: Lipsitch
+  image: lipsitch.jpg
+  link:  https://www.hsph.harvard.edu/marc-lipsitch/
+  affiliation: Harvard College CCDD
+  location: Cambridge, Massachusetts, United States
+  external: true
+  team:
+    - center-of-excellence
 - key: zlipton
   firstName: Zack Chase
   lastName: Lipton
@@ -153,7 +360,29 @@ people:
   team:
   - contributors
   - blog
-  note: Core member, April 2020-March 2021
+- firstName: Michael
+  lastName: Xieyang
+  lastName: Liu
+  image: michael-xieyang-liu-500x500-min.jpg
+  affiliation: CMU/HCII
+  team:
+  - past
+  note: Core member, March-April 2020; Contributor, Summer 2020
+- firstName: Natalia
+  lastName: Lombardi de&nbsp;Oliveira
+  image: natalia-lombardi-de-oliveira-500x500-min.jpg
+  affiliation: CMU/Stat
+  note: Core member, March-May 2020
+  team:
+  - past
+  note: Core member, March-May 2020
+- firstName: Lester
+  lastName: Mackey
+  image: lester-mackey-500x500-min.jpg
+  affiliation: Microsoft Research/Stanford
+  team:
+  - past
+  note: Core member, March-May 2020
 - firstName: Kathryn
   lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
@@ -170,6 +399,13 @@ people:
   affiliation: University of British Columbia
   team:
   - core
+- firstName: Phil
+  lastName: McGuinness
+  image: phil-mcguinness_head-shot.png
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
 - firstName: Christy
   lastName: Melucci
   image: christy-melucci.jpg
@@ -183,12 +419,41 @@ people:
   external: true
   team:
     - blog
+- key: kmorris
+  firstName: Katherine
+  lastName: Morris
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  external: true
+  team:
+    - blog
 - firstName: Balasubramanian
   lastName: Narasimhan
   image: balasubramanian-narasimhan-500x500-min.jpg
   affiliation: Stanford University
   team:
   - core
+- firstName: Mike
+  lastName: O'Brien
+  image: mike-o'brien_head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, September 2020-March 2021
+- firstName: Pratik
+  lastName: Patil
+  image: pratik-patil-500x500-min.jpg
+  affiliation: CMU/Stat
+  team:
+  - past
+  note: Core member, March-May 2020
+- firstName: Adam
+  lastName: Perer
+  image: adam-perer-500x500-min.jpg
+  affiliation: CMU/HCII
+  note: Core member, March-October 2020
+  team:
+  - past
+  note: Core member, March-October 2020
 - firstName: Collin
   lastName: Politsch
   image: collin-politsch-500x500-min.jpg
@@ -196,6 +461,20 @@ people:
   team:
   - past
   note: Core member, August 2020-August 2021
+- firstName: Samyak
+  lastName: Rajanala
+  image: samyak-rajanala-500x500-min.jpg
+  affiliation: Stanford University
+  team:
+  - past
+  note: Core member, May-July 2020
+- firstName: Shreenath
+  lastName: Regunathan
+  image: shreenath-regunathan-head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
 - key: alex
   firstName: Alex
   lastName: Reinhart
@@ -219,6 +498,12 @@ people:
   - blog
   - center-of-excellence
   description: is a lead researcher in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
+- firstName: Dawn
+  lastName: Rucker
+  image: dawn-rucker-500x500-min.jpg
+  affiliation: The Rucker Group
+  team:
+  - advisors
 - key: aaron
   firstName: Aaron
   lastName: Rumack
@@ -229,6 +514,13 @@ people:
   - highlight
   - blog
   description: is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.
+- firstName: Wael Al
+  lastName: Saeed
+  image: wael-al-saeed-500x50-min.jpg
+  affiliation: CMU/CSD
+  team:
+  - past
+  note: Intern, Summer 2020
 - firstName: Abhijeet
   lastName: Savant
   image: abhijeet-savant-500x500-min.jpg
@@ -236,6 +528,30 @@ people:
   team:
   - past
   note: Contributor, Summer 2021
+- key: cscott
+  firstName: Chris
+  lastName: Scott
+  image: chris-scott_head-shot.jpg
+  description: is a Google.org Fellow and is a member of Delphi.
+  affiliation: Google
+  team:
+  - past
+  - blog
+  note: Google Fellow, October 2020-March 2021
+- firstName: Nigam
+  lastName: Shah
+  image: nigram-shah-500x500-min.jpg
+  affiliation: Stanford University
+  team:
+  - advisors
+- firstName: Vishnu
+  lastName: Shankar
+  image: vishn-hankar-500x500-min.jpg
+  affiliation: Stanford University
+  note: Intern, Summer 2020
+  team:
+  - past
+  note: Intern, Summer 2020
 - firstName: James
   lastName: Sharpnack
   image: james-sharpnack-500x500-min.jpg
@@ -249,6 +565,35 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+- firstName: Noah
+  lastName: Simon
+  image: noah-simon-500x500-min.jpg
+  affiliation: University of Washington
+  team:
+  - past
+  note: Core member, May-June 2020
+- firstName: Venkatesh
+  lastName: Sivaraman
+  image: venkatesh-sivaraman.jpg
+  affiliation: CMU/HCII
+  team:
+  - past
+  note: Summer 2020
+  note: Core member, April 2020-March 2021
+- firstName: Benjamin
+  lastName: Smith
+  image: benjamin-smith_head-shot.jpg
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
+- firstName: Vishakha
+  lastName: Srivastava
+  image: vishakha-srivastava-500x500-min.jpg
+  affiliation: Santa Clara University
+  team:
+  - past
+  note: Intern, Summer 2020
 - firstName: Jingjing
   lastName: Tang
   image: jinjing-tang-500x500-min.jpg
@@ -256,6 +601,19 @@ people:
   team:
   - core
   - highlight
+- firstName: Kenneth
+  lastName: Tay
+  image: profile-placeholder.png
+  affiliation: Stanford University
+  team:
+  - past
+  note: Intern, Summer 2021
+- firstName: Qi Xuan
+  lastName: Teo
+  image: qi-xuan-teo.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Robert
   lastName: Tibshirani
   image: robert-tibshirani-500x500-min.jpg
@@ -287,6 +645,16 @@ people:
   team:
   - past
   note: Contributor, October 2020-January 2021
+- key: panhuis
+  firstName: Wilbert
+  lastName: Van Panhuis
+  image: Van_Panhuis_Willem.jpg
+  link: https://publichealth.pitt.edu/home/directory/willem-g-van-panhuis
+  location: Pittsburgh, Pennsylvania, United States
+  affiliation: University of Pittsburgh GSPH
+  external: true
+  team:
+    - center-of-excellence
 - key: vventura
   firstName: Valérie
   lastName: Ventura
@@ -307,6 +675,13 @@ people:
   team:
   - core
   - blog
+- firstName: Benjamin
+  lastName: Weaver
+  image: benjamin-weaver_head-shot.png
+  affiliation: Google
+  team:
+  - past
+  note: Google Fellow, October 2020-March 2021
 - key: jweiss
   firstName: Jeremy Chen
   lastName: Weiss
@@ -317,130 +692,20 @@ people:
   team:
   - core
   - blog
-- firstName: Wichada
-  lastName: La&nbsp;Motte&#x2011;Kerr
-  image: wichada-la-motte-kerr.jpg
-  affiliation: CMU/MLD
-  team:
-  - core
-- firstName: Samuel
-  lastName: Gratzl
-  image: sam-gratzl-500x500-min.jpg
-  affiliation: Consultant
-  link: https://www.sgratzl.com
-  team:
-  - contributors
-  note: Core member, July 2020-August 2021
-- firstName: Dawn
-  lastName: Rucker
-  image: dawn-rucker-500x500-min.jpg
-  affiliation: The Rucker Group
-  team:
-  - advisors
-- firstName: Nigam
-  lastName: Shah
-  image: nigram-shah-500x500-min.jpg
-  affiliation: Stanford University
-  team:
-  - advisors
-- firstName: Taylor
-  lastName: Arnold
-  image: taylor-arnold-500x500-min.jpg
-  affiliation: University of Richmond
-  team:
-  - contributors
-  note: Core member, May-June 2020
-- firstName: Eu Jing
-  lastName: Chua
-  image: eu-jing-chua-500x500-min.jpg
-  affiliation: CMU/MLD
-  team:
-  - past
-  note: Intern, Summer 2020; Contributor, September 2020-May 2021
-- firstName: Sarah
-  lastName: Colquhoun
-  image: sarah-colquhoun_head-shot.jpg
+- firstName: Spencer
+  lastName: Whitman
+  image: specer-whitman_head-shot.jpg
   affiliation: Google
   team:
   - past
   note: Google Fellow, October 2020-March 2021
-- firstName: Alden
-  lastName: Green
-  image: alden-green-500x500-min.jpg
-  affiliation: CMU/Stat
-  note: Core member, May-July 2020
-  team:
-  - contributors
-- firstName: Sangwon (Justin)
-  lastName: Hyun
-  image: sangwon-justin-hyun-500x500-min.jpg
-  affiliation: USC
-  team:
-  - past
-  note: Core member, March-May 2020; Contributor, June 2020-May 2021
-- firstName: Jimi
-  lastName: Kim
-  image: jimi-kim-500x500-min.jpg
-  affiliation: University of Texas at Dallas
-  note: Core member, March-April 2020
-  team:
-  - contributors
-- firstName: Jenny
-  lastName: Lee
-  image: jenny-yeon-jin-lee-500x500-min.jpg
-  affiliation: CMU/HCII
-  note: Intern, Summer 2020
-  team:
-  - past
-  note: Intern, Summer 2020
-- firstName: Kenneth
-  lastName: Lee
-  image: lee-kenneth.png
-  affiliation: UC Davis
-  team:
-  - past
-  note: Contributor, August 2020-February 2021
-- key: lipsitch
-  firstName: Marc
-  lastName: Lipsitch
-  image: lipsitch.jpg
-  link:  https://www.hsph.harvard.edu/marc-lipsitch/
-  affiliation: Harvard College CCDD
-  location: Cambridge, Massachusetts, United States
-  external: true
-  team:
-    - center-of-excellence
-- firstName: Natalia
-  lastName: Lombardi de&nbsp;Oliveira
-  image: natalia-lombardi-de-oliveira-500x500-min.jpg
-  affiliation: CMU/Stat
-  note: Core member, March-May 2020
-  team:
-  - past
-  note: Core member, March-May 2020
-- firstName: Adam
-  lastName: Perer
-  image: adam-perer-500x500-min.jpg
-  affiliation: CMU/HCII
-  note: Core member, March-October 2020
-  team:
-  - past
-  note: Core member, March-October 2020
-- firstName: Vishnu
-  lastName: Shankar
-  image: vishn-hankar-500x500-min.jpg
-  affiliation: Stanford University
-  note: Intern, Summer 2020
-  team:
-  - past
-  note: Intern, Summer 2020
-- firstName: Venkatesh
-  lastName: Sivaraman
-  image: venkatesh-sivaraman.jpg
+- firstName: Kristin
+  lastName: Williams
+  image: kristin-williams-500x500-min.jpg
   affiliation: CMU/HCII
   team:
   - past
-  note: Summer 2020
+  note: Core member, March-April 2020; Contributor, Summer 2020
 - key: hzhou
 - firstName: Helen
   lastName: Zhou
@@ -452,272 +717,6 @@ people:
   - contributors
   - blog
   note: Core member, April 2020-March 2021
-- firstName: Wael Al
-  lastName: Saeed
-  image: wael-al-saeed-500x50-min.jpg
-  affiliation: CMU/CSD
-  team:
-  - past
-  note: Intern, Summer 2020
-- firstName: Amartya
-  lastName: Basu
-  image: amartya-basu-500x500-min.jpg
-  affiliation: CMU/INI
-  team:
-  - past
-  note: Intern, Summer 2020
-- firstName: Angel (Alex)
-  lastName: Cabrera
-  image: angel-alex-cabrera-500x500-min.jpg
-  affiliation: CMU/HCII
-  team:
-  - past
-  note: Core member, March-April 2020
-- key: ccheng
-  firstName: Cheng
-  lastName: Cheng
-  link: https://linkedin.com/in/cheng-cheng-419718106
-  description: is a PhD student in Machine Learning and Public Policy at CMU and is a member of Delphi.
-  external: true
-  team:
-    - blog
-- firstName: David
-  lastName: Farrow
-  image: david-farrow_head-shot.jpg
-  affiliation: Software Engineer
-  team:
-  - past
-  note: Founding member, 2012-2016; Core member, March-April 2020; Google Fellow, October-December 2020
-- firstName: Michael
-  lastName: Finke
-  image: michael-fink.jpg
-  affiliation: "M*Modal"
-  team:
-    - advisors
-- firstName: EJ
-  lastName: Fox
-  image: ej-fox-500x500-min.jpg
-  affiliation: CMU/MLD
-  team:
-  - past
-  note: Contributor, 2020
-- firstName: Jed
-  lastName: Grabman
-  image: jed-gradmn_head-shot.png
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- firstName: Shantanu
-  lastName: Gupta
-  image: shantanu-gupta.jpg
-  affiliation: CMU/MLD
-  team:
-  - past
-  note: Contributor, April-May 2020
-- firstName: Robin
-  lastName: Han
-  image: robin-han-500x500-min.jpg
-  affiliation: CMU/HCII
-  team:
-  - past
-  note: Intern, Summer 2020
-- firstName: Kate
-  lastName: Harwood
-  image: kate-harwood_head-shot.jpg
-  affiliation: Columbia University
-  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
-  team:
-  - past
-- firstName: Raphael
-  lastName: Hyde
-  image: raphael-hyde_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021; Contributor, April-August 2021
-- firstName: Jaemin
-  lastName: Jo
-  image: jaemin-jo-500x500-min.jpg
-  affiliation: Seoul National University
-  team:
-  - past
-  note: Contributor, 2020  
-- key: ekennedy
-  firstName: Edward
-  lastName: Kennedy
-  link: http://www.ehkennedy.com/
-  description: is an Assistant Professor in the Department of Statistics & Data Science at CMU.
-  external: true
-  team:
-    - blog
-- key: ekim
-  firstName: Esther
-  lastName: Kim
-  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
-  external: true
-  team:
-    - blog
-- firstName: Andrew
-  lastName: Kuznetsov
-  image: andrew-kuznetsov-500x500-min.jpg
-  affiliation: CMU/HCII
-  team:
-  - past
-  note: Core member, March-April 2020
-- firstName: Tara
-  lastName: Lakdawala
-  image: tarannum-lakdawala.jpeg
-  affiliation: CMU/CSD
-  team:
-  - core
-- firstName: Daniel
-  lastName: LaLiberte
-  image: daniel-laliberte_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, September 2020-March 2021
-- key: slarocca
-  firstName: Sarah
-  lastName: LaRocca
-  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
-  external: true
-  team:
-    - blog
-- firstName: Michael
-  lastName: Xieyang
-  lastName: Liu
-  image: michael-xieyang-liu-500x500-min.jpg
-  affiliation: CMU/HCII
-  team:
-  - past
-  note: Core member, March-April 2020; Contributor, Summer 2020
-- firstName: Lester
-  lastName: Mackey
-  image: lester-mackey-500x500-min.jpg
-  affiliation: Microsoft Research/Stanford
-  team:
-  - past
-  note: Core member, March-May 2020
-- firstName: Phil
-  lastName: McGuinness
-  image: phil-mcguinness_head-shot.png
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- firstName: Mike
-  lastName: O'Brien
-  image: mike-o'brien_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, September 2020-March 2021
-- key: kmorris
-  firstName: Katherine
-  lastName: Morris
-  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
-  external: true
-  team:
-    - blog
-- firstName: Pratik
-  lastName: Patil
-  image: pratik-patil-500x500-min.jpg
-  affiliation: CMU/Stat
-  team:
-  - past
-  note: Core member, March-May 2020
-- firstName: Shreenath
-  lastName: Regunathan
-  image: shreenath-regunathan-head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- firstName: Samyak
-  lastName: Rajanala
-  image: samyak-rajanala-500x500-min.jpg
-  affiliation: Stanford University
-  team:
-  - past
-  note: Core member, May-July 2020
-- key: cscott
-  firstName: Chris
-  lastName: Scott
-  image: chris-scott_head-shot.jpg
-  description: is a Google.org Fellow and is a member of Delphi.
-  affiliation: Google
-  team:
-  - past
-  - blog
-  note: Google Fellow, October 2020-March 2021
-- firstName: Noah
-  lastName: Simon
-  image: noah-simon-500x500-min.jpg
-  affiliation: University of Washington
-  team:
-  - past
-  note: Core member, May-June 2020
-- firstName: Benjamin
-  lastName: Smith
-  image: benjamin-smith_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- firstName: Vishakha
-  lastName: Srivastava
-  image: vishakha-srivastava-500x500-min.jpg
-  affiliation: Santa Clara University
-  team:
-  - past
-  note: Intern, Summer 2020
-- firstName: Kenneth
-  lastName: Tay
-  image: profile-placeholder.png
-  affiliation: Stanford University
-  team:
-  - past
-  note: Intern, Summer 2021
-- firstName: Qi Xuan
-  lastName: Teo
-  image: qi-xuan-teo.jpg
-  affiliation: CMU/MLD
-  team:
-  - core
-- key: panhuis
-  firstName: Wilbert
-  lastName: Van Panhuis
-  image: Van_Panhuis_Willem.jpg
-  link: https://publichealth.pitt.edu/home/directory/willem-g-van-panhuis
-  location: Pittsburgh, Pennsylvania, United States
-  affiliation: University of Pittsburgh GSPH
-  external: true
-  team:
-    - center-of-excellence
-- firstName: Kristin
-  lastName: Williams
-  image: kristin-williams-500x500-min.jpg
-  affiliation: CMU/HCII
-  team:
-  - past
-  note: Core member, March-April 2020; Contributor, Summer 2020
-- firstName: Benjamin
-  lastName: Weaver
-  image: benjamin-weaver_head-shot.png
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-- firstName: Spencer
-  lastName: Whitman
-  image: specer-whitman_head-shot.jpg
-  affiliation: Google
-  team:
-  - past
-  note: Google Fellow, October 2020-March 2021
-
 
 others: |
  MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
