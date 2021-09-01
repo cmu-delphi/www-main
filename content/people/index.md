@@ -19,12 +19,27 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- key: kbarkume
+  firstName: Kris
+  lastName: Barkume
+  description: is a research scientist on the Physical Modeling team at Facebook.
+  external: true
+  team:
+    - blog
 - firstName: Jacob
   lastName: Bien
   image: jacob-bien-500x500-min.jpg
   affiliation: University of Southern California
   team:
   - core
+- key: mbonvini
+  firstName: Matteo
+  lastName: Bonvini
+  link: https://www.linkedin.com/in/matteobonvini
+  description: is a graduate student in the Department of Statistics & Data Science at CMU.
+  external: true
+  team:
+    - blog
 - firstName: Logan
   lastName: Brooks
   image: logan-brooks-500x500-min.jpg
@@ -32,6 +47,16 @@ people:
   team:
   - core
   - highlight
+- key: burke
+  firstName: Donald S
+  lastName: Burke
+  image: Burke_Donald_S.jpg
+  link: https://publichealth.pitt.edu/home/directory/donald-s-burke
+  location: Pittsburgh, Pennsylvania, United States
+  affiliation: University of Pittsburgh GSPH
+  external: true
+  team:
+    - center-of-excellence
 - firstName: Zhuoran (Cheryl)
   lastName: Cheng
   image: zhuoran-cheng.jpg
@@ -65,18 +90,29 @@ people:
   affiliation: CMU/MLD
   team:
   - core
-- firstName: Christy
-  lastName: Melucci
-  image: christy-melucci.jpg
-  affiliation: CMU/MLD
+- key: fischhoff
+  firstName: Baruch
+  lastName: Fischhoff
+  image: fischhoff-baruch.jpg
+  link: https://www.cmu.edu/epp/people/faculty/baruch-fischhoff.html
+  location: Pittsburgh, Pennsylvania, United States
+  affiliation: Carnegie-Mellon University EPP
+  external: true
   team:
-  - core
+    - center-of-excellence
 - firstName: Jodi
   lastName: Forlizzi
   image: jodi-forlizzi-500x500-min.jpg
   affiliation: CMU/HCII
   team:
   - core
+- key: agarcia
+  firstName: Andy
+  lastName: Garcia
+  description: is a Data Scientist on the Health team at Facebook.
+  external: true
+  team:
+    - blog
 - firstName: George
   lastName: Haff
   image: george-haff-photo.jpg
@@ -134,6 +170,19 @@ people:
   affiliation: University of British Columbia
   team:
   - core
+- firstName: Christy
+  lastName: Melucci
+  image: christy-melucci.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
+- key: lmorinishi
+  firstName: Leanna
+  lastName: Morinishi
+  description: is a data scientist on the Physical Modeling team at Facebook.
+  external: true
+  team:
+    - blog
 - firstName: Balasubramanian
   lastName: Narasimhan
   image: balasubramanian-narasimhan-500x500-min.jpg
@@ -351,6 +400,16 @@ people:
   team:
   - past
   note: Contributor, August 2020-February 2021
+- key: lipsitch
+  firstName: Marc
+  lastName: Lipsitch
+  image: lipsitch.jpg
+  link:  https://www.hsph.harvard.edu/marc-lipsitch/
+  affiliation: Harvard College CCDD
+  location: Cambridge, Massachusetts, United States
+  external: true
+  team:
+    - center-of-excellence
 - firstName: Natalia
   lastName: Lombardi de&nbsp;Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
@@ -414,6 +473,14 @@ people:
   team:
   - past
   note: Core member, March-April 2020
+- key: ccheng
+  firstName: Cheng
+  lastName: Cheng
+  link: https://linkedin.com/in/cheng-cheng-419718106
+  description: is a PhD student in Machine Learning and Public Policy at CMU and is a member of Delphi.
+  external: true
+  team:
+    - blog
 - firstName: David
   lastName: Farrow
   image: david-farrow_head-shot.jpg
@@ -421,6 +488,12 @@ people:
   team:
   - past
   note: Founding member, 2012-2016; Core member, March-April 2020; Google Fellow, October-December 2020
+- firstName: Michael
+  lastName: Finke
+  image: michael-fink.jpg
+  affiliation: "M*Modal"
+  team:
+    - advisors
 - firstName: EJ
   lastName: Fox
   image: ej-fox-500x500-min.jpg
@@ -469,7 +542,22 @@ people:
   affiliation: Seoul National University
   team:
   - past
-  note: Contributor, 2020
+  note: Contributor, 2020  
+- key: ekennedy
+  firstName: Edward
+  lastName: Kennedy
+  link: http://www.ehkennedy.com/
+  description: is an Assistant Professor in the Department of Statistics & Data Science at CMU.
+  external: true
+  team:
+    - blog
+- key: ekim
+  firstName: Esther
+  lastName: Kim
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  external: true
+  team:
+    - blog
 - firstName: Andrew
   lastName: Kuznetsov
   image: andrew-kuznetsov-500x500-min.jpg
@@ -477,6 +565,12 @@ people:
   team:
   - past
   note: Core member, March-April 2020
+- firstName: Tara
+  lastName: Lakdawala
+  image: tarannum-lakdawala.jpeg
+  affiliation: CMU/CSD
+  team:
+  - core
 - firstName: Daniel
   lastName: LaLiberte
   image: daniel-laliberte_head-shot.jpg
@@ -484,6 +578,13 @@ people:
   team:
   - past
   note: Google Fellow, September 2020-March 2021
+- key: slarocca
+  firstName: Sarah
+  lastName: LaRocca
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  external: true
+  team:
+    - blog
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
@@ -513,6 +614,13 @@ people:
   team:
   - past
   note: Google Fellow, September 2020-March 2021
+- key: kmorris
+  firstName: Katherine
+  lastName: Morris
+  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
+  external: true
+  team:
+    - blog
 - firstName: Pratik
   lastName: Patil
   image: pratik-patil-500x500-min.jpg
@@ -551,39 +659,6 @@ people:
   team:
   - past
   note: Core member, May-June 2020
-- firstName: Vishakha
-  lastName: Srivastava
-  image: vishakha-srivastava-500x500-min.jpg
-  affiliation: Santa Clara University
-  team:
-  - past
-  note: Intern, Summer 2020
-- firstName: Tara
-  lastName: Lakdawala
-  image: tarannum-lakdawala.jpeg
-  affiliation: CMU/CSD
-  team:
-  - core
-- firstName: Kenneth
-  lastName: Tay
-  image: profile-placeholder.png
-  affiliation: Stanford University
-  team:
-  - past
-  note: Intern, Summer 2021
-- firstName: Kristin
-  lastName: Williams
-  image: kristin-williams-500x500-min.jpg
-  affiliation: CMU/HCII
-  team:
-  - past
-  note: Core member, March-April 2020; Contributor, Summer 2020
-- firstName: Qi Xuan
-  lastName: Teo
-  image: qi-xuan-teo.jpg
-  affiliation: CMU/MLD
-  team:
-  - core
 - firstName: Benjamin
   lastName: Smith
   image: benjamin-smith_head-shot.jpg
@@ -591,6 +666,43 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: Vishakha
+  lastName: Srivastava
+  image: vishakha-srivastava-500x500-min.jpg
+  affiliation: Santa Clara University
+  team:
+  - past
+  note: Intern, Summer 2020
+- firstName: Kenneth
+  lastName: Tay
+  image: profile-placeholder.png
+  affiliation: Stanford University
+  team:
+  - past
+  note: Intern, Summer 2021
+- firstName: Qi Xuan
+  lastName: Teo
+  image: qi-xuan-teo.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
+- key: panhuis
+  firstName: Wilbert
+  lastName: Van Panhuis
+  image: Van_Panhuis_Willem.jpg
+  link: https://publichealth.pitt.edu/home/directory/willem-g-van-panhuis
+  location: Pittsburgh, Pennsylvania, United States
+  affiliation: University of Pittsburgh GSPH
+  external: true
+  team:
+    - center-of-excellence
+- firstName: Kristin
+  lastName: Williams
+  image: kristin-williams-500x500-min.jpg
+  affiliation: CMU/HCII
+  team:
+  - past
+  note: Core member, March-April 2020; Contributor, Summer 2020
 - firstName: Benjamin
   lastName: Weaver
   image: benjamin-weaver_head-shot.png
@@ -606,118 +718,6 @@ people:
   - past
   note: Google Fellow, October 2020-March 2021
 
-- key: fischhoff
-  firstName: Baruch
-  lastName: Fischhoff
-  image: fischhoff-baruch.jpg
-  link: https://www.cmu.edu/epp/people/faculty/baruch-fischhoff.html
-  location: Pittsburgh, Pennsylvania, United States
-  affiliation: Carnegie-Mellon University EPP
-  external: true
-  team:
-    - center-of-excellence
-- key: burke
-  firstName: Donald S
-  lastName: Burke
-  image: Burke_Donald_S.jpg
-  link: https://publichealth.pitt.edu/home/directory/donald-s-burke
-  location: Pittsburgh, Pennsylvania, United States
-  affiliation: University of Pittsburgh GSPH
-  external: true
-  team:
-    - center-of-excellence
-- key: panhuis
-  firstName: Wilbert
-  lastName: Van Panhuis
-  image: Van_Panhuis_Willem.jpg
-  link: https://publichealth.pitt.edu/home/directory/willem-g-van-panhuis
-  location: Pittsburgh, Pennsylvania, United States
-  affiliation: University of Pittsburgh GSPH
-  external: true
-  team:
-    - center-of-excellence
-- key: lipsitch
-  firstName: Marc
-  lastName: Lipsitch
-  image: lipsitch.jpg
-  link:  https://www.hsph.harvard.edu/marc-lipsitch/
-  affiliation: Harvard College CCDD
-  location: Cambridge, Massachusetts, United States
-  external: true
-  team:
-    - center-of-excellence
-- key: mbonvini
-  firstName: Matteo
-  lastName: Bonvini
-  link: https://www.linkedin.com/in/matteobonvini
-  description: is a graduate student in the Department of Statistics & Data Science at CMU.
-  external: true
-  team:
-    - blog
-- key: ekennedy
-  firstName: Edward
-  lastName: Kennedy
-  link: http://www.ehkennedy.com/
-  description: is an Assistant Professor in the Department of Statistics & Data Science at CMU.
-  external: true
-  team:
-    - blog
-- key: lmorinishi
-  firstName: Leanna
-  lastName: Morinishi
-  description: is a data scientist on the Physical Modeling team at Facebook.
-  external: true
-  team:
-    - blog
-- key: kbarkume
-  firstName: Kris
-  lastName: Barkume
-  description: is a research scientist on the Physical Modeling team at Facebook.
-  external: true
-  team:
-    - blog
-- key: ccheng
-  firstName: Cheng
-  lastName: Cheng
-  link: https://linkedin.com/in/cheng-cheng-419718106
-  description: is a PhD student in Machine Learning and Public Policy at CMU and is a member of Delphi.
-  external: true
-  team:
-    - blog
-- key: ekim
-  firstName: Esther
-  lastName: Kim
-  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
-  external: true
-  team:
-    - blog
-- key: agarcia
-  firstName: Andy
-  lastName: Garcia
-  description: is a Data Scientist on the Health team at Facebook.
-  external: true
-  team:
-    - blog
-- key: slarocca
-  firstName: Sarah
-  lastName: LaRocca
-  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
-  external: true
-  team:
-    - blog
-- key: kmorris
-  firstName: Katherine
-  lastName: Morris
-  description: is a Research Scientist on the Demography and Survey Science team at Facebook.
-  external: true
-  team:
-    - blog
-- firstName: Michael
-  lastName: Finke
-  image: michael-fink.jpg
-  affiliation: "M*Modal"
-  team:
-    - advisors
 
 others: |
  MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
