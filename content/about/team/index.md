@@ -19,10 +19,6 @@ layout: team
 
 {{<team team="contributors" >}}
 
-## Past Google Fellows
-
-{{<team team="google" >}}
-
 ## Past Members
 
 {{<team team="past" >}}
