@@ -359,7 +359,7 @@ people:
   affiliation: CMU/MLD
   description: is an Assistant Professor of Operations Research and Machine Learning at CMU and is a member of Delphi.
   team:
-  - contributors
+  - core
   - blog
   note: Core member, April 2020-March 2021
 - firstName: Michael
