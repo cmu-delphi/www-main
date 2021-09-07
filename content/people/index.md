@@ -635,7 +635,7 @@ people:
   description: is a lead researcher in the Delphi group, and an Associate Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
 - firstName: Elena
   lastName: Tuzhilina
-  image: elena-tuzhilina.jpg
+  image: elena-tuzhilina-500x500.jpg
   affiliation: Stanford University
   team:
   - contributors
