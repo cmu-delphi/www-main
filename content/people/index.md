@@ -162,7 +162,8 @@ people:
   image: jodi-forlizzi-500x500-min.jpg
   affiliation: CMU/HCII
   team:
-  - core
+  - past
+  - note: Core member, April 2020-August 2021
 - firstName: EJ
   lastName: Fox
   image: ej-fox-500x500-min.jpg
