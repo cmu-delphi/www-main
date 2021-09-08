@@ -1,7 +1,7 @@
 ---
 title: Research and White Papers
 papers:
-  - title: "Big data, big problems: Responding to "Are we there yet?""
+  - title: "Big data, big problems: Responding to 'Are we there yet?'"
     image: response.jpg
     authors: Reinhart, Tibshirani
     link: https://arxiv.org/abs/2109.00680
