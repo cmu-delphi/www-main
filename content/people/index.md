@@ -163,7 +163,7 @@ people:
   affiliation: CMU/HCII
   team:
   - past
-  - note: Core member, April 2020-August 2021
+  note: Core member, April 2020-August 2021
 - firstName: EJ
   lastName: Fox
   image: ej-fox-500x500-min.jpg
