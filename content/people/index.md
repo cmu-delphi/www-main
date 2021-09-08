@@ -199,6 +199,12 @@ people:
   note: Core member, May-July 2020
   team:
   - contributors
+- firstName: Joseph
+  lastName: Greene
+  image: joseph-greene.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Shantanu
   lastName: Gupta
   image: shantanu-gupta.jpg
