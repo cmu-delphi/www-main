@@ -146,7 +146,7 @@ people:
   image: michael-fink.jpg
   affiliation: "M*Modal"
   team:
-    - advisors
+  - advisors
 - key: fischhoff
   firstName: Baruch
   lastName: Fischhoff
