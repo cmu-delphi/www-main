@@ -368,7 +368,6 @@ people:
   team:
   - core
   - blog
-  note: Core member, April 2020-March 2021
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
