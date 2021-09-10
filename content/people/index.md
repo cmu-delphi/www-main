@@ -146,7 +146,7 @@ people:
   image: michael-fink.jpg
   affiliation: "M*Modal"
   team:
-    - advisors
+  - advisors
 - key: fischhoff
   firstName: Baruch
   lastName: Fischhoff
@@ -162,7 +162,8 @@ people:
   image: jodi-forlizzi-500x500-min.jpg
   affiliation: CMU/HCII
   team:
-  - core
+  - past
+  note: Core member, April 2020-August 2021
 - firstName: EJ
   lastName: Fox
   image: ej-fox-500x500-min.jpg
@@ -199,6 +200,12 @@ people:
   note: Core member, May-July 2020
   team:
   - contributors
+- firstName: Joseph
+  lastName: Greene
+  image: joseph-greene.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Shantanu
   lastName: Gupta
   image: shantanu-gupta.jpg
@@ -359,9 +366,8 @@ people:
   affiliation: CMU/MLD
   description: is an Assistant Professor of Operations Research and Machine Learning at CMU and is a member of Delphi.
   team:
-  - contributors
+  - core
   - blog
-  note: Core member, April 2020-March 2021
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
@@ -635,7 +641,7 @@ people:
   description: is a lead researcher in the Delphi group, and an Associate Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
 - firstName: Elena
   lastName: Tuzhilina
-  image: elena-tuzhilina.jpg
+  image: elena-tuzhilina-500x500.jpg
   affiliation: Stanford University
   team:
   - contributors

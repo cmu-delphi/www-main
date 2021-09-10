@@ -1,6 +1,12 @@
 ---
 title: Research and White Papers
 papers:
+  - title: "Big data, big problems: Responding to \"Are we there yet?\""
+    image: response.jpg
+    authors: Reinhart, Tibshirani
+    link: https://arxiv.org/abs/2109.00680
+    journal: arXiv
+    year: 2021
   - title: "The U.S. COVID-19 Trends and Impact Survey, 2020-2021: Continuous real-time measurement of COVID-19 symptoms, risks, protective behaviors, testing and vaccination"
     image: survey.jpg
     authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani

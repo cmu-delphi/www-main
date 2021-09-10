@@ -41,11 +41,6 @@ relativeURLs = false
     url = "/about/news"
     weight = 4
 [[menu.main]]
-    parent = "about"
-    name = "Careers"
-    url = "/about/careers"
-    weight = 5
-[[menu.main]]
     identifier = "covidcast"
     name = "COVIDcast"
     pre = "solid/map"
