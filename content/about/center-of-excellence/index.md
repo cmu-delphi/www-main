@@ -33,9 +33,11 @@ sisters:
 - name: CDC's Influenza Division
   description: Our funders and collaborators at the [CDC's Influenza Division](https://www.cdc.gov/ncird/flu.html), in particular the Influenza Applied Research and Modeling team at the [Epidemiology branch](https://www.cdc.gov/hiv/dhap/eb/index.html).
   link: https://www.cdc.gov/ncird/flu.html
+  img: 
 - name: University of Massachusetts Amherst
   description: Our sister organization, the [Influenza Forecasting Center of Excellence](https://reichlab.io/) at University of Massachusetts Amherst.
   link: https://reichlab.io/
+  img: 
 
 supporters:
 - Allegheny County Dept of Health
