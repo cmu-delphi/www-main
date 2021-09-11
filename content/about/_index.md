@@ -5,7 +5,7 @@ layout: about
 collaborators:
 - name: Amazon
   group: collaborator
-- name: CDC
+- name: Centers for Disease Control and Prevention
   group: collaborator
 - name: Change Healthcare
   group: collaborator
@@ -13,12 +13,16 @@ collaborators:
   group: collaborator
 - name: Facebook
   group: collaborator
-- name: Uptake
+- name: Google
+  group: collaborator
+- name: Google.org
   group: collaborator
 - name: Optum
   group: collaborator
-- name: Google.org
-  group: sponsor
+- name: Quidel
+  group: collaborator
+- name: Uptake
+  group: collaborator
 
 ---
 
