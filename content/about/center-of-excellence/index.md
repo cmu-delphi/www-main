@@ -3,7 +3,7 @@ title: Delphi National Center of Excellence for Epidemic Forecasting
 layout: coe
 members:
 - name: Carnegie Mellon University
-  group: DELPHI Research Group
+  group: Delphi
   link: /
   location: Pittsburgh, Pennsylvania, United States
   pi:
@@ -30,8 +30,8 @@ members:
     - lipsitch
 
 sisters:
-- name: CDC's Influence Division
-  description: Our funders and collaborators at the [CDC's Influenza Division](https://www.cdc.gov/ncird/flu.html), specially the Influenza Applied Research & Modeling team at the [Epidemiology and Prevention branch](https://www.cdc.gov/hiv/dhap/eb/index.html).
+- name: CDC's Influenza Division
+  description: Our funders and collaborators at the [CDC's Influenza Division](https://www.cdc.gov/ncird/flu.html), especially the Influenza Applied Research & Modeling team at the [Epidemiology and Prevention branch](https://www.cdc.gov/hiv/dhap/eb/index.html).
   link: https://www.cdc.gov/ncird/flu.html
   img: logos/cdc.png
 - name: University of Massachusetts Amherst
@@ -42,7 +42,7 @@ sisters:
 supporters:
 - Allegheny County Dept of Health
 - Change Healthcare
-- DTRA
+- Defense Thread Reduction Agency
 - Facebook
 - Kaiser Permanente Washington Health Research Institute
 - Massachusetts Dept of Public Health
@@ -53,4 +53,4 @@ supporters:
 - UPMC
 ---
 
-The Delphi National Center of Excellence for Influenza Forecasting was established in 2019. It is a CDC-funded and CDC-designated center working on advancing influenza forecasting, and enabling and improving the usefulness of forecasts of both seasonal and pandemic influenza. During the 2020 pandemic, the center expanded to include real-time tracking ("nowcasting") and forecasting of COVID-19, giving rise to the COVIDcast project.  Our goal is to inform public health responses and policy development at the national, state and local levels. Another goal is to inform and empower the general public, providing reliable information and tools that increase the credibility of and trust in public health authorities.
+The Delphi National Center of Excellence for Influenza Forecasting was established in 2019. It is a CDC-funded and CDC-designated center working on advancing influenza forecasting, and enabling and improving the usefulness of forecasts of both seasonal and pandemic influenza. During the 2020 pandemic, the center expanded to include real-time tracking ("nowcasting") and forecasting of COVID-19, giving rise to the COVIDcast project. Our goal is to inform public health responses and policy development at the national, state and local levels. Another goal is to inform and empower the general public, providing reliable information and tools that increase the credibility of and trust in public health authorities.
