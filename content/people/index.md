@@ -78,6 +78,12 @@ people:
   external: true
   team:
   - center-of-excellence
+- firstName: Elise
+  lastName: C.
+  image: elise-gos.jpg
+  affiliation: Girls of Steel Robotics
+  team:
+  - contributors
 - firstName: Angel (Alex)
   lastName: Cabrera
   image: angel-alex-cabrera-500x500-min.jpg
@@ -134,6 +140,12 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+- firstName: Natalie
+  lastName: F.
+  image: natalie-gos.jpg
+  affiliation: Girls of Steel Robotics
+  team:
+  - contributors
 - firstName: David
   lastName: Farrow
   image: david-farrow_head-shot.jpg
@@ -171,6 +183,12 @@ people:
   team:
   - past
   note: Contributor, 2020
+- firstName: Grace
+  lastName: G.
+  image: grace-gos.jpg
+  affiliation: Girls of Steel Robotics
+  team:
+  - contributors
 - key: agarcia
   firstName: Andy
   lastName: Garcia
@@ -278,6 +296,12 @@ people:
   team:
   - core
   - blog
+- firstName: Janise
+  lastName: K.
+  image: janise-gos.jpg
+  affiliation: Girls of Steel Robotics
+  team:
+  - contributors
 - key: ekennedy
   firstName: Edward
   lastName: Kennedy
@@ -458,10 +482,15 @@ people:
   lastName: Perer
   image: adam-perer-500x500-min.jpg
   affiliation: CMU/HCII
-  note: Core member, March-October 2020
   team:
   - past
   note: Core member, March-October 2020
+- firstName: Larry
+  lastName: Pickett
+  image: larry-pickett.jpg
+  affiliation: CMU
+  team:
+  - contributors
 - firstName: Collin
   lastName: Politsch
   image: collin-politsch-500x500-min.jpg
@@ -494,6 +523,12 @@ people:
   link: https://www.refsmmat.com
   description: manages Delphi's surveys, and is an Assistant Teaching Professor in the Department of Statistics & Data Science at CMU.
   twitter: capnrefsmmat
+- firstName: Terry
+  lastName: Richards
+  image: teresa-richards-500x500.png
+  affiliation: Girls of Steel Robotics
+  team:
+  - contributors
 - key: roni
   firstName: Roni
   lastName: Rosenfeld
@@ -506,6 +541,12 @@ people:
   - blog
   - center-of-excellence
   description: is a lead researcher in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
+- firstName: Patti
+  lastName: Rote
+  image: patti-rote.jpg
+  affiliation: Girls of Steel Robotics
+  team:
+  - contributors
 - firstName: Dawn
   lastName: Rucker
   image: dawn-rucker-500x500-min.jpg
@@ -672,6 +713,12 @@ people:
   team:
   - core
   - blog
+- firstName: Ashley
+  lastName: W.
+  image: ashley-gos.jpg
+  affiliation: Girls of Steel Robotics
+  team:
+  - contributors
 - key: lwasserman
   firstName: Larry
   lastName: Wasserman
@@ -714,7 +761,7 @@ people:
   - past
   note: Core member, March-April 2020; Contributor, Summer 2020
 - key: hzhou
-- firstName: Helen
+  firstName: Helen
   lastName: Zhou
   image: helen-zhou.jpg
   link: https://www.helen-zhou.com
