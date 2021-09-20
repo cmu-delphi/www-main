@@ -103,11 +103,6 @@ relativeURLs = false
     weight = 70
 [[menu.main]]
     parent = "covidcast"
-    name = "Data Anomalies"
-    url = "/covidcast/data-anomalies"
-    weight = 71
-[[menu.main]]
-    parent = "covidcast"
     name = "Release Log"
     url = "/covidcast/release-log"
     weight = 80
