@@ -23,7 +23,7 @@ carousel:
     title: COVID Vaccination Trends Among the Hispanic Community in the United States
     ref: 2021-04-29-vaccine-trends-hispanic
     alt: View Post
-    image: landing-pg_hero-img-2_New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing.jpg
+    image: landing-pg_hero_vaccine_hispanic.jpg
   - pre: Research
     title: An Open Repository of Real-Time COVID-19 Indicators
     link: https://www.medrxiv.org/content/10.1101/2021.07.12.21259660v1
