@@ -40,17 +40,18 @@ sisters:
   img: logos/reichlab.png
 
 supporters:
-- Allegheny County Dept of Health
+- Allegheny County Department of Health
 - Change Healthcare
 - Defense Thread Reduction Agency
 - Facebook
+- Google.org
 - Kaiser Permanente Washington Health Research Institute
-- Massachusetts Dept of Public Health
+- Massachusetts Department of Public Health
 - Microsoft Azure
-- Pennsylvania Dept. of Health
-- Quidel Inc.
-- UnitedHealth / Optum
-- UPMC
+- Pennsylvania Department of Health
+- Quidel
+- Optum
+- University of Pittsburgh Medical Center
 ---
 
 The Delphi National Center of Excellence for Influenza Forecasting was established in 2019. It is a CDC-funded and CDC-designated center working on advancing influenza forecasting, and enabling and improving the usefulness of forecasts of both seasonal and pandemic influenza. During the 2020 pandemic, the center expanded to include real-time tracking ("nowcasting") and forecasting of COVID-19, giving rise to the COVIDcast project. Our goal is to inform public health responses and policy development at the national, state and local levels. Another goal is to inform and empower the general public, providing reliable information and tools that increase the credibility of and trust in public health authorities.
