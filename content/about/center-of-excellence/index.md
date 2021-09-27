@@ -7,8 +7,8 @@ members:
   link: /
   location: Pittsburgh, Pennsylvania, United States
   pi:
-   - ryan # people keys
    - roni
+   - ryan
 - name: Carnegie Mellon University
   group: EPP
   link: https://www.cmu.edu/epp
