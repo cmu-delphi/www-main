@@ -34,7 +34,7 @@ relativeURLs = false
     weight = 3
 [[menu.main]]
     parent = "about"
-    name = "Research & White Papers"
+    name = "Research"
     url = "/about/publications"
     weight = 4
 [[menu.main]]
@@ -62,35 +62,35 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "covid19"
-    name = "Delphi's COVID-19 Response Team"
+    name = "About COVIDcast"
     url = "/covid19/"
     weight = 1
 [[menu.main]]
+    parent = "covid19"
+    name = "About CTIS"
+    url = "/covidcast/surveys"
+    weight = 10
+[[menu.main]]
     identifier = "covid19-covidcast"
     parent = "covid19"
-    name = "COVIDcast"
+    name = "COVIDcast Dashboard"
     url = "/covidcast/"
     weight = 20
 [[menu.main]]
     parent = "covid19"
-    name = "Surveys"
-    url = "/covidcast/surveys"
-    weight = 10
-[[menu.main]]
-    parent = "covid19"
-    name = "CTIS Results Dashboard"
+    name = "CTIS Dashboard"
     url = "/covidcast/survey-results"
-    weight = 11
+    weight = 30
 [[menu.main]]
     parent = "covid19"
     name = "Export Data"
     url = "/covidcast/export"
-    weight = 30
+    weight = 40
 [[menu.main]]
     parent = "covid19"
     name = "Terms Of Use"
     url = "/covidcast/terms-of-use"
-    weight = 40
+    weight = 50
 
 # flu
 [[menu.main]]
@@ -99,23 +99,6 @@ relativeURLs = false
     pre = "solid/disease"
     url = "/flu/"
     weight = 3
-[[menu.main]]
-    parent = "flu"
-    name = "Delphi Systems for Flu and Other Diseases"
-    url = "/flu/"
-    weight = 1
-[[menu.main]]
-    identifier = "flu-nowcast"
-    parent = "flu"
-    name = "Nowcast"
-    url = "/nowcast/"
-    weight = 10
-[[menu.main]]
-    identifier = "flu-fluscores"
-    parent = "flu"
-    name = "FluScores"
-    url = "/misc/fluscores/"
-    weight = 20
 
 # tools
 [[menu.main]]
@@ -126,44 +109,44 @@ relativeURLs = false
     weight = 5
 [[menu.main]]
     parent = "tools"
-    name = "Delphi Tools"
+    name = "Tools Overview"
     url = "/tools/"
     weight = 1
 [[menu.main]]
     parent = "tools"
-    name = "EpiVis"
-    url = "/epivis/"
+    name = "COVIDcast Dashboard"
+    url = "/covidcast/"
     weight = 10
 [[menu.main]]
     parent = "tools"
-    name = "COVIDcast"
-    url = "/covidcast/"
-    weight = 20
+    name = "COVIDcast R Package"
+    url = "https://cmu-delphi.github.io/covidcast/covidcastR/"
+    weight = 11
 [[menu.main]]
     parent = "tools"
-    name = "Indicator Status Overview"
+    name = "COVIDcast Python Package"
+    url = "https://cmu-delphi.github.io/covidcast/covidcast-py/html/"
+    weight = 12
+[[menu.main]]
+    parent = "tools"
+    name = "Indicator Status"
     url = "/covidcast/indicator-status"
-    weight = 30
+    weight = 20
 [[menu.main]]
     parent = "tools"
     name = "Dashboard Builder"
     url = "/covidcast/dashboard"
-    weight = 40
+    weight = 30
 [[menu.main]]
     parent = "tools"
     name = "Forecast Evaluation"
     url = "/forecast-eval/"
+    weight = 40
+[[menu.main]]
+    parent = "tools"
+    name = "EpiVis"
+    url = "/epivis/"
     weight = 50
-[[menu.main]]
-    parent = "tools"
-    name = "Nowcast"
-    url = "/nowcast/"
-    weight = 60
-[[menu.main]]
-    parent = "tools"
-    name = "FluScores"
-    url = "/misc/fluscores/"
-    weight = 70
 [[menu.main]]
     parent = "tools"
     name = "Archived Tools"
@@ -198,4 +181,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
-    highlightLinks = "/covidcast/dashboard"
+    highlightLinks = ""
