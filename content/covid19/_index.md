@@ -1,5 +1,6 @@
 ---
 title: About COVIDcast
+linkTitle: COVID-19
 layout: single
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Delphi Research Group
+linkTitle: About Delphi
 layout: about
 
 collaborators:
@@ -44,7 +45,7 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 
 - Several of the underlying data sources (on which these indicators are built) would not exist or be publicly available without our efforts. This includes:
 
-  - A massive [national daily survey]({{< relref "surveys">}}) we're running in [partnership with Facebook](https://covid-survey.dataforgood.fb.com/survey_and_map_data.html). Over 12 million Americans have answered the survey since April, providing real-time insights into, e.g., [self-reported symptoms]({{< relref "2020-08-26-fb-survey#whats-in-the-survey" >}}), [mask wearing]({{< relref "2020-10-06-survey-wave-4.html#mask-wearing" >}}), [testing]({{< relref "2020-10-06-survey-wave-4#testing" >}}), and contacts, all broken down by various demographics.
+  - A massive [national daily survey]({{< relref "ctis">}}) we're running in [partnership with Facebook](https://covid-survey.dataforgood.fb.com/survey_and_map_data.html). Over 12 million Americans have answered the survey since April, providing real-time insights into, e.g., [self-reported symptoms]({{< relref "2020-08-26-fb-survey#whats-in-the-survey" >}}), [mask wearing]({{< relref "2020-10-06-survey-wave-4.html#mask-wearing" >}}), [testing]({{< relref "2020-10-06-survey-wave-4#testing" >}}), and contacts, all broken down by various demographics.
 
   - An enormous database of medical insurance claims that have been de-identified in accordance with HIPAA privacy regulations, covering more than half the US population, made possible through health system partners including Change Healthcare. We use this to produce a new [syndromic COVID-19 indicator based on doctor visits]({{< relref "2020-10-14-dv-signal" >}}), and other indicators based on hospitalizations and ICU admissions.
 

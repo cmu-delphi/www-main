@@ -24,7 +24,7 @@ A relative reference to another page can be created using the `relref` shortcode
 **Examples**
 
 ```
-national daily survey]({{< relref "surveys">}})
+national daily survey]({{< relref "ctis">}})
 [syndromic COVID-19 indicator based on doctor visits]({{< relref "2020-10-14-dv-signal" >}})
 [self-reported symptoms]({{< relref "2020-08-26-fb-survey#whats-in-the-survey" >}})
 ```

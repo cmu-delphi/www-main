@@ -68,7 +68,7 @@ relativeURLs = false
 [[menu.main]]
     parent = "covid19"
     name = "About CTIS"
-    url = "/covidcast/surveys"
+    url = "/covid19/ctis"
     weight = 10
 [[menu.main]]
     identifier = "covid19-covidcast"
@@ -89,7 +89,7 @@ relativeURLs = false
 [[menu.main]]
     parent = "covid19"
     name = "Terms Of Use"
-    url = "/covidcast/terms-of-use"
+    url = "/covid19/terms-of-use"
     weight = 50
 
 # flu

@@ -1,5 +1,6 @@
 ---
 title: Delphi National Center of Excellence for Epidemic Forecasting
+linkTitle: Center of Excellence
 layout: coe
 members:
 - name: Carnegie Mellon University

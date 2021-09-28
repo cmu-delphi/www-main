@@ -1,5 +1,6 @@
 ---
 title: Tools Overview
+linkTitle: Tools
 layout: single
 ---
 
