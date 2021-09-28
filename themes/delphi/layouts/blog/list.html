@@ -1,3 +1,6 @@
+{{ define "breadcrumb" }}
+  {{ partial "blog/breadcrumb.html" . }}
+{{ end }}
 {{ define "main" }}
   {{ $images := ($.GetPage "/blog/images").Resources.ByType "image" }}
   <div class="uk-container">
