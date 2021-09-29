@@ -40,7 +40,7 @@ In reverse chronological order.
 
 - **April 2020.** We began supporting and advising the U.S. CDC in their community-driven COVID-19 forecasting effort. This work (collaborative with the [Reich Lab](https://reichlab.io) at UMass) includes:
     * Creating and evaluating an ensemble forecast from the 70+ forecasts in the [COVID-19 Forecast Hub](https://covid19forecasthub.org), which serves as the basis of the [CDC's official COVID-19 forecast communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html).
-    * Creating a [forecast evaluation dashboard]({{< reflref "forecast-eval">}}), which provides an interactive analysis of the performance of Hub forecasters.
+    * Creating a [forecast evaluation dashboard]({{< relref "forecast-eval">}}), which provides an interactive analysis of the performance of Hub forecasters.
     
 - **March 2020.** We launched [COVIDcast]({{< relref "covidcast" >}}), the nation's largest public repository of diverse, real-time indicators of COVID-19 activity. 
     * Our indicators are freely available through a [public API]({{< apiref "api/covidcast.html" >}}), which is updated daily with the latest data.
