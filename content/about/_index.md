@@ -39,7 +39,7 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 In reverse chronological order.
 
 - **April 2020.** We began supporting and advising the U.S. CDC in their community-driven COVID-19 forecasting effort. This work (collaborative with the [Reich Lab](https://reichlab.io) at UMass) includes:
-    * Creating and evaluating an ensemble forecast from the 70+ forecasts in the [COVID-19 Forecast Hub](https://covid19forecasthub.org), which serves as the basis of the [CDC's official COVID-19 forecast communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html).
+    * Creating and evaluating an ensemble forecast from the 70+ forecasts in the [COVID-19 Forecast Hub](https://covid19forecasthub.org), which serves as the basis of the [CDC's official communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html) on COVID-19 forecasting.
     * Creating a [forecast evaluation dashboard](https://delphi.cmu.edu/forecast-eval/), which provides an interactive analysis of the performance of Hub forecasters.
     
 - **March 2020.** We launched [COVIDcast]({{< relref "covidcast" >}}), the nation's largest public repository of diverse, real-time indicators of COVID-19 activity. 
@@ -52,6 +52,6 @@ In reverse chronological order.
 
 - **2016.** We developed and deployed [influenza nowcasts](https://delphi.cmu.edu/nowcast/) to the CDC, states' departments of health, and the public.
 
-- **2016.** We developed and deployed the [Delphi Epidata API]({{< apiref "/" >}}), which provides real-time access to epidemiological surveillance data.
+- **2016.** We developed and deployed the [Epidata API]({{< apiref "/" >}}), which provides real-time access to epidemiological surveillance data.
 
 - **2013.** We began supporting the U.S. CDC's Influenza Division in advancing and growing a [scientific community around influenza forecasting](https://www.cdc.gov/flu/weekly/flusight/index.html). We've been [perennial leaders in forecasting accuracy](https://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf) ever since.
