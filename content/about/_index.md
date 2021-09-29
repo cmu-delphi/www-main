@@ -50,7 +50,7 @@ In reverse chronological order.
 
 - **2019.** We became a CDC National Center of Excellence for Influenza Forecasting, one of two nationally (and a 5-year designation).
 
-- **2016.** We developed and deployed [influenza nowcasts](https://delphi.cmu.edu/nowcast/) to the CDC, states' departments of health, and the public.
+- **2016.** We developed and deployed [influenza nowcasts](https://delphi.cmu.edu/nowcast/) for the CDC, state departments of public health, and the public.
 
 - **2016.** We developed and deployed the [Epidata API]({{< apiref "/" >}}), which provides real-time access to epidemiological surveillance data.
 
