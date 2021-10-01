@@ -36,8 +36,6 @@ dependencies:
   - r-lubridate
   - r-plyr
   - r-ggpubr
-  - r-covidData
-  - r-covidHubUtils
   - pandoc
   - fiona
   - geopandas
