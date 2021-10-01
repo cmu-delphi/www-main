@@ -714,7 +714,7 @@ people:
   - past
   note: Core member, March-April 2020; Contributor, Summer 2020
 - key: hzhou
-- firstName: Helen
+  firstName: Helen
   lastName: Zhou
   image: helen-zhou.jpg
   link: https://www.helen-zhou.com
@@ -724,6 +724,18 @@ people:
   - contributors
   - blog
   note: Core member, April 2020-March 2021
+- key: nickreich
+  firstName: Nicholas
+  lastName: Reich
+  external: true
+  team:
+  - blog
+- key: evanray
+  firstName: Evan
+  lastName: Ray
+  external: true
+  team:
+  - blog
 
 others: |
  MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
