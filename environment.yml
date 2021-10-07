@@ -42,7 +42,7 @@ dependencies:
   - r-mime
   - r-cli
   - r-rcpp
-  - r-ridyverse
+  - r-tidyverse
   - r-bit
   - r-tzdb
   - r-triebeard
