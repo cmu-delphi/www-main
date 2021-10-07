@@ -20,10 +20,10 @@ carousel:
     alt: Explore the COVID-19 Trends and Impact Survey Results
     image: covidcast_survey.jpg
   - pre: Our Blog Post
-    title: New and improved COVID Symptom Survey Tracks Testing and Mask-Wearing
-    ref: 2020-10-06-survey-wave-4
+    title: On the Predictability of COVID-19
+    ref: 2021-09-30-ensemble-analysis
     alt: Learn more
-    image: landing-pg_hero-img-2_New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing.jpg
+    image: ensemble-hero.jpg
   - pre: Our Research and White Papers
     title: "Pancasting: forecasting epidemics from provisional data"
     link: https://delphi.cmu.edu/~lcbrooks/brooks2020pancasting.pdf
