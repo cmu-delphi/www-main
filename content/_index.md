@@ -4,29 +4,29 @@ description: Developing the Theory and Practice of Epidemiological Forecasting
 layout: landing
 
 carousel:
-  - pre: Our Tools
+  - pre: Tools
     title: Real-time Indicators of COVID-19 Activity
     ref: covidcast
-    alt: Explore COVIDcast
+    alt: Explore the COVIDcast Dashboard
     image: covidcast_v2.jpg
-  - pre: Our Tools
-    title: Forecast Evaluation Dashboard
+  - pre: Tools
+    title: Evaluation of COVID-19 Forecasts
     link: /forecast-eval
-    alt: Explore the new COVID-19 forecast evaluation dashboard
+    alt: Explore the Forecast Evaluation Dashboard
     image: forecast_evaluation_dashboard.jpg
-  - pre: Our Tools
-    title: CTIS Results Dashboard
+  - pre: Tools
+    title: COVID Trends and Impact Survey (CTIS)
     ref: covidcast/survey-results
-    alt: Explore the COVID-19 Trends and Impact Survey Results
+    alt: Explore the CTIS Dashboard
     image: covidcast_survey.jpg
-  - pre: Our Blog Post
-    title: New and improved COVID Symptom Survey Tracks Testing and Mask-Wearing
-    ref: 2020-10-06-survey-wave-4
-    alt: Learn more
-    image: landing-pg_hero-img-2_New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing.jpg
-  - pre: Our Research and White Papers
-    title: "Pancasting: forecasting epidemics from provisional data"
-    link: https://delphi.cmu.edu/~lcbrooks/brooks2020pancasting.pdf
+  - pre: Blog
+    title: On the Predictability of COVID-19
+    ref: 2021-09-30-ensemble-analysis
+    alt: View Post
+    image: ensemble-hero.jpg
+  - pre: Research
+    title: An Open Repository of Real-Time COVID-19 Indicators
+    link: https://www.medrxiv.org/content/10.1101/2021.07.12.21259660v1
     alt: View Paper
     image: landing-pg_hero-img-2_Pancasting_ forecasting epidemics from provisional data.jpg
 ---
