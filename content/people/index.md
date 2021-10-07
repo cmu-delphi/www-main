@@ -69,7 +69,7 @@ people:
   - core
   - highlight
 - key: burke
-  firstName: Donald S
+  firstName: Donald
   lastName: Burke
   image: Burke_Donald_S.jpg
   link: https://publichealth.pitt.edu/home/directory/donald-s-burke

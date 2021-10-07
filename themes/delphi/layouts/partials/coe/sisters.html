@@ -10,13 +10,6 @@
         <p>
           {{ .description | markdownify }}
         </p>
-        <div class="coe-member-logo">
-          {{- $img:= $currentPage.Resources.GetMatch .img }}
-          <picture>
-            <source srcset="{{ ($img.Resize "250x250 webp").RelPermalink }}" type="image/webp" />
-            <img src="{{ ($img.Resize "250x250 jpg").RelPermalink }}" alt="{{ .name }}" width="250" height="250" />
-          </picture>
-        </div>
       </div>
     </div>
   {{ end }}

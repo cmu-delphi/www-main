@@ -1,13 +1,13 @@
 ---
 title: Research and White Papers
 papers:
-  - title: "Big data, big problems: Responding to \"Are we there yet?\""
+  - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
     authors: Reinhart, Tibshirani
     link: https://arxiv.org/abs/2109.00680
     journal: arXiv
     year: 2021
-  - title: "The U.S. COVID-19 Trends and Impact Survey, 2020-2021: Continuous real-time measurement of COVID-19 symptoms, risks, protective behaviors, testing and vaccination"
+  - title: "Continuous Real-Time Measurement of COVID-19 Symptoms, Risks, Protective Behaviors, Testing and Vaccination"
     image: survey.jpg
     authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani
     link: https://doi.org/10.1101/2021.07.24.21261076
@@ -25,55 +25,49 @@ papers:
     link: https://www.medrxiv.org/content/10.1101/2021.06.22.21259346
     journal: medRxiv
     year: 2021
-  - title: "Causal inference in the time of COVID-19"
+  - title: "Causal Inference in the Time of COVID-19"
     image: causal.jpg
     authors: Bonvini, Kennedy, Ventura, Wasserman
     link: https://arxiv.org/abs/2103.04472
     journal: ArXiv preprint
     year: 2021
-  - title: "Pancasting: forecasting epidemics from provisional data"
+  - title: "Pancasting: Forecasting Epidemics from Provisional Data"
     image: pancasting.jpg
     authors: Brooks
     link: https://delphi.cmu.edu/~lcbrooks/brooks2020pancasting.pdf
     journal: PhD thesis
     year: 2020
-  - title: "Kalman filter, sensor fusion, and constrained regression: equivalences and insights"
+  - title: "Kalman Filter, Sensor Fusion, and Constrained Regression: Equivalences and Insights"
     image: kalman_filter.jpg
     authors: Jahja, Farrow, Rosenfeld, Tibshirani
     link: https://papers.nips.cc/paper/9475-kalman-filter-sensor-fusion-and-constrained-regression-equivalences-and-insights
     journal: Neural Information Processing Systems
     year: 2019
-  - title: "Nonmechanistic forecasts of seasonal influenza with iterative one-week-ahead distributions"
+  - title: "Nonmechanistic Forecasts of Seasonal Influenza with Iterative One-Week-Ahead Distributions"
     image: nonmechanistic_forecasts.jpg
     authors: Brooks, Farrow, Hyun, Tibshirani, Rosenfeld
     link: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006134
     journal: PLOS Computational Biology
     year: 2018
-  - title: "A human judgment approach to epidemiological forecasting"
+  - title: "A Human Judgment Approach to Epidemiological Forecasting"
     image: human.jpg
     authors: Farrow, Brooks, Hyun, Tibshirani, Burke, Rosenfeld
     link: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005248
     journal: PLOS Computational Biology
     year: 2017
-  - title: "Modeling the past, present, and future of influenza"
+  - title: "Modeling the Past, Present, and Future of Influenza"
     image: modeling.jpg
     authors: Farrow
     link: https://delphi.cmu.edu/~dfarrow/thesis.pdf
     journal: PhD thesis
     year: 2016
-  - title: "Flexible modeling of epidemics with an empirical Bayes framework"
+  - title: "Flexible Modeling of Epidemics with an Empirical Bayes Framework"
     image: flexible_modeling.jpg
     authors: Brooks, Farrow, Hyun, Tibshirani, Rosenfeld
     link: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004382
     journal: PLOS Computational Biology
     year: 2015
-  - title: "Predicting the predictable"
-    image: predicting.jpg
-    authors: Rosenfeld
-    link: https://www.cmu.edu/delphi-web/publications/PredictingThePredictable_13-04-03.pdf
-    journal: presentation
-    year: 2013
-  - title: "A proposal for standardized evaluation of epidemiological models"
+  - title: "A Proposal for Standardized Evaluation of Epidemiological Models"
     image: evaluation.jpg
     authors: Rosenfeld, Grefenstette, Burke
     link: https://www.cs.cmu.edu/~roni/standardized-evaluation-of-epi-models-rev-09nov2012.pdf
