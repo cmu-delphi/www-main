@@ -8,5 +8,5 @@ install.packages("covidcast", repo="http://cran.rstudio.com/")
 #                          upgrade = 'never',
 #                          subdir = "R-packages/covidcast")
 
-devtools::install_github("reichlab/covidData")
-devtools::install_github("reichlab/covidHubUtils")
+devtools::install_github("reichlab/covidData", upgrade = 'never')
+devtools::install_github("reichlab/covidHubUtils", upgrade = 'never')
