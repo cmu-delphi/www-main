@@ -48,6 +48,9 @@ dependencies:
   - r-triebeard
   - r-digest
   - r-vroom
+  - r-urltools
+  - r-base64url
+  - r-scoringRules
   - pandoc
   - fiona
   - geopandas
