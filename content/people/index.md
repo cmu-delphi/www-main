@@ -532,7 +532,7 @@ people:
 - key: roni
   firstName: Roni
   lastName: Rosenfeld
-  link: https://cs.cmu.edu/~roni
+  link: https://cs.cmu.edu/~roni/
   image: roni-rosenfeld-500x500-min.jpg
   affiliation: CMU/MLD
   team:
@@ -540,7 +540,7 @@ people:
   - highlight
   - blog
   - center-of-excellence
-  description: is a lead researcher in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
+  description: is a Principal Investigator in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
 - firstName: Patti
   lastName: Rote
   image: patti-rote.jpg
@@ -671,7 +671,7 @@ people:
 - key: ryan
   firstName: Ryan
   lastName: Tibshirani
-  link: https://stat.cmu.edu/~ryantibs
+  link: https://stat.cmu.edu/~ryantibs/
   image: ryan-tibshirani-500x500-min.jpg
   affiliation: CMU/MLD/Stat
   team:
@@ -679,7 +679,7 @@ people:
   - highlight
   - blog
   - center-of-excellence
-  description: is a lead researcher in the Delphi group, and an Associate Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
+  description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
 - firstName: Elena
   lastName: Tuzhilina
   image: elena-tuzhilina-500x500.jpg
