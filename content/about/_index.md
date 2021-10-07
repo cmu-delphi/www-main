@@ -19,7 +19,7 @@ collaborators:
   group: collaborator
 - name: Optum
   group: collaborator
-- name: Quidel
+- name: Quidel Inc.
   group: collaborator
 - name: Uptake
   group: collaborator

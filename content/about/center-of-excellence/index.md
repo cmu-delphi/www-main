@@ -47,7 +47,7 @@ supporters:
 - Massachusetts Department of Public Health
 - Microsoft Azure
 - Pennsylvania Department of Health
-- Quidel
+- Quidel Inc.
 - Optum
 - University of Pittsburgh Medical Center
 ---
