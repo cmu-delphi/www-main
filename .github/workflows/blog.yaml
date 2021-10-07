@@ -40,8 +40,9 @@ jobs:
       #     conda list
       - name: Install R dependencies
         shell: bash -l {0}
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          unset GITHUB_PAT
           Rscript ./dependencies.R
       - name: Restore Blogdown Cache
         uses: actions/cache@v2.1.6
