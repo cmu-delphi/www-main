@@ -1,6 +1,6 @@
 ---
 date: 2019-10-01
-title: Center of Excellence for Influenza Forecasting
+title: Delphi named a Center of Excellence 
 category: accomplishment
 ---
 
