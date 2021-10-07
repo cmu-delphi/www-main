@@ -20,10 +20,10 @@ carousel:
     alt: Explore the CTIS Dashboard
     image: covidcast_survey.jpg
   - pre: Blog
-    title: COVID Vaccination Trends Among the Hispanic Community in the United States
-    ref: 2021-04-29-vaccine-trends-hispanic
+    title: On the Predictability of COVID-19
+    ref: 2021-09-30-ensemble-analysis
     alt: View Post
-    image: landing-pg_hero_vaccine_hispanic.jpg
+    image: ensemble-hero.jpg
   - pre: Research
     title: An Open Repository of Real-Time COVID-19 Indicators
     link: https://www.medrxiv.org/content/10.1101/2021.07.12.21259660v1
