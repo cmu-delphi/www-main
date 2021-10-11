@@ -53,6 +53,7 @@ Our [CTIS Results Dashboard]({{< relref "covidcast/survey-results" >}}) shows ag
 
 ### Publications
 
+- D. P. Do and R. Frank (2021). [U.S. frontline workers and COVID-19 inequities](https://doi.org/10.1016/j.ypmed.2021.106833). *Preventive Medicine* 153, 106833.
 - W. C. King, M. Rubinstein, A. Reinhart, and R. J. Mejia (2021). [COVID-19 vaccine hesitancy January-May 2021 among 18–64 year old US adults by employment and occupation](https://doi.org/10.1016/j.pmedr.2021.101569). *Preventive Medicine Reports* 24, 101569.
 - C. H. Sudre, A. Keshet, M. S. Graham, A. D. Joshi, S. Shilo, H. Rossman, B. Murray, E. Molteni, K. Klaser, L. D. Canas, M. Antonelli, L. H. Nguyen, D. A. Drew, M. Modat, J. Capdevila Pujol, S. Ganesh, J. Wolf, T. Meir, A. T. Chan, C. J. Steves, T. D. Spector, J. S. Brownstein, E. Segal, S. Ourselin, and C. M. Astley (2021). [Anosmia, ageusia, and other COVID-19-like symptoms in association with a positive SARS-CoV-2 test, across six national digital surveillance platforms: an observational study](https://doi.org/10.1016/S2589-7500(21)00115-1). *The Lancet Digital Health* 3 (9), e577-e586.
 - R. Sukumaran, P. Patwa, S. T V, S. Shankar, R. Kanaparti, J. Bae, Y. Mathur, A. Singh, A. Chopra, M. Kang, P. Ramaswamy, and R. Raskar (2021). [COVID-19 outbreak prediction and analysis using self reported symptoms](https://doi.org/10.35566/jbds/v1n1/p8). *Journal of Behavioral Data Science* 1 (1), 154–169.
