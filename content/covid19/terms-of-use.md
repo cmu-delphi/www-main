@@ -45,9 +45,9 @@ If the Site is at any time deemed an electronic commercial service (as defined u
 
 The provider of the Site is:
 
-Carnegie Mellon University
-5000 Forbes Avenue
-Pittsburgh, PA 15213
+Carnegie Mellon University  
+5000 Forbes Avenue  
+Pittsburgh, PA 15213  
 412-268-2000
 
 If the Site is deemed as electronic commercial service, you may file a complaint regarding the Site or to receive further information regarding use of the Site by sending a letter to the attention of “Legal Department” at the above address.
