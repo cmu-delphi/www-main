@@ -7,3 +7,7 @@ install.packages("covidcast", repo="http://cran.rstudio.com/")
 # devtools::install_github("cmu-delphi/covidcast", ref = "main",
 #                          upgrade = 'never',
 #                          subdir = "R-packages/covidcast")
+
+devtools::install_github("reichlab/zoltr", upgrade = 'never', quick = TRUE)
+devtools::install_github("reichlab/covidData", upgrade = 'never', quick = TRUE)
+devtools::install_github("reichlab/covidHubUtils", upgrade = 'never', quick = TRUE)

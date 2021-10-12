@@ -36,6 +36,20 @@ dependencies:
   - r-lubridate
   - r-plyr
   - r-ggpubr
+  - r-stringi
+  - r-fansi
+  - r-openssl
+  - r-mime
+  - r-cli
+  - r-rcpp
+  - r-tidyverse
+  - r-bit
+  - r-tzdb
+  - r-triebeard
+  - r-digest
+  - r-vroom
+  - r-urltools
+  - r-base64url
   - pandoc
   - fiona
   - geopandas

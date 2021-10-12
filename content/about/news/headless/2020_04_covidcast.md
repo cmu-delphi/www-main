@@ -1,14 +1,10 @@
 ---
 date: 2020-04-01
-title: Launch of COVIDcast v1
+title: Delphi Launches COVIDcast
 category: update
 ---
 
-We launched our [COVIDcast system]({{< relref "covidcast">}}), which displays
-indicators related to COVID-19 activity level across the U.S. These
-indicators are derived from a variety of anonymized, aggregated data sources
-made available by multiple partners, and are publicly available at the
-[COVIDcast endpoint]({{< apiref "api/covidcast.html">}}) of our [Epidata API]({{< apiref "api/README.html">}}).
+We launched our [COVIDcast system]({{< relref "covidcast">}}), which makes available indicators related to COVID-19 activity level across the U.S. These indicators are derived from a variety of anonymized, aggregated data sources made available by multiple partners, and are publicly available at the [COVIDcast endpoint]({{< apiref "api/covidcast.html">}}) of our [Epidata API]({{< apiref "api/README.html">}}).
 
 Related news articles:
 

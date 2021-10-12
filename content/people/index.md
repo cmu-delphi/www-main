@@ -69,7 +69,7 @@ people:
   - core
   - highlight
 - key: burke
-  firstName: Donald S
+  firstName: Donald
   lastName: Burke
   image: Burke_Donald_S.jpg
   link: https://publichealth.pitt.edu/home/directory/donald-s-burke
@@ -532,7 +532,7 @@ people:
 - key: roni
   firstName: Roni
   lastName: Rosenfeld
-  link: https://cs.cmu.edu/~roni
+  link: https://cs.cmu.edu/~roni/
   image: roni-rosenfeld-500x500-min.jpg
   affiliation: CMU/MLD
   team:
@@ -540,7 +540,7 @@ people:
   - highlight
   - blog
   - center-of-excellence
-  description: is a lead researcher in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
+  description: is a Principal Investigator in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
 - firstName: Patti
   lastName: Rote
   image: patti-rote.jpg
@@ -671,7 +671,7 @@ people:
 - key: ryan
   firstName: Ryan
   lastName: Tibshirani
-  link: https://stat.cmu.edu/~ryantibs
+  link: https://stat.cmu.edu/~ryantibs/
   image: ryan-tibshirani-500x500-min.jpg
   affiliation: CMU/MLD/Stat
   team:
@@ -679,7 +679,7 @@ people:
   - highlight
   - blog
   - center-of-excellence
-  description: is a lead researcher in the Delphi group, and an Associate Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
+  description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
 - firstName: Elena
   lastName: Tuzhilina
   image: elena-tuzhilina-500x500.jpg
@@ -771,6 +771,22 @@ people:
   - contributors
   - blog
   note: Core member, April 2020-March 2021
+- key: nickreich
+  firstName: Nicholas
+  lastName: Reich
+  link: https://reichlab.io/people
+  description: is a Principal Investigator of a CDC Center of Excellence for Influenza Forecasting and founder of the COVID-19 Forecast Hub, and a Professor in Biostatistics and Epidemiology at UMass. 
+  external: true
+  team:
+  - blog
+- key: evanray
+  firstName: Evan
+  lastName: Ray
+  link: https://reichlab.io/people
+  description: is a Principal Investigator of a CDC Center of Excellence for Influenza Forecasting and founder of the COVID-19 Forecast Hub, and a Research Faculty in Biostatistics and Epidemiology at UMass. 
+  external: true
+  team:
+  - blog
 
 others: |
  MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
