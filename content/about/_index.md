@@ -61,6 +61,4 @@ In reverse chronological order.
 
 - **2016.** We developed and deployed the [Epidata API]({{< apiref "/" >}}), which provides real-time access to epidemiological surveillance data.
 
-- Since April 2020, we've been supporting and advising U.S. CDC in their community-driven COVID-19 forecasting effort, which includes [creating and evaluating an ensemble forecast]({{< relref "2020-09-21-forecast-demo" >}}) from the 70+ forecasts under submission that serves as the basis for the [CDC's official COVID-19 forecast communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html). We also contribute our own short-term forecasts of COVID-19 cases and deaths, which can be found in the [COVID-19 Forecast Hub](https://covid19forecasthub.org).
-
-
+- **2013.** We began supporting the U.S. CDC's Influenza Division in advancing and growing a [scientific community around influenza forecasting](https://www.cdc.gov/flu/weekly/flusight/index.html). We've been [perennial leaders in forecasting accuracy](https://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf) ever since.
