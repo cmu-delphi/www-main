@@ -363,7 +363,7 @@ available through our COVIDcast API, and the exact technical details are
 described in our `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/fb-survey.html", "signal documentation")`.
 The symptom and mask data is already featured on our `r blogdown::shortcode_html("reflink", "covidcast?sensor=fb-survey-smoothed_wearing_mask&level=county&signalType=value&encoding=color&mode=overview&region=42003", "COVIDcast interactive map")`,
 and other survey signals will soon be added as well. More information about the
-surveys, including preliminary results, is given on our `r blogdown::shortcode_html("reflink", "surveys", "survey site")`.
+surveys, including preliminary results, is given on our `r blogdown::shortcode_html("reflink", "ctis", "survey site")`.
 
 But we also know that many researchers will have questions that can't be
 answered from these simple county- and state-level averages. What occupations
@@ -392,7 +392,7 @@ data, we can make decisions needed to protect public health and permit safe
 reopening.
 
 _For more information about Delphi's symptom surveys, and for media contact
-details, see `r blogdown::shortcode_html("reflink", "surveys", "our surveys page")`. For
+details, see `r blogdown::shortcode_html("reflink", "ctis", "our surveys page")`. For
 updates, you can follow [CmuDelphi on Twitter](https://twitter.com/cmudelphi)._
 
 **Note.** _This post was updated on October 17, 2020 to correct an error in the

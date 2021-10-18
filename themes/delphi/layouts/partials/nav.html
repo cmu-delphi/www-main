@@ -11,7 +11,7 @@
     <ul class="uk-navbar-nav nav-entries">
       {{ range .Site.Menus.main.ByWeight }}
         <li
-          class="nav-entry {{- if (eq $currentPage.Section .Identifier) -}}uk-active{{- end -}} {{- if .HasChildren -}}
+          class="nav-entry {{ if (eq $currentPage.Section .Identifier) -}}uk-active{{- end -}} {{ if .HasChildren -}}
             uk-parent
           {{- end -}}"
         >

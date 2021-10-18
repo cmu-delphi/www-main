@@ -15,14 +15,16 @@ relativeURLs = false
     pre = "solid/info-circle"
     url = "/about"
     weight = 1
+
+# About
 [[menu.main]]
     parent = "about"
-    name = "Delphi Research Group"
+    name = "About Delphi"
     url = "/about"
     weight = 1
 [[menu.main]]
     parent = "about"
-    name = "Team"
+    name = "Our Team"
     url = "/about/team"
     weight = 2
 [[menu.main]]
@@ -32,109 +34,140 @@ relativeURLs = false
     weight = 3
 [[menu.main]]
     parent = "about"
-    name = "Publications"
+    name = "Research"
     url = "/about/publications"
     weight = 4
 [[menu.main]]
     parent = "about"
+    name = "Blog"
+    url = "/blog"
+    weight = 5
+[[menu.main]]
+    parent = "about"
     name = "News"
     url = "/about/news"
-    weight = 4
+    weight = 6
 [[menu.main]]
-    identifier = "covidcast"
-    name = "COVIDcast"
-    pre = "solid/map"
-    url = "/covidcast/"
+    parent = "about"
+    name = "Careers"
+    url = "/about/careers"
+    weight = 7
+
+# covid19
+[[menu.main]]
+    identifier = "covid19"
+    name = "COVID-19"
+    pre = "solid/virus"
+    url = "/covid19/"
     weight = 2
 [[menu.main]]
-    parent = "covidcast"
-    name = "COVIDcast Overview"
-    url = "/covidcast/"
+    parent = "covid19"
+    name = "About COVIDcast"
+    url = "/covid19/"
     weight = 1
 [[menu.main]]
-    parent = "covidcast"
-    name = "Explore a Location"
-    url = "/covidcast/summary"
-    weight = 2
+    parent = "covid19"
+    name = "About CTIS"
+    url = "/covid19/ctis"
+    weight = 10
 [[menu.main]]
-    parent = "covidcast"
-    name = "Explore an Indicator"
-    url = "/covidcast/indicator"
-    weight = 3
-[[menu.main]]
-    parent = "covidcast"
-    name = "Explore Correlations"
-    url = "/covidcast/correlation"
-    weight = 4
-[[menu.main]]
-    parent = "covidcast"
-    name = "Dashboard Builder"
-    url = "/covidcast/dashboard"
+    identifier = "covid19-covidcast"
+    parent = "covid19"
+    name = "COVIDcast Dashboard"
+    url = "/covidcast/"
     weight = 20
 [[menu.main]]
-    parent = "covidcast"
-    name = "Classic Map"
-    url = "/covidcast/classic"
+    parent = "covid19"
+    name = "CTIS Dashboard"
+    url = "/covidcast/survey-results"
     weight = 30
 [[menu.main]]
-    parent = "covidcast"
+    parent = "covid19"
+    name = "Export Data"
+    url = "/covidcast/export"
+    weight = 40
+[[menu.main]]
+    parent = "covid19"
+    name = "Terms Of Use"
+    url = "/covid19/terms-of-use"
+    weight = 50
+
+# flu
+[[menu.main]]
+    identifier = "flu"
+    name = "Flu & Other Pathogens"
+    pre = "solid/disease"
+    url = "/flu/"
+    weight = 3
+
+# tools
+[[menu.main]]
+    identifier = "tools"
+    name = "Tools"
+    pre = "solid/tools"
+    url = "/tools/"
+    weight = 5
+[[menu.main]]
+    parent = "tools"
+    name = "Tools Overview"
+    url = "/tools/"
+    weight = 1
+[[menu.main]]
+    parent = "tools"
+    name = "COVIDcast Dashboard"
+    url = "/covidcast/"
+    weight = 10
+[[menu.main]]
+    parent = "tools"
+    name = "COVIDcast R Package"
+    url = "https://cmu-delphi.github.io/covidcast/covidcastR/"
+    weight = 11
+[[menu.main]]
+    parent = "tools"
+    name = "COVIDcast Python Package"
+    url = "https://cmu-delphi.github.io/covidcast/covidcast-py/html/"
+    weight = 12
+[[menu.main]]
+    parent = "tools"
+    name = "Indicator Status"
+    url = "/covidcast/indicator-status"
+    weight = 20
+[[menu.main]]
+    parent = "tools"
+    name = "Dashboard Builder"
+    url = "/covidcast/dashboard"
+    weight = 30
+[[menu.main]]
+    parent = "tools"
     name = "Forecast Evaluation"
     url = "/forecast-eval/"
     weight = 40
 [[menu.main]]
-    parent = "covidcast"
-    name = "Surveys"
-    url = "/covidcast/surveys"
+    parent = "tools"
+    name = "EpiVis"
+    url = "/epivis/"
     weight = 50
 [[menu.main]]
-    parent = "covidcast"
-    name = "CTIS Results Dashboard"
-    url = "/covidcast/survey-results"
-    weight = 51
-[[menu.main]]
-    parent = "covidcast"
-    name = "Indicator Status Overview"
-    url = "/covidcast/indicator-status"
-    weight = 60
-[[menu.main]]
-    parent = "covidcast"
-    name = "Export Data"
-    url = "/covidcast/export"
-    weight = 70
-[[menu.main]]
-    parent = "covidcast"
-    name = "Release Log"
-    url = "/covidcast/release-log"
+    parent = "tools"
+    name = "Archived Tools"
+    url = "/tools/archive/"
     weight = 80
+
+
 [[menu.main]]
-    parent = "covidcast"
-    name = "Terms Of Use"
-    url = "/covidcast/terms-of-use"
-    weight = 90
-[[menu.main]]
-    identifier = "flu"
-    name = "Flu and Other Diseases"
-    pre = "solid/virus"
-    url = "/flu"
-    weight = 3
-[[menu.main]]
-    identifier = "blog"
-    name = "Blog"
-    pre = "solid/book"
-    url = "/blog"
-    weight = 4
-[[menu.main]]
-    identifier = "github"
-    name = "GitHub"
+    identier = "github"
     pre = "brands/github"
+    name = "GitHub"
     url = "https://github.com/cmu-delphi/"
-    weight = 5
+    weight = 90
+
+
 [[menu.main]]
     identifier = "api"
     name = "API"
     pre = "solid/database"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
-    weight = 6
+    weight = 100
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
@@ -148,4 +181,4 @@ relativeURLs = false
     feedbackDelayMin = 45  # in sec
     feedbackDelayMax = 180 # in sec
     feedbackDuration = 60  # show it for 60sec
-    highlightLinks = "/covidcast/dashboard"
+    highlightLinks = ""
