@@ -2,6 +2,9 @@
   {{ $blog_style := resources.Get "css/blog_extra.scss" | toCSS | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $blog_style.RelPermalink }}" />
 {{ end }}
+{{ define "breadcrumb" }}
+  {{ partial "blog/breadcrumb.html" . }}
+{{ end }}
 {{ define "scripts" }}
   {{ $script_blog := resources.Get "js/blog/index.js" | js.Build | minify | fingerprint -}}  <script src="{{ $script_blog.RelPermalink }}"></script>
 {{ end }}

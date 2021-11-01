@@ -1,5 +1,6 @@
 ---
 title: Delphi Research Group
+linkTitle: About Delphi
 layout: about
 
 collaborators:
@@ -49,7 +50,7 @@ In reverse chronological order.
 
     * Several of the underlying data sources (on which these indicators are built) would not exist or be publicly available without our efforts. This includes:
 
-        *  A massive [national daily survey]({{< relref "surveys">}}) we're running in [partnership with Facebook](https://covid-survey.dataforgood.fb.com/survey_and_map_data.html). Over 20 million Americans have answered the survey since April 2020, providing real-time insights into, e.g., self-reported symptoms, mask wearing, testing, contacts, and vaccination.
+        *  A massive [national daily survey]({{< relref "ctis">}}) we're running in [partnership with Facebook](https://covid-survey.dataforgood.fb.com/survey_and_map_data.html). Over 20 million Americans have answered the survey since April 2020, providing real-time insights into, e.g., self-reported symptoms, mask wearing, testing, contacts, and vaccination.
 
         *  An enormous database of medical insurance claims that have been de-identified in accordance with HIPAA privacy regulations, covering more than half the U.S. population. This data is made available by health system partners including Change Healthcare, and provides insights into disease activity through outpatient visits and hospitalizations.
 

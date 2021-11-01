@@ -1,5 +1,8 @@
 ---
 title: Carnegie Mellon University COVIDcast Website Terms of Use
+linkTitle: Terms of Use
+aliases:
+ - /covidcast/terms-of-use
 ---
 
 Version Date: November 25, 2020

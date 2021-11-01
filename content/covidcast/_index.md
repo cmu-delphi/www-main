@@ -1,5 +1,5 @@
 ---
-title: COVIDcast
+title: COVIDcast Dashboard
 description: COVIDcast tracks and forecasts the spread of COVID-19. By Carnegie Mellon's Delphi Research Group.
 layout: covidcast_app
 app_mode: landing

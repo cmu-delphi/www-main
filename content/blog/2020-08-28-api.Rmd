@@ -173,7 +173,7 @@ cover most levels of the severity pyramid and include:
   Our `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey", "previous blog post")`
   showed how the survey can indicate COVID-19 activity,
   and preliminary analysis also suggests `r blogdown::shortcode_html("reflink", "2020-09-21-forecast-demo", "it can help forecast COVID-19 cases")`.
-  See our `r blogdown::shortcode_html("reflink", "surveys", "surveys site")`
+  See our `r blogdown::shortcode_html("reflink", "ctis", "surveys site")`
   for more on the survey, its questions, and getting access to data.
 - Massive surveys we run through Google:
   From April 11 to May 14, 2020, Delphi conducted a single-question symptoms survey

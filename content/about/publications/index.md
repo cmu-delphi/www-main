@@ -1,5 +1,5 @@
 ---
-title: Research and White Papers
+title: Research
 papers:
   - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
