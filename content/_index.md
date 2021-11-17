@@ -4,6 +4,11 @@ description: Developing the Theory and Practice of Epidemiological Forecasting
 layout: landing
 
 carousel:
+  - pre: Delphi Careers
+    title: We're Hiring!
+    ref: careers
+    alt: View Open Positions
+    image: landing-pg_hero-img-3.jpg
   - pre: Tools
     title: Real-time Indicators of COVID-19 Activity
     ref: covidcast
