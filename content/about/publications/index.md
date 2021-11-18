@@ -7,7 +7,7 @@ papers:
     link: https://github.com/cmu-delphi/covidcast-pnas/blob/main/perspective/paper.pdf
     journal: Preprint
     year: 2021
-    - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
+  - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
     authors: Reinhart, Tibshirani
     link: https://arxiv.org/abs/2109.00680
