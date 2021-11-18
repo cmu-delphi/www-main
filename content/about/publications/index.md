@@ -2,7 +2,7 @@
 title: Research
 papers:
   - title: "Epidemic Tracking and Forecasting: Lessons Learned from a Tumultuous Year"
-    image: survey.jpg
+    image: perspective-temp.jpg
     authors: Rosenfeld, Tibshirani
     link: https://github.com/cmu-delphi/covidcast-pnas/blob/main/perspective/paper.pdf
     journal: Preprint
