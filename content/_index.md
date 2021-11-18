@@ -33,5 +33,5 @@ carousel:
     title: An Open Repository of Real-Time COVID-19 Indicators
     link: https://www.medrxiv.org/content/10.1101/2021.07.12.21259660v1
     alt: View Paper
-    image: landing-pg_hero-img-2_Pancasting_ forecasting epidemics from provisional data.jpg
+    image: landing-pg_hero-img_An Open Repository of Real-Time COVID-19 Indicators.jpg
 ---
