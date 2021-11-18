@@ -1,7 +1,13 @@
 ---
 title: Research
 papers:
-  - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
+  - title: "Epidemic Tracking and Forecasting: Lessons Learned from a Tumultuous Year"
+    image: response.jpg
+    authors: Rosenfeld, Tibshirani
+    link: https://github.com/cmu-delphi/covidcast-pnas/blob/main/perspective/paper.pdf
+    journal: Preprint
+    year: 2021
+    - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
     authors: Reinhart, Tibshirani
     link: https://arxiv.org/abs/2109.00680
@@ -29,7 +35,7 @@ papers:
     image: causal.jpg
     authors: Bonvini, Kennedy, Ventura, Wasserman
     link: https://arxiv.org/abs/2103.04472
-    journal: ArXiv preprint
+    journal: arXiv
     year: 2021
   - title: "Pancasting: Forecasting Epidemics from Provisional Data"
     image: pancasting.jpg
