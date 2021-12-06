@@ -787,6 +787,18 @@ people:
   external: true
   team:
   - blog
+- firstName: Jerzy
+  lastName: Wieczorek
+  image: jerzy-wieczorek.jpg
+  affiliation: Colby College
+  team:
+  - core 
+- firstName: Bryan
+  lastName: Wilder
+  image: bryan-wilder.jpg
+  affiliation: CMU/MLD
+  team:
+  - core 
 
 others: |
  MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
