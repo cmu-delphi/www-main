@@ -792,7 +792,7 @@ people:
   image: jerzy-wieczorek.jpg
   affiliation: Colby College
   team:
-  - core 
+  - contributors
 - firstName: Bryan
   lastName: Wilder
   image: bryan-wilder.jpg
