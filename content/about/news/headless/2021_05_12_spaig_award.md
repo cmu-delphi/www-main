@@ -1,6 +1,8 @@
 ---
 date: 2021-05-12
 title: Delphi and Collaborators Honored for COVIDcast
+heroImage: ensemble-hero.jpg
+heroImageThumb: ensemble-thumb.jpg
 category: update
 ---
 
