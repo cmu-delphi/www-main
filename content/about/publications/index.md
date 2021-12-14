@@ -19,6 +19,12 @@ papers:
     link: https://doi.org/10.1073/pnas.2111456118
     journal: Proceedings of the National Academy of Sciences
     year: 2021
+  - title: "Real-Time Estimation of COVID-19 Infections via Deconvolution and Sensor Fusion"
+    image: nowcasting-thumb.jpg
+    authors: Jahja, Chin, Tibshirani
+    link: https://arxiv.org/abs/2112.06697
+    journal: arXiv
+    year: 2021
   - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
     authors: Reinhart, Tibshirani
