@@ -25,6 +25,12 @@ papers:
     link: https://arxiv.org/abs/2112.06697
     journal: arXiv
     year: 2021
+  - title: "Recalibrating Probabilistic Forecasts of Epidemics"
+    image: research-thumb-temp.jpg
+    authors: Rumack, Tibshirani, Rosenfeld
+    link: https://arxiv.org/abs/2112.06305
+    journal: Preprint
+    year: 2021   
   - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
     authors: Reinhart, Tibshirani
