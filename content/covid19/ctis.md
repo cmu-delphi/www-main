@@ -58,6 +58,13 @@ The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged parti
 
 ### Publications
 
+- J. Salomon, A. Reinhart, A. Bilinski, E. J. Chua, W. La Motte-Kerr, M. M.
+  Rönn, M. B. Reitsma, K. A. Morris, S. LaRocca, T. H. Farag, F. Kreuter, R.
+  Rosenfeld, and R. J. Tibshirani (2021). [The US COVID-19 Trends and Impact
+  Survey: Continuous real-time measurement of COVID-19 symptoms, risks,
+  protective behaviors, testing, and
+  vaccination](https://doi.org/10.1073/pnas.2111454118). *Proceedings of the
+  National Academy of Sciences* 118 (51) e2111454118.
 - D. P. Do and R. Frank (2021). [U.S. frontline workers and COVID-19 inequities](https://doi.org/10.1016/j.ypmed.2021.106833). *Preventive Medicine* 153, 106833.
 - W. C. King, M. Rubinstein, A. Reinhart, and R. J. Mejia (2021). [COVID-19 vaccine hesitancy January-May 2021 among 18–64 year old US adults by employment and occupation](https://doi.org/10.1016/j.pmedr.2021.101569). *Preventive Medicine Reports* 24, 101569.
 - C. H. Sudre, A. Keshet, M. S. Graham, A. D. Joshi, S. Shilo, H. Rossman, B. Murray, E. Molteni, K. Klaser, L. D. Canas, M. Antonelli, L. H. Nguyen, D. A. Drew, M. Modat, J. Capdevila Pujol, S. Ganesh, J. Wolf, T. Meir, A. T. Chan, C. J. Steves, T. D. Spector, J. S. Brownstein, E. Segal, S. Ourselin, and C. M. Astley (2021). [Anosmia, ageusia, and other COVID-19-like symptoms in association with a positive SARS-CoV-2 test, across six national digital surveillance platforms: an observational study](https://doi.org/10.1016/S2589-7500(21)00115-1). *The Lancet Digital Health* 3 (9), e577-e586.
