@@ -19,6 +19,12 @@ papers:
     link: https://doi.org/10.1073/pnas.2111456118
     journal: Proceedings of the National Academy of Sciences
     year: 2021
+  - title: "The US COVID-19 Trends and Impact Survey: Continuous Real-Time Measurement of COVID-19 Symptoms, Risks, Protective Behaviors, Testing, and Vaccination"
+    image: research-thumb-temp.jpg
+    authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani
+    link: https://doi.org/10.1073/pnas.2111454118
+    journal: Proceedings of the National Academy of Sciences
+    year: 2021
   - title: "Real-Time Estimation of COVID-19 Infections via Deconvolution and Sensor Fusion"
     image: nowcasting-thumb.jpg
     authors: Jahja, Chin, Tibshirani
