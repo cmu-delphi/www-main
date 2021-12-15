@@ -1,8 +1,16 @@
 {{ $news := .Site.GetPage "/about/news/headless" }}
+{{ $images := (.Site.GetPage "/about/news/images").Resources.ByType "image" }}
+
+
 <div class="card-grid news-grid">
   {{ range (sort ($news.Resources.ByType "page") ".PublishDate" "desc") }}
+    {{ $img := $images.GetMatch .Params.image }}
     <div class="card-grid-item uk-card uk-card-default uk-card-small">
       <div class="card-grid-item-date">{{ .PublishDate.Format "Jan 2006" }}</div>
+      <picture>
+        <source srcset="{{ ($img.Resize "300x webp Gaussian").RelPermalink }}" type="image/webp" />
+        <img class="card-grid-item-img" src="{{ ($img).RelPermalink }}" width="300" height="300" alt="{{ .Name }}" />
+      </picture>
       <div class="uk-flex uk-flex-column">
         <div class="uk-card-body uk-flex-1">
           <h3 class="uk-card-title">{{ .Title }}</h3>
