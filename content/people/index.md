@@ -390,8 +390,9 @@ people:
   affiliation: CMU/MLD
   description: is an Assistant Professor of Operations Research and Machine Learning at CMU and is a member of Delphi.
   team:
-  - core
+  - contributors
   - blog
+  note: Core member, April 2020-January 2021
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
@@ -744,8 +745,9 @@ people:
   affiliation: CMU/Heinz College
   description: is an Assistant Professor of Health Informatics at CMU and is a member of Delphi.
   team:
-  - core
+  - contributors
   - blog
+  note: Core member, April 2020-January 2021
 - firstName: Spencer
   lastName: Whitman
   image: specer-whitman_head-shot.jpg
