@@ -747,7 +747,7 @@ people:
   team:
   - contributors
   - blog
-  note: Core member, April 2020-January 2021
+  note: Core member, April 2020-December 2020
 - firstName: Spencer
   lastName: Whitman
   image: specer-whitman_head-shot.jpg
