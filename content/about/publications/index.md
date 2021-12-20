@@ -32,7 +32,7 @@ papers:
     journal: arXiv
     year: 2021
   - title: "Recalibrating Probabilistic Forecasts of Epidemics"
-    image: research-thumb-temp.jpg
+    image: recalibrating-thumb.jpg
     authors: Rumack, Tibshirani, Rosenfeld
     link: https://arxiv.org/abs/2112.06305
     journal: Preprint
