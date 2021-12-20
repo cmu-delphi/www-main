@@ -1,34 +1,52 @@
 ---
 title: Research
 papers:
-  - title: "Epidemic Tracking and Forecasting: Lessons Learned from a Tumultuous Year"
-    image: perspective.jpg
-    authors: Rosenfeld, Tibshirani
-    link: https://github.com/cmu-delphi/covidcast-pnas/blob/main/perspective/paper.pdf
-    journal: Preprint
+  - title: "Real-Time Estimation of COVID-19 Infections via Deconvolution and Sensor Fusion"
+    image: nowcasting-thumb.jpg
+    authors: Jahja, Chin, Tibshirani
+    link: https://arxiv.org/abs/2112.06697
+    journal: arXiv
     year: 2021
+  - title: "Recalibrating Probabilistic Forecasts of Epidemics"
+    image: recalibrating-thumb.jpg
+    authors: Rumack, Tibshirani, Rosenfeld
+    link: https://arxiv.org/abs/2112.06305
+    journal: Preprint
+    year: 2021 
   - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
     authors: Reinhart, Tibshirani
     link: https://arxiv.org/abs/2109.00680
     journal: arXiv
     year: 2021
-  - title: "Continuous Real-Time Measurement of COVID-19 Symptoms, Risks, Protective Behaviors, Testing and Vaccination"
-    image: survey.jpg
-    authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani
-    link: https://doi.org/10.1101/2021.07.24.21261076
-    journal: medRxiv
+  - title: "Epidemic Tracking and Forecasting: Lessons Learned from a Tumultuous Year"
+    image: perspective.jpg
+    authors: Rosenfeld, Tibshirani
+    link: https://doi.org/10.1073/pnas.2111456118
+    journal: Proceedings of the National Academy of Sciences
     year: 2021
   - title: "An Open Repository of Real-Time COVID-19 Indicators"
     image: indicators.jpg
     authors: Reinhart, Brooks, Jahja, Rumack, Tang, Agrawal, Al Saeed, Arnold, Basu, Bien, Cabrera, Chin, Chua, Clark, Colquhoun, DeFries, Farrow, Forlizzi, Grabman, Gratzl, Green, Haff, Han, Harwood, Hu, Hyde, Hyun, Joshi, Kim, Kuznetsov, La Motte-Kerr, YJ Lee, K Lee, Lipton, Liu, Mackey, Mazaitis, McDonald, McGuinness, Narasimhan, O’Brien, Oliveira, Patil, Perer, Politsch, Rajanala, Rucker, Scott,  Shah, Shankar, Sharpnack, Shemetov, Simon, Smith,  Srivastava,  Tan, R Tibshirani, Tuzhilina, Van Nortwick, Ventura, Wasserman, Weaver, Weiss, Whitman, Williams, Rosenfeld, RJ Tibshirani
-    link: https://www.medrxiv.org/content/10.1101/2021.07.12.21259660
-    journal: medRxiv
+    link: https://doi.org/10.1073/pnas.2111452118
+    journal: Proceedings of the National Academy of Sciences
     year: 2021
   - title: "Can Auxiliary Indicators Improve COVID-19 Forecasting and Hotspot Prediction?"
     image: forecasting.jpg
     authors: McDonald, Bien, Green, Hu, DeFries, Hyun, Oliveira, Sharpnack, Tang, Tibshirani, Ventura, Wasserman, Tibshirani
-    link: https://www.medrxiv.org/content/10.1101/2021.06.22.21259346
+    link: https://doi.org/10.1073/pnas.2111453118
+    journal: Proceedings of the National Academy of Sciences
+    year: 2021 
+  - title: "The US COVID-19 Trends and Impact Survey: Continuous Real-Time Measurement of COVID-19 Symptoms, Risks, Protective Behaviors, Testing, and Vaccination"
+    image: ctis-thumb.jpg
+    authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani
+    link: https://doi.org/10.1073/pnas.2111454118
+    journal: Proceedings of the National Academy of Sciences
+    year: 2021
+  - title: "Continuous Real-Time Measurement of COVID-19 Symptoms, Risks, Protective Behaviors, Testing and Vaccination"
+    image: survey.jpg
+    authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani
+    link: https://doi.org/10.1101/2021.07.24.21261076
     journal: medRxiv
     year: 2021
   - title: "Causal Inference in the Time of COVID-19"
