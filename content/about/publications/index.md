@@ -7,7 +7,7 @@ papers:
     link: https://doi.org/10.1073/pnas.2111456118
     journal: Proceedings of the National Academy of Sciences
     year: 2021
-- title: "An Open Repository of Real-Time COVID-19 Indicators"
+  - title: "An Open Repository of Real-Time COVID-19 Indicators"
     image: indicators.jpg
     authors: Reinhart, Brooks, Jahja, Rumack, Tang, Agrawal, Al Saeed, Arnold, Basu, Bien, Cabrera, Chin, Chua, Clark, Colquhoun, DeFries, Farrow, Forlizzi, Grabman, Gratzl, Green, Haff, Han, Harwood, Hu, Hyde, Hyun, Joshi, Kim, Kuznetsov, La Motte-Kerr, YJ Lee, K Lee, Lipton, Liu, Mackey, Mazaitis, McDonald, McGuinness, Narasimhan, O’Brien, Oliveira, Patil, Perer, Politsch, Rajanala, Rucker, Scott,  Shah, Shankar, Sharpnack, Shemetov, Simon, Smith,  Srivastava,  Tan, R Tibshirani, Tuzhilina, Van Nortwick, Ventura, Wasserman, Weaver, Weiss, Whitman, Williams, Rosenfeld, RJ Tibshirani
     link: https://doi.org/10.1073/pnas.2111452118
