@@ -1,6 +1,24 @@
 ---
 title: Research
 papers:
+  - title: "Real-Time Estimation of COVID-19 Infections via Deconvolution and Sensor Fusion"
+    image: nowcasting-thumb.jpg
+    authors: Jahja, Chin, Tibshirani
+    link: https://arxiv.org/abs/2112.06697
+    journal: arXiv
+    year: 2021
+  - title: "Recalibrating Probabilistic Forecasts of Epidemics"
+    image: recalibrating-thumb.jpg
+    authors: Rumack, Tibshirani, Rosenfeld
+    link: https://arxiv.org/abs/2112.06305
+    journal: Preprint
+    year: 2021 
+  - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
+    image: response.jpg
+    authors: Reinhart, Tibshirani
+    link: https://arxiv.org/abs/2109.00680
+    journal: arXiv
+    year: 2021
   - title: "Epidemic Tracking and Forecasting: Lessons Learned from a Tumultuous Year"
     image: perspective.jpg
     authors: Rosenfeld, Tibshirani
@@ -24,24 +42,6 @@ papers:
     authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani
     link: https://doi.org/10.1073/pnas.2111454118
     journal: Proceedings of the National Academy of Sciences
-    year: 2021
-  - title: "Real-Time Estimation of COVID-19 Infections via Deconvolution and Sensor Fusion"
-    image: nowcasting-thumb.jpg
-    authors: Jahja, Chin, Tibshirani
-    link: https://arxiv.org/abs/2112.06697
-    journal: arXiv
-    year: 2021
-  - title: "Recalibrating Probabilistic Forecasts of Epidemics"
-    image: recalibrating-thumb.jpg
-    authors: Rumack, Tibshirani, Rosenfeld
-    link: https://arxiv.org/abs/2112.06305
-    journal: Preprint
-    year: 2021   
-  - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
-    image: response.jpg
-    authors: Reinhart, Tibshirani
-    link: https://arxiv.org/abs/2109.00680
-    journal: arXiv
     year: 2021
   - title: "Continuous Real-Time Measurement of COVID-19 Symptoms, Risks, Protective Behaviors, Testing and Vaccination"
     image: survey.jpg
