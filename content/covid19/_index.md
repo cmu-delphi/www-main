@@ -21,9 +21,10 @@ in the United States. It has several parts.
   and a [dashboard]({{< relref "covidcast" >}}) to visualize a core set of
   indicators. 
 
-3. Some of the underlying data sources (on which these indicators are built)
-  would not exist or be publicly available without our efforts. These include a
-  [massive national daily survey]({{< relref "covid19/ctis" >}}) we're running
+3. Some of the underlying data sources (on which these indicators are built) 
+  would not exist or be publicly available without Delphi's efforts. These
+  include a [massive national daily survey]({{< relref "covid19/ctis" >}})
+  called the COVID-19 Trends and Impact Survey (CTIS) that we're running 
   in partnership with Facebook, which has been taken by over 25 million
   Americans since April 2020; and an enormous database of de-identified medical
   insurance claims, covering more than 35% of the U.S. population, made possible
@@ -49,8 +50,8 @@ in the United States. It has several parts.
 # Articles
 
 A summary of some key parts of COVIDcast can be found in the December 2021 PNAS
-Special Feature: [Beyond Cases and Deaths: The Benefits of Auxiliary Data
-Streams in Tracking the COVID-19 Pandemic](https://www.pnas.org/cc/beyond-cases-and-deaths).
+Special Feature: [Beyond cases and deaths: The benefits of auxiliary data
+streams in tracking the COVID-19 pandemic](https://www.pnas.org/cc/beyond-cases-and-deaths).
 
 - [Epidemic tracking and forecasting: Lessons learned from a tumultuous
   year](https://www.pnas.org/content/118/51/e2111456118?cct=2522)
