@@ -40,14 +40,14 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 In reverse chronological order.
 
 - **April 2020.** We began supporting and advising the U.S. CDC's
-  community-driven COVID-19 forecasting effort. This includes creating and 
+  community-driven COVID-19 forecasting effort, including creating and
   maintaining an ensemble forecast from the models submitted to the 
   [COVID-19 Forecast Hub](https://covid19forecasthub.org), and a [forecast 
   evaluation dashboard](https://delphi.cmu.edu/forecast-eval/).
 
 - **March 2020.** We launched [COVIDcast]({{< relref "covidcast" >}}), the
   nation's largest public repository of diverse, real-time indicators of
-  COVID-19 activity, freely accessible through a [public API]({{< apiref
+  COVID-19 activity, freely accessible through the [Epidata API]({{< apiref 
   "api/covidcast.html" >}}), which is updated daily with the latest data.
 
 - **2019.** We became a CDC National Center of Excellence for Influenza
