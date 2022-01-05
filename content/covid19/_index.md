@@ -36,7 +36,7 @@ in the United States. It has several parts.
   submitted to the Forecast Hub, serving as the basis for the [CDC's official
   forecast communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html). 
 
-# See Also
+## See Also
 
 - [COVIDcast dashboard]({{< relref "covidcast" >}})
 - [CTIS dashboard]({{< relref "covidcast/survey-results" >}})
@@ -47,7 +47,7 @@ in the United States. It has several parts.
 - [GitHub repo](https://www.github.com/cmu-delphi/covidcast/) (see also
   [related repos](https://github.com/cmu-delphi/covidcast/#related-repos))
   
-# Articles
+## Articles
 
 A summary of some key parts of COVIDcast can be found in the December 2021 PNAS
 Special Feature: [Beyond cases and deaths: The benefits of auxiliary data
@@ -72,6 +72,6 @@ More recent work on nowcasting using COVID-19 indicators:
   fusion](https://arxiv.org/abs/2112.06697)
   by Jahja et al. 
 
-# Severity Pyramid
+## Severity Pyramid
 
 ![](images/severity-pyramid.svg)
