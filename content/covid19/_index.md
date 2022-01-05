@@ -4,11 +4,75 @@ linkTitle: COVID-19
 layout: single
 ---
 
-In March 2020, Delphi pivoted from seasonal epidemic forecasting to COVID-19 tracking. Since then, we’ve created and maintained the nation’s largest public repository of diverse, geographically-detailed, real-time indicators of COVID-19 activity in the U.S. Our indicators cover every rung of the severity pyramid, and are freely available through [our public API]({{< apiref "api/covidcast.html" >}}) or our [data export tool]({{< relref "covidcast/export" >}}).
+COVIDcast is the umbrella name for Delphi's project in support of the COVID-19
+response in the United States. It has several parts.
 
-Several of the underlying data sources (on which these indicators are built) would not exist or be publicly available without our efforts. This includes:
+1. We procure unique data streams that reflect COVID activity from a wide
+  variety of sources, and extract COVID-related signals. These signals cover
+  every nearly every rung of the [severity pyramid](#severity-pyramid), and
+  constitute what we believe may be the nation's largest public repository of
+  real-time, geographically-detailed indicators of COVID activity in the U.S.
 
-* A [massive national daily survey]({{< relref "covid19/ctis" >}}) we’re running in partnership with Facebook. Over 20 million Americans have answered the survey since April 2020, providing real-time insights into, e.g., self-reported symptoms, mask wearing, testing, and contacts, all broken down by various demographics.
-* An enormous database of medical insurance claims that have been de-identified in accordance with HIPAA privacy regulations, covering more than half the US population, made possible through health system partners including Change Healthcare. We use this to produce a new syndromic COVID-19 indicator based on doctor visits, and other indicators based on hospitalizations and ICU admissions.
+2. We make all COVID-19 indicators freely available through a
+  [public API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html),
+  which is updated with new data daily. We also provide associated
+  [R](https://cmu-delphi.github.io/covidcast/covidcastR/) and
+  [Python](https://cmu-delphi.github.io/covidcast/covidcast-py/html/) packages, 
+  and a [dashboard]({{< relref "covidcast" >}}) to visualize a core set of
+  indicators. 
 
-An overview of our work and data was [published in the *Proceedings of the National Academy of Sciences*](https://doi.org/10.1073/pnas.2111452118). We have selected a small number of indicators to showcase in [COVIDcast]({{< relref "covidcast" >}}), a visualization system that helps place pandemic activity in geographic and temporal context. It includes a notion of correlation across time, for example, a spike in cases is often followed by a spike in hospital admissions some number of days later.
+3. Some of the underlying data sources (on which these indicators are built)
+  would not exist or be publicly available without our efforts. These include a
+  [massive national daily survey]({{< relref "covid19/ctis" >}}) we're running
+  in partnership with Facebook, which has been taken by over 25 million
+  Americans since April 2020; and an enormous database of de-identified medical
+  insurance claims, covering more than 35% of the U.S. population, made possible
+  through health system partners including Change Healthcare.
+
+4. We support and advise the U.S. CDC (in collaboration with the
+  [Reich Lab](https://reichlab.io/)) on short-term COVID forecasting, which 
+  includes creating and evaluating an ensemble forecast out of the models
+  submitted to the Forecast Hub which serves as the basis for the
+  [CDC's official forecast
+  reports](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html). 
+
+# See Also
+
+- [COVIDcast dashboard]({{< relref "covidcast" >}})
+- [CTIS dashboard]({{< relref "covidcast/survey-results" >}})
+- [Export data tool]({{< relref "covidcast/export" >}})
+- [API documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)
+- [R package](https://cmu-delphi.github.io/covidcast/covidcastR/)
+- [Python package](https://cmu-delphi.github.io/covidcast/covidcast-py/html/)
+
+# Articles
+
+A summary of some key parts of COVIDcast can be found in the December 2021 PNAS
+Special Feature: [Beyond Cases and Deaths: The Benefits of Auxiliary Data
+Streams in Tracking the COVID-19 Pandemic](https://www.pnas.org/cc/beyond-cases-and-deaths).
+
+- [Epidemic tracking and forecasting: Lessons learned from a tumultuous
+  year](https://www.pnas.org/content/118/51/e2111456118?cct=2522)
+  by Rosenfeld and Tibshirani
+
+- [An open repository of real-time COVID-19
+  indicators](https://www.pnas.org/content/118/51/e2111452118?cct=2522)
+  by Reinhart et al.
+
+- [Can auxiliary indicators improve COVID-19
+  forecasting?](https://www.pnas.org/cc/beyond-cases-and-deaths) by McDonald et 
+  al.
+
+- [Continuous real-time measurement of COVID-19 symptoms, risks, protective
+  behaviors, testing, and vaccination](https://www.pnas.org/content/118/51/e2111454118?cct=2522)
+  by Salomon et al.
+
+More recent work on nowcasting using COVID-19 indicators:
+
+- [Real-Time Estimation of COVID-19 Infections via Deconvolution and Sensor
+  Fusion](https://arxiv.org/abs/2112.06697)
+  by Jahja et al. 
+
+# Severity Pyramid
+
+![](images/severity-pyramid)
