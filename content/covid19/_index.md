@@ -23,12 +23,12 @@ in the United States. It has several parts.
 
 3. Some of the underlying data sources (on which these indicators are built) 
   would not exist or be publicly available without Delphi's efforts. These
-  include a [massive national daily survey]({{< relref "covid19/ctis" >}})
-  called the COVID-19 Trends and Impact Survey (CTIS) that we're running 
-  in partnership with Facebook, which has been taken by over 25 million
-  Americans since April 2020; and an enormous database of de-identified medical
-  insurance claims, covering more than 35% of the U.S. population, made possible
-  through health system partners including Change Healthcare.
+  include a massive national daily survey called the [COVID-19 Trends and
+  Impact Survey (CTIS)]({{< relref "covidcast/ctis" >}}) that we're running in
+  partnership with Facebook, which has been taken by over 25 million Americans
+  since April 2020; and an enormous database of de-identified medical insurance
+  claims, covering more than 35% of the U.S. population, made possible through
+  health system partners including Change Healthcare. 
 
 4. We support and advise the U.S. CDC (in collaboration with the
   [Reich Lab](https://reichlab.io/)) on short-term COVID forecasting, which 
