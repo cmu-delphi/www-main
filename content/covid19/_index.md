@@ -4,8 +4,8 @@ linkTitle: COVID-19
 layout: single
 ---
 
-COVIDcast is the umbrella name for Delphi's project in support of the COVID-19
-response in the United States. It has several parts.
+COVIDcast is the name for Delphi's project in support of the COVID-19 response
+in the United States. It has several parts. 
 
 1. We procure unique data streams that reflect COVID activity from a wide
   variety of sources, and extract COVID-related signals. These signals cover
@@ -32,9 +32,8 @@ response in the United States. It has several parts.
 4. We support and advise the U.S. CDC (in collaboration with the
   [Reich Lab](https://reichlab.io/)) on short-term COVID forecasting, which 
   includes creating and evaluating an ensemble forecast out of the models
-  submitted to the Forecast Hub which serves as the basis for the
-  [CDC's official forecast
-  reports](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html). 
+  submitted to the Forecast Hub, serving as the basis for the [CDC's official
+  forecast communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html). 
 
 # See Also
 
@@ -56,25 +55,22 @@ Streams in Tracking the COVID-19 Pandemic](https://www.pnas.org/cc/beyond-cases-
 - [Epidemic tracking and forecasting: Lessons learned from a tumultuous
   year](https://www.pnas.org/content/118/51/e2111456118?cct=2522)
   by Rosenfeld and Tibshirani
-
 - [An open repository of real-time COVID-19
   indicators](https://www.pnas.org/content/118/51/e2111452118?cct=2522)
   by Reinhart et al.
-
 - [Can auxiliary indicators improve COVID-19
-  forecasting?](https://www.pnas.org/cc/beyond-cases-and-deaths) by McDonald et 
-  al.
-
+  forecasting?](https://www.pnas.org/content/118/51/e2111453118?cct=2522)
+  by McDonald et al.
 - [Continuous real-time measurement of COVID-19 symptoms, risks, protective
   behaviors, testing, and vaccination](https://www.pnas.org/content/118/51/e2111454118?cct=2522)
   by Salomon et al.
 
 More recent work on nowcasting using COVID-19 indicators:
 
-- [Real-Time Estimation of COVID-19 Infections via Deconvolution and Sensor
-  Fusion](https://arxiv.org/abs/2112.06697)
+- [Real-time estimation of COVID-19 infections via deconvolution and sensor
+  fusion](https://arxiv.org/abs/2112.06697)
   by Jahja et al. 
 
 # Severity Pyramid
 
-![](images/severity-pyramid)
+![](images/severity-pyramid.svg)
