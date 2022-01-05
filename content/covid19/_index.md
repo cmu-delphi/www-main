@@ -47,7 +47,7 @@ in the United States. It has several parts.
 - [GitHub repo](https://www.github.com/cmu-delphi/covidcast/) (see also
   [related repos](https://github.com/cmu-delphi/covidcast/#related-repos))
   
-## Articles
+## Research Articles
 
 A summary of some key parts of COVIDcast can be found in the December 2021 PNAS
 Special Feature: [Beyond cases and deaths: The benefits of auxiliary data
