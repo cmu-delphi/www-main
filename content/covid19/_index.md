@@ -33,8 +33,9 @@ in the United States. It has several parts.
 4. We support and advise the U.S. CDC (in collaboration with the
   [Reich Lab](https://reichlab.io/)) on short-term COVID forecasting, which 
   includes creating and evaluating an ensemble forecast out of the models
-  submitted to the Forecast Hub, serving as the basis for the [CDC's official
-  forecast communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html). 
+  submitted to the [COVID-19 Forecast Hub](https://covid19forecasthub.org/),
+  serving as the basis for the [CDC's official forecast
+  communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html).
 
 ## See Also
 
