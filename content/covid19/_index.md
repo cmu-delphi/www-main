@@ -44,7 +44,9 @@ response in the United States. It has several parts.
 - [API documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)
 - [R package](https://cmu-delphi.github.io/covidcast/covidcastR/)
 - [Python package](https://cmu-delphi.github.io/covidcast/covidcast-py/html/)
-
+- [GitHub repo](https://www.github.com/cmu-delphi/covidcast/) (see also
+  [related repos](https://github.com/cmu-delphi/covidcast/#related-repos))
+  
 # Articles
 
 A summary of some key parts of COVIDcast can be found in the December 2021 PNAS
