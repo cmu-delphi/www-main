@@ -43,12 +43,6 @@ papers:
     link: https://doi.org/10.1073/pnas.2111454118
     journal: Proceedings of the National Academy of Sciences
     year: 2021
-  - title: "Continuous Real-Time Measurement of COVID-19 Symptoms, Risks, Protective Behaviors, Testing and Vaccination"
-    image: survey.jpg
-    authors: Salomon, Reinhart, Bilinski, Chua, La Motte-Kerr, Rönn, Reitsma, Morris, LaRocca, Farag, Kreuter, Rosenfeld, Tibshirani
-    link: https://doi.org/10.1101/2021.07.24.21261076
-    journal: medRxiv
-    year: 2021
   - title: "Causal Inference in the Time of COVID-19"
     image: causal.jpg
     authors: Bonvini, Kennedy, Ventura, Wasserman
