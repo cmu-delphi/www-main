@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
-    "highlight.js": "^11.3.1",
+    "highlight.js": "^11.4.0",
     "katex": "^0.15.1",
     "uikit": "^3.9.4",
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v3.0.0/www-covidcast-3.0.0.tgz",
