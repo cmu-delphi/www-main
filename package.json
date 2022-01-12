@@ -18,7 +18,7 @@
     "prettier": "^2.5.1",
     "prettier-plugin-go-template": "^0.0.11",
     "rimraf": "^3.0.2",
-    "shx": "^0.3.3"
+    "shx": "^0.3.4"
   },
   "files": [
     "public"
