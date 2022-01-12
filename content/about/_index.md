@@ -39,26 +39,30 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 
 In reverse chronological order.
 
-- **April 2020.** We began supporting and advising the U.S. CDC in their community-driven COVID-19 forecasting effort. This work (collaborative with the [Reich Lab](https://reichlab.io) at UMass) includes:
+- **April 2020.** We began supporting and advising the U.S. CDC's
+  community-driven COVID-19 forecasting effort, including creating and
+  maintaining an ensemble forecast from the models submitted to the 
+  [COVID-19 Forecast Hub](https://covid19forecasthub.org), and a [forecast 
+  evaluation dashboard](https://delphi.cmu.edu/forecast-eval/).
 
-    * Creating and evaluating an ensemble forecast from the 70+ forecasts in the [COVID-19 Forecast Hub](https://covid19forecasthub.org), which serves as the basis of the [CDC's official communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html) on COVID-19 forecasting.
+- **March 2020.** We launched [COVIDcast]({{< relref "covidcast" >}}), the
+  nation's largest public repository of diverse, real-time indicators of
+  COVID-19 activity, freely accessible through the [Epidata API]({{< apiref 
+  "api/covidcast.html" >}}), which is updated daily with the latest data.
 
-    * Creating a [forecast evaluation dashboard](https://delphi.cmu.edu/forecast-eval/), which provides an interactive analysis of the performance of Hub forecasters.
+- **2019.** We became a CDC National Center of Excellence for Influenza
+  Forecasting, one of two nationally (and a 5-year designation). 
 
-- **March 2020.** We launched [COVIDcast]({{< relref "covidcast" >}}), the nation's largest public repository of diverse, real-time indicators of COVID-19 activity.
-    * Our indicators are freely available through a [public API]({{< apiref "api/covidcast.html" >}}), which is updated daily with the latest data.
+- **2016.** We developed and deployed
+  [influenza nowcasts](https://delphi.cmu.edu/nowcast/) for the CDC, state
+  departments of public health, and the public. 
 
-    * Several of the underlying data sources (on which these indicators are built) would not exist or be publicly available without our efforts. This includes:
+- **2016.** We developed and deployed the [Epidata API]({{< apiref "/" >}}),
+  which provides real-time access to epidemiological surveillance data. 
 
-        *  A massive [national daily survey]({{< relref "ctis">}}) we're running in [partnership with Facebook](https://covid-survey.dataforgood.fb.com/survey_and_map_data.html). Over 20 million Americans have answered the survey since April 2020, providing real-time insights into, e.g., self-reported symptoms, mask wearing, testing, contacts, and vaccination.
-
-        *  An enormous database of medical insurance claims that have been de-identified in accordance with HIPAA privacy regulations, covering more than half the U.S. population. This data is made available by health system partners including Change Healthcare, and provides insights into disease activity through outpatient visits and hospitalizations.
-
-
-- **2019.** We became a CDC National Center of Excellence for Influenza Forecasting, one of two nationally (and a 5-year designation).
-
-- **2016.** We developed and deployed [influenza nowcasts](https://delphi.cmu.edu/nowcast/) for the CDC, state departments of public health, and the public.
-
-- **2016.** We developed and deployed the [Epidata API]({{< apiref "/" >}}), which provides real-time access to epidemiological surveillance data.
-
-- **2013.** We began supporting the U.S. CDC's Influenza Division in advancing and growing a [scientific community around influenza forecasting](https://www.cdc.gov/flu/weekly/flusight/index.html). We've been [perennial leaders in forecasting accuracy](https://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf) ever since.
+- **2013.** We began supporting the U.S. CDC's Influenza Division in advancing
+  and growing a [scientific community around influenza
+  forecasting](https://www.cdc.gov/flu/weekly/flusight/index.html). We've been 
+  [perennial leaders in forecasting
+  accuracy](https://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf)
+  ever since. 

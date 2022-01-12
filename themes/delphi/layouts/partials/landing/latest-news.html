@@ -7,7 +7,7 @@
   {{ $items := apply (.Site.GetPage "/blog").Pages "partial" "latest-blog" "." }}
 
   {{ define "partials/latest-news-item" }}
-    {{ return (dict "source" "news" "img" (resources.Get "/images/placeholder-thumb.jpg") "title" .Title "date" .PublishDate "link" (.Site.GetPage "/about/news").RelPermalink "summary" (.Summary | safeHTML | truncate 100) ) }}
+    {{ return (dict "source" "news" "img" (($.GetPage "/about/news/images").Resources.GetMatch .Params.image) "title" .Title "date" .PublishDate "link" (.Site.GetPage "/about/news").RelPermalink "summary" (.Summary | safeHTML | truncate 100) ) }}
   {{ end }}
   {{ $newsItems := apply ((.Site.GetPage "/about/news/headless").Resources.ByType "page") "partial" "latest-news-item" "." }}
 

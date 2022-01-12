@@ -5,10 +5,10 @@ updates:
     directory: "/"
     target-branch: dev
     schedule:
-      interval: "weekly"
+      interval: "monthly"
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
     target-branch: dev
     schedule:
-      interval: "weekly"
+      interval: "monthly"

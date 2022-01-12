@@ -65,6 +65,7 @@ The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged parti
   protective behaviors, testing, and
   vaccination](https://doi.org/10.1073/pnas.2111454118). *Proceedings of the
   National Academy of Sciences* 118 (51) e2111454118.
+- C. Lupton-Smith, E. Badillo-Goicochea, T.-H. Chang, H. Maniates, K. E. Riehm, I. Schmid, and E. A. Stuart (2021). [Factors associated with county-level mental health during the COVID-19 pandemic](https://doi.org/10.1002/jcop.22785). *Journal of Community Psychology*.
 - D. P. Do and R. Frank (2021). [U.S. frontline workers and COVID-19 inequities](https://doi.org/10.1016/j.ypmed.2021.106833). *Preventive Medicine* 153, 106833.
 - W. C. King, M. Rubinstein, A. Reinhart, and R. J. Mejia (2021). [COVID-19 vaccine hesitancy January-May 2021 among 18–64 year old US adults by employment and occupation](https://doi.org/10.1016/j.pmedr.2021.101569). *Preventive Medicine Reports* 24, 101569.
 - C. H. Sudre, A. Keshet, M. S. Graham, A. D. Joshi, S. Shilo, H. Rossman, B. Murray, E. Molteni, K. Klaser, L. D. Canas, M. Antonelli, L. H. Nguyen, D. A. Drew, M. Modat, J. Capdevila Pujol, S. Ganesh, J. Wolf, T. Meir, A. T. Chan, C. J. Steves, T. D. Spector, J. S. Brownstein, E. Segal, S. Ourselin, and C. M. Astley (2021). [Anosmia, ageusia, and other COVID-19-like symptoms in association with a positive SARS-CoV-2 test, across six national digital surveillance platforms: an observational study](https://doi.org/10.1016/S2589-7500(21)00115-1). *The Lancet Digital Health* 3 (9), e577-e586.
