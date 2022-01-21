@@ -45,18 +45,9 @@ Our [CTIS Results Dashboard]({{< relref "covidcast/survey-results" >}}) shows ag
 
 The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged participants to enable earlier detection and improved situational awareness of the COVID-19 outbreak by using data from these symptom surveys. Check out the [the challenge website](https://www.symptomchallenge.org/) for more details about the Challenge and the finalists.
 
-### Blog posts and reports
-
-- Surgo Ventures, Resolve to Save Lives (2021). [COVID-19 Vaccine Precision Response Toolkit: An End-to-End Vaccination Improvement Framework to Improve COVID-19 Vaccine Uptake](https://surgoventures.org/resource-library/increasing-covid-19vaccine-uptake-a-four-step-framework-to-promote-access-acceptance-and-equity).
-- Alejandra Arrieta, Emmanuela Gakidou, Heidi Larson, Erin Mullany, and Christopher Troeger, April 1, 2021. [Through Understanding and Empathy, We Can Convince Women to Get the COVID-19 Vaccine](https://www.thinkglobalhealth.org/article/through-understanding-and-empathy-we-can-convince-women-get-covid-19-vaccine). Think Global Health.
-- Joseph Friedman, Silvia Montoya and Emmanuela Gakidou, March 8, 2021. [Gender Equality in the Global Return to School](https://www.thinkglobalhealth.org/article/gender-equality-global-return-school). Think Global Health.
-- Leanna Morinishi, Kris Barkume, Esther Kim, and Alex Reinhart, February 2, 2021. [Home for the Holidays? The Impact of US Holidays on Social Behaviors and Preventative Measures]({{< relref "2021-01-22-holiday-surveys" >}}). Delphi blog.
-- Alex Reinhart, Esther Kim, Andy Garcia, and Sarah LaRocca, January 28, 2021. [Using the COVID-19 Symptom Survey to Track Vaccination Uptake and Sentiment in the United States]({{< relref "2021-01-28-survey-vaccines" >}}). Delphi blog.
-- Alex Reinhart, October 12, 2020. [New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing]({{< relref "2020-10-06-survey-wave-4" >}}). Delphi blog.
-- Ryan Tibshirani, September 21, 2020. [Can Symptom Surveys Improve COVID-19 Forecasts?]({{< relref "2020-09-21-forecast-demo" >}}) Delphi blog.
-- Alex Reinhart and Ryan Tibshirani, August 26, 2020. [COVID-19 Symptom Surveys through Facebook]({{< relref "2020-08-26-fb-survey" >}}). Delphi blog.
-
 ### Publications
+
+Our primary description of the survey and its results over the first year of operation was published as part of the [special feature "Beyond Cases and Deaths: The Benefits of Auxiliary Data Streams in Tracking the COVID-19 Pandemic"](https://www.pnas.org/cc/beyond-cases-and-deaths) in *PNAS*:
 
 - J. Salomon, A. Reinhart, A. Bilinski, E. J. Chua, W. La Motte-Kerr, M. M.
   Rönn, M. B. Reitsma, K. A. Morris, S. LaRocca, T. H. Farag, F. Kreuter, R.
@@ -65,6 +56,10 @@ The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged parti
   protective behaviors, testing, and
   vaccination](https://doi.org/10.1073/pnas.2111454118). *Proceedings of the
   National Academy of Sciences* 118 (51) e2111454118.
+
+Other peer-reviewed publications using the survey data include:
+
+- D. P. Do and R. Frank (2022). [Prior COVID-19 infection: an underappreciated factor in vaccine hesitancy in the USA](https://doi.org/10.1093/pubmed/fdab404). *Journal of Public Health*, fdab404.
 - C. Lupton-Smith, E. Badillo-Goicochea, T.-H. Chang, H. Maniates, K. E. Riehm, I. Schmid, and E. A. Stuart (2021). [Factors associated with county-level mental health during the COVID-19 pandemic](https://doi.org/10.1002/jcop.22785). *Journal of Community Psychology*.
 - D. P. Do and R. Frank (2021). [U.S. frontline workers and COVID-19 inequities](https://doi.org/10.1016/j.ypmed.2021.106833). *Preventive Medicine* 153, 106833.
 - W. C. King, M. Rubinstein, A. Reinhart, and R. J. Mejia (2021). [COVID-19 vaccine hesitancy January-May 2021 among 18–64 year old US adults by employment and occupation](https://doi.org/10.1016/j.pmedr.2021.101569). *Preventive Medicine Reports* 24, 101569.
@@ -79,10 +74,21 @@ The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged parti
 - Molteni, E., Astley, C.M., Ma, W. et al. (2021). [Symptoms and syndromes associated with SARS-CoV-2 infection and severity in pregnant women from two community cohorts](https://doi.org/10.1038/s41598-021-86452-3). *Scientific Reports* 11, 6928.
 - Rebeiro, P., Aronoff, D, and Smith, M.K. (2021). [The Impact of State Mask-Wearing Requirements on the Growth of COVID-19 Cases, Hospitalizations, and Deaths in the United States](https://doi.org/10.1093/cid/ciab101). *Clinical Infectious Diseases*, ciab101.
 - Rader, White, Burns, Chen, Brilliant, Cohen, Shaman, Brilliant, Kraemer, Moritz, Hawkins, Scarpino, Astley, and Brownstein (2021). [Mask-wearing and control of SARS-CoV-2 transmission in the USA: a cross-sectional study](https://doi.org/10.1016/S2589-7500(20)30293-4). *Lancet Digital Health* 3 (3), e148-e157.
--  Flaxman AD, Henning DJ and Duber HC (2020). [The relative incidence of COVID-19 in healthcare workers versus non-healthcare workers: evidence from a web-based survey of Facebook users in the United States](https://doi.org/10.12688/gatesopenres.13202.2). *Gates Open Research*, 4:174.
+- Flaxman AD, Henning DJ and Duber HC (2020). [The relative incidence of COVID-19 in healthcare workers versus non-healthcare workers: evidence from a web-based survey of Facebook users in the United States](https://doi.org/10.12688/gatesopenres.13202.2). *Gates Open Research*, 4:174.
 - Kreuter, F., Barkay, N., Bilinski, A., Bradford, A., Chiu, S., Eliat, R., Fan, J., Galili, T., Haimovich, D., Kim, B., LaRocca, S., Li, Y., Morris, K., Presser, S., Sarig, T., Salomon, J. A., Stewart, K., Stuart, E. A., & Tibshirani, R. J. (2020). [Partnering with a global platform to inform research and public policy making](https://doi.org/10.18148/srm/2020.v14i2.7761). *Survey Research Methods*, 14 (2), 159-163.
 
 If you have used the survey data, or the aggregate data available in the COVIDcast API, to publish research results, please [contact us](#who-can-i-contact) so we can include your work here.
+
+### Blog posts and reports
+
+- Surgo Ventures, Resolve to Save Lives (2021). [COVID-19 Vaccine Precision Response Toolkit: An End-to-End Vaccination Improvement Framework to Improve COVID-19 Vaccine Uptake](https://surgoventures.org/resource-library/increasing-covid-19vaccine-uptake-a-four-step-framework-to-promote-access-acceptance-and-equity).
+- Alejandra Arrieta, Emmanuela Gakidou, Heidi Larson, Erin Mullany, and Christopher Troeger, April 1, 2021. [Through Understanding and Empathy, We Can Convince Women to Get the COVID-19 Vaccine](https://www.thinkglobalhealth.org/article/through-understanding-and-empathy-we-can-convince-women-get-covid-19-vaccine). Think Global Health.
+- Joseph Friedman, Silvia Montoya and Emmanuela Gakidou, March 8, 2021. [Gender Equality in the Global Return to School](https://www.thinkglobalhealth.org/article/gender-equality-global-return-school). Think Global Health.
+- Leanna Morinishi, Kris Barkume, Esther Kim, and Alex Reinhart, February 2, 2021. [Home for the Holidays? The Impact of US Holidays on Social Behaviors and Preventative Measures]({{< relref "2021-01-22-holiday-surveys" >}}). Delphi blog.
+- Alex Reinhart, Esther Kim, Andy Garcia, and Sarah LaRocca, January 28, 2021. [Using the COVID-19 Symptom Survey to Track Vaccination Uptake and Sentiment in the United States]({{< relref "2021-01-28-survey-vaccines" >}}). Delphi blog.
+- Alex Reinhart, October 12, 2020. [New and Improved COVID Symptom Survey Tracks Testing and Mask-Wearing]({{< relref "2020-10-06-survey-wave-4" >}}). Delphi blog.
+- Ryan Tibshirani, September 21, 2020. [Can Symptom Surveys Improve COVID-19 Forecasts?]({{< relref "2020-09-21-forecast-demo" >}}) Delphi blog.
+- Alex Reinhart and Ryan Tibshirani, August 26, 2020. [COVID-19 Symptom Surveys through Facebook]({{< relref "2020-08-26-fb-survey" >}}). Delphi blog.
 
 ## Can I use the surveys in my research?
 
