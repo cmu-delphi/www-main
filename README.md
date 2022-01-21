@@ -178,7 +178,9 @@ News items are short announcements that should be persistent. The are centrally 
 
 ## Image Sizes and Aspect Ratios
 
-The website is configured to automatically resize picture to an optimized size. However, a proper aspect ratio is essential for a good performance. Moreover, being closer to the target size is useful to avoid image artifacts created during the resizing process.
+The website is configured to automatically resize images for optimized page load times. However, starting with a proper aspect ratio is essential. 
+
+"Artifacts" are undesirable blurry or blocky areas of an image created during resizing or compression. The presence and impact of artifacts can be affected by multiple factors, including the original size (greater size difference to target -> more artifacts), but also the actual content of the image (slow gradients next to areas of high contrast are particularly bad). You can reduce or avoid artifacts by choosing an image which is closer to its target size, or swapping in an image with more background texture.
 
 Following images size and aspect ratios are used:
 
