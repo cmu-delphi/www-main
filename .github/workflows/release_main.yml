@@ -47,7 +47,7 @@ jobs:
         with:
           node-version: 16
       - name: Cache Node.js modules
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v2
         with:
           path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
           key: ${{ runner.OS }}-node2-${{ hashFiles('**/package-lock.json') }}
@@ -75,16 +75,5 @@ jobs:
       - name: Reset dev branch
         run: |
           git fetch origin main:main
-          git reset --hard main
-      - name: Create pull request into dev
-        uses: peter-evans/create-pull-request@v3
-        with:
-          branch: bot/sync-main-dev
-          commit-message: "chore: sync main-dev"
-          base: dev
-          title: "chore: sync main->dev"
-          labels: chore
-          reviewers: krivard
-          # assignees:
-          body: |
-            Syncing Main->Dev.
+          git merge main
+          git push
