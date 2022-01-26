@@ -372,6 +372,12 @@ people:
   team:
   - past
   note: Contributor, August 2020-February 2021
+- firstName: Woochan
+  lastName: Lee
+  image: woochan-lee.jpg
+  affiliation: CMU/Stat
+  team:
+  - contributors  
 - key: lipsitch
   firstName: Marc
   lastName: Lipsitch
@@ -465,6 +471,12 @@ people:
   affiliation: Stanford University
   team:
   - core
+- firstName: Quang
+  lastName: Nguyen
+  image: quang-nguyan.jpg
+  affiliation: Dartmouth/Epidemiology
+  team:
+  - contributors
 - firstName: Mike
   lastName: O'Brien
   image: mike-o'brien_head-shot.jpg
