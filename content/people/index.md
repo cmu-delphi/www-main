@@ -473,7 +473,7 @@ people:
   - core
 - firstName: Quang
   lastName: Nguyen
-  image: quang-nguyan.jpg
+  image: quang-nguyen.jpg
   affiliation: Dartmouth/Epidemiology
   team:
   - contributors
