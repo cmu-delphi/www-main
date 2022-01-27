@@ -157,7 +157,7 @@ People on this website are centrally managed in the `/content/people/index.md` f
 
  * `key` ... short key to identify this person when referencing them in the blog section
  * `firstName`, `lastName`, `affiliation`
- * `image` ... name of the head shot image (preferred 500x500px in JPG format) stored in `/content/people/headshots`
+ * `image` ... name of the head shot image (preferred 250x250px in JPG format) stored in `/content/people/headshots`
  * `description` ... used within the blog footer as an about the author text
  * `note` ...optional note about past contributors
  * `link` ... optional used for linking to a personal website
