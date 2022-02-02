@@ -157,7 +157,7 @@ People on this website are centrally managed in the `/content/people/index.md` f
 
  * `key` ... short key to identify this person when referencing them in the blog section
  * `firstName`, `lastName`, `affiliation`
- * `image` ... name of the head shot image (preferred 500x500px in JPG format) stored in `/content/people/headshots`
+ * `image` ... name of the head shot image (preferred 250x250px in JPG format) stored in `/content/people/headshots`
  * `description` ... used within the blog footer as an about the author text
  * `note` ...optional note about past contributors
  * `link` ... optional used for linking to a personal website
@@ -176,6 +176,26 @@ People on this website are centrally managed in the `/content/people/index.md` f
 
 News items are short announcements that should be persistent. The are centrally managed in the `/content/news/headless` directory. Each news item is its own file with content, title, and publication date.
 
+## Image Sizes and Aspect Ratios
+
+The website is configured to automatically resize images for optimized page load times. However, starting with a proper aspect ratio is essential. 
+
+"Artifacts" are undesirable blurry or blocky areas of an image created during resizing or compression. The presence and impact of artifacts can be affected by multiple factors, including the original size (greater size difference to target -> more artifacts), but also the actual content of the image (slow gradients next to areas of high contrast are particularly bad). You can reduce or avoid artifacts by choosing an image which is closer to its target size, or swapping in an image with more background texture.
+
+Following images size and aspect ratios are used:
+
+| Image Type | Preferred Size | Aspect Ratio | Target Width |
+| --- | --- | --- | --- |
+| Landing Page Banner | 1440x500 | 2.88:1 | 1440px |
+| Team Member | 250x250 | 1:1 | 250px |
+| Blog Banner | 1120x440 | 2.5:1 | 1120px |
+| Blog Teaser | 300x300 | 1:1 | 300px |
+| Research Paper Teaser | 300x300 | 1:1 | 300px |
+| Latest Card Teaser | 300x300 | 1:1 | 300px |
+| News Item Teaser | 300x300 | 1:1 | 300px |
+
+
+
 ## Release Process
 
 The release consists of multiple steps which can be all done via the GitHub website:
@@ -185,7 +205,6 @@ The release consists of multiple steps which can be all done via the GitHub webs
 1. Let the code owner review the PR and its changes and let the CI check whether everything builds successfully
 1. Once approved and merged, another GitHub action job starts which automatically will
    1. create a git tag
-   1. create another [Pull Request](https://github.com/cmu-delphi/www-main/pulls) to merge the changes back to the `dev` branch
    1. create a [GitHub release](https://github.com/cmu-delphi/www-main/releases) with automatically derived release notes
    1. create docker image and the production system will be notified to pull this update
 1. Once the jobs are completed the new release should be available at https://delphi.cmu.edu within minutes.
