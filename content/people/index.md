@@ -445,6 +445,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: Robin
+  lastName: Mejia
+  image: robin-mejia.jpg
+  affiliation: CMU/Stat
+  team:
+  - contributors
 - firstName: Christy
   lastName: Melucci
   image: christy-melucci.jpg
