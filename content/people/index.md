@@ -788,6 +788,12 @@ people:
   team:
   - past
   note: Core member, March-April 2020; Contributor, Summer 2020
+- firstName: Bo (Xavier)
+  lastName: Xia
+  image: bo-xia.jpg
+  affiliation: CMU/Stat
+  team:
+  - contributors    
 - key: hzhou
   firstName: Helen
   lastName: Zhou
