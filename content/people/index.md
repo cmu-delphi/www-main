@@ -324,6 +324,13 @@ people:
   note: Core member, March-April 2020
   team:
   - contributors
+- firstName: Kyungmin
+  lastName: Kim
+  image: kyungmin-kim.jpg
+  affiliation: CMU/CSD
+  team:
+  - past
+  note: Intern, Fall 2021
 - firstName: Andrew
   lastName: Kuznetsov
   image: andrew-kuznetsov-500x500-min.jpg
