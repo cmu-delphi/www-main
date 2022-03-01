@@ -12,7 +12,7 @@
     "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.0.1/www-epivis-2.0.1.tgz"
   },
   "devDependencies": {
-    "hugo-bin": "^0.80.2",
+    "hugo-bin": "^0.81.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
