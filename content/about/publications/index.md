@@ -1,6 +1,12 @@
 ---
 title: Research
 papers:
+  - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
+    image: smooth-teaser-temp.jpg
+    authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
+    link: https://arxiv.org/pdf/2202.09723.pdf
+    journal: Preprint
+    year: 2022
   - title: "Real-Time Estimation of COVID-19 Infections via Deconvolution and Sensor Fusion"
     image: nowcasting-thumb.jpg
     authors: Jahja, Chin, Tibshirani
