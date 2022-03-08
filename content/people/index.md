@@ -324,6 +324,13 @@ people:
   note: Core member, March-April 2020
   team:
   - contributors
+- firstName: Kyungmin
+  lastName: Kim
+  image: kyungmin-kim.jpg
+  affiliation: CMU/CSD
+  team:
+  - past
+  note: Intern, Fall 2021
 - firstName: Andrew
   lastName: Kuznetsov
   image: andrew-kuznetsov-500x500-min.jpg
@@ -335,8 +342,9 @@ people:
   lastName: Lakdawala
   image: tarannum-lakdawala.jpeg
   affiliation: CMU/CSD
+  note: Contributor, June-December 2021
   team:
-  - core
+  - past
 - firstName: Daniel
   lastName: LaLiberte
   image: daniel-laliberte_head-shot.jpg
@@ -445,6 +453,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: Robin
+  lastName: Mejia
+  image: robin-mejia.jpg
+  affiliation: CMU/Stat
+  team:
+  - contributors
 - firstName: Christy
   lastName: Melucci
   image: christy-melucci.jpg
@@ -774,6 +788,12 @@ people:
   team:
   - past
   note: Core member, March-April 2020; Contributor, Summer 2020
+- firstName: Bo (Xavier)
+  lastName: Xia
+  image: bo-xia.jpg
+  affiliation: CMU/Stat
+  team:
+  - contributors    
 - key: hzhou
   firstName: Helen
   lastName: Zhou

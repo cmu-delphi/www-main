@@ -59,6 +59,7 @@ Our primary description of the survey and its results over the first year of ope
 
 Other peer-reviewed publications using the survey data include:
 
+- L. S. Flor, J. Friedman, C. N. Spencer, et al. (2022). [Quantifying the effects of the COVID-19 pandemic on gender equality on health, social, and economic indicators: a comprehensive review of data from March, 2020, to September, 2021](https://doi.org/10.1016/S0140-6736(22)00008-3). *The Lancet*.
 - D. P. Do and R. Frank (2022). [Prior COVID-19 infection: an underappreciated factor in vaccine hesitancy in the USA](https://doi.org/10.1093/pubmed/fdab404). *Journal of Public Health*, fdab404.
 - W. C. King, M. Rubinstein, A. Reinhart, and R. J. Mejia (2021). [Time trends, factors associated with, and reasons for COVID-19 vaccine hesitancy: A massive online survey of US adults from January-May 2021](https://doi.org/10.1371/journal.pone.0260731). *PLoS ONE* 16 (12), e0260731.
 - C. Lupton-Smith, E. Badillo-Goicochea, T.-H. Chang, H. Maniates, K. E. Riehm, I. Schmid, and E. A. Stuart (2021). [Factors associated with county-level mental health during the COVID-19 pandemic](https://doi.org/10.1002/jcop.22785). *Journal of Community Psychology*.
