@@ -2,7 +2,7 @@
 title: Research
 papers:
   - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
-    image: smooth-teaser-temp.jpg
+    image: smoothing-paper-teaser.jpg
     authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
     link: https://arxiv.org/pdf/2202.09723.pdf
     journal: Preprint
