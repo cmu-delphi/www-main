@@ -113,6 +113,12 @@ people:
   team:
   - contributors
   note: Core member, October 2020-August 2021 
+- firstName: Aditya
+  lastName: Chindhade
+  image: aditya-chindhade.jpg
+  affiliation: CMU/Tepper
+  team:
+  - contributors 
 - firstName: Eu Jing
   lastName: Chua
   image: eu-jing-chua-500x500-min.jpg
