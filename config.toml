@@ -12,7 +12,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
-    pre = "solid/info-circle"
+    pre = "solid/circle-info"
     url = "/about"
     weight = 1
 
@@ -104,7 +104,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "tools"
     name = "Tools"
-    pre = "solid/tools"
+    pre = "solid/screwdriver-wrench"
     url = "/tools/"
     weight = 5
 [[menu.main]]
