@@ -47,7 +47,7 @@ The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged parti
 
 ### Publications
 
-Our primary description of the survey and its results over the first year of operation was published as part of the [special feature "Beyond Cases and Deaths: The Benefits of Auxiliary Data Streams in Tracking the COVID-19 Pandemic"](https://www.pnas.org/cc/beyond-cases-and-deaths) in *PNAS*:
+Our primary description of the survey and its results over the first year of operation was published as part of the [special feature "Beyond Cases and Deaths: The Benefits of Auxiliary Data Streams in Tracking the COVID-19 Pandemic"](https://www.pnas.org/doi/full/10.1073/pnas.2111456118) in *PNAS*:
 
 - J. Salomon, A. Reinhart, A. Bilinski, E. J. Chua, W. La Motte-Kerr, M. M.
   Rönn, M. B. Reitsma, K. A. Morris, S. LaRocca, T. H. Farag, F. Kreuter, R.
@@ -57,8 +57,9 @@ Our primary description of the survey and its results over the first year of ope
   vaccination](https://doi.org/10.1073/pnas.2111454118). *Proceedings of the
   National Academy of Sciences* 118 (51) e2111454118.
 
-Other peer-reviewed publications using the survey data include:
+Other research publications using the survey data include:
 
+- A. Pilehvari, J. Ton, M. R. Mohan, A. Marathe, and A. Vullikanti (2022). [Drivers and Predictors of COVID-19 Vaccine Hesitancy in Virginia](https://doi.org/10.1007/978-3-030-96188-6_8). In: Yang, Z., von Briesen, E. (eds), *Proceedings of the 2021 Conference of The Computational Social Science Society of the Americas*. CSSSA 2021.
 - L. S. Flor, J. Friedman, C. N. Spencer, et al. (2022). [Quantifying the effects of the COVID-19 pandemic on gender equality on health, social, and economic indicators: a comprehensive review of data from March, 2020, to September, 2021](https://doi.org/10.1016/S0140-6736(22)00008-3). *The Lancet*.
 - D. P. Do and R. Frank (2022). [Prior COVID-19 infection: an underappreciated factor in vaccine hesitancy in the USA](https://doi.org/10.1093/pubmed/fdab404). *Journal of Public Health*, fdab404.
 - W. C. King, M. Rubinstein, A. Reinhart, and R. J. Mejia (2021). [Time trends, factors associated with, and reasons for COVID-19 vaccine hesitancy: A massive online survey of US adults from January-May 2021](https://doi.org/10.1371/journal.pone.0260731). *PLoS ONE* 16 (12), e0260731.
