@@ -471,6 +471,12 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+- firstName: Duane
+  lastName: Mengo
+  image: duane-mengo.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - key: lmorinishi
   firstName: Leanna
   lastName: Morinishi
