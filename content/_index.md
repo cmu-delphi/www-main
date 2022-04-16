@@ -4,11 +4,6 @@ description: Developing the Theory and Practice of Epidemiological Forecasting
 layout: landing
 
 carousel:
-  - pre: Research
-    title: Collaborative Hubs: Making the Most of Predictive Epidemic Modeling
-    link: https://doi.org/10.2105/AJPH.2022.306831
-    alt: View Paper
-    image: research-hero-collaborative-hubs.jpg
   - pre: Delphi Careers
     title: We're Hiring!
     ref: careers
