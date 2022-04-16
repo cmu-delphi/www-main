@@ -30,6 +30,11 @@ carousel:
     alt: View Post
     image: ensemble-hero.jpg
   - pre: Research
+    title: Collaborative Hubs: Making the Most of Predictive Epidemic Modeling
+    link: https://doi.org/10.2105/AJPH.2022.306831
+    alt: View Paper
+    image: research-hero-collaborative-hubs.jpg
+  - pre: Research
     title: An Open Repository of Real-Time COVID-19 Indicators
     link: https://www.medrxiv.org/content/10.1101/2021.07.12.21259660v1
     alt: View Paper
