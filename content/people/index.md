@@ -471,6 +471,12 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+- firstName: Duane
+  lastName: Mengo
+  image: duane-mengo.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - key: lmorinishi
   firstName: Leanna
   lastName: Morinishi
@@ -713,12 +719,24 @@ people:
   - blog
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
+- firstName: Will
+  lastName: Townes
+  image: will-townes.jpg
+  affiliation: CMU/Stat
+  team:
+  - core
 - firstName: Elena
   lastName: Tuzhilina
   image: elena-tuzhilina-500x500.jpg
   affiliation: Stanford University
   team:
   - contributors
+- firstName: Carlyn
+  lastName: Van Dyke
+  image: carlyn-van-dyke.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg

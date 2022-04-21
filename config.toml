@@ -52,6 +52,11 @@ relativeURLs = false
     name = "Careers"
     url = "/about/careers"
     weight = 7
+[[menu.main]]
+    parent = "about"
+    name = "Contact Us"
+    url = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
+    weight = 8
 
 # covid19
 [[menu.main]]

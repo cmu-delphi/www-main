@@ -1,6 +1,12 @@
 ---
 title: Research
 papers:
+  - title: "Collaborative Hubs: Making the Most of Predictive Epidemic Modeling"
+    image: research-teaser-collaborative-hubs.jpg
+    authors: Reich, Lessler, Funk, Viboud, Vespignani, Tibshirani, Shea, Schienle, Runge, Rosenfeld, Ray, Niehus, Johnson, Johansson, Hochheiser, Gardner, Bracher, Borchering, Biggerstaff
+    link: https://doi.org/10.2105/AJPH.2022.306831
+    journal: American Journal of Public Health
+    year: 2022
   - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
     image: smoothing-paper-teaser.jpg
     authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
