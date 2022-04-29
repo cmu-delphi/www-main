@@ -497,6 +497,12 @@ people:
   affiliation: Stanford University
   team:
   - core
+- firstName: Luke
+  lastName: Neureiter
+  image: luke-neureiter.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Quang
   lastName: Nguyen
   image: quang-nguyen.jpg
