@@ -41,15 +41,15 @@ sisters:
 supporters:
 - Allegheny County Department of Health
 - Change Healthcare
-- Defense Thread Reduction Agency
+- Defense Threat Reduction Agency
 - Facebook
 - Google.org
 - Kaiser Permanente Washington Health Research Institute
 - Massachusetts Department of Public Health
 - Microsoft Azure
+- Optum
 - Pennsylvania Department of Health
 - Quidel Inc.
-- Optum
 - University of Pittsburgh Medical Center
 ---
 
