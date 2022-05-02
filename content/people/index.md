@@ -436,6 +436,12 @@ people:
   team:
   - past
   note: Core member, March-May 2020
+- firstName: Ken
+  lastName: Mawer
+  image: ken-mawer.jpg
+  affiliation: University of British Columbia
+  team:
+  - contributors  
 - firstName: Kathryn
   lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
@@ -823,7 +829,13 @@ people:
   image: bo-xia.jpg
   affiliation: CMU/Stat
   team:
-  - contributors    
+  - contributors
+- firstName: Chloe
+  lastName: You
+  image: chloe-you.jpg
+  affiliation: University of British Columbia
+  team:
+  - contributors
 - key: hzhou
   firstName: Helen
   lastName: Zhou
