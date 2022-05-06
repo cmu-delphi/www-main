@@ -59,6 +59,8 @@ Our primary description of the survey and its results over the first year of ope
 
 Other research publications using the survey data include:
 
+- F. Petersen, A. Errore, and P. Karaca-Mandic (2022). [Lifting statewide mask mandates and COVID-19 cases: A synthetic control study](https://doi.org/10.1097/MLR.0000000000001725). *Medical Care*.
+- F. Pierri, B. L. Perry, M. R. DeVerna, et al. (2022). [Online misinformation is linked to early COVID-19 vaccination hesitancy and refusal](https://doi.org/10.1038/s41598-022-10070-w). *Scientific Reports* 12, 5966.
 - A. Pilehvari, J. Ton, M. R. Mohan, A. Marathe, and A. Vullikanti (2022). [Drivers and Predictors of COVID-19 Vaccine Hesitancy in Virginia](https://doi.org/10.1007/978-3-030-96188-6_8). In: Yang, Z., von Briesen, E. (eds), *Proceedings of the 2021 Conference of The Computational Social Science Society of the Americas*. CSSSA 2021.
 - L. S. Flor, J. Friedman, C. N. Spencer, et al. (2022). [Quantifying the effects of the COVID-19 pandemic on gender equality on health, social, and economic indicators: a comprehensive review of data from March, 2020, to September, 2021](https://doi.org/10.1016/S0140-6736(22)00008-3). *The Lancet*.
 - D. P. Do and R. Frank (2022). [Prior COVID-19 infection: an underappreciated factor in vaccine hesitancy in the USA](https://doi.org/10.1093/pubmed/fdab404). *Journal of Public Health*, fdab404.
