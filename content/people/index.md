@@ -230,6 +230,7 @@ people:
   affiliation: CMU/MLD
   team:
   - past
+  note: Core Member, September 2021-May 2022
 - firstName: Shantanu
   lastName: Gupta
   image: shantanu-gupta.jpg
