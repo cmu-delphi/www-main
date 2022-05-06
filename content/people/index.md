@@ -229,7 +229,7 @@ people:
   image: joseph-greene.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
 - firstName: Shantanu
   lastName: Gupta
   image: shantanu-gupta.jpg
