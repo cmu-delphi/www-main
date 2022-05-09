@@ -59,6 +59,7 @@ Our primary description of the survey and its results over the first year of ope
 
 Other research publications using the survey data include:
 
+- K. E. Wiens, C. P. Smith, E. Badillo-Goicoechea, K. H. Grantz, M. K. Grabowski, A. S. Azman, E. A. Stuart, and J. Lessler (2022). [In-person schooling and associated COVID-19 risk in the United States over spring semester 2021](https://doi.org/10.1126/sciadv.abm9128). *Science Advances* 8, eabm9128.
 - F. Petersen, A. Errore, and P. Karaca-Mandic (2022). [Lifting statewide mask mandates and COVID-19 cases: A synthetic control study](https://doi.org/10.1097/MLR.0000000000001725). *Medical Care*.
 - F. Pierri, B. L. Perry, M. R. DeVerna, et al. (2022). [Online misinformation is linked to early COVID-19 vaccination hesitancy and refusal](https://doi.org/10.1038/s41598-022-10070-w). *Scientific Reports* 12, 5966.
 - A. Pilehvari, J. Ton, M. R. Mohan, A. Marathe, and A. Vullikanti (2022). [Drivers and Predictors of COVID-19 Vaccine Hesitancy in Virginia](https://doi.org/10.1007/978-3-030-96188-6_8). In: Yang, Z., von Briesen, E. (eds), *Proceedings of the 2021 Conference of The Computational Social Science Society of the Americas*. CSSSA 2021.
