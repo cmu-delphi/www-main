@@ -230,7 +230,7 @@ people:
   affiliation: CMU/MLD
   team:
   - past
-  note: Core Member, September 2021-May 2022
+  note: Core member, September 2021-May 2022
 - firstName: Shantanu
   lastName: Gupta
   image: shantanu-gupta.jpg
@@ -713,7 +713,8 @@ people:
   image: qi-xuan-teo.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
+  note: Core member, June 2021-May 2022
 - firstName: Robert
   lastName: Tibshirani
   image: robert-tibshirani-500x500-min.jpg
