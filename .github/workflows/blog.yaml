@@ -58,7 +58,7 @@ jobs:
         run: |
           npm run build:blog
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: blog
           path: |
@@ -80,7 +80,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: website
           path: ./public
