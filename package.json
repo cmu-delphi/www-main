@@ -5,7 +5,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.1.1",
     "highlight.js": "^11.5.1",
-    "katex": "^0.15.3",
+    "katex": "^0.15.6",
     "uikit": "^3.14.1",
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v3.2.1/www-covidcast-3.2.1.tgz",
     "www-covidcast-classic": "https://github.com/cmu-delphi/www-covidcast-classic/releases/download/v2.6.2/www-covidcast-classic-2.6.2.tgz",
