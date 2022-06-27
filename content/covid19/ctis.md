@@ -19,21 +19,21 @@ Detailed technical documentation about the survey is available on our [site for 
 
 ## What are the surveys for?
 
-The survey asked respondents whether they were experiencing any symptoms, then asked a series of questions designed to help researchers understand the spread of COVID-19 and its effect on people in the United States. These include questions about COVID-19 testing, prior medical conditions, social distancing measures, mental health, demographics, and the economic effects of the pandemic.
+The survey asked respondents whether they were experiencing any symptoms, then asked a series of questions designed to help researchers understand the spread of COVID-19 and its effect on people in the United States. These included questions about COVID-19 testing, prior medical conditions, social distancing measures, mental health, demographics, and the economic effects of the pandemic.
 
-Delphi used information from the survey as part of its public [COVIDcast Map]({{< relref "covidcast" >}}), to inform its forecasts of the pandemic’s spread, and to assist public health agency partners. By providing daily data from all parts of the United States, the survey allows comparisons between regions and allows careful tracking of changes over time. Other researchers use the survey to study factors related to the pandemic's spread, its effects on mental health, how different demographic groups are affected by the pandemic, and numerous other important questions.
+Delphi used information from the survey as part of its public [COVIDcast Map]({{< relref "covidcast" >}}), to inform its forecasts of the pandemic’s spread, and to assist public health agency partners. By providing daily data from all parts of the United States, the survey allows comparisons between regions and allows careful tracking of changes over time. Other researchers use the survey to study factors related to the pandemic's spread, its effects on mental health, how different demographic groups were affected by the pandemic, and numerous other important questions.
 
-Because the survey reached thousands of respondents every day, its questions focused on what the respondents are experiencing right now. This allowed us to track how conditions change across the country every day.
+Because the survey reached thousands of respondents every day, its questions focused on what the respondents were experiencing when they took the survey. This allows us to track how conditions changed across the country every day.
 
 ## Who ran these surveys?
 
 The surveys were a collaboration between [Delphi]({{< relref "/" >}}) at Carnegie Mellon University, numerous universities, and Facebook. Researchers at many institutions are analyzing the survey data and assisted in the survey’s development.
 
-The survey protocol has been reviewed by the Carnegie Mellon University Institutional Review Board. Delphi only publicly releases aggregate data; de-identified individual data is made available to research partners. Our partners are bound by data use agreements to maintain the confidentiality of individual survey responses. Facebook referred its users to the survey, but it does not receive any individual survey data.
+The survey protocol has been reviewed by the Carnegie Mellon University Institutional Review Board. Delphi only publicly releases aggregate data; de-identified individual data is made available to research partners. Our partners are bound by data use agreements to maintain the confidentiality of individual survey responses. Facebook referred its users to the survey, but it never received any individual survey data.
 
 ## How were the surveys distributed?
 
-Participants were recruited for the surveys through an advertisement placed in their Facebook news feed. Facebook automatically selected a random sample of its users to see the advertisement each day; users who clicked on the ad were taken to a survey administered by Carnegie Mellon University, and Facebook does not receive their survey responses. The survey was available in English, Spanish, Brazilian Portuguese, Vietnamese, French, and simplified Chinese.
+Participants were recruited for the surveys through an advertisement placed in their Facebook news feed. Facebook automatically selected a random sample of its users to see the advertisement each day; users who clicked on the ad were taken to a survey administered by Carnegie Mellon University, and Facebook did not receive their survey responses. The survey was available in English, Spanish, Brazilian Portuguese, Vietnamese, French, and simplified Chinese.
 
 The survey participants were sampled from Facebook users, rather than being a random sample from the entire United States population. But unlike a traditional telephone or mail survey, distribution through Facebook allowed us to reach tens of thousands of respondents every day, permitting researchers to make comparisons between many geographic areas and to detect changes as soon as they happened.
 
