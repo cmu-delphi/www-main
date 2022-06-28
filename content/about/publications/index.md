@@ -1,6 +1,12 @@
 ---
 title: Research
 papers:
+  - title: "Real-Time Estimation of COVID-19 Infections: Deconvolution and Sensor Fusion"
+    image: research-teaser-collaborative-hubs.jpg
+    authors: Jahja, Chin, Tibshirani
+    link: https://doi.org/10.1214/22-STS856
+    journal: Statistical Science  
+    year: 2022
   - title: "Collaborative Hubs: Making the Most of Predictive Epidemic Modeling"
     image: research-teaser-collaborative-hubs.jpg
     authors: Reich, Lessler, Funk, Viboud, Vespignani, Tibshirani, Shea, Schienle, Runge, Rosenfeld, Ray, Niehus, Johnson, Johansson, Hochheiser, Gardner, Bracher, Borchering, Biggerstaff
