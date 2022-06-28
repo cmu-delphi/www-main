@@ -2,7 +2,7 @@
 title: Research
 papers:
   - title: "Real-Time Estimation of COVID-19 Infections: Deconvolution and Sensor Fusion"
-    image: research-teaser-collaborative-hubs.jpg
+    image: nowcasting-thumb.jpg
     authors: Jahja, Chin, Tibshirani
     link: https://doi.org/10.1214/22-STS856
     journal: Statistical Science  
@@ -19,12 +19,6 @@ papers:
     link: https://arxiv.org/pdf/2202.09723.pdf
     journal: Preprint
     year: 2022
-  - title: "Real-Time Estimation of COVID-19 Infections via Deconvolution and Sensor Fusion"
-    image: nowcasting-thumb.jpg
-    authors: Jahja, Chin, Tibshirani
-    link: https://arxiv.org/abs/2112.06697
-    journal: arXiv
-    year: 2021
   - title: "Recalibrating Probabilistic Forecasts of Epidemics"
     image: recalibrating-thumb.jpg
     authors: Rumack, Tibshirani, Rosenfeld
