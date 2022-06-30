@@ -422,6 +422,12 @@ people:
   team:
   - past
   note: Core member, March-April 2020; Contributor, Summer 2020
+- firstName: Rachel
+  lastName: Lobay
+  image: rachel-lobay.jpg
+  affiliation: University of British Columbia
+  team:
+  - contributors
 - firstName: Natalia
   lastName: Lombardi de&nbsp;Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
