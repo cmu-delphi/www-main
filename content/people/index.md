@@ -414,6 +414,12 @@ people:
   - contributors
   - blog
   note: Core member, April 2020-January 2021
+- firstName: Maggie
+  lastName: Liu
+  image: maggie-liu.jpg
+  affiliation: University of British Columbia
+  team:
+  - contributors  
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
