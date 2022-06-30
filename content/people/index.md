@@ -742,7 +742,7 @@ people:
 - firstName: Elena
   lastName: Tuzhilina
   image: elena-tuzhilina-500x500.jpg
-  affiliation: Stanford University
+  affiliation: University of Toronto
   team:
   - contributors
 - firstName: Carlyn
