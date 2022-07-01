@@ -17,7 +17,7 @@ jobs:
           # submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 3
       - name: Cache Conda
-        uses: actions/cache@v3.0.2
+        uses: actions/cache@v3.0.4
         with:
           path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda6-${{ hashFiles('environment.yml') }}
@@ -45,7 +45,7 @@ jobs:
         run: |
           Rscript ./dependencies.R
       - name: Restore Blogdown Cache
-        uses: actions/cache@v3.0.2
+        uses: actions/cache@v3.0.4
         with:
           path: |
             ./blogdown
@@ -68,7 +68,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - uses: actions/cache@v3.0.2
+      - uses: actions/cache@v3.0.4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
