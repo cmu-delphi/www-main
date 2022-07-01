@@ -106,9 +106,7 @@ Access to de-identified individual survey responses is available to qualified re
 
 ## Who can I contact?
 
-Questions from survey respondents about consent, research ethics, or how their data is used: [delphi-admin-survey-fb@lists.andrew.cmu.edu](mailto:delphi-admin-survey-fb@lists.andrew.cmu.edu)
-
-Getting access to survey data for research: [complete this form](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
+Getting access to survey data for research: [complete this form](https://dataforgood.facebook.com/dfg/docs/covid-19-trends-and-impact-survey-request-for-data-access)
 
 ### Media inquiries:
 
