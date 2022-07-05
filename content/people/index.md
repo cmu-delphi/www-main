@@ -328,9 +328,9 @@ people:
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
   affiliation: University of Texas at Dallas
-  note: Core member, March-April 2020
+  note: Core member, March-April 2020; Contributor, May 2020-June 2021
   team:
-  - contributors
+  - past
 - firstName: Kyungmin
   lastName: Kim
   image: kyungmin-kim.jpg
