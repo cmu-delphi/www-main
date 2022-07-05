@@ -59,6 +59,7 @@ Our primary description of the survey and its results over the first year of ope
 
 Other research publications using the survey data include:
 
+- J. M. Cox-Ganser, P. K. Henneberger, D. N. Weissman, G. Guthrie, and C. P. Groth (2022). [COVID-19 test positivity by occupation using the Delphi US COVID-19 Trends and Impact Survey, September–November 2020](https://doi.org/10.1002/ajim.23410). *American Journal of Industrial Medicine*.
 - M. Jahja, A. Chin, and R.J. Tibshirani (2022). [Real-Time Estimation of COVID-19 Infections: Deconvolution and Sensor Fusion](https://doi.org/10.1214/22-STS856). *Statistical Science* 37 (2), 207-228.
 - Henneberger, PK, Cox-Ganser, JM, Guthrie, GM, Groth, CP (2022). [Estimates of COVID-19 vaccine uptake in major occupational groups and detailed occupational categories in the United States, April–May 2021](https://doi.org/10.1002/ajim.23370). *American Journal of Industrial Medicine* 65 (7), 525-536.
 - K. E. Wiens, C. P. Smith, E. Badillo-Goicoechea, K. H. Grantz, M. K. Grabowski, A. S. Azman, E. A. Stuart, and J. Lessler (2022). [In-person schooling and associated COVID-19 risk in the United States over spring semester 2021](https://doi.org/10.1126/sciadv.abm9128). *Science Advances* 8, eabm9128.
