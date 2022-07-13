@@ -2,7 +2,7 @@
 title: Research
 papers:
   - title: "Comparing Trained and Untrained Probabilistic Ensemble Forecasts of COVID-19 Cases and Deaths in the United States"
-    image: nowcasting-thumb.jpg
+    image: comparing-thumb.jpg
     authors: Ray, Brooks, Bien, Biggerstaff, Bosse, Bracher, Cramer, Funk, Gerding, Johansson, Rumack, Wang, Zorn, Tibshirani, Reich
     link: https://doi.org/10.1016/j.ijforecast.2022.06.005
     journal: International Journal of Forecasting 
