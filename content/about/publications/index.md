@@ -4,7 +4,7 @@ papers:
   - title: "Comparing Trained and Untrained Probabilistic Ensemble Forecasts of COVID-19 Cases and Deaths in the United States"
     image: nowcasting-thumb.jpg
     authors: Ray, Brooks, Bien, Biggerstaff, Bosse, Bracher, Cramer, Funk, Gerding, Johansson, Rumack, Wang, Zorn, Tibshirani, Reich
-    link: https://doi.org/10.1214/22-STS856
+    link: https://doi.org/10.1016/j.ijforecast.2022.06.005
     journal: International Journal of Forecasting 
     year: 2022
   - title: "Real-Time Estimation of COVID-19 Infections: Deconvolution and Sensor Fusion"
