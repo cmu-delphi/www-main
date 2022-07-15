@@ -30,6 +30,11 @@ carousel:
     alt: View Post
     image: ensemble-hero.jpg
   - pre: Research
+    title: "Comparing Trained and Untrained Probabilistic Ensemble Forecasts of COVID-19 Cases and Deaths in the United States"
+    link: https://doi.org/10.1016/j.ijforecast.2022.06.005
+    alt: View Paper
+    image: comparing-ensemble-forecasts-hero.jpg
+  - pre: Research
     title: "Collaborative Hubs: Making the Most of Predictive Epidemic Modeling"
     link: https://doi.org/10.2105/AJPH.2022.306831
     alt: View Paper
