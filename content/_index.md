@@ -29,7 +29,7 @@ carousel:
     ref: 2021-09-30-ensemble-analysis
     alt: View Post
     image: ensemble-hero.jpg
-   - pre: Research
+  - pre: Research
     title: "Comparing Trained and Untrained Probabilistic Ensemble Forecasts of COVID-19 Cases and Deaths in the United States"
     link: https://doi.org/10.1016/j.ijforecast.2022.06.005
     alt: View Paper
