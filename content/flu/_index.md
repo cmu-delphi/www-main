@@ -7,7 +7,7 @@ Delphi systems developed before the COVID-19 pandemic typically target seasonal 
 
 # Flu Forecasting
 
-Since 2013, Delphi has supported the U.S. CDC’s Influenza Division in advancing and growing a scientific community around influenza forecasting. That year, we participated in the CDC’s inaugural “[Predict the Influenza Season Challenge](https://www.cdc.gov/flu/news/predict-flu-challenge.htm).” We’ve been perennial leaders in forecasting accuracy ever since, taking part in further [flu forecasting challenges](https://www.cdc.gov/flu/weekly/flusight/about-flu-forecasting.htm) and in 2019 we were designated a [National Center of Excellence for Influenza Forecasting](https://delphi.cmu.edu/about/center-of-excellence/), which is a CDC-funded and CDC-designated center working on advancing influenza forecasting and enabling and improving the usefulness of forecasts of both seasonal and pandemic influenza.
+Since 2013, Delphi has supported the U.S. CDC’s Influenza Division in advancing and growing a scientific community around influenza forecasting. That year, we participated in the CDC’s inaugural “[Predict the Influenza Season Challenge](https://www.cdc.gov/flu/news/predict-flu-challenge.htm).” We’ve been perennial leaders in forecasting accuracy ever since, taking part in further [flu forecasting challenges](https://www.cdc.gov/flu/weekly/flusight/about-flu-forecasting.htm), and in 2019 being designated a [National Center of Excellence for Influenza Forecasting](https://delphi.cmu.edu/about/center-of-excellence/), which is a CDC-funded and CDC-designated center working on advancing influenza forecasting, and enabling and improving the usefulness of forecasts of both seasonal and pandemic influenza.
 
 ## Resources and Tools
 
