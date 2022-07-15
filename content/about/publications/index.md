@@ -22,14 +22,14 @@ papers:
   - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
     image: smoothing-paper-teaser.jpg
     authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
-    link: https://arxiv.org/pdf/2202.09723.pdf
-    journal: Preprint
+    link: https://arxiv.org/abs/2202.09723
+    journal: arXiv
     year: 2022
   - title: "Recalibrating Probabilistic Forecasts of Epidemics"
     image: recalibrating-thumb.jpg
     authors: Rumack, Tibshirani, Rosenfeld
     link: https://arxiv.org/abs/2112.06305
-    journal: Preprint
+    journal: arXiv
     year: 2021 
   - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
