@@ -18,7 +18,7 @@ The Epidata API, originally released in 2016, provides real-time access to epide
 EpiVis is an interactive tool for visualizing epidemiological time-series data. Users may explore their own data or utilize existing time series from the numerous data sources provided by the EpiData API.
 
 ### [ILI Nearby](https://delphi.cmu.edu/nowcast/)
-ILI Nearby is a flu nowcasting system which utilizes sensor fusion therapy to bring together various signals about the prevalence of Influenza-Like-Illness (ILI) in various geographic areas of the US. **Note:** ILI Nearby has not been actively maintained since 2019 and should no longer be relied upon for accurate nowcasting.
+ILI Nearby is a flu nowcasting system which utilizes sensor fusion methodology to bring together multiple signals to nowcast (estimate in real-time) the prevalence of Influenza-Like-Illness (ILI) in various geographic areas of the US. **Note:** ILI Nearby has not been actively maintained since 2019 and should no longer be relied upon for accurate nowcasting.
 
 ## Research Articles
 - [Recalibrating Probabilistic Forecasts of Epidemics](https://arxiv.org/abs/2112.06305) by Rumack et al.
@@ -34,6 +34,6 @@ ILI Nearby is a flu nowcasting system which utilizes sensor fusion therapy to br
 Delphi has also worked on modeling for other pathogens, namely Dengue fever, Norovirus, and Chikungunya. More information about our data on those pathogens is available in our [Epidata API](https://cmu-delphi.github.io/delphi-epidata/api/README.html).
 
 ## Research Articles
+- [An Open Challenge to Advance Probabilistic Forecasting for Dengue Epidemics](https://www.pnas.org/doi/full/10.1073/pnas.1909865116) by Johansson et al.
 - [Risk of Dengue for Tourists and Teams during the World Cup 2014 in Brazil](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4120682/) by van Panhuis et al.
 - [A Human Judgment Approach to Epidemiological Forecasting](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005248) by Farrow et al.
-- [An Open Challenge to Advance Probabilistic Forecasting for Dengue Epidemics](https://www.pnas.org/doi/full/10.1073/pnas.1909865116) by Johansson et al.
