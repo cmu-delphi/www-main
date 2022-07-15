@@ -11,7 +11,7 @@ Since 2013, Delphi has supported the U.S. CDC’s Influenza Division in advancin
 
 ## Resources and Tools
 
-### [Epidata for Flu](https://cmu-delphi.github.io/delphi-epidata/api/README.html))
+### [Epidata for Flu](https://cmu-delphi.github.io/delphi-epidata/api/README.html)
 The [Delphi Epidata repository and API](https://cmu-delphi.github.io/delphi-epidata/), originally released in 2016, collects, processes, stores and provides real-time access to epidemiological surveillance signals, as well as access to historical versions of each signal (“what was known when”). We continuously receive data from multiple sources and extract signals related to flu, dengue, and other pathogens. In early 2020, we started adding many COVID-19 related data sources and signals under an endpoint called [COVIDcast](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html), which grew to become the dominant part of the Epidata collection.
 
 ### [EpiVis](https://delphi.cmu.edu/epivis/)
