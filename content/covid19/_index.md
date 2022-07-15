@@ -69,8 +69,8 @@ streams in tracking the COVID-19 pandemic](https://www.pnas.org/cc/beyond-cases-
 
 More recent work on nowcasting using COVID-19 indicators:
 
-- [Real-time estimation of COVID-19 infections via deconvolution and sensor
-  fusion](https://arxiv.org/abs/2112.06697)
+- [Real-time estimation of COVID-19 infections: Deconvolution and sensor
+  fusion](https://doi.org/10.1214/22-STS856)
   by Jahja et al. 
 
 ## Severity Pyramid

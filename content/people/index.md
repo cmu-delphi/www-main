@@ -328,9 +328,9 @@ people:
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
   affiliation: University of Texas at Dallas
-  note: Core member, March-April 2020
+  note: Core member, March-April 2020; Contributor, May 2020-June 2021
   team:
-  - contributors
+  - past
 - firstName: Kyungmin
   lastName: Kim
   image: kyungmin-kim.jpg
@@ -414,6 +414,12 @@ people:
   - contributors
   - blog
   note: Core member, April 2020-January 2021
+- firstName: Maggie
+  lastName: Liu
+  image: maggie-liu.jpg
+  affiliation: University of British Columbia
+  team:
+  - contributors  
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
@@ -422,6 +428,12 @@ people:
   team:
   - past
   note: Core member, March-April 2020; Contributor, Summer 2020
+- firstName: Rachel
+  lastName: Lobay
+  image: rachel-lobay.jpg
+  affiliation: University of British Columbia
+  team:
+  - contributors
 - firstName: Natalia
   lastName: Lombardi de&nbsp;Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
@@ -742,7 +754,7 @@ people:
 - firstName: Elena
   lastName: Tuzhilina
   image: elena-tuzhilina-500x500.jpg
-  affiliation: Stanford University
+  affiliation: University of Toronto
   team:
   - contributors
 - firstName: Carlyn

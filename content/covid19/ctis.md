@@ -59,6 +59,7 @@ Our primary description of the survey and its results over the first year of ope
 
 Other research publications using the survey data include:
 
+- J. M. Cox-Ganser, P. K. Henneberger, D. N. Weissman, G. Guthrie, and C. P. Groth (2022). [COVID-19 test positivity by occupation using the Delphi US COVID-19 Trends and Impact Survey, September–November 2020](https://doi.org/10.1002/ajim.23410). *American Journal of Industrial Medicine*.
 - M. Jahja, A. Chin, and R.J. Tibshirani (2022). [Real-Time Estimation of COVID-19 Infections: Deconvolution and Sensor Fusion](https://doi.org/10.1214/22-STS856). *Statistical Science* 37 (2), 207-228.
 - Henneberger, PK, Cox-Ganser, JM, Guthrie, GM, Groth, CP (2022). [Estimates of COVID-19 vaccine uptake in major occupational groups and detailed occupational categories in the United States, April–May 2021](https://doi.org/10.1002/ajim.23370). *American Journal of Industrial Medicine* 65 (7), 525-536.
 - K. E. Wiens, C. P. Smith, E. Badillo-Goicoechea, K. H. Grantz, M. K. Grabowski, A. S. Azman, E. A. Stuart, and J. Lessler (2022). [In-person schooling and associated COVID-19 risk in the United States over spring semester 2021](https://doi.org/10.1126/sciadv.abm9128). *Science Advances* 8, eabm9128.
@@ -106,9 +107,7 @@ Access to de-identified individual survey responses is available to qualified re
 
 ## Who can I contact?
 
-Questions from survey respondents about consent, research ethics, or how their data is used: [delphi-admin-survey-fb@lists.andrew.cmu.edu](mailto:delphi-admin-survey-fb@lists.andrew.cmu.edu)
-
-Getting access to survey data for research: [complete this form](https://dataforgood.fb.com/docs/covid-19-symptom-survey-request-for-data-access/)
+Getting access to survey data for research: [complete this form](https://dataforgood.facebook.com/dfg/docs/covid-19-trends-and-impact-survey-request-for-data-access)
 
 ### Media inquiries:
 

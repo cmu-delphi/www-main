@@ -1,6 +1,12 @@
 ---
 title: Research
 papers:
+  - title: "Comparing Trained and Untrained Probabilistic Ensemble Forecasts of COVID-19 Cases and Deaths in the United States"
+    image: comparing-ensemble-forecasts-thumb.jpg
+    authors: Ray, Brooks, Bien, Biggerstaff, Bosse, Bracher, Cramer, Funk, Gerding, Johansson, Rumack, Wang, Zorn, Tibshirani, Reich
+    link: https://doi.org/10.1016/j.ijforecast.2022.06.005
+    journal: International Journal of Forecasting 
+    year: 2022
   - title: "Real-Time Estimation of COVID-19 Infections: Deconvolution and Sensor Fusion"
     image: nowcasting-thumb.jpg
     authors: Jahja, Chin, Tibshirani
@@ -16,14 +22,14 @@ papers:
   - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
     image: smoothing-paper-teaser.jpg
     authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
-    link: https://arxiv.org/pdf/2202.09723.pdf
-    journal: Preprint
+    link: https://arxiv.org/abs/2202.09723
+    journal: arXiv
     year: 2022
   - title: "Recalibrating Probabilistic Forecasts of Epidemics"
     image: recalibrating-thumb.jpg
     authors: Rumack, Tibshirani, Rosenfeld
     link: https://arxiv.org/abs/2112.06305
-    journal: Preprint
+    journal: arXiv
     year: 2021 
   - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
