@@ -202,6 +202,12 @@ people:
   external: true
   team:
   - blog
+- firstName: Nolan
+  lastName: Gormley
+  image: christy-melucci.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Jed
   lastName: Grabman
   image: jed-gradmn_head-shot.png
