@@ -370,7 +370,8 @@ people:
   image: wichada-la-motte-kerr.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
+  note: Core member, September 2020-July 2022
 - key: slarocca
   firstName: Sarah
   lastName: LaRocca
