@@ -204,7 +204,7 @@ people:
   - blog
 - firstName: Nolan
   lastName: Gormley
-  image: christy-melucci.jpg
+  image: nolan-gormley.jpg
   affiliation: CMU/MLD
   team:
   - core
