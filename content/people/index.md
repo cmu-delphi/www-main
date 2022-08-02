@@ -24,8 +24,8 @@ people:
   image: taylor-arnold-500x500-min.jpg
   affiliation: University of Richmond
   team:
-  - contributors
-  note: Core member, May-June 2020
+  - past
+  note: Core member, May-June 2020; Contributor July 2020-June 2022
 - key: kbarkume
   firstName: Kris
   lastName: Barkume
