@@ -24,8 +24,8 @@ people:
   image: taylor-arnold-500x500-min.jpg
   affiliation: University of Richmond
   team:
-  - contributors
-  note: Core member, May-June 2020
+  - past
+  note: Core member, May-June 2020; Contributor July 2020-June 2022
 - key: kbarkume
   firstName: Kris
   lastName: Barkume
@@ -202,6 +202,12 @@ people:
   external: true
   team:
   - blog
+- firstName: Nolan
+  lastName: Gormley
+  image: nolan-gormley.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Jed
   lastName: Grabman
   image: jed-gradmn_head-shot.png
@@ -364,7 +370,8 @@ people:
   image: wichada-la-motte-kerr.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
+  note: Core member, September 2020-July 2022
 - key: slarocca
   firstName: Sarah
   lastName: LaRocca
