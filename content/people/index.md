@@ -355,9 +355,8 @@ people:
   lastName: Lakdawala
   image: tarannum-lakdawala.jpeg
   affiliation: CMU/CSD
-  note: Contributor, June-December 2021
   team:
-  - past
+  - contributors  
 - firstName: Daniel
   lastName: LaLiberte
   image: daniel-laliberte_head-shot.jpg
