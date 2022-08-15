@@ -355,6 +355,7 @@ people:
   lastName: Lakdawala
   image: tarannum-lakdawala.jpeg
   affiliation: CMU/CSD
+  note: Contributor, June-December 2021
   team:
   - contributors  
 - firstName: Daniel
