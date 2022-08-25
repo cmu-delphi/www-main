@@ -290,8 +290,8 @@ people:
   image: maria-jahja-500x500-min.jpg
   affiliation: CMU/Stat
   team:
-  - core
-  - highlight
+  - past
+  note: Core member, August 2017-June 2022
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -885,6 +885,7 @@ people:
   affiliation: CMU/MLD
   team:
   - core 
+  - highlight
 - firstName: Evan
   lastName: Zhang
   image: evan-zhang.jpg
