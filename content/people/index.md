@@ -91,12 +91,6 @@ people:
   team:
   - past
   note: Core member, March-April 2020
-- firstName: Seline
-  lastName: Carter
-  image: seline-carter.jpg
-  affiliation: CMU/Stat
-  team:
-  - contributors
 - key: ccheng
   firstName: Cheng
   lastName: Cheng
@@ -152,12 +146,6 @@ people:
   affiliation: CMU/MLD
   team:
   - core
-- firstName: Margaret
-  lastName: Ellingwood
-  image: margaret-ellingwood.jpg
-  affiliation: CMU/Stat
-  team:
-  - contributors
 - firstName: Natalie
   lastName: F.
   image: natalie-gos.jpg
