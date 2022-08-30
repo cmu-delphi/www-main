@@ -718,7 +718,7 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
- - firstName: Mashrin
+- firstName: Mashrin
   lastName: Srivastava
   image: mashrin-srivastava.jpg
   affiliation: CMU/MLD
