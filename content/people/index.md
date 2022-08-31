@@ -91,6 +91,12 @@ people:
   team:
   - past
   note: Core member, March-April 2020
+- firstName: Seline
+  lastName: Carter
+  image: seline-carter.jpg
+  affiliation: CMU/Stat
+  team:
+  - contributors  
 - key: ccheng
   firstName: Cheng
   lastName: Cheng
@@ -146,6 +152,12 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+- firstName: Margaret
+  lastName: Ellingwood
+  image: margaret-ellingwood.jpg
+  affiliation: CMU/Stat
+  team:
+  - contributors  
 - firstName: Natalie
   lastName: F.
   image: natalie-gos.jpg
@@ -706,6 +718,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: Mashrin
+  lastName: Srivastava
+  image: mashrin-srivastava.jpg
+  affiliation: CMU/MLD
+  team:
+  - contributors
 - firstName: Vishakha
   lastName: Srivastava
   image: vishakha-srivastava-500x500-min.jpg
