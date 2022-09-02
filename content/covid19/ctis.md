@@ -15,7 +15,7 @@ Such detailed data has never before been available during a public health emerge
 
 An international version of the survey was conducted by the University of Maryland in collaboration with Facebook. Its data [is available separately](https://covidmap.umd.edu/).
 
-Detailed technical documentation about the survey is available on our [site for data users](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/).
+The [CTIS Methodology Report](https://dataforgood.facebook.com/dfg/resources/CTIS-methodology-report) gives technical details about the survey design and data collection process, and detailed technical documentation about the survey is available on our [site for data users](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/).
 
 ## What are the surveys for?
 
