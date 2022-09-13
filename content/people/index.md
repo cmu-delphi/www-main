@@ -909,7 +909,8 @@ people:
   image: evan-zhang.jpg
   affiliation: CMU/CSD
   team:
-  - contributors
+  - past
+  note: Contributor, June-August 2022
 - key: hzhou
   firstName: Helen
   lastName: Zhou
