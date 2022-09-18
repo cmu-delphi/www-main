@@ -875,7 +875,8 @@ people:
   image: chloe-you.jpg
   affiliation: University of British Columbia
   team:
-  - contributors
+  - past
+  note: Contributor, April-September 2022
 - key: nickreich
   firstName: Nicholas
   lastName: Reich
