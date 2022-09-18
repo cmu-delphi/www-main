@@ -472,6 +472,7 @@ people:
   lastName: Mawer
   image: ken-mawer.jpg
   affiliation: University of British Columbia
+  team:
   - past
   note: Contributor, May-September 2022
 - firstName: Kathryn
