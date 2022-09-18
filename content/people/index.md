@@ -472,8 +472,8 @@ people:
   lastName: Mawer
   image: ken-mawer.jpg
   affiliation: University of British Columbia
-  team:
-  - contributors  
+  - past
+  note: Contributor, May-September 2022
 - firstName: Kathryn
   lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
