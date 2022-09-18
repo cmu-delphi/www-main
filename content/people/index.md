@@ -21,7 +21,7 @@ people:
   note: Google Fellow, October 2020-March 2021
 - firstName: Taylor
   lastName: Arnold
-  image: taylor-arnold-500x500-min.jpg
+  image: taylor-arnold-500x500-min.jpguc
   affiliation: University of Richmond
   team:
   - past
@@ -905,6 +905,12 @@ people:
   team:
   - core 
   - highlight
+- firstName: Rostyslav
+  lastName: Zatserkovnyi
+  image: rostyslav-zatserkovnyi.jpg
+  affiliation: StartupSoft
+  team:
+  - core
 - firstName: Evan
   lastName: Zhang
   image: evan-zhang.jpg
