@@ -21,7 +21,7 @@ people:
   note: Google Fellow, October 2020-March 2021
 - firstName: Taylor
   lastName: Arnold
-  image: taylor-arnold-500x500-min.jpguc
+  image: taylor-arnold-500x500-min.jpg
   affiliation: University of Richmond
   team:
   - past
