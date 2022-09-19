@@ -909,7 +909,7 @@ people:
 - firstName: Rostyslav
   lastName: Zatserkovnyi
   image: rostyslav-zatserkovnyi.jpg
-  affiliation: CMU &amp; StartupSoft
+  affiliation: CMU & StartupSoft
   team:
   - core
 - firstName: Evan
