@@ -473,7 +473,8 @@ people:
   image: ken-mawer.jpg
   affiliation: University of British Columbia
   team:
-  - contributors  
+  - past
+  note: Contributor, May-September 2022
 - firstName: Kathryn
   lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
@@ -874,7 +875,8 @@ people:
   image: chloe-you.jpg
   affiliation: University of British Columbia
   team:
-  - contributors
+  - past
+  note: Contributor, April-September 2022
 - key: nickreich
   firstName: Nicholas
   lastName: Reich
@@ -904,6 +906,12 @@ people:
   team:
   - core 
   - highlight
+- firstName: Rostyslav
+  lastName: Zatserkovnyi
+  image: rostyslav-zatserkovnyi.jpg
+  affiliation: CMU & StartupSoft
+  team:
+  - core
 - firstName: Evan
   lastName: Zhang
   image: evan-zhang.jpg
