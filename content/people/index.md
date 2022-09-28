@@ -857,6 +857,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: Chris
+  lastName: Wiggins
+  image: chris-wiggins.jpg
+  affiliation: Columbia University
+  team:
+  - advisors  
 - firstName: Kristin
   lastName: Williams
   image: kristin-williams-500x500-min.jpg
