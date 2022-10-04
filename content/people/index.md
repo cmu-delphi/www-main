@@ -778,6 +778,12 @@ people:
   affiliation: CMU/Stat
   team:
   - core
+- firstName: Dmytro
+  lastName: Trotsko
+  image: dmytro-trotsko.jpg
+  affiliation: CMU & StartupSoft
+  team:
+  - core
 - firstName: Elena
   lastName: Tuzhilina
   image: elena-tuzhilina-500x500.jpg
