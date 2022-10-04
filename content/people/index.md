@@ -411,7 +411,8 @@ people:
   image: woochan-lee.jpg
   affiliation: CMU/Stat
   team:
-  - contributors  
+  - past
+  note: Contributor, December 2021-May 2022
 - key: lipsitch
   firstName: Marc
   lastName: Lipsitch
