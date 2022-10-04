@@ -97,7 +97,7 @@ travel_normed <- travel %>%
   select(date, state, value, sample_size) %>%
   mutate(state = str_to_upper(state)) %>%
   filter(state %in% statelist) %>%
-  mutate(Region = plyr::mapvalues(state, statelist, regions)) %>%
+  mutate(Region = recode(state, !!!setNames(statelist, regions))) %>%
   group_by(state) %>%
   mutate(normed = value * 100 / first(value) - 100) %>%
   ungroup() %>%
@@ -106,7 +106,7 @@ travel_normed <- travel %>%
 
 regionmap <- travel %>%
   filter(geo_value %in% str_to_lower(statelist)) %>%
-  mutate(value = plyr::mapvalues(geo_value, str_to_lower(statelist), regions),
+  mutate(value = recode(geo_value, !!!setNames(str_to_lower(statelist), regions)),
          value = as.integer(factor(value)))
 
 grid_label <- textGrob("Data from Delphi COVIDcast, delphi.cmu.edu",
@@ -178,7 +178,7 @@ spent_time_stats <- spent_time %>%
   select(date, state, value, sample_size) %>%
   mutate(state = str_to_upper(state)) %>%
   filter(state %in% statelist) %>%
-  mutate(Region = plyr::mapvalues(state, statelist, regions)) %>%
+  mutate(Region = recode(state, !!!setNames(statelist, regions))) %>%
   group_by(date, Region) %>%
   summarise_at("value", list(mean = ~mean(.), sd = ~sd(.), se = ~sd(.)/sqrt(n()) ))
 
@@ -235,7 +235,7 @@ shopped_stats <- shopped %>%
   select(date, state, value, sample_size) %>%
   mutate(state = str_to_upper(state)) %>%
   filter(state %in% statelist) %>%
-  mutate(Region = plyr::mapvalues(state, statelist, regions)) %>%
+  mutate(Region = recode(state, !!!setNames(statelist, regions))) %>%
   group_by(date, Region) %>%
   summarise_at("value", list(mean = ~mean(.), sd = ~sd(.), se = ~sd(.)/sqrt(n()) ))
 
@@ -286,7 +286,7 @@ masked_stats <- masked %>%
   select(date, state, value, sample_size) %>%
   mutate(state = str_to_upper(state)) %>%
   filter(state %in% statelist) %>%
-  mutate(Region = plyr::mapvalues(state, statelist, regions)) %>%
+  mutate(Region = recode(state, !!!setNames(statelist, regions))) %>%
   group_by(date, Region) %>%
   summarise_at("value", list(mean = ~mean(.), sd = ~sd(.), se = ~sd(.)/sqrt(n()) ))
 
@@ -341,7 +341,7 @@ tested_normed <- tested %>%
   select(date, state, value, sample_size) %>%
   mutate(state = str_to_upper(state)) %>%
   filter(state %in% statelist) %>%
-  mutate(Region = plyr::mapvalues(state, statelist, regions)) %>%
+  mutate(Region = recode(state, !!!setNames(statelist, regions))) %>%
   group_by(state) %>%
   mutate(normed = value*100/first(value) - 100) %>% ungroup() %>%
   group_by(date, Region) %>%
