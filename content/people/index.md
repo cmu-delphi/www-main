@@ -781,7 +781,7 @@ people:
 - firstName: Dmytro
   lastName: Trotsko
   image: dmytro-trotsko.jpg
-  affiliation: CMU & StartupSoft
+  affiliation: Delphi & StartupSoft
   team:
   - core
 - firstName: Elena
