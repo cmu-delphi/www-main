@@ -915,7 +915,7 @@ people:
 - firstName: Rostyslav
   lastName: Zatserkovnyi
   image: rostyslav-zatserkovnyi.jpg
-  affiliation: CMU & StartupSoft
+  affiliation: Delphi & StartupSoft
   team:
   - core
 - firstName: Evan
