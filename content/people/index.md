@@ -411,7 +411,8 @@ people:
   image: woochan-lee.jpg
   affiliation: CMU/Stat
   team:
-  - contributors  
+  - past
+  note: Contributor, December 2021-May 2022
 - key: lipsitch
   firstName: Marc
   lastName: Lipsitch
@@ -775,6 +776,12 @@ people:
   lastName: Townes
   image: will-townes.jpg
   affiliation: CMU/Stat
+  team:
+  - core
+- firstName: Dmytro
+  lastName: Trotsko
+  image: dmytro-trotsko.jpg
+  affiliation: Delphi & StartupSoft
   team:
   - core
 - firstName: Elena
