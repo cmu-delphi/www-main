@@ -411,7 +411,8 @@ people:
   image: woochan-lee.jpg
   affiliation: CMU/Stat
   team:
-  - contributors  
+  - past
+  note: Contributor, December 2021-May 2022
 - key: lipsitch
   firstName: Marc
   lastName: Lipsitch
@@ -473,7 +474,8 @@ people:
   image: ken-mawer.jpg
   affiliation: University of British Columbia
   team:
-  - contributors  
+  - past
+  note: Contributor, May-September 2022
 - firstName: Kathryn
   lastName: Mazaitis
   image: kathryn-mazaitis-500x500-min.jpg
@@ -776,6 +778,12 @@ people:
   affiliation: CMU/Stat
   team:
   - core
+- firstName: Dmytro
+  lastName: Trotsko
+  image: dmytro-trotsko.jpg
+  affiliation: Delphi & StartupSoft
+  team:
+  - core
 - firstName: Elena
   lastName: Tuzhilina
   image: elena-tuzhilina-500x500.jpg
@@ -856,6 +864,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: Chris
+  lastName: Wiggins
+  image: chris-wiggins.jpg
+  affiliation: Columbia University
+  team:
+  - advisors  
 - firstName: Kristin
   lastName: Williams
   image: kristin-williams-500x500-min.jpg
@@ -874,7 +888,8 @@ people:
   image: chloe-you.jpg
   affiliation: University of British Columbia
   team:
-  - contributors
+  - past
+  note: Contributor, April-September 2022
 - key: nickreich
   firstName: Nicholas
   lastName: Reich
@@ -904,6 +919,12 @@ people:
   team:
   - core 
   - highlight
+- firstName: Rostyslav
+  lastName: Zatserkovnyi
+  image: rostyslav-zatserkovnyi.jpg
+  affiliation: Delphi & StartupSoft
+  team:
+  - core
 - firstName: Evan
   lastName: Zhang
   image: evan-zhang.jpg

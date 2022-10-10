@@ -70,7 +70,7 @@ papers:
   - title: "Pancasting: Forecasting Epidemics from Provisional Data"
     image: pancasting.jpg
     authors: Brooks
-    link: https://delphi.cmu.edu/~lcbrooks/brooks2020pancasting.pdf
+    link: https://www.cmu.edu/delphi-web/publications/brooks2020pancasting.pdf
     journal: PhD thesis
     year: 2020
   - title: "Kalman Filter, Sensor Fusion, and Constrained Regression: Equivalences and Insights"
@@ -94,7 +94,7 @@ papers:
   - title: "Modeling the Past, Present, and Future of Influenza"
     image: modeling.jpg
     authors: Farrow
-    link: https://delphi.cmu.edu/~dfarrow/thesis.pdf
+    link: https://www.cmu.edu/delphi-web/publications/dfarrow-thesis.pdf
     journal: PhD thesis
     year: 2016
   - title: "Flexible Modeling of Epidemics with an Empirical Bayes Framework"
