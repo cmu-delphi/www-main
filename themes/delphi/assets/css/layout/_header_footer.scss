@@ -49,6 +49,7 @@ $mobile-margin: 15px;
 .nav-entries {
   flex-shrink: 1;
   overflow: hidden;
+  column-gap: 0;
 }
 
 .nav-spacer {
