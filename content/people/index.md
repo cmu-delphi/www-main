@@ -453,7 +453,7 @@ people:
   image: rachel-lobay.jpg
   affiliation: University of British Columbia
   team:
-  - contributors
+  - core
 - firstName: Natalia
   lastName: Lombardi de&nbsp;Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg

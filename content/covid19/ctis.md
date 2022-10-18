@@ -59,6 +59,7 @@ Our primary description of the survey and its results over the first year of ope
 
 Other research publications using the survey data include:
 
+- Nguyen, Q.C., Yardi, I., Gutierrez, F.X.M. et al. (2022). [Leveraging 13 million responses to the U.S. COVID-19 Trends and Impact Survey to examine vaccine hesitancy, vaccination, and mask wearing, January 2021-February 2022](https://doi.org/10.1186/s12889-022-14286-3). *BMC Public Health* 22, 1911. 
 - J. G. Lu (2022). [Two large-scale global studies on COVID-19 vaccine hesitancy over time: Culture, uncertainty avoidance, and vaccine side-effect concerns](https://doi.org/10.1037/pspa0000320). *Journal of Personality and Social Psychology*.
 - J. M. Cox-Ganser, P. K. Henneberger, D. N. Weissman, G. Guthrie, and C. P. Groth (2022). [COVID-19 test positivity by occupation using the Delphi US COVID-19 Trends and Impact Survey, September–November 2020](https://doi.org/10.1002/ajim.23410). *American Journal of Industrial Medicine* 65 (9), 721-730.
 - M. Jahja, A. Chin, and R.J. Tibshirani (2022). [Real-Time Estimation of COVID-19 Infections: Deconvolution and Sensor Fusion](https://doi.org/10.1214/22-STS856). *Statistical Science* 37 (2), 207-228.
@@ -68,7 +69,7 @@ Other research publications using the survey data include:
 - F. Pierri, B. L. Perry, M. R. DeVerna, et al. (2022). [Online misinformation is linked to early COVID-19 vaccination hesitancy and refusal](https://doi.org/10.1038/s41598-022-10070-w). *Scientific Reports* 12, 5966.
 - A. Pilehvari, J. Ton, M. R. Mohan, A. Marathe, and A. Vullikanti (2022). [Drivers and Predictors of COVID-19 Vaccine Hesitancy in Virginia](https://doi.org/10.1007/978-3-030-96188-6_8). In: Yang, Z., von Briesen, E. (eds), *Proceedings of the 2021 Conference of The Computational Social Science Society of the Americas*. CSSSA 2021.
 - L. S. Flor, J. Friedman, C. N. Spencer, et al. (2022). [Quantifying the effects of the COVID-19 pandemic on gender equality on health, social, and economic indicators: a comprehensive review of data from March, 2020, to September, 2021](https://doi.org/10.1016/S0140-6736(22)00008-3). *The Lancet* 399 (10344), 2381-2397.
-- D. P. Do and R. Frank (2022). [Prior COVID-19 infection: an underappreciated factor in vaccine hesitancy in the USA](https://doi.org/10.1093/pubmed/fdab404). *Journal of Public Health*, fdab404.
+- D. P. Do and R. Frank (2022). [Prior COVID-19 infection: an underappreciated factor in vaccine hesitancy in the USA](https://doi.org/10.1093/pubmed/fdab404). *Journal of Public Health* 44 (2), 471-474.
 - W. C. King, M. Rubinstein, A. Reinhart, and R. J. Mejia (2021). [Time trends, factors associated with, and reasons for COVID-19 vaccine hesitancy: A massive online survey of US adults from January-May 2021](https://doi.org/10.1371/journal.pone.0260731). *PLoS ONE* 16 (12), e0260731.
 - C. Lupton-Smith, E. Badillo-Goicochea, T.-H. Chang, H. Maniates, K. E. Riehm, I. Schmid, and E. A. Stuart (2021). [Factors associated with county-level mental health during the COVID-19 pandemic](https://doi.org/10.1002/jcop.22785). *Journal of Community Psychology* 50 (5), 2431-2442.
 - D. P. Do and R. Frank (2021). [U.S. frontline workers and COVID-19 inequities](https://doi.org/10.1016/j.ypmed.2021.106833). *Preventive Medicine* 153, 106833.
