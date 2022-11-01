@@ -516,7 +516,8 @@ people:
   image: duane-mengo.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
+  note: Core member, April-September 2022
 - key: lmorinishi
   firstName: Leanna
   lastName: Morinishi
