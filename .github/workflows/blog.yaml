@@ -7,39 +7,50 @@ on:
       - "environment.yml"
       - "dependencies.R"
       - ".github/workflows/blog.yaml"
+  workflow_dispatch:
 
 jobs:
   blog:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    env:
+      RETICULATE_PYTHON: /usr/share/miniconda3/envs/www-main/bin/python
     steps:
       - uses: actions/checkout@v3
         with:
           # submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 3
-      - name: Cache Conda
-        uses: actions/cache@v3.0.2
-        with:
-          path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-conda6-${{ hashFiles('environment.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-conda6-
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: 3.9
-          mamba-version: "*"
-          channels: conda-forge,defaults
-          channel-priority: true
           activate-environment: www-main
-          environment-file: environment.yml
-          auto-activate-base: false
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          use-mamba: true
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
-      # - name: Conda info
-      #   shell: bash -l {0}
-      #   run: |
-      #     conda info
-      #     conda list
+      - name: Get Date
+        id: get-date
+        run: echo "name=today::$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
+        shell: bash
+      - name: Cache Conda env
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.CONDA }}/envs
+          key: conda-${{ runner.os }}--${{ runner.arch }}--${{ steps.get-date.outputs.today }}-${{ hashFiles('environment.yml') }}-${{ env.CACHE_NUMBER }}
+        env:
+          # Increase this value to reset cache if etc/example-environment.yml has not changed
+          CACHE_NUMBER: 0
+        id: cache
+      - name: Update environment
+        run: mamba env update -n www-main -f environment.yml
+        if: steps.cache.outputs.cache-hit != 'true'
+      - name: Conda info
+        run: |
+          conda info
+          conda list
       - name: Install R dependencies
-        shell: bash -l {0}
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -54,10 +65,8 @@ jobs:
             ${{ runner.os }}-blogdown2-${{ hashFiles('environment.yml') }}-
             ${{ runner.os }}-blogdown2-
       - name: Build site
-        shell: bash -l {0}
         run: |
           npm run build:blog
-
       - uses: actions/upload-artifact@v3
         with:
           name: blog
@@ -79,7 +88,6 @@ jobs:
         run: npm run lint
       - name: Build
         run: npm run build
-
       - uses: actions/upload-artifact@v3
         with:
           name: website
