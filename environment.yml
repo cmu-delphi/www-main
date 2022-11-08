@@ -6,7 +6,7 @@ dependencies:
   - gdal
   - python=3.9.1
   - pip
-  - r-base=3.6.3
+  - r-base
   - glib
   - mscorefonts
   - r-cairo
@@ -50,6 +50,7 @@ dependencies:
   - r-vroom
   - r-urltools
   - r-base64url
+  - r-readr >=2
   - pandoc
   - fiona
   - geopandas

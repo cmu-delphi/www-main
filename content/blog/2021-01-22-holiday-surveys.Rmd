@@ -108,7 +108,7 @@ regionmap <- travel %>%
   filter(geo_value %in% str_to_lower(statelist)) %>%
   mutate(value = plyr::mapvalues(geo_value, str_to_lower(statelist), regions),
          value = as.integer(factor(value)))
-
+attr(regionmap, "metadata") <- list(geo_type = "state")
 grid_label <- textGrob("Data from Delphi COVIDcast, delphi.cmu.edu",
                        hjust = 1, x = 1, gp = gpar(fontsize = 9))
 
