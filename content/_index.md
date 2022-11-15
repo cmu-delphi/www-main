@@ -5,10 +5,10 @@ layout: landing
 
 carousel:
   - pre: Delphi Careers
-    title: CMU Seeking an Executive Director for the Delphi Research Group & Strategic Coordinator of Public Health Research Initiatives
+    title: CMU Seeking an Executive Director for Delphi Research Group & Strategic Coordinator of Public Health Research Initiatives
     ref: careers
     alt: View Position
-    image: landing-pg_hero-img-3.jpg
+    image: cmu-bldg-1-hero.jpg
   - pre: Delphi Careers
     title: We're Hiring!
     ref: careers
