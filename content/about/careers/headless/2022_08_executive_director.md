@@ -1,11 +1,9 @@
 ---
-date: 2022-08-12
-title: Executive Director
+date: 2022-11-15
+title: Executive Director of the Delphi Research Group & Strategic Coordinator of Public Health Research Initiatives
 ---
 
-We seek a talented executive director to work with the rest of the
-Delphi leadership team to actively drive the strategy and vision for Delphi, and
-oversee its implementation. We are looking for the "right" person for the job,
-and can be flexible with respect to schedule and geography.
 
-[Apply to the Executive Director position at Interfolio](https://apply.interfolio.com/98038).
+Carnegie Mellon University is seeking a strong manager and strategist to lead all aspects of one of its major and ongoing public health research initiatives, the Delphi group, as well as coordinate other research activities that may craft the future of public health and have a real world impact in the next several years.
+
+[Apply to the Executive Director of the Delphi Research Group & Strategic Coordinator of Public Health Research Initiatives position at CMU Careers](https://cmu.wd5.myworkdayjobs.com/CMU/job/Pittsburgh-PA/Executive-Director-of-the-Delphi-Research-Group---Strategic-Coordinator-of-Public-Health-Research-Initiatives_2018952).
