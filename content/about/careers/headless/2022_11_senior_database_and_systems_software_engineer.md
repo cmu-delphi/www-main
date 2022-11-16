@@ -1,5 +1,5 @@
 ---
-date: 2022-11-16
+date: 2022-11-14
 title: Senior Database and Systems Software Engineer
 ---
 
