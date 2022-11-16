@@ -9,16 +9,16 @@ carousel:
     ref: careers
     alt: View Position
     image: cmu-bldg-7-hero.jpg
-  - pre: Delphi Careers
-    title: We're Hiring!
-    ref: careers
-    alt: View Open Positions
-    image: landing-pg_hero-img-3.jpg
   - pre: Tools
     title: Real-time Indicators of COVID-19 Activity
     ref: covidcast
     alt: Explore the COVIDcast Dashboard
     image: covidcast_v2.jpg
+  - pre: Delphi Careers
+    title: We're Hiring!
+    ref: careers
+    alt: View Open Positions
+    image: landing-pg_hero-img-3.jpg
   - pre: Tools
     title: Evaluation of COVID-19 Forecasts
     link: /forecast-eval
