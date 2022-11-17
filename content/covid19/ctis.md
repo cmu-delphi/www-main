@@ -59,6 +59,7 @@ Our primary description of the survey and its results over the first year of ope
 
 Other research publications using the survey data include:
 
+- Rader, B., Astley, C.M., Sewalk, K. et al (2022). [Spatial modeling of vaccine deserts as barriers to controlling SARS-CoV-2](https://doi.org/10.1038/s43856-022-00183-8). Communications Medicine 2, 141.
 - C. Lupton-Smith, E. Badillo Goicoechea, M. Collins, J. Lessler, M. K. Grabowski & E. A. Stuart (2022). [Consistency between Household and County Measures of Onsite Schooling during the COVID-19 Pandemic](https://doi.org/10.1080/19345747.2022.2131660). *Journal of Research on Educational Effectiveness*.
 - Nguyen, Q.C., Yardi, I., Gutierrez, F.X.M. et al. (2022). [Leveraging 13 million responses to the U.S. COVID-19 Trends and Impact Survey to examine vaccine hesitancy, vaccination, and mask wearing, January 2021-February 2022](https://doi.org/10.1186/s12889-022-14286-3). *BMC Public Health* 22, 1911. 
 - J. G. Lu (2022). [Two large-scale global studies on COVID-19 vaccine hesitancy over time: Culture, uncertainty avoidance, and vaccine side-effect concerns](https://doi.org/10.1037/pspa0000320). *Journal of Personality and Social Psychology*.
