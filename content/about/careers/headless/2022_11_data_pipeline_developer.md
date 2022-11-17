@@ -1,5 +1,5 @@
 ---
-date: 2022-08-12
+date: 2022-11-13
 title: Data Pipeline Developer
 ---
 
