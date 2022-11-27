@@ -5,7 +5,7 @@ layout: landing
 
 carousel:
   - pre: Delphi Careers
-    title: Seeking Executive Director for Carnegie Mellon Public Health Initiatives and Delphi
+    title: Seeking Executive Director to Lead Carnegie Mellon Public Health Initiatives and Delphi
     ref: careers
     alt: View Position
     image: cmu-bldg-7-hero.jpg
