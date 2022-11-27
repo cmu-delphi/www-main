@@ -52,7 +52,7 @@ in the United States. It has several parts.
 
 A summary of some key parts of COVIDcast can be found in the December 2021 *Proceedings of the National Academy of Sciences*
 Special Feature: [Beyond cases and deaths: The benefits of auxiliary data
-streams in tracking the COVID-19 pandemic](https://www.pnas.org/cc/beyond-cases-and-deaths):
+streams in tracking the COVID-19 pandemic](https://www.pnas.org/topic/548):
 
 - [Epidemic tracking and forecasting: Lessons learned from a tumultuous
   year](https://www.pnas.org/content/118/51/e2111456118?cct=2522)

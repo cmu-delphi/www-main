@@ -47,7 +47,7 @@ The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged parti
 
 ### Publications
 
-Our primary description of the survey and its results over the first year of operation was published as part of the [special feature "Beyond Cases and Deaths: The Benefits of Auxiliary Data Streams in Tracking the COVID-19 Pandemic"](https://www.pnas.org/doi/full/10.1073/pnas.2111456118) in *PNAS*:
+Our primary description of the survey and its results over the first year of operation was published as part of the [special feature "Beyond Cases and Deaths: The Benefits of Auxiliary Data Streams in Tracking the COVID-19 Pandemic"](https://www.pnas.org/topic/548) in *PNAS*:
 
 - J. Salomon, A. Reinhart, A. Bilinski, E. J. Chua, W. La Motte-Kerr, M. M.
   Rönn, M. B. Reitsma, K. A. Morris, S. LaRocca, T. H. Farag, F. Kreuter, R.
