@@ -5,7 +5,7 @@ layout: landing
 
 carousel:
   - pre: Delphi Careers
-    title: CMU Seeking Executive Director for Public Health Initiatives and Delphi Group
+    title: Seeking Executive Director for CMU Public Health Initiatives and Delphi Group
     ref: careers
     alt: View Position
     image: cmu-bldg-7-hero.jpg
