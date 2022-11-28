@@ -44,7 +44,7 @@ people:
 - firstName: Derek
   lastName: Bell
   image: derek-bell.jpg
-  affiliation: Aetna Informatics
+  affiliation: CMU
   team:
   - contributors
 - firstName: Jacob
