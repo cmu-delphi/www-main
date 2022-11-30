@@ -728,7 +728,7 @@ people:
   note: Summer 2020
 - firstName: Mitch
   lastName: Skidmore
-  image: profile-placeholder.png
+  image: mitch-skidmore.jpg
   affiliation: CMU & Beacon Hill
   team:
   - core
