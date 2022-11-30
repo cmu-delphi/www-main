@@ -296,6 +296,12 @@ people:
   affiliation: USC
   team:
   - past
+- firstName: Mike
+  lastName: Istomin
+  image: profile-placeholder.png
+  affiliation: CMU & StartupSoft
+  team:
+  - core
   note: Core member, March-May 2020; Contributor, June 2020-May 2021
 - firstName: Maria
   lastName: Jahja
@@ -391,6 +397,12 @@ people:
   external: true
   team:
   - blog
+- firstName: Minh
+  lastName: Le
+  image: profile-placeholder.png
+  affiliation: CMU & Beacon Hill
+  team:
+  - core
 - firstName: Jenny
   lastName: Lee
   image: jenny-yeon-jin-lee-500x500-min.jpg
@@ -714,6 +726,12 @@ people:
   team:
   - past
   note: Summer 2020
+- firstName: Mitch
+  lastName: Skidmore
+  image: profile-placeholder.png
+  affiliation: CMU & Beacon Hill
+  team:
+  - core
 - firstName: Benjamin
   lastName: Smith
   image: benjamin-smith_head-shot.jpg
