@@ -296,13 +296,13 @@ people:
   affiliation: USC
   team:
   - past
+  note: Core member, March-May 2020; Contributor, June 2020-May 2021
 - firstName: Mike
   lastName: Istomin
   image: profile-placeholder.png
   affiliation: CMU & StartupSoft
   team:
   - core
-  note: Core member, March-May 2020; Contributor, June 2020-May 2021
 - firstName: Maria
   lastName: Jahja
   image: maria-jahja-500x500-min.jpg
