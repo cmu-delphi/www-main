@@ -399,7 +399,7 @@ people:
   - blog
 - firstName: Minh
   lastName: Le
-  image: profile-placeholder.png
+  image: minh-le.jpg
   affiliation: CMU & Beacon Hill
   team:
   - core
