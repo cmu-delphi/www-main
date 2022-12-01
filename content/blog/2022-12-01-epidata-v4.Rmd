@@ -1,1 +1,161 @@
+---
+title: Hello World!
+author: Roni Rosenfeld and Ryan Tibshirani
+date: 2020-08-10
+tags:
+  - COVIDcast
+authors:
+  - roni
+  - ryan
+heroImage: blog-lg-img_hello-world.jpg
+heroImageThumb: blog-thumb-img_hello-world.jpg
+summary: |
+  Hello from the Delphi research group at Carnegie Mellon University!
+  We're a group of faculty, students, and staff, based primarily out of CMU
+  together with strong collaborators from other universities and industry.
+  Our group was founded in 2012 to advance the theory and practice of epidemic
+  forecasting. Since March 2020, we have refocused efforts towards helping combat
+  the COVID-19 pandemic, by supporting informed decision-making at federal, state,
+  and local levels of government and in the healthcare sector. Until now, we've
+  been pretty “heads down” with our work, and slow to communicate what we've been
+  up to. But at last ... Delphi finally has a blog! This first post serves as an
+  introduction of sorts. Future posts will dive deeper into our various projects.
+output:
+  blogdown::html_page:
+    toc: true
+---
 
+Hello from the Delphi research group at Carnegie Mellon University!
+We're a group of faculty, students, and staff, based primarily out of CMU
+together with strong collaborators from other universities and industry.
+Our group was founded in 2012 to advance the theory and practice of epidemic
+forecasting. Since March 2020, we have refocused efforts towards helping combat
+the COVID-19 pandemic, by supporting informed decision-making at federal, state,
+and local levels of government and in the healthcare sector. Until now, we've
+been pretty "heads down" with our work, and slow to communicate what we've been
+up to. But at last ... Delphi finally has a blog! This first post serves as an
+introduction of sorts. Future posts will dive deeper into our various projects.
+
+## A Little Bit About Us
+
+We (Roni and Ryan) are co-leads and co-founders of the Delphi group.
+When we started the group back in 2012,
+our mission was to develop the theory
+and practice of epidemiological forecasting, with a long-term
+vision of seeing this technology become as universally accepted
+and useful as weather forecasting is today.
+In the following years, we developed both nowcasting and forecasting models,
+focusing primarily on seasonal influenza in the US.
+Our forecasting system is a perennial top finisher
+in the Centers for Disease Control's annual forecasting challenges.
+In 2019, we were named one of the CDC's two
+Centers of Excellence for Influenza Forecasting.
+
+Back when we formed the group in 2012,
+the "original four" members were David Farrow, Logan Brooks, Roni, and Ryan.
+By early 2020, pre-pandemic, we'd grown to about 7-8 members in size,
+and were happily and steadily making progress on flu forecasting and nowcasting,
+and making headway into dengue and norovirus.
+To learn about the work our group has done in the past,
+including some papers we've written, software tools we've built,
+and the real-time epidemiological data server we've been deploying since 2016,
+check out `r blogdown::shortcode_html("reflink", "/", "our website")`.
+
+When the COVID-19 pandemic arrived, we focused all our attention on it.
+Our Delphi team
+quickly grew to 30+ members, and is still growing.
+Most of our members are volunteers,
+drawing talent from within CMU and several other universities,
+including Stanford, UC Davis, and USC, and also from industry.
+The pace has been intense and dizzying at times,
+and we're infinitely grateful for the contributions
+and commitment of all our new members---we'd be nowhere without them.
+See `r blogdown::shortcode_html("reflink", "team", "here")`
+for a list of the Delphi team members.
+
+With new members comes a new breadth of expertise:
+our expertise now covers statistical modeling, computation,
+systems engineering, user interfaces, visualization,
+digital epidemiology, and epidemic forecasting.
+We've been extremely fortunate to have developed
+several new relationships with stakeholders and supporters in government,
+the healthcare sector, and the tech industry; and of course,
+we're proud and grateful for our existing relationships,
+especially our longstanding relationship with the CDC.
+
+## Our Mission and Strategy
+
+While Delphi's long-term mission remains to advance the theory and practice of
+epidemic forecasting, since March 2020 our goals are to help combat the COVID-19
+pandemic and save lives and livelihoods.
+We aim to support informed decision-making at federal,
+state, and local levels of government and in the healthcare sector.
+Whenever possible, we strive to make our work useful
+to the private and public sectors, other researchers,
+the press, and the general public.
+
+Our strategy:
+
+1. Improve pandemic situational awareness and understanding
+   by providing comprehensive, geographically-detailed,
+   and continuously-updated indicators of pandemic activity and its impact,
+   helping to make meaning out of the pandemic information deluge.
+
+2. Support local, state, and federal governments'
+   ongoing decision-making in their attempts to balance
+   public health concerns with economic preservation,
+   by providing validated, verifiable, localized,
+   short-term forecasts of epidemic spread and healthcare demand,
+   under any assumed level of the local population's mobility and distancing
+   behavior.
+
+3. Analyze and demonstrate the impacts of governments'
+   past tightening or loosening of mitigation measures
+   (e.g., opening or closing schools or businesses,
+   imposing or lifting bans on gatherings, shelter in place orders, etc.)
+   on a population's mobility and distancing behavior.
+
+4. Engage continuously with our target users to communicate
+   our findings, and inform our directions and priorities.
+
+5. Make our products useful and accessible to other
+   researchers and tool developers, to amplify their impact.
+   To that end, we'll continue to make everything we invent or produce
+   publicly and freely available as soon as possible
+   and to the greatest degree allowed, including models,
+   algorithms, software, tools, estimates, and forecasts.
+
+## What We've Been Up To
+
+So what have we been doing since March?
+We've been working towards our strategic goals above,
+and have made good progress on some of them.
+
+Here's a quick summary:
+
+- We've built a number of new indicators of COVID-19 activity.
+  These are fine-grained geographically
+  (most of them are available at the US county level)
+  and temporally (all of them updated daily).
+  They are designed to shed light on the current picture of COVID in the US,
+  beyond the typical publicly-available metrics like confirmed cases and deaths.
+
+- Some of our indicators are based on massive-scale surveys that we’re running
+  through partnerships with Facebook and Google, and others are based on
+  aggregated counts from massive medical claims data sets through partners like
+  Change Healthcare.
+
+- We've built a `r blogdown::shortcode_html("apireflink", "api/covidcast.html", "public API")`,
+  and `r blogdown::shortcode_html("apireflink", "api/covidcast_clients.html", "R and Python packages")`,
+  to serve our indicators to researchers and the public. This API provides new
+  data daily.
+
+- We've built `r blogdown::shortcode_html("reflink", "covidcast", "interactive maps and graphics")` to
+  display our indicators, and better inform the public and decision-makers.
+
+- We've developed forecasts of the future spread of the pandemic,
+  validated them prospectively, and started submitting them to CDC.
+
+In subsequent posts, we'll dive deeper into many of these projects, and touch on
+what's next for us (a lot... in many ways, we feel that our most important work
+is still ahead of us). Until next time!
