@@ -297,6 +297,12 @@ people:
   team:
   - past
   note: Core member, March-May 2020; Contributor, June 2020-May 2021
+- firstName: Mike
+  lastName: Istomin
+  image: mike-istomin.jpg
+  affiliation: Delphi & StartupSoft
+  team:
+  - core
 - firstName: Maria
   lastName: Jahja
   image: maria-jahja-500x500-min.jpg
@@ -391,6 +397,12 @@ people:
   external: true
   team:
   - blog
+- firstName: Minh
+  lastName: Le
+  image: minh-le.jpg
+  affiliation: Delphi & Beacon Hill
+  team:
+  - core
 - firstName: Jenny
   lastName: Lee
   image: jenny-yeon-jin-lee-500x500-min.jpg
@@ -714,6 +726,12 @@ people:
   team:
   - past
   note: Summer 2020
+- firstName: Mitch
+  lastName: Skidmore
+  image: mitch-skidmore.jpg
+  affiliation: Delphi & Beacon Hill
+  team:
+  - core
 - firstName: Benjamin
   lastName: Smith
   image: benjamin-smith_head-shot.jpg
