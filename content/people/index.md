@@ -300,7 +300,7 @@ people:
 - firstName: Mike
   lastName: Istomin
   image: mike-istomin.jpg
-  affiliation: CMU & StartupSoft
+  affiliation: Delphi & StartupSoft
   team:
   - core
 - firstName: Maria
@@ -400,7 +400,7 @@ people:
 - firstName: Minh
   lastName: Le
   image: minh-le.jpg
-  affiliation: CMU & Beacon Hill
+  affiliation: Delphi & Beacon Hill
   team:
   - core
 - firstName: Jenny
@@ -729,7 +729,7 @@ people:
 - firstName: Mitch
   lastName: Skidmore
   image: mitch-skidmore.jpg
-  affiliation: CMU & Beacon Hill
+  affiliation: Delphi & Beacon Hill
   team:
   - core
 - firstName: Benjamin
