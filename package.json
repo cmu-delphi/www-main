@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "hugo-bin": "^0.93.0",
-    "husky": "^8.0.1",
+    "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prettier-plugin-go-template": "^0.0.13",
