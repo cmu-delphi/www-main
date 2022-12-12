@@ -60,7 +60,7 @@ The value of the data itself (typically a number representing a count or percent
 
 A small single-table design can be manageable, but our data set grew very quickly and challenges appeared.  In particular, it became more difficult for the system to locate the most recent "issue" for each data point.  Accessing such data is especially pertinent because it represents the most recent and accurate information that we have, and it accounts for 65 percent of the requests we receive.  To ameliorate performance degradation, we added an additional column to flag the "latest issue" of data for each source, signal, time, and location.  This helped but still left lingering concerns about speed.  Also, adding this flag meant that we had to make sure it was appropriately updated whenever new data was issued.  We had a few unfortunate events where this flag was not updated correctly, and the remedy can be quite time consuming.
 
-![Fig 1: simplified diagram of v3 single-table design, with color coding marking areas improved in v4. [Full v3 schema details available on GitHub.](https://github.com/cmu-delphi/delphi-epidata/blob/v0.3.21/src/ddl/covidcast.sql)](TODO)
+![Fig 1: simplified diagram of v3 single-table design, with color coding marking areas improved in v4. [Full v3 schema details available on GitHub.](https://github.com/cmu-delphi/delphi-epidata/blob/v0.3.21/src/ddl/covidcast.sql)](https://github.com/cmu-delphi/www-main/blob/krivard/blog-tests-more/content/blog/images/v3-table-design.png)
 
 Eventually we undertook the challenge of trying to improve our performance and reduce our resource usage – to come up with v4!
 
@@ -72,7 +72,7 @@ We also added a "latest" table that includes a copy of just the issues that are 
 
 Additionally, the reduced size of the foreign keys compared to their text equivalents made it possible to include more [indexes](TODO) in our database that let it quickly find data based on different subsets of criteria.  No matter how our users specify their requests, we have ways to look it up fast.
 
-![Fig 2: simplified diagram of v4 design, showing dimension tables with foreign key relationships and latest/full table scheme. [Full v4 schema details available on GitHub.](https://github.com/cmu-delphi/delphi-epidata/blob/v0.4.0/src/ddl/v4_schema.sql)](TODO)
+![Fig 2: simplified diagram of v4 design, showing dimension tables with foreign key relationships and latest/full table scheme. [Full v4 schema details available on GitHub.](https://github.com/cmu-delphi/delphi-epidata/blob/v0.4.0/src/ddl/v4_schema.sql)](https://github.com/cmu-delphi/www-main/blob/krivard/blog-tests-more/content/blog/images/v4-table-design.png)
 
 ## Performance results
 All performance figures were collected in an isolated QA environment. The core dataset was taken from a September, 2021 snapshot of the production Epidata database and used as-is for v3 experiments and converted to v4 format for v4 experiments. Performance experiments for v3 and v4 were both run on the same machine during dedicated time when nothing else was running. Input data for the "Adding new data" experiment was collected from data actually added to the production system in late May 2022. Input data for the query time experiments was sampled from a segment of actual query logs from July and August 2021, stratified by a generalized parameterized query template. Stratification ensured the samples were reasonably representative of actual traffic in terms of how many reference dates, regions, and signals are requested in a single query, as well as whether queries require the full data revision history or only the most recent issue of each reference date. Additional details about query log sampling will be included in a future post.
@@ -91,9 +91,15 @@ The empirical cumulative distribution functions for query times in the latest an
 
 TODO LONG-RUNNING QUERIES TABLE
 
-TODO LATEST DATA IMAGE
+![Fig 3: Empirical cumulative distribution functions for query times, latest data](https://github.com/cmu-delphi/www-main/blob/krivard/blog-tests-more/content/blog/images/query-time-latest-data.png)
 
-TODO HISTORICAL DATA IMAGE
+![Fig 4: Empirical cumulative distribution functions for query times, historical data](https://github.com/cmu-delphi/www-main/blob/krivard/blog-tests-more/content/blog/images/query-time-historical-data.png)
+
+If we compare the running time in each system for each query, we can get a more precise picture of whether and how times improve or worsen between the two systems. For queries of latest data, the vast majority of queries are faster in v4, but a few are slower, sometimes by more than 10x. For queries of historical data, v4 and v3 query time are typically similar, with a couple clouds of slower query times in v4.
+
+![Fig 5: Pairwise query time, latest data](https://github.com/cmu-delphi/www-main/blob/krivard/blog-tests-more/content/blog/images/pairwise-latest-data.png)
+
+![Fig 6: Pairwise query time, historical data](https://github.com/cmu-delphi/www-main/blob/krivard/blog-tests-more/content/blog/images/pairwise-historical-data.png)
 
 ## Conclusion
 
