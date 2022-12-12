@@ -8,8 +8,7 @@ authors:
   - kathryn
   - brian
   - george
-heroImage: blog-lg-img_hello-world.jpg
-heroImageThumb: blog-thumb-img_hello-world.jpg
+heroImageThumb: blog-thumb.jpg
 summary: |
   Epidata v0.4.0 ("v4" for short) launched on September 26, 2022, bringing about a major revision to how we store data served by the Epidata API. The changes prioritize fast access to the most up-to-date data while retaining the deep data revision history needed by researchers. The launch included a prototype of a modular data organization system intended to generalize across multiple pathogens, with stubs for more advanced and efficient timestamping and greater flexibility in data stratification.
 output:
