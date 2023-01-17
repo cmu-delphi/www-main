@@ -1,35 +1,24 @@
 {{ define "main" }}
   {{ $peoplePage := $.GetPage "/people" }}
 
-<div
-  uk-grid
-  class="team-members uk-grid-small uk-grid-collapse"
->
 
-  {{ $team := where (partial "get-persons.html" .) ".team" "intersect" (slice "core") }}
-  {{ range $team }}
-    <picture>
-      <source srcset="{{ (.img.Resize "150x webp Gaussian").RelPermalink }}" type="image/webp" />
-      <img src="{{ (.img.Resize "150x jpg Gaussian").RelPermalink }}" alt="{{ .name }}" width="150" height="150" />
-    </picture>
-  {{ end }}
-</div>
+  <div uk-grid class="team-members uk-grid-small uk-grid-collapse">
+    {{ $team := where (partial "get-persons.html" .) ".team" "intersect" (slice "core") }}
+    {{ range $team }}
+      <picture>
+        <source srcset="{{ (.img.Resize "150x webp Gaussian").RelPermalink }}" type="image/webp" />
+        <img src="{{ (.img.Resize "150x jpg Gaussian").RelPermalink }}" alt="{{ .name }}" width="150" height="150" />
+      </picture>
+    {{ end }}
+  </div>
 
-<div
-  uk-grid
-  class="team-members uk-grid-small uk-grid-collapse uk-flex-center"
->
-
-  {{ $team := where (partial "get-persons.html" .) ".team" "intersect" (slice "leadership") }}
-  {{ range $team }}
-    <picture>
-      <source srcset="{{ (.img.Resize "150x webp Gaussian").RelPermalink }}" type="image/webp" />
-      <img src="{{ (.img.Resize "150x jpg Gaussian").RelPermalink }}" alt="{{ .name }}" width="150" height="150" />
-    </picture>
-  {{ end }}
-</div>
-
-
-
-
+  <div uk-grid class="team-members uk-grid-small uk-grid-collapse uk-flex-center">
+    {{ $team := where (partial "get-persons.html" .) ".team" "intersect" (slice "leadership") }}
+    {{ range $team }}
+      <picture>
+        <source srcset="{{ (.img.Resize "150x webp Gaussian").RelPermalink }}" type="image/webp" />
+        <img src="{{ (.img.Resize "150x jpg Gaussian").RelPermalink }}" alt="{{ .name }}" width="150" height="150" />
+      </picture>
+    {{ end }}
+  </div>
 {{ end }}
