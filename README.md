@@ -171,6 +171,9 @@ People on this website are centrally managed in the `/content/people/index.md` f
     * `contributors` ... contributor team section
     * `google` ... google team section
 
+### Montage builder
+
+The current core+leadership montage (often used in external talks) is available from an unlinked page at [/about/montage/](https://delphi.cmu.edu/about/montage).
 
 ## Adding new news item
 
