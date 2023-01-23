@@ -52,11 +52,11 @@ This work was driven by the necessity to fix several specific deficiencies in th
 
 ## System design
 Our initial v3 schema was based on a single-table design. This worked well for a time. Each row represented a data point in its entirety, the most significant being:
-The data source and signal, specifying the providing authority ("JHU" for example) and the type of data (like number of people vaccinated as a percent of the population, or the number of hospital beds occupied by covid patients).
-The geographic type and a specific location (such as "state" & "Pennsylvania" or "county" & "Allegheny").
-The time type (either day or week) along with an actual numeric for the time value that the data corresponds to.
-An issue date (the day this data was provided to us, as data is often re-issued to provide updates when entities may be slow to report, or when errors are corrected).
-The value of the data itself (typically a number representing a count or percentage, which also includes (when available) sample size and standard error).
+* The data source and signal, specifying the providing authority ("JHU" for example) and the type of data (like number of people vaccinated as a percent of the population, or the number of hospital beds occupied by covid patients).
+* The geographic type and a specific location (such as "state" & "Pennsylvania" or "county" & "Allegheny").
+* The time type (either day or week) along with an actual numeric for the time value that the data corresponds to.
+* An issue date (the day this data was provided to us, as data is often re-issued to provide updates when entities may be slow to report, or when errors are corrected).
+* The value of the data itself (typically a number representing a count or percentage, which also includes (when available) sample size and standard error).
 
 A small single-table design can be manageable, but our data set grew very quickly and challenges appeared.  In particular, it became more difficult for the system to locate the most recent "issue" for each data point.  Accessing such data is especially pertinent because it represents the most recent and accurate information that we have, and it accounts for 65 percent of the requests we receive.  To ameliorate performance degradation, we added an additional column to flag the "latest issue" of data for each source, signal, time, and location.  This helped but still left lingering concerns about speed.  Also, adding this flag meant that we had to make sure it was appropriately updated whenever new data was issued.  We had a few unfortunate events where this flag was not updated correctly, and the remedy can be quite time consuming.
 
