@@ -48,7 +48,7 @@ This work was driven by the necessity to fix several specific deficiencies in th
 ### 3. Systems Maintenance
 
 * Decrease backup/restore time:
-  + As our dataset grows, we incur ever increasing penalties to backing up and restoring our database. Frequent backups are key to maintaining reasonable disaster recovery goals. Fast restoration times are desirable so that we may both meet disaster recovery goals, as well as bring up development systems with full datasets for running experiments at scale.
+  + As our dataset grows, we incur ever increasing penalties to backing up and restoring our database. Frequent backups are key to maintaining reasonable disaster recovery goals. Fast restoration times are desirable so that we may both minimize disruptions associated with data or infrastructure disasters, as well as bring up development systems with full datasets for running experiments at scale.
 
 ## System design
 Our initial v3 schema was based on a single-table design. This worked well for a time. Each row represented a data point in its entirety, the most significant being:
