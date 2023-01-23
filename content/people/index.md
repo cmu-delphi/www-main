@@ -139,6 +139,8 @@ people:
   team:
   - core
   - highlight
+  - blog
+  description: specializes in Delphi's compute infrastructure, and is a DevOps Engineer in the Machine Learning Department at CMU.
 - firstName: Sarah
   lastName: Colquhoun
   image: sarah-colquhoun_head-shot.jpg
@@ -262,6 +264,8 @@ people:
   affiliation: CMU/CSD
   team:
   - core
+  - blog
+  description: specializes in Delphi's database and API, and is a Systems Software Engineer in the Machine Learning Department at CMU.
 - firstName: Robin
   lastName: Han
   image: robin-han-500x500-min.jpg
@@ -497,7 +501,7 @@ people:
   - highlight
   - blog
   link: https://cs.cmu.edu/~krivard
-  description: manages Delphi's engineering team, and is a Senior Research Programmer in the Machine Learning Department at CMU.
+  description: leads Delphi's engineering team, and is a Principal Research Programmer in the Machine Learning Department at CMU.
 - firstName: Daniel
   lastName: McDonald
   image: daniel-mcdonald-photo.jpeg
