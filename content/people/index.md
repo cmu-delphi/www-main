@@ -265,7 +265,7 @@ people:
   team:
   - core
   - blog
-  description: specializes in Delphi's database and API, and is a Systems Software Engineer in the Machine Learning Department at CMU.
+  description: specializes in Delphi's database and API, and is a Software Engineer in the Machine Learning Department at CMU.
 - firstName: Robin
   lastName: Han
   image: robin-han-500x500-min.jpg
