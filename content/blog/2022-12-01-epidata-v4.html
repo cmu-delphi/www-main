@@ -73,7 +73,7 @@ output:
 <ul>
 <li>Decrease backup/restore time:
 <ul>
-<li>As our dataset grows, we incur ever increasing penalties to backing up and restoring our database. Frequent backups are key to maintaining reasonable disaster recovery goals. Fast restoration times are desirable so that we may both meet disaster recovery goals, as well as bring up development systems with full datasets for running experiments at scale.</li>
+<li>As our dataset grows, we incur ever increasing penalties to backing up and restoring our database. Frequent backups are key to maintaining reasonable disaster recovery goals. Fast restoration times are desirable so that we may both minimize disruptions associated with data or infrastructure disasters, as well as bring up development systems with full datasets for running experiments at scale.</li>
 </ul></li>
 </ul>
 </div>
@@ -81,11 +81,11 @@ output:
 <div id="system-design" class="section level2">
 <h2>System design</h2>
 <p>Our initial v3 schema was based on a single-table design. This worked well for a time. Each row represented a data point in its entirety, the most significant being:
-The data source and signal, specifying the providing authority (“JHU” for example) and the type of data (like number of people vaccinated as a percent of the population, or the number of hospital beds occupied by covid patients).
-The geographic type and a specific location (such as “state” &amp; “Pennsylvania” or “county” &amp; “Allegheny”).
-The time type (either day or week) along with an actual numeric for the time value that the data corresponds to.
-An issue date (the day this data was provided to us, as data is often re-issued to provide updates when entities may be slow to report, or when errors are corrected).
-The value of the data itself (typically a number representing a count or percentage, which also includes (when available) sample size and standard error).</p>
+* The data source and signal, specifying the providing authority (“JHU” for example) and the type of data (like number of people vaccinated as a percent of the population, or the number of hospital beds occupied by covid patients).
+* The geographic type and a specific location (such as “state” &amp; “Pennsylvania” or “county” &amp; “Allegheny”).
+* The time type (either day or week) along with an actual numeric for the time value that the data corresponds to.
+* An issue date (the day this data was provided to us, as data is often re-issued to provide updates when entities may be slow to report, or when errors are corrected).
+* The value of the data itself (typically a number representing a count or percentage, which also includes (when available) sample size and standard error).</p>
 <p>A small single-table design can be manageable, but our data set grew very quickly and challenges appeared. In particular, it became more difficult for the system to locate the most recent “issue” for each data point. Accessing such data is especially pertinent because it represents the most recent and accurate information that we have, and it accounts for 65 percent of the requests we receive. To ameliorate performance degradation, we added an additional column to flag the “latest issue” of data for each source, signal, time, and location. This helped but still left lingering concerns about speed. Also, adding this flag meant that we had to make sure it was appropriately updated whenever new data was issued. We had a few unfortunate events where this flag was not updated correctly, and the remedy can be quite time consuming.</p>
 <div class="figure">
 <img src="/blog/2022-12-01-epidata-v4_files/v3-table-design.png" alt="" />
@@ -105,122 +105,158 @@ The value of the data itself (typically a number representing a count or percent
 <h2>Performance results</h2>
 <p>All performance figures were collected in an isolated QA environment. The core dataset was taken from a September, 2021 snapshot of the production Epidata database and used as-is for v3 experiments and converted to v4 format for v4 experiments. Performance experiments for v3 and v4 were both run on the same machine during dedicated time when nothing else was running. Input data for the “Adding new data” experiment was collected from data actually added to the production system in late May 2022. Input data for the query time experiments was sampled from a segment of actual query logs from July and August 2021, stratified by a generalized parameterized query template. Stratification ensured the samples were reasonably representative of actual traffic in terms of how many reference dates, regions, and signals are requested in a single query, as well as whether queries require the full data revision history or only the most recent issue of each reference date. Additional details about query log sampling will be included in a future post.</p>
 <p>Overall, the v4 system improves Epidata performance for adding new data and substantially improves performance for querying the most up-to-date figures. Storage performance is the same, although we suspect we could improve this by removing an index or two without much impact on query performance. Query performance for queries that must touch the data revision history is worse, but not by much; performance should still be adequate for most research use cases (<em>please do get in touch if this is not the case for you</em>).</p>
-<table>
+<center>
+<table style="width:92%;">
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="47%" />
+<col width="44%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Metric</th>
-<th>v4 performance relative to v3</th>
-<th></th>
+<th align="left">Metric</th>
+<th align="left">v4 performance relative to v3</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Disk footprint</td>
-<td>same</td>
-<td></td>
+<td align="left">Disk footprint</td>
+<td align="left">same</td>
 </tr>
 <tr class="even">
-<td>Adding new data</td>
-<td>30% faster</td>
-<td></td>
+<td align="left">Adding new data</td>
+<td align="left">30% faster</td>
 </tr>
 <tr class="odd">
-<td>Querying latest data, i.e., the most recent issue of any reference date</td>
-<td>96% faster</td>
-<td></td>
+<td align="left">Querying latest data, i.e.
+the most recent issue
+of any reference date</td>
+<td align="left">96% faster</td>
 </tr>
 <tr class="even">
-<td>Querying historical data, e.g. for as-of, issue, or lag queries</td>
-<td>120% slower</td>
-<td></td>
+<td align="left">Querying historical data, e.g.
+for as-of, issue, or lag queries</td>
+<td align="left">120% slower</td>
 </tr>
 </tbody>
 </table>
-<table>
+</center>
+<p>The largest factor in the query time improvements for latest data is a reduction in the frequency and severity of long-running queries. In v3, over seven hundred queries required over ten seconds to compute, and the longest-running query took twelve minutes; in v4 only three queries needed more than ten seconds and no query took more than twenty-one seconds.</p>
+<center>
+<table style="width:92%;">
+<colgroup>
+<col width="30%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th>Query time (seconds)</th>
-<th>Latest</th>
-<th>Historical</th>
+<th align="left">Query time
+(seconds)</th>
+<th colspan="2" align="center">Latest</th>
+<th colspan="2" align="center">Historical</th>
+</tr>
+<tr class="odd">
+<th align="left">Percentile</th>
+<th align="center">v3</th>
+<th align="center">v4</th>
+<th align="center">v3</th>
+<th align="center">v4</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Percentile</td>
-<td>v3</td>
-<td>v4</td>
+<td align="left">0th (minimum)</td>
+<td align="center">0.005</td>
+<td align="center">0.005</td>
+<td align="center">0.005</td>
+<td align="center">0 .005</td>
 </tr>
 <tr class="even">
-<td>0th (minimum)</td>
-<td>0.005</td>
-<td>0.005</td>
+<td align="left">25th</td>
+<td align="center">0.007</td>
+<td align="center">0.006</td>
+<td align="center">0.006</td>
+<td align="center">0.007</td>
 </tr>
 <tr class="odd">
-<td>25th</td>
-<td>0.007</td>
-<td>0.006</td>
+<td align="left">50th (median)</td>
+<td align="center">0.009</td>
+<td align="center">0.008</td>
+<td align="center">0.007</td>
+<td align="center">0.008</td>
 </tr>
 <tr class="even">
-<td>50th (median)</td>
-<td>0.009</td>
-<td>0.008</td>
+<td align="left">75th</td>
+<td align="center">0.058</td>
+<td align="center">0.017</td>
+<td align="center">0.012</td>
+<td align="center">0.023</td>
 </tr>
 <tr class="odd">
-<td>75th</td>
-<td>0.058</td>
-<td>0.017</td>
-</tr>
-<tr class="even">
-<td>100th (maximum)</td>
-<td>739.332</td>
-<td>20.069</td>
+<td align="left">100th (maximum)</td>
+<td align="center">739.332</td>
+<td align="center">20.069</td>
+<td align="center">17.121</td>
+<td align="center">15.997</td>
 </tr>
 </tbody>
 </table>
-<p>The largest factor in the query time improvements for latest data is a reduction in the frequency and severity of long-running queries. In v3, over seven hundred queries required over ten seconds to compute, and the longest-running query took twelve minutes; in v4 only three queries needed more than ten seconds and no query took more than twenty-one seconds.</p>
+</center>
 <p>For historical data, long-running queries were more frequent in v4 than in v3, but not more severe. In v3, only 8 queries required more than one second to compute, and the longest-running query took seventeen seconds; in v4 over two hundred queries needed more than one second, but the max query time was sixteen seconds.</p>
 <p>The empirical cumulative distribution functions for query times in the latest and historical datasets shows both of these effects in greater detail.</p>
-<table>
+<center>
+<table style="width:92%;">
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col width="30%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Long-running queries (counts)</th>
-<th>Latest (of 37,396)</th>
-<th>Historical (of 19,359)</th>
+<th align="left">Long-running
+queries (counts)</th>
+<th colspan="2" align="center">Latest
+(of 37,396)</th>
+<th colspan="2" align="center">Historical
+(of 19,359)</th>
+</tr>
+<tr class="odd">
+<th align="left">Queries slower than</th>
+<th align="center">v3</th>
+<th align="center">v4</th>
+<th align="center">v3</th>
+<th align="center">v4</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Queries slower than</td>
-<td>v3</td>
-<td>v4</td>
+<td align="left">1 second</td>
+<td align="center">2734</td>
+<td align="center">17</td>
+<td align="center">8</td>
+<td align="center">228</td>
 </tr>
 <tr class="even">
-<td>1 second</td>
-<td>2734</td>
-<td>17</td>
+<td align="left">10 seconds</td>
+<td align="center">706</td>
+<td align="center">3</td>
+<td align="center">1</td>
+<td align="center">1</td>
 </tr>
 <tr class="odd">
-<td>10 seconds</td>
-<td>706</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>100 seconds</td>
-<td>3</td>
-<td>0</td>
+<td align="left">100 seconds</td>
+<td align="center">3</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table>
+</center>
 <div class="figure">
 <img src="/blog/2022-12-01-epidata-v4_files/query-time-latest-data.png" alt="" />
 <p class="caption">Fig 3: Empirical cumulative distribution functions for query times, latest data</p>

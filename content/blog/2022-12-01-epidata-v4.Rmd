@@ -79,34 +79,66 @@ All performance figures were collected in an isolated QA environment. The core d
 
 Overall, the v4 system improves Epidata performance for adding new data and substantially improves performance for querying the most up-to-date figures. Storage performance is the same, although we suspect we could improve this by removing an index or two without much impact on query performance. Query performance for queries that must touch the data revision history is worse, but not by much; performance should still be adequate for most research use cases (*please do get in touch if this is not the case for you*).
 
-Metric | v4 performance relative to v3 |
---- | --- | --- |
-Disk footprint | same |
-Adding new data | 30% faster |
-Querying latest data, i.e., the most recent issue of any reference date | 96% faster |
-Querying historical data, e.g. for as-of, issue, or lag queries | 120% slower |
 
-Query time (seconds) | Latest | Historical |
---- | --- | --- |
-Percentile | v3 | v4 | v3 | v4 |
-0th (minimum) | 0.005 | 0.005 | 0.005 | 0 .005 |
-25th | 0.007 | 0.006 | 0.006 | 0.007 |
-50th (median) | 0.009 | 0.008 | 0.007 | 0.008 |
-75th | 0.058 | 0.017 | 0.012 | 0.023 |
-100th (maximum) | 739.332 | 20.069 | 17.121 | 15.997 |
+<center>
++---------------------------------+-------------------------------+
+| Metric                          | v4 performance relative to v3 |
++:================================+:==============================+
+| Disk footprint                  | same                          |
++---------------------------------+-------------------------------+
+| Adding new data                 | 30% faster                    |
++---------------------------------+-------------------------------+
+| Querying latest data, i.e.      | 96% faster                    |
+| the most recent issue           |                               |
+| of any reference date           |                               |
++---------------------------------+-------------------------------+
+| Querying historical data, e.g.  | 120% slower                   |
+| for as-of, issue, or lag queries|                               |
++---------------------------------+-------------------------------+
+</center>
 
 The largest factor in the query time improvements for latest data is a reduction in the frequency and severity of long-running queries. In v3, over seven hundred queries required over ten seconds to compute, and the longest-running query took twelve minutes; in v4 only three queries needed more than ten seconds and no query took more than twenty-one seconds. 
+
+
+<center>
++---------------------+---------------------+---------------------+
+| Query time          | Latest              | Historical          |
+| (seconds)           |                     |                     |
++---------------------+----------+----------+----------+----------+
+| Percentile          |    v3    |    v4    |    v3    |    v4    |
++:====================+:========:+:========:+:========:+:========:+
+| 0th (minimum)       | 0.005    | 0.005    | 0.005    | 0 .005   |
++---------------------+----------+----------+----------+----------+
+| 25th                | 0.007    | 0.006    | 0.006    | 0.007    |
++---------------------+----------+----------+----------+----------+
+| 50th (median)       | 0.009    | 0.008    | 0.007    | 0.008    |
++---------------------+----------+----------+----------+----------+
+| 75th                | 0.058    | 0.017    | 0.012    | 0.023    |
++---------------------+----------+----------+----------+----------+
+| 100th (maximum)     | 739.332  | 20.069   | 17.121   | 15.997   |
++---------------------+----------+----------+----------+----------+
+</center>
 
 For historical data, long-running queries were more frequent in v4 than in v3, but not more severe. In v3, only 8 queries required more than one second to compute, and the longest-running query took seventeen seconds; in v4 over two hundred queries needed more than one second, but the max query time was sixteen seconds. 
 
 The empirical cumulative distribution functions for query times in the latest and historical datasets shows both of these effects in greater detail.
 
-Long-running queries (counts) | Latest (of 37,396) | Historical (of 19,359) |
---- | --- | --- |
-Queries slower than | v3 | v4 | v3 | v4 |
-1 second | 2734 | 17 | 8 | 228 |
-10 seconds | 706 | 3 | 1 | 1 |
-100 seconds | 3 | 0 | 0 | 0 |
+
+<center>
++---------------------+---------------------+---------------------+
+| Long-running        | Latest              | Historical          |
+| queries  (counts)   | (of 37,396)         | (of 19,359)         |
++---------------------+----------+----------+----------+----------+
+|Queries slower than  |    v3    |    v4    |    v3    |    v4    |
++:====================+:========:+:========:+:========:+:========:+
+| 1 second            | 2734     |    17    |    8     |   228    |
++---------------------+----------+----------+----------+----------+
+| 10 seconds          | 706      |    3     |    1     |   1      |
++---------------------+----------+----------+----------+----------+
+| 100 seconds         | 3        |    0     |    0     |   0      |
++---------------------+----------+----------+----------+----------+
+</center>
+
 
 ![Fig 3: Empirical cumulative distribution functions for query times, latest data](/blog/2022-12-01-epidata-v4_files/query-time-latest-data.png)
 
