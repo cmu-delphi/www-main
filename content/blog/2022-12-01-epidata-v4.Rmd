@@ -28,7 +28,7 @@ This work was driven by the necessity to fix several specific deficiencies in th
 ### 1. Customer Affecting
 
 * Slow analytics queries:
-  + Computing any kind of aggregate summaries in v3 was excessively expensive, with queries frequently requiring hours or even days to complete. Aggregate statistics and other analytics queries are needed in order to help determine the scope of outages (How many rows were added during the period when the bad code was live, and what range of time_values was affected?) as well as quantify the impact of our dataset for project reports and proposals (How much data do we have from each of our different data sources? What is typical latency? How does latency behavior differ for different types of data sources?).
+  + Computing any kind of aggregate summaries in v3 was excessively expensive, with queries frequently requiring hours or even days to complete. Aggregate statistics and other analytics queries are needed in order to help determine the scope of outages (How many rows were added during the period when the bad code was live, and what range of time values were affected?) as well as quantify the impact of our dataset for project reports and proposals (How much data do we have from each of our different data sources? What is typical latency? How does latency behavior differ for different types of data sources?).
 
 * Slow latest queries:
   + Some data sources experience heavy revisions. The design of the v3 system required the database to scan all available issues of each matching reference date before it could identify the latest issue. The more revisions it needed to discard, the more time needed for the scan.
@@ -40,10 +40,10 @@ This work was driven by the necessity to fix several specific deficiencies in th
 ### 2. Data Ingestion/Repair and Development
 
 * ``is_latest`` column:
-  + Because v3 recorded which row represented the most up-to-date value among a set of revisions using a flag, this flag had to be meticulously maintained to ensure that exactly one row for each (source, signal, time_type, time_value, geo_type, geo_value) tuple had the ``is_latest`` flag set. This flag had to be unset when newer data was added, but left in place when older data was patched. System faults while data was being loaded could leave the records in an inconsistent state where two or more, zero, or the wrong rows had the flag set. Detecting problems with this flag was computationally expensive. 
+  + Because v3 recorded which row represented the most up-to-date value among a set of revisions using a flag, this flag had to be meticulously maintained to ensure that exactly one row for each ``(source, signal, time_type, time_value, geo_type, geo_value)`` tuple had the ``is_latest`` flag set. This flag had to be unset when newer data was added, but left in place when older data was patched. System faults while data was being loaded could leave the records in an inconsistent state where two or more, zero, or the wrong rows had the flag set. Detecting problems with this flag was computationally expensive. 
 
 * Reduce repetition/normalize
-  + The v3 table included the full text of the source, signal, geo type, and geo value for each row, such that we were storing millions of copies of identical information for rows that shared the same (source, signal, geo type, geo value). Since the duplicated information was also the most common selection criteria, the indexes took up a disproportionate amount of space on disk relative to the size of the base dataset. 
+  + The v3 table included the full text of the source, signal, geographic type, and geographic value for each row, such that we were storing millions of copies of identical information for rows that shared the same ``(source, signal, geo_type, geo_value)``. Since the duplicated information was also the most common selection criteria, the indexes took up a disproportionate amount of space on disk relative to the size of the base dataset. 
 
 ### 3. Systems Maintenance
 
