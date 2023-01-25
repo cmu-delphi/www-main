@@ -34,7 +34,7 @@ This work was driven by the necessity to fix several specific deficiencies in th
   + Some data sources experience heavy revisions. The design of the v3 system required the database to scan all available issues of each matching reference date before it could identify the latest issue. The more revisions it needed to discard, the more time needed for the scan.
 	
 * COVIDcast Metadata:
-  + We compile a list of all COVIDcast-related sources and signals available in the API, along with basic summary statistics such as the dates they are available, their minimum and maximum values, and the geographic levels at which they are reported. This is made available here.
+  + We compile a list of all COVIDcast-related sources and signals available in the API, along with basic summary statistics such as the dates they are available, their minimum and maximum values, and the geographic levels at which they are reported. This is made available [here](https://api.covidcast.cmu.edu/epidata/covidcast/meta).
   + The query to produce these aggregations was expensive in v3, requiring nearly five hours to run. Ideally we would like to update the metadata each hour when new data is added to the system.
 
 ### 2. Data Ingestion/Repair and Development
