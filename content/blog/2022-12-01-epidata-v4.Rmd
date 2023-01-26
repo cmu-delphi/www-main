@@ -40,10 +40,10 @@ This work was driven by the necessity to fix several specific deficiencies in th
 ### 2. Data Ingestion/Repair and Development
 
 * ``is_latest`` column:
-  + Because v3 recorded which row represented the most up-to-date value among a set of revisions using a flag, this flag had to be meticulously maintained to ensure that exactly one row for each ``(source,`` ``signal,`` ``time_type,`` ``time_value,`` ``geo_type,`` ``geo_value)`` tuple had the ``is_latest`` flag set. This flag had to be unset when newer data was added, but left in place when older data was patched. System faults while data was being loaded could leave the records in an inconsistent state where two or more, zero, or the wrong rows had the flag set. Detecting problems with this flag was computationally expensive. 
+  + Because v3 recorded which row represented the most up-to-date value among a set of revisions using a flag, this flag had to be meticulously maintained to ensure that exactly one row for each (``source``, ``signal``, ``time_type``, ``time_value``, ``geo_type``, ``geo_value``) tuple had the ``is_latest`` flag set. This flag had to be unset when newer data was added, but left in place when older data was patched. System faults while data was being loaded could leave the records in an inconsistent state where two or more, zero, or the wrong rows had the flag set. Detecting problems with this flag was computationally expensive. 
 
 * Reduce repetition/normalize
-  + The v3 table included the full text of the source, signal, geographic type, and geographic value for each row, such that we were storing millions of copies of identical information for rows that shared the same ``(source,`` ``signal,`` ``geo_type,`` ``geo_value)``. Since the duplicated information was also the most common selection criteria, the indexes took up a disproportionate amount of space on disk relative to the size of the base dataset. 
+  + The v3 table included the full text of the source, signal, geographic type, and geographic value for each row, such that we were storing millions of copies of identical information for rows that shared the same (``source``, ``signal``, ``geo_type``, ``geo_value``). Since the duplicated information was also the most common selection criteria, the indexes took up a disproportionate amount of space on disk relative to the size of the base dataset. 
 
 ### 3. Systems Maintenance
 

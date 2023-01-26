@@ -60,11 +60,11 @@ output:
 <ul>
 <li><code>is_latest</code> column:
 <ul>
-<li>Because v3 recorded which row represented the most up-to-date value among a set of revisions using a flag, this flag had to be meticulously maintained to ensure that exactly one row for each <code>(source,</code> <code>signal,</code> <code>time_type,</code> <code>time_value,</code> <code>geo_type,</code> <code>geo_value)</code> tuple had the <code>is_latest</code> flag set. This flag had to be unset when newer data was added, but left in place when older data was patched. System faults while data was being loaded could leave the records in an inconsistent state where two or more, zero, or the wrong rows had the flag set. Detecting problems with this flag was computationally expensive.</li>
+<li>Because v3 recorded which row represented the most up-to-date value among a set of revisions using a flag, this flag had to be meticulously maintained to ensure that exactly one row for each (<code>source</code>, <code>signal</code>, <code>time_type</code>, <code>time_value</code>, <code>geo_type</code>, <code>geo_value</code>) tuple had the <code>is_latest</code> flag set. This flag had to be unset when newer data was added, but left in place when older data was patched. System faults while data was being loaded could leave the records in an inconsistent state where two or more, zero, or the wrong rows had the flag set. Detecting problems with this flag was computationally expensive.</li>
 </ul></li>
 <li>Reduce repetition/normalize
 <ul>
-<li>The v3 table included the full text of the source, signal, geographic type, and geographic value for each row, such that we were storing millions of copies of identical information for rows that shared the same <code>(source,</code> <code>signal,</code> <code>geo_type,</code> <code>geo_value)</code>. Since the duplicated information was also the most common selection criteria, the indexes took up a disproportionate amount of space on disk relative to the size of the base dataset.</li>
+<li>The v3 table included the full text of the source, signal, geographic type, and geographic value for each row, such that we were storing millions of copies of identical information for rows that shared the same (<code>source</code>, <code>signal</code>, <code>geo_type</code>, <code>geo_value</code>). Since the duplicated information was also the most common selection criteria, the indexes took up a disproportionate amount of space on disk relative to the size of the base dataset.</li>
 </ul></li>
 </ul>
 </div>
