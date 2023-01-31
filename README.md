@@ -79,11 +79,15 @@ In order to convert the Rmd files to HTML files for Hugo you also need to:
 1. Activate the environment: `conda activate www-main`
 1. Install extra R dependencies: `Rscript ./dependencies.R`
 
-As an alternative you can use Docker and Docker Compose. Then it reduces to `docker-compose up -d` to create a docker container for the current environment. In the following you would need to jump into the container to execute the upcoming command via `docker-compose exec r bash`.
+As an alternative you can use Docker and Docker Compose:
+1. `docker-compose up -d` to create a docker container for the current environment.
+1. `docker-compose exec r bash` to jump into the container. 
+1. `micromamba activate www-main` to activate the environment
 
+Now you have the environment ready to start converting .Rmd blog files to html.
 #### Commands
 
-1. Activate the environment: `conda activate www-main`
+
 1. Run blogdown to convert the files to HTML: `Rscript -e 'blogdown::build_site(local=TRUE, run_hugo=FALSE, build_rmd=TRUE)'`
    - `local=TRUE` similar to `-D` to process draft files
    - `run_hugo=FALSE` to manually run hugo
