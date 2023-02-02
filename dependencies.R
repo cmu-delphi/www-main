@@ -3,6 +3,8 @@
 
 # blogdown::install_hugo()
 
+install.packages("ggrepel", repo="http://cran.rstudio.com/")
+install.packages("base64url", repo="http://cran.rstudio.com/")
 install.packages("covidcast", repo="http://cran.rstudio.com/")
 # devtools::install_github("cmu-delphi/covidcast", ref = "main",
 #                          upgrade = 'never',
