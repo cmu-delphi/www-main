@@ -124,7 +124,8 @@ people:
   image: aditya-chindhade.jpg
   affiliation: CMU/Tepper
   team:
-  - contributors 
+  - past 
+  note: Contributor, March-May 2022
 - firstName: Eu Jing
   lastName: Chua
   image: eu-jing-chua-500x500-min.jpg
