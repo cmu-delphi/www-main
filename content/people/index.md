@@ -64,7 +64,7 @@ people:
 - firstName: Logan
   lastName: Brooks
   image: logan-brooks-500x500-min.jpg
-  affiliation: CMU/MLD
+  affiliation: University of California, Berkeley
   team:
   - core
   - highlight
@@ -788,7 +788,7 @@ people:
   lastName: Tibshirani
   link: https://stat.cmu.edu/~ryantibs/
   image: ryan-tibshirani-500x500-min.jpg
-  affiliation: CMU/MLD/Stat
+  affiliation: University of California, Berkeley and CMU/MLD
   team:
   - leadership
   - highlight
