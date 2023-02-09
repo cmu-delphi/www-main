@@ -455,7 +455,8 @@ people:
   image: maggie-liu.jpg
   affiliation: University of British Columbia
   team:
-  - contributors  
+  - past  
+  note: Contributor, April-December 2022
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
