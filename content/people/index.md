@@ -241,7 +241,7 @@ people:
 - firstName: Alden
   lastName: Green
   image: alden-green-500x500-min.jpg
-  affiliation: CMU/Stat
+  affiliation: Stanford University/Stat
   note: Core member, May-July 2020
   team:
   - contributors
