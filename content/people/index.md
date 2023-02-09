@@ -796,7 +796,7 @@ people:
   lastName: Tibshirani
   link: https://stat.cmu.edu/~ryantibs/
   image: ryan-tibshirani-500x500-min.jpg
-  affiliation: UC Berkeley and CMU/MLD
+  affiliation: UC Berkeley/Stat and CMU/MLD
   team:
   - leadership
   - highlight
