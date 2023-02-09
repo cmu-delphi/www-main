@@ -429,6 +429,12 @@ people:
   team:
   - past
   note: Contributor, December 2021-May 2022
+- firstName: Leon
+  lastName: Lu
+  image: leon-suhan-lu.jpg
+  affiliation: Wake Forest University
+  team:
+  - contributors
 - key: lipsitch
   firstName: Marc
   lastName: Lipsitch
