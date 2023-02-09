@@ -202,7 +202,7 @@ people:
   affiliation: CMU/MLD
   team:
   - past
-  note: Contributor, 2020
+  note: Contributor, July-September 2020
 - firstName: Grace
   lastName: G.
   image: grace-gos.jpg
