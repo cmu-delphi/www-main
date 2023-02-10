@@ -756,7 +756,8 @@ people:
   image: mashrin-srivastava.jpg
   affiliation: CMU/MLD
   team:
-  - contributors
+  - past
+  note: Contributor, August 2021-Decmeber 2022
 - firstName: Vishakha
   lastName: Srivastava
   image: vishakha-srivastava-500x500-min.jpg
