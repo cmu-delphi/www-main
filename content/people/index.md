@@ -115,7 +115,7 @@ people:
 - firstName: Andrew
   lastName: Chin
   image: andrew-chin-500x500-min.jpg
-  affiliation: CMU/MLD
+  affiliation: Johns Hopkins/Biostat
   team:
   - contributors
   note: Core member, October 2020-August 2021 
