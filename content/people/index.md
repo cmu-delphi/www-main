@@ -763,7 +763,13 @@ people:
   affiliation: Santa Clara University
   team:
   - past
-  note: Intern, Summer 2020
+  note: Intern, Summer 2020  
+- firstName: Kean Ming
+  lastName: Tan
+  image: kean-ming-tan.jpg
+  affiliation: University of Michigan/Stat
+  team:
+  - contributors
 - firstName: Jingjing
   lastName: Tang
   image: jinjing-tang-500x500-min.jpg
