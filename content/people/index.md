@@ -149,6 +149,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: Santiago
+  lastName: Cortes Gomez
+  image: santiago-cortes-gomez.jpg
+  affiliation: CMU/MLD
+  team:
+  - contributors
 - firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
@@ -486,6 +492,12 @@ people:
   team:
   - past
   note: Core member, March-May 2020
+- firstName: Ruiqi
+  lastName: Lyu
+  image: ruiqi-lyu.jpg
+  affiliation: CMU/CompBio
+  team:
+  - core
 - firstName: Lester
   lastName: Mackey
   image: lester-mackey-500x500-min.jpg
