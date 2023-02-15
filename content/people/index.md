@@ -1007,7 +1007,7 @@ people:
   note: Core member, April 2020-March 2021
 - firstName: Tianyue
   lastName: Zhou
-  image: tianyue-zhou-temp.jpg
+  image: tianyue-zhou.jpg
   affiliation: UC Berkeley/Biostat
   team:
   - contributors  
