@@ -392,6 +392,7 @@ people:
   affiliation: CMU/CSD
   team:
   - contributors  
+  future_note: Contributor, June-December 2021, September 2022-TBD
 - firstName: Daniel
   lastName: LaLiberte
   image: daniel-laliberte_head-shot.jpg
