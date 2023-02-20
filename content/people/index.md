@@ -47,7 +47,7 @@ people:
   affiliation: CMU
   team:
   - contributors
-  note: xyzzy
+  future_note: xyzzy
 - firstName: Jacob
   lastName: Bien
   image: jacob-bien-500x500-min.jpg
