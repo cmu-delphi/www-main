@@ -64,7 +64,7 @@ people:
 - firstName: Logan
   lastName: Brooks
   image: logan-brooks-500x500-min.jpg
-  affiliation: CMU/MLD
+  affiliation: UC Berkeley
   team:
   - core
   - highlight
@@ -115,7 +115,7 @@ people:
 - firstName: Andrew
   lastName: Chin
   image: andrew-chin-500x500-min.jpg
-  affiliation: CMU/MLD
+  affiliation: Johns Hopkins/Biostat
   team:
   - contributors
   note: Core member, October 2020-August 2021 
@@ -124,7 +124,8 @@ people:
   image: aditya-chindhade.jpg
   affiliation: CMU/Tepper
   team:
-  - contributors 
+  - past 
+  note: Contributor, March-May 2022
 - firstName: Eu Jing
   lastName: Chua
   image: eu-jing-chua-500x500-min.jpg
@@ -148,6 +149,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: Santiago
+  lastName: Cortes Gomez
+  image: santiago-cortes-gomez.jpg
+  affiliation: CMU/MLD
+  team:
+  - contributors
 - firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
@@ -202,7 +209,7 @@ people:
   affiliation: CMU/MLD
   team:
   - past
-  note: Contributor, 2020
+  note: Contributor, July-September 2020
 - firstName: Grace
   lastName: G.
   image: grace-gos.jpg
@@ -240,7 +247,7 @@ people:
 - firstName: Alden
   lastName: Green
   image: alden-green-500x500-min.jpg
-  affiliation: CMU/Stat
+  affiliation: Stanford University/Stat
   note: Core member, May-July 2020
   team:
   - contributors
@@ -258,6 +265,12 @@ people:
   team:
   - past
   note: Contributor, April-May 2020
+- firstName: Jeremy
+  lastName: Goldwasser
+  image: jeremy-goldwasser.jpg
+  affiliation: UC Berkeley/Stat
+  team:
+  - core
 - firstName: George
   lastName: Haff
   image: george-haff-photo.jpg
@@ -377,9 +390,9 @@ people:
   lastName: Lakdawala
   image: tarannum-lakdawala.jpeg
   affiliation: CMU/CSD
-  note: Contributor, June-December 2021
   team:
   - contributors  
+  future_note: Contributor, June-December 2021, September 2022-TBD
 - firstName: Daniel
   lastName: LaLiberte
   image: daniel-laliberte_head-shot.jpg
@@ -429,6 +442,12 @@ people:
   team:
   - past
   note: Contributor, December 2021-May 2022
+- firstName: Leon
+  lastName: Lu
+  image: leon-suhan-lu.jpg
+  affiliation: Wake Forest University
+  team:
+  - contributors
 - key: lipsitch
   firstName: Marc
   lastName: Lipsitch
@@ -455,7 +474,8 @@ people:
   image: maggie-liu.jpg
   affiliation: University of British Columbia
   team:
-  - contributors  
+  - past  
+  note: Contributor, April-December 2022
 - firstName: Michael
   lastName: Xieyang
   lastName: Liu
@@ -478,6 +498,12 @@ people:
   team:
   - past
   note: Core member, March-May 2020
+- firstName: Ruiqi
+  lastName: Lyu
+  image: ruiqi-lyu.jpg
+  affiliation: CMU/CompBio
+  team:
+  - core
 - firstName: Lester
   lastName: Mackey
   image: lester-mackey-500x500-min.jpg
@@ -716,6 +742,12 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+- firstName: Xueda
+  lastName: Shen
+  image: xueda-shen.jpg
+  affiliation: UC Berkeley/Biostat
+  team:
+  - core
 - firstName: Noah
   lastName: Simon
   image: noah-simon-500x500-min.jpg
@@ -748,14 +780,21 @@ people:
   image: mashrin-srivastava.jpg
   affiliation: CMU/MLD
   team:
-  - contributors
+  - past
+  note: Contributor, August 2021-Decmeber 2022
 - firstName: Vishakha
   lastName: Srivastava
   image: vishakha-srivastava-500x500-min.jpg
   affiliation: Santa Clara University
   team:
   - past
-  note: Intern, Summer 2020
+  note: Intern, Summer 2020  
+- firstName: Kean Ming
+  lastName: Tan
+  image: kean-ming-tan.jpg
+  affiliation: University of Michigan/Stat
+  team:
+  - contributors
 - firstName: Jingjing
   lastName: Tang
   image: jinjing-tang-500x500-min.jpg
@@ -788,7 +827,7 @@ people:
   lastName: Tibshirani
   link: https://stat.cmu.edu/~ryantibs/
   image: ryan-tibshirani-500x500-min.jpg
-  affiliation: CMU/MLD/Stat
+  affiliation: UC Berkeley/Stat and CMU/MLD
   team:
   - leadership
   - highlight
@@ -966,6 +1005,12 @@ people:
   - contributors
   - blog
   note: Core member, April 2020-March 2021
+- firstName: Tianyue
+  lastName: Zhou
+  image: tianyue-zhou.jpg
+  affiliation: UC Berkeley/Biostat
+  team:
+  - contributors  
 others: |
  MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
 
