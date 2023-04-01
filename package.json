@@ -17,7 +17,7 @@
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "prettier-plugin-go-template": "^0.0.13",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.4.1",
     "shx": "^0.3.4"
   },
   "files": [
