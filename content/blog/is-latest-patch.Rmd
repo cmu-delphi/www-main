@@ -1,0 +1,48 @@
+---
+title: Hello World!
+author: Roni Rosenfeld and Ryan Tibshirani
+date: 2020-08-10
+tags:
+  - COVIDcast
+authors:
+  - roni
+  - ryan
+heroImage: blog-lg-img_hello-world.jpg
+heroImageThumb: blog-thumb-img_hello-world.jpg
+summary: |
+  Hello from the Delphi research group at Carnegie Mellon University!
+  We're a group of faculty, students, and staff, based primarily out of CMU
+  together with strong collaborators from other universities and industry.
+  Our group was founded in 2012 to advance the theory and practice of epidemic
+  forecasting. Since March 2020, we have refocused efforts towards helping combat
+  the COVID-19 pandemic, by supporting informed decision-making at federal, state,
+  and local levels of government and in the healthcare sector. Until now, we've
+  been pretty “heads down” with our work, and slow to communicate what we've been
+  up to. But at last ... Delphi finally has a blog! This first post serves as an
+  introduction of sorts. Future posts will dive deeper into our various projects.
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+In August 2022, the Delphi team discovered a fault in the data that we were sending through the COVIDcast API. The fault caused the API to return past versions of data as if they were actually the latest version of that requested data. The extent of this fault included all of the signals from Johns Hopkins University Center for Systems Science and Engineering (JHU-CSSE) for the months of February 2020 - October 2021. About 12 million data points were found to be faulty, which made up about 20% of the data available from JHU-CSSE as of the time of the fix. This was patched on September 28th, 2022 and the API is now returning the correct version of the data.
+
+## What went wrong?
+
+Due to the huge volume of COVIDcast data, we are limited in the real-time calculations that we can perform on it. This is because we must maintain a highly available API that can deliver data to end users very quickly. With this in mind, in the previous version of our database, we used a statically set flag that delineated whether a row in the database was the latest version of the data.^[Much of the data that is used to create the COVIDCast API is not complete the first day that it is reported. For instance, COVID cases for a specific day will change for many days to weeks afterwards as the reporting source revises its data. Because of this, we store many different versions of the same reference day for each signal. Usually, our users are most interested in the most recent version of the data. In our previous version of Epidata, version 3, we kept a statically set flag in our table to delineate the latest version of a certain row of data. This flag was set when we ingested a new version of said data. This workflow was very prone to data faults when patching the database outside of the acquisition pipeline (that typically sets the flag). For more information, check out our blog post on Epidata version 4.] We believe that this problem arose when we applied a patch^[A patch, in this context, is a set of data that matches to a database that contains incorrect information. The patch contains the keys to find these rows and update them with the correct information.] to our database and this flag was not properly recalculated.
+
+## How did we identify this?
+Data faults like this are difficult to identify. In this case, this fault was found by accident while a member of the Delphi team was working on a new system to calculate metadata. During this, they found that some of the JHU-CSSE data was not matching up and looked deeper into it. The team’s analysis identified 11,987,335 rows that were labeled as the latest issue in which had more recent issues in the database; this constituted about 20% of our JHU-CSSE data at the time.
+
+## How did we fix it?
+
+As noted above, this particular fault was identified in the previous version of our database. At the time that it was found, we were in the process of rolling out a new schema [link to v4 blog post],  in which we changed the way we stored the latest versions of the data. Because of this, we identified the size of the patch and did validation on the previous version (v3) to ensure that we understood the extent of the fault. Once the new version was live, we recalculated the patch on the new database and applied it to the data on September 28, 2022.
+
+## What did we learn?
+
+There were many takeaways from this data fault that played directly into our development planning:
+
+We plan to build an automated system of data validation to identify these types of faults while they happen. Of course, the automated system is only as good as the tests we give it, but the suite of tests will continue to grow as new types of faults are identified. 
+We will set up a fault record keeping system that is publicly available so that we can be more transparent about issues that arise and what data are affected. This will also be the system that we update as we fix faults and patch the data, so this will be useful to our end users as they can keep track of the status of the data that they use.
+
+
