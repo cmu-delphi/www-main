@@ -1,25 +1,15 @@
 ---
-title: Hello World!
-author: Roni Rosenfeld and Ryan Tibshirani
-date: 2020-08-10
+title: COVIDcast Fault Patch: JHU-CSSE is_latest Data
+author: Nolan Gormley
+date: 2022-11-01
 tags:
   - COVIDcast
 authors:
-  - roni
-  - ryan
-heroImage: blog-lg-img_hello-world.jpg
-heroImageThumb: blog-thumb-img_hello-world.jpg
-summary: |
-  Hello from the Delphi research group at Carnegie Mellon University!
-  We're a group of faculty, students, and staff, based primarily out of CMU
-  together with strong collaborators from other universities and industry.
-  Our group was founded in 2012 to advance the theory and practice of epidemic
-  forecasting. Since March 2020, we have refocused efforts towards helping combat
-  the COVID-19 pandemic, by supporting informed decision-making at federal, state,
-  and local levels of government and in the healthcare sector. Until now, we've
-  been pretty “heads down” with our work, and slow to communicate what we've been
-  up to. But at last ... Delphi finally has a blog! This first post serves as an
-  introduction of sorts. Future posts will dive deeper into our various projects.
+  - nolan
+heroImage: blog-is-latest-numbers-thumb.jpeg
+heroImageThumb: blog-is-latest-numbers.jpeg
+summary: | In August 2022, the Delphi team discovered a fault in the data that we were sending through the COVIDcast API. The fault caused the API to return past versions of data as if they were actually the latest version of that requested data. The extent of this fault included all of the signals from Johns Hopkins University Center for Systems Science and Engineering (JHU-CSSE) for the months of February 2020 - October 2021. About 12 million data points were found to be faulty, which made up about 20% of the data available from JHU-CSSE as of the time of the fix. This was patched on September 28th, 2022 and the API is now returning the correct version of the data.
+
 output:
   blogdown::html_page:
     toc: true
