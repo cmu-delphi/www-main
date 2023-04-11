@@ -26,7 +26,7 @@ Data faults like this are difficult to identify. In this case, this fault was fo
 
 ## How did we fix it?
 
-As noted above, this particular fault was identified in the previous version of our database. At the time that it was found, we were in the process of rolling out a new schema [link to v4 blog post],  in which we changed the way we stored the latest versions of the data. Because of this, we identified the size of the patch and did validation on the previous version (v3) to ensure that we understood the extent of the fault. Once the new version was live, we recalculated the patch on the new database and applied it to the data on September 28, 2022.
+As noted above, this particular fault was identified in the previous version of our database. At the time that it was found, we were in the process of rolling out a new schema,  in which we changed the way we stored the latest versions of the data. Because of this, we identified the size of the patch and did validation on the previous version (v3) to ensure that we understood the extent of the fault. Once the new version was live, we recalculated the patch on the new database and applied it to the data on September 28, 2022.
 
 ## What did we learn?
 
