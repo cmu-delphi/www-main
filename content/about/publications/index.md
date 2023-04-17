@@ -28,9 +28,9 @@ papers:
   - title: "Recalibrating Probabilistic Forecasts of Epidemics"
     image: recalibrating-thumb.jpg
     authors: Rumack, Tibshirani, Rosenfeld
-    link: https://arxiv.org/abs/2112.06305
-    journal: arXiv
-    year: 2021 
+    link: https://doi.org/10.1371/journal.pcbi.1010771
+    journal: PLOS Computational Biology
+    year: 2022
   - title: "Big Data, Big Problems: Responding to \"Are We There Yet?\""
     image: response.jpg
     authors: Reinhart, Tibshirani
