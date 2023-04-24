@@ -6,8 +6,8 @@ tags:
   - COVIDcast
 authors:
   - nolan
-heroImage: blog-is-latest-numbers-thumb.jpeg
-heroImageThumb: blog-is-latest-numbers.jpeg
+heroImage: blog-is-latest-numbers.jpeg
+heroImageThumb: blog-is-latest-numbers-thumb.jpeg
 summary: | 
   In August 2022, the Delphi team discovered a fault in the data that we were sending through the COVIDcast API. The fault caused the API to return past versions of data as if they were actually the latest version of that requested data. The extent of this fault included all of the signals from Johns Hopkins University Center for Systems Science and Engineering (JHU-CSSE) for the months of February 2020 - October 2021. About 12 million data points were found to be faulty, which made up about 20% of the data available from JHU-CSSE as of the time of the fix. This was patched on September 28th, 2022 and the API is now returning the correct version of the data.
 
