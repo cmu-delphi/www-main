@@ -229,6 +229,8 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+  - blog
+  description: is a Research Programmer at Delphi who works on the Epidata API and has been specializing in data quality monitoring and response.
 - firstName: Jed
   lastName: Grabman
   image: jed-gradmn_head-shot.png
