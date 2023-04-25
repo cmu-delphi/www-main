@@ -1,0 +1,56 @@
+---
+title: "COVIDcast Fault Patch: JHU-CSSE is_latest Data"
+author: Nolan Gormley
+date: 2023-04-01
+tags:
+  - COVIDcast
+authors:
+  - nolan
+heroImage: blog-is-latest-numbers.jpeg
+heroImageThumb: blog-is-latest-numbers-thumb.jpeg
+summary: | 
+  In August 2022, the Delphi team discovered a fault in the data that we were sending through the COVIDcast API. The fault caused the API to return past versions of data as if they were actually the latest version of that requested data. The extent of this fault included all of the signals from Johns Hopkins University Center for Systems Science and Engineering (JHU-CSSE) for the months of February 2020 - October 2021. About 12 million data points were found to be faulty, which made up about 20% of the data available from JHU-CSSE as of the time of the fix. This was patched on September 28th, 2022 and the API is now returning the correct version of the data.
+
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#what-went-wrong" id="toc-what-went-wrong">What went wrong?</a></li>
+<li><a href="#how-did-we-identify-this" id="toc-how-did-we-identify-this">How did we identify this?</a></li>
+<li><a href="#how-did-we-fix-it" id="toc-how-did-we-fix-it">How did we fix it?</a></li>
+<li><a href="#what-did-we-learn" id="toc-what-did-we-learn">What did we learn?</a></li>
+</ul>
+</div>
+
+<p>In August 2022, the Delphi team discovered a fault in the data that we were sending through the COVIDcast API. The fault caused the API to return past versions of data as if they were actually the latest version of that requested data. The extent of this fault included all of the signals from Johns Hopkins University Center for Systems Science and Engineering (JHU-CSSE) for the months of February 2020 - October 2021. About 12 million data points were found to be faulty, which made up about 20% of the data available from JHU-CSSE as of the time of the fix. This was patched on September 28th, 2022 and the API is now returning the correct version of the data.</p>
+<div id="what-went-wrong" class="section level2">
+<h2>What went wrong?</h2>
+<p>Due to the huge volume of COVIDcast data, we are limited in the real-time calculations that we can perform on it. This is because we must maintain a highly available API that can deliver data to end users very quickly. With this in mind, in the previous version of our database, we used a statically set flag that delineated whether a row in the database was the latest version of the data.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> We believe that this problem arose when we applied a patch<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> to our database and this flag was not properly recalculated.</p>
+</div>
+<div id="how-did-we-identify-this" class="section level2">
+<h2>How did we identify this?</h2>
+<p>Data faults like this are difficult to identify. In this case, this fault was found by accident while a member of the Delphi team was working on a new system to calculate metadata. During this, they found that <a href="https://github.com/cmu-delphi/covidcast-indicators/issues/1685">some of the JHU-CSSE data was not matching up and looked deeper into it</a>. The team’s analysis identified 11,987,335 rows that were labeled as the latest issue but which had more recent issues in the database; this constituted about 20% of our JHU-CSSE data at the time.</p>
+</div>
+<div id="how-did-we-fix-it" class="section level2">
+<h2>How did we fix it?</h2>
+<p>As noted above, this particular fault was identified in the previous version of our database. At the time that it was found, we were in the process of rolling out a <a href="https://delphi.cmu.edu/blog/2022/12/14/introducing-epidata-v4/">new schema</a>, in which we changed the way we stored the latest versions of the data. Because of this, we identified the size of the patch and did validation on the previous version (v3) to ensure that we understood the extent of the fault. Once the new version was live, we recalculated the patch on the new database and applied it to the data on September 28, 2022.</p>
+</div>
+<div id="what-did-we-learn" class="section level2">
+<h2>What did we learn?</h2>
+<p>There were many takeaways from this data fault that played directly into our development planning:</p>
+<ol style="list-style-type: decimal">
+<li>We plan to build an automated system of data validation to identify these types of faults while they happen. Of course, the automated system is only as good as the tests we give it, but the suite of tests will continue to grow as new types of faults are identified.</li>
+<li>We will set up a fault record keeping system that is publicly available so that we can be more transparent about issues that arise and what data are affected. This will also be the system that we update as we fix faults and patch the data, so this will be useful to our end users as they can keep track of the status of the data that they use.</li>
+</ol>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>Much of the data that is used to create the COVIDCast API is not complete the first day that it is reported. For instance, COVID cases for a specific day will change for many days to weeks afterwards as the reporting source revises its data. Because of this, we store many different versions of the same reference day for each signal. Usually, our users are most interested in the most recent version of the data. In our previous version of Epidata, version 3, we kept a statically set flag in our table to delineate the latest version of a certain row of data. This flag was set when we ingested a new version of said data. This workflow was very prone to data faults when patching the database outside of the daily acquisition pipeline that typically set the flag. For more information on how we eliminated this shortcoming in the new database, <a href="https://delphi.cmu.edu/blog/2022/12/14/introducing-epidata-v4/">check out our blog post on Epidata version 4</a>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>A patch, in this context, is a way to fix a database that contains incorrect information. The patch contains the keys to find the faulty rows and update them with the correct information.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
