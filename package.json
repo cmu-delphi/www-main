@@ -14,7 +14,7 @@
   "devDependencies": {
     "hugo-bin": "^0.101.5",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
+    "lint-staged": "^13.2.2",
     "prettier": "^2.8.7",
     "prettier-plugin-go-template": "^0.0.13",
     "rimraf": "^4.4.1",
