@@ -7,7 +7,7 @@
     "highlight.js": "^11.7.0",
     "katex": "^0.16.4",
     "uikit": "^3.15.17",
-    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v3.2.4/www-covidcast-3.2.4.tgz",
+    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v3.2.6/www-covidcast-3.2.6.tgz",
     "www-covidcast-classic": "https://github.com/cmu-delphi/www-covidcast-classic/releases/download/v2.6.5/www-covidcast-classic-2.6.5.tgz",
     "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.0.3/www-epivis-2.0.3.tgz"
   },
