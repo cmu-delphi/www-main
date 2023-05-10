@@ -244,8 +244,8 @@ people:
   affiliation: Consultant
   link: https://www.sgratzl.com
   team:
-  - contributors
-  note: Core member, July 2020-August 2021
+  - Past
+  note: Core member, July 2020-August 2021; Consultant, September 2021-December 2022
 - firstName: Alden
   lastName: Green
   image: alden-green-500x500-min.jpg
