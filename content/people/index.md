@@ -769,7 +769,8 @@ people:
   image: mitch-skidmore.jpg
   affiliation: Delphi & Beacon Hill
   team:
-  - core
+  - past
+  note: Core member, November 2022-May 2023
 - firstName: Benjamin
   lastName: Smith
   image: benjamin-smith_head-shot.jpg
