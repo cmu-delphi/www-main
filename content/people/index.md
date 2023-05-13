@@ -911,6 +911,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: David
+  lastName: Weber
+  image: david-weber.jpg
+  affiliation: CMU/MLD
+  team:
+  - core  
 - key: jweiss
   firstName: Jeremy Chen
   lastName: Weiss
