@@ -15,8 +15,6 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
-    env:
-      RETICULATE_PYTHON: /usr/share/miniconda3/envs/www-main/bin/python
     steps:
       - uses: actions/checkout@v3
         with:
