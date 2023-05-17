@@ -244,8 +244,8 @@ people:
   affiliation: Consultant
   link: https://www.sgratzl.com
   team:
-  - contributors
-  note: Core member, July 2020-August 2021
+  - past
+  note: Core member, July 2020-August 2021; Consultant, September 2021-December 2022
 - firstName: Alden
   lastName: Green
   image: alden-green-500x500-min.jpg
@@ -769,7 +769,8 @@ people:
   image: mitch-skidmore.jpg
   affiliation: Delphi & Beacon Hill
   team:
-  - core
+  - past
+  note: Core member, November 2022-May 2023
 - firstName: Benjamin
   lastName: Smith
   image: benjamin-smith_head-shot.jpg
@@ -910,6 +911,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: David
+  lastName: Weber
+  image: david-weber.jpg
+  affiliation: CMU/MLD
+  team:
+  - core  
 - key: jweiss
   firstName: Jeremy Chen
   lastName: Weiss
