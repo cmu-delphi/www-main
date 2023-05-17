@@ -4,11 +4,6 @@ description: Developing the Theory and Practice of Epidemiological Forecasting
 layout: landing
 
 carousel:
-  - pre: Delphi Careers
-    title: Seeking Executive Director to Lead Carnegie Mellon Public Health Initiatives and Delphi
-    ref: careers
-    alt: View Position
-    image: cmu-bldg-7-hero.jpg
   - pre: Tools
     title: Real-time Indicators of COVID-19 Activity
     ref: covidcast
