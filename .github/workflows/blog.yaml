@@ -18,7 +18,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          # submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 3
       - uses: mamba-org/provision-with-micromamba@v15
         with:
@@ -30,10 +29,10 @@ jobs:
         shell: bash
       - name: Create environment
         run: micromamba env create -n www-main-micromamba -f environment.yml
-      - name: Conda info
+      - name: micromamba info
         run: |
-          conda info
-          conda list
+          micromamba info
+          micromamba list
       - name: Install R dependencies
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
