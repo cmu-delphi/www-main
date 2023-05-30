@@ -329,6 +329,12 @@ people:
   team:
   - past
   note: Core member, August 2017-June 2022
+- firstName: Peter
+  lastName: Jhon
+  image: peter-jhon.jpg
+  affiliation: CMU/MLD
+  team:
+  - leadership
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
