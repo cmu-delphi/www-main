@@ -425,7 +425,7 @@ people:
 - firstName: Minh
   lastName: Le
   image: minh-le.jpg
-  affiliation: Delphi & Beacon Hill
+  affiliation: CMU/MLD
   team:
   - core
 - firstName: Jenny
