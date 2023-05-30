@@ -332,7 +332,7 @@ people:
 - firstName: Peter
   lastName: Jhon
   image: peter-jhon.jpg
-  affiliation: CMU/MLD
+  affiliation: CMU/MLD and OVPR
   team:
   - leadership
 - firstName: Jaemin
