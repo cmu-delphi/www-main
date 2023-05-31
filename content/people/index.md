@@ -329,6 +329,12 @@ people:
   team:
   - past
   note: Core member, August 2017-June 2022
+- firstName: Peter
+  lastName: Jhon
+  image: peter-jhon.jpg
+  affiliation: CMU/MLD and OVPR
+  team:
+  - leadership
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -419,7 +425,7 @@ people:
 - firstName: Minh
   lastName: Le
   image: minh-le.jpg
-  affiliation: Delphi & Beacon Hill
+  affiliation: CMU/MLD
   team:
   - core
 - firstName: Jenny
