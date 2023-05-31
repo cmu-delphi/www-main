@@ -329,7 +329,7 @@ people:
   team:
   - past
   note: Core member, August 2017-June 2022
-- firstName:  Peter
+- firstName: Peter
   lastName: Jhon
   image: peter-jhon.jpg
   affiliation: CMU/MLD and OVPR
