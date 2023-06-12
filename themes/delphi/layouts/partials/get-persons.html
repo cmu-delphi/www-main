@@ -8,4 +8,4 @@
   {{- $fullPerson := (merge (dict "name" (printf "%s %s" .firstName .lastName) "img" $img "key" (.firstName | lower)) . ) -}}
   {{- $full = $full | append $fullPerson -}}
 {{- end -}}
-{{- return (sort $full "lastName" "asc" "firstName" "asc") -}}
+{{- return (sort $full "leaderOrder" "asc" "lastName" "asc" "firstName" "asc") -}}

@@ -335,6 +335,7 @@ people:
   affiliation: CMU/MLD and OVPR
   team:
   - leadership
+  leaderOrder: 3
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -677,6 +678,7 @@ people:
   - blog
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
+  leaderOrder: 2
 - firstName: Patti
   lastName: Rote
   image: patti-rote.jpg
@@ -843,6 +845,7 @@ people:
   - blog
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
+  leaderOrder: 1
 - firstName: Will
   lastName: Townes
   image: will-townes.jpg
