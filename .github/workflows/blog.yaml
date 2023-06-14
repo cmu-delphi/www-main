@@ -15,24 +15,41 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
+    env:
+      RETICULATE_PYTHON: /usr/share/miniconda3/envs/www-main/bin/python
     steps:
       - uses: actions/checkout@v3
         with:
+          # submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 3
-      - uses: mamba-org/provision-with-micromamba@v15
+      - uses: conda-incubator/setup-miniconda@v2
         with:
-          environment-file: environment.yml
-          micromamba-version: latest
+          python-version: 3.9
+          activate-environment: www-main
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          use-mamba: true
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
       - name: Get Date
         id: get-date
         run: echo "name=today::$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
         shell: bash
-      - name: Create environment
-        run: micromamba env create -n www-main-micromamba -f environment.yml
-      - name: micromamba info
+      - name: Cache Conda env
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.CONDA }}/envs
+          key: conda-${{ runner.os }}--${{ runner.arch }}--${{ steps.get-date.outputs.today }}-${{ hashFiles('environment.yml') }}-${{ env.CACHE_NUMBER }}
+        env:
+          # Increase this value to reset cache if etc/example-environment.yml has not changed
+          CACHE_NUMBER: 0
+        id: cache
+      - name: Update environment
+        run: mamba env update -n www-main -f environment.yml
+        if: steps.cache.outputs.cache-hit != 'true'
+      - name: Conda info
         run: |
-          micromamba info
-          micromamba list
+          conda info
+          conda list
       - name: Install R dependencies
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
