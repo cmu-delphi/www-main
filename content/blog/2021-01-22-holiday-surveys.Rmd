@@ -29,7 +29,9 @@ output:
   blogdown::html_page:
     toc: true
 ---
-
+```{r, echo=FALSE}
+options(covidcast.auth = "9328d11cfe46d") # Minh's key
+```
 With pandemic fatigue setting in across the United States after a long year
 filled with uncertainty, many felt the temptation to celebrate a “normal”
 Thanksgiving and Christmas. However, with cases steeply rising across the US,

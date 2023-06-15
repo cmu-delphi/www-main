@@ -6,9 +6,11 @@ updates:
     target-branch: dev
     schedule:
       interval: "monthly"
+    reviewers: "cmu-delphi/code-reviewers"
   # Maintain dependencies for npm
   - package-ecosystem: "npm"
     directory: "/"
     target-branch: dev
     schedule:
       interval: "monthly"
+    reviewers: "cmu-delphi/code-reviewers"

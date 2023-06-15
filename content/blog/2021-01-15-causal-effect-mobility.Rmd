@@ -27,6 +27,10 @@ output:
     toc: true
 ---
 
+```{r, echo=FALSE}
+options(covidcast.auth = "9328d11cfe46d") # Minh's key
+```
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
 ```
