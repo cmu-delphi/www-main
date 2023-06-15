@@ -47,6 +47,10 @@ output:
     toc: true
 ---
 
+```{r, echo=FALSE}
+options(covidcast.auth = "9328d11cfe46d") # Minh's key
+```
+
 Since April 2020, in collaboration with Facebook,
 partner universities, and public health officials,
 we've been conducting a massive daily survey to monitor

@@ -75,6 +75,7 @@ library(covidcast)
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
+options(covidcast.auth = "9328d11cfe46d") # Minh's key
 
 # Fetch DV % CLI signal and USAFacts confirmed case incidence proportion at
 # the state level

@@ -30,7 +30,9 @@ output:
   blogdown::html_page:
     toc: true
 ---
-
+```{r, echo=FALSE}
+options(covidcast.auth = "9328d11cfe46d") # Minh's key
+```
 Beginning in early April 2020, the `r blogdown::shortcode_html("reflink", "/", "Delphi group")` has
 conducted a major survey to track COVID-19 across the United States. With the
 support of Facebook Data for Good, we have been able to recruit tens of

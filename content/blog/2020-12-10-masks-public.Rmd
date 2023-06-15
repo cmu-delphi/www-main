@@ -21,6 +21,10 @@ output:
     toc: true
 ---
 
+```{r, echo=FALSE}
+options(covidcast.auth = "9328d11cfe46d") # Minh's key
+```
+
 As COVID cases and deaths continue to rise in the United States, we are
 repeatedly reminded that unless we take the appropriate precautions---by wearing
 masks when around other people, working from home whenever possible, and

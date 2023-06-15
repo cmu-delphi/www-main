@@ -1,5 +1,4 @@
 name: blog
-
 on:
   push:
     paths: # run only when an Rmd file changes
@@ -8,7 +7,6 @@ on:
       - "dependencies.R"
       - ".github/workflows/blog.yaml"
   workflow_dispatch:
-
 jobs:
   blog:
     runs-on: ubuntu-latest
@@ -56,22 +54,3 @@ jobs:
           path: |
             ./content/blog
             ./static/blog
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - uses: actions/cache@v3.0.2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - run: npm ci
-      - name: Lint
-        run: npm run lint
-      - name: Build
-        run: npm run build
-      - uses: actions/upload-artifact@v3
-        with:
-          name: website
-          path: ./public
