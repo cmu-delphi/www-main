@@ -594,7 +594,8 @@ people:
   image: luke-neureiter.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
+  note: Core member, March 2022-June 2023
 - firstName: Quang
   lastName: Nguyen
   image: quang-nguyen.jpg
