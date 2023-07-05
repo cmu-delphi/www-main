@@ -106,7 +106,7 @@ papers:
   - title: "A Proposal for Standardized Evaluation of Epidemiological Models"
     image: evaluation.jpg
     authors: Rosenfeld, Grefenstette, Burke
-    link: https://www.cs.cmu.edu/~roni/standardized-evaluation-of-epi-models-rev-09nov2012.pdf
+    link: https://kilthub.cmu.edu/articles/report/A_Proposal_for_Standardized_Evaluation_of_Epidemiological_Models/21708314
     journal: White paper
     year: 2012
 ---
