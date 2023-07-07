@@ -1,8 +1,7 @@
 name: Dependabot auto-assign reviewer
 on: pull_request
 
-permissions:
-  pull-requests: write
+permissions: write-all
 
 jobs:
   dependabot:
