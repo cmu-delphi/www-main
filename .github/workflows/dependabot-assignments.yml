@@ -6,10 +6,11 @@ permissions: write-all
 jobs:
   dependabot:
     runs-on: ubuntu-latest
+    env: 
+        GH_TOKEN: ${{ secrets.CMU_DELPHI_AUTOMATION_MACHINE_DEPENDABOT_PAT }}
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Assign team to PR
         run: gh pr edit "$PR_URL" --add-reviewer "code-reviewers"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
-          GH_TOKEN: ${{ secrets.CMU_DELPHI_AUTOMATION_MACHINE_DEPENDABOT_PAT }}
