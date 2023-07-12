@@ -11,6 +11,6 @@ jobs:
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Assign team to PR
-        run: gh pr edit "$PR_URL" --add-reviewer "code-reviewers"
+        run: gh pr edit "$PR_URL" --add-reviewer "cmu-delphi/code-reviewers"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
