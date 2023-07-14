@@ -48,7 +48,7 @@ output:
 ---
 
 ```{r, echo=FALSE}
-options(covidcast.auth = "9328d11cfe46d") # Minh's key
+options(covidcast.auth = API_KEY)
 ```
 
 Since April 2020, in collaboration with Facebook,
