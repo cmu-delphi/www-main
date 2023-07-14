@@ -7,8 +7,6 @@ on:
       - "dependencies.R"
       - ".github/workflows/blog.yaml"
   workflow_dispatch:
-env:
-  API_KEY: ${{ secrets.DELPHI_GITHUB_ACTIONS_EPIDATA_API_KEY }}
 jobs:
   blog:
     runs-on: ubuntu-latest
@@ -48,6 +46,8 @@ jobs:
             ${{ runner.os }}-blogdown2-${{ hashFiles('environment.yml') }}-
             ${{ runner.os }}-blogdown2-
       - name: Build site
+        env:
+          API_KEY: ${{ secrets.DELPHI_GITHUB_ACTIONS_EPIDATA_API_KEY }}
         run: |
           npm run build:blog
       - uses: actions/upload-artifact@v3
