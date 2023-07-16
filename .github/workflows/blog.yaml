@@ -51,7 +51,6 @@ jobs:
         run: |
           printenv
           echo $API_KEY
-          echo ${{ secrets.DELPHI_GITHUB_ACTIONS_EPIDATA_API_KEY }} | sed 's/./& /g' 
           npm run build:blog
       - uses: actions/upload-artifact@v3
         with:

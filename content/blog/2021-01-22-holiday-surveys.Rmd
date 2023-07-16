@@ -30,7 +30,7 @@ output:
     toc: true
 ---
 ```{r, echo=FALSE}
-options(covidcast.auth = API_KEY)
+options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 With pandemic fatigue setting in across the United States after a long year
 filled with uncertainty, many felt the temptation to celebrate a “normal”

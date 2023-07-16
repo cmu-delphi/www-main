@@ -28,7 +28,7 @@ output:
 ---
 
 ```{r, echo=FALSE}
-options(covidcast.auth = API_KEY)
+options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 
 ```{r setup, include=FALSE}

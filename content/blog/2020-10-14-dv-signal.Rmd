@@ -75,7 +75,7 @@ library(covidcast)
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
-options(covidcast.auth = API_KEY)
+options(covidcast.auth = Sys.getenv("API_KEY"))
 
 # Fetch DV % CLI signal and USAFacts confirmed case incidence proportion at
 # the state level
