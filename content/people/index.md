@@ -533,7 +533,6 @@ people:
   affiliation: CMU/MLD
   team:
   - past
-  - highlight
   - blog
   note: Core member, March 2020-July 2023
   link: https://cs.cmu.edu/~krivard
@@ -854,6 +853,7 @@ people:
   affiliation: CMU/Stat
   team:
   - core
+  - highlight
 - firstName: Dmytro
   lastName: Trotsko
   image: dmytro-trotsko.jpg
