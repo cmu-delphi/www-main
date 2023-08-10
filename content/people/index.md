@@ -532,11 +532,11 @@ people:
   image: kathryn-mazaitis-500x500-min.jpg
   affiliation: CMU/MLD
   team:
-  - core
-  - highlight
+  - past
   - blog
+  note: Core member, March 2020-July 2023
   link: https://cs.cmu.edu/~krivard
-  description: leads Delphi's engineering team, and is a Principal Research Programmer in the Machine Learning Department at CMU.
+  description: previously led Delphi's engineering team, and was a Principal Research Programmer in the Machine Learning Department at CMU.
 - firstName: Daniel
   lastName: McDonald
   image: daniel-mcdonald-photo.jpeg
@@ -853,6 +853,7 @@ people:
   affiliation: CMU/Stat
   team:
   - core
+  - highlight
 - firstName: Dmytro
   lastName: Trotsko
   image: dmytro-trotsko.jpg
