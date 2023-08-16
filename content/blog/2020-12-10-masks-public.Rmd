@@ -22,7 +22,7 @@ output:
 ---
 
 ```{r, echo=FALSE}
-options(covidcast.auth = "9328d11cfe46d") # Minh's key
+options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 
 As COVID cases and deaths continue to rise in the United States, we are
