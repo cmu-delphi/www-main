@@ -507,6 +507,12 @@ people:
   team:
   - past
   note: Core member, March-May 2020
+- firstName: Ron
+  lastName: Lunde
+  image: ron-lunde.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Ruiqi
   lastName: Lyu
   image: ruiqi-lyu.jpg
