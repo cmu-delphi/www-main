@@ -5,11 +5,12 @@ date: 2023-09-27
 tags:
   - r
   - epidata
+  - covidcast
 authors:
   - dmitry
   - david
-heroImage: blog-lg-img_hello-world.jpg
-heroImageThumb: blog-thumb-img_hello-world.jpg
+heroImage: blog-lg-epidatr.jpg
+heroImageThumb: blog-thumb-epidatr.jpg
 summary: |
   `epidatr` is designed to streamline the downloading and usage of data from the [Delphi Epidata
 API](https://cmu-delphi.github.io/delphi-epidata/). It provides a simple R interface to the API, including functions for downloading data, parsing the results, and converting the data into a tidy format.
