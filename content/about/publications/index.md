@@ -1,6 +1,12 @@
 ---
 title: Research
 papers:
+  - title: "Frequentist Inference for Semi-mechanistic Epidemic Models with Interventions"
+    image: dag.jpg
+    authors: Bong, Ventura, Wasserman
+    link: https://arxiv.org/pdf/2309.10792
+    journal: arXiv 
+    year: 2023
   - title: "Comparing Trained and Untrained Probabilistic Ensemble Forecasts of COVID-19 Cases and Deaths in the United States"
     image: comparing-ensemble-forecasts-thumb.jpg
     authors: Ray, Brooks, Bien, Biggerstaff, Bosse, Bracher, Cramer, Funk, Gerding, Johansson, Rumack, Wang, Zorn, Tibshirani, Reich
