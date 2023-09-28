@@ -507,6 +507,12 @@ people:
   team:
   - past
   note: Core member, March-May 2020
+- firstName: Ron
+  lastName: Lunde
+  image: ron-lunde.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Ruiqi
   lastName: Lyu
   image: ruiqi-lyu.jpg
@@ -680,6 +686,12 @@ people:
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
   leaderOrder: 2
+- firstName: Anna
+  lastName: Rosengart
+  image: anna-rosengart.jpg
+  affiliation: CMU/Stat
+  team:
+  - core
 - firstName: Patti
   lastName: Rote
   image: patti-rote.jpg
