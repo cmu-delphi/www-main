@@ -840,6 +840,12 @@ people:
   team:
   - past
   note: Core member, June 2021-May 2022
+- firstName: Gabrielle
+  lastName: Thivierge
+  image: gabrielle-thivierge.jpg
+  affiliation: CMU/Stat
+  team:
+  - core
 - firstName: Robert
   lastName: Tibshirani
   image: robert-tibshirani-500x500-min.jpg
