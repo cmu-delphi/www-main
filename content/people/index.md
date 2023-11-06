@@ -216,6 +216,12 @@ people:
   affiliation: Girls of Steel Robotics
   team:
   - contributors
+- firstName: Richa
+  lastName: Gadgil
+  image: richa.png
+  affiliation: CMU/MLD
+  team:
+  - core
 - key: agarcia
   firstName: Andy
   lastName: Garcia
@@ -872,6 +878,12 @@ people:
   team:
   - core
   - highlight
+- firstName: Tina
+  lastName: Townes
+  image: tina.png
+  affiliation: CMU
+  team:
+  - core
 - firstName: Dmytro
   lastName: Trotsko
   image: dmytro-trotsko.jpg
