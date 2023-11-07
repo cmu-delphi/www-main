@@ -15,8 +15,8 @@
     "hugo-bin": "^0.115.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
-    "prettier": "^2.8.8",
-    "prettier-plugin-go-template": "^0.0.13",
+    "prettier": "^3.0.3",
+    "prettier-plugin-go-template": "^0.0.15",
     "rimraf": "^5.0.5",
     "shx": "^0.3.4"
   },
