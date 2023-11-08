@@ -53,6 +53,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
+library(covidcast)
+options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 
 One of our primary initiatives at the Delphi COVIDcast project
@@ -396,6 +398,12 @@ based on Delphi's `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey",
 According to the `r blogdown::shortcode_html("apireflink", "api/covidcast-signals/fb-survey.html", "relevant documentation page")`,
 this is the `fb-survey` data source's `smoothed_hh_cmnty_cli` signal.
 (Click the "Code" button to see the Python code used to produce this example.)
+
+```{python, include = FALSE}
+import covidcast
+import os
+covidcast.use_api_key(os.environ['API_KEY'])
+```
 
 ```{python python-data, dev='svg'}
 import covidcast

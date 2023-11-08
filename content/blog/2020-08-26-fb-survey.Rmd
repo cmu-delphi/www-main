@@ -48,6 +48,7 @@ output:
 ---
 
 ```{r, echo=FALSE}
+library(covidcast)
 options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 
