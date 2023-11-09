@@ -216,6 +216,12 @@ people:
   affiliation: Girls of Steel Robotics
   team:
   - contributors
+- firstName: Richa
+  lastName: Gadgil
+  image: richa.png
+  affiliation: CMU/MLD
+  team:
+  - core
 - key: agarcia
   firstName: Andy
   lastName: Garcia
@@ -865,6 +871,12 @@ people:
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
   leaderOrder: 1
+- firstName: Tina
+  lastName: Townes
+  image: tina.png
+  affiliation: CMU
+  team:
+  - core
 - firstName: Will
   lastName: Townes
   image: will-townes.jpg
