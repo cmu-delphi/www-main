@@ -871,6 +871,12 @@ people:
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
   leaderOrder: 1
+- firstName: Tina
+  lastName: Townes
+  image: tina.png
+  affiliation: CMU
+  team:
+  - core
 - firstName: Will
   lastName: Townes
   image: will-townes.jpg
@@ -878,12 +884,6 @@ people:
   team:
   - core
   - highlight
-- firstName: Tina
-  lastName: Townes
-  image: tina.png
-  affiliation: CMU
-  team:
-  - core
 - firstName: Dmytro
   lastName: Trotsko
   image: dmytro-trotsko.jpg
