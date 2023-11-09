@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
       - name: Extract version
@@ -42,12 +42,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
       - name: Cache Node.js modules
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
           key: ${{ runner.OS }}-node2-${{ hashFiles('**/package-lock.json') }}
@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: dev
           ssh-key: ${{ secrets.CMU_DELPHI_DEPLOY_MACHINE_SSH }}
