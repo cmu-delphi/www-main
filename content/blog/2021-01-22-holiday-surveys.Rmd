@@ -29,7 +29,8 @@ output:
   blogdown::html_page:
     toc: true
 ---
-```{r, echo=FALSE}
+```{r, include = FALSE}
+library(covidcast)
 options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 With pandemic fatigue setting in across the United States after a long year

@@ -27,12 +27,11 @@ output:
     toc: true
 ---
 
-```{r, echo=FALSE}
-options(covidcast.auth = Sys.getenv("API_KEY"))
-```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
+library(covidcast)
+options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 
 Most pandemic research has focused on questions related to prediction such as:

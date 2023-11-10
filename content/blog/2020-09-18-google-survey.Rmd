@@ -137,6 +137,8 @@ survey.
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
+library(covidcast)
+options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 5, out.extra = 'class="wide-figure"'}

@@ -30,7 +30,8 @@ output:
   blogdown::html_page:
     toc: true
 ---
-```{r, echo=FALSE}
+```{r, include = FALSE}
+library(covidcast)
 options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 Beginning in early April 2020, the `r blogdown::shortcode_html("reflink", "/", "Delphi group")` has

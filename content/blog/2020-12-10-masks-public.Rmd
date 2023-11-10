@@ -21,7 +21,8 @@ output:
     toc: true
 ---
 
-```{r, echo=FALSE}
+```{r, include = FALSE}
+library(covidcast)
 options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 

@@ -68,6 +68,8 @@ Below, we plot two maps to explore the indicator. On the left is a heatmap repre
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
+library(covidcast)
+options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 4, out.extra = 'class="wide-figure"'}
@@ -75,7 +77,6 @@ library(covidcast)
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
-options(covidcast.auth = Sys.getenv("API_KEY"))
 
 # Fetch DV % CLI signal and USAFacts confirmed case incidence proportion at
 # the state level
