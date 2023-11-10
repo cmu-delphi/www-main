@@ -282,7 +282,7 @@ and ask "What was known _as of_ this date?"
 This is important because estimates
 can change for _weeks_ as new data arrives:
 
-```{r q-versioning, warning=FALSE, message=FALSE, cache=TRUE}
+```{r q-versioning, warning=FALSE, message=FALSE, cache=TRUE, eval = FALSE}
 library(covidcast)
 library(dplyr)
 query_date <- "2020-08-01"
@@ -300,6 +300,7 @@ covidcast_signal(
                  col.names = c("Test date", "Positivity rate (%)", "Sample size",
                                "Issued on", "Lag (days)"))
 ```
+*Nov 6 2023 update: Quidel covidtest data is no longer available for public viewing, so we have removed the result of this code chunk.*
 
 Many data sources are subject to revisions:
 
