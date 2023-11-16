@@ -30,7 +30,7 @@ output:
   blogdown::html_page:
     toc: true
 ---
-```{r, include = FALSE}
+```{r, include=FALSE}
 library(covidcast)
 options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
