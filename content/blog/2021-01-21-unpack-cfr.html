@@ -36,25 +36,25 @@ bilbio-style: apalike
 link-citations: yes
 ---
 
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#introduction" id="toc-introduction">Introduction</a>
-<ul>
-<li><a href="#existing-hypotheses" id="toc-existing-hypotheses">Existing hypotheses</a></li>
-<li><a href="#the-importance-of-age-stratified-hospitalization-data" id="toc-the-importance-of-age-stratified-hospitalization-data">The importance of age-stratified hospitalization data</a></li>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#existing-hypotheses">Existing hypotheses</a></li>
+<li><a href="#the-importance-of-age-stratified-hospitalization-data">The importance of age-stratified hospitalization data</a></li>
 </ul></li>
-<li><a href="#methods" id="toc-methods">Methods</a>
-<ul>
-<li><a href="#separating-artifacts-from-true-improvements" id="toc-separating-artifacts-from-true-improvements">Separating Artifacts from True Improvements</a></li>
-<li><a href="#quantifying-true-improvements" id="toc-quantifying-true-improvements">Quantifying True Improvements</a></li>
+<li><a href="#methods">Methods</a><ul>
+<li><a href="#separating-artifacts-from-true-improvements">Separating Artifacts from True Improvements</a></li>
+<li><a href="#quantifying-true-improvements">Quantifying True Improvements</a></li>
 </ul></li>
-<li><a href="#cases-hospitalizations-and-deaths" id="toc-cases-hospitalizations-and-deaths">Cases, Hospitalizations, and Deaths</a></li>
-<li><a href="#demographic-shift" id="toc-demographic-shift">Demographic Shift</a></li>
-<li><a href="#age-stratified-hfr" id="toc-age-stratified-hfr">Age-Stratified HFR</a></li>
-<li><a href="#limitations" id="toc-limitations">Limitations</a></li>
-<li><a href="#summary" id="toc-summary">Summary</a></li>
-<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
+<li><a href="#cases-hospitalizations-and-deaths">Cases, Hospitalizations, and Deaths</a></li>
+<li><a href="#demographic-shift">Demographic Shift</a></li>
+<li><a href="#age-stratified-hfr">Age-Stratified HFR</a></li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#bibliography">Bibliography</a></li>
 </ul>
 </div>
 
@@ -74,8 +74,8 @@ Between the first peak in mid-April and the second peak in mid-July,
 the case fatality rate in the United States fell from 7.9% to the 0.7%–2.3% range,
 where it has since remained despite cases rising again into an (ongoing) third wave:</p>
 <div class="figure">
-<img src="/blog/2021-01-21-unpack-cfr_files/img_country/national_cases.svg" alt="" />
-<p class="caption"><strong>Figure 1.</strong> From left to right: confirmed cases, deaths, and case fatality rate, calculated using 7-day trailing averages based on national reporting data available via USAFacts (<span class="citation">USAFacts (<a href="#ref-usafacts" role="doc-biblioref">2020</a>)</span>) and pulled from the CMU COVIDcast API (<span class="citation">Project (<a href="#ref-covidcast2020api" role="doc-biblioref">2020</a>)</span>). Data outside the April 1st to December 1st time range considered in this study is grayed out.</p>
+<img src="/blog/2021-01-21-unpack-cfr_files/img_country/national_cases.svg" alt="Figure 1. From left to right: confirmed cases, deaths, and case fatality rate, calculated using 7-day trailing averages based on national reporting data available via USAFacts (USAFacts (2020)) and pulled from the CMU COVIDcast API (Project (2020)). Data outside the April 1st to December 1st time range considered in this study is grayed out." />
+<p class="caption"><strong>Figure 1.</strong> From left to right: confirmed cases, deaths, and case fatality rate, calculated using 7-day trailing averages based on national reporting data available via USAFacts (<span class="citation">USAFacts (<a href="#ref-usafacts">2020</a>)</span>) and pulled from the CMU COVIDcast API (<span class="citation">Project (<a href="#ref-covidcast2020api">2020</a>)</span>). Data outside the April 1st to December 1st time range considered in this study is grayed out.</p>
 </div>
 <div id="existing-hypotheses" class="section level3">
 <h3>Existing hypotheses</h3>
@@ -83,12 +83,12 @@ where it has since remained despite cases rising again into an (ongoing) third w
 several possible explanations have been floated for the drop in CFR,
 mostly centering around the following hypotheses:</p>
 <ul>
-<li><p>(H1) The <strong>age distribution among infected patients has shifted</strong>, altering the fatality rate significantly due to the comparative higher risk among the geriatric populations (<span class="citation">Thompson (<a href="#ref-thomp2020" role="doc-biblioref">2020</a>)</span>, <span class="citation">Whet (<a href="#ref-moser2020changing" role="doc-biblioref">2020</a>)</span>, <span class="citation">Horwitz et al. (<a href="#ref-horwitz2020trends" role="doc-biblioref">2020</a>)</span>).</p></li>
-<li><p>(H2) <strong>Testing capacity</strong> has gone up significantly, with case fatality rate driven down primarily due to the rising number of tests performed (<span class="citation">Fan et al. (<a href="#ref-fan2020decreased" role="doc-biblioref">2020</a>)</span>, <span class="citation">Madrigal and Moser (<a href="#ref-mad2020" role="doc-biblioref">2020</a>)</span>).</p></li>
-<li><p>(H3) Apparent shifts in case fatality rate, are artifacts due to the <strong>delay between detection and fatality</strong> (<span class="citation">Thompson (<a href="#ref-thomp2020" role="doc-biblioref">2020</a>)</span>, <span class="citation">Madrigal (<a href="#ref-madrigal2020second" role="doc-biblioref">2020</a>)</span>).</p></li>
-<li><p>(H4) <strong>Treatment has improved</strong> as doctors grow more experienced and new therapeutics become available, lowering the fatality rate over time (<span class="citation">Levy (<a href="#ref-levy2020gates" role="doc-biblioref">2020</a>)</span>, <span class="citation">Horwitz et al. (<a href="#ref-horwitz2020trends" role="doc-biblioref">2020</a>)</span>, <span class="citation">Beigel et al. (<a href="#ref-beigel2020remdesivir" role="doc-biblioref">2020</a>)</span>, <span class="citation">Group (<a href="#ref-recovery2020dexamethasone" role="doc-biblioref">2020</a>)</span>, <span class="citation">Self et al. (<a href="#ref-self2020effect" role="doc-biblioref">2020</a>)</span>).</p></li>
-<li><p>(H5) <strong>The disease itself is mutating</strong>, leading to changes in the actual infection fatality rate over time (<span class="citation">Pachetti et al. (<a href="#ref-pachetti2020impact" role="doc-biblioref">2020</a>)</span>, <span class="citation">Fan et al. (<a href="#ref-fan2020decreased" role="doc-biblioref">2020</a>)</span>).</p></li>
-<li><p>(H6) Social distancing precautions have <strong>reduced the viral load</strong> that individuals are exposed to, resulting in less severe infections (<span class="citation">El Zein (<a href="#ref-eldeclining" role="doc-biblioref">n.d.</a>)</span>, <span class="citation">Pachetti et al. (<a href="#ref-pachetti2020impact" role="doc-biblioref">2020</a>)</span>, <span class="citation">Piubelli et al. (<a href="#ref-piubelli2020overall" role="doc-biblioref">2020</a>)</span>).</p></li>
+<li><p>(H1) The <strong>age distribution among infected patients has shifted</strong>, altering the fatality rate significantly due to the comparative higher risk among the geriatric populations (<span class="citation">Thompson (<a href="#ref-thomp2020">2020</a>)</span>, <span class="citation">Whet (<a href="#ref-moser2020changing">2020</a>)</span>, <span class="citation">Horwitz et al. (<a href="#ref-horwitz2020trends">2020</a>)</span>).</p></li>
+<li><p>(H2) <strong>Testing capacity</strong> has gone up significantly, with case fatality rate driven down primarily due to the rising number of tests performed (<span class="citation">Fan et al. (<a href="#ref-fan2020decreased">2020</a>)</span>, <span class="citation">Madrigal and Moser (<a href="#ref-mad2020">2020</a>)</span>).</p></li>
+<li><p>(H3) Apparent shifts in case fatality rate, are artifacts due to the <strong>delay between detection and fatality</strong> (<span class="citation">Thompson (<a href="#ref-thomp2020">2020</a>)</span>, <span class="citation">Madrigal (<a href="#ref-madrigal2020second">2020</a>)</span>).</p></li>
+<li><p>(H4) <strong>Treatment has improved</strong> as doctors grow more experienced and new therapeutics become available, lowering the fatality rate over time (<span class="citation">Levy (<a href="#ref-levy2020gates">2020</a>)</span>, <span class="citation">Horwitz et al. (<a href="#ref-horwitz2020trends">2020</a>)</span>, <span class="citation">Beigel et al. (<a href="#ref-beigel2020remdesivir">2020</a>)</span>, <span class="citation">Group (<a href="#ref-recovery2020dexamethasone">2020</a>)</span>, <span class="citation">Self et al. (<a href="#ref-self2020effect">2020</a>)</span>).</p></li>
+<li><p>(H5) <strong>The disease itself is mutating</strong>, leading to changes in the actual infection fatality rate over time (<span class="citation">Pachetti et al. (<a href="#ref-pachetti2020impact">2020</a>)</span>, <span class="citation">Fan et al. (<a href="#ref-fan2020decreased">2020</a>)</span>).</p></li>
+<li><p>(H6) Social distancing precautions have <strong>reduced the viral load</strong> that individuals are exposed to, resulting in less severe infections (<span class="citation">El Zein (<a href="#ref-eldeclining">n.d.</a>)</span>, <span class="citation">Pachetti et al. (<a href="#ref-pachetti2020impact">2020</a>)</span>, <span class="citation">Piubelli et al. (<a href="#ref-piubelli2020overall">2020</a>)</span>).</p></li>
 </ul>
 <p>Note that when the age distribution shifts to a younger demographic (H1),
 the dropping aggregate case fatality rate can be misleading
@@ -123,19 +123,19 @@ has been relatively thorough
 (compared to the general population)
 throughout the course of the pandemic.
 While there may have been changes in admitting criteria
-at the very worst moments (<span class="citation">Phua et al. (<a href="#ref-phua_icu_manage" role="doc-biblioref">2020</a>)</span>, <span class="citation">Cohen et al. (<a href="#ref-uptodate_eval" role="doc-biblioref">2020</a>)</span>),
+at the very worst moments (<span class="citation">Phua et al. (<a href="#ref-phua_icu_manage">2020</a>)</span>, <span class="citation">Cohen et al. (<a href="#ref-uptodate_eval">2020</a>)</span>),
 for example, when New York hospital demand exceeded capacity in late March,
 for the most part, criteria for inpatient hospitalization
 is relatively consistent across time periods.
 Regrettably, however, reliable line-level age-stratified hospitalization data
 is not yet publicly available for most states
-(<span class="citation">Ornstein (<a href="#ref-propublica_hosp" role="doc-biblioref">2020</a>)</span>, <span class="citation">Murray (<a href="#ref-data_problems_nyt" role="doc-biblioref">2020</a>)</span>),
+(<span class="citation">Ornstein (<a href="#ref-propublica_hosp">2020</a>)</span>, <span class="citation">Murray (<a href="#ref-data_problems_nyt">2020</a>)</span>),
 leaving central questions unresolved.</p>
 <p>We center our analysis on (1) state-level data made available
-by the Florida Department of Health (FDOH, <span class="citation">Florida Department of Health (<a href="#ref-florida_line_data" role="doc-biblioref">2020</a>)</span>)
+by the Florida Department of Health (FDOH, <span class="citation">Florida Department of Health (<a href="#ref-florida_line_data">2020</a>)</span>)
 and (2) recently released (but incomplete) national line-level data
 made available by the Centers for Disease Control and Prevention
-(CDC, <span class="citation">CDC Case Surveillance Task Force (<a href="#ref-cdc_data" role="doc-biblioref">2020</a>)</span>) from April 1, 2020 to December 1, 2020.
+(CDC, <span class="citation">CDC Case Surveillance Task Force (<a href="#ref-cdc_data">2020</a>)</span>) from April 1, 2020 to December 1, 2020.
 Both the FDOH and CDC have demonstrated
 an uncommon openness by sharing <em>line-level</em> data,
 including date of detection, demographics including age and gender,
@@ -216,13 +216,13 @@ We seek to quantify treatment improvements (H4)
 by computing the decrease in hospitalization fatality rate.
 Although practice is constantly evolving,
 major improvements in treatment in our study time range,
-such as dexamethasone (<span class="citation">Group (<a href="#ref-recovery2020dexamethasone" role="doc-biblioref">2020</a>)</span>) and remdesivir (<span class="citation">Beigel et al. (<a href="#ref-beigel2020remdesivir" role="doc-biblioref">2020</a>)</span>),
+such as dexamethasone (<span class="citation">Group (<a href="#ref-recovery2020dexamethasone">2020</a>)</span>) and remdesivir (<span class="citation">Beigel et al. (<a href="#ref-beigel2020remdesivir">2020</a>)</span>),
 have primarily targeted hospitalized patients,
 and we expect that improvements due to those treatments
 should be reflected in the HFR.</p>
 <p>In order to quantify the change in HFR with uncertainty,
 we use a block-bootstrapping technique with post-blackening
-(<span class="citation">Davison and Hinkley (<a href="#ref-bootstrap_davison_hinkley_1997" role="doc-biblioref">1997</a>)</span>).
+(<span class="citation">Davison and Hinkley (<a href="#ref-bootstrap_davison_hinkley_1997">1997</a>)</span>).
 This involves fitting cubic smoothing splines to each age group’s 7-day averaged HFRs,
 computing the residuals, block-bootstrap resampling 1000 replicates of the residuals,
 and adding the residuals back onto the fitted splines
@@ -242,11 +242,11 @@ the second wave peaks around mid-July,
 and the surge of cases leading up to December
 indicates an ongoing third wave:</p>
 <div class="figure">
-<img src="/blog/2021-01-21-unpack-cfr_files/img1/cases.svg" alt="" />
+<img src="/blog/2021-01-21-unpack-cfr_files/img1/cases.svg" alt="Figure 2a. (Florida FDOH data) Age-stratified cases, (eventual) deaths, and (eventual) hospitalizations in Florida FDOH data, by the date of first positive test result, respectively. Note that the x-axis is not the date of death or date of hospitalization." />
 <p class="caption"><strong>Figure 2a.</strong> (Florida FDOH data) Age-stratified cases, (eventual) deaths, and (eventual) hospitalizations in Florida FDOH data, by the date of first positive test result, respectively. Note that the x-axis is <em>not</em> the date of death or date of hospitalization.</p>
 </div>
 <div class="figure">
-<img src="/blog/2021-01-21-unpack-cfr_files/img_country/cases.svg" alt="" />
+<img src="/blog/2021-01-21-unpack-cfr_files/img_country/cases.svg" alt="Figure 2b. (National CDC data) Age-stratified cases, (eventual) deaths, and (eventual) hospitalizations in the United States CDC data, by date of report to the CDC. Note that the x-axis is not the date of death or date of hospitalization." />
 <p class="caption"><strong>Figure 2b.</strong> (National CDC data) Age-stratified cases, (eventual) deaths, and (eventual) hospitalizations in the United States CDC data, by date of report to the CDC. Note that the x-axis is <em>not</em> the date of death or date of hospitalization.</p>
 </div>
 <p><strong>Testing:</strong> While the FDOH and CDC datasets
@@ -270,8 +270,8 @@ Leading up to December, positive test rates in Florida are similar to those seen
 For Florida, this already places the ongoing third wave at almost the same level as the first peak,
 and nationally it has already surpassed the second peak.</p>
 <div class="figure">
-<img src="/blog/2021-01-21-unpack-cfr_files/img1/pos_test_rates.svg" alt="" />
-<p class="caption"><strong>Figure 3.</strong> COVID-19 positive test rates (right) and amount of testing (left and middle) for Florida and the United States as a whole, calculated using 7-day trailing averages and pulled from the COVID Tracking Project (<span class="citation">Meyer and Madrigal (<a href="#ref-covid_tracking_project" role="doc-biblioref">2020</a>)</span>). Positive test rate is calculated by dividing new positives by total new tests on each day. Data outside the April 1st to December 1st time range considered in this study is grayed out.</p>
+<img src="/blog/2021-01-21-unpack-cfr_files/img1/pos_test_rates.svg" alt="Figure 3. COVID-19 positive test rates (right) and amount of testing (left and middle) for Florida and the United States as a whole, calculated using 7-day trailing averages and pulled from the COVID Tracking Project (Meyer and Madrigal (2020)). Positive test rate is calculated by dividing new positives by total new tests on each day. Data outside the April 1st to December 1st time range considered in this study is grayed out." />
+<p class="caption"><strong>Figure 3.</strong> COVID-19 positive test rates (right) and amount of testing (left and middle) for Florida and the United States as a whole, calculated using 7-day trailing averages and pulled from the COVID Tracking Project (<span class="citation">Meyer and Madrigal (<a href="#ref-covid_tracking_project">2020</a>)</span>). Positive test rate is calculated by dividing new positives by total new tests on each day. Data outside the April 1st to December 1st time range considered in this study is grayed out.</p>
 </div>
 <p><strong>Cases:</strong> Across all age strata, as measured by cases,
 Florida’s second wave is the most severe out of the three waves.
@@ -322,11 +322,11 @@ Additionally, we note that older individuals
 comprise a disproportionate share
 of the hospitalization and death counts (see Figure 4 below):</p>
 <div class="figure">
-<img src="/blog/2021-01-21-unpack-cfr_files/img1/age_ratios.svg" alt="" />
+<img src="/blog/2021-01-21-unpack-cfr_files/img1/age_ratios.svg" alt="Figure 4a. (Florida FDOH data) Age distributions among Florida cases, (eventual) hospitalizations, and (eventual) deaths, by the date of first positive test result." />
 <p class="caption"><strong>Figure 4a.</strong> (Florida FDOH data) Age distributions among Florida cases, (eventual) hospitalizations, and (eventual) deaths, by the date of first positive test result.</p>
 </div>
 <div class="figure">
-<img src="/blog/2021-01-21-unpack-cfr_files/img_country/age_ratios.svg" alt="" />
+<img src="/blog/2021-01-21-unpack-cfr_files/img_country/age_ratios.svg" alt="Figure 4b. (National CDC data) Age distributions among national cases, (eventual) hospitalizations, and (eventual) deaths, by the date of report to the CDC." />
 <p class="caption"><strong>Figure 4b.</strong> (National CDC data) Age distributions among national cases, (eventual) hospitalizations, and (eventual) deaths, by the date of report to the CDC.</p>
 </div>
 <p><strong>Key takeaway #2:</strong> Since age distributions shifted substantially between the first and second waves (and continue to fluctuate), age must be accounted for in order to separate out the effects of treatment from age shift.</p>
@@ -553,7 +553,7 @@ td {font-size: 13px}
 </table>
 </center>
 <p><strong>Table 2.</strong> <em>Estimates of HFR and drop in HFR between April 1st and December 1st. Median and 95% confidence intervals are computed using block bootstrapping. Results with inadequate support are omitted.</em></p>
-<p>Consistent with findings that increased age is associated with higher mortality rates (<span class="citation">Mahase (<a href="#ref-Mahasem1327_agedeathrate" role="doc-biblioref">2020</a>)</span>),
+<p>Consistent with findings that increased age is associated with higher mortality rates (<span class="citation">Mahase (<a href="#ref-Mahasem1327_agedeathrate">2020</a>)</span>),
 we observe that as the age of the group increases, the corresponding HFR increases.
 Measuring treatment improvements by HFR drop (computed as <span class="math inline">\(\frac{\text{HFR}_{new} - \text{HFR}_{old}}{\text{HFR}_{old}}\)</span>),
 we also note that larger treatment improvements between April and December are correlated with younger age.
@@ -584,11 +584,11 @@ we observe an increase in age-stratified HFR and smaller treatment improvements 
 we also include plots of HFR estimates with uncertainty
 for all dates between April 1st and December 1st:</p>
 <div class="figure">
-<img src="/blog/2021-01-21-unpack-cfr_files/img1/florida_fdoh_full_est.svg" alt="" />
+<img src="/blog/2021-01-21-unpack-cfr_files/img1/florida_fdoh_full_est.svg" alt="Figure 5a. (Florida FDOH data) Estimate of trend and uncertainty in Florida’s age-stratified HFRs, derived using residual block-bootstrapping with cubic splines and post-blackening. Solid line corresponds to the age-stratified estimate, shaded region corresponds to the uncertainty around the estimate, and dotted line shows the original 7-day lagged HFR. HFR." />
 <p class="caption"><strong>Figure 5a.</strong> (Florida FDOH data) Estimate of trend and uncertainty in Florida’s age-stratified HFRs, derived using residual block-bootstrapping with cubic splines and post-blackening. Solid line corresponds to the age-stratified estimate, shaded region corresponds to the uncertainty around the estimate, and dotted line shows the original 7-day lagged HFR. HFR.</p>
 </div>
 <div class="figure">
-<img src="/blog/2021-01-21-unpack-cfr_files/img_country/national_cleaned_full_est.svg" alt="" />
+<img src="/blog/2021-01-21-unpack-cfr_files/img_country/national_cleaned_full_est.svg" alt="Figure 5b. (National CDC data) Estimate of trend and uncertainty in national age-stratified HFRs, derived using residual block-bootstrapping with cubic splines and post-blackening. Solid line corresponds to the age-stratified estimate, shaded region corresponds to the uncertainty around the estimate, and dotted line shows the original 7-day lagged HFR. HFR." />
 <p class="caption"><strong>Figure 5b.</strong> (National CDC data) Estimate of trend and uncertainty in national age-stratified HFRs, derived using residual block-bootstrapping with cubic splines and post-blackening. Solid line corresponds to the age-stratified estimate, shaded region corresponds to the uncertainty around the estimate, and dotted line shows the original 7-day lagged HFR. HFR.</p>
 </div>
 <p>Consistent with our point estimates,
@@ -675,78 +675,78 @@ Code is available here: <a href="https://github.com/Cheng-Cheng2/unpacking-covid
 </div>
 <div id="bibliography" class="section level2 unnumbered">
 <h2>Bibliography</h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-beigel2020remdesivir" class="csl-entry">
-Beigel, John H, Kay M Tomashek, Lori E Dodd, Aneesh K Mehta, Barry S Zingman, Andre C Kalil, Elizabeth Hohmann, et al. 2020. <span>“Remdesivir for the Treatment of Covid-19—Preliminary Report.”</span> <em>New England Journal of Medicine</em>.
+<div id="refs" class="references">
+<div id="ref-beigel2020remdesivir">
+<p>Beigel, John H, Kay M Tomashek, Lori E Dodd, Aneesh K Mehta, Barry S Zingman, Andre C Kalil, Elizabeth Hohmann, et al. 2020. “Remdesivir for the Treatment of Covid-19—Preliminary Report.” <em>New England Journal of Medicine</em>.</p>
 </div>
-<div id="ref-cdc_data" class="csl-entry">
-CDC Case Surveillance Task Force. 2020. <span>“COVID-19 Case Surveillance Data.”</span>
+<div id="ref-cdc_data">
+<p>CDC Case Surveillance Task Force. 2020. “COVID-19 Case Surveillance Data.”</p>
 </div>
-<div id="ref-uptodate_eval" class="csl-entry">
-Cohen, Pieter, Joann G Elmore, Jessamyn Blau, and Allyson Bloom. 2020. <span>“<span class="nocase">Coronavirus disease 2019 (COVID-19): Outpatient evaluation and management in adults</span>.”</span> In <em>UpToDate</em>. UpToDate.
+<div id="ref-uptodate_eval">
+<p>Cohen, Pieter, Joann G Elmore, Jessamyn Blau, and Allyson Bloom. 2020. “Coronavirus disease 2019 (COVID-19): Outpatient evaluation and management in adults.” In <em>UpToDate</em>. UpToDate.</p>
 </div>
-<div id="ref-bootstrap_davison_hinkley_1997" class="csl-entry">
-Davison, A. C., and D. V. Hinkley. 1997. <em>Bootstrap Methods and Their Application</em>. Cambridge Series in Statistical and Probabilistic Mathematics. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511802843">https://doi.org/10.1017/CBO9780511802843</a>.
+<div id="ref-bootstrap_davison_hinkley_1997">
+<p>Davison, A. C., and D. V. Hinkley. 1997. <em>Bootstrap Methods and Their Application</em>. Cambridge Series in Statistical and Probabilistic Mathematics. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511802843">https://doi.org/10.1017/CBO9780511802843</a>.</p>
 </div>
-<div id="ref-eldeclining" class="csl-entry">
-El Zein, S. n.d. <span>“Declining Trend in the Initial SARS-CoV-2 Viral Load over Time: Observations from Detroit, Michigan.”</span>
+<div id="ref-eldeclining">
+<p>El Zein, S. n.d. “Declining Trend in the Initial Sars-Cov-2 Viral Load over Time: Observations from Detroit, Michigan.”</p>
 </div>
-<div id="ref-fan2020decreased" class="csl-entry">
-Fan, Guihong, Zhichun Yang, Qianying Lin, Shi Zhao, Lin Yang, and Daihai He. 2020. <span>“Decreased Case Fatality Rate of COVID-19 in the Second Wave: A Study in 53 Countries or Regions.”</span> <em>Transboundary and Emerging Diseases</em>.
+<div id="ref-fan2020decreased">
+<p>Fan, Guihong, Zhichun Yang, Qianying Lin, Shi Zhao, Lin Yang, and Daihai He. 2020. “Decreased Case Fatality Rate of Covid-19 in the Second Wave: A Study in 53 Countries or Regions.” <em>Transboundary and Emerging Diseases</em>.</p>
 </div>
-<div id="ref-florida_line_data" class="csl-entry">
-Florida Department of Health. 2020. <span>“Florida Case Line Data.”</span> <a href="https://www.arcgis.com/home/item.html?id=4cc62b3a510949c7a8167f6baa3e069d">https://www.arcgis.com/home/item.html?id=4cc62b3a510949c7a8167f6baa3e069d</a>.
+<div id="ref-florida_line_data">
+<p>Florida Department of Health. 2020. “Florida Case Line Data.” <a href="https://www.arcgis.com/home/item.html?id=4cc62b3a510949c7a8167f6baa3e069d">https://www.arcgis.com/home/item.html?id=4cc62b3a510949c7a8167f6baa3e069d</a>.</p>
 </div>
-<div id="ref-recovery2020dexamethasone" class="csl-entry">
-Group, RECOVERY Collaborative. 2020. <span>“Dexamethasone in Hospitalized Patients with <span>COVID</span>-19—Preliminary Report.”</span> <em>New England Journal of Medicine</em>.
+<div id="ref-recovery2020dexamethasone">
+<p>Group, RECOVERY Collaborative. 2020. “Dexamethasone in Hospitalized Patients with COVID-19—Preliminary Report.” <em>New England Journal of Medicine</em>.</p>
 </div>
-<div id="ref-horwitz2020trends" class="csl-entry">
-Horwitz, Leora, Simon A Jones, Robert J Cerfolio, Fritz Francois, Joseph Greco, Bret Rudy, and Christopher M Petrilli. 2020. <span>“Trends in Covid-19 Risk-Adjusted Mortality Rates in a Single Health System.”</span> <em>medRxiv</em>.
+<div id="ref-horwitz2020trends">
+<p>Horwitz, Leora, Simon A Jones, Robert J Cerfolio, Fritz Francois, Joseph Greco, Bret Rudy, and Christopher M Petrilli. 2020. “Trends in Covid-19 Risk-Adjusted Mortality Rates in a Single Health System.” <em>medRxiv</em>.</p>
 </div>
-<div id="ref-levy2020gates" class="csl-entry">
-Levy, Steven. 2020. <span>“<span class="nocase">Bill Gates on Covid: Most US Tests Are <span>‘Completely Garbage’</span></span>.”</span> <em>Wired Magazine</em>. <a href="https://www.wired.com/story/bill-gates-on-covid-most-us-tests-are-completely-garbage/">https://www.wired.com/story/bill-gates-on-covid-most-us-tests-are-completely-garbage/</a>.
+<div id="ref-levy2020gates">
+<p>Levy, Steven. 2020. “Bill Gates on Covid: Most US Tests Are ‘Completely Garbage’.” <em>Wired Magazine</em>. <a href="https://www.wired.com/story/bill-gates-on-covid-most-us-tests-are-completely-garbage/">https://www.wired.com/story/bill-gates-on-covid-most-us-tests-are-completely-garbage/</a>.</p>
 </div>
-<div id="ref-madrigal2020second" class="csl-entry">
-Madrigal, Alexis. 2020. <span>“A Second Coronavirus Death Surge Is Coming.”</span> <em>The Atlantic</em>. <a href="https://www.theatlantic.com/health/archive/2020/07/second-coronavirus-death-surge/614122/">https://www.theatlantic.com/health/archive/2020/07/second-coronavirus-death-surge/614122/</a>.
+<div id="ref-madrigal2020second">
+<p>Madrigal, Alexis. 2020. “A Second Coronavirus Death Surge Is Coming.” <em>The Atlantic</em>. <a href="https://www.theatlantic.com/health/archive/2020/07/second-coronavirus-death-surge/614122/">https://www.theatlantic.com/health/archive/2020/07/second-coronavirus-death-surge/614122/</a>.</p>
 </div>
-<div id="ref-mad2020" class="csl-entry">
-Madrigal, Alexis, and Whet Moser. 2020. <span>“How Many Americans Are about to Die?”</span>
+<div id="ref-mad2020">
+<p>Madrigal, Alexis, and Whet Moser. 2020. “How Many Americans Are About to Die?”</p>
 </div>
-<div id="ref-Mahasem1327_agedeathrate" class="csl-entry">
-Mahase, Elisabeth. 2020. <span>“Covid-19: Death Rate Is 0.66% and Increases with Age, Study Estimates.”</span> <em>BMJ</em> 369. <a href="https://doi.org/10.1136/bmj.m1327">https://doi.org/10.1136/bmj.m1327</a>.
+<div id="ref-Mahasem1327_agedeathrate">
+<p>Mahase, Elisabeth. 2020. “Covid-19: Death Rate Is 0.66% and Increases with Age, Study Estimates.” <em>BMJ</em> 369. <a href="https://doi.org/10.1136/bmj.m1327">https://doi.org/10.1136/bmj.m1327</a>.</p>
 </div>
-<div id="ref-covid_tracking_project" class="csl-entry">
-Meyer, Robinson, and Alexis Madrigal. 2020. <em><span>The COVID Tracking Project</span></em>. The Atlantic. <a href="https://covidtracking.com/">https://covidtracking.com/</a>.
+<div id="ref-covid_tracking_project">
+<p>Meyer, Robinson, and Alexis Madrigal. 2020. <em>The COVID Tracking Project</em>. The Atlantic. <a href="https://covidtracking.com/">https://covidtracking.com/</a>.</p>
 </div>
-<div id="ref-data_problems_nyt" class="csl-entry">
-Murray, Christopher J. L. 2020. <span>“Why Can’t We See All of the Government’s Virus Data?”</span> <a href="https://www.nytimes.com/2020/10/23/opinion/coronavirus-data-secrecy.html">https://www.nytimes.com/2020/10/23/opinion/coronavirus-data-secrecy.html</a>.
+<div id="ref-data_problems_nyt">
+<p>Murray, Christopher J.L. 2020. “Why Can’t We See All of the Government’s Virus Data?” <a href="https://www.nytimes.com/2020/10/23/opinion/coronavirus-data-secrecy.html">https://www.nytimes.com/2020/10/23/opinion/coronavirus-data-secrecy.html</a>.</p>
 </div>
-<div id="ref-propublica_hosp" class="csl-entry">
-Ornstein, Charles. 2020. <span>“<span class="nocase">How Many People in the U.S. Are Hospitalized With COVID-19? Who Knows?</span>”</span> <em>ProPublica</em>. <a href="https://www.propublica.org/article/how-many-people-in-the-us-are-hospitalized-with-covid-19-who-knows">https://www.propublica.org/article/how-many-people-in-the-us-are-hospitalized-with-covid-19-who-knows</a>.
+<div id="ref-propublica_hosp">
+<p>Ornstein, Charles. 2020. “How Many People in the U.S. Are Hospitalized With COVID-19? Who Knows?” <em>ProPublica</em>. <a href="https://www.propublica.org/article/how-many-people-in-the-us-are-hospitalized-with-covid-19-who-knows">https://www.propublica.org/article/how-many-people-in-the-us-are-hospitalized-with-covid-19-who-knows</a>.</p>
 </div>
-<div id="ref-pachetti2020impact" class="csl-entry">
-Pachetti, Maria, Bruna Marini, Fabiola Giudici, Francesca Benedetti, Silvia Angeletti, Massimo Ciccozzi, Claudio Masciovecchio, Rudy Ippodrino, and Davide Zella. 2020. <span>“Impact of Lockdown on Covid-19 Case Fatality Rate and Viral Mutations Spread in 7 Countries in Europe and North America.”</span> <em>Journal of Translational Medicine</em> 18 (1): 1–7.
+<div id="ref-pachetti2020impact">
+<p>Pachetti, Maria, Bruna Marini, Fabiola Giudici, Francesca Benedetti, Silvia Angeletti, Massimo Ciccozzi, Claudio Masciovecchio, Rudy Ippodrino, and Davide Zella. 2020. “Impact of Lockdown on Covid-19 Case Fatality Rate and Viral Mutations Spread in 7 Countries in Europe and North America.” <em>Journal of Translational Medicine</em> 18 (1): 1–7.</p>
 </div>
-<div id="ref-phua_icu_manage" class="csl-entry">
-Phua, Jason, Li Weng, Lowell Ling, Moritoki Egi, Chae-Man Lim, Jigeeshu Vasishtha Divatia, Babu Raja Shrestha, et al. 2020. <span>“<span class="nocase">Intensive care management of coronavirus disease 2019 (COVID-19): challenges and recommendations</span>.”</span> <em>The Lancet Respiratory Medicine</em> 8 (5): 506–17. <a href="https://doi.org/10.1016/s2213-2600(20)30161-2">https://doi.org/10.1016/s2213-2600(20)30161-2</a>.
+<div id="ref-phua_icu_manage">
+<p>Phua, Jason, Li Weng, Lowell Ling, Moritoki Egi, Chae-Man Lim, Jigeeshu Vasishtha Divatia, Babu Raja Shrestha, et al. 2020. “Intensive care management of coronavirus disease 2019 (COVID-19): challenges and recommendations.” <em>The Lancet Respiratory Medicine</em> 8 (5): 506–17. <a href="https://doi.org/10.1016/s2213-2600(20)30161-2">https://doi.org/10.1016/s2213-2600(20)30161-2</a>.</p>
 </div>
-<div id="ref-piubelli2020overall" class="csl-entry">
-Piubelli, Chiara, Michela Deiana, Elena Pomari, Ronaldo Silva, Zeno Bisoffi, Fabio Formenti, Francesca Perandin, Federico Gobbi, and Dora Buonfrate. 2020. <span>“Overall Decrease in SARS-CoV-2 Viral Load and Reduction in Clinical Burden: The Experience of a Hospital in Northern Italy.”</span> <em>Clinical Microbiology and Infection</em>.
+<div id="ref-piubelli2020overall">
+<p>Piubelli, Chiara, Michela Deiana, Elena Pomari, Ronaldo Silva, Zeno Bisoffi, Fabio Formenti, Francesca Perandin, Federico Gobbi, and Dora Buonfrate. 2020. “Overall Decrease in Sars-Cov-2 Viral Load and Reduction in Clinical Burden: The Experience of a Hospital in Northern Italy.” <em>Clinical Microbiology and Infection</em>.</p>
 </div>
-<div id="ref-covidcast2020api" class="csl-entry">
-Project, CMU Delphi. 2020. <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html</a>.
+<div id="ref-covidcast2020api">
+<p>Project, CMU Delphi. 2020. <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html">https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html</a>.</p>
 </div>
-<div id="ref-self2020effect" class="csl-entry">
-Self, Wesley H, Matthew W Semler, Lindsay M Leither, Jonathan D Casey, Derek C Angus, Roy G Brower, Steven Y Chang, et al. 2020. <span>“Effect of Hydroxychloroquine on Clinical Status at 14 Days in Hospitalized Patients with COVID-19: A Randomized Clinical Trial.”</span> <em>JAMA</em>.
+<div id="ref-self2020effect">
+<p>Self, Wesley H, Matthew W Semler, Lindsay M Leither, Jonathan D Casey, Derek C Angus, Roy G Brower, Steven Y Chang, et al. 2020. “Effect of Hydroxychloroquine on Clinical Status at 14 Days in Hospitalized Patients with Covid-19: A Randomized Clinical Trial.” <em>JAMA</em>.</p>
 </div>
-<div id="ref-thomp2020" class="csl-entry">
-Thompson, Derek. 2020. <span>“COVID-19 Cases Are Rising, so Why Are Deaths Flatlining?”</span> <em>The Atlantic</em>. <a href="https://www.theatlantic.com/ideas/archive/2020/07/why-covid-death-rate-down/613945/">https://www.theatlantic.com/ideas/archive/2020/07/why-covid-death-rate-down/613945/</a>.
+<div id="ref-thomp2020">
+<p>Thompson, Derek. 2020. “COVID-19 Cases Are Rising, so Why Are Deaths Flatlining?” <em>The Atlantic</em>. <a href="https://www.theatlantic.com/ideas/archive/2020/07/why-covid-death-rate-down/613945/">https://www.theatlantic.com/ideas/archive/2020/07/why-covid-death-rate-down/613945/</a>.</p>
 </div>
-<div id="ref-usafacts" class="csl-entry">
-USAFacts. 2020. <span>“Coronavirus Outbreak Stats &amp; Data.”</span> <a href="https://usafacts.org/issues/coronavirus/">https://usafacts.org/issues/coronavirus/</a>.
+<div id="ref-usafacts">
+<p>USAFacts. 2020. “Coronavirus Outbreak Stats &amp; Data.” <a href="https://usafacts.org/issues/coronavirus/">https://usafacts.org/issues/coronavirus/</a>.</p>
 </div>
-<div id="ref-moser2020changing" class="csl-entry">
-Whet, Moser. 2020. <span>“<span class="nocase">Why Changing COVID-19 Demographics in the US Make Death Trends Harder to Understand</span>.”</span> <em>The COVID Tracking Project Blog</em>. <a href="https://covidtracking.com/blog/why-changing-covid-19-demographics-in-the-us-make-death-trends-harder-to">https://covidtracking.com/blog/why-changing-covid-19-demographics-in-the-us-make-death-trends-harder-to</a>.
+<div id="ref-moser2020changing">
+<p>Whet, Moser. 2020. “Why Changing COVID-19 Demographics in the US Make Death Trends Harder to Understand.” <em>The COVID Tracking Project Blog</em>. <a href="https://covidtracking.com/blog/why-changing-covid-19-demographics-in-the-us-make-death-trends-harder-to">https://covidtracking.com/blog/why-changing-covid-19-demographics-in-the-us-make-death-trends-harder-to</a>.</p>
 </div>
 </div>
 </div>
