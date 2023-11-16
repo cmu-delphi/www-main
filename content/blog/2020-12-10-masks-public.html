@@ -21,15 +21,14 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#studying-mask-use-with-surveys">Studying Mask Use with Surveys</a></li>
-<li><a href="#addressing-potential-survey-biases">Addressing Potential Survey Biases</a></li>
-<li><a href="#a-probabilistic-argument-for-mask-use">A Probabilistic Argument for Mask Use</a></li>
-<li><a href="#public-activities-social-distancing-and-masks">Public Activities, Social Distancing, and Masks</a></li>
-<li><a href="#more-opportunities-in-survey-data">More Opportunities in Survey Data</a></li>
+<li><a href="#studying-mask-use-with-surveys" id="toc-studying-mask-use-with-surveys">Studying Mask Use with Surveys</a></li>
+<li><a href="#addressing-potential-survey-biases" id="toc-addressing-potential-survey-biases">Addressing Potential Survey Biases</a></li>
+<li><a href="#a-probabilistic-argument-for-mask-use" id="toc-a-probabilistic-argument-for-mask-use">A Probabilistic Argument for Mask Use</a></li>
+<li><a href="#public-activities-social-distancing-and-masks" id="toc-public-activities-social-distancing-and-masks">Public Activities, Social Distancing, and Masks</a></li>
+<li><a href="#more-opportunities-in-survey-data" id="toc-more-opportunities-in-survey-data">More Opportunities in Survey Data</a></li>
 </ul>
 </div>
 
@@ -79,8 +78,11 @@ highest in the country; in the other three (South Dakota, Idaho, and Wyoming),
 it’s among the lowest.</p>
 <pre class="r"><code>library(covidcast)
 library(dplyr)
+## Warning: package &#39;dplyr&#39; was built under R version 4.1.3
 library(ggplot2)
+## Warning: package &#39;ggplot2&#39; was built under R version 4.1.3
 library(directlabels)
+## Warning: package &#39;directlabels&#39; was built under R version 4.1.3
 
 states_of_interest &lt;- c(&quot;dc&quot;, &quot;ma&quot;, &quot;ny&quot;, &quot;wy&quot;, &quot;sd&quot;, &quot;id&quot;)
 
@@ -101,7 +103,12 @@ ggplot(state_masks, aes(x = time_value, y = value, color = geo_value)) +
        subtitle = &quot;From Delphi&#39;s surveys, conducted through Facebook&quot;,
        caption = &quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;) +
   theme_bw() +
-  guides(color = FALSE)</code></pre>
+  guides(color = FALSE)
+## Warning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use &quot;none&quot; instead as
+## of ggplot2 3.3.4.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
 <p><img src="/blog/2020-12-10-masks-public_files/figure-html/state_masks_time-1.svg" width="672" /></p>
 <p>Despite the gap between states, it also seems clear that self-reported mask use
 has been on the rise in states whose mask use started low. This is quite
