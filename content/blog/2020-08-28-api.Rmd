@@ -282,7 +282,7 @@ and ask "What was known _as of_ this date?"
 This is important because estimates
 can change for _weeks_ as new data arrives:
 
-```{r q-versioning, warning=FALSE, message=FALSE, cache=TRUE, eval = FALSE}
+```{r q-versioning, warning=FALSE, message=FALSE, cache=TRUE, eval=FALSE}
 library(covidcast)
 library(dplyr)
 query_date <- "2020-08-01"
