@@ -137,8 +137,6 @@ survey.
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = TRUE)
-library(covidcast)
-options(covidcast.auth = Sys.getenv("API_KEY"))
 ```
 
 ```{r, message = FALSE, warning = FALSE, fig.width = 10, fig.height = 5, out.extra = 'class="wide-figure"'}
@@ -146,6 +144,8 @@ library(covidcast)
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
+
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 # Fetch county-level Google and Facebook % CLI-in-community signals, and JHU
 # confirmed case incidence proportion

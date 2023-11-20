@@ -28,11 +28,6 @@ output:
     toc: true
 ---
 
-```{r, include=FALSE}
-library(covidcast)
-options(covidcast.auth = Sys.getenv("API_KEY"))
-```
-
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ## This post's filename starts with _ so it is not run by blogdown during the
 ## post build process, since it depends on private microdata. Instead, we commit
@@ -45,6 +40,8 @@ library(covidcast)
 library(ggplot2)
 library(scales)
 library(gt)
+
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 knitr::opts_chunk$set(echo = FALSE)
 
