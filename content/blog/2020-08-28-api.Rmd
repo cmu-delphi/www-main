@@ -398,15 +398,13 @@ According to the `r blogdown::shortcode_html("apireflink", "api/covidcast-signal
 this is the `fb-survey` data source's `smoothed_hh_cmnty_cli` signal.
 (Click the "Code" button to see the Python code used to produce this example.)
 
-```{python, include=FALSE}
-import covidcast
-import os
-covidcast.use_api_key(os.environ['API_KEY'])
-```
 ```{python python-data, dev='svg'}
 import covidcast
 from datetime import date
 import matplotlib.pyplot as plt
+import os
+
+covidcast.use_api_key(os.environ['API_KEY']) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 data = covidcast.signal("fb-survey", "smoothed_hh_cmnty_cli",
                         date(2020, 9, 8), date(2020, 9, 8),
