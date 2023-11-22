@@ -21,10 +21,6 @@ output:
     toc: true
 ---
 
-```{r, include=FALSE}
-library(covidcast)
-options(covidcast.auth = Sys.getenv("API_KEY"))
-```
 
 As COVID cases and deaths continue to rise in the United States, we are
 repeatedly reminded that unless we take the appropriate precautions---by wearing
@@ -83,6 +79,8 @@ library(covidcast)
 library(dplyr)
 library(ggplot2)
 library(directlabels)
+
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 states_of_interest <- c("dc", "ma", "ny", "wy", "sd", "id")
 

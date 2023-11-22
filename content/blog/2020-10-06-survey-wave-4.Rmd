@@ -134,6 +134,8 @@ library(ggplot2)
 library(grid)
 library(gridExtra)
 
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
+
 start_day <- "2020-09-08"
 end_day <- "2020-10-07"
 

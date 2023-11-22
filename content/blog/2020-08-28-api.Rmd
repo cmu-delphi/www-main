@@ -285,6 +285,7 @@ can change for _weeks_ as new data arrives:
 ```{r q-versioning, warning=FALSE, message=FALSE, cache=TRUE, eval=FALSE}
 library(covidcast)
 library(dplyr)
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 query_date <- "2020-08-01"
 covidcast_signal(
   data_source = "quidel",
@@ -360,6 +361,7 @@ that are due to COVID-19 in several states.
 
 ```{r dv-graph, message=FALSE, cache=TRUE}
 library(covidcast)
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 hosp <- covidcast_signal(
     data_source = "hospital-admissions", signal = "smoothed_adj_covid19_from_claims",
     start_day = "2020-03-01", end_day = "2020-08-30",
