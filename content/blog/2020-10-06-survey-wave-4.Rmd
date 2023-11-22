@@ -128,7 +128,7 @@ their local community who is sick (with a fever and at least one other symptom,
 such as cough or difficulty breathing). This percentage `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey#some-interesting-examples", "correlates very well")`
 with COVID case rates as reported by state agencies.
 
-```{r mask-wearing, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
+```{r mask-wearing, warning=FALSE, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(ggplot2)
 library(grid)

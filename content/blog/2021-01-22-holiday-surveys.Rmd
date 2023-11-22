@@ -67,7 +67,7 @@ from airlines suggested that travel reached its highest levels since the start
 of the pandemic during the Christmas holiday with about 1% of the US population
 taking flights in just the few days surrounding the holiday.
 
-```{r traveled-recently, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
+```{r traveled-recently, warning=FALSE, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(ggplot2)
 library(stringr)
