@@ -400,6 +400,10 @@ According to the `r blogdown::shortcode_html("apireflink", "api/covidcast-signal
 this is the `fb-survey` data source's `smoothed_hh_cmnty_cli` signal.
 (Click the "Code" button to see the Python code used to produce this example.)
 
+```{python, include=FALSE}
+import matplotlib.pyplot as plt # workaround for render problem due to weird interaction among reticulate, covidcast and matplotlib
+```
+
 ```{python python-data, dev='svg'}
 import covidcast
 from datetime import date
@@ -411,7 +415,7 @@ covidcast.use_api_key(os.environ['API_KEY']) # for more on API keys, see: https:
 data = covidcast.signal("fb-survey", "smoothed_hh_cmnty_cli",
                         date(2020, 9, 8), date(2020, 9, 8),
                         geo_type="state")
-covidcast.plot_choropleth(data, figsize=(7, 5))
+covidcast.plot(data, plot_type="choropleth", figsize=(7, 5))
 plt.title("% who know someone who is sick, Sept 8, 2020")
 ```
 
