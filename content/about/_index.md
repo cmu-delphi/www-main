@@ -39,7 +39,7 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 
 * **September 2023.** We were selected to be a Center of Innovation in Outbreak Analytics and Disease Modeling by the Centers for Disease Control and Prevention’s [Center for Forecasting and Outbreak Analytics](https://www.cdc.gov/forecast-outbreak-analytics/index.html). We are one of thirteen centers serving as the core of [Insight Net](https://www.cdc.gov/forecast-outbreak-analytics/partners/insightnet/index.html).
 
-* ** March 2023.** With the sunsetting of regular COVID-19 Case reporting by both JHU CSSE and USAFacts, we are no longer focusing on case tracking and forecasting and are now prioritizing COVID and influenza-related hospitalizations, and on gearing up for tracking other circulating and emerging pathogens.
+* **March 2023.** With the sunsetting of regular COVID-19 Case reporting by both JHU CSSE and USAFacts, we are no longer focusing on case tracking and forecasting and are now prioritizing COVID and influenza-related hospitalizations, and on gearing up for tracking other circulating and emerging pathogens.
 
 * **February 2023.** We commenced a new project supporting the [CDC’s Center for Outbreak Forecasting and Analytics](https://www.cdc.gov/forecast-outbreak-analytics/index.html), which includes, among other goals, the prototyping of federated epidemic surveillance.
 
