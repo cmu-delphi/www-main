@@ -74,7 +74,7 @@ District of Columbia, Massachusetts, and New York), mask usage is among the
 highest in the country; in the other three (South Dakota, Idaho, and Wyoming),
 it's among the lowest.
 
-```{r state_masks_time, message=FALSE}
+```{r state_masks_time, message=FALSE, warning=FALSE}
 library(covidcast)
 library(dplyr)
 library(ggplot2)
@@ -117,7 +117,7 @@ states---might make you wonder: If mask usage is over 80% in most states and
 over 90% in many, why does the rate of new COVID cases in the United States
 currently look like this?
 
-```{r national_cases_time, message=FALSE}
+```{r national_cases_time, message=FALSE, warning=FALSE}
 cases <- covidcast_signal(
   "indicator-combination", "confirmed_7dav_incidence_num",
   start_day = "2020-09-15", end_day = "2020-12-05",
@@ -221,7 +221,7 @@ mask use.
 Let's see how the data looks. We'll plot the percentage of people answering
 "all" or "most" to each mask question in each state:
 
-```{r mask_questions_compared, message=FALSE}
+```{r mask_questions_compared, message=FALSE, warning=FALSE}
 masked <- covidcast_signal(
   "fb-survey", "smoothed_wwearing_mask",
   start_day = "2020-12-01", end_day = "2020-12-01",
@@ -331,7 +331,7 @@ is "Spent time with someone who isn't currently staying with you"; whether this
 is done with a mask or not, it represents a higher risk. And the data shows that
 it's done more often in states where fewer people report wearing masks:
 
-```{r social_distancing, message=FALSE}
+```{r social_distancing, message=FALSE, warning=FALSE}
 spent_time <- covidcast_signal(
   "fb-survey", "smoothed_wspent_time_1d",
   start_day = "2020-12-01", end_day = "2020-12-01",
@@ -357,7 +357,7 @@ cell phone location data. Using [state-level aggregates from our
 API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/safegraph.html#safegraph-weekly-patterns),
 we can compare mask use to the proportion of people visiting restaurants in each state:
 
-```{r restaurants, message=FALSE}
+```{r restaurants, message=FALSE, warning=FALSE}
 # 2020-11-29 was most recent data available at time of writing
 restaurants <- covidcast_signal(
   "safegraph", "restaurants_visit_prop",
