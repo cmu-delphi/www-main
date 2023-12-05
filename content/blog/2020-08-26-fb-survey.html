@@ -47,20 +47,19 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#short-background">Short Background</a></li>
-<li><a href="#why-run-these-surveys">Why Run These Surveys?</a></li>
-<li><a href="#whats-in-the-survey">What’s in the Survey?</a></li>
-<li><a href="#some-interesting-examples">Some Interesting Examples</a></li>
-<li><a href="#basic-correlation-analysis">Basic Correlation Analysis</a>
+<li><a href="#short-background" id="toc-short-background">Short Background</a></li>
+<li><a href="#why-run-these-surveys" id="toc-why-run-these-surveys">Why Run These Surveys?</a></li>
+<li><a href="#whats-in-the-survey" id="toc-whats-in-the-survey">What’s in the Survey?</a></li>
+<li><a href="#some-interesting-examples" id="toc-some-interesting-examples">Some Interesting Examples</a></li>
+<li><a href="#basic-correlation-analysis" id="toc-basic-correlation-analysis">Basic Correlation Analysis</a>
 <ul>
-<li><a href="#correlations-sliced-by-time">Correlations Sliced by Time</a></li>
-<li><a href="#correlations-sliced-by-county">Correlations Sliced by County</a></li>
+<li><a href="#correlations-sliced-by-time" id="toc-correlations-sliced-by-time">Correlations Sliced by Time</a></li>
+<li><a href="#correlations-sliced-by-county" id="toc-correlations-sliced-by-county">Correlations Sliced by County</a></li>
 </ul></li>
-<li><a href="#whats-next-with-the-surveys">What’s Next with the Surveys</a></li>
+<li><a href="#whats-next-with-the-surveys" id="toc-whats-next-with-the-surveys">What’s Next with the Surveys</a></li>
 </ul>
 </div>
 
@@ -140,6 +139,8 @@ which already provides a nice sanity check.</p>
 <pre class="r"><code>library(covidcast)
 library(dplyr)
 library(gridExtra)
+
+options(covidcast.auth = Sys.getenv(&quot;API_KEY&quot;)) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 # Fetch Facebook % CLI signal and JHU confirmed case incidence proportion at
 # the state level

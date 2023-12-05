@@ -27,14 +27,13 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#causal-inference">Causal Inference</a></li>
-<li><a href="#a-marginal-structural-model">A Marginal Structural Model</a></li>
-<li><a href="#the-data-and-the-results">The Data and the Results</a></li>
-<li><a href="#whats-next">What’s Next?</a></li>
+<li><a href="#causal-inference" id="toc-causal-inference">Causal Inference</a></li>
+<li><a href="#a-marginal-structural-model" id="toc-a-marginal-structural-model">A Marginal Structural Model</a></li>
+<li><a href="#the-data-and-the-results" id="toc-the-data-and-the-results">The Data and the Results</a></li>
+<li><a href="#whats-next" id="toc-whats-next">What’s Next?</a></li>
 </ul>
 </div>
 
@@ -368,6 +367,8 @@ library(directlabels)
 library(dplyr)
 library(lubridate)
 library(ggplot2)
+
+options(covidcast.auth = Sys.getenv(&quot;API_KEY&quot;)) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 # Top 5 most populated states according to
 # https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population
