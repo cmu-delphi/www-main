@@ -398,7 +398,7 @@ weekly deaths and mobility
 starting February 15, 2020,
 for a few states:
 
-```{r deaths-by-state, message=FALSE}
+```{r deaths-by-state, message=FALSE, warning=FALSE}
 library(covidcast)
 library(directlabels)
 library(dplyr)
