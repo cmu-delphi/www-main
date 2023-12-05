@@ -379,9 +379,9 @@ based on Delphi’s {{< reflink "2020-08-26-fb-survey" "symptom surveys" >}}.
 According to the {{< apireflink "api/covidcast-signals/fb-survey.html" "relevant documentation page" >}},
 this is the <code>fb-survey</code> data source’s <code>smoothed_hh_cmnty_cli</code> signal.
 (Click the “Code” button to see the Python code used to produce this example.)</p>
-<pre class="python"><code>import covidcast
+<pre class="python"><code>import matplotlib.pyplot as plt
+import covidcast
 from datetime import date
-import matplotlib.pyplot as plt
 import os
 
 covidcast.use_api_key(os.environ[&#39;API_KEY&#39;]) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
