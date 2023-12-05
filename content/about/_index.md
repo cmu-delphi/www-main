@@ -67,7 +67,7 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 
 * **December 2020.** We added national provisional death counts, from the National Center for Health Statistics (NCHS). [These data are](https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm)[ based on death certificate data received and coded by NCHS](https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm).
 
-* **December 2020.** We added inpatient and outpatient Covid-19 signals based on aggregated statistics from medical claims, provided to us by [Change Healthcare](https://www.changehealthcare.com/).
+* **December 2020.** We added inpatient and outpatient COVID-19 signals based on aggregated statistics from medical claims, provided to us by [Change Healthcare](https://www.changehealthcare.com/).
 
 * **November 2020.** Shifting from our original Google Health Trends data source, we added our Google Symptoms signals, which estimate the volume of searches mapped to symptom sets related to COVID-19.
 
@@ -83,13 +83,13 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 
     * County-level confirmed COVID-19 case and death data from [USAFacts](https://usafacts.org/). This source was deactivated in January 2023.
 
-    * Inpatient and outpatient Covid-19 hospitalization signals we derived from aggregated statistics from medical claims, provided to us by [Optum](https://www.optum.com/).
+    * Inpatient and outpatient COVID-19 hospitalization signals we derived from aggregated statistics from medical claims, provided to us by [Optum](https://www.optum.com/).
 
-* **May 2020.** We added signals for Covid-19 Cases and Deaths, mirrored from the [Center for Systems Science and Engineering](https://systems.jhu.edu/research/public-health/ncov/) at Johns Hopkins University.
+* **May 2020.** We added signals for COVID-19 Cases and Deaths, mirrored from the [Center for Systems Science and Engineering](https://systems.jhu.edu/research/public-health/ncov/) at Johns Hopkins University.
 
 * **April 2020.** We partnered with Meta to launch the [COVID-19 Trends and Impact Survey (CTIS)](https://delphi.cmu.edu/covid19/ctis/) to monitor in real-time the spread and impact of the COVID-19 pandemic in the United States.
 
-* **April 2020.** We added signals two data sources:
+* **April 2020.** We added signals from two new data sources:
 
     * Signals related to COVID-related doctor visits, derived from aggregated statistics from medical claims, provided to us by [Optum](https://www.optum.com/). 
 
