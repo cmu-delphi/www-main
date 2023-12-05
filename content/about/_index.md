@@ -49,9 +49,9 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 
 * **April 2022.** We received the [Allen Newell Award for Research Excellence in SCS at CMU](https://www.cs.cmu.edu/events/newell-award), which is awarded annually and recognizes an outstanding body of work that epitomizes Allen Newell's research style.
 
-* **April 2022.** We received t[he Policy Impact Award and the Warren J. Mitofsky Innovators Award from the the American Association of Public Opinion Research (AAPOR)](https://www.cs.cmu.edu/news/2022/delphi-aapor-awards), along with our partners from the University of Maryland Social Data Science Center and Meta, for our work on the [COVID-19 Trends and Impact Survey](https://delphi.cmu.edu/covid19/ctis/) (CTIS).
+* **April 2022.** We received [the Policy Impact Award and the Warren J. Mitofsky Innovators Award from the the American Association of Public Opinion Research (AAPOR)](https://www.cs.cmu.edu/news/2022/delphi-aapor-awards), along with our partners from the University of Maryland Social Data Science Center and Meta, for our work on the [COVID-19 Trends and Impact Survey](https://delphi.cmu.edu/covid19/ctis/) (CTIS).
 
-* **January 2022.** We added selected signals from the White House COVID-19 Data Strategy and Execution Workgroup’s [Community Profile Report (CPR)](https://healthdata.gov/Health/COVID-19-Community-Profile-Report/gqxm-d9w9),  including hospital admission and vaccination rates. This data source was discontinued in February 2023.
+* **January 2022.** We added selected signals from the White House COVID-19 Data Strategy and Execution Workgroup’s [Community Profile Report (CPR)](https://healthdata.gov/Health/COVID-19-Community-Profile-Report/gqxm-d9w9), including hospital admission and vaccination rates. This data source was discontinued in February 2023.
 
 * **January 2022.** After the CDC paused flu forecasting for the 2020-2021 season due to too little flu activity, we restarted generating flu forecasts for the 2021-2022 flu season.
 
@@ -59,7 +59,7 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 
 * **May 2021.** We received the 2021 [Statistical Partnerships Among Academe, Industry, and Government (SPAIG) award](https://www.cmu.edu/dietrich/news/news-stories/2021/may/spaig-covid.html) from the American Statistical Association (ASA) along with our COVIDcast collaborators.
 
-* **April 2021.** We launched our redesigned website, which included [COVIDcast ](https://delphi.cmu.edu/covidcast/)[2.0](https://delphi.cmu.edu/covidcast/).
+* **April 2021.** We launched our redesigned website, which included [COVIDcast 2.0](https://delphi.cmu.edu/covidcast/).
 
 * **March 2021.** We added PCR testing data from [COVID Act Now](https://covidactnow.org/). These data were discontinued in December 2021.
 
@@ -67,7 +67,7 @@ Public health authorities (federal, state, local), the healthcare industry, the 
 
 * **December 2020.** We added national provisional death counts, from the National Center for Health Statistics (NCHS). [These data are](https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm)[ based on death certificate data received and coded by NCHS](https://www.cdc.gov/nchs/nvss/vsrr/COVID19/index.htm).
 
-* **December 2020.**  We added inpatient and outpatient Covid-19 signals based on aggregated statistics from medical claims, provided to us by [Change Healthcare](https://www.changehealthcare.com/).
+* **December 2020.** We added inpatient and outpatient Covid-19 signals based on aggregated statistics from medical claims, provided to us by [Change Healthcare](https://www.changehealthcare.com/).
 
 * **November 2020.** Shifting from our original Google Health Trends data source, we added our Google Symptoms signals, which estimate the volume of searches mapped to symptom sets related to COVID-19.
 
