@@ -40,14 +40,13 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#short-background">Short Background</a></li>
-<li><a href="#cli-in-community">CLI-in-Community</a></li>
-<li><a href="#our-two-surveys">Our Two Surveys</a></li>
-<li><a href="#google-survey-redux">Google Survey Redux</a></li>
+<li><a href="#short-background" id="toc-short-background">Short Background</a></li>
+<li><a href="#cli-in-community" id="toc-cli-in-community">CLI-in-Community</a></li>
+<li><a href="#our-two-surveys" id="toc-our-two-surveys">Our Two Surveys</a></li>
+<li><a href="#google-survey-redux" id="toc-google-survey-redux">Google Survey Redux</a></li>
 </ul>
 </div>
 
@@ -138,6 +137,8 @@ library(dplyr)
 library(ggplot2)
 library(gridExtra)
 
+options(covidcast.auth = Sys.getenv(&quot;API_KEY&quot;)) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
+
 # Fetch county-level Google and Facebook % CLI-in-community signals, and JHU
 # confirmed case incidence proportion
 df_go = covidcast_signal(&quot;google-survey&quot;, &quot;smoothed_cli&quot;, geo_type = &quot;state&quot;)
@@ -195,7 +196,7 @@ grid.arrange(p1, p2, nrow = 1)</code></pre>
 <p>In both plots, we see a reassuring trend,
 but the trend on the left is noticeably stronger.
 Indeed, the correlation here between the Google signal and case rates is
-0.84,
+0.83,
 while that between the Facebook signal and case rates is
 0.64.
 To be fair, we should note that the Google signal comprises a much
@@ -330,7 +331,7 @@ problem</a>)
 or manually (in collaboration with partners in public health and/or data
 journalists). Stay tuned to the Delphi blog for updates.</p>
 </div>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p>In the survey methodology literature, a “proxy question” is one in which

@@ -145,6 +145,8 @@ library(dplyr)
 library(ggplot2)
 library(gridExtra)
 
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
+
 # Fetch county-level Google and Facebook % CLI-in-community signals, and JHU
 # confirmed case incidence proportion
 df_go = covidcast_signal("google-survey", "smoothed_cli", geo_type = "state")

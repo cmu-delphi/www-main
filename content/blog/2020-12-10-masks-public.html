@@ -21,15 +21,14 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#studying-mask-use-with-surveys">Studying Mask Use with Surveys</a></li>
-<li><a href="#addressing-potential-survey-biases">Addressing Potential Survey Biases</a></li>
-<li><a href="#a-probabilistic-argument-for-mask-use">A Probabilistic Argument for Mask Use</a></li>
-<li><a href="#public-activities-social-distancing-and-masks">Public Activities, Social Distancing, and Masks</a></li>
-<li><a href="#more-opportunities-in-survey-data">More Opportunities in Survey Data</a></li>
+<li><a href="#studying-mask-use-with-surveys" id="toc-studying-mask-use-with-surveys">Studying Mask Use with Surveys</a></li>
+<li><a href="#addressing-potential-survey-biases" id="toc-addressing-potential-survey-biases">Addressing Potential Survey Biases</a></li>
+<li><a href="#a-probabilistic-argument-for-mask-use" id="toc-a-probabilistic-argument-for-mask-use">A Probabilistic Argument for Mask Use</a></li>
+<li><a href="#public-activities-social-distancing-and-masks" id="toc-public-activities-social-distancing-and-masks">Public Activities, Social Distancing, and Masks</a></li>
+<li><a href="#more-opportunities-in-survey-data" id="toc-more-opportunities-in-survey-data">More Opportunities in Survey Data</a></li>
 </ul>
 </div>
 
@@ -81,6 +80,8 @@ it’s among the lowest.</p>
 library(dplyr)
 library(ggplot2)
 library(directlabels)
+
+options(covidcast.auth = Sys.getenv(&quot;API_KEY&quot;)) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 states_of_interest &lt;- c(&quot;dc&quot;, &quot;ma&quot;, &quot;ny&quot;, &quot;wy&quot;, &quot;sd&quot;, &quot;id&quot;)
 

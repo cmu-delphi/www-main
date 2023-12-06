@@ -29,9 +29,6 @@ output:
   blogdown::html_page:
     toc: true
 ---
-```{r, echo=FALSE}
-options(covidcast.auth = Sys.getenv("API_KEY"))
-```
 With pandemic fatigue setting in across the United States after a long year
 filled with uncertainty, many felt the temptation to celebrate a “normal”
 Thanksgiving and Christmas. However, with cases steeply rising across the US,
@@ -70,13 +67,15 @@ from airlines suggested that travel reached its highest levels since the start
 of the pandemic during the Christmas holiday with about 1% of the US population
 taking flights in just the few days surrounding the holiday.
 
-```{r traveled-recently, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
+```{r traveled-recently, warning=FALSE, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(ggplot2)
 library(stringr)
 library(dplyr)
 library(grid)
 library(gridExtra)
+
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 start_after_election <- "2020-11-10"
 end_day <- "2021-01-05"

@@ -27,9 +27,6 @@ output:
     toc: true
 ---
 
-```{r, echo=FALSE}
-options(covidcast.auth = Sys.getenv("API_KEY"))
-```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
@@ -401,12 +398,14 @@ weekly deaths and mobility
 starting February 15, 2020,
 for a few states:
 
-```{r deaths-by-state, message=FALSE}
+```{r deaths-by-state, message=FALSE, warning=FALSE}
 library(covidcast)
 library(directlabels)
 library(dplyr)
 library(lubridate)
 library(ggplot2)
+
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 # Top 5 most populated states according to
 # https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population

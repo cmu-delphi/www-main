@@ -30,9 +30,6 @@ output:
   blogdown::html_page:
     toc: true
 ---
-```{r, echo=FALSE}
-options(covidcast.auth = Sys.getenv("API_KEY"))
-```
 Beginning in early April 2020, the `r blogdown::shortcode_html("reflink", "/", "Delphi group")` has
 conducted a major survey to track COVID-19 across the United States. With the
 support of Facebook Data for Good, we have been able to recruit tens of
@@ -95,6 +92,8 @@ version is Wave 4.
 
 ```{r sample-size, message=FALSE, include=FALSE}
 library(covidcast)
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
+
 start_day <- "2020-09-08"
 end_day <- "2020-10-07"
 
@@ -129,11 +128,13 @@ their local community who is sick (with a fever and at least one other symptom,
 such as cough or difficulty breathing). This percentage `r blogdown::shortcode_html("reflink", "2020-08-26-fb-survey#some-interesting-examples", "correlates very well")`
 with COVID case rates as reported by state agencies.
 
-```{r mask-wearing, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
+```{r mask-wearing, warning=FALSE, message=FALSE, fig.width=9, out.extra = 'class="wide-figure"'}
 library(covidcast)
 library(ggplot2)
 library(grid)
 library(gridExtra)
+
+options(covidcast.auth = Sys.getenv("API_KEY")) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
 
 start_day <- "2020-09-08"
 end_day <- "2020-10-07"
