@@ -1,5 +1,5 @@
 ---
-title: New package released! epidatr: an R client for Delphi Epidata API
+title: New package released! `epidatr`: an R client for Delphi Epidata API
 author: Dmitry Shemetov, David Weber
 date: 2023-12-18
 tags:
@@ -35,8 +35,7 @@ epidata <- covidcast(
   time_type = "day",
   geo_values = "us",
   time_values = epirange(20210101, 20210601),
-  as_of = "2021-06-01"
-)
+  as_of = "2021-06-01")
 epidata
 ```
 
