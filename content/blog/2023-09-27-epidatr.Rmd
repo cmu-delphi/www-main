@@ -14,6 +14,8 @@ heroImageThumb: blog-thumb-epidatr.jpg
 summary: |
   `epidatr` is designed to streamline the downloading and usage of data from the [Delphi Epidata
 API](https://cmu-delphi.github.io/delphi-epidata/). It provides a simple R interface to the API, including functions for downloading data, parsing the results, and converting the data into a tidy format.
+ 
+output:
   blogdown::html_page:
     toc: true
 ---
