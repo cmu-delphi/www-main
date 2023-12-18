@@ -1,7 +1,7 @@
 ---
 title: New package released! `epidatr`: an R client for Delphi Epidata API
 author: Dmitry Shemetov, David Weber
-date: 2023-09-27
+date: 2023-12-18
 tags:
   - r
   - epidata
