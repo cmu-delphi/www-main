@@ -1,23 +1,23 @@
 {
   "name": "www-main",
-  "version": "3.2.4",
+  "version": "3.2.9",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.4.0",
-    "highlight.js": "^11.8.0",
-    "katex": "^0.16.8",
-    "uikit": "^3.16.23",
-    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v3.2.6/www-covidcast-3.2.6.tgz",
-    "www-covidcast-classic": "https://github.com/cmu-delphi/www-covidcast-classic/releases/download/v2.6.5/www-covidcast-classic-2.6.5.tgz",
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "highlight.js": "^11.9.0",
+    "katex": "^0.16.9",
+    "uikit": "^3.17.11",
+    "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v3.2.9/www-covidcast-3.2.9.tgz",
+    "www-covidcast-classic": "https://github.com/cmu-delphi/www-covidcast-classic/releases/download/v2.6.7/www-covidcast-classic-2.6.7.tgz",
     "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.0.3/www-epivis-2.0.3.tgz"
   },
   "devDependencies": {
-    "hugo-bin": "^0.112.1",
+    "hugo-bin": "^0.117.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8",
-    "prettier-plugin-go-template": "^0.0.13",
-    "rimraf": "^5.0.1",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.0",
+    "prettier-plugin-go-template": "^0.0.15",
+    "rimraf": "^5.0.5",
     "shx": "^0.3.4"
   },
   "files": [

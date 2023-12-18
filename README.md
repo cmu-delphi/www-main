@@ -83,6 +83,7 @@ As an alternative you can use Docker and Docker Compose:
 1. `docker-compose up -d` to create a docker container for the current environment.
 1. `docker-compose exec r bash` to jump into the container. 
 1. `micromamba activate www-main` to activate the environment
+2. `export API_KEY=y0urAp1kEy` to add your own api key as env variable.
 
 Now you have the environment ready to start converting .Rmd blog files to html.
 #### Commands

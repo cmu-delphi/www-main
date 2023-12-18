@@ -9,11 +9,11 @@ carousel:
     ref: covidcast
     alt: Explore the COVIDcast Dashboard
     image: covidcast_v2.jpg
-  - pre: Delphi Careers
-    title: We're Hiring!
-    ref: careers
-    alt: View Open Positions
-    image: landing-pg_hero-img-3.jpg
+  - pre: News
+    title: CDC Selects Delphi Research Group at CMU as Center of Innovation in Outbreak Analytics and Disease Modeling
+    link: https://www.cs.cmu.edu/news/2023/delphi-cdc-center
+    alt: Learn More
+    image: landing-pg-hero-_cfa_oadm.jpg
   - pre: Tools
     title: Evaluation of COVID-19 Forecasts
     link: /forecast-eval

@@ -30,13 +30,12 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#travel-and-other-social-behaviors-during-us-holidays">Travel and Other Social Behaviors During US Holidays</a></li>
-<li><a href="#preventative-measures-and-testing-during-the-us-holidays">Preventative Measures and Testing During the US Holidays</a></li>
-<li><a href="#see-the-data-yourself">See the Data Yourself!</a></li>
+<li><a href="#travel-and-other-social-behaviors-during-us-holidays" id="toc-travel-and-other-social-behaviors-during-us-holidays">Travel and Other Social Behaviors During US Holidays</a></li>
+<li><a href="#preventative-measures-and-testing-during-the-us-holidays" id="toc-preventative-measures-and-testing-during-the-us-holidays">Preventative Measures and Testing During the US Holidays</a></li>
+<li><a href="#see-the-data-yourself" id="toc-see-the-data-yourself">See the Data Yourself!</a></li>
 </ul>
 </div>
 
@@ -82,6 +81,8 @@ library(dplyr)
 library(grid)
 library(gridExtra)
 
+options(covidcast.auth = Sys.getenv(&quot;API_KEY&quot;)) # for more on API keys, see: https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html
+
 start_after_election &lt;- &quot;2020-11-10&quot;
 end_day &lt;- &quot;2021-01-05&quot;
 
@@ -114,7 +115,7 @@ regionmap &lt;- travel %&gt;%
   filter(geo_value %in% str_to_lower(statelist)) %&gt;%
   mutate(value = plyr::mapvalues(geo_value, str_to_lower(statelist), regions),
          value = as.integer(factor(value)))
-
+attr(regionmap, &quot;metadata&quot;) &lt;- list(geo_type = &quot;state&quot;)
 grid_label &lt;- textGrob(&quot;Data from Delphi COVIDcast, delphi.cmu.edu&quot;,
                        hjust = 1, x = 1, gp = gpar(fontsize = 9))
 

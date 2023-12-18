@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: main
           ssh-key: ${{ secrets.CMU_DELPHI_DEPLOY_MACHINE_SSH }}
@@ -32,7 +32,7 @@ jobs:
           base: main
           title: Release ${{ steps.version.outputs.next_tag }}
           labels: chore
-          # reviewers: 
+          # reviewers:
           assignees: melange396
           body: |
             Releasing ${{ steps.version.outputs.next_tag }}.

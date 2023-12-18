@@ -216,6 +216,12 @@ people:
   affiliation: Girls of Steel Robotics
   team:
   - contributors
+- firstName: Richa
+  lastName: Gadgil
+  image: richa.png
+  affiliation: CMU/MLD
+  team:
+  - core
 - key: agarcia
   firstName: Andy
   lastName: Garcia
@@ -507,6 +513,12 @@ people:
   team:
   - past
   note: Core member, March-May 2020
+- firstName: Ron
+  lastName: Lunde
+  image: ron-lunde.jpg
+  affiliation: CMU/MLD
+  team:
+  - core
 - firstName: Ruiqi
   lastName: Lyu
   image: ruiqi-lyu.jpg
@@ -532,11 +544,11 @@ people:
   image: kathryn-mazaitis-500x500-min.jpg
   affiliation: CMU/MLD
   team:
-  - core
-  - highlight
+  - past
   - blog
+  note: Core member, March 2020-July 2023
   link: https://cs.cmu.edu/~krivard
-  description: leads Delphi's engineering team, and is a Principal Research Programmer in the Machine Learning Department at CMU.
+  description: previously led Delphi's engineering team, and was a Principal Research Programmer in the Machine Learning Department at CMU.
 - firstName: Daniel
   lastName: McDonald
   image: daniel-mcdonald-photo.jpeg
@@ -680,6 +692,12 @@ people:
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
   leaderOrder: 2
+- firstName: Anna
+  lastName: Rosengart
+  image: anna-rosengart.jpg
+  affiliation: CMU/Stat
+  team:
+  - core
 - firstName: Patti
   lastName: Rote
   image: patti-rote.jpg
@@ -828,6 +846,12 @@ people:
   team:
   - past
   note: Core member, June 2021-May 2022
+- firstName: Gabrielle
+  lastName: Thivierge
+  image: gabrielle-thivierge.jpg
+  affiliation: CMU/Stat
+  team:
+  - core
 - firstName: Robert
   lastName: Tibshirani
   image: robert-tibshirani-500x500-min.jpg
@@ -847,12 +871,19 @@ people:
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
   leaderOrder: 1
+- firstName: Tina
+  lastName: Townes
+  image: tina.png
+  affiliation: CMU
+  team:
+  - core
 - firstName: Will
   lastName: Townes
   image: will-townes.jpg
   affiliation: CMU/Stat
   team:
   - core
+  - highlight
 - firstName: Dmytro
   lastName: Trotsko
   image: dmytro-trotsko.jpg
