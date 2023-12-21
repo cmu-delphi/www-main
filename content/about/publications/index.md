@@ -1,6 +1,12 @@
 ---
 title: Research
 papers:
+  - title: "Computationally Assisted Quality Control for Public Health Data Streams"
+    image: forecast.jpg
+    authors: Joshi, Mazaitis, Rosenfeld, Wilder
+    link: https://arxiv.org/abs/2306.16914
+    journal: International Joint Conference on Artificial Intelligence  
+    year: 2023
   - title: "Frequentist Inference for Semi-mechanistic Epidemic Models with Interventions"
     image: dag.jpg
     authors: Bong, Ventura, Wasserman
