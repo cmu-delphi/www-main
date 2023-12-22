@@ -88,4 +88,5 @@ Due to state level reporting inconsistencies, we could only analyze 60 out of 79
 
 Overall, Changepoint detection is a powerful tool identify early indicators. Of Delphi's sixty indicators, we identified several on time and early indicators of emerging variants from the data available. We also found out that for many of the indicators the leading/lagingness of these indicators changed over time. Still, if these public health indicators continue to receive high quality data, tracking these indicators closely can help us identify changing health dynamics. 
 
+Github Notebook [Here](https://github.com/TaraLakdawala/covid-changepoint-detection-exploration)
 
