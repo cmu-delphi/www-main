@@ -9,8 +9,8 @@ tags:
 authors:
   - tara
   - ananya
-heroImage: changepoint/image4.png
-heroImageThumb: changepoint/image4.png
+heroImage: changepoint-blog.png
+heroImageThumb: changepoint-blog.png
 
 summary: | 
   We use changepoint detection algorithms to analyze Delphi's indicators and classify them as early, on-time,    late, undefined, or undetermined. 
