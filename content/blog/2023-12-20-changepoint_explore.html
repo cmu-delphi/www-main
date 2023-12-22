@@ -40,7 +40,7 @@ output:
 <p>To establish when the composition of different COVID-19 variants changed, we used three changepoint detection algorithms: <a href="https://centre-borelli.github.io/ruptures-docs/user-guide/detection/pelt/">PELT</a>, <a href="https://centre-borelli.github.io/ruptures-docs/user-guide/detection/binseg/">Binary Segmentation</a>, and <a href="https://centre-borelli.github.io/ruptures-docs/user-guide/detection/bottomup/">Bottom-up Segmentation</a> on Delphi’s national <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/jhu-csse.html">JHU-CSSE COVID-19 Cases</a> stream<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.This stream was the smoothed 7-day average of the number of new confirmed COVID-19 cases (for all variants) in the United States (US). After aggregating the changepoints at a weekly level, we marked the weeks that all three methods agreed on for the national cases data stream from (Fig. 1). To corroborate these points, we also used the <a href="https://covid.cdc.gov/covid-data-tracker/#variant-proportions">CDC’s COVID Data Tracker</a>, which reports the ratio of different COVID-19 sub-variant variants among the infected US population. We combine the different sub-strains of COVID in the data to represent the three dominant variants: “Original,” “Delta,” and “Omicron.” These changes in variant makeup visually match the ground truth changepoints from the national signal, as seen in Figure 1.</p>
 <center>
 <div class="float">
-<img src="static/blog/2023-03-20-changepoint-blog-files/image3.png" alt="Figure 1. Total and Variant Case Counts with variant changepoints on April 24, 2021; June 19, 2021; December 18, 2021; March 5, 2022; June 18, 2022." />
+<img src="blog/2023-03-20-changepoint-blog-files/image3.png" alt="Figure 1. Total and Variant Case Counts with variant changepoints on April 24, 2021; June 19, 2021; December 18, 2021; March 5, 2022; June 18, 2022." />
 <div class="figcaption"><strong>Figure 1.</strong> Total and Variant Case Counts with variant changepoints on April 24, 2021; June 19, 2021; December 18, 2021; March 5, 2022; June 18, 2022.</div>
 </div>
 </center>
@@ -50,7 +50,7 @@ output:
 <p>Next, we needed to identify how these ground truth changepoints compared to changepoints in indicators (using the same three algorithms). We used all available data streams during our selected time range from Delphi’s <a href="https://cmu-delphi.github.io/delphi-epidata/">COVIDCast database</a>, which corresponded to 60 indicators (including the Facebook survey, Google Search, claims, hospitalization, and mortality indicators) each at the state, territory, and national level. When we aggregated the calculated changepoints per indicator per week, as Fig. 2 shows, we identified that some weeks have many more changepoints than others. To match the number of ground truth changepoints, we filter to the top 5 weeks per indicator (major indicator changepoints) to directly compare with the ground truth changepoints.</p>
 <center>
 <div class="float">
-<img src="static/blog/2023-03-20-changepoint-blog-files/image5.png" alt="Figure 2. The aggregated count of changepoints per week in all fifty two regions by all three algorithms for estimated COVID related outpatient doctor visits" />
+<img src="blog/2023-03-20-changepoint-blog-files/image5.png" alt="Figure 2. The aggregated count of changepoints per week in all fifty two regions by all three algorithms for estimated COVID related outpatient doctor visits" />
 <div class="figcaption"><strong>Figure 2.</strong> The aggregated count of changepoints per week in all fifty two regions by all three algorithms for estimated COVID related outpatient doctor visits</div>
 </div>
 </center>
@@ -114,21 +114,21 @@ Interestingly, indicators from the same source were usually classified similarly
 <p><strong>Early Indicators:</strong> Early indicators are the most important in identifying changing health dynamics. For example, the majority (6/8) of indicators from <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-symptoms.html#symptom-set">Google Symptoms</a> are early indicators, especially indicators related to fevers. In Fig 3. we see one example of Google Symptoms early indicator (which includes searches for Fever, Hyperthermia, Chills, Shivering, and Low grade fever), where the major indicator changepoints lead ground truth changepoints by approximately one week.</p>
 <center>
 <div class="float">
-<img src="static/blog/2023-03-20-changepoint-blog-files/image2.png" alt="Figure 3. This early indicator has major indicator changepoints (blue bars) which occur a week or more before the ground truth changepoints (black line). This data is sourced from Google Symptoms and shows search data for keywords “Fever, Hyperthermia, Chills, Shivering, Low grade fever”" />
+<img src="blog/2023-03-20-changepoint-blog-files/image2.png" alt="Figure 3. This early indicator has major indicator changepoints (blue bars) which occur a week or more before the ground truth changepoints (black line). This data is sourced from Google Symptoms and shows search data for keywords “Fever, Hyperthermia, Chills, Shivering, Low grade fever”" />
 <div class="figcaption"><strong>Figure 3.</strong> This early indicator has major indicator changepoints (blue bars) which occur a week or more before the ground truth changepoints (black line). This data is sourced from Google Symptoms and shows search data for keywords “Fever, Hyperthermia, Chills, Shivering, Low grade fever”</div>
 </div>
 </center>
 <p><strong>On-time Indicators:</strong> On-time indicators (Fig. 4) most frequently correspond to data involving insurance claims, suspected COVID cases among hospital admissions, and, unsurprisingly, other COVID-19 incidence data reports from JHU-CSSE. Other notable early or on-time indicators include: the number of doctors visits for cases with COVID or COVID-like symptoms, Data Strategy and Execution Workgroup Community Profile Report (CPR) data on the number of people who were fully vaccinated.</p>
 <center>
 <div class="float">
-<img src="static/blog/2023-03-20-changepoint-blog-files/image1.png" alt="Figure 4. This on-time indicator has major indicator changepoints (blue bars) which occur within a two week window around the ground truth changepoints (black)." />
+<img src="blog/2023-03-20-changepoint-blog-files/image1.png" alt="Figure 4. This on-time indicator has major indicator changepoints (blue bars) which occur within a two week window around the ground truth changepoints (black)." />
 <div class="figcaption"><strong>Figure 4.</strong> This on-time indicator has major indicator changepoints (blue bars) which occur within a two week window around the ground truth changepoints (black).</div>
 </div>
 </center>
 <p><strong>Variable Indicators:</strong> Variable indicators are perhaps the most interesting set of indicators. For most of the available range, the JHU-CSSE new confirmed COVID-19 cases daily indicator was early, but the last changepoint was late. Many other JHU-CSSE indicators follow this pattern. Another example is the Google Symptom Search data related to smell and taste loss, specifically, “Anosmia, Dysgeusia, Ageusia.” In the figure below, we see the relationship between the indicator’s major changepoints and the ground truth change from early in the first ground truth changepoint to late in the middle of the pandemic, and then early again for the rest of the ground truth changepoints.</p>
 <center>
 <div class="float">
-<img src="static/blog/2023-03-20-changepoint-blog-files/image4.png" alt="Figure 5. This variable indicator has changepoints (blue bars) which occur early and late relative to the critical changepoints (black) established using CDC data." />
+<img src="blog/2023-03-20-changepoint-blog-files/image4.png" alt="Figure 5. This variable indicator has changepoints (blue bars) which occur early and late relative to the critical changepoints (black) established using CDC data." />
 <div class="figcaption"><strong>Figure 5.</strong> This variable indicator has changepoints (blue bars) which occur early and late relative to the critical changepoints (black) established using CDC data.</div>
 </div>
 </center>
