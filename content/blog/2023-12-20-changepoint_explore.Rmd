@@ -56,8 +56,7 @@ Interestingly, indicators from the same source were usually classified similarly
 <center>
 <table>
 |<span style='text-align: left;'>Classification</span>              | # of Indicators |95% CI for Leadingness (in days)  </br> <span style="font-weight:normal">Using Range of 28 days</span> |
-|-----------------------------|:---------------------:|:-----------------------------------:|
-|=============================|=======================|=====================================|
+|-----------------------|:----------------:|:-----------------------------------:|
 | Early            | 4     | 13.125±5.54                       |
 | On time          | 12    | 1.55±1.69                         |
 | Late             | 8     | -14.62±1.6                        |
