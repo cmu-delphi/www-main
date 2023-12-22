@@ -1,0 +1,21 @@
+---
+title: Overview of the FlaSH Series 
+author: Ananya Joshi
+date: 2023-12-20
+tags:
+  - epidata
+  - changepoint analysis
+  - early indicators
+authors:
+  - tara
+  - ananya
+heroImage: changepoint/image4.png
+heroImageThumb: changepoint/image4.png
+
+summary: | 
+  We use changepoint detection algorithms to analyze Delphi's indicators and classify them as early, on-time,    late, undefined, or undetermined. 
+
+output:
+  blogdown::html_page:
+    toc: true
+---
