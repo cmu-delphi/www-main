@@ -2,7 +2,7 @@
 title: Research
 papers:
   - title: "Computationally Assisted Quality Control for Public Health Data Streams"
-    image: forecast.jpg
+    image: forecast.png
     authors: Joshi, Mazaitis, Rosenfeld, Wilder
     link: https://arxiv.org/abs/2306.16914
     journal: International Joint Conference on Artificial Intelligence  
