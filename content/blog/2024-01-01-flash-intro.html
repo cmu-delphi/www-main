@@ -1,0 +1,35 @@
+---
+title: Introducing the FlaSH Group
+author: Ananya Joshi, Nolan Gormley, Richa Gadgil, Tina Townes
+date: 2024-01-01
+tags:
+  - flash
+authors:
+  - ananya
+  - nolan
+  - richa
+  - tina
+heroImage: flash_long.jpg
+heroImageThumb: flash_logo.png
+summary: | 
+  Delphi's FlaSH group works to alert experts about data that suggests quality issues or changes in disease dynamics from the millions of data points they publish daily to improve the efficacy of Delphi's data.
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+
+<p>Delphi publishes millions (and growing) of public-health-related data points per day, like the total number of daily influenza cases, hospitalizations, and deaths per county and state in the United States (US). This data helps public health practitioners, data professionals, and members of the public take important, informed decisions relating to health and well-being.</p>
+<p>Yet, as data volumes continue to grow quickly (Delphi’s data volume expanded 1000x in just 3 years), it is infeasible for data reviewers to inspect every one of these data points for subtle changes in<br />
+- quality (like those resulting from data delays) or
+- disease dynamics (like an outbreak).<br />
+These issues, if undetected, can have critical downstream impacts on data users (an example in Fig 1).</p>
+<div class="float">
+<img src="/blog/2024-01-01-flash-intro/forecast.png" alt="Fig 1. Data quality changes in case counts, shown by the large spikes in March and July 2022, when cases were trending down, resulted in similar spikes for predicted counts (red) from multiple forecasts that were then sent to the US CDC. A weekly forecast per state, for cases, hospitalizations, and deaths, up to 4 weeks in the future means that modeling teams would have to review 600 forecasts per week and may not have been able to catch the upstream data issue." />
+<div class="figcaption">Fig 1. Data quality changes in case counts, shown by the large spikes in March and July 2022, when cases were trending down, resulted in similar spikes for predicted counts (red) from multiple forecasts that were then sent to the US CDC. A weekly forecast per state, for cases, hospitalizations, and deaths, up to 4 weeks in the future means that modeling teams would have to review 600 forecasts per week and may not have been able to catch the upstream data issue.</div>
+</div>
+<p>We care about finding these data issues so that we can alert downstream data users accordingly. That is why our goal in the FlaSH team (Flagging Anomalies in Streams related to public Health) is to quickly identify data points that warrant human inspection and create tools to support data review. Towards this goal, our team of researchers, engineers, and data reviewers iterate on our deployed interdisciplinary approach. In this blog series, we will cover the different methods and perspectives of this project.</p>
+<p>Members: Ananya Joshi, Nolan Gormley, Richa Gadgil, Tina Townes
+Former Members: Luke Neurieter, Katie Mazaitis
+Advisors: Peter Jhon, Roni Rosenfeld, Bryan Wilder</p>
