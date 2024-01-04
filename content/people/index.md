@@ -222,6 +222,7 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+  description: is a masters student in the Machine Learning Department
 - key: agarcia
   firstName: Andy
   lastName: Garcia
@@ -875,6 +876,7 @@ people:
   lastName: Townes
   image: tina.png
   affiliation: CMU
+description: is a member of the Delphi group specializing in data quality monitoring and response.
   team:
   - core
 - firstName: Will
