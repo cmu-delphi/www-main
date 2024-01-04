@@ -32,8 +32,8 @@ These issues, if undetected, can have critical downstream impacts on data users 
 
 We care about finding data issues like these so that we can alert downstream data users accordingly. That is why our goal in the FlaSH team (Flagging Anomalies in Streams related to public Health) is to quickly identify data points that warrant human inspection and create tools to support data review. Towards this goal, our team of researchers, engineers, and data reviewers iterate on our deployed interdisciplinary approach. In this blog series, we will cover the different methods and perspectives of the FlaSH project.
 
-Members: Ananya Joshi, Nolan Gormley, Richa Gadgil, Tina Townes
-Former Members: Luke Neurieter, Katie Mazaitis 
+Members: Ananya Joshi, Nolan Gormley, Richa Gadgil, Tina Townes <br/>
+Former Members: Luke Neurieter, Katie Mazaitis <br/>
 Advisors: Peter Jhon, Roni Rosenfeld, Bryan Wilder
 
 
