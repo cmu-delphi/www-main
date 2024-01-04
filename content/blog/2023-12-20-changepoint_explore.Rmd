@@ -32,10 +32,12 @@ To establish when the composition of different COVID-19 variants changed, we use
 <center>
 ![**Figure 1.** Total and Variant Case Counts with variant changepoints on April 24, 2021; June 19, 2021; December 18, 2021; March 5, 2022; June 18, 2022.](/blog/2023-12-20-changepoint_explore_files/image3.png)
 </center>
-
+\ 
+\ 
+  
 ## Methods
 
-Next, we needed to identify how these ground truth changepoints compared to changepoints in indicators (using the same three algorithms). We used all available data streams during our selected time range from Delphi’s [COVIDCast database](https://cmu-delphi.github.io/delphi-epidata/), which corresponds to 60 indicators (including the Facebook survey, Google Search, claims, hospitalization, and mortality indicators), each at the state/territory and national levels. When we aggregated the calculated changepoints per indicator per week, as Fig. 2 shows, we identified that some weeks have many more changepoints than others. To match the number of ground truth changepoints, we filter to the top 5 weeks per indicator (major indicator changepoints) to directly compare with the ground truth changepoints. 
+Next, we needed to identify how these ground truth changepoints compared to changepoints in indicators (using the same three algorithms). We used all available data streams during our selected time range from Delphi’s [COVIDCast database](https://cmu-delphi.github.io/delphi-epidata/), which corresponds to 60 indicators (including the Facebook survey, Google Search, claims, hospitalization, and mortality indicators), each at the state/territory and national tier. When we aggregated the calculated changepoints per indicator per week, as Fig. 2 shows, we identified that some weeks have many more changepoints than others. To match the number of ground truth changepoints, we filter to the top 5 weeks per indicator (major indicator changepoints) to directly compare with the ground truth changepoints. 
 
 <center>
 ![**Figure 2.** The aggregated count of changepoints per week in all fifty two regions by all three algorithms for estimated COVID related outpatient doctor visits](/blog/2023-12-20-changepoint_explore_files/image5.png)</center>
@@ -46,12 +48,14 @@ Then, we categorized indicators as early, on-time, or late using the following d
 - **On-time**: The major indicator changepoints appear within a week of the ground truth changepoints
 - **Late**: The  major indicator changepoints lag behind the ground truth changepoints by more than a week. 
 
-As we expected each wave of the pandemic to last around four weeks, we necessitate that any major indicator changepoints found with a distance greater than 28 days to the nearest ground truth changepoint have no relationship with the ground truth changepoint.
+As we expect COVID dynamics (like waves) to last around four weeks, if any major indicator changepoints is more  than 28 days away from the nearest ground truth changepoint, it is likely a changepoint from an unrelated phenomena. Therefore, we only consider changepoints to have a leading or lagging relationship if the major indicator changepoint is within 28 days from a ground truth changepoint.
+\ 
+\ 
 
 ## Results and Analysis
 
 In total, of the sixty indicators, 4 were early, 8 were on time, and 12 were late. There was also 1 undetermined indicator and 35 indicators whose major indicator changepoints had inconsistent relationships with the ground truth changepoints. Some indicators in this inconsistent category started out as early indicators and ended as late indicators, while others started as late indicators but ended as on time indicators, showing that indicators may not always be consistently early, on time, or late. 
-Interestingly, indicators from the same source were usually classified similarly, suggesting that indicator timeliness depends heavily on the data provider. Still, while there was some variance in the "leadingness" of early indicators, other categories had much less variance. 
+Interestingly, indicators from the same source were usually classified similarly, suggesting that indicator timeliness depends heavily on the data provider. Still, while there was some variance in the leading nature of early indicators, other categories had much less variance. 
 
 <center>
 <table>
@@ -79,7 +83,8 @@ Interestingly, indicators from the same source were usually classified similarly
 <center>
 ![**Figure 5.** This variable indicator has changepoints (blue bars) which occur early and late relative to the critical changepoints (black) established using CDC data.](/blog/2023-12-20-changepoint_explore_files/image4.png)
 </center>
-
+\ 
+\    
 
 ## Limitations and Discussion
 
