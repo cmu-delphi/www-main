@@ -18,7 +18,7 @@ output:
     toc: true
 ---
 
-Delphi publishes millions of public-health-related data points per day, including the total number of daily influenza cases, hospitalizations, and deaths per county and state in the United States (US). This data helps public health practitioners, data professionals, and members of the public take important, informed decisions relating to health and well-being. 
+Delphi publishes millions of public-health-related data points per day, including the total number of daily influenza cases, hospitalizations, and deaths per county and state in the United States (US). This data helps public health practitioners, data professionals, and members of the public make important, informed decisions relating to health and well-being. 
 
 Yet, as data volumes continue to grow quickly (Delphi's data volume expanded 1000x in just 3 years), it is infeasible for data reviewers to inspect every one of these data points for subtle changes in  
 * quality (like those resulting from data delays) or  
