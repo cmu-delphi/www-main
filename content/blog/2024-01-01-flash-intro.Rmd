@@ -25,7 +25,7 @@ Yet, as data volumes continue to grow quickly (Delphi's data volume expanded 100
  * quality (like those resulting from data delays) or
  * disease dynamics (like an outbreak).
 
-These issues, if undetected, can have critical downstream ramifications on data users (as shown by the example in Fig 1). 
+These issues, if undetected, can have critical downstream ramifications for data users (as shown by the example in Fig 1). 
 
 ![Fig 1. Data quality changes in case counts, shown by the large spikes in March and July 2022, when cases were trending down, resulted in similar spikes for predicted counts (red) from multiple forecasts that were then sent to the US CDC. A weekly forecast per state, for cases, hospitalizations, and deaths, up to 4 weeks in the future means that modeling teams would have to review 600 forecasts per week and may not have been able to catch the upstream data issue.](/blog/2024-01-01-flash-intro/forecast.jpg)
 
