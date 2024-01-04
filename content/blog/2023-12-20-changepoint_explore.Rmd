@@ -48,7 +48,7 @@ Then, we categorized indicators as early, on-time, or late using the following d
 - **On-time**: The major indicator changepoints appear within a week of the ground truth changepoints
 - **Late**: The  major indicator changepoints lag behind the ground truth changepoints by more than a week. 
 
-As we expect COVID dynamics (like waves) to last around four weeks, if any major indicator changepoints is more  than 28 days away from the nearest ground truth changepoint, it is likely a changepoint from an unrelated phenomena. Therefore, we only consider changepoints to have a leading or lagging relationship if the major indicator changepoint is within 28 days from a ground truth changepoint.
+As we expect COVID dynamics (like waves) to last around four weeks, if any major indicator changepoint is more  than 28 days away from the nearest ground truth changepoint, it is likely a changepoint from an unrelated phenomena. Therefore, we only consider changepoints to have a leading or lagging relationship if the major indicator changepoint is within 28 days from a ground truth changepoint.
 \ 
 \ 
 
