@@ -51,7 +51,7 @@ As we expected each wave of the pandemic to last around four weeks, we necessita
 ## Results and Analysis
 
 In total, of the sixty indicators, 4 were early, 8 were on time, and 12 were late. There was also 1 undetermined indicator and 35 indicators whose major indicator changepoints had inconsistent relationships with the ground truth changepoints. Some indicators in this inconsistent category started out as early indicators and ended as late indicators, while others started as late indicators but ended as on time indicators, showing that indicators may not always be consistently early, on time, or late. 
-Interestingly, indicators from the same source were usually classified similarly, suggesting that the indicator timeliness depends heavily on the data provider that serves as the source for the indicators. Still, while there was some variance in the leadingness of early indicators, other categories had much less variance. 
+Interestingly, indicators from the same source were usually classified similarly, suggesting that indicator timeliness depends heavily on the data provider. Still, while there was some variance in the "leadingness" of early indicators, other categories had much less variance. 
 
 <center>
 <table>
