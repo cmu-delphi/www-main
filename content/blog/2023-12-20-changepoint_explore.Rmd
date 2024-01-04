@@ -60,8 +60,8 @@ Interestingly, indicators from the same source were usually classified similarly
 | Early            | 4     | 13.125±5.54                       |
 | On time          | 12    | 1.55±1.69                         |
 | Late             | 8     | -14.62±1.6                        |
-| Undetermined.    | 1     | 28                                |
-| Variable.        | 35    | 1.13±2.13                         |
+| Undetermined    | 1     | 28                                |
+| Variable        | 35    | 1.13±2.13                         |
 </center>
 </table>
 
