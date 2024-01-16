@@ -216,10 +216,12 @@ people:
   affiliation: Girls of Steel Robotics
   team:
   - contributors
-- firstName: Richa
+- key: richa
+  firstName: Richa
   lastName: Gadgil
   image: richa.png
   affiliation: CMU/MLD
+  description: is a masters student in the Machine Learning Department.
   team:
   - core
 - key: agarcia
@@ -871,10 +873,12 @@ people:
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
   leaderOrder: 1
-- firstName: Tina
+- key: tina
+  firstName: Tina
   lastName: Townes
   image: tina.png
   affiliation: CMU
+  description: is a member of the Delphi group specializing in data quality monitoring and response.
   team:
   - core
 - firstName: Will
