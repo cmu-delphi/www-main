@@ -407,9 +407,10 @@ people:
   lastName: Lakdawala
   image: tarannum-lakdawala.jpeg
   affiliation: CMU/CSD
+  description: was a contributor to the Delphi group from June-December 2021 and September 2022-May 2023
   team:
   - contributors  
-  future_note: Contributor, June-December 2021, September 2022-TBD
+  note: Contributor, June-December 2021, September 2022-May 2023
 - firstName: Daniel
   lastName: LaLiberte
   image: daniel-laliberte_head-shot.jpg
