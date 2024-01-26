@@ -9,6 +9,8 @@ tags:
 authors:
   - tara
   - ajoshi
+
+
 heroImage: changepoint-hero.jpg
 heroImageThumb: changepoint-thumb.png
 
