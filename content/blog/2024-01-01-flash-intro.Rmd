@@ -9,7 +9,7 @@ authors:
   - nolan
   - richa
   - tina
-heroImage: flash_hero.jpg
+heroImage: flash_hero.png
 heroImageThumb: flash_thumb.png
 summary: | 
   Delphi's FlaSH group works to alert experts about data that suggests quality issues or changes in disease dynamics from the millions of data points they publish daily to improve the efficacy of Delphi's data.
