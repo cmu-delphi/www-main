@@ -8,7 +8,7 @@ tags:
   - covidcast
 authors:
   - dmitry
-  - david
+  - davidweb
 heroImage: blog-lg-epidatr.jpg
 heroImageThumb: blog-thumb-epidatr.jpg
 summary: |
