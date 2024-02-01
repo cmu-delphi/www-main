@@ -91,6 +91,6 @@ will read by default.
 Note that for the time being, the private endpoints (i.e. those prefixed with
 `pvt`) will require a separate key that needs to be passed as an argument.
 
-## For users of the `covidcast` R package
+## For users of the covidcast R package
 
 The `epidatr` package is a complete rewrite of the [`covidcast` package](https://cmu-delphi.github.io/covidcast/covidcastR/), with a focus on speed, reliability, and ease of use. The `covidcast` package is deprecated and will no longer be updated.
