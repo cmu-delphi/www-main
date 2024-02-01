@@ -1,65 +1,49 @@
----
-title: New package released! Epidatr, an R client for Delphi Epidata API
-author: Dmitry Shemetov, David Weber
-date: 2023-09-27
-tags:
-  - r
-  - epidata
-  - covidcast
-authors:
-  - dmitry
-  - davidweb
-heroImage: blog-lg-epidatr.jpg
-heroImageThumb: blog-thumb-epidatr.jpg
-summary: |
-  `epidatr` is designed to streamline the downloading and usage of data from the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/). It provides a simple R interface to the API, including functions for downloading data, parsing the results, and converting the data into a tidy format.
- 
-output:
-  blogdown::html_page:
-    toc: true
----
-
 
 <div id="TOC">
 <ul>
-<li><a href="#usage" id="toc-usage">Usage</a></li>
-<li><a href="#installation" id="toc-installation">Installation</a>
-<ul>
-<li><a href="#api-keys" id="toc-api-keys">API Keys</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#installation">Installation</a><ul>
+<li><a href="#api-keys">API Keys</a></li>
 </ul></li>
-<li><a href="#for-users-of-the-covidcast-r-package" id="toc-for-users-of-the-covidcast-r-package">For users of the <code>covidcast</code> R package</a></li>
+<li><a href="#for-users-of-the-covidcast-r-package">For users of the covidcast R package</a></li>
 </ul>
 </div>
 
 <p>The <a href="https://cmu-delphi.github.io/delphi-epidata/">Delphi Epidata API</a> provides real-time access to epidemiological surveillance data for influenza, COVID-19, and other diseases from both official government sources such as the <a href="https://www.cdc.gov/datastatistics/index.html">Center for Disease Control (CDC)</a>, private partners such as <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">Facebook</a> and <a href="https://www.changehealthcare.com/">Change Healthcare</a>, and other public datasets like <a href="https://console.cloud.google.com/marketplace/product/bigquery-public-datasets/covid19-search-trends">Google Trends</a>. It is built and maintained by the Carnegie Mellon University <a href="https://delphi.cmu.edu/">Delphi research group</a>.</p>
-<p>Today we introduce the R package “<code>epidatr</code>”, available <a href="https://cloud.r-project.org/web/packages/epidatr/index.html">on CRAN</a>, with the source and development <a href="https://github.com/cmu-delphi/epidatr">on github</a>.</p>
+<p>Today we introduce the R package <code>epidatr</code>, available <a href="https://cloud.r-project.org/web/packages/epidatr/index.html">on CRAN</a>, with the source and development <a href="https://github.com/cmu-delphi/epidatr">on github</a>.</p>
 <p>This package is designed to streamline the downloading and usage of data from the Delphi Epidata API. It provides a simple R interface to the API, including functions for downloading data, parsing the results, and converting the data into a tidy format. The API stores a historical record of all data, including corrections and updates, which is particularly useful for accurately backtesting forecasting models. We also provide packages for downstream data processing (<a href="https://github.com/cmu-delphi/epiprocess">epiprocess</a>) and modeling (<a href="https://github.com/cmu-delphi/epipredict">epipredict</a>).</p>
 <div id="usage" class="section level2">
 <h2>Usage</h2>
 <pre class="r"><code>library(epidatr)
 # Obtain the smoothed covid-like illness (CLI) signal from the Facebook survey as it was on April 10, 2021 for the US
-epidata &lt;- covidcast(
-  source = &quot;fb-survey&quot;,
-  signals = &quot;smoothed_cli&quot;,
-  geo_type = &quot;nation&quot;,
-  time_type = &quot;day&quot;,
-  geo_values = &quot;us&quot;,
-  time_values = epirange(20210101, 20210601),
-  as_of = &quot;2021-06-01&quot;)
+epidata &lt;- pub_covidcast(
+    source = &quot;fb-survey&quot;,
+    signals = &quot;smoothed_cli&quot;,
+    geo_type = &quot;nation&quot;,
+    time_type = &quot;day&quot;,
+    geo_values = &quot;us&quot;,
+    time_values = epirange(20210101, 20210601),
+    as_of = 20210601
+)
 epidata</code></pre>
-<pre><code># A tibble: 6 × 15
-  geo_value signal       source   geo_type time_type time_value
-  &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;    &lt;fct&gt;    &lt;fct&gt;     &lt;date&gt;
-1 us        smoothed_cli fb-surv… nation   day       2021-04-05
-2 us        smoothed_cli fb-surv… nation   day       2021-04-06
-3 us        smoothed_cli fb-surv… nation   day       2021-04-07
-4 us        smoothed_cli fb-surv… nation   day       2021-04-08
-5 us        smoothed_cli fb-surv… nation   day       2021-04-09
-6 us        smoothed_cli fb-surv… nation   day       2021-04-10
-# ℹ 9 more variables: direction &lt;dbl&gt;, issue &lt;date&gt;,
-#   lag &lt;int&gt;, missing_value &lt;int&gt;, missing_stderr &lt;int&gt;,
-#   missing_sample_size &lt;int&gt;, value &lt;dbl&gt;, stderr &lt;dbl&gt;,
-#   sample_size &lt;dbl&gt;</code></pre>
+<pre><code>## # A tibble: 151 × 15
+##    geo_value signal       source geo_type time_type time_value
+##    &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;  &lt;fct&gt;    &lt;fct&gt;     &lt;date&gt;    
+##  1 us        smoothed_cli fb-su… nation   day       2021-01-01
+##  2 us        smoothed_cli fb-su… nation   day       2021-01-02
+##  3 us        smoothed_cli fb-su… nation   day       2021-01-03
+##  4 us        smoothed_cli fb-su… nation   day       2021-01-04
+##  5 us        smoothed_cli fb-su… nation   day       2021-01-05
+##  6 us        smoothed_cli fb-su… nation   day       2021-01-06
+##  7 us        smoothed_cli fb-su… nation   day       2021-01-07
+##  8 us        smoothed_cli fb-su… nation   day       2021-01-08
+##  9 us        smoothed_cli fb-su… nation   day       2021-01-09
+## 10 us        smoothed_cli fb-su… nation   day       2021-01-10
+## # ℹ 141 more rows
+## # ℹ 9 more variables: direction &lt;dbl&gt;, issue &lt;date&gt;,
+## #   lag &lt;dbl&gt;, missing_value &lt;dbl&gt;, missing_stderr &lt;dbl&gt;,
+## #   missing_sample_size &lt;dbl&gt;, value &lt;dbl&gt;, stderr &lt;dbl&gt;,
+## #   sample_size &lt;dbl&gt;</code></pre>
 </div>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
@@ -88,6 +72,6 @@ will read by default.</p>
 </div>
 </div>
 <div id="for-users-of-the-covidcast-r-package" class="section level2">
-<h2>For users of the <code>covidcast</code> R package</h2>
+<h2>For users of the covidcast R package</h2>
 <p>The <code>epidatr</code> package is a complete rewrite of the <a href="https://cmu-delphi.github.io/covidcast/covidcastR/"><code>covidcast</code> package</a>, with a focus on speed, reliability, and ease of use. The <code>covidcast</code> package is deprecated and will no longer be updated.</p>
 </div>
