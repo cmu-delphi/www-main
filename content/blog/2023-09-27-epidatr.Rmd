@@ -17,6 +17,8 @@ summary: |
 output:
   blogdown::html_page:
     toc: true
+  html_document:
+    code_folding: show
 ---
 
 The [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/) provides real-time access to epidemiological surveillance data for influenza, COVID-19, and other diseases from both official government sources such as the [Center for Disease Control (CDC)](https://www.cdc.gov/datastatistics/index.html), private partners such as [Facebook](https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/) and [Change Healthcare](https://www.changehealthcare.com/), and other public datasets like [Google Trends](https://console.cloud.google.com/marketplace/product/bigquery-public-datasets/covid19-search-trends). It is built and maintained by the Carnegie Mellon University [Delphi research group](https://delphi.cmu.edu/).
@@ -31,7 +33,7 @@ This package is designed to streamline the downloading and usage of data from th
 pak::pkg_install("cmu-delphi/epidatr")
 ```
 
-```{r class.source = 'fold-show'}
+```{r}
 library(epidatr)
 # Obtain the smoothed covid-like illness (CLI) signal from the Facebook survey as it was on April 10, 2021 for the US
 epidata <- pub_covidcast(
@@ -50,7 +52,7 @@ epidata
 
 You can install the stable version of this package from CRAN:
 
-```{r, eval = FALSE, class.source = 'fold-show'}
+```{r, eval = FALSE}
 install.packages("epidatr")
 pak::pkg_install("epidatr")
 renv::install("epidatr")
@@ -58,7 +60,7 @@ renv::install("epidatr")
 
 Or if you want the development version, install from GitHub:
 
-```{r, eval = FALSE, class.source = 'fold-show'}
+```{r, eval = FALSE}
 # Install the dev version using `pak` or `remotes`
 pak::pkg_install("cmu-delphi/epidatr")
 remotes::install_github("cmu-delphi/epidatr")
