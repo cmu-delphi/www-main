@@ -1,5 +1,5 @@
 ---
-title: New package released! `epidatr`, an R client for Delphi Epidata API
+title: New package released! Epidatr, an R client for Delphi Epidata API
 author: Dmitry Shemetov, David Weber
 date: 2023-09-27
 tags:
@@ -8,7 +8,7 @@ tags:
   - covidcast
 authors:
   - dmitry
-  - david
+  - davidweb
 heroImage: blog-lg-epidatr.jpg
 heroImageThumb: blog-thumb-epidatr.jpg
 summary: |
@@ -21,11 +21,19 @@ output:
 
 
 <div id="TOC">
-
+<ul>
+<li><a href="#usage" id="toc-usage">Usage</a></li>
+<li><a href="#installation" id="toc-installation">Installation</a>
+<ul>
+<li><a href="#api-keys" id="toc-api-keys">API Keys</a></li>
+</ul></li>
+<li><a href="#for-users-of-the-covidcast-r-package" id="toc-for-users-of-the-covidcast-r-package">For users of the <code>covidcast</code> R package</a></li>
+</ul>
 </div>
 
-<p>The <a href="https://cmu-delphi.github.io/delphi-epidata/">Delphi Epidata API</a> provides real-time access to epidemiological surveillance data for influenza, COVID-19, and other diseases from both official government sources such as the <a href="https://www.cdc.gov/datastatistics/index.html">Center for Disease Control (CDC)</a> and <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/google-symptoms.html">Google Trends</a> and private partners such as <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">Facebook</a> and <a href="https://www.changehealthcare.com/">Change Healthcare</a>. It is built and maintained by the Carnegie Mellon University <a href="https://delphi.cmu.edu/">Delphi research group</a>.</p>
-<p>This package is designed to streamline the downloading and usage of data from the <a href="https://cmu-delphi.github.io/delphi-epidata/">Delphi Epidata API</a>. It provides a simple R interface to the API, including functions for downloading data, parsing the results, and converting the data into a tidy format. The API stores a historical record of all data, including corrections and updates, which is particularly useful for accurately backtesting forecasting models. We also provide packages for downstream data processing (<a href="https://github.com/cmu-delphi/epiprocess">epiprocess</a>) and modeling (<a href="https://github.com/cmu-delphi/epipredict">epipredict</a>).</p>
+<p>The <a href="https://cmu-delphi.github.io/delphi-epidata/">Delphi Epidata API</a> provides real-time access to epidemiological surveillance data for influenza, COVID-19, and other diseases from both official government sources such as the <a href="https://www.cdc.gov/datastatistics/index.html">Center for Disease Control (CDC)</a>, private partners such as <a href="https://delphi.cmu.edu/blog/2020/08/26/covid-19-symptom-surveys-through-facebook/">Facebook</a> and <a href="https://www.changehealthcare.com/">Change Healthcare</a>, and other public datasets like <a href="https://console.cloud.google.com/marketplace/product/bigquery-public-datasets/covid19-search-trends">Google Trends</a>. It is built and maintained by the Carnegie Mellon University <a href="https://delphi.cmu.edu/">Delphi research group</a>.</p>
+<p>Today we introduce the R package “<code>epidatr</code>”, available <a href="https://cloud.r-project.org/web/packages/epidatr/index.html">on CRAN</a>, with the source and development <a href="https://github.com/cmu-delphi/epidatr">on github</a>.</p>
+<p>This package is designed to streamline the downloading and usage of data from the Delphi Epidata API. It provides a simple R interface to the API, including functions for downloading data, parsing the results, and converting the data into a tidy format. The API stores a historical record of all data, including corrections and updates, which is particularly useful for accurately backtesting forecasting models. We also provide packages for downstream data processing (<a href="https://github.com/cmu-delphi/epiprocess">epiprocess</a>) and modeling (<a href="https://github.com/cmu-delphi/epipredict">epipredict</a>).</p>
 <div id="usage" class="section level2">
 <h2>Usage</h2>
 <pre class="r"><code>library(epidatr)
@@ -60,11 +68,23 @@ epidata</code></pre>
 pak::pkg_install(&quot;epidatr&quot;)
 renv::install(&quot;epidatr&quot;)</code></pre>
 <p>Or if you want the development version, install from GitHub:</p>
-<p>``<code>r # Install the dev version using</code>pak<code>or</code>remotes` pak::pkg_install(&quot;cmu-delphi/epidatr&quot;) remotes::install_github(&quot;cmu-delphi/epidatr&quot;) renv::install(&quot;cmu-delphi/epidatr&quot;)</p>
+<pre class="r"><code># Install the dev version using `pak` or `remotes`
+pak::pkg_install(&quot;cmu-delphi/epidatr&quot;)
+remotes::install_github(&quot;cmu-delphi/epidatr&quot;)
+renv::install(&quot;cmu-delphi/epidatr&quot;)</code></pre>
 <div id="api-keys" class="section level3">
 <h3>API Keys</h3>
-<p>The Delphi API requires a (free) API key for full functionality. To generate your key, register for a pseudo-anonymous account <a href="https://api.delphi.cmu.edu/epidata/admin/registration_form">here</a> and see more discussion on the <a href="https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html">general API website</a>. The <code>epidatr</code> client will automatically look for this key in the R option <code>delphi.epidata.key</code> or in the environment variable <code>DELPHI_EPIDATA_KEY</code>. We recommend storing your key in <code>.Renviron</code> file, which R will read by default.</p>
-<p>Note that for the time being, the private endpoints (i.e. those prefixed with <code>pvt</code>) will require a separate key that needs to be passed as an argument.</p>
+<p>The Delphi API requires a (free) API key for full functionality. To generate
+your key, register for a pseudo-anonymous account
+<a href="https://api.delphi.cmu.edu/epidata/admin/registration_form">here</a> and see more
+discussion on the <a href="https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html">general API
+website</a>. The
+<code>epidatr</code> client will automatically look for this key in the R option
+<code>delphi.epidata.key</code> or in the environment variable
+<code>DELPHI_EPIDATA_KEY</code>. We recommend storing your key in <code>.Renviron</code> file, which R
+will read by default.</p>
+<p>Note that for the time being, the private endpoints (i.e. those prefixed with
+<code>pvt</code>) will require a separate key that needs to be passed as an argument.</p>
 </div>
 </div>
 <div id="for-users-of-the-covidcast-r-package" class="section level2">
