@@ -1,3 +1,23 @@
+---
+title: New package released! Epidatr, an R client for Delphi Epidata API
+author: Dmitry Shemetov, David Weber
+date: 2023-09-27
+tags:
+  - r
+  - epidata
+  - covidcast
+authors:
+  - dmitry
+  - davidweb
+heroImage: blog-lg-epidatr.jpg
+heroImageThumb: blog-thumb-epidatr.jpg
+summary: |
+  `epidatr` is designed to streamline the downloading and usage of data from the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/). It provides a simple R interface to the API, including functions for downloading data, parsing the results, and converting the data into a tidy format.
+
+output:
+  blogdown::html_page:
+    toc: true
+---
 
 <div id="TOC">
 <ul>
@@ -28,7 +48,7 @@ epidata &lt;- pub_covidcast(
 epidata</code></pre>
 <pre><code>## # A tibble: 151 × 15
 ##    geo_value signal       source geo_type time_type time_value
-##    &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;  &lt;fct&gt;    &lt;fct&gt;     &lt;date&gt;    
+##    &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;  &lt;fct&gt;    &lt;fct&gt;     &lt;date&gt;
 ##  1 us        smoothed_cli fb-su… nation   day       2021-01-01
 ##  2 us        smoothed_cli fb-su… nation   day       2021-01-02
 ##  3 us        smoothed_cli fb-su… nation   day       2021-01-03
