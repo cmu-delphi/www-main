@@ -34,7 +34,7 @@ output:
 <p>This package is designed to streamline the downloading and usage of data from the Delphi Epidata API. It provides a simple R interface to the API, including functions for downloading data, parsing the results, and converting the data into a tidy format. The API stores a historical record of all data, including corrections and updates, which is particularly useful for accurately backtesting forecasting models. We also provide packages for downstream data processing (<a href="https://github.com/cmu-delphi/epiprocess">epiprocess</a>) and modeling (<a href="https://github.com/cmu-delphi/epipredict">epipredict</a>).</p>
 <div id="usage" class="section level2">
 <h2>Usage</h2>
-<pre class="r"><code>library(epidatr)
+<pre class="r fold-show"><code>library(epidatr)
 # Obtain the smoothed covid-like illness (CLI) signal from the Facebook survey as it was on April 10, 2021 for the US
 epidata &lt;- pub_covidcast(
     source = &quot;fb-survey&quot;,
@@ -68,11 +68,11 @@ epidata</code></pre>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p>You can install the stable version of this package from CRAN:</p>
-<pre class="r"><code>install.packages(&quot;epidatr&quot;)
+<pre class="r fold-show"><code>install.packages(&quot;epidatr&quot;)
 pak::pkg_install(&quot;epidatr&quot;)
 renv::install(&quot;epidatr&quot;)</code></pre>
 <p>Or if you want the development version, install from GitHub:</p>
-<pre class="r"><code># Install the dev version using `pak` or `remotes`
+<pre class="r fold-show"><code># Install the dev version using `pak` or `remotes`
 pak::pkg_install(&quot;cmu-delphi/epidatr&quot;)
 remotes::install_github(&quot;cmu-delphi/epidatr&quot;)
 renv::install(&quot;cmu-delphi/epidatr&quot;)</code></pre>

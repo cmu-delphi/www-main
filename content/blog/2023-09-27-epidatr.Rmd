@@ -31,7 +31,7 @@ This package is designed to streamline the downloading and usage of data from th
 pak::pkg_install("cmu-delphi/epidatr")
 ```
 
-```{r}
+```{r class.source = 'fold-show'}
 library(epidatr)
 # Obtain the smoothed covid-like illness (CLI) signal from the Facebook survey as it was on April 10, 2021 for the US
 epidata <- pub_covidcast(
@@ -50,7 +50,7 @@ epidata
 
 You can install the stable version of this package from CRAN:
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, class.source = 'fold-show'}
 install.packages("epidatr")
 pak::pkg_install("epidatr")
 renv::install("epidatr")
@@ -58,7 +58,7 @@ renv::install("epidatr")
 
 Or if you want the development version, install from GitHub:
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, class.source = 'fold-show'}
 # Install the dev version using `pak` or `remotes`
 pak::pkg_install("cmu-delphi/epidatr")
 remotes::install_github("cmu-delphi/epidatr")
