@@ -343,6 +343,7 @@ people:
   affiliation: CMU/MLD and OVPR
   team:
   - leadership
+  - highlight
   leaderOrder: 3
 - firstName: Jaemin
   lastName: Jo
@@ -522,6 +523,7 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+  - highlight
 - firstName: Ruiqi
   lastName: Lyu
   image: ruiqi-lyu.jpg
@@ -720,7 +722,6 @@ people:
   affiliation: CMU/MLD
   team:
   - core
-  - highlight
   - blog
   description: is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.
 - firstName: Wael Al
@@ -834,7 +835,6 @@ people:
   affiliation: CMU/CompBio
   team:
   - core
-  - highlight
 - firstName: Kenneth
   lastName: Tay
   image: kenneth-tay.jpg
