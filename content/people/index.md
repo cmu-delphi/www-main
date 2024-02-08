@@ -773,8 +773,10 @@ people:
   lastName: Shemetov
   image: dmitry-shemetov-500x500-min.jpg
   affiliation: CMU/MLD
+  description: is a statistical developer on the Delphi team.
   team:
   - core
+  - blog
 - firstName: Xueda
   lastName: Shen
   image: xueda-shen.jpg
@@ -957,12 +959,15 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
-- firstName: David
+- key: davidweb
+  firstName: David
   lastName: Weber
   image: david-weber.jpg
   affiliation: CMU/MLD
+  description: is a statistical developer on the Delphi team.
   team:
-  - core  
+  - core
+  - blog  
 - key: jweiss
   firstName: Jeremy Chen
   lastName: Weiss
