@@ -7,7 +7,7 @@ papers:
     link: https://arxiv.org/abs/2306.16914
     journal: International Joint Conference on Artificial Intelligence
   - title: "RtEstim: Effective reproduction number estimation with trend filtering"
-    image: rtestim.png
+    image: rtestim.jpg
     authors: Liu, Cai, Gustafson, McDonald
     link: https://doi.org/10.1101/2023.12.18.23299302
     journal: medRxiv
