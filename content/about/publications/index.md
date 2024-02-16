@@ -1,11 +1,18 @@
 ---
 title: Research
 papers:
+  - title: "RtEstim: Effective reproduction number estimation with trend filtering"
+    image: rtestim.jpg
+    authors: Liu, Cai, Gustafson, McDonald
+    link: https://doi.org/10.1101/2023.12.18.23299302
+    journal: medRxiv
+    year: 2023
   - title: "Computationally Assisted Quality Control for Public Health Data Streams"
     image: forecast.png
     authors: Joshi, Mazaitis, Rosenfeld, Wilder
     link: https://arxiv.org/abs/2306.16914
-    journal: International Joint Conference on Artificial Intelligence  
+    year: 2023
+    journal: International Joint Conference on Artificial Intelligence
   - title: "Nowcasting Reported COVID-19 Hospitalizations Using De-Identified, Aggregated Medical Insurance Claims Data"
     image: paper-2023-nowcasting-reported.jpg
     authors: Shen, Rumack, Wilder, Tibshirani
@@ -35,12 +42,6 @@ papers:
     authors: Reich, Lessler, Funk, Viboud, Vespignani, Tibshirani, Shea, Schienle, Runge, Rosenfeld, Ray, Niehus, Johnson, Johansson, Hochheiser, Gardner, Bracher, Borchering, Biggerstaff
     link: https://doi.org/10.2105/AJPH.2022.306831
     journal: American Journal of Public Health
-    year: 2022
-  - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
-    image: smoothing-paper-teaser.jpg
-    authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
-    link: https://arxiv.org/abs/2202.09723
-    journal: arXiv
     year: 2022
   - title: "Recalibrating Probabilistic Forecasts of Epidemics"
     image: recalibrating-thumb.jpg
