@@ -45,7 +45,7 @@ Interestingly, through our prior system, I had the opportunity to experience all
 <center>
 ![**Fig 2.** FlaSH's Human-in-the-loop-Framework](/blog/2024-01-30-flash-framework/image2.png)</center>
 
-Combining the methods, engineering, and quality assurance perspectives for event detection from large-scale public health streams, we developed a human-in-the-loop approach to address some fundamental challenges in existing alerting systems. Namely, we rank Delphi's recently updated data by how much it warrants reviewer attention. Reviewers can then decide how many data points they want to investigate, which prioritizes a reviewer's time and does not expect them to review a certain number of alerts flagged via a somewhat arbitrary threshold. 
+Combining the methods, engineering, and quality assurance perspectives for event detection from large-scale public health streams, we developed a human-in-the-loop approach to address some fundamental challenges in existing alerting systems. Namely, we rank Delphi's recently updated data by how much it warrants reviewer attention. Reviewers can then decide how many data points they want to investigate, which prioritizes a reviewer's time and does not expect them to review a certain number of alerts flagged via some arbitrary threshold. 
 
 Here's a quick illustration of why the ranking approach works. The most limited resource in this setting is an expert reviewer's time and attention. We want to show this reviewer as many potential events as possible so that they can interpret the data with their known context. 
 
