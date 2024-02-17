@@ -31,7 +31,7 @@ However, we quickly realized this formula did not work with Delphi's large data 
 
 The historical alerting framework cannot keep up with monitoring the increasingly large volumes of heterogeneous public health data that organizations like Delphi process. Delphi has increased its volume by 1000x in the past three years alone. And, although Delphi processes data from several geographical regions, even local public health agencies who use systems (that focus on one geography) under the existing alerting framework have challenged its usefulness (e.g. "[What Can You Really Do with 35,000 Statistical Alerts a Week Anyways?](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6606136/)" (2019)). We anticipate this failure mode for alerting systems will become more prevalent as data volumes grow. 
 
-### Bridging the gap with FlaSH:
+### Bridging the gap with FlaSH
 
 Identifying and communicating noteworthy events from public health data is a critical step for future pandemic prevention^4. But how should we redesign our event detection process? 
 After reflecting on our prior system, we realized the reason why existing monitoring fails is best summarized by the following quote: 
