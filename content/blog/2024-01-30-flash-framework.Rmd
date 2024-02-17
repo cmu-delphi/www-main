@@ -18,7 +18,7 @@ Insights from public health data can keep communities safe. However, identifying
 <center>
 ![**Fig 1** Standard Approach for Alerting Systems](/blog/2024-01-30-flash-framework/image3.png)</center>
 
-1. Predict a value that you expect the data to look like 
+1. Predict a value that you expect the data to have
 2. Calculate the difference between your observed and predicted values 
 3. Contextualize the difference (e.g., to account for the variability in the data)
 4. Send alerts when this value passes a threshold
