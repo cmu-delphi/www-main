@@ -12,7 +12,7 @@ output:
   blogdown::html_page:
     toc: true
 ---
-Insights from public health data can keep communities safe. However, identifying these insights in large volumes of modern public health data can be laborious <sup>[1](#link1)</sup>. As a result, over the past few decades, public health agencies have built monitoring systems, like [ESSENCE](https://www.cdc.gov/nssp/new-users.html) (CDC), [EIOS](https://www.who.int/initiatives/eios) (WHO), and [DHIS2](https://dhis2.org/) (WHO), where users can set custom statistical alerts and then investigate these alerts using data visualizations <sup>[2](#link2)</sup>. These alerting systems largely follow the following formula <sup>[3](#link3)</sup> as shown in Fig 1.:
+Insights from public health data can keep communities safe. However, identifying these insights in large volumes of modern public health data can be laborious^1. As a result, over the past few decades, public health agencies have built monitoring systems, like [ESSENCE](https://www.cdc.gov/nssp/new-users.html) (CDC), [EIOS](https://www.who.int/initiatives/eios) (WHO), and [DHIS2](https://dhis2.org/) (WHO), where users can set custom statistical alerts and then investigate these alerts using data visualizations^2. These alerting systems largely follow the following formula^3 as shown in Fig 1.:
 
 
 <center>
@@ -33,11 +33,11 @@ The historical alerting framework cannot keep up with monitoring the increasingl
 
 ### Bridging the gap with FlaSH:
 
-Identifying and communicating noteworthy events from public health data is a critical step for future pandemic prevention <sup>[4](#link4)</sup>. But how should we redesign our event detection process? 
+Identifying and communicating noteworthy events from public health data is a critical step for future pandemic prevention^4. But how should we redesign our event detection process? 
 After reflecting on our prior system, we realized the reason why existing monitoring fail, best summarized by the following quote: 
 
 <blockquote>
-"The current disconnect among algorithm developers, implementers, and [experts] … foster[s] distrust in statistical monitoring and in biosurveillance itself."  - Galit Shmeuli & Howard Burkom <sup>[5](#link5)</sup>
+"The current disconnect among algorithm developers, implementers, and [experts] … foster[s] distrust in statistical monitoring and in biosurveillance itself."  - Galit Shmeuli & Howard Burkom^5
 </blockquote>
     
 Interestingly, through our prior system, I had the opportunity to experience all three roles, from developing the outlier detection methods, implementing and deploying the methods over Delphi's data, and then analyzing the outputs of the methods. These three roles came with different constraints and priorities. These experiences set the foundation for devising an interdisciplinary approach. 
