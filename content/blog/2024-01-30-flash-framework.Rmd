@@ -34,7 +34,7 @@ The historical alerting framework cannot keep up with monitoring the increasingl
 ### Bridging the gap with FlaSH:
 
 Identifying and communicating noteworthy events from public health data is a critical step for future pandemic prevention^4. But how should we redesign our event detection process? 
-After reflecting on our prior system, we realized the reason why existing monitoring fail, best summarized by the following quote: 
+After reflecting on our prior system, we realized the reason why existing monitoring fails is best summarized by the following quote: 
 
 <blockquote>
 "The current disconnect among algorithm developers, implementers, and [experts] … foster[s] distrust in statistical monitoring and in biosurveillance itself."  - Galit Shmeuli & Howard Burkom^5
