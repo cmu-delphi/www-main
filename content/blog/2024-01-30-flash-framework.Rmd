@@ -20,7 +20,7 @@ Insights from public health data can keep communities safe. However, identifying
 
 1. Predict a value that you expect the data to have
 2. Calculate the difference between your observed and predicted values 
-3. Contextualize the difference (e.g., to account for the variability in the data)
+3. Contextualize the difference (e.g., to account for variability in the data)
 4. Send alerts when this value passes a threshold
 
 Using this formula, if we assume that our data follows a bell curve, we can calculate the difference between our prediction (which might be the average of the data) and what we observe and divide by the standard deviation of the data. If this value exceeds a specific threshold of 3, then the probability that we would observe that data point in that bell curve would be less than 1%, which means that it is quite surprising. By setting this threshold high, only a small percentage of points are identified as outliers and result in alerts.
