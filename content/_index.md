@@ -19,16 +19,16 @@ carousel:
     ref: 2023-12-20-changepoint_explore
     alt: View Post
     image: landing-pg-hero-exploratory_analysis.jpg
+  - pre: Tools
+    title: Introducing Epidata
+    link: https://delphi.cmu.edu/blog/2022/12/14/introducing-epidata-v4/
+    alt: View Post
+    image: landing-pg-hero-introducing_epidata.jpg
   - pre: Blog
     title: On the Predictability of COVID-19
     ref: 2021-09-30-ensemble-analysis
     alt: View Post
     image: ensemble-hero.jpg
-  - pre: Tools
-    title: An Open Repository of Real-Time COVID-19 Indicators
-    link: https://delphi.cmu.edu/blog/2022/12/14/introducing-epidata-v4/
-    alt: Introducing Epidata
-    image: landing-pg-hero-introducing_epidata.jpg
   - pre: Research
     title: "Comparing Trained and Untrained Probabilistic Ensemble Forecasts of COVID-19 Cases and Deaths in the United States"
     link: https://doi.org/10.1016/j.ijforecast.2022.06.005
