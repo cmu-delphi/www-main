@@ -40,7 +40,7 @@ acknowledgements: Thank you to George Haff, Carlyn Van Dyke, and Ron Lunde for e
 <p>The historical alerting framework cannot keep up with monitoring the increasingly large volumes of heterogeneous public health data that organizations like Delphi process. Delphi has increased its volume by 1000x in the past three years alone. And, although Delphi processes data from several geographical regions, even local public health agencies who use systems (that focus on one geography) under the existing alerting framework have challenged its usefulness (e.g. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6606136/">What Can You Really Do with 35,000 Statistical Alerts a Week Anyways?</a>” (2019)). We anticipate this failure mode for alerting systems will become more prevalent as data volumes grow.</p>
 <div id="bridging-the-gap-with-flash" class="section level3">
 <h3>Bridging the gap with FlaSH</h3>
-<p>Identifying and communicating noteworthy events from public health data is a critical step for future pandemic prevention^4. But how should we redesign our event detection process?
+<p>Identifying and communicating noteworthy events from public health data is a critical step for future pandemic prevention<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. But how should we redesign our event detection process?
 After reflecting on our prior system, we realized the reason why existing monitoring fails is best summarized by the following quote:</p>
 <blockquote>
 “The current disconnect among algorithm developers, implementers, and [experts] … foster[s] distrust in statistical monitoring and in biosurveillance itself.” - Galit Shmeuli &amp; Howard Burkom^5
@@ -60,7 +60,7 @@ After reflecting on our prior system, we realized the reason why existing monito
 <div class="figcaption"><strong>Fig 3.</strong> Illustration of Ranking vs. Alerts for large data streams</div>
 </div>
 </center>
-<p>Now imagine each data point per signal was given an outlier score, and there is an arbitrary binary threshold over all the data. If we develop granular enough rankings, we can directly compare outlier points between different signals without arbitrary thresholds. Then, our data reviewer can focus on data points in their order of importance and stop the review at any time.</p>
+<p>Now imagine each data point per signal was given an outlier score, and there is an arbitrary threshold where scores higher than that threshold are considered outliers. If we develop granular enough rankings, we can directly compare outlier points between different signals without arbitrary thresholds. Then, our data reviewer can focus on data points in their order of importance and stop the review at any time.</p>
 <p>Developing this framework required new methods, visualizations, and evaluations. Over the past few years, our goal as part of the <a href="https://delphi.cmu.edu/blog/2024/01/01/introducing-the-flash-group/">FlaSH team</a> was to implement and iterate on this framework. We’re excited to share insights from these perspectives as we’ve moved FlaSH from a sandboxed research project to a deployed part of Delphi’s systems that helps our users. For the next post in this series, I’ll describe some of the novel methods we use to rank events in large volumes of public health data. Then, Richa and Nolan will share their thoughts on moving these research prototypes into a production environment. Third, Tina and Catalina will describe the data visualization and quality assurance processes and considerations they encountered while facilitating event detection investigation. Beyond that, we’ll share updates on how we work towards tightening the human-in-the-loop process!</p>
 <p>This blog post includes material from my thesis proposal, “Identifying Anomalous Events in Modern
 Public Health Data Streams”</p>
@@ -77,5 +77,6 @@ Public Health Data Streams”</p>
 <li id="fn1"><p>Rosen, George. A history of public health. JHU Press, 2015.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Chen, Hsinchun, Daniel Zeng, and Ping Yan. Infectious disease informatics: syndromic surveillance for public health and biodefense. Vol. 21. New York: Springer, 2010.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>Murphy, Sean Patrick, and Howard Burkom. “Recombinant temporal aberration detection algorithms for enhanced biosurveillance.” Journal of the American Medical Informatics Association 15.1 (2008): 77-86.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>“Rapidly Detecting and Responding to Health Emergencies.” World Health Organization, <a href="https://www.who.int/activities/rapidly-detecting-and-responding-to-health-emergencies" class="uri">https://www.who.int/activities/rapidly-detecting-and-responding-to-health-emergencies</a>. Accessed 29 Jan. 2024.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
