@@ -5,7 +5,7 @@ layout: landing
 
 carousel:
   - pre: Tools
-    title: Real-time Indicators of COVID-19 Activity
+    title: Real-time Indicators of Infectious Disease Activity
     ref: covidcast
     alt: Explore the COVIDcast Dashboard
     image: covidcast_v2.jpg
@@ -14,16 +14,16 @@ carousel:
     link: https://www.cs.cmu.edu/news/2023/delphi-cdc-center
     alt: Learn More
     image: landing-pg-hero-_cfa_oadm.jpg
+  - pre: Blog
+    title: Exploratory Analysis - Identifying Changing Variant Behavior during a Pandemic
+    ref: 2023-12-20-changepoint_explore
+    alt: View Post
+    image: landing-pg-hero-exploratory_analysis.jpg
   - pre: Tools
-    title: Evaluation of COVID-19 Forecasts
-    link: /forecast-eval
-    alt: Explore the Forecast Evaluation Dashboard
-    image: forecast_evaluation_dashboard.jpg
-  - pre: Tools
-    title: COVID Trends and Impact Survey (CTIS)
-    ref: covidcast/survey-results
-    alt: Explore the CTIS Dashboard
-    image: covidcast_survey.jpg
+    title: Introducing Epidata
+    link: https://delphi.cmu.edu/blog/2022/12/14/introducing-epidata-v4/
+    alt: View Post
+    image: landing-pg-hero-introducing_epidata.jpg
   - pre: Blog
     title: On the Predictability of COVID-19
     ref: 2021-09-30-ensemble-analysis
@@ -40,7 +40,7 @@ carousel:
     alt: View Paper
     image: research-hero-collaborative-hubs.jpg  
   - pre: Research
-    title: An Open Repository of Real-Time COVID-19 Indicators
+    title: Introduction to the Delphi Real-Time Signal Repository
     link: https://www.medrxiv.org/content/10.1101/2021.07.12.21259660v1
     alt: View Paper
     image: landing-pg_hero-img_An Open Repository of Real-Time COVID-19 Indicators.jpg
