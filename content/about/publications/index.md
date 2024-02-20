@@ -1,6 +1,12 @@
 ---
 title: Research
 papers:
+  - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
+    image: smoothing-paper-teaser.jpg
+    authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
+    link: https://doi.org/10.1080/10618600.2023.2285337
+    journal: Journal of Computational and Graphical Statistics
+    year: 2024
   - title: "RtEstim: Effective reproduction number estimation with trend filtering"
     image: rtestim.jpg
     authors: Liu, Cai, Gustafson, McDonald
