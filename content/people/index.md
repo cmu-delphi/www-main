@@ -149,12 +149,6 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
-- firstName: Santiago
-  lastName: Cortes Gomez
-  image: santiago-cortes-gomez.jpg
-  affiliation: CMU/MLD
-  team:
-  - contributors
 - firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
@@ -343,6 +337,7 @@ people:
   affiliation: CMU/MLD and OVPR
   team:
   - leadership
+  - highlight
   leaderOrder: 3
 - firstName: Jaemin
   lastName: Jo
@@ -522,6 +517,7 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+  - highlight
 - firstName: Ruiqi
   lastName: Lyu
   image: ruiqi-lyu.jpg
@@ -720,7 +716,6 @@ people:
   affiliation: CMU/MLD
   team:
   - core
-  - highlight
   - blog
   description: is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.
 - firstName: Wael Al
@@ -772,8 +767,10 @@ people:
   lastName: Shemetov
   image: dmitry-shemetov-500x500-min.jpg
   affiliation: CMU/MLD
+  description: is a statistical developer on the Delphi team.
   team:
   - core
+  - blog
 - firstName: Xueda
   lastName: Shen
   image: xueda-shen.jpg
@@ -834,7 +831,6 @@ people:
   affiliation: CMU/CompBio
   team:
   - core
-  - highlight
 - firstName: Kenneth
   lastName: Tay
   image: kenneth-tay.jpg
@@ -957,12 +953,15 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
-- firstName: David
+- key: davidweb
+  firstName: David
   lastName: Weber
   image: david-weber.jpg
   affiliation: CMU/MLD
+  description: is a statistical developer on the Delphi team.
   team:
-  - core  
+  - core
+  - blog  
 - key: jweiss
   firstName: Jeremy Chen
   lastName: Weiss
