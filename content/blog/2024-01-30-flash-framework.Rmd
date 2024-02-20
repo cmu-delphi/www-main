@@ -60,10 +60,4 @@ Developing this framework required new methods, visualizations, and evaluations.
 This blog post includes material from my thesis proposal, "Identifying Anomalous Events in Modern
 Public Health Data Streams" 
 
-<a id="#link1">1.</a>  Rosen, George. A history of public health. JHU Press, 2015.  <br>
-<a id="#link2">2.</a>  Chen, Hsinchun, Daniel Zeng, and Ping Yan. Infectious disease informatics: syndromic surveillance for public health and biodefense. Vol. 21. New York: Springer, 2010. <br>
-<a id="#link3">3.</a>  Murphy, Sean Patrick, and Howard Burkom. "Recombinant temporal aberration detection algorithms for enhanced biosurveillance." Journal of the American Medical Informatics Association 15.1 (2008): 77-86. <br>
-<a id="#link4">4.</a> “Rapidly Detecting and Responding to Health Emergencies.” World Health Organization, ]www.who.int/activities/rapidly-detecting-and-responding-to-health-emergencies. Accessed 29 Jan. 2024. <br>
-<a id="#link5">5.</a> Shmueli, Galit, and Howard Burkom. "Statistical challenges facing early outbreak detection in biosurveillance." Technometrics 52.1 (2010): 39-51.
-
 This work was supported by the Centers for Disease Control and Prevention of the U.S. Department of Health and Human Services (HHS) as part of a cooperative agreement funded solely by CDC/HHS under federal award identification number U01IP001121, “Delphi Influenza Forecasting Center of Excellence”; and by CDC funded contract number 75D30123C15907, "Digital Public Health Surveillance for the 21st Century". The contents are those of the authors and do not necessarily represent the official views of, nor an endorsement by, CDC/HHS or the U.S. Government. Additionally, this material is based upon work supported by the National Science Foundation Graduate Research Fellowship under Grant No. DGE1745016 and DGE2140739. Any opinion, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.
