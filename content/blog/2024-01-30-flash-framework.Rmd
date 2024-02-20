@@ -11,6 +11,7 @@ heroImageThumb: blog_alerts_thumb.png
 output:
   blogdown::html_page:
     toc: true
+acknowledgements: Thank you to George Haff, Carlyn Van Dyke, and Ron Lunde for editing this blog post. 
 ---
 Insights from public health data can keep communities safe. However, identifying these insights in large volumes of modern public health data can be laborious^[Rosen, George. A history of public health. JHU Press, 2015.]. As a result, over the past few decades, public health agencies have built monitoring systems, like [ESSENCE](https://www.cdc.gov/nssp/new-users.html) (CDC), [EIOS](https://www.who.int/initiatives/eios) (WHO), and [DHIS2](https://dhis2.org/) (WHO), where users can set custom statistical alerts and then investigate these alerts using data visualizations^[Chen, Hsinchun, Daniel Zeng, and Ping Yan. Infectious disease informatics: syndromic surveillance for public health and biodefense. Vol. 21. New York: Springer, 2010.]. These alerting systems largely follow the following formula^[Murphy, Sean Patrick, and Howard Burkom. "Recombinant temporal aberration detection algorithms for enhanced biosurveillance." Journal of the American Medical Informatics Association 15.1 (2008): 77-86.] as shown in Fig 1.:
 
@@ -54,9 +55,10 @@ Here's a quick illustration of why the ranking approach works. The most limited 
 
 Now imagine each data point per signal was given an outlier score, and there is an arbitrary binary threshold over all the data. If we develop granular enough rankings, we can directly compare outlier points between different signals without arbitrary thresholds. Then, our data reviewer can focus on data points in their order of importance and stop the review at any time. 
 
-Developing this framework required new methods, visualizations, and evaluations. Over the past few years, our goal as part of the [FlaSH team](https://delphi.cmu.edu/blog/2024/01/01/introducing-the-flash-group/) was to implement and iterate on this framework. We're excited to share insights from these perspectives as we've moved FlaSH from a sandboxed research project to a deployed part of Delphi's systems that helps our users. For the next post in this series, I'll describe some of the novel methods we use to rank events in large volumes of public health data. Then, Richa and Nolan will share their perspectives on moving these research prototypes into a production environment. Third, Tina and Catalina will describe the data visualization and quality assurance perspectives and considerations they encountered while facilitating event detection investigation. Beyond that, we'll share updates on how we work towards tightening the human-in-the-loop process!
+Developing this framework required new methods, visualizations, and evaluations. Over the past few years, our goal as part of the [FlaSH team](https://delphi.cmu.edu/blog/2024/01/01/introducing-the-flash-group/) was to implement and iterate on this framework. We're excited to share insights from these perspectives as we've moved FlaSH from a sandboxed research project to a deployed part of Delphi's systems that helps our users. For the next post in this series, I'll describe some of the novel methods we use to rank events in large volumes of public health data. Then, Richa and Nolan will share their thoughts on moving these research prototypes into a production environment. Third, Tina and Catalina will describe the data visualization and quality assurance processes and considerations they encountered while facilitating event detection investigation. Beyond that, we'll share updates on how we work towards tightening the human-in-the-loop process!
 
-This blog post includes material from my thesis proposal. 
+This blog post includes material from my thesis proposal, "Identifying Anomalous Events in Modern
+Public Health Data Streams" 
 
 <a id="#link1">1.</a>  Rosen, George. A history of public health. JHU Press, 2015.  <br>
 <a id="#link2">2.</a>  Chen, Hsinchun, Daniel Zeng, and Ping Yan. Infectious disease informatics: syndromic surveillance for public health and biodefense. Vol. 21. New York: Springer, 2010. <br>
