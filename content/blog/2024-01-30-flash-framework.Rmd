@@ -12,7 +12,7 @@ output:
   blogdown::html_page:
     toc: true
 ---
-Insights from public health data can keep communities safe. However, identifying these insights in large volumes of modern public health data can be laborious^1. As a result, over the past few decades, public health agencies have built monitoring systems, like [ESSENCE](https://www.cdc.gov/nssp/new-users.html) (CDC), [EIOS](https://www.who.int/initiatives/eios) (WHO), and [DHIS2](https://dhis2.org/) (WHO), where users can set custom statistical alerts and then investigate these alerts using data visualizations^2. These alerting systems largely follow the following formula^3 as shown in Fig 1.:
+Insights from public health data can keep communities safe. However, identifying these insights in large volumes of modern public health data can be laborious^[Rosen, George. A history of public health. JHU Press, 2015.]. As a result, over the past few decades, public health agencies have built monitoring systems, like [ESSENCE](https://www.cdc.gov/nssp/new-users.html) (CDC), [EIOS](https://www.who.int/initiatives/eios) (WHO), and [DHIS2](https://dhis2.org/) (WHO), where users can set custom statistical alerts and then investigate these alerts using data visualizations^[Chen, Hsinchun, Daniel Zeng, and Ping Yan. Infectious disease informatics: syndromic surveillance for public health and biodefense. Vol. 21. New York: Springer, 2010.]. These alerting systems largely follow the following formula^[Murphy, Sean Patrick, and Howard Burkom. "Recombinant temporal aberration detection algorithms for enhanced biosurveillance." Journal of the American Medical Informatics Association 15.1 (2008): 77-86.] as shown in Fig 1.:
 
 
 <center>
