@@ -38,7 +38,7 @@ Identifying and communicating noteworthy events from public health data is a cri
 After reflecting on our prior system, we realized the reason why existing monitoring fails is best summarized by the following quote: 
 
 <blockquote>
-"The current disconnect among algorithm developers, implementers, and [experts] … foster[s] distrust in statistical monitoring and in biosurveillance itself."  - Galit Shmeuli & Howard Burkom^5
+"The current disconnect among algorithm developers, implementers, and [experts] … foster[s] distrust in statistical monitoring and in biosurveillance itself."  - Galit Shmeuli & Howard Burkom^[Shmueli, Galit, and Howard Burkom. "Statistical challenges facing early outbreak detection in biosurveillance." Technometrics 52.1 (2010): 39-51.]
 </blockquote>
     
 Interestingly, through our prior system, I had the opportunity to experience all three roles, from developing the outlier detection methods, implementing and deploying the methods over Delphi's data, and then analyzing the outputs of the methods. These three roles came with different constraints and priorities. These experiences set the foundation for devising an interdisciplinary approach. 
