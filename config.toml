@@ -24,39 +24,44 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "about"
+    name = "Delphi Milestones"
+    url = "/about/milestones"
+    weight = 2
+[[menu.main]]
+    parent = "about"
     name = "Our Team"
     url = "/about/team"
-    weight = 2
+    weight = 3
 [[menu.main]]
     parent = "about"
     name = "Center of Excellence"
     url = "/about/center-of-excellence"
-    weight = 3
+    weight = 4
 [[menu.main]]
     parent = "about"
     name = "Research"
     url = "/about/publications"
-    weight = 4
+    weight = 5
 [[menu.main]]
     parent = "about"
     name = "Blog"
     url = "/blog"
-    weight = 5
+    weight = 6
 [[menu.main]]
     parent = "about"
     name = "News"
     url = "/about/news"
-    weight = 6
+    weight = 7
 [[menu.main]]
     parent = "about"
     name = "Careers"
     url = "/about/careers"
-    weight = 7
+    weight = 8
 [[menu.main]]
     parent = "about"
     name = "Contact Us"
     url = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
-    weight = 8
+    weight = 9
 
 # covid19
 [[menu.main]]
