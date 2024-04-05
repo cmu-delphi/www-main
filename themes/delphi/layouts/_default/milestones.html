@@ -1,3 +1,9 @@
 {{ define "main" }}
   {{ partial "about/banner.html" }}
+  <div class="uk-container content-grid">
+    <div class="grid-3-11 about-description">
+      <h2 class="mission-header">Delphi Research Group Milestones</h2>
+      {{ .Content }}
+    </div>
+  </div>
 {{ end }}
