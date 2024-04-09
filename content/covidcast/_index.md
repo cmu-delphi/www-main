@@ -1,6 +1,6 @@
 ---
-title: COVIDcast Dashboard
-description: COVIDcast tracks and forecasts the spread of COVID-19. By Carnegie Mellon's Delphi Research Group.
+title: Delphi Epidata Dashboard
+description: Delphi Epidata tracks and forecasts the spread of COVID-19. By Carnegie Mellon's Delphi Research Group.
 layout: covidcast_app
 app_mode: landing
 order: 1

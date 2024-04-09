@@ -78,7 +78,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "covid19-covidcast"
     parent = "covid19"
-    name = "COVIDcast Dashboard"
+    name = "Delphi Epidata Dashboard"
     url = "/covidcast/"
     weight = 20
 [[menu.main]]
@@ -119,7 +119,7 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "tools"
-    name = "COVIDcast Dashboard"
+    name = "Delphi Epidata Dashboard"
     url = "/covidcast/"
     weight = 10
 [[menu.main]]
