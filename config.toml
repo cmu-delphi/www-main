@@ -65,50 +65,47 @@ relativeURLs = false
 
 # covid19
 [[menu.main]]
-    identifier = "covid19"
-    name = "COVID-19"
+    identifier = "epidemic-signals"
+    name = "Epidemic Signals"
     pre = "solid/virus"
-    url = "/covid19/"
+    url = "/epidemic-signals/"
     weight = 2
 [[menu.main]]
-    parent = "covid19"
+    parent = "epidemic-signals"
     name = "About COVIDcast"
-    url = "/covid19/"
+    url = "/epidemic-signals/"
     weight = 1
 [[menu.main]]
-    parent = "covid19"
+    parent = "epidemic-signals"
     name = "About CTIS"
-    url = "/covid19/ctis"
+    url = "/epidemic-signals/ctis"
     weight = 10
 [[menu.main]]
-    identifier = "covid19-covidcast"
-    parent = "covid19"
+    identifier = "epidemic-signals-covidcast"
+    parent = "epidemic-signals"
     name = "COVIDcast Dashboard"
     url = "/covidcast/"
     weight = 20
 [[menu.main]]
-    parent = "covid19"
+    parent = "epidemic-signals"
     name = "CTIS Dashboard"
     url = "/covidcast/survey-results"
     weight = 30
 [[menu.main]]
-    parent = "covid19"
+    parent = "epidemic-signals"
     name = "Export Data"
     url = "/covidcast/export"
     weight = 40
 [[menu.main]]
-    parent = "covid19"
-    name = "Terms Of Use"
-    url = "/covid19/terms-of-use"
-    weight = 50
-
-# flu
-[[menu.main]]
-    identifier = "flu"
+    parent = "epidemic-signals"
     name = "Flu & Other Pathogens"
-    pre = "solid/disease"
     url = "/flu/"
-    weight = 3
+    weight = 50
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Terms Of Use"
+    url = "/epidemic-signals/terms-of-use"
+    weight = 60
 
 # tools
 [[menu.main]]
