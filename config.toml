@@ -63,7 +63,7 @@ relativeURLs = false
     url = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
     weight = 9
 
-# covid19
+# epidemic-signals
 [[menu.main]]
     identifier = "epidemic-signals"
     name = "Epidemic Signals"

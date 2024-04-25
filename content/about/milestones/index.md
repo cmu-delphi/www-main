@@ -12,11 +12,11 @@ layout: milestones
 
 * **September 2022.** We launched [Epidata v4](https://delphi.cmu.edu/blog/2022/12/14/introducing-epidata-v4/), prioritizing fast access to the most up-to-date data while retaining the deep data revision history needed by researchers.
 
-* **June 2022.** We ended data collection for the [COVID-19 Trends and Impact Survey (CTIS)](https://delphi.cmu.edu/covid19/ctis/) after more than two years, during which we received 29.5 million survey responses in the US (and [well over 100m globally](https://covidmap.umd.edu/)).
+* **June 2022.** We ended data collection for the [COVID-19 Trends and Impact Survey (CTIS)](https://delphi.cmu.edu/epidemic-signals/ctis/) after more than two years, during which we received 29.5 million survey responses in the US (and [well over 100m globally](https://covidmap.umd.edu/)).
 
 * **April 2022.** We received the [Allen Newell Award for Research Excellence in SCS at CMU](https://www.cs.cmu.edu/events/newell-award), which is awarded annually and recognizes an outstanding body of work that epitomizes Allen Newell's research style.
 
-* **April 2022.** We received [the Policy Impact Award and the Warren J. Mitofsky Innovators Award from the the American Association of Public Opinion Research (AAPOR)](https://www.cs.cmu.edu/news/2022/delphi-aapor-awards), along with our partners from the University of Maryland Social Data Science Center and Meta, for our work on the [COVID-19 Trends and Impact Survey](https://delphi.cmu.edu/covid19/ctis/) (CTIS).
+* **April 2022.** We received [the Policy Impact Award and the Warren J. Mitofsky Innovators Award from the the American Association of Public Opinion Research (AAPOR)](https://www.cs.cmu.edu/news/2022/delphi-aapor-awards), along with our partners from the University of Maryland Social Data Science Center and Meta, for our work on the [COVID-19 Trends and Impact Survey](https://delphi.cmu.edu/epidemic-signals/ctis/) (CTIS).
 
 * **January 2022.** We added selected signals from the White House COVID-19 Data Strategy and Execution Workgroup’s [Community Profile Report (CPR)](https://healthdata.gov/Health/COVID-19-Community-Profile-Report/gqxm-d9w9), including hospital admission and vaccination rates. This data source was discontinued in February 2023.
 
@@ -54,7 +54,7 @@ layout: milestones
 
 * **May 2020.** We added signals for COVID-19 Cases and Deaths, mirrored from the [Center for Systems Science and Engineering](https://systems.jhu.edu/research/public-health/ncov/) at Johns Hopkins University.
 
-* **April 2020.** We partnered with Meta to launch the [COVID-19 Trends and Impact Survey (CTIS)](https://delphi.cmu.edu/covid19/ctis/) to monitor in real-time the spread and impact of the COVID-19 pandemic in the United States.
+* **April 2020.** We partnered with Meta to launch the [COVID-19 Trends and Impact Survey (CTIS)](https://delphi.cmu.edu/epidemic-signals/ctis/) to monitor in real-time the spread and impact of the COVID-19 pandemic in the United States.
 
 * **April 2020.** We added signals from two new data sources:
 
