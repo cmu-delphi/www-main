@@ -7,7 +7,7 @@ carousel:
   - pre: Tools
     title: Real-time Indicators of Infectious Disease Activity
     ref: covidcast
-    alt: Explore the COVIDcast Dashboard
+    alt: Explore the Delphi Epidata Dashboard
     image: covidcast_v2.jpg
   - pre: News
     title: CDC Selects Delphi Research Group at CMU as Center of Innovation in Outbreak Analytics and Disease Modeling
