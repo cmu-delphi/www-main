@@ -76,11 +76,6 @@ relativeURLs = false
     url = "/covid19/"
     weight = 1
 [[menu.main]]
-    parent = "covid19"
-    name = "About CTIS"
-    url = "/covid19/ctis"
-    weight = 10
-[[menu.main]]
     identifier = "covid19-covidcast"
     parent = "covid19"
     name = "Delphi Epidata Dashboard"
@@ -124,36 +119,63 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "tools"
+    name = "Delphi Tooling Book"
+    url = "https://cmu-delphi.github.io/delphi-tooling-book/"
+    weight = 5
+# packages
+[[menu.main]]
+    parent = "tools"
+    identifier = "Packages"
+    name = "Packages"
+    weight = 6
+[[menu.main]]
+    parent = "Packages"
+    name = "Epidatr"
+    url = "https://cmu-delphi.github.io/epidatr/"
+    weight = 7
+[[menu.main]]
+    parent = "Packages"
+    name = "Epidatpy"
+    url = "https://github.com/cmu-delphi/epidatpy"
+    weight = 20
+[[menu.main]]
+    parent = "Packages"
+    name = "EpiProcess"
+    url = "https://cmu-delphi.github.io/epiprocess/"
+    weight = 7
+[[menu.main]]
+    parent = "Packages"
+    name = "EpiPredict"
+    url = "https://cmu-delphi.github.io/epipredict/"
+    weight = 7
+# utils
+[[menu.main]]
+    parent = "tools"
+    identifier = "utils"
+    name = "Dashboards and online utils"
+    weight = 9
+[[menu.main]]
+    parent = "utils"
     name = "Delphi Epidata Dashboard"
     url = "/covidcast/"
     weight = 10
 [[menu.main]]
-    parent = "tools"
-    name = "COVIDcast R Package"
-    url = "https://cmu-delphi.github.io/covidcast/covidcastR/"
-    weight = 11
-[[menu.main]]
-    parent = "tools"
-    name = "COVIDcast Python Package"
-    url = "https://cmu-delphi.github.io/covidcast/covidcast-py/html/"
-    weight = 12
-[[menu.main]]
-    parent = "tools"
+    parent = "utils"
     name = "Indicator Status"
     url = "/covidcast/indicator-status"
     weight = 20
 [[menu.main]]
-    parent = "tools"
+    parent = "utils"
     name = "Dashboard Builder"
     url = "/covidcast/dashboard"
     weight = 30
 [[menu.main]]
-    parent = "tools"
+    parent = "utils"
     name = "Forecast Evaluation"
     url = "/forecast-eval/"
     weight = 40
 [[menu.main]]
-    parent = "tools"
+    parent = "utils"
     name = "EpiVis"
     url = "/epivis/"
     weight = 50
@@ -163,6 +185,23 @@ relativeURLs = false
     url = "/tools/archive/"
     weight = 80
 
+[[menu.main]]
+    parent = "tools"
+    identifier = "forecasting"
+    name = "Forecasting"
+    url = "https://www.cdc.gov/flu/weekly/flusight/index.html"
+    weight = 50
+
+[[menu.main]]
+    parent = "forecasting"
+    name = "COVID Forecasting"
+    url = "https://covid19forecasthub.org/"
+    weight = 1
+[[menu.main]]
+    parent = "forecasting"
+    name = "Flu Forecasting"
+    url = "https://www.cdc.gov/flu/weekly/flusight/index.html"
+    weight = 2
 
 [[menu.main]]
     identier = "github"
