@@ -152,7 +152,7 @@ relativeURLs = false
 [[menu.main]]
     parent = "tools"
     identifier = "utils"
-    name = "Dashboards and online utils"
+    name = "Dashboards"
     weight = 9
 [[menu.main]]
     parent = "utils"
