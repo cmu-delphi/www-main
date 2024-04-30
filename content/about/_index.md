@@ -4,6 +4,7 @@ linkTitle: About Delphi
 layout: about
 ---
 
+#### **Our mission:** *To develop the theory and practice of epidemic detection, tracking and forecasting, and their use in decision making, both public and private.*  Our vision is to make this technology as useful as weather forecasting is today.
 
 - Founded in 2012 at Carnegie Mellon University, now spanning 3 universities
 - Perennial winners of CDC’s [“predict the flu” challenge](https://www.cdc.gov/flu/weekly/flusight/index.html) since 2014
@@ -15,11 +16,11 @@ layout: about
 
 ### Our strategy:
 1. Procure [real-time, aggregated data streams](https://cmu-delphi.github.io/delphi-epidata/) informative of varied infectious diseases and syndromes, in collaboration with industry partners and public health agencies
-1. Extract signals—many at daily and county-level resolution—from these streams and make them widely available via the [Delphi Epidata platform](https://delphi.cmu.edu/covidcast/) and [API](https://cmu-delphi.github.io/delphi-epidata/); enhance their value with <ins>automated revision tracking</ins>, <ins>revision projection</ins>, <ins>anomaly detection</ins>, trend detection, <ins>access control</ins>, smoothing, and geographic, temporal and demographic disaggregation
+1. Extract signals—many at daily and county-level resolution—from these streams and make them widely available via the [Delphi Epidata platform](https://delphi.cmu.edu/covidcast/) and [API](https://cmu-delphi.github.io/delphi-epidata/); enhance their value with <u>automated revision tracking</u>, <u>revision projection</u>, <u>anomaly detection</u>, trend detection, <u>access control</u>, smoothing, and geographic, temporal and demographic disaggregation
 1. Develop and deploy algorithms for epidemic detection, tracking (nowcasting), and forecasting
 1. Develop and share tools for [signal access](https://cmu-delphi.github.io/epidatr/), [processing](https://cmu-delphi.github.io/epiprocess/), and [forecasting](https://cmu-delphi.github.io/epipredict/)
 1. Work closely with public health agencies to understand and support their needs
-1. Make it all real-time, operational, maximally accessible, and <ins>open-source</ins>
+1. Make it all real-time, operational, maximally accessible, and <u>open-source</u>
 
 ### Our target users:
 - CDC, state and local public health agencies (STLTs)
