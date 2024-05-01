@@ -117,44 +117,12 @@ relativeURLs = false
     name = "Tools Overview"
     url = "/tools/"
     weight = 1
-[[menu.main]]
-    parent = "tools"
-    name = "Delphi Tooling Book"
-    url = "https://cmu-delphi.github.io/delphi-tooling-book/"
-    weight = 5
-# packages
-[[menu.main]]
-    parent = "tools"
-    identifier = "Packages"
-    name = "Packages"
-    url = "https://delphi.cmu.edu/tools/"
-    weight = 6
-[[menu.main]]
-    parent = "Packages"
-    name = "Epidatr"
-    url = "https://cmu-delphi.github.io/epidatr/"
-    weight = 7
-[[menu.main]]
-    parent = "Packages"
-    name = "Epidatpy"
-    url = "https://github.com/cmu-delphi/epidatpy"
-    weight = 20
-[[menu.main]]
-    parent = "Packages"
-    name = "Epiprocess"
-    url = "https://cmu-delphi.github.io/epiprocess/"
-    weight = 7
-[[menu.main]]
-    parent = "Packages"
-    name = "Epipredict"
-    url = "https://cmu-delphi.github.io/epipredict/"
-    weight = 7
 # utils
 [[menu.main]]
     parent = "tools"
     identifier = "utils"
     name = "Dashboards"
-    url = "https://delphi.cmu.edu/tools/"
+    url = "tools#Dashboards"
     weight = 9
 [[menu.main]]
     parent = "utils"
@@ -184,14 +152,14 @@ relativeURLs = false
 [[menu.main]]
     parent = "tools"
     name = "Archived Tools"
-    url = "/tools/archive/"
+    url = "tools#archive"
     weight = 80
 
 [[menu.main]]
     parent = "tools"
     identifier = "forecasting"
     name = "Forecasting"
-    url = "https://www.cdc.gov/flu/weekly/flusight/index.html"
+    url = "tools#forecasting"
     weight = 50
 
 [[menu.main]]
@@ -206,11 +174,64 @@ relativeURLs = false
     weight = 2
 
 [[menu.main]]
-    identier = "github"
-    pre = "brands/github"
-    name = "GitHub"
-    url = "https://github.com/cmu-delphi/"
+    identier = "Packages"
+    pre = "solid/code"
+    name = "Packages"
+    url = "packages"
     weight = 90
+[[menu.main]]
+    parent = "Packages"
+    name = "Packages overview"
+    url = "packages"
+    weight = 1
+[[menu.main]]
+    parent = "Packages"
+    identifier = "APIClients"
+    name = "API and clients"
+    url = "packages#API_and_its_clients"
+    weight = 2
+[[menu.main]]
+    parent = "APIClients"
+    name = "Epidata"
+    url = "https://github.com/cmu-delphi/delphi-epidata"
+    weight = 7
+[[menu.main]]
+    parent = "APIClients"
+    name = "Epidatr"
+    url = "https://cmu-delphi.github.io/epidatr/"
+    weight = 8
+[[menu.main]]
+    parent = "APIClients"
+    name = "Epidatpy"
+    url = "https://github.com/cmu-delphi/epidatpy"
+    weight = 9
+
+[[menu.main]]
+    parent = "Packages"
+    identifier = "forecastingCode"
+    name = "Forecasting"
+    url = "packages#Forecasting"
+    weight = 10
+[[menu.main]]
+    parent = "forecastingCode"
+    name = "Forecasting Manual"
+    weight = 1
+[[menu.main]]
+    parent = "forecastingCode"
+    name = "Epiprocess"
+    url = "https://cmu-delphi.github.io/epiprocess/"
+    weight = 7
+[[menu.main]]
+    parent = "forecastingCode"
+    name = "Epipredict"
+    url = "https://cmu-delphi.github.io/epipredict/"
+    weight = 7
+[[menu.main]]
+    parent = "Packages"
+    name = "Github"
+    pre = "brands/github"
+    url = "https://github.com/cmu-delphi/"
+    weight = 70
 
 
 [[menu.main]]
