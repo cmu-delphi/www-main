@@ -3,7 +3,6 @@ title: Archived Tools
 layout: single
 ---
 
-
 ### [COVIDcast 1.0 ("Classic")](/covidcast/classic)
 
 A map-first single-page webapp for visualizing COVID-19 pandemic indicators.

@@ -127,6 +127,7 @@ relativeURLs = false
     parent = "tools"
     identifier = "Packages"
     name = "Packages"
+    url = "https://delphi.cmu.edu/tools/"
     weight = 6
 [[menu.main]]
     parent = "Packages"
@@ -140,12 +141,12 @@ relativeURLs = false
     weight = 20
 [[menu.main]]
     parent = "Packages"
-    name = "EpiProcess"
+    name = "Epiprocess"
     url = "https://cmu-delphi.github.io/epiprocess/"
     weight = 7
 [[menu.main]]
     parent = "Packages"
-    name = "EpiPredict"
+    name = "Epipredict"
     url = "https://cmu-delphi.github.io/epipredict/"
     weight = 7
 # utils
@@ -153,6 +154,7 @@ relativeURLs = false
     parent = "tools"
     identifier = "utils"
     name = "Dashboards"
+    url = "https://delphi.cmu.edu/tools/"
     weight = 9
 [[menu.main]]
     parent = "utils"
