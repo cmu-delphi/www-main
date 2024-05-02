@@ -1,12 +1,18 @@
 ---
-title: Packages
-linkTitle: packages
+title: Code Overview
+linkTitle: Code
 layout: single
 ---
-In addition to our API server code, we have a number of user oriented packages, such as API clients and time-series modeling for epidemiology. All source code is freely available on [GitHub](https://github.com/cmu-delphi/).
-## API and its clients
+
+In addition to the Delphi Epidata API server code, we have a number of user-oriented code packages, such as API clients and time-series modeling for epidemiology.
+All source code is freely available on [GitHub](https://github.com/cmu-delphi/).
+
+## API and clients
+
 ### [Epidata](https://github.com/cmu-delphi/delphi-epidata)
-The core server code for our [API](https://cmu-delphi.github.io/delphi-epidata/).
+
+The core server code for the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/).
+
 ### [Epidatr](https://cmu-delphi.github.io/epidatr/)
 
 R client for the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/).
@@ -17,8 +23,8 @@ It allows you to cache queries locally to speed up data access and seamlessly in
 A work-in-progress Python client for the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/).
 Not yet recommended for production, but we are happy to receive feedback!
 
-
 ## Forecasting
+
 ### [Introduction to Epidemiological Forecasting: Delphi Tools, Data, and Lessons](https://cmu-delphi.github.io/delphi-tooling-book/)
 
 An introduction to epidemiological forecasting using our tools: epiprocess and epipredict.
@@ -45,3 +51,15 @@ A framework for building epidata pipelines involving transformation and forecast
 - A collection of pre-packaged forecasting models commonly used by Delphi's forecasting team.
 
 ## Deprecated Packages
+
+### [Covidcast](https://github.com/cmu-delphi/covidcast)
+
+A collection of R and Python packages for accessing and analyzing data from the Delphi COVIDcast API.
+
+### [Epiforecast](https://github.com/cmu-delphi/epiforecast-R)
+
+R package that implements several methods for epidemiological forecasting empirical bayes (EB), basis regression (BR), and time-weighted kernel density estimation (twkde).
+
+### [utils](https://github.com/cmu-delphi/utils)
+
+Python utility package for handling dates and locations.

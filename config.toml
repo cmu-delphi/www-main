@@ -122,7 +122,7 @@ relativeURLs = false
     parent = "tools"
     identifier = "utils"
     name = "Dashboards"
-    url = "tools#Dashboards"
+    url = "/tools/#dashboards"
     weight = 9
 [[menu.main]]
     parent = "utils"
@@ -151,15 +151,15 @@ relativeURLs = false
     weight = 50
 [[menu.main]]
     parent = "tools"
-    name = "Archived Tools"
-    url = "tools#archive"
+    name = "Archived"
+    url = "/tools/#archived"
     weight = 80
 
 [[menu.main]]
     parent = "tools"
     identifier = "forecasting"
     name = "Forecasting"
-    url = "tools#forecasting"
+    url = "/tools/#forecasting"
     weight = 50
 
 [[menu.main]]
@@ -174,21 +174,21 @@ relativeURLs = false
     weight = 2
 
 [[menu.main]]
-    identier = "Packages"
+    identier = "Code"
     pre = "solid/code"
-    name = "Packages"
-    url = "packages"
+    name = "Code"
+    url = "code"
     weight = 90
 [[menu.main]]
-    parent = "Packages"
-    name = "Packages overview"
-    url = "packages"
+    parent = "Code"
+    name = "Code Overview"
+    url = "code"
     weight = 1
 [[menu.main]]
-    parent = "Packages"
+    parent = "Code"
     identifier = "APIClients"
-    name = "API and clients"
-    url = "packages#API_and_its_clients"
+    name = "API and Clients"
+    url = "/code/#api-and-clients"
     weight = 2
 [[menu.main]]
     parent = "APIClients"
@@ -207,10 +207,10 @@ relativeURLs = false
     weight = 9
 
 [[menu.main]]
-    parent = "Packages"
+    parent = "Code"
     identifier = "forecastingCode"
     name = "Forecasting"
-    url = "packages#Forecasting"
+    url = "code#forecasting"
     weight = 10
 [[menu.main]]
     parent = "forecastingCode"
@@ -227,16 +227,15 @@ relativeURLs = false
     url = "https://cmu-delphi.github.io/epipredict/"
     weight = 7
 [[menu.main]]
-    parent = "Packages"
+    parent = "Code"
     name = "Github"
     pre = "brands/github"
     url = "https://github.com/cmu-delphi/"
     weight = 70
 
-
 [[menu.main]]
     identifier = "api"
-    name = "API"
+    name = "Epidata API"
     pre = "solid/database"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 100
@@ -245,6 +244,7 @@ relativeURLs = false
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
     mission = "Develop the theory and practice of epidemiological tracking and forecasting, with a long-term vision of making this technology as universally accepted and useful as weather forecasting is today."
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
+    toolUrl = "/tools/"
     twitter = "CmuDelphi"
     contactForm = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
     feedbackForm = "https://docs.google.com/forms/d/e/1FAIpQLSeIeOJtrAhdOriEyiRY7LkpQX8DZBY19dl6De8l56Q9CZhmxw/viewform?usp=pp_url&entry.1245962748="
