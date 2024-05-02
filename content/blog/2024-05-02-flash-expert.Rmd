@@ -1,8 +1,7 @@
 ---
-title: "A User's Perspective on the FlaSH System"
+title: "A User's Perspective on the Updated FlaSH System"
 author: Tina Townes
-output: html_document
-date: "2024-05-02"
+date: 2024-05-02
 tags:
   - flash
 authors:
@@ -10,7 +9,7 @@ authors:
 heroImage: blog-lg-flash-expert.jpeg
 heroImageThumb: blog-thumb-flash-expert.jpeg
 summary: | 
-A reflection of the recent changes to the FlaSH user experience by our quality assurance expert, Tina Townes. 
+  A reflection of the recent changes to the FlaSH user experience by our quality assurance expert, Tina Townes. 
 output:
   blogdown::html_page:
     toc: true
