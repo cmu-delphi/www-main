@@ -6,8 +6,8 @@ tags:
   - flash
 authors:
   - tina
-heroImage: blog-lg-flash-expert.png
-heroImageThumb: blog-thumb-flash-expert.png
+heroImage: blog-thumb-flash-expert.png
+heroImageThumb: blog-lg-flash-expert.png
 summary: | 
   A reflection of the recent changes to the FlaSH user experience by our quality assurance expert, Tina Townes. 
 output:
