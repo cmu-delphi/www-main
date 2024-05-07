@@ -5,6 +5,7 @@ layout: about
 ---
 
 **Our mission:** *To develop the theory and practice of epidemic detection, tracking and forecasting, and their use in decision making, both public and private.*
+
 **Our vision:** To make this technology as useful as weather forecasting is today.
 
 - Founded in 2012 at Carnegie Mellon University, now spanning 3 universities
