@@ -76,11 +76,6 @@ relativeURLs = false
     url = "/covid19/"
     weight = 1
 [[menu.main]]
-    parent = "covid19"
-    name = "About CTIS"
-    url = "/covid19/ctis"
-    weight = 10
-[[menu.main]]
     identifier = "covid19-covidcast"
     parent = "covid19"
     name = "Delphi Epidata Dashboard"
@@ -122,59 +117,125 @@ relativeURLs = false
     name = "Tools Overview"
     url = "/tools/"
     weight = 1
+# utils
 [[menu.main]]
     parent = "tools"
+    identifier = "utils"
+    name = "Dashboards"
+    url = "/tools/#dashboards"
+    weight = 9
+[[menu.main]]
+    parent = "utils"
     name = "Delphi Epidata Dashboard"
     url = "/covidcast/"
     weight = 10
 [[menu.main]]
-    parent = "tools"
-    name = "COVIDcast R Package"
-    url = "https://cmu-delphi.github.io/covidcast/covidcastR/"
-    weight = 11
-[[menu.main]]
-    parent = "tools"
-    name = "COVIDcast Python Package"
-    url = "https://cmu-delphi.github.io/covidcast/covidcast-py/html/"
-    weight = 12
-[[menu.main]]
-    parent = "tools"
+    parent = "utils"
     name = "Indicator Status"
     url = "/covidcast/indicator-status"
     weight = 20
 [[menu.main]]
-    parent = "tools"
+    parent = "utils"
     name = "Dashboard Builder"
     url = "/covidcast/dashboard"
     weight = 30
 [[menu.main]]
-    parent = "tools"
+    parent = "utils"
     name = "Forecast Evaluation"
     url = "/forecast-eval/"
     weight = 40
 [[menu.main]]
-    parent = "tools"
+    parent = "utils"
     name = "EpiVis"
     url = "/epivis/"
     weight = 50
 [[menu.main]]
     parent = "tools"
-    name = "Archived Tools"
-    url = "/tools/archive/"
+    name = "Archived"
+    url = "/tools/#archived"
     weight = 80
 
+[[menu.main]]
+    parent = "tools"
+    identifier = "forecasting"
+    name = "Forecasting"
+    url = "/tools/#forecasting"
+    weight = 50
 
 [[menu.main]]
-    identier = "github"
-    pre = "brands/github"
-    name = "GitHub"
-    url = "https://github.com/cmu-delphi/"
-    weight = 90
+    parent = "forecasting"
+    name = "COVID Forecasting"
+    url = "https://covid19forecasthub.org/"
+    weight = 1
+[[menu.main]]
+    parent = "forecasting"
+    name = "Flu Forecasting"
+    url = "https://www.cdc.gov/flu/weekly/flusight/index.html"
+    weight = 2
 
+[[menu.main]]
+    identier = "Code"
+    pre = "solid/code"
+    name = "Code"
+    url = "code"
+    weight = 90
+[[menu.main]]
+    parent = "Code"
+    name = "Code Overview"
+    url = "code"
+    weight = 1
+[[menu.main]]
+    parent = "Code"
+    identifier = "APIClients"
+    name = "API and Clients"
+    url = "/code/#api-and-clients"
+    weight = 2
+[[menu.main]]
+    parent = "APIClients"
+    name = "Epidata"
+    url = "https://github.com/cmu-delphi/delphi-epidata"
+    weight = 7
+[[menu.main]]
+    parent = "APIClients"
+    name = "Epidatr"
+    url = "https://cmu-delphi.github.io/epidatr/"
+    weight = 8
+[[menu.main]]
+    parent = "APIClients"
+    name = "Epidatpy"
+    url = "https://github.com/cmu-delphi/epidatpy"
+    weight = 9
+
+[[menu.main]]
+    parent = "Code"
+    identifier = "forecastingCode"
+    name = "Forecasting"
+    url = "code#forecasting"
+    weight = 10
+[[menu.main]]
+    parent = "forecastingCode"
+    name = "Forecasting Manual"
+    weight = 1
+[[menu.main]]
+    parent = "forecastingCode"
+    name = "Epiprocess"
+    url = "https://cmu-delphi.github.io/epiprocess/"
+    weight = 7
+[[menu.main]]
+    parent = "forecastingCode"
+    name = "Epipredict"
+    url = "https://cmu-delphi.github.io/epipredict/"
+    weight = 7
+[[menu.main]]
+    parent = "Code"
+    name = "Github"
+    pre = "brands/github"
+    url = "https://github.com/cmu-delphi/"
+    weight = 70
 
 [[menu.main]]
     identifier = "api"
-    name = "API"
+    name = "Epidata API"
     pre = "solid/database"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 100
@@ -183,6 +244,7 @@ relativeURLs = false
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
     mission = "Develop the theory and practice of epidemiological tracking and forecasting, with a long-term vision of making this technology as universally accepted and useful as weather forecasting is today."
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
+    toolUrl = "/tools/"
     twitter = "CmuDelphi"
     contactForm = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
     feedbackForm = "https://docs.google.com/forms/d/e/1FAIpQLSeIeOJtrAhdOriEyiRY7LkpQX8DZBY19dl6De8l56Q9CZhmxw/viewform?usp=pp_url&entry.1245962748="
