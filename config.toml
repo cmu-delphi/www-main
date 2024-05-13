@@ -242,7 +242,7 @@ relativeURLs = false
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
-    mission = "Develop the theory and practice of epidemiological tracking and forecasting, with a long-term vision of making this technology as universally accepted and useful as weather forecasting is today."
+    mission = "To develop the theory and practice of epidemic detection, tracking and forecasting, and their use in decision making, both public and private.  Our vision is to make this technology as useful as weather forecasting is today."
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
     toolUrl = "/tools/"
     twitter = "CmuDelphi"
