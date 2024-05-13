@@ -16,7 +16,7 @@ layout: about
 - Data partners and collaborators include CDC, UnitedHealth/Optum, Change Healthcare, Google, Meta, Amazon, QuidelOrtho, and others
 - Funders include CDC, DTRA, Google, Meta, Optum, McCune Foundation, Uptake and others
 
-### Our strategy:
+#### Our strategy:
 1. Procure [real-time, aggregated data streams](https://cmu-delphi.github.io/delphi-epidata/) informative of varied infectious diseases and syndromes, in collaboration with industry partners and public health agencies
 1. Extract signals—many at daily and county-level resolution—from these streams and make them widely available via the [Delphi Epidata platform](https://delphi.cmu.edu/covidcast/) and [API](https://cmu-delphi.github.io/delphi-epidata/); enhance their value with automated revision tracking, revision projection, anomaly detection, trend detection, access control, smoothing, and geographic, temporal and demographic disaggregation
 1. Develop and deploy algorithms for epidemic detection, tracking (nowcasting), and forecasting
@@ -24,7 +24,7 @@ layout: about
 1. Work closely with public health agencies to understand and support their needs
 1. Make it all real-time, operational, maximally accessible, and open-source
 
-### Our target users:
+#### Our target users:
 - CDC, state and local public health agencies (STLTs)
   - Although our long term goal is global, our near-term focus is the U.S.)
 - The epi-forecasting research community
