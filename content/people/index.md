@@ -1049,7 +1049,7 @@ people:
   - past
   note: Contributor, June-August 2022
 - firstName: Richard
-  lastName: Zhang
+  lastName: Zhuang
   image: richard-zhuang.jpg
   affiliation: UC Berkeley
   team:
