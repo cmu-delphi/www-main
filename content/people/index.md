@@ -1048,6 +1048,12 @@ people:
   team:
   - past
   note: Contributor, June-August 2022
+- firstName: Richard
+  lastName: Zhang
+  image: richard-zhuang.jpg
+  affiliation: UC Berkeley
+  team:
+  - contributors
 - key: hzhou
   firstName: Helen
   lastName: Zhou
