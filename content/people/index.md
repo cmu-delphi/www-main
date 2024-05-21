@@ -600,7 +600,7 @@ people:
   affiliation: Stanford University
   team:
   - core
- - firstName: Ryan
+- firstName: Ryan
   lastName: Nayebi
   image: ryan-nayebi.jpg
   affiliation: UC Berkeley
