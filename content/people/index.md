@@ -600,6 +600,12 @@ people:
   affiliation: Stanford University
   team:
   - core
+- firstName: Ryan
+  lastName: Nayebi
+  image: ryan-nayebi.jpg
+  affiliation: UC Berkeley
+  team:
+  - contributors
 - firstName: Luke
   lastName: Neureiter
   image: luke-neureiter.jpg
@@ -1048,6 +1054,12 @@ people:
   team:
   - past
   note: Contributor, June-August 2022
+- firstName: Richard
+  lastName: Zhuang
+  image: richard-zhuang.jpg
+  affiliation: UC Berkeley
+  team:
+  - contributors
 - key: hzhou
   firstName: Helen
   lastName: Zhou
