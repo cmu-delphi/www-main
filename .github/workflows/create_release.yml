@@ -17,8 +17,8 @@ jobs:
           ssh-key: ${{ secrets.CMU_DELPHI_DEPLOY_MACHINE_SSH }}
       - name: Reset main branch
         run: |
-          git fetch origin dev:dev
-          git reset --hard dev
+          git fetch origin cherry_picked_release:cherry_picked_release
+          git reset --hard cherry_picked_release
       - name: Change version number
         id: version
         run: |
