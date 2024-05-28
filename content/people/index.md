@@ -600,7 +600,7 @@ people:
   affiliation: Stanford University
   team:
   - core
-- key: ryan-n
+- key: rnayebi
   firstName: Ryan
   lastName: Nayebi
   image: ryan-nayebi.jpg
