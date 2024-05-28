@@ -867,7 +867,7 @@ people:
 - key: ryan
   firstName: Ryan
   lastName: Tibshirani
-  link: https://stat.cmu.edu/~ryantibs/
+  link: https://www.stat.berkeley.edu/~ryantibs/
   image: ryan-tibshirani-500x500-min.jpg
   affiliation: UC Berkeley/Stat and CMU/MLD
   team:
