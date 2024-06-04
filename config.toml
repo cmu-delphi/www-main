@@ -146,7 +146,7 @@ relativeURLs = false
     weight = 40
 [[menu.main]]
     parent = "utils"
-    name = "EpiVis"
+    name = "Epi Signal Visualization"
     url = "/epivis/"
     weight = 50
 [[menu.main]]

@@ -6,11 +6,11 @@ layout: single
 
 ## [Delphi Epidata API](https://github.com/cmu-delphi/delphi-epidata)
 
-API for getting up-to-date epidemiological data (also available via a web interface through [EpiVis](https://delphi.cmu.edu/epivis/epivis.html) and a [Dashboard](covidcast/dashboard)).
+API for getting up-to-date epidemiological data from Delphi. Used by web dashboards and clients.
 
-## Dashboards
+## Data Dashboards
 
-### [Delphi Epidata Dashboard](covidcast/)
+### [Delphi Epidata Dashboard](https://delphi.cmu.edu/covidcast)
 
 The primary dashboard to interact with Delphi Epidata. If you wish to access the results programmatically, see the API above or one of its clients.
 
@@ -22,7 +22,7 @@ A dashboard for displaying the lags for various signals in the Delphi Epidata AP
 
 A builder that allows you to customize the [Delphi Epidata Dashboard](/covidcast/).
 
-### [EpiVis](https://delphi.cmu.edu/epivis/)
+### [Epi Signal Visualization](https://delphi.cmu.edu/epivis/)
 
 Epidemiological time series visualizer.
 
