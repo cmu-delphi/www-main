@@ -3,6 +3,7 @@ title: Delphi's COVID-19 Trends and Impact Surveys (CTIS)
 linkTitle: About CTIS
 aliases:
  - /covidcast/surveys
+ - /covid19/ctis
 ---
 
 {{< alert category="primary">}}
