@@ -42,7 +42,7 @@ in the United States. It has several parts.
 
 ## See Also
 
-- [COVIDcast dashboard]({{< relref "covidcast" >}})
+- [Delphi Epidata dashboard]({{< relref "covidcast" >}})
 - [CTIS dashboard]({{< relref "covidcast/survey-results" >}})
 - [Export data tool]({{< relref "covidcast/export" >}})
 - [API documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)
