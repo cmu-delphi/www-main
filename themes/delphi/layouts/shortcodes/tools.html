@@ -1,5 +1,0 @@
-{{ $tools := .Site.GetPage "/tools/tools" }}
-{{ range sort ($tools.Resources.ByType "page") "Params.order" }}
-  <h3><a href="{{ .Params.link }}">{{ .Title }}</a></h3>
-  {{ .Content }}
-{{ end }}

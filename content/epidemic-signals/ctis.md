@@ -3,6 +3,7 @@ title: Delphi's COVID-19 Trends and Impact Surveys (CTIS)
 linkTitle: About CTIS
 aliases:
  - /covidcast/surveys
+ - /covid19/ctis
 ---
 
 {{< alert category="primary">}}
@@ -41,7 +42,7 @@ To account for the differences between Facebook users and the United States popu
 
 ## Where can I see the results?
 
-Our [CTIS Results Dashboard]({{< relref "covidcast/survey-results" >}}) shows aggregate survey results, ranging from rates of COVID-like symptoms over mask usage to mental health. In addition, our [COVIDcast dashboard]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States. The data used by both tools is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}) and our [COVIDcast Exporter]({{< relref "covidcast/export" >}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
+Our [CTIS Results Dashboard]({{< relref "covidcast/survey-results" >}}) shows aggregate survey results, ranging from rates of COVID-like symptoms over mask usage to mental health. In addition, our [Delphi Epidata dashboard]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States. The data used by both tools is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}) and our [COVIDcast Exporter]({{< relref "covidcast/export" >}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
 
 The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged participants to enable earlier detection and improved situational awareness of the COVID-19 outbreak by using data from these symptom surveys. Check out the [the challenge website](https://www.symptomchallenge.org/) for more details about the Challenge and the finalists.
 
