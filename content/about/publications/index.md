@@ -1,6 +1,12 @@
 ---
 title: Research
 papers:
+  - title: "Outlier Ranking for Large-Scale Public Health Data"
+    image: ranking.png
+    authors: Joshi, Townes T., Gormley, Neureiter, Wilder, Rosenfeld
+    link: https://ojs.aaai.org/index.php/AAAI/article/view/30222
+    year: 2024
+    journal: Association for the Advancement of Artificial Intelligence
   - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
     image: smoothing-paper-teaser.jpg
     authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
