@@ -600,6 +600,13 @@ people:
   affiliation: Stanford University
   team:
   - core
+- key: rnayebi
+  firstName: Ryan
+  lastName: Nayebi
+  image: ryan-nayebi.jpg
+  affiliation: UC Berkeley
+  team:
+  - contributors
 - firstName: Luke
   lastName: Neureiter
   image: luke-neureiter.jpg
@@ -860,7 +867,7 @@ people:
 - key: ryan
   firstName: Ryan
   lastName: Tibshirani
-  link: https://stat.cmu.edu/~ryantibs/
+  link: https://www.stat.berkeley.edu/~ryantibs/
   image: ryan-tibshirani-500x500-min.jpg
   affiliation: UC Berkeley/Stat and CMU/MLD
   team:
@@ -1048,6 +1055,12 @@ people:
   team:
   - past
   note: Contributor, June-August 2022
+- firstName: Richard
+  lastName: Zhuang
+  image: richard-zhuang.jpg
+  affiliation: UC Berkeley
+  team:
+  - contributors
 - key: hzhou
   firstName: Helen
   lastName: Zhou

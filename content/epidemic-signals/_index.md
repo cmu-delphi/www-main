@@ -2,6 +2,9 @@
 title: About COVIDcast
 linkTitle: COVID-19
 layout: single
+aliases:
+ - /covid19
+
 ---
 
 COVIDcast is the name for Delphi's project in support of the COVID-19 response
@@ -13,7 +16,7 @@ in the United States. It has several parts.
   constitute what we believe may be the nation's largest public repository of
   real-time, geographically-detailed indicators of COVID activity in the U.S.
 
-2. We make all COVID-19 indicators freely available through a
+1. We make all COVID-19 indicators freely available through a
   [public API](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html),
   which is updated with new data daily. We also provide associated
   [R](https://cmu-delphi.github.io/covidcast/covidcastR/) and
@@ -21,16 +24,16 @@ in the United States. It has several parts.
   and a [dashboard]({{< relref "covidcast" >}}) to visualize a core set of
   indicators. 
 
-3. Some of the underlying data sources (on which these indicators are built) 
+1. Some of the underlying data sources (on which these indicators are built) 
   would not exist or be publicly available without Delphi's efforts. These
   include a massive national daily survey called the [COVID-19 Trends and
-  Impact Survey (CTIS)]({{< relref "covid19/ctis" >}}) that we're running in
+  Impact Survey (CTIS)]({{< relref "epidemic-signals/ctis" >}}) that we're running in
   partnership with Facebook, which has been taken by over 25 million Americans
   since April 2020; and an enormous database of de-identified medical insurance
   claims, covering more than 35% of the U.S. population, made possible through
   health system partners including Change Healthcare. 
 
-4. We support and advise the U.S. CDC (in collaboration with the
+1. We support and advise the U.S. CDC (in collaboration with the
   [Reich Lab](https://reichlab.io/)) on short-term COVID forecasting, which 
   includes creating and evaluating an ensemble forecast out of the models
   submitted to the [COVID-19 Forecast Hub](https://covid19forecasthub.org/),
