@@ -323,7 +323,8 @@ people:
   image: mike-istomin.jpg
   affiliation: Delphi & StartupSoft
   team:
-  - core
+  - past
+  note: Core member, November 2022-June 2024
 - firstName: Maria
   lastName: Jahja
   image: maria-jahja-500x500-min.jpg
