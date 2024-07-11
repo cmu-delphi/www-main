@@ -324,7 +324,7 @@ people:
   affiliation: Delphi & StartupSoft
   team:
   - past
-  - note: Core member, November 2022-June 2024
+  note: Core member, November 2022-June 2024
 - firstName: Maria
   lastName: Jahja
   image: maria-jahja-500x500-min.jpg
