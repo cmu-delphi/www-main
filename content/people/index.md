@@ -910,12 +910,13 @@ people:
   affiliation: CMU/MLD
   team:
   - core
-- firstName: Catalina
+- key: catalina
+  firstName: Catalina
   lastName: Vajiac
   image: 
   affiliation: CMU/CSD
   team:
-  - core
+  - contributors
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
