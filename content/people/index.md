@@ -913,6 +913,7 @@ people:
 - key: catalina
   firstName: Catalina
   lastName: Vajiac
+  image: catalina.jpg
   affiliation: CMU/CSD
   team:
   - contributors
