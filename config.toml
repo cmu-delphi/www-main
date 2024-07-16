@@ -54,9 +54,20 @@ relativeURLs = false
     weight = 7
 [[menu.main]]
     parent = "about"
-    name = "Careers"
-    url = "/about/careers"
+    name = "Join Us"
+    url = ""
+    identifier = "join-us"
     weight = 8
+[[menu.main]]
+    parent = "join-us"
+    name = "Open invitation to faculty, students, and volunteers"
+    url = ""
+    weight = 20
+[[menu.main]]
+    parent = "join-us"
+    name = "Open paid positions"
+    url = "/about/careers"
+    weight = 30
 [[menu.main]]
     parent = "about"
     name = "Contact Us"
