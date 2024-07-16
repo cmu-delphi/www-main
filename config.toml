@@ -39,7 +39,7 @@ relativeURLs = false
     weight = 4
 [[menu.main]]
     parent = "about"
-    name = "Research"
+    name = "Publications"
     url = "/about/publications"
     weight = 5
 [[menu.main]]
