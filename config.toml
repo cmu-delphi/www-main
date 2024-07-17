@@ -70,9 +70,30 @@ relativeURLs = false
     weight = 30
 [[menu.main]]
     parent = "about"
+    name = "Help Us Suggest new data sources (your own, or others)"
+    identifier = "suggest-data"
+    url = ""
+    weight = 9
+[[menu.main]]
+    parent = "suggest-data"
+    name = "Suggest an addition or improvement"
+    url = ""
+    weight = 20
+[[menu.main]]
+    parent = "suggest-data"
+    name = "Suggest an addition or improvement"
+    url = ""
+    weight = 20
+[[menu.main]]
+    parent = "about"
+    name = "Support Us (Donate to support our mission)"
+    url = ""
+    weight = 10
+[[menu.main]]
+    parent = "about"
     name = "Contact Us"
     url = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
-    weight = 9
+    weight = 11
 
 # epidemic-signals
 [[menu.main]]
