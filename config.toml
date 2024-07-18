@@ -104,40 +104,75 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "About COVIDcast"
+    name = "About Delphi Epidata"
     url = "/epidemic-signals/"
     weight = 1
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "About CTIS"
-    url = "/epidemic-signals/ctis"
+    name = "Signal Discovery & Selection"
+    url = ""
+    weight = 2
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Signal Visualizaion"
+    url = ""
+    identifier = "signal-visualization"
+    weight = 3
+[[menu.main]]
+    parent = "signal-visualization"
+    name = "EpiVis"
+    url = ""
     weight = 10
 [[menu.main]]
-    identifier = "epidemic-signals-covidcast"
-    parent = "epidemic-signals"
-    name = "COVIDcast Dashboard"
-    url = "/covidcast/"
+    parent = "signal-visualization"
+    name = "Current “Covidcast Dashboard”"
+    url = ""
     weight = 20
 [[menu.main]]
-    parent = "epidemic-signals"
-    name = "CTIS Dashboard"
-    url = "/covidcast/survey-results"
+    parent = "signal-visualization"
+    name = "Covidcast 1.0 (“Classic”)"
+    url = ""
     weight = 30
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Export Data"
+    name = "Signal Export"
     url = "/covidcast/export"
-    weight = 40
+    weight = 4
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Flu & Other Pathogens"
-    url = "/flu/"
-    weight = 50
+    name = "Dashboard Builder"
+    url = "/covidcast/dashboard"
+    weight = 5
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Signal Availability, Coverage & Latency"
+    url = "/covidcast/indicator-status"
+    weight = 6
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Signal API"
+    url = ""
+    weight = 7
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Report a problem"
+    url = ""
+    weight = 8
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Suggest or request a new data source"
+    url = ""
+    weight = 9
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Learn more"
+    url = ""
+    weight = 10
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Terms Of Use"
     url = "/epidemic-signals/terms-of-use"
-    weight = 60
+    weight = 11
 
 # tools
 [[menu.main]]
