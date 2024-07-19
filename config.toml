@@ -121,12 +121,12 @@ relativeURLs = false
 [[menu.main]]
     parent = "signal-visualization"
     name = "EpiVis"
-    url = ""
+    url = "/epivis/"
     weight = 10
 [[menu.main]]
     parent = "signal-visualization"
     name = "Current “Covidcast Dashboard”"
-    url = ""
+    url = "/covidcast/"
     weight = 20
 [[menu.main]]
     parent = "signal-visualization"
