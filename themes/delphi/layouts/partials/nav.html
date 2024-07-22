@@ -34,21 +34,21 @@
                       {{ partial "menu/item.html" . }}
                       {{ if .HasChildren }}
                         {{ partial "font-awesome.html" "solid/angle-down" }}
-                      {{ end}}
+                      {{ end }}
                     </a>
                   </li>
                   {{ if .HasChildren }}
-                  <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                      {{ range .Children }}
-                        <li>
-                          <a href="{{ .URL | relLangURL}}">
-                            {{ partial "menu/item.html" . }}
-                          </a>
-                        </li>
-                      {{ end }}
-                    </ul>
-                  </div>
+                    <div class="uk-navbar-dropdown">
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                        {{ range .Children }}
+                          <li>
+                            <a href="{{ .URL | relLangURL }}">
+                              {{ partial "menu/item.html" . }}
+                            </a>
+                          </li>
+                        {{ end }}
+                      </ul>
+                    </div>
                   {{ end }}
                 {{ end }}
               </ul>
