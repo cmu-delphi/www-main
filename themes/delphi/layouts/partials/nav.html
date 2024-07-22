@@ -32,26 +32,23 @@
                   <li>
                     <a href="{{ .URL | relLangURL }}">
                       {{ partial "menu/item.html" . }}
-                      {{ if (in (split $currentPage.Site.Params.highlightLinks ",") .URL) }}
-                        <span class="uk-badge">New</span>
-                      {{ end }}
+                      {{ if .HasChildren }}
+                        {{ partial "font-awesome.html" "solid/angle-down" }}
+                      {{ end}}
                     </a>
                   </li>
                   {{ if .HasChildren }}
-                    <li class="{{ if $currentPage.HasMenuCurrent "main" . }}active{{ end }}">
-                      <ul class="nestedmenu">
-                        {{ range .Children }}
-                          <li>
-                            <a href="{{ .URL | relLangURL }}">
-                              {{ partial "menu/item.html" . }}
-                              {{ if (in (split $currentPage.Site.Params.highlightLinks ",") .URL) }}
-                                <span class="uk-badge">New</span>
-                              {{ end }}
-                            </a>
-                          </li>
-                        {{ end }}
-                      </ul>
-                    </li>
+                  <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                      {{ range .Children }}
+                        <li>
+                          <a href="{{ .URL | relLangURL}}">
+                            {{ partial "menu/item.html" . }}
+                          </a>
+                        </li>
+                      {{ end }}
+                    </ul>
+                  </div>
                   {{ end }}
                 {{ end }}
               </ul>

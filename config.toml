@@ -12,7 +12,6 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
-    pre = "solid/circle-info"
     url = "/about"
     weight = 1
 
@@ -37,11 +36,11 @@ relativeURLs = false
     name = "Publications"
     url = "/about/publications"
     weight = 4
-[[menu.main]]
-    parent = "about"
-    name = "Presentations"
-    url = ""
-    weight = 5
+#[[menu.main]]
+#    parent = "about"
+#    name = "Presentations"
+#    url = ""
+#    weight = 5
 [[menu.main]]
     parent = "about"
     name = "Blog"
@@ -58,11 +57,11 @@ relativeURLs = false
     url = ""
     identifier = "join-us"
     weight = 8
-[[menu.main]]
-    parent = "join-us"
-    name = "Open invitation to faculty, students, and volunteers"
-    url = ""
-    weight = 20
+#[[menu.main]]
+#    parent = "join-us"
+#    name = "Open invitation to faculty, students, and volunteers"
+#    url = ""
+#    weight = 20
 [[menu.main]]
     parent = "join-us"
     name = "Open paid positions"
@@ -99,7 +98,6 @@ relativeURLs = false
 [[menu.main]]
     identifier = "epidemic-signals"
     name = "Epidemic Signals"
-    pre = "solid/virus"
     url = "/epidemic-signals/"
     weight = 1
 [[menu.main]]
@@ -180,11 +178,11 @@ relativeURLs = false
     name = "Nowcasting and Forecasting"
     url = ""
     weight = 1
-[[menu.main]]
-    parent = "nowcasting-and-forecasting"
-    name = "Ongoing forecasts"
-    url = ""
-    weight = 2
+#[[menu.main]]
+#    parent = "nowcasting-and-forecasting"
+#   name = "Ongoing forecasts"
+#    url = ""
+#    weight = 2
 [[menu.main]]
     parent = "nowcasting-and-forecasting"
     name = "Historical forecasts"
@@ -200,11 +198,11 @@ relativeURLs = false
     name = "Forecast Hub"
     url = ""
     weight = 5
-[[menu.main]]
-    parent = "nowcasting-and-forecasting"
-    name = "Learn More"
-    url = ""
-    weight = 6
+#[[menu.main]]
+#    parent = "nowcasting-and-forecasting"
+#    name = "Learn More"
+#    url = ""
+#    weight = 6
 
 # for-modelers-and-developers
 [[menu.main]]
@@ -253,14 +251,33 @@ relativeURLs = false
     name = "Util"
     url = ""
     weight = 10
+#[[menu.main]]
+#    parent = "for-modelers-and-developers"
+#   name = "Videos / Howtos"
+#    url = ""
+#    weight = 7
+
+# intranet
 [[menu.main]]
-    parent = "for-modelers-and-developers"
-    name = "Videos / Howtos"
+    identifier = "intranet"
+    name = "Intranet"
     url = ""
-    weight = 7
-
-
-
+    weight = 3
+[[menu.main]]
+    parent = "intranet"
+    name = "FLaSH (for internal triaging)"
+    url = ""
+    weight = 1
+[[menu.main]]
+    parent = "intranet"
+    name = "Delphi Calendar"
+    url = ""
+    weight = 2
+[[menu.main]]
+    parent = "intranet"
+    name = "Delphi Mailing Lists"
+    url = ""
+    weight = 3
 
 # tools
 #[[menu.main]]
