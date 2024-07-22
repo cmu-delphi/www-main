@@ -69,7 +69,7 @@ relativeURLs = false
     weight = 30
 [[menu.main]]
     parent = "about"
-    name = "Help Us Suggest new data sources (your own, or others)"
+    name = "Help Us"
     identifier = "suggest-data"
     url = ""
     weight = 9
@@ -85,7 +85,7 @@ relativeURLs = false
     weight = 20
 [[menu.main]]
     parent = "about"
-    name = "Support Us (Donate to support our mission)"
+    name = "Support Us (Donate)"
     url = ""
     weight = 10
 [[menu.main]]
@@ -148,9 +148,25 @@ relativeURLs = false
     weight = 7
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Signal API"
+    name = "Epidata API"
     url = ""
     weight = 8
+[[menu.main]]
+    parent = "epidemic-signals"
+    identifier = "ctis"
+    name = "CTIS (“The Facebook Covid Survey”)"
+    url = ""
+    weight = 9
+[[menu.main]]
+    parent = "ctis"
+    name = "About CTIS"
+    url = ""
+    weight = 10
+[[menu.main]]
+    parent = "ctis"
+    name = "CTIS Dashboard"
+    url = ""
+    weight = 20
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Report a problem"
@@ -178,14 +194,14 @@ relativeURLs = false
     name = "Nowcasting and Forecasting"
     url = ""
     weight = 1
-#[[menu.main]]
-#    parent = "nowcasting-and-forecasting"
-#   name = "Ongoing forecasts"
-#    url = ""
-#    weight = 2
 [[menu.main]]
     parent = "nowcasting-and-forecasting"
-    name = "Historical forecasts"
+   name = "COVID-19 Forecasting"
+    url = ""
+    weight = 2
+[[menu.main]]
+    parent = "nowcasting-and-forecasting"
+    name = "Flu Forecasting"
     url = ""
     weight = 3
 [[menu.main]]
@@ -193,16 +209,7 @@ relativeURLs = false
     name = "Forecast Evaluation"
     url = "/forecast-eval/"
     weight = 4
-[[menu.main]]
-    parent = "nowcasting-and-forecasting"
-    name = "Forecast Hub"
-    url = ""
-    weight = 5
-#[[menu.main]]
-#    parent = "nowcasting-and-forecasting"
-#    name = "Learn More"
-#    url = ""
-#    weight = 6
+
 
 # for-modelers-and-developers
 [[menu.main]]
