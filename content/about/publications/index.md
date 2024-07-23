@@ -10,7 +10,7 @@ papers:
   - title: "Evaluation of FluSight influenza forecasting in the 2021-22 and 2022-23 seasons with a new target laboratory-confirmed influenza hospitalizations"
     image: evaluation-of-flusight-teaser.jpg
     authors: Mathis, Webber, León, Murray, Sun, White, Brooks, Green, Hu, McDonald, Rosenfeld, Shemetov, Tibshirani, et al.
-    link: https://doi.org/10.1080/10618600.2023.2285337
+    link: https://doi.org/10.1101/2023.12.08.23299726
     journal: medRxiv
     year: 2023
   - title: "RtEstim: Effective reproduction number estimation with trend filtering"
