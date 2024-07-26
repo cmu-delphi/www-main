@@ -83,7 +83,7 @@ relativeURLs = false
 [[menu.main]]
     identifier = "epidemic-signals-covidcast"
     parent = "epidemic-signals"
-    name = "COVIDcast Dashboard"
+    name = "Delphi Epidata Dashboard"
     url = "/covidcast/"
     weight = 20
 [[menu.main]]
