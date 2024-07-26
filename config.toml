@@ -102,7 +102,7 @@ relativeURLs = false
     weight = 10
 [[menu.main]]
     parent = "signal-visualization"
-    name = "Current “Covidcast Dashboard”"
+    name = "Covidcast Dashboard"
     url = "/covidcast/"
     weight = 20
 [[menu.main]]
