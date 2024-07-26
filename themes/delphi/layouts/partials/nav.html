@@ -15,43 +15,42 @@
             uk-parent
           {{- end -}}"
         >
-        {{ if .HasChildren }}
+          {{ if .HasChildren }}
             <a href="{{ .URL | relLangURL }}">
               {{ partial "menu/item.html" . }}
               {{ partial "font-awesome.html" "solid/angle-down" }}
             </a>
             <div class="uk-navbar-dropdown">
-                <ul class="uk-nav uk-navbar-dropdown-nav">
-                    {{ range .Children }}
-                        <li>
-                            <a href="{{ .URL | relLangURL }}">
+              <ul class="uk-nav uk-navbar-dropdown-nav">
+                {{ range .Children }}
+                  <li>
+                    <a href="{{ .URL | relLangURL }}">
+                      {{ partial "menu/item.html" . }}
+                      {{ if .HasChildren }}
+                        {{ partial "font-awesome.html" "solid/angle-right" }}
+                      {{ end }}
+                    </a>
+                    {{ if .HasChildren }}
+                      <div class="uk-navbar-dropdown" uk-dropdown="pos: right-center; shift: false; flip: false;">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                          {{ range .Children }}
+                            <li>
+                              <a href="{{ .URL | relLangURL }}">
                                 {{ partial "menu/item.html" . }}
-                                {{ if .HasChildren }}
-                                    {{ partial "font-awesome.html" "solid/angle-right" }}
-                                {{ end }}
-                            </a>
-                            {{ if .HasChildren }}
-                                <div class="uk-navbar-dropdown" uk-dropdown="pos: right-center; shift: false; flip: false;">
-                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        {{ range .Children }}
-                                            <li>
-                                                <a href="{{ .URL | relLangURL }}">
-                                                    {{ partial "menu/item.html" . }}
-                                                </a>
-                                            </li>
-                                        {{ end}}
-                                    </ul>
-                                </div>
-                            {{ end }}
-                        </li>
+                              </a>
+                            </li>
+                          {{ end }}
+                        </ul>
+                      </div>
                     {{ end }}
-                </ul>
+                  </li>
+                {{ end }}
+              </ul>
             </div>
           {{ else }}
             <a href="{{ .URL | relLangURL }}">
               {{ partial "menu/item.html" . }}
             </a>
-
           {{ end }}
         </li>
       {{ end }}
