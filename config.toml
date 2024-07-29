@@ -36,42 +36,39 @@ relativeURLs = false
     name = "Publications"
     url = "/about/publications"
     weight = 4
-#[[menu.main]]
-#    parent = "about"
-#    name = "Presentations"
-#    url = ""
-#    weight = 5
 [[menu.main]]
     parent = "about"
     name = "Blog"
     url = "/blog"
-    weight = 6
+    weight = 5
 [[menu.main]]
     parent = "about"
     name = "News"
     url = "/about/news"
-    weight = 7
+    weight = 6
 [[menu.main]]
     parent = "about"
     name = "Join Us"
     url = ""
     identifier = "join-us"
-    weight = 8
+    weight = 7
 [[menu.main]]
     parent = "join-us"
     name = "Open paid positions"
     url = "/about/careers"
-    weight = 9
+    weight = 8
 [[menu.main]]
     parent = "about"
     name = "Support Us (Donate)"
     url = ""
-    weight = 10
+    weight = 9
 [[menu.main]]
     parent = "about"
     name = "Contact Us"
     url = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
-    weight = 11
+    weight = 10
+    [menu.main.params]
+        external = true
 
 # epidemic-signals
 [[menu.main]]
@@ -89,6 +86,8 @@ relativeURLs = false
     name = "Signal Discovery & Selection"
     url = "/signals/"
     weight = 3
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Signal Visualizaion"
@@ -120,6 +119,8 @@ relativeURLs = false
     name = "Signal Documentation"
     url = "https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html"
     weight = 6
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Dashboard Builder"
@@ -135,6 +136,8 @@ relativeURLs = false
     name = "Epidata API"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 9
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "epidemic-signals"
     identifier = "ctis"
@@ -163,14 +166,9 @@ relativeURLs = false
     weight = 13
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Learn more"
-    url = ""
-    weight = 14
-[[menu.main]]
-    parent = "epidemic-signals"
     name = "Terms Of Use"
     url = "/epidemic-signals/terms-of-use"
-    weight = 15
+    weight = 14
 
 # nowcasting-and-forecasting
 [[menu.main]]
@@ -183,16 +181,22 @@ relativeURLs = false
    name = "COVID-19 Forecasting"
     url = "https://covid19forecasthub.org/"
     weight = 2
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "nowcasting-and-forecasting"
     name = "Flu Forecasting"
     url = "https://www.cdc.gov/flu/weekly/flusight/index.html"
     weight = 3
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "nowcasting-and-forecasting"
     name = "Forecast Evaluation"
     url = "/forecast-eval/"
     weight = 4
+    [menu.main.params]
+        external = true
 
 
 # for-modelers-and-developers
@@ -207,11 +211,15 @@ relativeURLs = false
     name = "GitHub"
     url = "https://github.com/cmu-delphi/"
     weight = 3
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "for-modelers-and-developers"
     name = "Epidata API"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 4
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "for-modelers-and-developers"
     identifier = "r-packages"
@@ -222,16 +230,22 @@ relativeURLs = false
     name = "epidatr"
     url = "https://cmu-delphi.github.io/epidatr/"
     weight = 10
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "r-packages"
     name = "epiprocess"
     url = "https://cmu-delphi.github.io/epiprocess/"
     weight = 20
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "r-packages"
     name = "epipredict"
     url = "https://cmu-delphi.github.io/epipredict/"
     weight = 30
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "for-modelers-and-developers"
     identifier = "python-packages"
@@ -242,6 +256,8 @@ relativeURLs = false
     name = "Util"
     url = "https://github.com/cmu-delphi/epidatpy"
     weight = 10
+    [menu.main.params]
+        external = true
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
