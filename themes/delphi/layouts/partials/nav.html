@@ -16,10 +16,12 @@
           {{- end -}}"
         >
           {{ if .HasChildren }}
-            <a href="{{ .URL | relLangURL }}"
-                {{ if .Params.external }}
-                    target='_blank'
-                {{ end }}>
+            <a
+              href="{{ .URL | relLangURL }}"
+              {{ if .Params.external }}
+                target='_blank'
+              {{ end }}
+            >
               {{ partial "menu/item.html" . }}
               {{ partial "font-awesome.html" "solid/angle-down" }}
             </a>
@@ -27,10 +29,12 @@
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 {{ range .Children }}
                   <li>
-                    <a href="{{ .URL | relLangURL }}"
-                        {{ if  .Params.external }}
-                            target='_blank'
-                        {{ end }}>
+                    <a
+                      href="{{ .URL | relLangURL }}"
+                      {{ if  .Params.external }}
+                        target='_blank'
+                      {{ end }}
+                    >
                       {{ partial "menu/item.html" . }}
                       {{ if .HasChildren }}
                         {{ partial "font-awesome.html" "solid/angle-right" }}
@@ -41,11 +45,12 @@
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                           {{ range .Children }}
                             <li>
-                              <a href="{{ .URL | relLangURL }}"
+                              <a
+                                href="{{ .URL | relLangURL }}"
                                 {{ if  .Params.external }}
-                                    target='_blank'
+                                  target='_blank'
                                 {{ end }}
-                                >
+                              >
                                 {{ partial "menu/item.html" . }}
                               </a>
                             </li>
@@ -58,10 +63,12 @@
               </ul>
             </div>
           {{ else }}
-            <a href="{{ .URL | relLangURL }}"
-                {{ if .Params.external }}
-                    target='_blank'
-                {{ end }}>
+            <a
+              href="{{ .URL | relLangURL }}"
+              {{ if .Params.external }}
+                target='_blank'
+              {{ end }}
+            >
               {{ partial "menu/item.html" . }}
             </a>
           {{ end }}
