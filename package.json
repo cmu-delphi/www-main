@@ -33,7 +33,7 @@
     "build:blog": "Rscript -e \"blogdown::build_site(local=FALSE, run_hugo=FALSE, build_rmd='md5sum')\"",
     "prebuild": "npm run clean",
     "build": "hugo --gc --minify",
-    "start": "hugo server -D --disableFastRender",
+    "start": "hugo server -D",
     "start:blog": "Rscript -e \"blogdown::serve_site(port=1313, browser=FALSE)\"",
     "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
     "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check",
