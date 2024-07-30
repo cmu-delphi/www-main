@@ -81,6 +81,10 @@ li.nav-entry {
 
 .nav-dropdown-child {
   padding-left: 2.2em;
+
+  ul.nestedmenu {
+    margin-left: 1.5em;
+  };
 }
 
 .nav-dropdown-parent {
