@@ -323,7 +323,8 @@ people:
   image: mike-istomin.jpg
   affiliation: Delphi & StartupSoft
   team:
-  - core
+  - past
+  note: Core member, November 2022-June 2024
 - firstName: Maria
   lastName: Jahja
   image: maria-jahja-500x500-min.jpg
@@ -722,9 +723,10 @@ people:
   image: aaron-rumack-500x500-min.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
   - blog
-  description: is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.
+  description: was a Ph.D. student and postdoc in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He was a member of the Delphi from August 2017 through June 2024.
+  note: Member, August 2017-June 2024
 - firstName: Wael Al
   lastName: Saeed
   image: wael-al-saeed-500x50-min.jpg
