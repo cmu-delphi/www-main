@@ -99,7 +99,10 @@
     <ul class="uk-navbar-nav nav-burger">
       <li>
         <a class="uk-navbar-toggle nav-toggle" uk-navbar-toggle-icon href="" title="Toggle Menu"></a>
-        <div class="nav-mobile" uk-dropdown="mode: click; offset: 0; position: bottom-right;">
+        <div
+          class="nav-mobile"
+          uk-dropdown="mode: click; offset: 0; position: bottom-right; shift: false; flip: false;"
+        >
           <ul class="uk-nav uk-navbar-dropdown-nav">
             {{ range .Site.Menus.main.ByWeight }}
               <li
