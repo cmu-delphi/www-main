@@ -231,3 +231,7 @@ ul.nestedmenu li > a {
 ul.nestedmenu li.active > a {
   color: rgb(247, 44, 114) !important;
 }
+
+div.external-link span > svg {
+    max-height: 13px!important;
+}

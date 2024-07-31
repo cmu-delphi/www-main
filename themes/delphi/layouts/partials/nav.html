@@ -23,6 +23,11 @@
               {{ end }}
             >
               {{ partial "menu/item.html" . }}
+              {{ if .Params.external }}
+                <div class="external-link">
+                  {{ partial "font-awesome.html" "solid/arrow-up-right-from-square" }}
+                </div>
+              {{ end }}
               {{ partial "font-awesome.html" "solid/angle-down" }}
             </a>
             <div class="uk-navbar-dropdown">
@@ -36,6 +41,11 @@
                       {{ end }}
                     >
                       {{ partial "menu/item.html" . }}
+                      {{ if .Params.external }}
+                        <div class="external-link">
+                          {{ partial "font-awesome.html" "solid/arrow-up-right-from-square" }}
+                        </div>
+                      {{ end }}
                       {{ if .HasChildren }}
                         {{ partial "font-awesome.html" "solid/angle-right" }}
                       {{ end }}
@@ -52,6 +62,11 @@
                                 {{ end }}
                               >
                                 {{ partial "menu/item.html" . }}
+                                {{ if .Params.external }}
+                                  <div class="external-link">
+                                    {{ partial "font-awesome.html" "solid/arrow-up-right-from-square" }}
+                                  </div>
+                                {{ end }}
                               </a>
                             </li>
                           {{ end }}
@@ -70,6 +85,11 @@
               {{ end }}
             >
               {{ partial "menu/item.html" . }}
+              {{ if .Params.external }}
+                <div class="external-link">
+                  {{ partial "font-awesome.html" "solid/arrow-up-right-from-square" }}
+                </div>
+              {{ end }}
             </a>
           {{ end }}
         </li>
@@ -87,15 +107,35 @@
                   uk-nav-header
                 {{- end -}} {{ if (eq $currentPage.Section .Identifier) -}}uk-active{{- end -}}"
               >
-                <a href="{{ .URL | relLangURL }}">
+                <a
+                  href="{{ .URL | relLangURL }}"
+                  {{ if  .Params.external }}
+                    target='_blank'
+                  {{ end }}
+                >
                   {{ partial "menu/item.html" . }}
+                  {{ if .Params.external }}
+                    <div class="external-link">
+                      {{ partial "font-awesome.html" "solid/arrow-up-right-from-square" }}
+                    </div>
+                  {{ end }}
                 </a>
               </li>
               {{ if .HasChildren }}
                 {{ range .Children }}
                   <li class="nav-dropdown-child">
-                    <a href="{{ .URL | relLangURL }}">
+                    <a
+                      href="{{ .URL | relLangURL }}"
+                      {{ if  .Params.external }}
+                        target='_blank'
+                      {{ end }}
+                    >
                       {{ partial "menu/item.html" . }}
+                      {{ if .Params.external }}
+                        <div class="external-link">
+                          {{ partial "font-awesome.html" "solid/arrow-up-right-from-square" }}
+                        </div>
+                      {{ end }}
                     </a>
                   </li>
                   {{ if .HasChildren }}
@@ -103,10 +143,17 @@
                       <ul class="nestedmenu">
                         {{ range .Children }}
                           <li>
-                            <a href="{{ .URL | relLangURL }}">
+                            <a
+                              href="{{ .URL | relLangURL }}"
+                              {{ if  .Params.external }}
+                                target='_blank'
+                              {{ end }}
+                            >
                               {{ partial "menu/item.html" . }}
-                              {{ if (in (split $currentPage.Site.Params.highlightLinks ",") .URL) }}
-                                <span class="uk-badge">New</span>
+                              {{ if .Params.external }}
+                                <div class="external-link">
+                                  {{ partial "font-awesome.html" "solid/arrow-up-right-from-square" }}
+                                </div>
                               {{ end }}
                             </a>
                           </li>
@@ -114,7 +161,6 @@
                       </ul>
                     </li>
                   {{ end }}
-
                 {{ end }}
               {{ end }}
             {{ end }}
