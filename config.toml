@@ -197,65 +197,79 @@ relativeURLs = false
     weight = 4
     [menu.main.params]
         external = true
-
+[[menu.main]]
+    parent = "nowcasting-and-forecasting"
+    name = "Archived Systems and Tools"
+    url = "/archived-systems-and-tools/"
+    weight = 5
 
 # for-modelers-and-developers
 [[menu.main]]
     identifier = "for-modelers-and-developers"
     name = "For Modelers and Developers"
-    url = ""
+    url = "code"
     weight = 2
 [[menu.main]]
     parent = "for-modelers-and-developers"
-    pre = "brands/github"
-    name = "GitHub"
-    url = "https://github.com/cmu-delphi/"
+    name = "Code Overview"
+    url = "code"
     weight = 3
-    [menu.main.params]
-        external = true
 [[menu.main]]
     parent = "for-modelers-and-developers"
-    name = "Epidata API"
-    url = "https://cmu-delphi.github.io/delphi-epidata/"
+    identifier = "api-and-clients"
+    name = "API and Clients"
+    url = "/code/#api-and-clients"
     weight = 4
-    [menu.main.params]
-        external = true
 [[menu.main]]
-    parent = "for-modelers-and-developers"
-    identifier = "r-packages"
-    name = "R packages"
-    weight = 5
-[[menu.main]]
-    parent = "r-packages"
-    name = "epidatr"
-    url = "https://cmu-delphi.github.io/epidatr/"
+    parent = "api-and-clients"
+    name = "Epidata"
+    url = "https://github.com/cmu-delphi/delphi-epidata"
     weight = 10
     [menu.main.params]
         external = true
 [[menu.main]]
-    parent = "r-packages"
-    name = "epiprocess"
-    url = "https://cmu-delphi.github.io/epiprocess/"
+    parent = "api-and-clients"
+    name = "Epidatr"
+    url = "https://cmu-delphi.github.io/epidatr/"
     weight = 20
     [menu.main.params]
         external = true
 [[menu.main]]
-    parent = "r-packages"
-    name = "epipredict"
-    url = "https://cmu-delphi.github.io/epipredict/"
+    parent = "api-and-clients"
+    name = "Epidatpy"
+    url = "https://github.com/cmu-delphi/epidatpy"
     weight = 30
     [menu.main.params]
         external = true
 [[menu.main]]
     parent = "for-modelers-and-developers"
-    identifier = "python-packages"
-    name = "Python packages"
-    weight = 6
+    identifier = "forecasting"
+    name = "Forecasting"
+    url = "code#forecasting"
+    weight = 5
 [[menu.main]]
-    parent = "python-packages"
-    name = "Util"
-    url = "https://github.com/cmu-delphi/epidatpy"
+    parent = "forecasting"
+    name = "Forecasting Manual"
     weight = 10
+[[menu.main]]
+    parent = "forecasting"
+    name = "Epipredict"
+    url = "https://cmu-delphi.github.io/epipredict/"
+    weight = 20
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "forecasting"
+    name = "Epiprocess"
+    url = "https://cmu-delphi.github.io/epiprocess/"
+    weight = 30
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "for-modelers-and-developers"
+    name = "GitHub"
+    pre = "brands/github"
+    url = "https://github.com/cmu-delphi/"
     [menu.main.params]
         external = true
 
