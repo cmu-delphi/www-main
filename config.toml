@@ -79,7 +79,7 @@ relativeURLs = false
 [[menu.main]]
     parent = "epidemic-signals"
     name = "About Delphi Epidata & COVIDcast"
-    url = "/epidemic-signals/"
+    url = "/epidemic-signals/about-delphi-epidata-covidcast"
     weight = 2
 [[menu.main]]
     parent = "epidemic-signals"
