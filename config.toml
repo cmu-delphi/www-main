@@ -12,7 +12,6 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
-    pre = "solid/circle-info"
     url = "/about"
     weight = 1
 
@@ -34,213 +33,245 @@ relativeURLs = false
     weight = 3
 [[menu.main]]
     parent = "about"
-    name = "Center of Excellence"
-    url = "/about/center-of-excellence"
-    weight = 4
-[[menu.main]]
-    parent = "about"
-    name = "Research"
+    name = "Publications"
     url = "/about/publications"
-    weight = 5
+    weight = 4
 [[menu.main]]
     parent = "about"
     name = "Blog"
     url = "/blog"
-    weight = 6
+    weight = 5
 [[menu.main]]
     parent = "about"
     name = "News"
     url = "/about/news"
-    weight = 7
+    weight = 6
 [[menu.main]]
     parent = "about"
-    name = "Careers"
+    name = "Join Us"
+    url = ""
+    identifier = "join-us"
+    weight = 7
+[[menu.main]]
+    parent = "join-us"
+    name = "Open paid positions"
     url = "/about/careers"
     weight = 8
 [[menu.main]]
     parent = "about"
+    name = "Support Us (Donate)"
+    url = ""
+    weight = 9
+[[menu.main]]
+    parent = "about"
     name = "Contact Us"
     url = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
-    weight = 9
+    weight = 10
+    [menu.main.params]
+        external = true
 
 # epidemic-signals
 [[menu.main]]
     identifier = "epidemic-signals"
     name = "Epidemic Signals"
-    pre = "solid/virus"
-    url = "/epidemic-signals/"
-    weight = 2
-[[menu.main]]
-    parent = "epidemic-signals"
-    name = "About COVIDcast"
     url = "/epidemic-signals/"
     weight = 1
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "About CTIS"
-    url = "/epidemic-signals/ctis"
+    name = "About Delphi Epidata & COVIDcast"
+    url = "/epidemic-signals/about-delphi-epidata-covidcast"
+    weight = 2
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Signal Discovery & Selection"
+    url = "/signals/"
+    weight = 3
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Signal Visualizaion"
+    url = ""
+    identifier = "signal-visualization"
+    weight = 4
+[[menu.main]]
+    parent = "signal-visualization"
+    name = "EpiVis"
+    url = "/epivis/"
     weight = 10
 [[menu.main]]
-    identifier = "epidemic-signals-covidcast"
-    parent = "epidemic-signals"
+    parent = "signal-visualization"
     name = "Delphi Epidata Dashboard"
     url = "/covidcast/"
     weight = 20
 [[menu.main]]
-    parent = "epidemic-signals"
-    name = "CTIS Dashboard"
-    url = "/covidcast/survey-results"
+    parent = "signal-visualization"
+    name = "Covidcast 1.0 (“Classic”)"
+    url = "/covidcast/classic/"
     weight = 30
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Export Data"
+    name = "Signal Export"
     url = "/covidcast/export"
-    weight = 40
+    weight = 5
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Flu & Other Pathogens"
-    url = "/flu/"
-    weight = 50
+    name = "Signal Documentation"
+    url = "https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html"
+    weight = 6
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Dashboard Builder"
+    url = "/covidcast/dashboard/"
+    weight = 7
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Signal Availability, Coverage & Latency"
+    url = "/covidcast/indicator-status"
+    weight = 8
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Epidata API"
+    url = "https://cmu-delphi.github.io/delphi-epidata/"
+    weight = 9
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "epidemic-signals"
+    identifier = "ctis"
+    name = "CTIS (“The Facebook Covid Survey”)"
+    url = ""
+    weight = 10
+[[menu.main]]
+    parent = "ctis"
+    name = "About CTIS"
+    url = "/epidemic-signals/ctis/"
+    weight = 11
+[[menu.main]]
+    parent = "ctis"
+    name = "CTIS Dashboard"
+    url = "/covidcast/survey-results/"
+    weight = 20
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Report a problem"
+    url = ""
+    weight = 12
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Suggest or request a new data source"
+    url = ""
+    weight = 13
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Terms Of Use"
     url = "/epidemic-signals/terms-of-use"
-    weight = 60
+    weight = 14
 
-# tools
+# nowcasting-and-forecasting
 [[menu.main]]
-    identifier = "tools"
-    name = "Tools"
-    pre = "solid/screwdriver-wrench"
-    url = "/tools/"
-    weight = 5
-[[menu.main]]
-    parent = "tools"
-    name = "Tools Overview"
-    url = "/tools/"
+    identifier = "nowcasting-and-forecasting"
+    name = "Nowcasting and Forecasting"
+    url = ""
     weight = 1
-# utils
 [[menu.main]]
-    parent = "tools"
-    identifier = "utils"
-    name = "Dashboards"
-    url = "/tools/#dashboards"
-    weight = 9
-[[menu.main]]
-    parent = "utils"
-    name = "Delphi Epidata Dashboard"
-    url = "/covidcast/"
-    weight = 10
-[[menu.main]]
-    parent = "utils"
-    name = "Indicator Status"
-    url = "/covidcast/indicator-status"
-    weight = 20
-[[menu.main]]
-    parent = "utils"
-    name = "Dashboard Builder"
-    url = "/covidcast/dashboard"
-    weight = 30
-[[menu.main]]
-    parent = "utils"
-    name = "Forecast Evaluation"
-    url = "/forecast-eval/"
-    weight = 40
-[[menu.main]]
-    parent = "utils"
-    name = "Epi Signal Visualization"
-    url = "/epivis/"
-    weight = 50
-[[menu.main]]
-    parent = "tools"
-    name = "Archived"
-    url = "/tools/#archived"
-    weight = 80
-
-[[menu.main]]
-    parent = "tools"
-    identifier = "forecasting"
-    name = "Forecasting"
-    url = "/tools/#forecasting"
-    weight = 50
-
-[[menu.main]]
-    parent = "forecasting"
-    name = "COVID Forecasting"
+    parent = "nowcasting-and-forecasting"
+   name = "COVID-19 Forecasting"
     url = "https://covid19forecasthub.org/"
-    weight = 1
+    weight = 2
+    [menu.main.params]
+        external = true
 [[menu.main]]
-    parent = "forecasting"
+    parent = "nowcasting-and-forecasting"
     name = "Flu Forecasting"
     url = "https://www.cdc.gov/flu/weekly/flusight/index.html"
-    weight = 2
+    weight = 3
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "nowcasting-and-forecasting"
+    name = "Forecast Evaluation"
+    url = "/forecast-eval/"
+    weight = 4
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "nowcasting-and-forecasting"
+    name = "Archived Systems and Tools"
+    url = "/archived-systems-and-tools/"
+    weight = 5
 
+# for-modelers-and-developers
 [[menu.main]]
-    identier = "Code"
-    pre = "solid/code"
-    name = "Code"
+    identifier = "for-modelers-and-developers"
+    name = "For Modelers and Developers"
     url = "code"
-    weight = 90
+    weight = 2
 [[menu.main]]
-    parent = "Code"
+    parent = "for-modelers-and-developers"
     name = "Code Overview"
     url = "code"
-    weight = 1
+    weight = 3
 [[menu.main]]
-    parent = "Code"
-    identifier = "APIClients"
+    parent = "for-modelers-and-developers"
+    identifier = "api-and-clients"
     name = "API and Clients"
     url = "/code/#api-and-clients"
-    weight = 2
+    weight = 4
 [[menu.main]]
-    parent = "APIClients"
+    parent = "api-and-clients"
     name = "Epidata"
     url = "https://github.com/cmu-delphi/delphi-epidata"
-    weight = 7
+    weight = 10
+    [menu.main.params]
+        external = true
 [[menu.main]]
-    parent = "APIClients"
+    parent = "api-and-clients"
     name = "Epidatr"
     url = "https://cmu-delphi.github.io/epidatr/"
-    weight = 8
+    weight = 20
+    [menu.main.params]
+        external = true
 [[menu.main]]
-    parent = "APIClients"
+    parent = "api-and-clients"
     name = "Epidatpy"
     url = "https://github.com/cmu-delphi/epidatpy"
-    weight = 9
-
+    weight = 30
+    [menu.main.params]
+        external = true
 [[menu.main]]
-    parent = "Code"
-    identifier = "forecastingCode"
+    parent = "for-modelers-and-developers"
+    identifier = "forecasting"
     name = "Forecasting"
     url = "code#forecasting"
+    weight = 5
+[[menu.main]]
+    parent = "forecasting"
+    name = "Forecasting Manual"
     weight = 10
 [[menu.main]]
-    parent = "forecastingCode"
-    name = "Forecasting Manual"
-    weight = 1
-[[menu.main]]
-    parent = "forecastingCode"
-    name = "Epiprocess"
-    url = "https://cmu-delphi.github.io/epiprocess/"
-    weight = 7
-[[menu.main]]
-    parent = "forecastingCode"
+    parent = "forecasting"
     name = "Epipredict"
     url = "https://cmu-delphi.github.io/epipredict/"
-    weight = 7
+    weight = 20
+    [menu.main.params]
+        external = true
 [[menu.main]]
-    parent = "Code"
-    name = "Github"
+    parent = "forecasting"
+    name = "Epiprocess"
+    url = "https://cmu-delphi.github.io/epiprocess/"
+    weight = 30
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "for-modelers-and-developers"
+    name = "GitHub"
     pre = "brands/github"
     url = "https://github.com/cmu-delphi/"
-    weight = 70
-
-[[menu.main]]
-    identifier = "api"
-    name = "Epidata API"
-    pre = "solid/database"
-    url = "https://cmu-delphi.github.io/delphi-epidata/"
-    weight = 100
+    [menu.main.params]
+        external = true
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
