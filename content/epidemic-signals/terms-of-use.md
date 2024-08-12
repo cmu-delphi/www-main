@@ -46,10 +46,10 @@ BY USING THE SERVICES, YOU WAIVE YOUR RIGHTS WITH RESPECT TO CALIFORNIA CIVIL CO
 If the Site is at any time deemed an electronic commercial service (as defined under California Civil Code Section 1789.3), California residents are entitled to the following specific consumer rights information: 
 The provider of the Site is: 
 
-Carnegie Mellon University
-5000 Forbes Avenue
-Pittsburgh, PA 15213
-412-268-2000
+Carnegie Mellon University  
+5000 Forbes Avenue  
+Pittsburgh, PA 15213    
+412-268-2000    
 
 If the Site is deemed as an electronic commercial service, you may file a complaint regarding the Site or to receive further information regarding use of the Site by sending a letter to the attention of “Legal Department” at the above address.
 
