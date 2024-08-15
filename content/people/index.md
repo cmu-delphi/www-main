@@ -517,8 +517,7 @@ people:
   image: ron-lunde.jpg
   affiliation: CMU/MLD
   team:
-  - core
-  - highlight
+  - past
 - firstName: Ruiqi
   lastName: Lyu
   image: ruiqi-lyu.jpg
@@ -912,6 +911,7 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+  - highlight
 - key: catalina
   firstName: Catalina
   lastName: Vajiac
