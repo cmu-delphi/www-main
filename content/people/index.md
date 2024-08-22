@@ -12,6 +12,12 @@ people:
   team:
   - blog
   description: is a member of the Delphi group and a Ph.D. student in data wrangling at the University of Southern North Dakota at Hoople.
+- firstName: Amesh
+  lastName: Adalja
+  image: amesh-adalja.jpeg
+  affiliation: Johns Hopkins University and UPMC
+  team:
+  - contributors
 - firstName: Sumit
   lastName: Agrawal
   image: sumit-agrawal_head-shot.png
@@ -517,8 +523,7 @@ people:
   image: ron-lunde.jpg
   affiliation: CMU/MLD
   team:
-  - core
-  - highlight
+  - past
 - firstName: Ruiqi
   lastName: Lyu
   image: ruiqi-lyu.jpg
@@ -912,6 +917,14 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+  - highlight
+- key: catalina
+  firstName: Catalina
+  lastName: Vajiac
+  image: catalina.jpeg
+  affiliation: CMU/CSD
+  team:
+  - contributors
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
