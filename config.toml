@@ -165,14 +165,17 @@ relativeURLs = false
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Report a problem"
-    url = ""
+    url = "https://forms.gle/WV4Ndhc3ftvkkgVCA"
     weight = 11
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Suggest or request a new data source"
-    url = ""
+    url = "https://forms.gle/cMG7v7uUrnLVszRu5"
     weight = 12
-
+    [menu.main.params]
+        external = true
 # nowcasting-and-forecasting
 [[menu.main]]
     identifier = "nowcasting-and-forecasting"
