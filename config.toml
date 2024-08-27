@@ -23,13 +23,13 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "about"
-    name = "Delphi Milestones"
-    url = "/about/milestones"
+    name = "Our Team"
+    url = "/about/team"
     weight = 2
 [[menu.main]]
     parent = "about"
-    name = "Our Team"
-    url = "/about/team"
+    name = "Delphi Milestones"
+    url = "/about/milestones"
     weight = 3
 [[menu.main]]
     parent = "about"
@@ -124,8 +124,13 @@ relativeURLs = false
     url = "/covidcast/classic/"
     weight = 30
 [[menu.main]]
+    parent = "signal-visualization"
+    name = "Dashboard Builder"
+    url = "/covidcast/dashboard/"
+    weight = 40
+[[menu.main]]
     parent = "epidemic-signals"
-    name = "Signal Export"
+    name = "Signal Download"
     url = "/covidcast/export"
     weight = 5
 [[menu.main]]
@@ -135,11 +140,7 @@ relativeURLs = false
     weight = 6
     [menu.main.params]
         external = true
-[[menu.main]]
-    parent = "epidemic-signals"
-    name = "Dashboard Builder"
-    url = "/covidcast/dashboard/"
-    weight = 7
+
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Signal Availability, Coverage & Latency"
@@ -147,22 +148,15 @@ relativeURLs = false
     weight = 8
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Epidata API"
-    url = "https://cmu-delphi.github.io/delphi-epidata/"
-    weight = 9
-    [menu.main.params]
-        external = true
-[[menu.main]]
-    parent = "epidemic-signals"
     identifier = "ctis"
     name = "CTIS (“The Facebook Covid Survey”)"
     url = ""
-    weight = 10
+    weight = 9
 [[menu.main]]
     parent = "ctis"
     name = "About CTIS"
     url = "/epidemic-signals/ctis/"
-    weight = 11
+    weight = 10
 [[menu.main]]
     parent = "ctis"
     name = "CTIS Dashboard"
@@ -172,17 +166,12 @@ relativeURLs = false
     parent = "epidemic-signals"
     name = "Report a problem"
     url = ""
-    weight = 12
+    weight = 11
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Suggest or request a new data source"
     url = ""
-    weight = 13
-[[menu.main]]
-    parent = "epidemic-signals"
-    name = "Terms Of Use"
-    url = "/epidemic-signals/terms-of-use"
-    weight = 14
+    weight = 12
 
 # nowcasting-and-forecasting
 [[menu.main]]
@@ -211,11 +200,6 @@ relativeURLs = false
     weight = 4
     [menu.main.params]
         external = true
-[[menu.main]]
-    parent = "nowcasting-and-forecasting"
-    name = "Archived Systems and Tools"
-    url = "/archived-systems-and-tools/"
-    weight = 5
 
 # for-modelers-and-developers
 [[menu.main]]
