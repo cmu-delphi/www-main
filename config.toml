@@ -74,8 +74,10 @@ relativeURLs = false
 [[menu.main]]
     parent = "about"
     name = "Support Us (Donate)"
-    url = ""
+    url = "https://givenow.cmu.edu/campaigns/42524/donations/new"
     weight = 9
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "about"
     name = "Contact Us"
@@ -164,14 +166,14 @@ relativeURLs = false
     weight = 20
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Report a problem"
+    name = "Report a Data Problem"
     url = "https://forms.gle/WV4Ndhc3ftvkkgVCA"
     weight = 11
     [menu.main.params]
         external = true
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Suggest or request a new data source"
+    name = "Suggest a New Data Source"
     url = "https://forms.gle/cMG7v7uUrnLVszRu5"
     weight = 12
     [menu.main.params]
@@ -224,7 +226,7 @@ relativeURLs = false
 [[menu.main]]
     parent = "api-and-clients"
     name = "Epidata"
-    url = "https://github.com/cmu-delphi/delphi-epidata"
+    url = "https://cmu-delphi.github.io/delphi-epidata/"
     weight = 10
     [menu.main.params]
         external = true
@@ -251,7 +253,10 @@ relativeURLs = false
 [[menu.main]]
     parent = "forecasting"
     name = "Forecasting Manual"
+    url = "https://cmu-delphi.github.io/delphi-tooling-book/"
     weight = 10
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "forecasting"
     name = "Epipredict"
@@ -268,7 +273,7 @@ relativeURLs = false
         external = true
 [[menu.main]]
     parent = "for-modelers-and-developers"
-    name = "GitHub"
+    name = "Delphi on Github"
     pre = "brands/github"
     url = "https://github.com/cmu-delphi/"
     [menu.main.params]

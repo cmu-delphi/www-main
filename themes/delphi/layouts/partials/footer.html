@@ -4,83 +4,20 @@
       ><span>{{ .Site.Title }}</span></a
     >
     <div class="footer-footer uk-child-width-1-2@s uk-child-width-1-4@m uk-grid-column-small" uk-grid>
-      <div>
-        <h5 class="uk-text-bold">Epidemic Signals</h5>
-        <ul class="uk-list">
-          <li><a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast" }}">Overview</a></li>
-          <li><a class="uk-link-text uk-text-small" href="/forecast-eval/">Forecast Evaluation</a></li>
-          <li><a class="uk-link-text uk-text-small" href="{{ relref . "/epidemic-signals/ctis" }}">CTIS</a></li>
-          <li>
-            <a class="uk-link-text uk-text-small" href="{{ relref . "/covidcast/survey-results" }}"
-              >CTIS Results Dashboard</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h5 class="uk-text-bold">Resources</h5>
-        <ul class="uk-list">
-          <li>
-            <a class="uk-link-text uk-text-small" href="{{ relref . "/about/publications" }}"
-              >Research & Publications</a
-            >
-          </li>
-          <li>
-            <a class="uk-link-text uk-text-small" href="{{ relref . "/tools" }}">Tools</a>
-          </li>
-          <li>
-            <a class="uk-link-text uk-text-small" href="{{ relref . "/code" }}">Code</a>
-          </li>
-          <li><a class="uk-link-text uk-text-small" href="{{ .Site.Params.apiUrl }}/">Epidata API</a></li>
-          <li><a class="uk-link-text uk-text-small" href="https://github.com/cmu-delphi/">GitHub</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5 class="uk-text-bold">About</h5>
-        <ul class="uk-list">
-          <li><a class="uk-link-text uk-text-small" href="{{ relref . "/about" }}">Delphi</a></li>
-          <li><a class="uk-link-text uk-text-small" href="{{ relref . "/blog" }}">Delphi Blog</a></li>
-          <li><a class="uk-link-text uk-text-small" href="https://www.cmu.edu/">CMU</a></li>
-          <li>
-            <a class="uk-link-text uk-text-small" href="{{ relref . "/epidemic-signals/terms-of-use" }}">Terms</a>
-          </li>
-          <li><a class="uk-link-text uk-text-small" href="{{ relref . "/about/careers" }}">Careers</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5 class="uk-text-bold">Contact</h5>
-        <ul class="uk-list">
-          <li>
-            <a class="uk-link-text uk-text-small" href="https://twitter.com/{{ .Site.Params.twitter }}/">Twitter</a>
-          </li>
-          <li>
-            <a class="uk-link-text uk-text-small feedback-button" href="{{ .Site.Params.feedbackForm }}"
-              >Website Feedback</a
-            >
-          </li>
-          <li>
-            <a class="uk-link-text uk-text-small" href="{{ .Site.Params.contactForm }}">All other inquiries</a>
-          </li>
-        </ul>
+      <div class="uk-inline footer-links">
+        <a class="uk-link-text" href="{{ relref . "/about" }}">About Delphi</a>
+        <a class="uk-link-text" href="{{ relref . "/epidemic-signals/terms-of-use" }}">Terms of Use</a>
+        <a
+          class="uk-link-text"
+          href="https://docs.google.com/forms/u/1/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
+          target="_blank"
+          >Contact Us</a
+        >
+        <a class="uk-link-text" href="https://github.com/cmu-delphi/" target="_blank">Delphi Github Org</a>
+        <a class="uk-link-text" href="https://cmu-delphi.github.io/delphi-epidata/" target="_blank"
+          >Delphi Epidata documentation</a
+        >
       </div>
     </div>
   </div>
 </footer>
-{{ if .Params.feedback }}
-  <div
-    class="feedback-popup-container"
-    style="display: none"
-    data-href="{{ .Site.Params.feedbackForm }}"
-    data-like-mobile="{{ .Site.Params.feedbackLikelihoodMobile }}"
-    data-like-desktop="{{ .Site.Params.feedbackLikelihoodDesktop }}"
-    data-delay-min="{{ .Site.Params.feedbackDelayMin }}"
-    data-delay-max="{{ .Site.Params.feedbackDelayMax }}"
-    data-duration="{{ .Site.Params.feedbackDuration }}"
-  >
-    <div>
-      {{ partial "font-awesome.html" "solid/circle-question" }}
-      <span class="feedback-text">We'd love to hear from you</span>
-    </div>
-    <button class="uk-button uk-button-primary feedback-button">Feedback survey</button>
-  </div>
-{{ end }}

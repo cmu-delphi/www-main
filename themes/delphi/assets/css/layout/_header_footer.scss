@@ -238,3 +238,12 @@ ul.nestedmenu li.active > a {
 div.external-link span > svg {
   max-height: 13px !important;
 }
+
+div.footer-links {
+  width: 100%;
+}
+
+div.footer-links > a {
+  margin-left: 0.5rem;
+  margin-right: 2rem;
+}
