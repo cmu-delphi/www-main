@@ -74,7 +74,7 @@ relativeURLs = false
 [[menu.main]]
     parent = "about"
     name = "Support Us (Donate)"
-    url = "https://givenow.cmu.edu/campaigns/42524/donations/new"
+    url = "https://givenow.cmu.edu/scs/?a=8476342&designation=delphiepidemicforecastinggroup"
     weight = 9
     [menu.main.params]
         external = true
@@ -186,7 +186,7 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "nowcasting-and-forecasting"
-   name = "COVID-19 Forecasting"
+    name = "COVID-19 Forecasting"
     url = "https://covid19forecasthub.org/"
     weight = 2
     [menu.main.params]

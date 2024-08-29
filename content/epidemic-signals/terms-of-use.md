@@ -1,5 +1,5 @@
 ---
-title: Carnegie Mellon University COVIDcast Website Terms of Use
+title: Carnegie Mellon University Delphi Website Terms of Use
 linkTitle: Terms of Use
 aliases:
  - /covidcast/terms-of-use
