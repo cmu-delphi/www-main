@@ -39,19 +39,8 @@ in the United States. It has several parts.
   submitted to the [COVID-19 Forecast Hub](https://covid19forecasthub.org/),
   serving as the basis for the [CDC's official forecast
   communications](https://www.cdc.gov/coronavirus/2019-ncov/covid-data/forecasting-us.html).
-
-## See Also
-
-- [Delphi Epidata dashboard]({{< relref "covidcast" >}})
-- [CTIS dashboard]({{< relref "covidcast/survey-results" >}})
-- [Export data tool]({{< relref "covidcast/export" >}})
-- [API documentation](https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html)
-- [R package](https://cmu-delphi.github.io/covidcast/covidcastR/)
-- [Python package](https://cmu-delphi.github.io/covidcast/covidcast-py/html/)
-- [GitHub repo](https://www.github.com/cmu-delphi/covidcast/) (see also
-  [related repos](https://github.com/cmu-delphi/covidcast/#related-repos))
   
-## Research Articles
+## To Learn More
 
 A summary of some key parts of COVIDcast can be found in the December 2021 *Proceedings of the National Academy of Sciences*
 Special Feature: [Beyond cases and deaths: The benefits of auxiliary data
