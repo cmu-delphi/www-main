@@ -1,12 +1,14 @@
 ---
-title: Hello World!
-author: Roni Rosenfeld and Ryan Tibshirani
-date: 2020-08-10
+title: Back to the Future: From Delphi Epidata to COVIDcast, and Back
+author: Roni Rosenfeld, Peter Jhon, Carlyn Van Dyke
+date: 2024-10-01
 tags:
+  - epidata
   - COVIDcast
 authors:
   - roni
-  - ryan
+  - peter
+  - carlyn
 heroImage: blog-lg-img_hello-world.jpg
 heroImageThumb: blog-thumb-img_hello-world.jpg
 summary: |
