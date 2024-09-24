@@ -9,13 +9,13 @@ carousel:
     ref: covidcast
     alt: Explore the Delphi Epidata Dashboard
     image: covidcast_v2.jpg
-  - pre: News
-    title: CDC Selects Delphi Research Group at CMU as Center of Innovation in Outbreak Analytics and Disease Modeling
-    link: https://www.cs.cmu.edu/news/2023/delphi-cdc-center
+  - pre: Collaboration
+    title: Delphi Serving as Center of Innovation in CDC's Insight Net Network
+    link: https://www.cs.cmu.edu/news/2023/delphi-cdc-center](https://www.cdc.gov/insight-net/php/about/index.html
     alt: Learn More
     image: landing-pg-hero-_cfa_oadm.jpg
   - pre: Blog
-    title: Exploratory Analysis - Identifying Changing Variant Behavior during a Pandemic
+    title: Exploratory Analysis: Identifying Changing Variant Behavior during a Pandemic
     ref: 2023-12-20-changepoint_explore
     alt: View Post
     image: landing-pg-hero-exploratory_analysis.jpg
