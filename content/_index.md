@@ -4,11 +4,6 @@ description: Developing the Theory and Practice of Epidemiological Forecasting
 layout: landing
 
 carousel:
-  - pre: Delphi Careers
-    title: Seeking Software Engineering Manager to Lead Development and Operations Teams
-    ref: careers
-    alt: View Position
-    image: cmu-bldg-7-hero.jpg
   - pre: Tools
     title: Real-time Indicators of Infectious Disease Activity
     ref: covidcast
