@@ -11,7 +11,7 @@ carousel:
     image: covidcast_v2.jpg
   - pre: Collaboration
     title: Delphi Serving as Center of Innovation in CDC's Insight Net Network
-    link: https://www.cs.cmu.edu/news/2023/delphi-cdc-center](https://www.cdc.gov/insight-net/php/about/index.html
+    link: https://www.cdc.gov/insight-net/php/about/index.html
     alt: Learn More
     image: landing-pg-hero-_cfa_oadm.jpg
   - pre: Blog
