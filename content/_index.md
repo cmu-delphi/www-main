@@ -15,7 +15,7 @@ carousel:
     alt: Learn More
     image: landing-pg-hero-_cfa_oadm.jpg
   - pre: Blog
-    title: Exploratory Analysis: Identifying Changing Variant Behavior during a Pandemic
+    title: Exploratory Analysis - Identifying Changing Variant Behavior during a Pandemic
     ref: 2023-12-20-changepoint_explore
     alt: View Post
     image: landing-pg-hero-exploratory_analysis.jpg
