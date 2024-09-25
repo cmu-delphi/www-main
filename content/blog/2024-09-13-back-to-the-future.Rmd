@@ -12,16 +12,9 @@ authors:
 heroImage: blog-lg-img_hello-world.jpg
 heroImageThumb: blog-thumb-img_hello-world.jpg
 summary: |
-  Hello from the Delphi research group at Carnegie Mellon University!
-  We're a group of faculty, students, and staff, based primarily out of CMU
-  together with strong collaborators from other universities and industry.
-  Our group was founded in 2012 to advance the theory and practice of epidemic
-  forecasting. Since March 2020, we have refocused efforts towards helping combat
-  the COVID-19 pandemic, by supporting informed decision-making at federal, state,
-  and local levels of government and in the healthcare sector. Until now, we've
-  been pretty “heads down” with our work, and slow to communicate what we've been
-  up to. But at last ... Delphi finally has a blog! This first post serves as an
-  introduction of sorts. Future posts will dive deeper into our various projects.
+  When the pandemic broke out, Delphi naturally turned our focus to COVID-19.  Our collection of signals grew dramatically, from a few dozen to several hundred, with all new signals focusing on COVID-19 in the US. We also created a new Delphi Epidata ingestion pipeline, database schema, API endpoint, and visualization website, all focusing on COVID-19 signals, and gave it the name COVIDcast. As a result, COVIDcast is the portion of Delphi Epidata that focuses on COVID-19 related signals. It is currently the biggest portion of Delphi Epidata, and constitutes what we believe may be the largest public repository of real-time, geographically-detailed indicators of COVID-19 activity in the U.S.
+ 
+  As the pandemic’s critical phase began to subside, we have been gradually returning to our long-term mission: to develop the theory and practice of epidemic forecasting for all existing and emerging pathogens and other fast moving public health concerns. At the signals level, this means zooming out from just COVIDcast to the bigger picture, returning the focus to Delphi Epidata. We have recently reconfigured our website accordingly. The move from COVIDcast to Delphi Epidata is not a rename, but rather a post-pandemic return to our original broader concept. 
 output:
   blogdown::html_page:
     toc: true
@@ -37,7 +30,7 @@ When the pandemic broke out, we naturally turned our focus to COVID-19.  Our col
 
  
 
-As the pandemic’s critical phase began to subside, we have been gradually returning to our long-term mission: to develop the theory and practice of epidemic forecasting for *all *existing and emerging pathogens and other fast moving public health concerns.  At the signals level, this means zooming out from just COVIDcast to the bigger picture, returning the focus to Delphi Epidata.  We have recently reconfigured our website accordingly.  The move from COVIDcast to Delphi Epidata is not a rename, but rather a post-pandemic return to ouroriginal broader concept. 
+As the pandemic’s critical phase began to subside, we have been gradually returning to our long-term mission: to develop the theory and practice of epidemic forecasting for *all *existing and emerging pathogens and other fast moving public health concerns.  At the signals level, this means zooming out from just COVIDcast to the bigger picture, returning the focus to Delphi Epidata.  We have recently reconfigured our website accordingly.  The move from COVIDcast to Delphi Epidata is not a rename, but rather a post-pandemic return to our original broader concept. 
 
 —---
 
