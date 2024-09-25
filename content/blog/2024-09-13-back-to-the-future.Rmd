@@ -1,5 +1,5 @@
 ---
-title: Back to the Future: From Delphi Epidata to COVIDcast, and Back
+title: Back to the Future - From Delphi Epidata to COVIDcast, and Back
 author: Roni Rosenfeld, Peter Jhon, Carlyn Van Dyke
 date: 2024-10-01
 tags:
