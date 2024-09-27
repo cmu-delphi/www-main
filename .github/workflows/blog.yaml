@@ -21,16 +21,13 @@ jobs:
         with:
           environment-file: environment.yml
           micromamba-version: latest
+          log-level: debug
+        env:
+          ACTIONS_STEP_DEBUG: true
       - name: Get Date
         id: get-date
         run: echo "name=today::$(/bin/date -u '+%Y%m%d')" >> $GITHUB_OUTPUT
         shell: bash
-      - name: Create environment
-        run: micromamba env create -n www-main-micromamba -f environment.yml
-      - name: micromamba info
-        run: |
-          micromamba info
-          micromamba list
       - name: Install R dependencies
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
