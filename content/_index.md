@@ -4,19 +4,14 @@ description: Developing the Theory and Practice of Epidemiological Forecasting
 layout: landing
 
 carousel:
-  - pre: Delphi Careers
-    title: Seeking Software Engineering Manager to Lead Development and Operations Teams
-    ref: careers
-    alt: View Position
-    image: cmu-bldg-7-hero.jpg
   - pre: Tools
     title: Real-time Indicators of Infectious Disease Activity
     ref: covidcast
     alt: Explore the Delphi Epidata Dashboard
     image: covidcast_v2.jpg
-  - pre: News
-    title: CDC Selects Delphi Research Group at CMU as Center of Innovation in Outbreak Analytics and Disease Modeling
-    link: https://www.cs.cmu.edu/news/2023/delphi-cdc-center
+  - pre: Collaboration
+    title: Delphi Serving as Center of Innovation in CDC's Insight Net Network
+    link: https://www.cdc.gov/insight-net/php/about/index.html/
     alt: Learn More
     image: landing-pg-hero-_cfa_oadm.jpg
   - pre: Blog
@@ -24,11 +19,6 @@ carousel:
     ref: 2023-12-20-changepoint_explore
     alt: View Post
     image: landing-pg-hero-exploratory_analysis.jpg
-  - pre: Tools
-    title: Introducing Epidata
-    link: https://delphi.cmu.edu/blog/2022/12/14/introducing-epidata-v4/
-    alt: View Post
-    image: landing-pg-hero-introducing_epidata.jpg
   - pre: Blog
     title: On the Predictability of COVID-19
     ref: 2021-09-30-ensemble-analysis
