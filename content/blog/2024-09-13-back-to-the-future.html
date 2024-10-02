@@ -1,0 +1,40 @@
+---
+title: Back to the Future From Delphi Epidata to COVIDcast, and Back
+author: Roni Rosenfeld, Peter Jhon, Carlyn Van Dyke
+date: 2024-10-01
+tags:
+  - epidata
+  - COVIDcast
+authors:
+  - roni
+  - peter
+  - carlyn
+heroImage: blog-lg-img_hello-world.jpg
+heroImageThumb: blog-thumb-img_hello-world.jpg
+summary: |
+  When the pandemic broke out, Delphi naturally turned our focus to COVID-19.  Our collection of signals grew dramatically, from a few dozen to several hundred, with all new signals focusing on COVID-19 in the US. We also created a new Delphi Epidata ingestion pipeline, database schema, API endpoint, and visualization website, all focusing on COVID-19 signals, and gave it the name COVIDcast. As a result, COVIDcast is the portion of Delphi Epidata that focuses on COVID-19 related signals. It is currently the biggest portion of Delphi Epidata, and constitutes what we believe may be the largest public repository of real-time, geographically-detailed indicators of COVID-19 activity in the U.S.
+  As the pandemic’s critical phase began to subside, we have been gradually returning to our long-term mission: to develop the theory and practice of epidemic forecasting for all existing and emerging pathogens and other fast moving public health concerns. At the signals level, this means zooming out from just COVIDcast to the bigger picture, returning the focus to Delphi Epidata. We have recently reconfigured our website accordingly. The move from COVIDcast to Delphi Epidata is not a rename, but rather a post-pandemic return to our original broader concept.
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+
+<p>For those of you who first heard of the Delphi group during the pandemic, we may well be synonymous with COVIDcast, our repository of real-time, geographically detailed COVID-19 related signals/indicators.</p>
+<p>But there is much more to Delphi than COVIDcast. We were founded in 2012 with the mission to develop the theory and practice of epidemic forecasting. For the first eight years of our existence, we focused mostly on forecasting flu and dengue. In the early years, we found ourselves spending a lot of time and effort on identifying and reconstructing historical training data that is <em>properly versioned</em>, namely, recording which version of the data was reported on which date (“<em>what was known when?</em>”). This is critical for training statistical machine learning forecasting models that are to be used in real-time. To save fellow researchers from having to duplicate this effort, in 2016 PhD student David Farrow created a database and Application Programming Interface (API) to store and publicly serve properly versioned epidemic surveillance data streams – thus <strong>Delphi Epidata</strong> was born.</p>
+<p>From 2016 to early 2020, Delphi Epidata grew steadily with myriad signals related to; flu, dengue, and norovirus, mostly covering the U.S. but also some from Taiwan, South Korea, and South America. This was driven by our research interests or participation in community forecasting challenges.</p>
+<p>When the pandemic broke out, we naturally turned our focus to COVID-19. Our collection of signals grew dramatically, from a few dozen to several hundred, with all new signals focusing on COVID-19 in the US. We also created a new Delphi Epidata ingestion pipeline, database schema, API endpoint, and visualization website, all focusing on COVID-19 signals, and gave it the name COVIDcast. As a result, <strong>COVIDcast is the portion of Delphi Epidata that focuses on COVID-19 related signals.</strong> It is currently the biggest portion of Delphi Epidata, and constitutes what we believe may be the largest public repository of real-time, geographically-detailed indicators of COVID-19 activity in the U.S.</p>
+<p>As the pandemic’s critical phase began to subside, we have been gradually returning to our long-term mission: to develop the theory and practice of epidemic forecasting for <em>all </em>existing and emerging pathogens and other fast moving public health concerns. At the signals level, this means zooming out from just COVIDcast to the bigger picture, returning the focus to Delphi Epidata. We have recently reconfigured our website accordingly. The move from COVIDcast to Delphi Epidata is not a rename, but rather a post-pandemic return to our original broader concept.</p>
+<p>——</p>
+<p>Delphi Epidata was purpose-designed for hosting signals for epidemic and pandemic detection, tracking and forecasting. It has built-in support for data versioning, calendar reporting effects, anomaly and trend detection, backfill projection, privacy-based censoring, and geographic, temporal and demographic breakdown and aggregation. The Delphi Epidata repository contains over 500 different current or historical signals, tracking flu, COVID-19, dengue, norovirus, and other pathogens, and covering all rungs of the <a href="https://deploy-preview-996--cmu-delphi-main.netlify.app/epidemic-signals/about-delphi-epidata-covidcast/#severity-pyramid">severity pyramid</a>.</p>
+<p>We procure data streams that reflect epidemic and pandemic activity from a wide variety of sources – including unique industry partnerships and scraping of publicly available data – and extract from them in real-time, disease-related signals at the finest possible geographic, demographic, and temporal granularity.</p>
+<p>We make all our signals freely available in real-time to the greatest extent allowable, using a <a href="https://cmu-delphi.github.io/delphi-epidata/">public API</a> which is updated with new data daily. We also provide:</p>
+<ul>
+<li><p>a <a href="https://delphi.cmu.edu/signals/">signal discovery</a> tool, to explore what epi-signals are available in Delphi Epidata and elsewhere in the community</p></li>
+<li><p>a general <a href="https://delphi.cmu.edu/epivis/">signal visualization</a> tool</p></li>
+<li><p>a <a href="https://deploy-preview-996--cmu-delphi-main.netlify.app/covidcast/">signal dashboard</a> and a “classic” <a href="https://deploy-preview-996--cmu-delphi-main.netlify.app/covidcast/classic/">map-based version</a> to visualize a core set of COVID-19 and flu indicators</p></li>
+<li><p>a <a href="https://deploy-preview-996--cmu-delphi-main.netlify.app/covidcast/export/">COVID-19 signal export</a> app, a <a href="https://deploy-preview-996--cmu-delphi-main.netlify.app/covidcast/dashboard/">dashboard builder</a>, and more</p></li>
+<li><p><a href="https://cmu-delphi.github.io/epidatr/">R</a> and <a href="https://github.com/cmu-delphi/epidatpy">Python</a> packages to extract signals from the Epidata repository, and R packages to further <a href="https://cmu-delphi.github.io/epiprocess/">process them</a> and to create <a href="https://cmu-delphi.github.io/epipredict/">epidemic forecasting models</a> (<a href="https://docs.google.com/presentation/d/1XfnxQAzR8TcqpguIcFcn9XwG6vvpTyWP6S79cevVqhY/edit#slide=id.g2e3520ca017_0_70">learn more</a> about the packages)</p></li>
+</ul>
+<p>Delphi is committed to its mission of advancing the theory and practice of epidemic detection, tracking and forecasting. <a href="https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform">We welcome your comments, questions, and suggestions</a> as we continue to grow.</p>
