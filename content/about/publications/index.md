@@ -1,6 +1,42 @@
 ---
 title: Research
 papers:
+  - title: "Outlier Ranking for Large-Scale Public Health Data"
+    image: ranking.png
+    authors: Joshi, Townes T., Gormley, Neureiter, Wilder, Rosenfeld
+    link: https://ojs.aaai.org/index.php/AAAI/article/view/30222
+    year: 2024
+    journal: Association for the Advancement of Artificial Intelligence
+  - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
+    image: smoothing-paper-teaser.jpg
+    authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
+    link: https://doi.org/10.1080/10618600.2023.2285337
+    journal: Journal of Computational and Graphical Statistics
+    year: 2024
+  - title: "Evaluation of FluSight influenza forecasting in the 2021-22 and 2022-23 seasons with a new target laboratory-confirmed influenza hospitalizations"
+    image: evaluation-of-flusight-teaser.jpg
+    authors: Mathis, Webber, León, Murray, Sun, White, Brooks, Green, Hu, McDonald, Rosenfeld, Shemetov, Tibshirani, et al.
+    link: https://doi.org/10.1101/2023.12.08.23299726
+    journal: medRxiv
+    year: 2023
+  - title: "RtEstim: Effective reproduction number estimation with trend filtering"
+    image: rtestim.jpg
+    authors: Liu, Cai, Gustafson, McDonald
+    link: https://doi.org/10.1101/2023.12.18.23299302
+    journal: medRxiv
+    year: 2023
+  - title: "Computationally Assisted Quality Control for Public Health Data Streams"
+    image: forecast.png
+    authors: Joshi, Mazaitis, Rosenfeld, Wilder
+    link: https://arxiv.org/abs/2306.16914
+    year: 2023
+    journal: International Joint Conference on Artificial Intelligence
+  - title: "Nowcasting Reported COVID-19 Hospitalizations Using De-Identified, Aggregated Medical Insurance Claims Data"
+    image: paper-2023-nowcasting-reported.jpg
+    authors: Shen, Rumack, Wilder, Tibshirani
+    link: https://doi.org/10.1101/2023.12.22.23300471
+    journal: medRxiv
+    year: 2023
   - title: "Frequentist Inference for Semi-mechanistic Epidemic Models with Interventions"
     image: dag.jpg
     authors: Bong, Ventura, Wasserman
@@ -24,12 +60,6 @@ papers:
     authors: Reich, Lessler, Funk, Viboud, Vespignani, Tibshirani, Shea, Schienle, Runge, Rosenfeld, Ray, Niehus, Johnson, Johansson, Hochheiser, Gardner, Bracher, Borchering, Biggerstaff
     link: https://doi.org/10.2105/AJPH.2022.306831
     journal: American Journal of Public Health
-    year: 2022
-  - title: "Smooth Multi-Period Forecasting with Application to Prediction of COVID-19 Cases"
-    image: smoothing-paper-teaser.jpg
-    authors: Tuzhilina, Hastie, McDonald, Tay, Tibshirani
-    link: https://arxiv.org/abs/2202.09723
-    journal: arXiv
     year: 2022
   - title: "Recalibrating Probabilistic Forecasts of Epidemics"
     image: recalibrating-thumb.jpg

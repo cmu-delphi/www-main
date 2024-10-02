@@ -37,7 +37,7 @@ jobs:
         run: |
           Rscript ./dependencies.R
       - name: Restore Blogdown Cache
-        uses: actions/cache@v3.3.2
+        uses: actions/cache@v4.0.2
         with:
           path: |
             ./blogdown
@@ -50,7 +50,7 @@ jobs:
           API_KEY: ${{ secrets.DELPHI_GITHUB_ACTIONS_EPIDATA_API_KEY }}
         run: |
           npm run build:blog
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: blog
           path: |

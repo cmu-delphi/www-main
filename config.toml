@@ -12,7 +12,6 @@ relativeURLs = false
 [[menu.main]]
     identifier = "about"
     name = "About"
-    pre = "solid/circle-info"
     url = "/about"
     weight = 1
 
@@ -29,12 +28,12 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "about"
-    name = "Center of Excellence"
-    url = "/about/center-of-excellence"
+    name = "Delphi Milestones"
+    url = "/about/milestones"
     weight = 3
 [[menu.main]]
     parent = "about"
-    name = "Research"
+    name = "Publications"
     url = "/about/publications"
     weight = 4
 [[menu.main]]
@@ -49,135 +48,242 @@ relativeURLs = false
     weight = 6
 [[menu.main]]
     parent = "about"
-    name = "Careers"
-    url = "/about/careers"
+    name = "Join Us"
+    url = ""
+    identifier = "join-us"
     weight = 7
+[[menu.main]]
+    parent = "join-us"
+    name = "Open paid positions"
+    url = "/about/careers"
+    weight = 10
+[[menu.main]]
+    parent = "join-us"
+    name = "Invitation to faculty"
+    url = "https://docs.google.com/forms/d/e/1FAIpQLSeAKmjTuRZePMy4qneyloxhQ3HT9u6ukb3KcyAnIL89uGflxw/viewform"
+    weight = 20
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "join-us"
+    name = "Invitation to students and volunteers"
+    url = "https://docs.google.com/forms/d/e/1FAIpQLSdPz62Zxg7DC2iyqN7Yv9dCxagpUaOXNIXJjLFJ-R848X0FOQ/viewform"
+    weight = 30
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "about"
+    name = "Support Us (Donate)"
+    url = "https://givenow.cmu.edu/scs/?a=8476342&designation=delphiepidemicforecastinggroup"
+    weight = 9
+    [menu.main.params]
+        external = true
 [[menu.main]]
     parent = "about"
     name = "Contact Us"
     url = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
-    weight = 8
+    weight = 10
+    [menu.main.params]
+        external = true
 
-# covid19
+# epidemic-signals
 [[menu.main]]
-    identifier = "covid19"
-    name = "COVID-19"
-    pre = "solid/virus"
-    url = "/covid19/"
+    identifier = "epidemic-signals"
+    name = "Epidemic Signals"
+    url = "/epidemic-signals/"
+    weight = 1
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "About Delphi Epidata & COVIDcast"
+    url = "/epidemic-signals/about-delphi-epidata-covidcast"
     weight = 2
 [[menu.main]]
-    parent = "covid19"
-    name = "About COVIDcast"
-    url = "/covid19/"
-    weight = 1
-[[menu.main]]
-    parent = "covid19"
-    name = "About CTIS"
-    url = "/covid19/ctis"
-    weight = 10
-[[menu.main]]
-    identifier = "covid19-covidcast"
-    parent = "covid19"
-    name = "COVIDcast Dashboard"
-    url = "/covidcast/"
-    weight = 20
-[[menu.main]]
-    parent = "covid19"
-    name = "CTIS Dashboard"
-    url = "/covidcast/survey-results"
-    weight = 30
-[[menu.main]]
-    parent = "covid19"
-    name = "Export Data"
-    url = "/covidcast/export"
-    weight = 40
-[[menu.main]]
-    parent = "covid19"
-    name = "Terms Of Use"
-    url = "/covid19/terms-of-use"
-    weight = 50
-
-# flu
-[[menu.main]]
-    identifier = "flu"
-    name = "Flu & Other Pathogens"
-    pre = "solid/disease"
-    url = "/flu/"
+    parent = "epidemic-signals"
+    name = "Signal Discovery & Selection"
+    url = "/signals/"
     weight = 3
-
-# tools
+    [menu.main.params]
+        external = true
 [[menu.main]]
-    identifier = "tools"
-    name = "Tools"
-    pre = "solid/screwdriver-wrench"
-    url = "/tools/"
-    weight = 5
+    parent = "epidemic-signals"
+    name = "Signal Visualizaion"
+    url = ""
+    identifier = "signal-visualization"
+    weight = 4
 [[menu.main]]
-    parent = "tools"
-    name = "Tools Overview"
-    url = "/tools/"
-    weight = 1
-[[menu.main]]
-    parent = "tools"
-    name = "COVIDcast Dashboard"
-    url = "/covidcast/"
-    weight = 10
-[[menu.main]]
-    parent = "tools"
-    name = "COVIDcast R Package"
-    url = "https://cmu-delphi.github.io/covidcast/covidcastR/"
-    weight = 11
-[[menu.main]]
-    parent = "tools"
-    name = "COVIDcast Python Package"
-    url = "https://cmu-delphi.github.io/covidcast/covidcast-py/html/"
-    weight = 12
-[[menu.main]]
-    parent = "tools"
-    name = "Indicator Status"
-    url = "/covidcast/indicator-status"
-    weight = 20
-[[menu.main]]
-    parent = "tools"
-    name = "Dashboard Builder"
-    url = "/covidcast/dashboard"
-    weight = 30
-[[menu.main]]
-    parent = "tools"
-    name = "Forecast Evaluation"
-    url = "/forecast-eval/"
-    weight = 40
-[[menu.main]]
-    parent = "tools"
+    parent = "signal-visualization"
     name = "EpiVis"
     url = "/epivis/"
-    weight = 50
+    weight = 10
 [[menu.main]]
-    parent = "tools"
-    name = "Archived Tools"
-    url = "/tools/archive/"
-    weight = 80
-
+    parent = "signal-visualization"
+    name = "Delphi Epidata Dashboard"
+    url = "/covidcast/"
+    weight = 20
+[[menu.main]]
+    parent = "signal-visualization"
+    name = "Covidcast 1.0 (“Classic”)"
+    url = "/covidcast/classic/"
+    weight = 30
+[[menu.main]]
+    parent = "signal-visualization"
+    name = "Dashboard Builder"
+    url = "/covidcast/dashboard/"
+    weight = 40
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Signal Download"
+    url = "/covidcast/export"
+    weight = 5
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Signal Documentation"
+    url = "https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html"
+    weight = 6
+    [menu.main.params]
+        external = true
 
 [[menu.main]]
-    identier = "github"
-    pre = "brands/github"
-    name = "GitHub"
-    url = "https://github.com/cmu-delphi/"
-    weight = 90
-
-
+    parent = "epidemic-signals"
+    name = "Signal Availability, Coverage & Latency"
+    url = "/covidcast/indicator-status"
+    weight = 8
 [[menu.main]]
-    identifier = "api"
-    name = "API"
-    pre = "solid/database"
+    parent = "epidemic-signals"
+    identifier = "ctis"
+    name = "CTIS (“The Facebook Covid Survey”)"
+    url = ""
+    weight = 9
+[[menu.main]]
+    parent = "ctis"
+    name = "About CTIS"
+    url = "/epidemic-signals/ctis/"
+    weight = 10
+[[menu.main]]
+    parent = "ctis"
+    name = "CTIS Dashboard"
+    url = "/covidcast/survey-results/"
+    weight = 20
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Report a Data Problem"
+    url = "https://forms.gle/WV4Ndhc3ftvkkgVCA"
+    weight = 11
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "epidemic-signals"
+    name = "Suggest a New Data Source"
+    url = "https://forms.gle/cMG7v7uUrnLVszRu5"
+    weight = 12
+    [menu.main.params]
+        external = true
+# nowcasting-and-forecasting
+[[menu.main]]
+    identifier = "nowcasting-and-forecasting"
+    name = "Nowcasting and Forecasting"
+    url = ""
+    weight = 1
+[[menu.main]]
+    parent = "nowcasting-and-forecasting"
+    name = "COVID-19 Forecasting"
+    url = "https://covid19forecasthub.org/"
+    weight = 2
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "nowcasting-and-forecasting"
+    name = "Flu Forecasting"
+    url = "https://www.cdc.gov/flu/weekly/flusight/index.html"
+    weight = 3
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "nowcasting-and-forecasting"
+    name = "Forecast Evaluation"
+    url = "/forecast-eval/"
+    weight = 4
+    [menu.main.params]
+        external = true
+
+# for-modelers-and-developers
+[[menu.main]]
+    identifier = "for-modelers-and-developers"
+    name = "For Modelers and Developers"
+    url = "code"
+    weight = 2
+[[menu.main]]
+    parent = "for-modelers-and-developers"
+    name = "Code Overview"
+    url = "code"
+    weight = 3
+[[menu.main]]
+    parent = "for-modelers-and-developers"
+    identifier = "api-and-clients"
+    name = "API and Clients"
+    url = "/code/#api-and-clients"
+    weight = 4
+[[menu.main]]
+    parent = "api-and-clients"
+    name = "Epidata"
     url = "https://cmu-delphi.github.io/delphi-epidata/"
-    weight = 100
+    weight = 10
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "api-and-clients"
+    name = "Epidatr"
+    url = "https://cmu-delphi.github.io/epidatr/"
+    weight = 20
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "api-and-clients"
+    name = "Epidatpy"
+    url = "https://github.com/cmu-delphi/epidatpy"
+    weight = 30
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "for-modelers-and-developers"
+    identifier = "forecasting"
+    name = "Forecasting"
+    url = "code#forecasting"
+    weight = 5
+[[menu.main]]
+    parent = "forecasting"
+    name = "Forecasting Manual"
+    url = "https://cmu-delphi.github.io/delphi-tooling-book/"
+    weight = 10
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "forecasting"
+    name = "Epipredict"
+    url = "https://cmu-delphi.github.io/epipredict/"
+    weight = 20
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "forecasting"
+    name = "Epiprocess"
+    url = "https://cmu-delphi.github.io/epiprocess/"
+    weight = 30
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "for-modelers-and-developers"
+    name = "Delphi on Github"
+    pre = "brands/github"
+    url = "https://github.com/cmu-delphi/"
+    [menu.main.params]
+        external = true
 
 [params]
     description = "Developing the Theory and Practice of Epidemiological Forecasting"
-    mission = "Develop the theory and practice of epidemiological tracking and forecasting, with a long-term vision of making this technology as universally accepted and useful as weather forecasting is today."
+    mission = "To develop the theory and practice of epidemic detection, tracking and forecasting, and their use in decision making, both public and private.  Our vision is to make this technology as useful as weather forecasting is today."
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
+    toolUrl = "/tools/"
     twitter = "CmuDelphi"
     contactForm = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
     feedbackForm = "https://docs.google.com/forms/d/e/1FAIpQLSeIeOJtrAhdOriEyiRY7LkpQX8DZBY19dl6De8l56Q9CZhmxw/viewform?usp=pp_url&entry.1245962748="

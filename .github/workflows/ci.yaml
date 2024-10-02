@@ -13,8 +13,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - uses: actions/cache@v3.3.2
+          node-version: 18
+      - uses: actions/cache@v4.0.2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node3-${{ hashFiles('**/package-lock.json') }}
@@ -26,7 +26,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: website
           path: ./public

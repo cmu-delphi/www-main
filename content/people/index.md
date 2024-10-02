@@ -12,6 +12,12 @@ people:
   team:
   - blog
   description: is a member of the Delphi group and a Ph.D. student in data wrangling at the University of Southern North Dakota at Hoople.
+- firstName: Amesh
+  lastName: Adalja
+  image: amesh-adalja.jpeg
+  affiliation: Johns Hopkins University and UPMC
+  team:
+  - contributors
 - firstName: Sumit
   lastName: Agrawal
   image: sumit-agrawal_head-shot.png
@@ -149,12 +155,6 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
-- firstName: Santiago
-  lastName: Cortes Gomez
-  image: santiago-cortes-gomez.jpg
-  affiliation: CMU/MLD
-  team:
-  - contributors
 - firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
@@ -216,10 +216,12 @@ people:
   affiliation: Girls of Steel Robotics
   team:
   - contributors
-- firstName: Richa
+- key: richa
+  firstName: Richa
   lastName: Gadgil
   image: richa.png
   affiliation: CMU/MLD
+  description: is a masters student in the Machine Learning Department.
   team:
   - core
 - key: agarcia
@@ -327,7 +329,8 @@ people:
   image: mike-istomin.jpg
   affiliation: Delphi & StartupSoft
   team:
-  - core
+  - past
+  note: Core member, November 2022-June 2024
 - firstName: Maria
   lastName: Jahja
   image: maria-jahja-500x500-min.jpg
@@ -341,6 +344,7 @@ people:
   affiliation: CMU/MLD and OVPR
   team:
   - leadership
+  - highlight
   leaderOrder: 3
 - firstName: Jaemin
   lastName: Jo
@@ -405,9 +409,10 @@ people:
   lastName: Lakdawala
   image: tarannum-lakdawala.jpeg
   affiliation: CMU/CSD
+  description: was a contributor to the Delphi group from June-December 2021 and September 2022-May 2023
   team:
   - contributors  
-  future_note: Contributor, June-December 2021, September 2022-TBD
+  note: Contributor, June-December 2021, September 2022-May 2023
 - firstName: Daniel
   lastName: LaLiberte
   image: daniel-laliberte_head-shot.jpg
@@ -518,7 +523,7 @@ people:
   image: ron-lunde.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
 - firstName: Ruiqi
   lastName: Lyu
   image: ruiqi-lyu.jpg
@@ -601,6 +606,13 @@ people:
   affiliation: Stanford University
   team:
   - core
+- key: rnayebi
+  firstName: Ryan
+  lastName: Nayebi
+  image: ryan-nayebi.jpg
+  affiliation: UC Berkeley
+  team:
+  - contributors
 - firstName: Luke
   lastName: Neureiter
   image: luke-neureiter.jpg
@@ -716,10 +728,10 @@ people:
   image: aaron-rumack-500x500-min.jpg
   affiliation: CMU/MLD
   team:
-  - core
-  - highlight
+  - past
   - blog
-  description: is a Ph.D. student in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He has been a member of the Delphi group since 2017.
+  description: was a Ph.D. student and postdoc in the Machine Learning Department at CMU, advised by Roni Rosenfeld. He was a member of the Delphi from August 2017 through June 2024.
+  note: Member, August 2017-June 2024
 - firstName: Wael Al
   lastName: Saeed
   image: wael-al-saeed-500x50-min.jpg
@@ -769,8 +781,10 @@ people:
   lastName: Shemetov
   image: dmitry-shemetov-500x500-min.jpg
   affiliation: CMU/MLD
+  description: is a statistical developer on the Delphi team.
   team:
   - core
+  - blog
 - firstName: Xueda
   lastName: Shen
   image: xueda-shen.jpg
@@ -831,7 +845,6 @@ people:
   affiliation: CMU/CompBio
   team:
   - core
-  - highlight
 - firstName: Kenneth
   lastName: Tay
   image: kenneth-tay.jpg
@@ -861,7 +874,7 @@ people:
 - key: ryan
   firstName: Ryan
   lastName: Tibshirani
-  link: https://stat.cmu.edu/~ryantibs/
+  link: https://www.stat.berkeley.edu/~ryantibs/
   image: ryan-tibshirani-500x500-min.jpg
   affiliation: UC Berkeley/Stat and CMU/MLD
   team:
@@ -871,10 +884,12 @@ people:
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
   leaderOrder: 1
-- firstName: Tina
+- key: tina
+  firstName: Tina
   lastName: Townes
   image: tina.png
   affiliation: CMU
+  description: is a member of the Delphi group specializing in data quality monitoring and response.
   team:
   - core
 - firstName: Will
@@ -902,6 +917,14 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+  - highlight
+- key: catalina
+  firstName: Catalina
+  lastName: Vajiac
+  image: catalina.jpeg
+  affiliation: CMU/CSD
+  team:
+  - contributors
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
@@ -952,12 +975,15 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
-- firstName: David
+- key: davidweb
+  firstName: David
   lastName: Weber
   image: david-weber.jpg
   affiliation: CMU/MLD
+  description: is a statistical developer on the Delphi team.
   team:
-  - core  
+  - core
+  - blog  
 - key: jweiss
   firstName: Jeremy Chen
   lastName: Weiss
@@ -1044,6 +1070,12 @@ people:
   team:
   - past
   note: Contributor, June-August 2022
+- firstName: Richard
+  lastName: Zhuang
+  image: richard-zhuang.jpg
+  affiliation: UC Berkeley
+  team:
+  - contributors
 - key: hzhou
   firstName: Helen
   lastName: Zhou
