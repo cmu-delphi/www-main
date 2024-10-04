@@ -649,7 +649,7 @@ people:
   note: Core member, March-October 2020
 - firstName: Larry
   lastName: Pickett
-  image: larry-pickett.jpg
+  image: larry-pickett-v2.jpg
   affiliation: CMU
   team:
   - contributors
