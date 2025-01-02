@@ -6,7 +6,7 @@ papers:
     authors: Goldwasser, Hu, Bilinski, McDonald, Tibshirani
     link: https://ojs.aaai.org/index.php/AAAI/article/view/30222
     year: 2024
-    journal: MedRXiv
+    journal: MedRxiv
   - title: "Outlier Ranking for Large-Scale Public Health Data"
     image: ranking.png
     authors: Joshi, Townes T., Gormley, Neureiter, Wilder, Rosenfeld
