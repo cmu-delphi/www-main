@@ -2,7 +2,7 @@
 title: Research
 papers:
   - title: "Challenges in Estimating Time-Varying Epidemic Severity Rates from Aggregate Data"
-    image: ranking.png
+    image: challenges-in-estimating-thumb.jpg
     authors: Goldwasser, Hu, Bilinski, McDonald, Tibshirani
     link: https://ojs.aaai.org/index.php/AAAI/article/view/30222
     year: 2024
