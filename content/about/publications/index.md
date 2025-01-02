@@ -1,6 +1,12 @@
 ---
 title: Research
 papers:
+  - title: "Challenges in Estimating Time-Varying Epidemic Severity Rates from Aggregate Data"
+    image: challenges-in-estimating-thumb.jpg
+    authors: Goldwasser, Hu, Bilinski, McDonald, Tibshirani
+    link: https://www.medrxiv.org/content/10.1101/2024.12.27.24319518v1.full.pdf
+    year: 2024
+    journal: MedRxiv
   - title: "Outlier Ranking for Large-Scale Public Health Data"
     image: ranking.png
     authors: Joshi, Townes T., Gormley, Neureiter, Wilder, Rosenfeld
