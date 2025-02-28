@@ -13,7 +13,7 @@ people:
   - blog
   description: is a member of the Delphi group and a Ph.D. student in data wrangling at the University of Southern North Dakota at Hoople.
 - firstName: Amesh
-  lastName: Adalja
+  lastName: Adalja, MD
   image: amesh-adalja.jpeg
   affiliation: Johns Hopkins University and UPMC
   team:
