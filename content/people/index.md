@@ -1062,7 +1062,8 @@ people:
   image: rostyslav-zatserkovnyi.jpg
   affiliation: Delphi & StartupSoft
   team:
-  - core
+  - past
+  note: Core member, September 2022-February 2025
 - firstName: Evan
   lastName: Zhang
   image: evan-zhang.jpg
