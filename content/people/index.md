@@ -13,7 +13,7 @@ people:
   - blog
   description: is a member of the Delphi group and a Ph.D. student in data wrangling at the University of Southern North Dakota at Hoople.
 - firstName: Amesh
-  lastName: Adalja
+  lastName: Adalja, MD
   image: amesh-adalja.jpeg
   affiliation: Johns Hopkins University and UPMC
   team:
@@ -649,7 +649,7 @@ people:
   note: Core member, March-October 2020
 - firstName: Larry
   lastName: Pickett
-  image: larry-pickett.jpg
+  image: larry-pickett-v2.jpg
   affiliation: CMU
   team:
   - contributors
@@ -1062,7 +1062,8 @@ people:
   image: rostyslav-zatserkovnyi.jpg
   affiliation: Delphi & StartupSoft
   team:
-  - core
+  - past
+  note: Core member, September 2022-February 2025
 - firstName: Evan
   lastName: Zhang
   image: evan-zhang.jpg
