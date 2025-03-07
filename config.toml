@@ -86,10 +86,10 @@ relativeURLs = false
     [menu.main.params]
         external = true
 
-# epidemic-signals
+# epidemic-indicators
 [[menu.main]]
     identifier = "epidemic-signals"
-    name = "Epidemic Signals"
+    name = "Epidemic Indicators"
     url = "/epidemic-signals/"
     weight = 1
 [[menu.main]]
@@ -99,14 +99,14 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Signal Discovery & Selection"
+    name = "Indicator Discovery & Selection"
     url = "/signals/"
     weight = 3
     [menu.main.params]
         external = true
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Signal Visualizaion"
+    name = "Indicator Visualization"
     url = ""
     identifier = "signal-visualization"
     weight = 4
@@ -132,12 +132,12 @@ relativeURLs = false
     weight = 40
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Signal Download"
+    name = "Indicator Download"
     url = "/covidcast/export"
     weight = 5
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Signal Documentation"
+    name = "Indicator Documentation"
     url = "https://cmu-delphi.github.io/delphi-epidata/api/covidcast_signals.html"
     weight = 6
     [menu.main.params]
@@ -145,7 +145,7 @@ relativeURLs = false
 
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Signal Availability, Coverage & Latency"
+    name = "Indicator Availability, Coverage & Latency"
     url = "/covidcast/indicator-status"
     weight = 8
 [[menu.main]]
