@@ -12,7 +12,7 @@ We procure data streams that reflect epidemic and pandemic activity from a wide 
 The COVID-19 related portion of Delphi Epidata is also known as **COVIDcast**, and constitute what we believe may be the largest public repository of real-time, geographically-detailed indicators of COVID-19 activity in the U.S.
 
 We make all our signals freely available in real-time to the greatest extent allowable, using a [public API](https://cmu-delphi.github.io/delphi-epidata/) which is updated with new data daily. We also provide:
- - a [signal discovery](https://delphi.cmu.edu/signals/) tool, to explore what epi-signals are available in Delphi Epidata and elsewhere in the community
+ - a [signal discovery](https://delphi.cmu.edu/epiportal/) tool, to explore what epi-signals are available in Delphi Epidata and elsewhere in the community
  - a general [signal visualization](https://delphi.cmu.edu/epivis/) tool
  - a [signal dashboard]({{< relref "/covidcast" >}}) and a "classic" [map-based version]({{< relref "/covidcast/classic" >}}) to visualize a core set of COVID-19 and flu indicators
  - a [COVID-19 signal export]({{< relref "/covidcast/export" >}}) app, a [dashboard builder]({{< relref "/covidcast/dashboard" >}}), and more
