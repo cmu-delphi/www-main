@@ -346,6 +346,7 @@ people:
   - leadership
   - highlight
   leaderOrder: 1
+note: Executive Director
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -562,7 +563,7 @@ people:
   - core
   - leadership
   leaderOrder: 4
-  note: Co-PI
+  note: Co-Principal Investigator
 - firstName: Phil
   lastName: McGuinness
   image: phil-mcguinness_head-shot.png
@@ -705,7 +706,7 @@ people:
   - highlight
   - blog
   - center-of-excellence
-  note: PI
+  note: Principal Investigator
   description: is a Principal Investigator in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
   leaderOrder: 2
 - firstName: Anna
@@ -886,7 +887,7 @@ people:
   - highlight
   - blog
   - center-of-excellence
-  note: PI
+  note: Principal Investigator
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
   leaderOrder: 3
 - key: tina
@@ -906,7 +907,7 @@ people:
   - highlight
   - leadership
   leaderOrder: 5
-  note: Co-PI
+  note: Co-Principal Investigator
 - firstName: Dmytro
   lastName: Trotsko
   image: dmytro-trotsko.jpg
@@ -1067,7 +1068,7 @@ people:
   - highlight
   - leadership
   leaderOrder: 6
-  note: Co-PI
+  note: Co-Principal Investigator
 - firstName: Rostyslav
   lastName: Zatserkovnyi
   image: rostyslav-zatserkovnyi.jpg
