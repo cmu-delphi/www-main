@@ -346,7 +346,7 @@ people:
   - leadership
   - highlight
   leaderOrder: 1
-note: Executive Director
+  note: Executive Director
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
