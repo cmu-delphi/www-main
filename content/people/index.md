@@ -52,13 +52,13 @@ people:
   image: derek-bell.jpg
   affiliation: CMU
   team:
-  - contributors
+  - past
 - firstName: Jacob
   lastName: Bien
   image: jacob-bien-500x500-min.jpg
   affiliation: University of Southern California
   team:
-  - core
+  - past
 - key: mbonvini
   firstName: Matteo
   lastName: Bonvini
@@ -89,7 +89,7 @@ people:
   image: elise-gos.jpg
   affiliation: Girls of Steel Robotics
   team:
-  - contributors
+  - past
 - firstName: Angel (Alex)
   lastName: Cabrera
   image: angel-alex-cabrera-500x500-min.jpg
@@ -102,7 +102,7 @@ people:
   image: seline-carter.jpg
   affiliation: CMU/Stat
   team:
-  - contributors  
+  - past  
 - key: ccheng
   firstName: Cheng
   lastName: Cheng
@@ -123,7 +123,7 @@ people:
   image: andrew-chin-500x500-min.jpg
   affiliation: Johns Hopkins/Biostat
   team:
-  - contributors
+  - past
   note: Core member, October 2020-August 2021 
 - firstName: Aditya
   lastName: Chindhade
@@ -166,13 +166,13 @@ people:
   image: margaret-ellingwood.jpg
   affiliation: CMU/Stat
   team:
-  - contributors  
+  - past  
 - firstName: Natalie
   lastName: F.
   image: natalie-gos.jpg
   affiliation: Girls of Steel Robotics
   team:
-  - contributors
+  - past
 - firstName: David
   lastName: Farrow
   image: david-farrow_head-shot.jpg
@@ -215,7 +215,7 @@ people:
   image: grace-gos.jpg
   affiliation: Girls of Steel Robotics
   team:
-  - contributors
+  - past
 - key: richa
   firstName: Richa
   lastName: Gadgil
@@ -223,7 +223,7 @@ people:
   affiliation: CMU/MLD
   description: is a masters student in the Machine Learning Department.
   team:
-  - core
+  - past
 - key: agarcia
   firstName: Andy
   lastName: Garcia
@@ -260,7 +260,7 @@ people:
   affiliation: Stanford University/Stat
   note: Core member, May-July 2020
   team:
-  - contributors
+  - past
 - firstName: Joseph
   lastName: Greene
   image: joseph-greene.jpg
@@ -368,7 +368,7 @@ people:
   image: janise-gos.jpg
   affiliation: Girls of Steel Robotics
   team:
-  - contributors
+  - past
 - key: ekennedy
   firstName: Edward
   lastName: Kennedy
@@ -411,7 +411,7 @@ people:
   affiliation: CMU/CSD
   description: was a contributor to the Delphi group from June-December 2021 and September 2022-May 2023
   team:
-  - contributors  
+  - past  
   note: Contributor, June-December 2021, September 2022-May 2023
 - firstName: Daniel
   lastName: LaLiberte
@@ -467,7 +467,7 @@ people:
   image: leon-suhan-lu.jpg
   affiliation: Wake Forest University
   team:
-  - contributors
+  - past
 - key: lipsitch
   firstName: Marc
   lastName: Lipsitch
@@ -486,7 +486,7 @@ people:
   affiliation: CMU/MLD
   description: is an Assistant Professor of Operations Research and Machine Learning at CMU and is a member of Delphi.
   team:
-  - contributors
+  - past
   - blog
   note: Core member, April 2020-January 2021
 - firstName: Maggie
@@ -560,6 +560,9 @@ people:
   affiliation: University of British Columbia
   team:
   - core
+  - leadership
+  leaderOrder: 4
+  note: Co-PI
 - firstName: Phil
   lastName: McGuinness
   image: phil-mcguinness_head-shot.png
@@ -572,7 +575,7 @@ people:
   image: robin-mejia.jpg
   affiliation: CMU/Stat
   team:
-  - contributors
+  - past
 - firstName: Christy
   lastName: Melucci
   image: christy-melucci.jpg
@@ -605,7 +608,7 @@ people:
   image: balasubramanian-narasimhan-500x500-min.jpg
   affiliation: Stanford University
   team:
-  - core
+  - past
 - key: rnayebi
   firstName: Ryan
   lastName: Nayebi
@@ -625,7 +628,7 @@ people:
   image: quang-nguyen.jpg
   affiliation: Dartmouth/Epidemiology
   team:
-  - contributors
+  - past
 - firstName: Mike
   lastName: O'Brien
   image: mike-o'brien_head-shot.jpg
@@ -680,7 +683,7 @@ people:
   image: alex-reinhart-500x500-min.jpg
   affiliation: CMU/Stat
   team:
-  - core
+  - past
   - blog
   link: https://www.refsmmat.com
   description: manages Delphi's surveys, and is an Assistant Teaching Professor in the Department of Statistics & Data Science at CMU.
@@ -690,7 +693,7 @@ people:
   image: teresa-richards-500x500.png
   affiliation: Girls of Steel Robotics
   team:
-  - contributors
+  - past
 - key: roni
   firstName: Roni
   lastName: Rosenfeld
@@ -702,6 +705,7 @@ people:
   - highlight
   - blog
   - center-of-excellence
+  note: PI
   description: is a Principal Investigator in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
   leaderOrder: 2
 - firstName: Anna
@@ -715,7 +719,7 @@ people:
   image: patti-rote.jpg
   affiliation: Girls of Steel Robotics
   team:
-  - contributors
+  - past
 - firstName: Dawn
   lastName: Rucker
   image: dawn-rucker-500x500-min.jpg
@@ -838,7 +842,7 @@ people:
   image: kean-ming-tan.jpg
   affiliation: University of Michigan/Stat
   team:
-  - contributors
+  - past
 - firstName: Jingjing
   lastName: Tang
   image: jinjing-tang-500x500-min.jpg
@@ -870,7 +874,7 @@ people:
   image: robert-tibshirani-500x500-min.jpg
   affiliation: Stanford University
   team:
-  - core
+  - past
 - key: ryan
   firstName: Ryan
   lastName: Tibshirani
@@ -882,6 +886,7 @@ people:
   - highlight
   - blog
   - center-of-excellence
+  note: PI
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
   leaderOrder: 3
 - key: tina
@@ -899,6 +904,9 @@ people:
   team:
   - core
   - highlight
+  - leadership
+  leaderOrder: 5
+  note: Co-PI
 - firstName: Dmytro
   lastName: Trotsko
   image: dmytro-trotsko.jpg
@@ -910,7 +918,7 @@ people:
   image: elena-tuzhilina-500x500.jpg
   affiliation: University of Toronto
   team:
-  - contributors
+  - past
 - firstName: Carlyn
   lastName: Van Dyke
   image: carlyn-van-dyke.jpg
@@ -924,7 +932,7 @@ people:
   image: catalina.jpeg
   affiliation: CMU/CSD
   team:
-  - contributors
+  - past
 - firstName: Ana&nbsp;Karina
   lastName: Van&nbsp;Nortwick
   image: ana-karina-van-nortwick.jpeg
@@ -950,14 +958,14 @@ people:
   link: https://www.stat.cmu.edu/~vventura/
   description: is a Professor in the Department of Statistics & Data Science at CMU and a member of Delphi.
   team:
-  - core
+  - past
   - blog
 - firstName: Ashley
   lastName: W.
   image: ashley-gos.jpg
   affiliation: Girls of Steel Robotics
   team:
-  - contributors
+  - past
 - key: lwasserman
   firstName: Larry
   lastName: Wasserman
@@ -966,7 +974,7 @@ people:
   link: https://www.stat.cmu.edu/~larry/
   description: is a Professor in the Department of Statistics & Data Science at CMU as well as in the Machine Learning Department and is a member of Delphi.
   team:
-  - core
+  - past
   - blog
 - firstName: Benjamin
   lastName: Weaver
@@ -992,7 +1000,7 @@ people:
   affiliation: CMU/Heinz College
   description: is an Assistant Professor of Health Informatics at CMU and is a member of Delphi.
   team:
-  - contributors
+  - past
   - blog
   note: Core member, April-December 2020
 - firstName: Spencer
@@ -1020,7 +1028,7 @@ people:
   image: bo-xia.jpg
   affiliation: CMU/Stat
   team:
-  - contributors
+  - past
 - firstName: Chloe
   lastName: You
   image: chloe-you.jpg
@@ -1049,7 +1057,7 @@ people:
   image: jerzy-wieczorek.jpg
   affiliation: Colby College
   team:
-  - contributors
+  - past
 - firstName: Bryan
   lastName: Wilder
   image: bryan-wilder.jpg
@@ -1057,6 +1065,9 @@ people:
   team:
   - core 
   - highlight
+  - leadership
+  leaderOrder: 6
+  note: Co-PI
 - firstName: Rostyslav
   lastName: Zatserkovnyi
   image: rostyslav-zatserkovnyi.jpg
@@ -1076,7 +1087,7 @@ people:
   image: richard-zhuang.jpg
   affiliation: UC Berkeley
   team:
-  - contributors
+  - past
 - key: hzhou
   firstName: Helen
   lastName: Zhou
@@ -1085,7 +1096,7 @@ people:
   description: is a PhD student in the Machine Learning Department at CMU and is a member of Delphi.
   affiliation: CMU/MLD
   team:
-  - contributors
+  - past
   - blog
   note: Core member, April 2020-March 2021
 - firstName: Tianyue
@@ -1093,7 +1104,7 @@ people:
   image: tianyue-zhou.jpg
   affiliation: UC Berkeley/Biostat
   team:
-  - contributors  
+  - past  
 others: |
  MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
 
