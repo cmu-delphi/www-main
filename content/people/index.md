@@ -345,7 +345,7 @@ people:
   team:
   - leadership
   - highlight
-  leaderOrder: 3
+  leaderOrder: 1
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -883,7 +883,7 @@ people:
   - blog
   - center-of-excellence
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
-  leaderOrder: 1
+  leaderOrder: 3
 - key: tina
   firstName: Tina
   lastName: Townes
