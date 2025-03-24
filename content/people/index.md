@@ -560,7 +560,7 @@ people:
   image: daniel-mcdonald-photo.jpeg
   affiliation: University of British Columbia
   team:
-  - core
+  
   - leadership
   leaderOrder: 4
   note: Co-Principal Investigator
@@ -903,7 +903,7 @@ people:
   image: will-townes.jpg
   affiliation: CMU/Stat
   team:
-  - core
+  
   - highlight
   - leadership
   leaderOrder: 5
@@ -1064,7 +1064,7 @@ people:
   image: bryan-wilder.jpg
   affiliation: CMU/MLD
   team:
-  - core 
+  
   - highlight
   - leadership
   leaderOrder: 6
