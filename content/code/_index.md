@@ -16,12 +16,12 @@ The core server code for the [Delphi Epidata API](https://cmu-delphi.github.io/d
 ### [Epidatr](https://cmu-delphi.github.io/epidatr/)
 
 R client for the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/).
-It allows you to cache queries locally to speed up data access and seamlessly integrate pulling from our API into your pipelines.
+Download data from our API as a usable tibble in R!
 
-### [Epidatpy](https://github.com/cmu-delphi/epidatpy) (WIP)
+### [Epidatpy](https://github.com/cmu-delphi/epidatpy)
 
-A work-in-progress Python client for the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/).
-Not yet recommended for production, but we are happy to receive feedback!
+Python client for the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/).
+Download data from our API as a usable Pandas dataframe in Python!
 
 ## Forecasting
 
