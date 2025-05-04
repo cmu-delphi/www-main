@@ -16,7 +16,7 @@ layout: team
 
 {{<team team="advisors" >}}
 
-## Contributors
+## Other Contributors
 
 {{<team team="contributors" >}}
 
