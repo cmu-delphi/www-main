@@ -1,4 +1,4 @@
-{{ $base := $.GetPage "publications" }}
+{{ $base := $.GetPage "research" }}
 {{ $images := $base.Resources.ByType "image" }}
 {{ $papers := (where $base.Params.papers ".coe" true) }}
 
