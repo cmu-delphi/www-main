@@ -28,7 +28,7 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "about"
-    name = "Delphi Milestones"
+    name = "Milestones"
     url = "/about/milestones"
     weight = 3
 [[menu.main]]
