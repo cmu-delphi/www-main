@@ -36,7 +36,7 @@
     "start": "hugo server -D",
     "start:blog": "Rscript -e \"blogdown::serve_site(port=1313, browser=FALSE)\"",
     "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
-    "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check",
+    "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check || (prettier *.* \"(.vscode|content|data|themes)/**\" --write ; git diff ; false)",
     "image": "docker build -t www-main:latest --file ./devops/Dockerfile .",
     "prepare": "husky install",
     "prepack": "npm run build"
