@@ -1,11 +1,11 @@
 {
   "name": "www-main",
-  "version": "3.3.9",
+  "version": "3.3.10",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
     "highlight.js": "^11.11.1",
-    "katex": "^0.16.21",
+    "katex": "^0.16.22",
     "uikit": "^3.21.13",
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v3.2.13/www-covidcast-3.2.13.tgz",
     "www-covidcast-classic": "https://github.com/cmu-delphi/www-covidcast-classic/releases/download/v2.6.7/www-covidcast-classic-2.6.7.tgz",
@@ -36,7 +36,7 @@
     "start": "hugo server -D",
     "start:blog": "Rscript -e \"blogdown::serve_site(port=1313, browser=FALSE)\"",
     "format": "prettier *.* \"(.vscode|content|data|themes)/**\" --write",
-    "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check",
+    "lint": "prettier *.* \"(.vscode|content|data|themes)/**\" --check || (prettier *.* \"(.vscode|content|data|themes)/**\" --write ; git diff ; false)",
     "image": "docker build -t www-main:latest --file ./devops/Dockerfile .",
     "prepare": "husky install",
     "prepack": "npm run build"
