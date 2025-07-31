@@ -17,7 +17,7 @@ people:
   image: amesh-adalja.jpeg
   affiliation: Johns Hopkins University and UPMC
   team:
-  - contributors
+  - advisors
 - firstName: Sumit
   lastName: Agrawal
   image: sumit-agrawal_head-shot.png
