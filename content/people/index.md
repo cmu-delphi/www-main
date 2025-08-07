@@ -630,6 +630,13 @@ people:
   affiliation: Dartmouth/Epidemiology
   team:
   - past
+- firstName: Jignesh
+  lastName: Patel
+  image: Patel_Jignesh.jpg
+  link: https://csd.cmu.edu/people/faculty/jignesh-patel
+  affiliation: CMU/CSD
+  team:
+  - advisors
 - firstName: Mike
   lastName: O'Brien
   image: mike-o'brien_head-shot.jpg
