@@ -28,11 +28,6 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "about"
-    name = "Milestones"
-    url = "/about/milestones"
-    weight = 3
-[[menu.main]]
-    parent = "about"
     name = "Research"
     url = "/about/research"
     weight = 4
@@ -41,11 +36,6 @@ relativeURLs = false
     name = "Blog"
     url = "/blog"
     weight = 5
-[[menu.main]]
-    parent = "about"
-    name = "News"
-    url = "/about/news"
-    weight = 6
 [[menu.main]]
     parent = "about"
     name = "Join Us"
