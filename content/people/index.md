@@ -17,7 +17,7 @@ people:
   image: amesh-adalja.jpeg
   affiliation: Johns Hopkins University and UPMC
   team:
-  - contributors
+  - advisors
 - firstName: Sumit
   lastName: Agrawal
   image: sumit-agrawal_head-shot.png
@@ -630,6 +630,13 @@ people:
   affiliation: Dartmouth/Epidemiology
   team:
   - past
+- firstName: Jignesh
+  lastName: Patel
+  image: Patel_Jignesh.jpg
+  link: https://csd.cmu.edu/people/faculty/jignesh-patel
+  affiliation: CMU/CSD
+  team:
+  - advisors
 - firstName: Mike
   lastName: O'Brien
   image: mike-o'brien_head-shot.jpg
