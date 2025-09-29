@@ -361,7 +361,7 @@ people:
   link: https://csd.cmu.edu/people/graduate-student/ananya-joshi
   description: is a Ph.D. student in the Computer Science Department and is a member of Delphi supported by the NSF GRFP.
   team:
-  - core
+  - past
   - blog
 - firstName: Janise
   lastName: K.
