@@ -89,7 +89,7 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "EpiPortal (Indicator Discovery)"
+    name = "Indicator Discovery (EpiPortal)"
     url = "/epiportal/"
     weight = 3
     [menu.main.params]
