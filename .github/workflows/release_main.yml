@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
           node-version: 18
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
           node-version: 18
@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: dev
           ssh-key: ${{ secrets.CMU_DELPHI_DEPLOY_MACHINE_SSH }}

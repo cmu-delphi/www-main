@@ -1,6 +1,6 @@
 {
   "name": "www-main",
-  "version": "3.3.11",
+  "version": "3.3.12",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.7.2",
@@ -15,10 +15,10 @@
     "hugo-bin": "^0.142.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
-    "prettier": "^3.3.3",
+    "prettier": "^3.6.2",
     "prettier-plugin-go-template": "^0.0.15",
     "rimraf": "^6.0.1",
-    "shx": "^0.3.4"
+    "shx": "^0.4.0"
   },
   "files": [
     "public"
