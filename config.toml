@@ -28,24 +28,14 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "about"
-    name = "Delphi Milestones"
-    url = "/about/milestones"
-    weight = 3
-[[menu.main]]
-    parent = "about"
-    name = "Publications"
-    url = "/about/publications"
+    name = "Research"
+    url = "/about/research"
     weight = 4
 [[menu.main]]
     parent = "about"
     name = "Blog"
     url = "/blog"
     weight = 5
-[[menu.main]]
-    parent = "about"
-    name = "News"
-    url = "/about/news"
-    weight = 6
 [[menu.main]]
     parent = "about"
     name = "Join Us"
@@ -99,37 +89,37 @@ relativeURLs = false
     weight = 2
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Indicator Discovery & Selection"
+    name = "Indicator Discovery (EpiPortal)"
     url = "/epiportal/"
     weight = 3
     [menu.main.params]
         external = true
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Indicator Visualization"
-    url = ""
+    name = "Indicator Visualization (EpiVis)"
+    url = "/epivis/"
     identifier = "signal-visualization"
     weight = 4
-[[menu.main]]
-    parent = "signal-visualization"
-    name = "EpiVis"
-    url = "/epivis/"
-    weight = 10
-[[menu.main]]
-    parent = "signal-visualization"
-    name = "Delphi Epidata Dashboard"
-    url = "/covidcast/"
-    weight = 20
-[[menu.main]]
-    parent = "signal-visualization"
-    name = "Covidcast 1.0 (“Classic”)"
-    url = "/covidcast/classic/"
-    weight = 30
-[[menu.main]]
-    parent = "signal-visualization"
-    name = "Dashboard Builder"
-    url = "/covidcast/dashboard/"
-    weight = 40
+# [[menu.main]]
+#     parent = "signal-visualization"
+#     name = "EpiVis"
+#     url = "/epivis/"
+#     weight = 10
+# [[menu.main]]
+#     parent = "signal-visualization"
+#     name = "Delphi Epidata Dashboard"
+#     url = "/covidcast/"
+#     weight = 20
+# [[menu.main]]
+#     parent = "signal-visualization"
+#     name = "Covidcast 1.0 (“Classic”)"
+#     url = "/covidcast/classic/"
+#     weight = 30
+# [[menu.main]]
+#     parent = "signal-visualization"
+#     name = "Dashboard Builder"
+#     url = "/covidcast/dashboard/"
+#     weight = 40
 [[menu.main]]
     parent = "epidemic-signals"
     name = "Indicator Download"

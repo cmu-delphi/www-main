@@ -1,6 +1,6 @@
 ---
-title: Delphi Research Group Milestones
-linkTitle: Delphi Milestones
+title: Milestones
+linkTitle: Milestones
 layout: milestones
 ---
 
