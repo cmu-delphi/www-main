@@ -34,7 +34,7 @@ layout: about
 - The general public
 
 **Our awards:**
-- [Newell Research Excellence Award (2021)](https://www.cs.cmu.edu/events/newell-award-winners)
-- [SPAIG award for Academe-Industry-Government partnership (2021)](https://www.amstat.org/your-career/awards/statistical-partnerships-among-academe-industry-and-government-(spaig)-award)
-- [AAPOR Policy Impact Award (2022)](https://aapor.org/past-policy/)
-- [AAPOR Innovation Award (2022)](https://aapor.org/past-mitofsky/)
+- [2021 SCS Newell Award for Research Excellence](https://www.cs.cmu.edu/events/newell-award-winners)
+- [2021 American Statistical Association Statistical Partnerships Among Academe, Industry, and Government (SPAIG) Award](https://www.amstat.org/your-career/awards/statistical-partnerships-among-academe-industry-and-government-(spaig)-award)
+- [2022 AAPOR Policy Impact Award](https://aapor.org/past-policy/), for the [COVID-19 Trends and Impact Surveys (CTIS)](https://delphi.cmu.edu/epidemic-signals/ctis/)
+- [2022 AAPOR Warren J. Mitofsky Innovators Award](https://aapor.org/past-mitofsky/), also for CTIS
