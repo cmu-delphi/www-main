@@ -15,7 +15,6 @@ layout: about
 - Our [Epidata repository](https://cmu-delphi.github.io/delphi-epidata/) of real-time, geographically-detailed epidemic indicators contains more than 750 indicators totaling over 5 billion records, with 3 million records being added daily. During the pandemic, it recieved on average 100,000 queries/day, from more than 50,000 unique IP addresses in a 3 month period.
 - Data partners and collaborators include CDC, UnitedHealth/Optum, Change Healthcare, Google, Meta, Amazon, QuidelOrtho, and others
 - Funders include CDC, DTRA, Google, Meta, Optum, McCune Foundation, Uptake and others
-- Winner of the [Newell Research Excellence Award (2021)](https://www.cs.cmu.edu/events/newell-award-winners), [SPAIG award for Academe-Industry-Government partnership (2021)](https://www.amstat.org/your-career/awards/statistical-partnerships-among-academe-industry-and-government-(spaig)-award), [AAPOR Policy Impact Award (2022)](https://aapor.org/past-policy/), and [AAPOR Innovation Award (2022)](https://aapor.org/past-mitofsky/).
 
 **Our strategy:**
 1. Procure [real-time, aggregated data streams](https://cmu-delphi.github.io/delphi-epidata/) informative of varied infectious diseases and syndromes, in collaboration with industry partners and public health agencies
@@ -33,3 +32,9 @@ layout: about
 - Other public, private and government organizations
 - Data journalists
 - The general public
+
+**Our awards:**
+- [Newell Research Excellence Award (2021)](https://www.cs.cmu.edu/events/newell-award-winners)
+- [SPAIG award for Academe-Industry-Government partnership (2021)](https://www.amstat.org/your-career/awards/statistical-partnerships-among-academe-industry-and-government-(spaig)-award)
+- [AAPOR Policy Impact Award (2022)](https://aapor.org/past-policy/)
+- [AAPOR Innovation Award (2022)](https://aapor.org/past-mitofsky/)
