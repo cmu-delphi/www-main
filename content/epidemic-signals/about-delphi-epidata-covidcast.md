@@ -23,4 +23,4 @@ Some of the underlying data from which our signals are extracted would not exist
 
 ## Severity Pyramid
 
-![](/epidemic-signals/images/severity-pyramid.svg)
+![](/epidemic-signals/images/severity-pyramid-nov-2025.png)
