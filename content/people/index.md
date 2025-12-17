@@ -616,7 +616,7 @@ people:
   image: ryan-nayebi.jpg
   affiliation: UC Berkeley
   team:
-  - contributors
+  - past
 - firstName: Luke
   lastName: Neureiter
   image: luke-neureiter.jpg
