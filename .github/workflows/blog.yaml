@@ -42,7 +42,7 @@ jobs:
           API_KEY: ${{ secrets.DELPHI_GITHUB_ACTIONS_EPIDATA_API_KEY }}
         run: |
           npm run build:blog
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: blog
           path: |
