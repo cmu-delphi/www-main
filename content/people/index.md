@@ -440,7 +440,7 @@ people:
   image: minh-le.jpg
   affiliation: CMU/MLD
   team:
-  - core
+  - past
 - firstName: Jenny
   lastName: Lee
   image: jenny-yeon-jin-lee-500x500-min.jpg
@@ -583,6 +583,7 @@ people:
   affiliation: CMU/MLD
   team:
   - core
+  - highlight
 - firstName: Duane
   lastName: Mengo
   image: duane-mengo.jpg
@@ -932,8 +933,7 @@ people:
   image: carlyn-van-dyke.jpg
   affiliation: CMU/MLD
   team:
-  - core
-  - highlight
+  - past
 - key: catalina
   firstName: Catalina
   lastName: Vajiac
