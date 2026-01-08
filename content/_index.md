@@ -6,8 +6,8 @@ layout: landing
 carousel:
   - pre: Tools
     title: Real-time Indicators of Infectious Disease Activity
-    ref: covidcast
-    alt: Explore the Delphi Epidata Dashboard
+    link: https://delphi.cmu.edu/epiportal/
+    alt: Explore the Delphi Epidata Portal
     image: covidcast_v2.jpg
   - pre: Collaboration
     title: Delphi Serving as Center of Innovation in CDC's Insight Net Network
