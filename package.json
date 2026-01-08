@@ -1,6 +1,6 @@
 {
   "name": "www-main",
-  "version": "3.3.13",
+  "version": "3.3.14",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
