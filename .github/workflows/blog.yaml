@@ -14,7 +14,7 @@ jobs:
       run:
         shell: bash -l {0}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 3
       - uses: mamba-org/setup-micromamba@v2
@@ -29,7 +29,7 @@ jobs:
         run: |
           Rscript ./dependencies.R
       - name: Restore Blogdown Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             ./blogdown
@@ -42,7 +42,7 @@ jobs:
           API_KEY: ${{ secrets.DELPHI_GITHUB_ACTIONS_EPIDATA_API_KEY }}
         run: |
           npm run build:blog
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: blog
           path: |

@@ -12,10 +12,9 @@ layout: about
 - Perennial winners of CDC’s [“predict the flu” challenge](https://www.cdc.gov/flu/weekly/flusight/index.html) since 2014
 - Designated a 6-year [National Center of Excellence for Flu Forecasting](https://delphi.cmu.edu/about/center-of-excellence/) by [CDC’s Influenza Division](https://www.cdc.gov/ncird/flu.html) (2019-2025)
 - Designated a 5-year [National Center for Innovation](https://www.cs.cmu.edu/news/2023/delphi-cdc-center) by [CDC’s Center for Forecasting and Outbreak Analytics](https://www.cdc.gov/forecast-outbreak-analytics/index.html) (2023-2028)
-- Our [Epidata repository](https://cmu-delphi.github.io/delphi-epidata/) of real-time, geographically-detailed epidemic indicators contains more than 750 indicators totaling over 5 billion records, with 3 million records being added daily. During the pandemic, it recieved on average 100,000 queries/day, from more than 50,000 unique IP addresses in a 3 month period.
+- Our [Epidata repository](https://cmu-delphi.github.io/delphi-epidata/) of real-time, geographically-detailed epidemic indicators contains more than 750 indicators totaling over 5 billion records, with 3 million records being added daily. During the pandemic, it received on average 100,000 queries/day, from more than 50,000 unique IP addresses in a 3 month period.
 - Data partners and collaborators include CDC, UnitedHealth/Optum, Change Healthcare, Google, Meta, Amazon, QuidelOrtho, and others
 - Funders include CDC, DTRA, Google, Meta, Optum, McCune Foundation, Uptake and others
-- Winner of the [Newell Research Excellence Award (2021)](https://www.cs.cmu.edu/events/newell-award-winners), [SPAIG award for Academe-Industry-Government partnership (2021)](https://www.amstat.org/your-career/awards/statistical-partnerships-among-academe-industry-and-government-(spaig)-award), [AAPOR Policy Impact Award (2022)](https://aapor.org/past-policy/), and [AAPOR Innovation Award (2022)](https://aapor.org/past-mitofsky/).
 
 **Our strategy:**
 1. Procure [real-time, aggregated data streams](https://cmu-delphi.github.io/delphi-epidata/) informative of varied infectious diseases and syndromes, in collaboration with industry partners and public health agencies
@@ -33,3 +32,9 @@ layout: about
 - Other public, private and government organizations
 - Data journalists
 - The general public
+
+**Our awards:**
+- [2021 SCS Newell Award for Research Excellence](https://www.cs.cmu.edu/events/newell-award-winners)
+- [2021 American Statistical Association Statistical Partnerships Among Academe, Industry, and Government (SPAIG) Award](https://www.amstat.org/your-career/awards/statistical-partnerships-among-academe-industry-and-government-(spaig)-award)
+- [2022 AAPOR Policy Impact Award](https://aapor.org/past-policy/), for the [COVID-19 Trends and Impact Surveys (CTIS)](https://delphi.cmu.edu/epidemic-signals/ctis/)
+- [2022 AAPOR Warren J. Mitofsky Innovators Award](https://aapor.org/past-mitofsky/), also for CTIS
