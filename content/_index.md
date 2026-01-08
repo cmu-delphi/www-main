@@ -4,6 +4,11 @@ description: Developing the Theory and Practice of Epidemiological Forecasting
 layout: landing
 
 carousel:
+  - pre: Tools
+    title: Real-time Indicators of Infectious Disease Activity
+    ref: covidcast
+    alt: Explore the Delphi Epidata Dashboard
+    image: covidcast_v2.jpg
   - pre: Collaboration
     title: Delphi Serving as Center of Innovation in CDC's Insight Net Network
     link: https://www.cdc.gov/insight-net/php/about/index.html/
