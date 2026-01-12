@@ -1113,6 +1113,22 @@ people:
   affiliation: UC Berkeley/Biostat
   team:
   - past  
+- key: efranke
+  firstName: Erin
+  lastName: Franke
+  image: erin-franke-500x500-min.jpg
+  link: https://www.cmu.edu/dietrich/statistics-datascience/people/phd/erin-franke.html
+  affiliation: CMU/Stat
+  team:
+  - core
+- key: ozh
+  firstName: Oliver
+  lastName: Hannaoui
+  image: oliver-hannaoui-500x500-min.jpg
+  link: https://www.cmu.edu/dietrich/statistics-datascience/people/phd/oliver-hannaoui.html
+  affiliation: CMU/Stat
+  team:
+  - core
 others: |
  MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
 
