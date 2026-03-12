@@ -1,0 +1,86 @@
+---
+title: "Choose wisely: Which forecasting tool is right for you?"
+author: Hanna Kim
+date: 2026-03-20
+tags:
+  - modeling
+  - forecasting
+  - tool review
+related:
+authors:
+  - hkim
+  - ndefries
+heroImage: blog-lg-epidatr.png
+heroImageThumb: blog-thumb-epidatr.png
+summary: |
+    Compare infectious disease forecasting tools and models, learn why disease forecasting matters, and discover how to choose the right modeling package.
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+# Evaluating popular epidemiology modeling packages for accuracy, ease of use, and niche
+
+The need for specialized forecasting in our communities emerged long before the COVID-19 pandemic. Weather forecasting, for example, has been able to accurately capture temperature and meteorological patterns for over 100 years, allowing people to prepare for sometimes extreme and rapidly changing climate conditions. Similarly, disease forecasting can foretell dangerous rises in seasonal illnesses such as influenza, respiratory syncytial virus (RSV), and COVID-19. These critical insights prepare public health officials, the healthcare industry, and decision-makers in all walks of life with timely information.
+
+## Why forecasting matters
+
+There are very simple methods of making predictions, such as using the previous year’s case trajectory. Seasonal diseases like flu have fairly consistent wave timing and peak case count that makes this not unreasonable. However, more complex models can do much better than these simple methods.
+
+In one study, over 50 percent of included forecasting models consistently outperformed a simple seasonal baseline when predicting up to 3-week-ahead influenza incidence. They also outperformed the baseline on the timing and intensity of the seasonal peak.[^1]
+
+In a 2025 study, researchers evaluated forecasting tools for malaria and diarrheal disease in Mozambique, a country facing a high infectious-disease burden. They tested various ways of predicting disease and discovered that models combining multiple sources of information and estimating uncertainty, such as ensemble and probabilistic models, provided more reliable, accurate predictions than those relying only on averages of past trends.[^2]
+
+## The project: Comparing and contrasting models
+
+The number of disease forecasting tools available has grown dramatically in recent years. There are so many modeling options that it can be overwhelming to decide which package to use. With the respiratory disease season here and expected to be even more severe than last year, our project aims to quickly provide researchers, policymakers, and developers working in epidemic modeling with practical guidance for choosing the right modeling tool for their teams.
+
+This project compares and contrasts several forecasting packages to better understand:
+
+* required data inputs
+* model outputs
+* the situations where each tool is most effective
+* user-friendliness (ease of setup, documentation quality and depth, etc)
+
+A critical component of our work will of course also be evaluating how well those models capture infectious disease trends in real-world, not test, data.
+
+We recognize that different types of users have different modeling needs. For example, researchers may prefer to use a model-building framework that lets them create custom models. Policymakers, on the other hand, may want hands-off pre-packaged models so they can quickly generate predictions to inform urgent decisions, such as preparing for a surge in hospital occupancy. Evaluations of this type of fit will be included in our writeups.
+
+We will examine these specific packages:
+
+* [Delphi `epipredict`](https://cmu-delphi.github.io/epipredict) – A modular R framework built on the tidymodels philosophy, designed for rapid autoregressive (ARX) modeling.
+* [Facebook `prophet`](https://facebook.github.io/prophet/) – An additive regression model that decomposes seasonality, holiday effects, and trends.
+* [flepimop](https://www.flepimop.org/) – Developed by Johns Hopkins University and University of North Carolina at Chapel Hill. A flexible epidemic modeling pipeline optimized for large-scale simulations.
+* [LEMMA](https://github.com/ACCIDDA/LEMMA-forecast) – Developed by the Atlantic Coast Center for Infectious Disease Dynamics and Analytics (ACCIDDA). A compartmental (SIR-based) modeling approach.
+* [EpiNow2](https://epiforecasts.io/EpiNow2/) – Developed by [epiforecasts](https://epiforecasts.io/) at the London School of Hygiene & Tropical Medicine. A Bayesian framework from LSHTM that focuses on estimating the time-varying reproduction number to drive forecasts.
+
+## The modeling task
+
+For this project, we created a simple modeling task: predicting adult [COVID-19 hospitalizations as reported by the National Healthcare Safety Network (NHSN)](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/nhsn.html).
+
+As in an [autoregressive time series model](https://en.wikipedia.org/wiki/Autoregressive_model), we will lag the outcome variable and use only those values as predictors. To maintain simplicity of the test task, we won’t use any auxiliary data as predictors.
+
+To check how well the models work, we will pretend we are in the past (on a faux “forecast date”) and have each model make forecasts for “future” dates following the “forecast” date. Importantly, models will only use data that would have been available at that time. By comparing how closely each model's predictions align with the true data, we are able to assess model accuracy. This process is called backtesting.
+
+For example, let’s say our fake forecast date is March 1, 2023\. We would make predictions for March 8, 15, and 22 (1, 2, and 3-week horizons) using only data *observed and reported* prior to March 1, 2023, as training data.
+
+## Evaluating accessibility: Introducing our tester
+
+One of our project’s goals is to assess how easy it is to use these models for people with less technical experience.
+
+We tasked our summer intern, Hanna Kim, an MPH (Epidemiology of Microbial Diseases) candidate at Yale School of Public Health, with testing COVID-19 models under supervision from Delphi’s forecasting subteam. Hanna does not have professional experience automating epidemiological modeling, but she does have a background in public health, data science, and infectious disease that matches the technical aptitude of most public health professionals who use forecasting packages. Given that, her valuable feedback will highlight the accessibility and accuracy of these disease-forecasting packages, and reveal the hurdles, hidden strengths, and real-world usability features that matter most to public-health practitioners.
+
+Ultimately, we hope that this information will become a meaningful resource for anyone who wants to understand not only how these tools work, but how well they perform in the hands of public health researchers.
+
+## Looking Ahead
+
+The first assessment in our blog series will evaluate our own modeling package, `epipredict`, and associated helper packages.
+
+We will put `epipredict` to the test using real COVID-19 hospitalization data. Through Hanna's perspective as someone who is new to epidemic modeling tools, our readers will see for themselves exactly what it is like to work with our package in real-world conditions, from setup and data formatting to interpreting results. We hope the writeup will also be a useful introduction to Delphi’s tools.
+
+After that, we’ll take a look at the well-known `Prophet` package from Facebook (Meta). `Prophet` has become a go-to tool for time series forecasting across various industries, but we pose the question: how does it hold up when applied to the challenges of infectious disease forecasting?
+
+
+[^1]: [https://www.pnas.org/doi/full/10.1073/pnas.1812594116](https://www.pnas.org/doi/full/10.1073/pnas.1812594116)
+
+[^2]: [https://jogh.org/2025/jogh-15-04114](https://jogh.org/2025/jogh-15-04114)
