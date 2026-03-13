@@ -405,6 +405,7 @@ people:
 - key: hkim
   firstName: Hanna
   lastName: Kim
+  image: nat-defries.jpg
   affiliation: Yale School of Public Health
   team:
   - past
