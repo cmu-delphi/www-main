@@ -10,8 +10,8 @@ related:
 authors:
   - hkim
   - ndefries
-heroImage: blog-lg-epidatr.png
-heroImageThumb: blog-thumb-epidatr.png
+heroImage: blog-lg-epidatr.jpg
+heroImageThumb: blog-thumb-epidatr.jpg
 summary: |
     Compare infectious disease forecasting tools and models, learn why disease forecasting matters, and discover how to choose the right modeling package.
 output:
