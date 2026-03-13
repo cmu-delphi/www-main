@@ -19,7 +19,9 @@ output:
     toc: true
 ---
 
-# Evaluating popular epidemiology modeling packages for accuracy, ease of use, and niche
+<p style="font-size:14pt; font-style:italic">
+    Evaluating popular epidemiology modeling packages for accuracy, ease of use, and niche
+</p>
 
 The need for specialized forecasting in our communities emerged long before the COVID-19 pandemic. Weather forecasting, for example, has been able to accurately capture temperature and meteorological patterns for over 100 years, allowing people to prepare for sometimes extreme and rapidly changing climate conditions. Similarly, disease forecasting can foretell dangerous rises in seasonal illnesses such as influenza, respiratory syncytial virus (RSV), and COVID-19. These critical insights prepare public health officials, the healthcare industry, and decision-makers in all walks of life with timely information.
 
