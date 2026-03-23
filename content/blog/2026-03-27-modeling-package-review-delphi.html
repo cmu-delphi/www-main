@@ -1,0 +1,281 @@
+---
+title: "How do Delphi’s modeling packages stack up?"
+author: Hanna Kim
+date: 2026-03-27
+tags:
+  - modeling
+  - forecasting
+  - tool review
+related:
+authors:
+  - hkim
+  - ndefries
+heroImage: blog-lg-epidatr.jpg
+heroImageThumb: blog-thumb-epidatr.jpg
+summary: |
+    A review of Delphi's `epidatr`, `epiprocess`, and `epipredict` tooling package trio for quickly making predictions.
+    What are the pros and cons?
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#breaking-down-the-tools" id="toc-breaking-down-the-tools">Breaking down the tools</a></li>
+<li><a href="#fetching-data-from-the-epidata-api" id="toc-fetching-data-from-the-epidata-api">Fetching data from the Epidata API</a></li>
+<li><a href="#delphi-tools-make-working-with-data-revisions-easy" id="toc-delphi-tools-make-working-with-data-revisions-easy">Delphi tools make working with data revisions easy</a></li>
+<li><a href="#incorporating-revisions-is-important-because-revisions-can-be-large-or-change-trajectories" id="toc-incorporating-revisions-is-important-because-revisions-can-be-large-or-change-trajectories">Incorporating revisions is important because revisions can be large or change trajectories</a></li>
+<li><a href="#using-epiprocess-to-train-a-model" id="toc-using-epiprocess-to-train-a-model">Using <code>epiprocess</code> to train a model</a></li>
+<li><a href="#issues-during-modeling-were-largely-due-to-behind-the-scenes-processing-and-error-messages-were-opaque" id="toc-issues-during-modeling-were-largely-due-to-behind-the-scenes-processing-and-error-messages-were-opaque">Issues during modeling were largely due to behind-the-scenes processing, and error messages were opaque</a></li>
+<li><a href="#evaluating-predictions-the-importance-of-revision-aware-modeling" id="toc-evaluating-predictions-the-importance-of-revision-aware-modeling">Evaluating predictions: The importance of revision-aware modeling</a></li>
+<li><a href="#overview-and-comparison-to-other-tools" id="toc-overview-and-comparison-to-other-tools">Overview and comparison to other tools</a></li>
+</ul>
+</div>
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Pros</th>
+<th align="center">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Includes quick-start AND custom models</td>
+<td align="center">Flexibility adds complexity</td>
+</tr>
+<tr class="even">
+<td align="center">Learns better models by fitting on many geographic locations at once (geo-pooling)</td>
+<td align="center">Unintuitive to debug</td>
+</tr>
+<tr class="odd">
+<td align="center">Includes utilities for data revision processing</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Supports any time series panel data (Line-level data can be used if aggregated first.)</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Delphi offers a set of R packages for quickly making start-to-finish forecasting pipelines.
+The packages interface seamlessly with each other so that users can fetch and clean data, conduct custom data preprocessing, train a model, and make predictions all in one go.</p>
+<p>These tools are meant for use with <a href="https://en.wikipedia.org/wiki/Panel_data">panel data</a>, where a series of observations is reported over time for the same entity (e.g. a geographical area, or demographic cross-section, or both).
+Our tools are primarily focused on traditional time series models, such as autoregressive (AR) and AR with external predictors (ARX).</p>
+<p>Notably, we provide utilities for handling datasets that have revisions.
+These utilities prevent <a href="https://en.wikipedia.org/wiki/Information_leakage">information leakage</a> when performing arbitrary calculations, including training models.
+<code>epiprocess</code> is the only package we’re aware of that does this natively and automatically.
+Correctly handling data revisions is extremely important for training and accurately measuring performance of new models on historical dates.
+Delphi’s tooling packages were built with this in mind.</p>
+<p>In this post, we will implement a toy prediction model using the packages, evaluating them for ease of use, documentation quality, and prediction accuracy.
+Take a look at the post introducing this series for more background information.</p>
+<div id="breaking-down-the-tools" class="section level2">
+<h2>Breaking down the tools</h2>
+<p>Delphi offers three R packages, <code>epidatr</code>, <code>epiprocess</code>, and <code>epipredict</code>.
+Each covers a different stage of the forecasting process.</p>
+<p><a href="https://cmu-delphi.github.io/epidatr"><code>epidatr</code></a> is responsible for <a href="https://delphi.cmu.edu/blog/2023/09/27/new-package-released-epidatr-an-r-client-for-delphi-epidata-api/">fetching data from the Delphi Epidata API</a>, through which Delphi offers <a href="https://delphi.cmu.edu/epiportal/">a variety of data</a>.
+The API also stores historical versions of the data, as reported on different dates.
+This revision history is particularly useful for assessing the historical accuracy of new forecasting models (“backtesting”).
+We also have a python API client available, <a href="https://cmu-delphi.github.io/epidatpy/"><code>epidatpy</code></a>.</p>
+<p><a href="https://cmu-delphi.github.io/epiprocess"><code>epiprocess</code></a> can clean and transform any <a href="https://en.wikipedia.org/wiki/Panel_data">panel data</a>.
+Functions include simple hands-off plotting, calculating growth rate, outlier detection and removal, fast rolling computations with support for custom calculations, and more.
+Computations automatically handle revisions correctly.</p>
+<p>Finally, <a href="https://cmu-delphi.github.io/epipredict"><code>epipredict</code></a> is responsible for fitting time-series models and producing predictions for panel data.
+We support forecasting and in the near future are aiming to support nowcasting.
+Nowcasting learns patterns in the revision history to estimate not-yet-finalized indicator values.
+The package focuses on quick-build models, but users can also build fully custom models.</p>
+<p>These three packages are meant to work together to fetch and manipulate epidemiological data, and create customizable, interpretable forecasts.</p>
+<p>They are also designed to be easy to use out of the box with data sourced from the Delphi API, which makes the API convenient for quickly trying out Delphi tools.
+However, <em>any</em> panel data that can be read into R can also be used.
+We also provide a convenient function in <code>epiprocess</code> to aggregate line-level data into the correct format.</p>
+<p>We are continuing to develop and streamline these tools for easier quick-start use and more intuitive debugging, and are continuing to add new features.</p>
+<p>Now, on to the testcase.</p>
+</div>
+<div id="fetching-data-from-the-epidata-api" class="section level2">
+<h2>Fetching data from the Epidata API</h2>
+<p>To start, we need test data.
+We used the function <code>epidatr::pub_covidcast()</code> (<a href="https://cmu-delphi.github.io/epidatr/reference/pub_covidcast.html">reference</a>) to fetch <a href="https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/nhsn.html">NHSN hospitalization data</a> from the Delphi Epidata API.</p>
+<pre class="r"><code># Set up all the packages needed
+pak::pkg_install(&quot;cmu-delphi/epiprocess&quot;)
+pak::pkg_install(&quot;cmu-delphi/epipredict&quot;)
+
+library(epiprocess)
+library(epidatr)
+library(epipredict)
+library(data.table)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+# Fetch data from Delphi Epidata API
+nhsn &lt;- pub_covidcast(
+  source = &quot;nhsn&quot;,
+  signals = &quot;confirmed_admissions_covid_ew_prelim&quot;,
+  geo_type = &quot;state&quot;,
+  time_type = &quot;week&quot;,
+  # Request data for all states.
+  geo_values = &quot;*&quot;,
+  time_values = epirange(202001, 202530),
+  # Request a particular set of data issues, not just the most recent version.
+  issues = epirange(202401, 202530)
+)  %&gt;%
+  # Do some reformatting for convenience
+  rename(version = issue, confirmed_covid_adm = value) %&gt;%
+  select(geo_value, time_value, version, confirmed_covid_adm) %&gt;%
+  # Convert to `epi_archive` object
+  as_epi_archive()</code></pre>
+<p>We end the code chunk <a href="https://cmu-delphi.github.io/epiprocess/reference/epi_archive.html">converting</a> our data frame into an <code>epi_archive</code> object, a special <code>epiprocess</code> class meant for storing panel data with version history.
+The conversion process validates the data and removes redundant rows.</p>
+<blockquote>
+<p><em>Note:</em> While the Delphi API can be used anonymously, it comes with limits on query complexity and amount of data fetched.
+We recommend <a href="https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html">using an API key</a> to avoid these restrictions.</p>
+</blockquote>
+</div>
+<div id="delphi-tools-make-working-with-data-revisions-easy" class="section level2">
+<h2>Delphi tools make working with data revisions easy</h2>
+<p>Many epidemiological datasets are subject to <a href="https://web.archive.org/web/20240309131300/https://www.vdh.virginia.gov/coronavirus/2021/09/10/interpreting-epidemiologic-data/">revision</a>, where the value for a given date is modified over time as more information becomes available.</p>
+<p>What sets Delphi apart from competitor forecasting tools is that our packages do all processing while keeping track of those revisions.
+Doing this correctly is difficult, and our tools save users from needing to write their own revision-handling code.</p>
+</div>
+<div id="incorporating-revisions-is-important-because-revisions-can-be-large-or-change-trajectories" class="section level2">
+<h2>Incorporating revisions is important because revisions can be large or change trajectories</h2>
+<p>![A subset of versions from the dataset’s revision history.][images/delphi-review-revisions.jpg]</p>
+<p>The black line represents the <em>final</em> values of adult COVID admissions – what was known in July 2025 – while each solid colored line represents a version of the data <em>as reported on a previous date</em>.
+The corresponding report date is indicated by the dashed vertical of the same color.</p>
+<p>For example, the data available as of June 1 (pink line), only a month earlier, indicated that COVID admissions would continue to increase sharply, while the data reported most recently (black line) indicates that admissions will plateau.
+Extrapolating these two trends lead to two very different predictions of COVID admissions in the following weeks.</p>
+</div>
+<div id="using-epiprocess-to-train-a-model" class="section level2">
+<h2>Using <code>epiprocess</code> to train a model</h2>
+<p>To generate forecasts, we used a simple autoregressive model with quantile regression, which produces a predicted <em>distribution</em> rather than a single point prediction.
+This can be done using the <a href="https://cmu-delphi.github.io/epipredict/reference/arx_forecaster.html"><code>arx_forecaster()</code> function</a>.
+The function is designed to need minimal user input while still generating a reasonable forecast.
+<code>epipredict</code> also supports building fully custom models, but we won’t discuss that in this post.</p>
+<p>We made two versions of the forecasting model to better exhibit the utility of the data revision-handling features.
+The version-faithful model properly considers the data versioning, only using values reported at the time a forecast was or would have been made.
+This is called <a href="https://cmu-delphi.github.io/epipredict/articles/backtesting.html">backtesting</a>.
+The version un-faithful model <em>ignores</em> the different data versions and <em>pretends we knew the finalized version of the data all along</em>, i.e. that the data had no revisions.</p>
+<pre class="r"><code># Because `arx_forecaster` can only fit one forecast horizon (&quot;ahead&quot;) at a time, create helper function to iterate over a list of several forecast horizons.
+forecast_wrapper &lt;- function(
+    epi_data, aheads, outcome, predictors,
+    # An optional transformation (e.g. log) to perform on the input data.
+    process_data = identity) {
+  map(
+    aheads,
+    \(ahead) {
+      arx_forecaster(
+        process_data(epi_data), outcome, predictors,
+        args_list = arx_args_list(
+          # The horizons. Number of days after the forecast date that we want to generate predictions for.
+          ahead = ahead,
+          # Used to derive new predictors by shifting the provided predictors backwards in time.
+          # Here, raw predictors are lagged 0, 1, 2, and 3 weeks.
+          lags = c(0, 7, 14, 21),
+          # Train on the last 16 weeks of data.
+	   n_training = as.difftime(16, units=&#39;weeks&#39;),
+          adjust_latency = &quot;extend_lags&quot;
+        )
+      )$predictions |&gt;
+        # Transform long-format dataframe to wide format with a separate column for each quantile.
+        # This is just for convenience.
+        pivot_quantiles_wider(.pred_distn)
+    }
+  ) |&gt;
+    bind_rows()
+}
+
+
+# Create a version of the data where we pretend that the finalized data was reported immediately and there were no revisions to the data.
+nhsn_faux &lt;- nhsn |&gt;
+  epix_as_of(nhsn$versions_end) |&gt;
+  mutate(version = time_value) |&gt;
+  as_epi_archive()
+
+# We want forecasts for 4 weeks into the future.
+aheads &lt;- c(0, 7, 14, 21, 28)
+
+# Generate forecasts for version faithful and un-faithful archives.
+version_unfaithful &lt;- nhsn_faux |&gt;
+  epix_slide(
+    ~ forecast_wrapper(.x, aheads, &quot;confirmed_covid_adm&quot;, &quot;confirmed_covid_adm&quot;),
+    .before = Inf,
+    .versions = forecast_dates
+  ) |&gt;
+  mutate(version_faithful = &quot;Version un-faithful&quot;)
+
+version_faithful &lt;- nhsn |&gt;
+  epix_slide(
+    ~ forecast_wrapper(.x, aheads, &quot;confirmed_covid_adm&quot;, &quot;confirmed_covid_adm&quot;),
+    .before = Inf,
+    .versions = forecast_dates
+  ) |&gt;
+  mutate(version_faithful = &quot;Version faithful&quot;)
+
+forecasts &lt;-
+  bind_rows(
+    version_unfaithful,
+    version_faithful
+)</code></pre>
+</div>
+<div id="issues-during-modeling-were-largely-due-to-behind-the-scenes-processing-and-error-messages-were-opaque" class="section level2">
+<h2>Issues during modeling were largely due to behind-the-scenes processing, and error messages were opaque</h2>
+<p>We ran into a few errors during model training that we struggled to debug, for example,</p>
+<p>![][images/delphi-review-error.png]</p>
+<p>We encountered this error multiple times, caused by automatic filtering of input data that <code>epipredict</code> performs behind the scenes.
+While the error message does provide <em>some</em> context, it wasn’t enough to quickly identify the underlying causes.</p>
+<p>One instance of the error was because a subset of states stopped reporting COVID admissions, causing an automatically-selected date range to be much shorter than expected and the majority of input data to be dropped.
+Our solution was to remove the states that stopped being reported.</p>
+<p>Another error instance was caused by automatic filtering keeping only those observations (rows) with no missing values in any columns.
+This is generally reasonable to do, except that the filter included unused (non-predictor, non-outcome) columns.
+Our solution in this case was to drop the unused columns before training the model.</p>
+<p>Delphi is continually working to improve messaging and debugging experience in our packages.
+Feel free to reach out with specific issues or questions by email or <a href="https://github.com/cmu-delphi/epipredict/issues">in the project’s GitHub repository</a>.</p>
+</div>
+<div id="evaluating-predictions-the-importance-of-revision-aware-modeling" class="section level2">
+<h2>Evaluating predictions: The importance of revision-aware modeling</h2>
+<blockquote>
+<p><em>Note</em>: This is a toy example.
+Our intent is to show the modeling process rather than an amazing forecast.
+To improve the accuracy of the model during real use, users should consider adjusting parameters, adding exogenous predictors, or doing revision prediction as a first step.</p>
+</blockquote>
+<div id="this-plot-demonstrates-the-outcome-of-our-two-models" class="section level6">
+<h6><em>This plot demonstrates the outcome of our two models:</em></h6>
+<p>![Predicted distributions generated by our model][images/delphi-review-predictions.jpg]</p>
+<p>As before, the black line represents the finalized values of adult COVID admissions, as known in July 2025.
+Each solid colored line represents a version of the data as reported on a past date.
+The report date is indicated by the dashed vertical of the same color.
+Each report date is also used as a forecast date in the backtesting setup.</p>
+<p>Lastly, the shaded fans indicate the actual forecasts made at different times based on the historical values of the same color.
+The central dashed line of each fan is the predicted median, and the shading indicates the 5% to 95% prediction interval.</p>
+<p>While it is difficult to assess model performance without calculating various error metrics, it is clear that there are differences between the version faithful and unfaithful predictions.</p>
+<p>In the plots above, we observe that the version faithful predictions made in early April (blue) start at a value of 425, while the version unfaithful predictions start around 600.
+This is because the data was adjusted upwards as it was finalized.</p>
+<p>Additionally, the models can generate different trajectories, as in the February forecasts (yellow-green).
+While the version faithful shows a moderate drop, the version unfaithful remains relatively flat.</p>
+<p>We can see that the version-unfaithful forecast performs better here – the predicted median is closer to the finalized data and the finalized data is entirely contained within the 5%-95% quantile fan.</p>
+<p>However, this level of performance is misleading – <em>it is impossible to achieve in real predictions.</em> Remember, the version-unfaithful model is trained on <em>finalized data that is not actually available for real prediction tasks</em>.
+This is why pseudoprospective forecasting that correctly handles data revisions is so important.
+Without it, we have no idea of the <em>true</em> performance of our models.</p>
+</div>
+</div>
+<div id="overview-and-comparison-to-other-tools" class="section level2">
+<h2>Overview and comparison to other tools</h2>
+<p>All in all, Delphi packages provide both straightforward quick-start models and a fully customizable modeling framework (not discussed here).
+The quick-start models are suitable for most users and will give reasonable predictions with minimal modification.</p>
+<p>Users only need to set a small number of parameters when using the quick-start models.
+These include the horizon (how far in the future to generate predictions for), and which outcome, predictors, and lags to use.
+Although this can be simple, expect to spend some time experimenting.</p>
+<p><code>epipredict</code> can fit a single model across many geographic locations (geopooling) or fit a different model to each location.
+Other packages, like Prophet, do not always have built-in functionality to deal with multiple geographic locations, which means that the user may need to implement custom handling to make geopooled models.</p>
+<p>Unlike any other data-handling and modeling tools we’re aware of, Delphi’s packages provide utilities and support for correctly handling data with revisions.
+Users can also use these tools with any panel data.</p>
+<p>Because some processing is done automatically and obfuscated from the user, the debugging process can be confusing and time-consuming, especially for those without prior statistical or coding experience in R.
+Compared to the error messages we see in Facebook’s Prophet package, these are less interpretable.</p>
+<p>Next, we’ll be taking a deeper look at Facebook’s Prophet package – the pros, cons, and direct comparisons to <code>epipredict</code>!</p>
+</div>

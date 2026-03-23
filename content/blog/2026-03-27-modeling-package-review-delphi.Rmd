@@ -30,8 +30,7 @@ output:
 Delphi offers a set of R packages for quickly making start-to-finish forecasting pipelines.
 The packages interface seamlessly with each other so that users can fetch and clean data, conduct custom data preprocessing, train a model, and make predictions all in one go.
 
-These tools are meant for use with [panel data](https://en.wikipedia.org/wiki/Panel_data), where a series of observations is reported over time for the same entity (e.g.
-a geographical area, or demographic cross-section, or both).
+These tools are meant for use with [panel data](https://en.wikipedia.org/wiki/Panel_data), where a series of observations is reported over time for the same entity (e.g. a geographical area, or demographic cross-section, or both).
 Our tools are primarily focused on traditional time series models, such as autoregressive (AR) and AR with external predictors (ARX).
 
 Notably, we provide utilities for handling datasets that have revisions.
@@ -48,16 +47,16 @@ Take a look at the post introducing this series for more background information.
 Delphi offers three R packages, `epidatr`, `epiprocess`, and `epipredict`.
 Each covers a different stage of the forecasting process.
 
-`epidatr` ([documentation](https://cmu-delphi.github.io/epidatr)) is responsible for [fetching data from the Delphi Epidata API](https://delphi.cmu.edu/blog/2023/09/27/new-package-released-epidatr-an-r-client-for-delphi-epidata-api/), through which Delphi offers [a variety of data](https://delphi.cmu.edu/epiportal/).
+[`epidatr`](https://cmu-delphi.github.io/epidatr) is responsible for [fetching data from the Delphi Epidata API](https://delphi.cmu.edu/blog/2023/09/27/new-package-released-epidatr-an-r-client-for-delphi-epidata-api/), through which Delphi offers [a variety of data](https://delphi.cmu.edu/epiportal/).
 The API also stores historical versions of the data, as reported on different dates.
 This revision history is particularly useful for assessing the historical accuracy of new forecasting models (“backtesting”).
-We also have a python API client available, `epidatpy` ([documentation](https://cmu-delphi.github.io/epidatpy/)).
+We also have a python API client available, [`epidatpy`](https://cmu-delphi.github.io/epidatpy/).
 
-`epiprocess` ([documentation](https://cmu-delphi.github.io/epiprocess)) can clean and transform any [panel data](https://en.wikipedia.org/wiki/Panel_data).
+[`epiprocess`](https://cmu-delphi.github.io/epiprocess) can clean and transform any [panel data](https://en.wikipedia.org/wiki/Panel_data).
 Functions include simple hands-off plotting, calculating growth rate, outlier detection and removal, fast rolling computations with support for custom calculations, and more.
 Computations automatically handle revisions correctly.
 
-Finally, `epipredict` ([documentation](https://cmu-delphi.github.io/epipredict)) is responsible for fitting time-series models and producing predictions for panel data.
+Finally, [`epipredict`](https://cmu-delphi.github.io/epipredict) is responsible for fitting time-series models and producing predictions for panel data.
 We support forecasting and in the near future are aiming to support nowcasting.
 Nowcasting learns patterns in the revision history to estimate not-yet-finalized indicator values.
 The package focuses on quick-build models, but users can also build fully custom models.
@@ -77,9 +76,8 @@ Now, on to the testcase.
 To start, we need test data.
 We used the function `epidatr::pub_covidcast()` ([reference](https://cmu-delphi.github.io/epidatr/reference/pub_covidcast.html)) to fetch [NHSN hospitalization data](https://cmu-delphi.github.io/delphi-epidata/api/covidcast-signals/nhsn.html) from the Delphi Epidata API.
 
-```{r run=FALSE}
+```{r eval=FALSE}
 # Set up all the packages needed
-
 pak::pkg_install("cmu-delphi/epiprocess")
 pak::pkg_install("cmu-delphi/epipredict")
 
@@ -92,7 +90,6 @@ library(tidyr)
 library(ggplot2)
 
 # Fetch data from Delphi Epidata API
-
 nhsn <- pub_covidcast(
   source = "nhsn",
   signals = "confirmed_admissions_covid_ew_prelim",
@@ -114,7 +111,8 @@ nhsn <- pub_covidcast(
 We end the code chunk [converting](https://cmu-delphi.github.io/epiprocess/reference/epi_archive.html) our data frame into an `epi_archive` object, a special `epiprocess` class meant for storing panel data with version history.
 The conversion process validates the data and removes redundant rows.
 
-*Note:* While the Delphi API can be used anonymously, it comes with limits on query complexity and amount of data fetched. We recommend [using an API key](https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html) to avoid these restrictions.
+> *Note:* While the Delphi API can be used anonymously, it comes with limits on query complexity and amount of data fetched.
+> We recommend [using an API key](https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html) to avoid these restrictions.
 
 ## Delphi tools make working with data revisions easy
 
@@ -125,9 +123,7 @@ Doing this correctly is difficult, and our tools save users from needing to writ
 
 ## Incorporating revisions is important because revisions can be large or change trajectories
 
-```{r fig.cap="A subset of versions from the dataset's revision history.", fig.align = "center"}
-![][images/delphi-review-revisions.jpg]
-```
+![A subset of versions from the dataset's revision history.][images/delphi-review-revisions.jpg]
 
 The black line represents the *final* values of adult COVID admissions – what was known in July 2025 – while each solid colored line represents a version of the data *as reported on a previous date*.
 The corresponding report date is indicated by the dashed vertical of the same color.
@@ -138,22 +134,20 @@ Extrapolating these two trends lead to two very different predictions of COVID a
 ## Using `epiprocess` to train a model
 
 To generate forecasts, we used a simple autoregressive model with quantile regression, which produces a predicted *distribution* rather than a single point prediction.
-This can be done using the `arx_forecaster()` function ([documentation page](https://cmu-delphi.github.io/epipredict/reference/arx_forecaster.html)).
+This can be done using the [`arx_forecaster()` function](https://cmu-delphi.github.io/epipredict/reference/arx_forecaster.html).
 The function is designed to need minimal user input while still generating a reasonable forecast.
 `epipredict` also supports building fully custom models, but we won’t discuss that in this post.
 
 We made two versions of the forecasting model to better exhibit the utility of the data revision-handling features.
 The version-faithful model properly considers the data versioning, only using values reported at the time a forecast was or would have been made.
 This is called [backtesting](https://cmu-delphi.github.io/epipredict/articles/backtesting.html).
-The version un-faithful model *ignores* the different data versions and *pretends we knew the finalized version of the data all along*, i.e.
-that the data had no revisions.
+The version un-faithful model *ignores* the different data versions and *pretends we knew the finalized version of the data all along*, i.e. that the data had no revisions.
 
-```{r run=FALSE}
+```{r eval=FALSE}
 # Because `arx_forecaster` can only fit one forecast horizon ("ahead") at a time, create helper function to iterate over a list of several forecast horizons.
 forecast_wrapper <- function(
     epi_data, aheads, outcome, predictors,
-    # An optional transformation (e.g.
-    log) to perform on the input data.
+    # An optional transformation (e.g. log) to perform on the input data.
     process_data = identity) {
   map(
     aheads,
@@ -161,19 +155,18 @@ forecast_wrapper <- function(
       arx_forecaster(
         process_data(epi_data), outcome, predictors,
         args_list = arx_args_list(
-   # The horizons.
-   Number of days after the forecast date that we want to generate predictions for.
+          # The horizons. Number of days after the forecast date that we want to generate predictions for.
           ahead = ahead,
-   # Used to derive new predictors by shifting the provided predictors backwards in time.
-	   # Here, raw predictors are lagged 0, 1, 2, and 3 weeks.
+          # Used to derive new predictors by shifting the provided predictors backwards in time.
+          # Here, raw predictors are lagged 0, 1, 2, and 3 weeks.
           lags = c(0, 7, 14, 21),
           # Train on the last 16 weeks of data.
 	   n_training = as.difftime(16, units='weeks'),
           adjust_latency = "extend_lags"
         )
       )$predictions |>
- 	 # Transform long-format dataframe to wide format with a separate column for each quantile.
-   This is just for convenience.
+        # Transform long-format dataframe to wide format with a separate column for each quantile.
+        # This is just for convenience.
         pivot_quantiles_wider(.pred_distn)
     }
   ) |>
@@ -218,9 +211,7 @@ forecasts <-
 
 We ran into a few errors during model training that we struggled to debug, for example,
 
-```{r fig.cap="", fig.align = "center"}
 ![][images/delphi-review-error.png]
-```
 
 We encountered this error multiple times, caused by automatic filtering of input data that `epipredict` performs behind the scenes.
 While the error message does provide *some* context, it wasn’t enough to quickly identify the underlying causes.
@@ -237,13 +228,13 @@ Feel free to reach out with specific issues or questions by email or [in the pro
 
 ## Evaluating predictions: The importance of revision-aware modeling
 
-> *Note*: This is a toy example. Our intent is to show the modeling process rather than an amazing forecast. To improve the accuracy of the model during real use, users should consider adjusting parameters, adding exogenous predictors, or doing revision prediction as a first step.
+> *Note*: This is a toy example.
+> Our intent is to show the modeling process rather than an amazing forecast.
+> To improve the accuracy of the model during real use, users should consider adjusting parameters, adding exogenous predictors, or doing revision prediction as a first step.
 
 ###### *This plot demonstrates the outcome of our two models:*
 
-```{r fig.cap="Predicted distributions generated by our model", fig.align = "center"}
-![][images/delphi-review-predictions.jpg]
-```
+![Predicted distributions generated by our model][images/delphi-review-predictions.jpg]
 
 As before, the black line represents the finalized values of adult COVID admissions, as known in July 2025.
 Each solid colored line represents a version of the data as reported on a past date.
