@@ -294,9 +294,10 @@ people:
   image: george-haff-photo.jpg
   affiliation: CMU/CSD
   team:
-  - core
+  - past
   - blog
-  description: specializes in Delphi's database and API, and is a Software Engineer in the Machine Learning Department at CMU.
+  description: specialized in Delphi's database and API as a Senior Software Engineer in the Machine Learning Department at CMU.
+  note: Core member, June 2020-April 2026
 - firstName: Robin
   lastName: Han
   image: robin-han-500x500-min.jpg
