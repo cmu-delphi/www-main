@@ -1,6 +1,18 @@
 ---
 title: Research
 papers:
+  - title: "Real-time forecasting of data revisions in epidemic surveillance streams"
+    image: georb.jpb
+    authors: Tang J, Rumack A, Wilder B
+    link: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1013709
+    year: 2025
+    journal: PLOS Computational Biology
+  - title: "Federated epidemic surveillance"
+    image: fedepisurv.jpb
+    authors: Lyu R, Rosenfeld R, Wilder B
+    link: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012907
+    year: 2025
+    journal: PLOS Computational Biology
   - title: "Challenges in Estimating Time-Varying Epidemic Severity Rates from Aggregate Data"
     image: challenges-in-estimating-thumb.jpg
     authors: Goldwasser, Hu, Bilinski, McDonald, Tibshirani
