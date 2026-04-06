@@ -102,7 +102,7 @@ people:
   image: seline-carter.jpg
   affiliation: CMU/Stat
   team:
-  - past  
+  - past
 - key: ccheng
   firstName: Cheng
   lastName: Cheng
@@ -124,13 +124,13 @@ people:
   affiliation: Johns Hopkins/Biostat
   team:
   - past
-  note: Core member, October 2020-August 2021 
+  note: Core member, October 2020-August 2021
 - firstName: Aditya
   lastName: Chindhade
   image: aditya-chindhade.jpg
   affiliation: CMU/Tepper
   team:
-  - past 
+  - past
   note: Contributor, March-May 2022
 - firstName: Eu Jing
   lastName: Chua
@@ -155,7 +155,8 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
-- firstName: Nat
+- key: ndefries
+  firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
   affiliation: CMU/MLD
@@ -166,7 +167,7 @@ people:
   image: margaret-ellingwood.jpg
   affiliation: CMU/Stat
   team:
-  - past  
+  - past
 - firstName: Natalie
   lastName: F.
   image: natalie-gos.jpg
@@ -370,7 +371,7 @@ people:
   affiliation: Seoul National University
   team:
   - past
-  note: Contributor, 2020  
+  note: Contributor, 2020
 - key: ajoshi
   firstName: Ananya
   lastName: Joshi
@@ -402,6 +403,14 @@ people:
   external: true
   team:
   - blog
+- key: hkim
+  firstName: Hanna
+  lastName: Kim
+  image: nat-defries.jpg
+  affiliation: Yale School of Public Health
+  team:
+  - past
+  note: Intern, Summer 2025
 - firstName: Jimi
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
@@ -429,7 +438,7 @@ people:
   affiliation: CMU/CSD
   description: was a contributor to the Delphi group from June-December 2021 and September 2022-May 2023
   team:
-  - past  
+  - past
   note: Contributor, June-December 2021, September 2022-May 2023
 - firstName: Daniel
   lastName: LaLiberte
@@ -512,7 +521,7 @@ people:
   image: maggie-liu.jpg
   affiliation: University of British Columbia
   team:
-  - past  
+  - past
   note: Contributor, April-December 2022
 - firstName: Michael
   lastName: Xieyang
@@ -577,7 +586,7 @@ people:
   image: daniel-mcdonald-photo.jpeg
   affiliation: University of British Columbia
   team:
-  
+
   - leadership
   leaderOrder: 4
   note: Co-Principal Investigator
@@ -806,7 +815,7 @@ people:
   affiliation: UC Davis
   note: Core member, April 2020-November 2020
   team:
-  - past 
+  - past
 - firstName: Dmitry
   lastName: Shemetov
   image: dmitry-shemetov-500x500-min.jpg
@@ -862,7 +871,7 @@ people:
   affiliation: Santa Clara University
   team:
   - past
-  note: Intern, Summer 2020  
+  note: Intern, Summer 2020
 - firstName: Kean Ming
   lastName: Tan
   image: kean-ming-tan.jpg
@@ -928,7 +937,7 @@ people:
   image: will-townes.jpg
   affiliation: CMU/Stat
   team:
-  
+
   - highlight
   - leadership
   leaderOrder: 5
@@ -1016,7 +1025,7 @@ people:
   description: is a statistical developer on the Delphi team.
   team:
   - core
-  - blog  
+  - blog
 - key: jweiss
   firstName: Jeremy Chen
   lastName: Weiss
@@ -1040,7 +1049,7 @@ people:
   image: chris-wiggins.jpg
   affiliation: Columbia University
   team:
-  - advisors  
+  - advisors
 - firstName: Kristin
   lastName: Williams
   image: kristin-williams-500x500-min.jpg
@@ -1065,7 +1074,7 @@ people:
   firstName: Nicholas
   lastName: Reich
   link: https://reichlab.io/people
-  description: is a Principal Investigator of a CDC Center of Excellence for Influenza Forecasting and founder of the COVID-19 Forecast Hub, and a Professor in Biostatistics and Epidemiology at UMass. 
+  description: is a Principal Investigator of a CDC Center of Excellence for Influenza Forecasting and founder of the COVID-19 Forecast Hub, and a Professor in Biostatistics and Epidemiology at UMass.
   external: true
   team:
   - blog
@@ -1073,7 +1082,7 @@ people:
   firstName: Evan
   lastName: Ray
   link: https://reichlab.io/people
-  description: is a Principal Investigator of a CDC Center of Excellence for Influenza Forecasting and founder of the COVID-19 Forecast Hub, and a Research Faculty in Biostatistics and Epidemiology at UMass. 
+  description: is a Principal Investigator of a CDC Center of Excellence for Influenza Forecasting and founder of the COVID-19 Forecast Hub, and a Research Faculty in Biostatistics and Epidemiology at UMass.
   external: true
   team:
   - blog
@@ -1088,7 +1097,7 @@ people:
   image: bryan-wilder.jpg
   affiliation: CMU/MLD
   team:
-  
+
   - highlight
   - leadership
   leaderOrder: 6
@@ -1129,7 +1138,7 @@ people:
   image: tianyue-zhou.jpg
   affiliation: UC Berkeley/Biostat
   team:
-  - past  
+  - past
 others: |
  MLD administrator Alison Chiocchi; CMU’s wonderful Communications, IT, Legal, OSP, and IRB teams, including Scott Ambrose, Amber Becker, Stacey Becker, Amanda Berneburg, Susan Brunner, Steve Chabassol, Cindy Chepanoske, Ethan Connor, Amy Coutu, John Dermott, Ed Garbade, Greg Gillotti, Akshaya Gupta, Scott Haas, Ryan Jackson, Rasha Kolia, Chris Kornell, Jason Maderer, Dave McMurtrie, Craig Miron, Roman Mitz, Matt Nagel, Allie Oswell, John Porco, Mark Power, Laura Raderman, Teri Reiche, Bob Rittiger, Edem Setodji, Jennifer Smith, Steve Snodgrass, Julia Sobol Dzurino, Byron Spice, Dom Travisano, Alex Visbisky, and Walter Wong; and the entire CMU senior leadership team.
 
