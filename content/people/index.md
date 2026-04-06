@@ -210,6 +210,14 @@ people:
   team:
   - past
   note: Contributor, July-September 2020
+- key: efranke
+  firstName: Erin
+  lastName: Franke
+  image: erin-franke-500x500-min.jpg
+  link: https://www.cmu.edu/dietrich/statistics-datascience/people/phd/erin-franke.html
+  affiliation: CMU/Stat
+  team:
+  - core
 - firstName: Grace
   lastName: G.
   image: grace-gos.jpg
@@ -286,9 +294,10 @@ people:
   image: george-haff-photo.jpg
   affiliation: CMU/CSD
   team:
-  - core
+  - past
   - blog
-  description: specializes in Delphi's database and API, and is a Software Engineer in the Machine Learning Department at CMU.
+  description: specialized in Delphi's database and API as a Senior Software Engineer in the Machine Learning Department at CMU.
+  note: Core member, June 2020-April 2026
 - firstName: Robin
   lastName: Han
   image: robin-han-500x500-min.jpg
@@ -296,6 +305,14 @@ people:
   team:
   - past
   note: Intern, Summer 2020
+- key: ozh
+  firstName: Oliver
+  lastName: Hannaoui
+  image: oliver-hannaoui-500x500-min.jpg
+  link: https://www.cmu.edu/dietrich/statistics-datascience/people/phd/oliver-hannaoui.html
+  affiliation: CMU/Stat
+  team:
+  - core
 - firstName: Kate
   lastName: Harwood
   image: kate-harwood_head-shot.jpg
