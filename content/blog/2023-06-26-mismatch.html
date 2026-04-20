@@ -1,0 +1,170 @@
+---
+title: "Mismatch between ArchiveDiffer cache and covidcast API data"
+author: Minh Le
+date: 2023-06-26
+tags:
+  - epidata
+authors:
+  - minh
+heroImage: ensemble-hero.jpg
+heroImageThumb: ensemble-thumb.jpg
+summary: | 
+  Recently, the Delphi team discovered some items in USAFacts where the ArchiveDiffer cache (which determines which rows of each day's output actually get added to the database) has lost sync with the API.
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#mismatch-between-archivediffer-cache-and-covidcast-api-data" id="toc-mismatch-between-archivediffer-cache-and-covidcast-api-data">Mismatch between ArchiveDiffer cache and covidcast API data</a>
+<ul>
+<li><a href="#the-problem" id="toc-the-problem">The Problem</a></li>
+<li><a href="#the-widget" id="toc-the-widget">The Widget</a></li>
+<li><a href="#the-result" id="toc-the-result">The Result</a></li>
+<li><a href="#widget-limitations" id="toc-widget-limitations">Widget Limitations</a></li>
+<li><a href="#next-steps" id="toc-next-steps">Next steps</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="mismatch-between-archivediffer-cache-and-covidcast-api-data" class="section level1">
+<h1>Mismatch between ArchiveDiffer cache and covidcast API data</h1>
+<div id="the-problem" class="section level2">
+<h2>The Problem</h2>
+<p>Per Katie’s <a href="https://github.com/cmu-delphi/covidcast-indicators/issues/1697">issue description</a>:</p>
+<blockquote>
+<p>We found some items in USAFacts where the ArchiveDiffer cache (which determines which rows of each day’s output actually get added to the database) has lost sync with the API. This is a problem for at least three reasons:</p>
+<ul>
+<li><p>The data in the API is wrong</p></li>
+<li><p>The publish mechanism assumes agreement with the API. No agreement means we might publish rows that shouldn’t be published, or not-publish rows that should be published.</p></li>
+<li><p>Possibly indicates the publish mechanism has a bug (what caused us to lose sync?)</p></li>
+</ul>
+<p>If we had a widget that exhaustively compared what was in the API with the ArchiveDiffer cache, we could identify and address mismatches.</p>
+</blockquote>
+</div>
+<div id="the-widget" class="section level2">
+<h2>The Widget</h2>
+<p>The widget works as following:</p>
+<ul>
+<li><p>Pull each .csv file from ArchiveDiffer cache currently stored in an AWS S3 bucket.</p></li>
+<li><p>Construct the parameters for an API call based on the labels of our .csv on ArchiveDiffer.</p></li>
+<li><p>Compare the data pulled from ArchiveDiffer with data from our API.</p></li>
+</ul>
+<p>The widget eventually outputs a csv file. Each row describes in detail the comparison between data in each file on ArchiveDiffer and data returned from our API given the same params. This comparison includes whether there is a difference between data from the two sources, and if there is, how many rows are impacted.</p>
+<p>Additionally, the widget will identify if a whole file from ArchiveDiffer is missing. This happens when the API does not return any data given matching params from an ArchiveDiffer csv file.</p>
+</div>
+<div id="the-result" class="section level2">
+<h2>The Result</h2>
+<p>There exists significant mismatches between data obtained from the ArchiveDiffer cache and covidcast API.</p>
+<table>
+<colgroup>
+<col width="44%" />
+<col width="20%" />
+<col width="20%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Sources</th>
+<th align="center">Number of files with row mismatches</th>
+<th align="center">Number of files in ArchiveDiffer</th>
+<th align="center">(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">jhu-csse</td>
+<td align="center">17165</td>
+<td align="center">92608</td>
+<td align="center">18.535116</td>
+</tr>
+<tr class="even">
+<td align="left">chng</td>
+<td align="center">15725</td>
+<td align="center">39961</td>
+<td align="center">39.350867</td>
+</tr>
+<tr class="odd">
+<td align="left">usa-facts</td>
+<td align="center">9413</td>
+<td align="center">90392</td>
+<td align="center">10.413532</td>
+</tr>
+<tr class="even">
+<td align="left">quidel</td>
+<td align="center">6055</td>
+<td align="center">89982</td>
+<td align="center">6.729124</td>
+</tr>
+<tr class="odd">
+<td align="left">dsew-cpr</td>
+<td align="center">2692</td>
+<td align="center">15652</td>
+<td align="center">17.199080</td>
+</tr>
+<tr class="even">
+<td align="left">hhs</td>
+<td align="center">1506</td>
+<td align="center">44748</td>
+<td align="center">3.365514</td>
+</tr>
+<tr class="odd">
+<td align="left">indicator-combination</td>
+<td align="center">288</td>
+<td align="center">288</td>
+<td align="center">100.000000</td>
+</tr>
+<tr class="even">
+<td align="left">covid-act-now</td>
+<td align="center">280</td>
+<td align="center">7704</td>
+<td align="center">3.634476</td>
+</tr>
+</tbody>
+</table>
+<p>From this table, we see that source JHU has the highest number of of files with some row mismatches, closely followed by Change Healthcare. However, since JHU has a much bigger number of files on ArchiveDiffer in total, Change data from the API is actually the more inaccurate source by comparison (39% files have mismatches). The most inaccurate source when comparing API data to ArchiveDiffer data is indicator-combination. All indicator-combination data files on ArchiveDiffer currently have one or more rows different from the data returned from covidcast API.</p>
+<p>Full-file mismatch happens when the API returns no row at all when looking for data from a file on ArchiveDiffer. Fortunately, USAFacts is the only source with significant number of files where the full file is missing.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Sources</th>
+<th align="center">Number of full data missing from API</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">usa-facts</td>
+<td align="center">340</td>
+</tr>
+<tr class="even">
+<td align="left">hhs</td>
+<td align="center">6</td>
+</tr>
+<tr class="odd">
+<td align="left">jhu-csse</td>
+<td align="center">5</td>
+</tr>
+<tr class="even">
+<td align="left">dsew-cpr</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="left">chng</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+<p>Analysis by date shows that time in mismatched files are pretty evenly distributed. Overall, there is no particular period of time with less/more mismatch than others.</p>
+<p><img src="/blog/2023-06-26-mismatch/plot.png" title="Number of files on ArchiveDiffer with mismatch rows" /></p>
+</div>
+<div id="widget-limitations" class="section level2">
+<h2>Widget Limitations</h2>
+<p>This widget cannot tell if a mismatched row exists in S3 but not API or vice versa. It can only show the number of rows that should exists in both storage places but in reality, only exists in one of them.</p>
+</div>
+<div id="next-steps" class="section level2">
+<h2>Next steps</h2>
+<p>Assuming that the ArchiveDiffer is always correct in comparison to the API content, we should start patching data in the API from the least accurate indicators, indicator-combination and chng.</p>
+</div>
+</div>
