@@ -1,6 +1,6 @@
 {
   "name": "www-main",
-  "version": "3.3.15",
+  "version": "3.3.16",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
@@ -9,7 +9,7 @@
     "uikit": "^3.21.13",
     "www-covidcast": "https://github.com/cmu-delphi/www-covidcast/releases/download/v3.2.14/www-covidcast-3.2.14.tgz",
     "www-covidcast-classic": "https://github.com/cmu-delphi/www-covidcast-classic/releases/download/v2.6.7/www-covidcast-classic-2.6.7.tgz",
-    "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.1.12/www-epivis-2.1.12.tgz"
+    "www-epivis": "https://github.com/cmu-delphi/www-epivis/releases/download/v2.1.13/www-epivis-2.1.13.tgz"
   },
   "devDependencies": {
     "hugo-bin": "^0.142.0",
