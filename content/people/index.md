@@ -364,6 +364,15 @@ people:
   - highlight
   leaderOrder: 1
   note: Executive Director
+- firstName: Adam
+  lastName: Johns
+  image: adam-johns.jpg
+  affiliation: CMU/MLD
+  team:
+  - leadership
+  - highlight
+  leaderOrder: 3
+  note: Engineering Manager
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
