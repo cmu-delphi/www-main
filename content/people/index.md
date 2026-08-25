@@ -411,18 +411,18 @@ people:
   team:
   - blog
 - key: ekim
-- firstName: Hanna
-  lastName: Kim
-  image: hanna-kim.jpg
-  affiliation: Yale University
-  team:
-  - core
   firstName: Esther
   lastName: Kim
   description: is a Research Scientist on the Demography and Survey Science team at Facebook.
   external: true
   team:
   - blog
+- firstName: Hanna
+  lastName: Kim
+  image: hanna-kim.jpg
+  affiliation: Yale University
+  team:
+  - core
 - firstName: Jimi
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
