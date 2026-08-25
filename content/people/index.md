@@ -856,7 +856,7 @@ people:
   - core
 - firstName: Anshika
   lastName: Shukla
-  image: anshika-shukla-photo-profile.jpg
+  image: anshika-shukla.jpg
   affiliation: CMU/Heinz College
   team:
   - past
