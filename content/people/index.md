@@ -411,6 +411,12 @@ people:
   team:
   - blog
 - key: ekim
+- firstName: Hanna
+  lastName: Kim
+  image: hanna-kim.jpg
+  affiliation: Yale University
+  team:
+  - core
   firstName: Esther
   lastName: Kim
   description: is a Research Scientist on the Demography and Survey Science team at Facebook.
@@ -472,7 +478,7 @@ people:
   image: minh-le.jpg
   affiliation: CMU/MLD
   team:
-  - past
+  - core
 - firstName: Jenny
   lastName: Lee
   image: jenny-yeon-jin-lee-500x500-min.jpg
@@ -522,6 +528,12 @@ people:
   - past
   - blog
   note: Core member, April 2020-January 2021
+- firstName: Jiaping (Olivia)
+  lastName: Liu
+  image: jiaping-olivia-liu.jpg
+  affiliation: University of British Columbia
+  team:
+  - core
 - firstName: Maggie
   lastName: Liu
   image: maggie-liu.jpg
@@ -570,6 +582,12 @@ people:
   team:
   - past
   note: Core member, March-May 2020
+- firstName: Javier 
+  lastName: Martinez-Rodriguez
+  image: javier-martinez-rodriguez.jpg
+  affiliation: University of British Columbia
+  team:
+  - core
 - firstName: Ken
   lastName: Mawer
   image: ken-mawer.jpg
@@ -836,6 +854,13 @@ people:
   affiliation: UC Berkeley/Biostat
   team:
   - core
+- firstName: Anshika
+  lastName: Shukla
+  image: anshika-shukla-photo-profile.jpg
+  affiliation: CMU/Heinz College
+  team:
+  - past
+  note: Core member, May 2025-May 2026
 - firstName: Noah
   lastName: Simon
   image: noah-simon-500x500-min.jpg
