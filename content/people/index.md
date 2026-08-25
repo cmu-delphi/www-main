@@ -239,6 +239,12 @@ people:
   external: true
   team:
   - blog
+- firstName: Julie (Jules)
+  lastName: Gilbert
+  image: jules-gilbert.jpg
+  affiliation: University of Michigan
+  team: 
+  - core
 - firstName: Nolan
   lastName: Gormley
   image: nolan-gormley.jpg
