@@ -232,6 +232,12 @@ people:
   description: is a masters student in the Machine Learning Department.
   team:
   - past
+- firstName: Julie (Jules)
+  lastName: Gilbert
+  image: jules-gilbert.jpg
+  affiliation: University of Michigan
+  team:
+  - core
 - key: agarcia
   firstName: Andy
   lastName: Garcia
