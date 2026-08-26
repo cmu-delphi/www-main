@@ -577,6 +577,12 @@ people:
   affiliation: CMU/CompBio
   team:
   - core
+- firstName: Terry
+  lastName: Ma
+  image: terry-ma.jpg
+  affiliation: CMU/CompBio
+  team:
+  - core
 - firstName: Lester
   lastName: Mackey
   image: lester-mackey-500x500-min.jpg
