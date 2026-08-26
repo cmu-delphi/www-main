@@ -183,7 +183,7 @@ people:
 - firstName: Michael
   lastName: Finke
   image: michael-fink.jpg
-  affiliation: "M*Modal"
+  affiliation: Jacobian
   team:
   - advisors
 - key: fischhoff
@@ -232,6 +232,12 @@ people:
   description: is a masters student in the Machine Learning Department.
   team:
   - past
+- firstName: Julie (Jules)
+  lastName: Gilbert
+  image: jules-gilbert.jpg
+  affiliation: University of Michigan
+  team:
+  - core
 - key: agarcia
   firstName: Andy
   lastName: Garcia
@@ -288,7 +294,8 @@ people:
   image: jeremy-goldwasser.jpg
   affiliation: UC Berkeley/Stat
   team:
-  - core
+  - past
+  note: Core member, April 2022-April 2026
 - firstName: George
   lastName: Haff
   image: george-haff-photo.jpg
@@ -364,6 +371,15 @@ people:
   - highlight
   leaderOrder: 1
   note: Executive Director
+- firstName: Adam
+  lastName: Johns
+  image: adam-johns.jpg
+  affiliation: CMU/MLD
+  team:
+  - leadership
+  - highlight
+  leaderOrder: 3
+  note: Engineering Manager
 - firstName: Jaemin
   lastName: Jo
   image: jaemin-jo-500x500-min.jpg
@@ -376,7 +392,7 @@ people:
   lastName: Joshi
   image: ananya-joshi-500x500-min.jpg
   affiliation: CMU/CSD
-  link: https://csd.cmu.edu/people/graduate-student/ananya-joshi
+  link: https://www.linkedin.com/in/ananyaajoshi
   description: is a Ph.D. student in the Computer Science Department and is a member of Delphi supported by the NSF GRFP.
   team:
   - past
@@ -402,6 +418,12 @@ people:
   external: true
   team:
   - blog
+- firstName: Hanna
+  lastName: Kim
+  image: hanna-kim.jpg
+  affiliation: Yale University
+  team:
+  - core
 - firstName: Jimi
   lastName: Kim
   image: jimi-kim-500x500-min.jpg
@@ -457,7 +479,7 @@ people:
   image: minh-le.jpg
   affiliation: CMU/MLD
   team:
-  - past
+  - core
 - firstName: Jenny
   lastName: Lee
   image: jenny-yeon-jin-lee-500x500-min.jpg
@@ -499,7 +521,7 @@ people:
 - key: zlipton
   firstName: Zack Chase
   lastName: Lipton
-  link: https://acmilab.org
+  link: https://www.linkedin.com/in/zacharylipton
   image: zachary-lipton-500x500-min.jpg
   affiliation: CMU/MLD
   description: is an Assistant Professor of Operations Research and Machine Learning at CMU and is a member of Delphi.
@@ -507,6 +529,12 @@ people:
   - past
   - blog
   note: Core member, April 2020-January 2021
+- firstName: Jiaping (Olivia)
+  lastName: Liu
+  image: jiaping-olivia-liu.jpg
+  affiliation: University of British Columbia
+  team:
+  - core
 - firstName: Maggie
   lastName: Liu
   image: maggie-liu.jpg
@@ -527,7 +555,8 @@ people:
   image: rachel-lobay.jpg
   affiliation: University of British Columbia
   team:
-  - core
+  - past
+  note: Core member, May 2022-August 2026
 - firstName: Natalia
   lastName: Lombardi de&nbsp;Oliveira
   image: natalia-lombardi-de-oliveira-500x500-min.jpg
@@ -601,6 +630,12 @@ people:
   team:
   - core
   - highlight
+- firstName: Javier 
+  lastName: Martinez-Rodriguez
+  image: javier-martinez-rodriguez.jpg
+  affiliation: University of British Columbia
+  team:
+  - core
 - firstName: Duane
   lastName: Mengo
   image: duane-mengo.jpg
@@ -821,6 +856,13 @@ people:
   affiliation: UC Berkeley/Biostat
   team:
   - core
+- firstName: Anshika
+  lastName: Shukla
+  image: anshika-shukla.jpg
+  affiliation: CMU/Heinz College
+  team:
+  - past
+  note: Core member, May 2025-May 2026
 - firstName: Noah
   lastName: Simon
   image: noah-simon-500x500-min.jpg
@@ -894,7 +936,8 @@ people:
   image: gabrielle-thivierge.jpg
   affiliation: CMU/Stat
   team:
-  - core
+  - past
+  note: Core member, April 2023-August 2026
 - firstName: Robert
   lastName: Tibshirani
   image: robert-tibshirani-500x500-min.jpg
