@@ -183,7 +183,7 @@ people:
 - firstName: Michael
   lastName: Finke
   image: michael-fink.jpg
-  affiliation: "M*Modal"
+  affiliation: Jacobian
   team:
   - advisors
 - key: fischhoff
