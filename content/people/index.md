@@ -294,7 +294,7 @@ people:
   image: jeremy-goldwasser.jpg
   affiliation: UC Berkeley/Stat
   team:
-  - core
+  - past
 - firstName: George
   lastName: Haff
   image: george-haff-photo.jpg
@@ -554,7 +554,7 @@ people:
   image: rachel-lobay.jpg
   affiliation: University of British Columbia
   team:
-  - core
+  - past
   note: Core member, May 2022-August 2026
 - firstName: Natalia
   lastName: Lombardi de&nbsp;Oliveira
