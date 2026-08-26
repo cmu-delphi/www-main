@@ -295,6 +295,7 @@ people:
   affiliation: UC Berkeley/Stat
   team:
   - past
+  note: Core member, April 2022-April 2026
 - firstName: George
   lastName: Haff
   image: george-haff-photo.jpg
