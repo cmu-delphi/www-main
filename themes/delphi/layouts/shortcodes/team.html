@@ -8,6 +8,9 @@
 >
   {{ $team := where (partial "get-persons.html" .) ".team" "intersect" (slice (.Get "team")) }}
   {{ range $team }}
+    {{ if .newLeaderRow }}
+      <div class="uk-width-1-1"></div>
+    {{ end }}
     <div class="team-member">
       {{ if isset . "link" }}
         <a href="{{ .link }}">
