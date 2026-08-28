@@ -369,7 +369,7 @@ people:
   team:
   - leadership
   - highlight
-  leaderOrder: 1
+  leaderOrder: 6
   note: Executive Director
 - firstName: Adam
   lastName: Johns
@@ -378,7 +378,7 @@ people:
   team:
   - leadership
   - highlight
-  leaderOrder: 3
+  leaderOrder: 7
   note: Engineering Manager
 - firstName: Jaemin
   lastName: Jo
@@ -614,7 +614,7 @@ people:
   team:
   
   - leadership
-  leaderOrder: 4
+  leaderOrder: 1
   note: Co-Principal Investigator
 - firstName: Phil
   lastName: McGuinness
@@ -980,7 +980,7 @@ people:
   
   - highlight
   - leadership
-  leaderOrder: 5
+  leaderOrder: 4
   note: Co-Principal Investigator
 - firstName: Dmytro
   lastName: Trotsko
@@ -1140,7 +1140,7 @@ people:
   
   - highlight
   - leadership
-  leaderOrder: 6
+  leaderOrder: 5
   note: Co-Principal Investigator
 - firstName: Rostyslav
   lastName: Zatserkovnyi
