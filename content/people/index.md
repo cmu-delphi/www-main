@@ -615,7 +615,7 @@ people:
   team:
   
   - leadership
-  leaderOrder: 1
+  leaderOrder: 3
   note: Co-Principal Investigator
 - firstName: Phil
   lastName: McGuinness
@@ -775,7 +775,7 @@ people:
   - center-of-excellence
   note: Principal Investigator
   description: is a Principal Investigator in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
-  leaderOrder: 2
+  leaderOrder: 1
 - firstName: Anna
   lastName: Rosengart
   image: anna-rosengart.jpg
@@ -964,7 +964,7 @@ people:
   - center-of-excellence
   note: Principal Investigator
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
-  leaderOrder: 3
+  leaderOrder: 2
 - key: tina
   firstName: Tina
   lastName: Townes
