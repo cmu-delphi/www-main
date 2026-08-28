@@ -369,6 +369,7 @@ people:
   team:
   - leadership
   - highlight
+  newLeaderRow: true
   leaderOrder: 6
   note: Executive Director
 - firstName: Adam
