@@ -26,4 +26,4 @@ layout: team
 
 ## Supporters
 
-{{<team team="support" >}}
+{{<team team="supporters" >}}
