@@ -15,7 +15,7 @@ people:
 - firstName: Amesh
   lastName: Adalja, MD
   image: amesh-adalja.jpeg
-  affiliation: Johns Hopkins University and UPMC
+  affiliation: CMU, Johns Hopkins University, and University of Pittsburgh
   team:
   - advisors
 - firstName: Sumit
@@ -155,6 +155,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: ""
+  lastName: ""
+  image: dd_icon_rgb.jpg
+  affiliation: Datadog
+  team:
+  - supporters
 - firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
