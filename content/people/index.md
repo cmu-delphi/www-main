@@ -155,10 +155,8 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
-- firstName: 
-  lastName: 
+- firstName: Datadog
   image: dd_icon_rgb.jpg
-  affiliation: Datadog
   team:
   - supporters
 - firstName: Nat
