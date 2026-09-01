@@ -24,6 +24,6 @@ layout: team
 
 {{<team team="past" >}}
 
-## Infrastructure generously provided by
+## Infrastructure Generously Provided by
 
 {{<team team="supporters" >}}
