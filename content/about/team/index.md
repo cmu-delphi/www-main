@@ -23,3 +23,7 @@ layout: team
 ## Past Members
 
 {{<team team="past" >}}
+
+## Supporters
+
+{{<team team="support" >}}
