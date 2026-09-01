@@ -155,6 +155,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: 
+  lastName: 
+  image: 
+  affiliation: Datadog
+  team:
+  - supporter
 - firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
