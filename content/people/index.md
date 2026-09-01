@@ -157,7 +157,7 @@ people:
   note: Google Fellow, October 2020-March 2021
 - firstName: 
   lastName: 
-  image: 
+  image: dd_icon_rgb.jpg
   affiliation: Datadog
   team:
   - supporter
