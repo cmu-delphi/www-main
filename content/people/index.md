@@ -15,7 +15,7 @@ people:
 - firstName: Amesh
   lastName: Adalja, MD
   image: amesh-adalja.jpeg
-  affiliation: Johns Hopkins University and UPMC
+  affiliation: CMU, Johns Hopkins University, and University of Pittsburgh
   team:
   - advisors
 - firstName: Sumit
