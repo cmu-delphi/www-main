@@ -160,7 +160,7 @@ people:
   image: dd_icon_rgb.jpg
   affiliation: Datadog
   team:
-  - supporter
+  - supporters
 - firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
