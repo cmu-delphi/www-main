@@ -14,9 +14,11 @@ In collaboration with Facebook, along with a consortium of universities and publ
 
 Such detailed data has never before been available during a public health emergency, and it has helped public health officials understand how to save lives and how to safely reopen public life. The data also helps researchers understand the social, economic, and health effects of the COVID-19 pandemic.
 
-An international version of the survey was conducted by the University of Maryland in collaboration with Facebook. Its data [is available separately](https://covidmap.umd.edu/).
+An international version of the survey was conducted by the University of Maryland in collaboration with Facebook. Its data [is available separately](https://doi.org/10.3886/ICPSR39206.v3).
 
-The [CTIS Methodology Report](https://dataforgood.facebook.com/dfg/resources/CTIS-methodology-report) gives technical details about the survey design and data collection process, and detailed technical documentation about the survey is available on our [site for data users](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/).
+The survey dataset and extensive documentation is now archived via ICPSR, where it is available for research access:
+
+- Reinhart, Alex, Mejia, Robin, and Tibshirani, Ryan J. COVID-19 Trends and Impact Survey (CTIS), United States, 2020-2022. Inter-university Consortium for Political and Social Research \[distributor\], 2025-02-28. <https://doi.org/10.3886/ICPSR39207.v1>
 
 ## What are the surveys for?
 
@@ -42,9 +44,7 @@ To account for the differences between Facebook users and the United States popu
 
 ## Where can I see the results?
 
-Our [CTIS Results Dashboard]({{< relref "covidcast/survey-results" >}}) shows aggregate survey results, ranging from rates of COVID-like symptoms over mask usage to mental health. In addition, our [Delphi Epidata dashboard]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States. The data used by both tools is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}) and our [COVIDcast Exporter]({{< relref "covidcast/export" >}}). Facebook also publishes [a map](https://covid-survey.dataforgood.fb.com/) based on the United States and international aggregate data.
-
-The [Symptom Data Challenge](https://www.symptomchallenge.org/) challenged participants to enable earlier detection and improved situational awareness of the COVID-19 outbreak by using data from these symptom surveys. Check out the [the challenge website](https://www.symptomchallenge.org/) for more details about the Challenge and the finalists.
+Our [CTIS Results Dashboard]({{< relref "covidcast/survey-results" >}}) shows aggregate survey results, ranging from rates of COVID-like symptoms over mask usage to mental health. In addition, our [Delphi Epidata dashboard]({{< relref "covidcast" >}}) shows basic aggregate survey results, revealing the rates of mask usage and COVID-like symptoms across the United States. The data used by both tools is also freely available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}) and our [COVIDcast Exporter]({{< relref "covidcast/export" >}}).
 
 ### Publications
 
@@ -64,22 +64,15 @@ Dozens of other peer-reviewed publications and reports have used CTIS data to st
 
 Yes! Aggregate data is available for download through the [COVIDcast API]({{< apiref "api/covidcast.html">}}). [R and Python clients are available]({{< apiref "api/covidcast_clients.html">}}) for the API. Aggregate data does not include any individual survey responses, only averages over counties and other geographic areas, and does not include all survey questions. See the [API documentation]({{< apiref "api/covidcast-signals/fb-survey.html">}}) for details on how to access the data, what survey questions are available, and how our aggregate values are calculated. Contingency tables giving demographic breakdowns of key survey signals are [also publicly available for download]({{< apiref "symptom-survey/contingency-tables.html">}}).
 
-Access to de-identified individual survey responses is available to qualified research groups who sign Data Use Agreements protecting the confidentiality of survey responses. If you are interested in using the data for your research, you can [find instructions on our documentation site](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/data-access.html). The available data and survey waves are [documented here](https://cmu-delphi.github.io/delphi-epidata/symptom-survey/).
+Access to de-identified individual survey responses is available to qualified research groups who sign Data Use Agreements protecting the confidentiality of survey responses. If you are interested in using the data for your research, you can find documentation and a request form [through ICPSR](https://doi.org/10.3886/ICPSR39207.v1).
 
 ## Who can I contact?
 
-Getting access to survey data for research: [complete this form](https://dataforgood.facebook.com/dfg/docs/covid-19-trends-and-impact-survey-request-for-data-access)
+Requests to access the survey data for research should be made [through ICPSR](https://doi.org/10.3886/ICPSR39207.v1).
 
-### Media inquiries:
-
-[Stacy Kish](mailto:skish@andrew.cmu.edu)  
-Associate Director, Research Communications  
-Dietrich College  
-Carnegie Mellon University
-
-### All other questions:
+For all other questions:
 
 [Alex Reinhart](mailto:areinhar@stat.cmu.edu)  
-Assistant Teaching Professor  
+Associate Teaching Professor  
 Department of Statistics & Data Science  
 Carnegie Mellon University

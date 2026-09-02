@@ -15,7 +15,7 @@ people:
 - firstName: Amesh
   lastName: Adalja, MD
   image: amesh-adalja.jpeg
-  affiliation: Johns Hopkins University and UPMC
+  affiliation: CMU, Johns Hopkins University, and University of Pittsburgh
   team:
   - advisors
 - firstName: Sumit
@@ -155,6 +155,12 @@ people:
   team:
   - past
   note: Google Fellow, October 2020-March 2021
+- firstName: ""
+  lastName: ""
+  image: dd_icon_rgb.jpg
+  affiliation: Datadog
+  team:
+  - supporters
 - firstName: Nat
   lastName: DeFries
   image: nat-defries.jpg
@@ -369,7 +375,8 @@ people:
   team:
   - leadership
   - highlight
-  leaderOrder: 1
+  newLeaderRow: true
+  leaderOrder: 6
   note: Executive Director
 - firstName: Adam
   lastName: Johns
@@ -378,7 +385,7 @@ people:
   team:
   - leadership
   - highlight
-  leaderOrder: 3
+  leaderOrder: 7
   note: Engineering Manager
 - firstName: Jaemin
   lastName: Jo
@@ -577,6 +584,12 @@ people:
   affiliation: CMU/CompBio
   team:
   - core
+- firstName: Terry
+  lastName: Ma
+  image: terry-ma.jpg
+  affiliation: CMU/CompBio
+  team:
+  - core
 - firstName: Lester
   lastName: Mackey
   image: lester-mackey-500x500-min.jpg
@@ -608,7 +621,7 @@ people:
   team:
   
   - leadership
-  leaderOrder: 4
+  leaderOrder: 3
   note: Co-Principal Investigator
 - firstName: Phil
   lastName: McGuinness
@@ -768,7 +781,7 @@ people:
   - center-of-excellence
   note: Principal Investigator
   description: is a Principal Investigator in the Delphi group and a Professor and Head of the Machine Learning Department at CMU. He is also a Google Fellow.
-  leaderOrder: 2
+  leaderOrder: 1
 - firstName: Anna
   lastName: Rosengart
   image: anna-rosengart.jpg
@@ -957,7 +970,7 @@ people:
   - center-of-excellence
   note: Principal Investigator
   description: is a Principal Investigator in the Delphi group, and a Professor in the Department of Statistics & Data Science and the Machine Learning Department at CMU. He is also an Amazon Scholar.
-  leaderOrder: 3
+  leaderOrder: 2
 - key: tina
   firstName: Tina
   lastName: Townes
@@ -974,7 +987,7 @@ people:
   
   - highlight
   - leadership
-  leaderOrder: 5
+  leaderOrder: 4
   note: Co-Principal Investigator
 - firstName: Dmytro
   lastName: Trotsko
@@ -1134,7 +1147,7 @@ people:
   
   - highlight
   - leadership
-  leaderOrder: 6
+  leaderOrder: 5
   note: Co-Principal Investigator
 - firstName: Rostyslav
   lastName: Zatserkovnyi
