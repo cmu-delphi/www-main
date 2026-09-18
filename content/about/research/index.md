@@ -3,7 +3,7 @@ title: Research
 papers:
   - title: "Real-time forecasting of data revisions in epidemic surveillance streams"
     image: georb.jpg
-    authors: Tang J, Rumack A, Wilder B
+    authors: Tang J, Rumack A, Wilder B, Rosenfeld R
     link: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1013709
     year: 2025
     journal: PLOS Computational Biology
