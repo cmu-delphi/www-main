@@ -917,7 +917,13 @@ people:
   affiliation: Santa Clara University
   team:
   - past
-  note: Intern, Summer 2020  
+  note: Intern, Summer 2020
+- firstName: Tina
+  lastName: Su
+  image: tina-su.jpg
+  affiliation: University of British Columbia
+  team:
+  - core
 - firstName: Kean Ming
   lastName: Tan
   image: kean-ming-tan.jpg
