@@ -13,7 +13,6 @@ heroImage: blog-lg-epidatr.jpg
 heroImageThumb: blog-thumb-epidatr.jpg
 summary: |
   `epidatr` is designed to streamline the downloading and usage of data from the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/). It provides a simple R interface to the API, including functions for downloading data, parsing the results, and converting the data into a tidy format.
-
 output:
   blogdown::html_page:
     toc: true
@@ -112,6 +111,7 @@ file, which R will read by default.
 Note that for the time being, the private endpoints (i.e. those prefixed with
 `pvt`) will require a separate key that needs to be passed as an argument.
 
+
 ## For users of the covidcast R package
 
 The `covidcast` package is deprecated and will no longer be updated. The
@@ -122,3 +122,4 @@ sources than `covidcast`. When migrating from that package, you will need to use
 the
 [`pub_covidcast`](https://cmu-delphi.github.io/epidatr/reference/pub_covidcast.html)
 function in `epidatr`.
+
