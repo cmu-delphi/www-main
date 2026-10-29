@@ -1,4 +1,10 @@
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<title>
+  {{- with .Params.seoTitle -}}
+    {{ . }}
+  {{- else -}}
+    {{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+  {{- end -}}
+</title>
 <meta name="twitter:title" content="{{ .Title }}" />
 <meta property="og:title" content="{{ .Title }}" />
 
