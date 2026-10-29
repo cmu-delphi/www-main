@@ -71,10 +71,8 @@ relativeURLs = false
 [[menu.main]]
     parent = "about"
     name = "Contact Us"
-    url = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
+    url = "/contact"
     weight = 10
-    [menu.main.params]
-        external = true
 
 # epidemic-indicators
 [[menu.main]]
