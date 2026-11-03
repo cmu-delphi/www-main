@@ -4,6 +4,8 @@ linkTitle: Contact Us
 seoTitle: "Delphi: Contact Us"
 description: Questions, collaboration opportunities, data requests, and technical support — our team is here to help. Find the right way to connect with us.
 layout: contact
+aliases:
+ - /about/careers
 subtitle: Our team is here to help
 options:
 - id: general-inquiries
@@ -13,20 +15,22 @@ options:
   links:
   - text: Contact us
     url: https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform
-- id: faculty-collaboration
-  title: Faculty Collaboration
-  icon: graduation-cap
-  description: Interested in collaborating with Delphi as a faculty member or researcher?
-  links:
-  - text: Express interest
-    url: https://docs.google.com/forms/d/e/1FAIpQLSeAKmjTuRZePMy4qneyloxhQ3HT9u6ukb3KcyAnIL89uGflxw/viewform
-- id: internships-and-volunteering
-  title: Internships & Volunteering
+- id: collaboration-internships-volunteering
+  title: Faculty Collaboration, Internships, Volunteering
   icon: users-round
-  description: Explore opportunities to contribute to Delphi as an intern or volunteer.
+  description: Interested in collaborating with Delphi as a faculty member, intern, or volunteer?
   links:
-  - text: Submit interest
+  - text: Faculty collaboration
+    url: https://docs.google.com/forms/d/e/1FAIpQLSeAKmjTuRZePMy4qneyloxhQ3HT9u6ukb3KcyAnIL89uGflxw/viewform
+  - text: Internships & volunteering
     url: https://docs.google.com/forms/d/e/1FAIpQLSdPz62Zxg7DC2iyqN7Yv9dCxagpUaOXNIXJjLFJ-R848X0FOQ/viewform
+- id: mld-faculty-positions
+  title: MLD Faculty Positions
+  icon: graduation-cap
+  description: Explore faculty career opportunities in Carnegie Mellon University's Machine Learning Department.
+  links:
+  - text: View open positions
+    url: https://ml.cmu.edu/faculty-hiring
 - id: data-sources-and-problems
   title: Suggest a Data Source or Report a Problem
   icon: database
@@ -47,7 +51,7 @@ options:
     url: https://api.delphi.cmu.edu/epidata/admin/removal_request
 fallback:
   title: Not sure where to start?
-  description: Use our general contact form, and your inquiry can be directed to the appropriate Delphi team.
+  description: Send us your question, and we will help direct it to the right team.
   link:
     text: Contact Delphi
     url: https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform

@@ -39,28 +39,8 @@ relativeURLs = false
 [[menu.main]]
     parent = "about"
     name = "Join Us"
-    url = ""
-    identifier = "join-us"
+    url = "/contact"
     weight = 7
-[[menu.main]]
-    parent = "join-us"
-    name = "Open paid positions"
-    url = "/about/careers"
-    weight = 10
-[[menu.main]]
-    parent = "join-us"
-    name = "Invitation to faculty"
-    url = "https://docs.google.com/forms/d/e/1FAIpQLSeAKmjTuRZePMy4qneyloxhQ3HT9u6ukb3KcyAnIL89uGflxw/viewform"
-    weight = 20
-    [menu.main.params]
-        external = true
-[[menu.main]]
-    parent = "join-us"
-    name = "Invitation to students and volunteers"
-    url = "https://docs.google.com/forms/d/e/1FAIpQLSdPz62Zxg7DC2iyqN7Yv9dCxagpUaOXNIXJjLFJ-R848X0FOQ/viewform"
-    weight = 30
-    [menu.main.params]
-        external = true
 [[menu.main]]
     parent = "about"
     name = "Support Us (Donate)"

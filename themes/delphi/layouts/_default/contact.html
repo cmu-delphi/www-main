@@ -9,30 +9,32 @@
       <div class="contact-options">
         {{ range .Params.options }}
           <section class="contact-option" id="{{ .id }}">
-            {{ partial "font-awesome.html" (print "lucide/" .icon) }}
-            <h2>{{ .title }}</h2>
-            <p>{{ .description | markdownify }}</p>
-            <div class="contact-option-links">
-              {{ range .links }}
-                <a class="contact-link" href="{{ .url }}" target="_blank" rel="noopener">
-                  <span class="contact-link-text">{{ .text }}</span>
-                  {{ partial "font-awesome.html" "lucide/arrow-up-right" }}
-                </a>
-              {{ end }}
+            <div class="contact-option-body">
+              {{ partial "font-awesome.html" (print "lucide/" .icon) }}
+              <h2>{{ .title }}</h2>
+              <p>{{ .description | markdownify }}</p>
+              <div class="contact-option-links">
+                {{ range .links }}
+                  <a class="contact-link" href="{{ .url }}" target="_blank" rel="noopener">
+                    <span class="contact-link-text">{{ .text }}</span>
+                    {{ partial "font-awesome.html" "lucide/arrow-up-right" }}
+                  </a>
+                {{ end }}
+              </div>
             </div>
           </section>
         {{ end }}
+        {{ with .Params.fallback }}
+          <section class="contact-fallback">
+            <h2>{{ .title }}</h2>
+            <p>{{ .description | markdownify }}</p>
+            <a class="contact-button" href="{{ .link.url }}" target="_blank" rel="noopener">
+              {{ .link.text }}
+              {{ partial "font-awesome.html" "lucide/arrow-up-right" }}
+            </a>
+          </section>
+        {{ end }}
       </div>
-      {{ with .Params.fallback }}
-        <section class="contact-fallback">
-          <h2>{{ .title }}</h2>
-          <p>{{ .description | markdownify }}</p>
-          <a class="contact-button" href="{{ .link.url }}" target="_blank" rel="noopener">
-            {{ .link.text }}
-            {{ partial "font-awesome.html" "lucide/arrow-up-right" }}
-          </a>
-        </section>
-      {{ end }}
     </div>
   </div>
 {{ end }}

@@ -4,7 +4,7 @@ $contact-accent-color: #2f4a7c;
 $contact-text-color: #545e74;
 $contact-underline-color: #6b7280;
 $contact-border-color: #e6e9ef;
-$contact-header-background: #eaf4fd;
+$contact-header-background: #e9eaec;
 $contact-button-background: #040e23;
 $contact-gap: 12px;
 $contact-card-padding: 24px;
@@ -63,16 +63,26 @@ $contact-card-padding: 24px;
   padding: $contact-gap;
 }
 
-.contact-option {
-  display: flex;
-  flex: 1 1 30%;
-  flex-direction: column;
-  align-items: flex-start;
+.contact-option,
+.contact-fallback {
   box-sizing: border-box;
   padding: 16px $contact-card-padding;
   border: 1px solid $contact-border-color;
   border-radius: 12px;
   color: $contact-text-color;
+}
+
+.contact-option {
+  display: flex;
+  flex: 1 1 30%;
+  container-type: inline-size;
+}
+
+.contact-option-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
 
   > .inline-svg-icon {
     margin-bottom: 0.25rem;
@@ -86,6 +96,26 @@ $contact-card-padding: 24px;
 
   > p {
     margin: 0.25rem 0 0.625rem;
+  }
+}
+
+// Wide cards put the icon beside the title.
+@container (min-width: 420px) {
+  .contact-option-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto 1fr;
+    column-gap: 16px;
+
+    > * {
+      grid-column: 2;
+    }
+
+    > .inline-svg-icon {
+      grid-row: 1;
+      grid-column: 1;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -128,9 +158,7 @@ $contact-card-padding: 24px;
 }
 
 .contact-fallback {
-  padding: 12px ($contact-gap + $contact-card-padding) 20px;
-  border-top: 1px solid $contact-border-color;
-  color: $contact-text-color;
+  flex-basis: 100%;
 
   > p {
     margin: 0 0 0.75rem;
