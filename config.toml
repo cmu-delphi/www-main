@@ -253,7 +253,6 @@ relativeURLs = false
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
     toolUrl = "/tools/"
     twitter = "CmuDelphi"
-    contactForm = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
     feedbackForm = "https://docs.google.com/forms/d/e/1FAIpQLSeIeOJtrAhdOriEyiRY7LkpQX8DZBY19dl6De8l56Q9CZhmxw/viewform?usp=pp_url&entry.1245962748="
     feedbackLikelihoodMobile = 0.2
     feedbackLikelihoodDesktop = 1
