@@ -3,6 +3,7 @@ title: Contact Delphi
 linkTitle: Contact Us
 seoTitle: "Delphi: Contact Us"
 description: Questions, collaboration opportunities, data requests, and technical support — our team is here to help. Find the right way to connect with us.
+type: contact
 layout: contact
 aliases:
  - /about/careers
@@ -43,7 +44,7 @@ options:
 - id: api-keys
   title: API Key Request or Removal
   icon: key-round
-  description: Request an API key to bypass [rate limits](https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html) for the Epidata API and help us understand your needs and usage.
+  description: Request an [API key](https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html) to bypass rate limits for the Epidata API and help us understand your needs and usage.
   links:
   - text: Request an API key
     url: https://api.delphi.cmu.edu/epidata/admin/registration_form
