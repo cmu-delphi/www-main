@@ -41,9 +41,9 @@ options:
   - text: Report a problem
     url: https://forms.gle/WV4Ndhc3ftvkkgVCA
 - id: api-keys
-  title: API Key Registration or Removal
+  title: API Key Request or Removal
   icon: key-round
-  description: Request an API key to access Delphi data services, or request removal of an existing Epidata API key.
+  description: Request an API key to bypass rate-limits for the Epidata API, and help us understand your needs and usage.
   links:
   - text: Request an API key
     url: https://api.delphi.cmu.edu/epidata/admin/registration_form
