@@ -1,11 +1,9 @@
 $contact-title-color: #0a1640;
 $contact-heading-color: #0b0f19;
-$contact-accent-color: #2f4a7c;
 $contact-text-color: #545e74;
 $contact-underline-color: #6b7280;
 $contact-border-color: #e6e9ef;
 $contact-header-background: #e9eaec;
-$contact-button-background: #040e23;
 $contact-gap: 12px;
 $contact-card-padding: 24px;
 
@@ -37,23 +35,17 @@ $contact-card-padding: 24px;
 }
 
 .contact-header {
-  padding: 16px 2rem 20px;
+  padding: 20px 2rem;
   background: $contact-header-background;
-  color: $contact-accent-color;
-  font-size: 1.125rem;
   text-align: center;
 
   h1 {
-    margin: 0 0 0.5rem;
+    margin: 0;
     color: $contact-title-color;
     font-size: 2.25rem;
     font-weight: 700;
     line-height: 1.2;
   }
-}
-
-.contact-lead {
-  margin-top: 0.625rem;
 }
 
 .contact-options {
@@ -63,18 +55,14 @@ $contact-card-padding: 24px;
   padding: $contact-gap;
 }
 
-.contact-option,
-.contact-fallback {
+.contact-option {
+  display: flex;
   box-sizing: border-box;
+  flex: 1 1 30%;
   padding: 16px $contact-card-padding;
   border: 1px solid $contact-border-color;
   border-radius: 12px;
   color: $contact-text-color;
-}
-
-.contact-option {
-  display: flex;
-  flex: 1 1 30%;
   container-type: inline-size;
 }
 
@@ -126,8 +114,7 @@ $contact-card-padding: 24px;
   margin-top: auto;
 }
 
-.contact-link,
-.contact-button {
+.contact-link {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
@@ -154,29 +141,6 @@ $contact-card-padding: 24px;
 
   .contact-link:hover > & {
     text-decoration-style: solid;
-  }
-}
-
-.contact-fallback {
-  flex-basis: 100%;
-
-  > p {
-    margin: 0 0 0.75rem;
-  }
-}
-
-.contact-button {
-  padding: 9px 20px;
-  border-radius: 999px;
-  background: $contact-button-background;
-
-  &,
-  &:hover {
-    color: white;
-  }
-
-  &:hover {
-    background: lighten($contact-button-background, 12%);
   }
 }
 

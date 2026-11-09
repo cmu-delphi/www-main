@@ -3,8 +3,6 @@
     <div class="contact-panel">
       <header class="contact-header">
         <h1>{{ .Title }}</h1>
-        <p class="contact-subtitle">{{ .Params.subtitle }}</p>
-        <div class="contact-lead">{{ .Content }}</div>
       </header>
       <div class="contact-options">
         {{ range .Params.options }}
@@ -22,16 +20,6 @@
                 {{ end }}
               </div>
             </div>
-          </section>
-        {{ end }}
-        {{ with .Params.fallback }}
-          <section class="contact-fallback">
-            <h2>{{ .title }}</h2>
-            <p>{{ $.RenderString .description }}</p>
-            <a class="contact-button" href="{{ .link.url }}" target="_blank" rel="noopener">
-              {{ .link.text }}
-              {{ partial "font-awesome.html" "lucide/arrow-up-right" }}
-            </a>
           </section>
         {{ end }}
       </div>
