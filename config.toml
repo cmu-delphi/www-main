@@ -39,28 +39,8 @@ relativeURLs = false
 [[menu.main]]
     parent = "about"
     name = "Join Us"
-    url = ""
-    identifier = "join-us"
+    url = "/contact"
     weight = 7
-[[menu.main]]
-    parent = "join-us"
-    name = "Open paid positions"
-    url = "/about/careers"
-    weight = 10
-[[menu.main]]
-    parent = "join-us"
-    name = "Invitation to faculty"
-    url = "https://docs.google.com/forms/d/e/1FAIpQLSeAKmjTuRZePMy4qneyloxhQ3HT9u6ukb3KcyAnIL89uGflxw/viewform"
-    weight = 20
-    [menu.main.params]
-        external = true
-[[menu.main]]
-    parent = "join-us"
-    name = "Invitation to students and volunteers"
-    url = "https://docs.google.com/forms/d/e/1FAIpQLSdPz62Zxg7DC2iyqN7Yv9dCxagpUaOXNIXJjLFJ-R848X0FOQ/viewform"
-    weight = 30
-    [menu.main.params]
-        external = true
 [[menu.main]]
     parent = "about"
     name = "Support Us (Donate)"
@@ -71,10 +51,8 @@ relativeURLs = false
 [[menu.main]]
     parent = "about"
     name = "Contact Us"
-    url = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
+    url = "/contact"
     weight = 10
-    [menu.main.params]
-        external = true
 
 # epidemic-indicators
 [[menu.main]]
@@ -275,7 +253,6 @@ relativeURLs = false
     apiUrl = "https://cmu-delphi.github.io/delphi-epidata"
     toolUrl = "/tools/"
     twitter = "CmuDelphi"
-    contactForm = "https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform"
     feedbackForm = "https://docs.google.com/forms/d/e/1FAIpQLSeIeOJtrAhdOriEyiRY7LkpQX8DZBY19dl6De8l56Q9CZhmxw/viewform?usp=pp_url&entry.1245962748="
     feedbackLikelihoodMobile = 0.2
     feedbackLikelihoodDesktop = 1

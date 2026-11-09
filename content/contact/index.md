@@ -1,0 +1,52 @@
+---
+title: Contact Delphi
+linkTitle: Contact Us
+seoTitle: "Delphi: Contact Us"
+description: Questions, collaboration opportunities, data requests, and technical support — our team is here to help. Find the right way to connect with us.
+type: contact
+layout: contact
+aliases:
+ - /about/careers
+options:
+- id: general-inquiries
+  title: General Inquiries
+  icon: message-circle
+  description: Have a question about Delphi or are unsure where to direct your request?
+  links:
+  - text: Contact us
+    url: https://docs.google.com/forms/d/e/1FAIpQLScqgT1fKZr5VWBfsaSp-DNaN03aV6EoZU4YljIzHJ1Wl_zmtg/viewform
+- id: collaboration-internships-volunteering
+  title: Faculty Collaboration, Internships, Volunteering
+  icon: users-round
+  description: Interested in collaborating with Delphi as a faculty member, intern, or volunteer?
+  links:
+  - text: Faculty collaboration
+    url: https://docs.google.com/forms/d/e/1FAIpQLSeAKmjTuRZePMy4qneyloxhQ3HT9u6ukb3KcyAnIL89uGflxw/viewform
+  - text: Internships & volunteering
+    url: https://docs.google.com/forms/d/e/1FAIpQLSdPz62Zxg7DC2iyqN7Yv9dCxagpUaOXNIXJjLFJ-R848X0FOQ/viewform
+- id: mld-faculty-positions
+  title: MLD Faculty Positions
+  icon: graduation-cap
+  description: Explore faculty career opportunities in Carnegie Mellon University's Machine Learning Department.
+  links:
+  - text: View open MLD faculty positions
+    url: https://ml.cmu.edu/faculty-hiring
+- id: data-sources-and-issues
+  title: Suggest a Data Source or Report an Issue
+  icon: database
+  description: Recommend a new data source for Delphi or let us know if you've encountered an issue (e.g., a bug, broken link, or data problem).
+  links:
+  - text: Suggest a data source
+    url: https://forms.gle/cMG7v7uUrnLVszRu5
+  - text: Report an issue
+    url: https://forms.gle/WV4Ndhc3ftvkkgVCA
+- id: api-keys
+  title: API Key Request or Removal
+  icon: key-round
+  description: Request an [API key](https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html) to bypass rate limits for the Epidata API and help us understand your needs and usage.
+  links:
+  - text: Request an API key
+    url: https://api.delphi.cmu.edu/epidata/admin/registration_form
+  - text: Request key removal
+    url: https://api.delphi.cmu.edu/epidata/admin/removal_request
+---
