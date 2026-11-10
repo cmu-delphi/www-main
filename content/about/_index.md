@@ -9,8 +9,8 @@ layout: about
 **Our vision:** To make this technology as useful as weather forecasting is today.
 
 - Founded in 2012 at Carnegie Mellon University, now spanning 3 universities
-- Perennial winners of CDC’s [“predict the flu” challenge](https://www.cdc.gov/flu/weekly/flusight/index.html) since 2014
-- Designated a 6-year [National Center of Excellence for Flu Forecasting](https://delphi.cmu.edu/about/center-of-excellence/) by [CDC’s Influenza Division](https://www.cdc.gov/ncird/flu.html) (2019-2025)
+- Perennial winners of CDC’s [“predict the flu” challenge](https://www.federalregister.gov/documents/2013/11/25/2013-28198/announcement-of-requirements-and-registration-for-the-predict-the-influenza-season-challenge) since 2014
+- Designated a 6-year [National Center of Excellence for Flu Forecasting](https://delphi.cmu.edu/about/center-of-excellence/) by [CDC’s Influenza Division](https://www.cdc.gov/ncird/divisions-offices/index.html#cdc_listing_res4-influenza-division-id) (2019-2025)
 - Designated a 5-year [National Center for Innovation](https://www.cs.cmu.edu/news/2023/delphi-cdc-center) by [CDC’s Center for Forecasting and Outbreak Analytics](https://www.cdc.gov/forecast-outbreak-analytics/index.html) (2023-2028)
 - Our [Epidata repository](https://cmu-delphi.github.io/delphi-epidata/) of real-time, geographically-detailed epidemic indicators contains more than 750 indicators totaling over 5 billion records, with 3 million records being added daily. During the pandemic, it received on average 100,000 queries/day, from more than 50,000 unique IP addresses in a 3 month period.
 - Data partners and collaborators include CDC, UnitedHealth/Optum, Change Healthcare, Google, Meta, Amazon, QuidelOrtho, and others

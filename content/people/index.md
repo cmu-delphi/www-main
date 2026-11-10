@@ -1083,9 +1083,9 @@ people:
   firstName: Jeremy Chen
   lastName: Weiss
   image: jeremy-weiss-500x500-min.jpg
-  link: https://www.andrew.cmu.edu/user/jweiss2/
-  affiliation: CMU/Heinz College
-  description: is an Assistant Professor of Health Informatics at CMU and is a member of Delphi.
+  link: https://irp.nih.gov/pi/jeremy-weiss
+  affiliation: NIH/NLM
+  description: is an Investigator in the Computational Biology Research Branch at the National Library of Medicine and a former member of Delphi.
   team:
   - past
   - blog
