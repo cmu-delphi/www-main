@@ -32,8 +32,8 @@ members:
 
 sisters:
 - name: CDC's Influenza Division
-  description: Our funders and collaborators at the [CDC's Influenza Division](https://www.cdc.gov/ncird/flu.html), in particular the Influenza Applied Research and Modeling team at the [Epidemiology branch](https://www.cdc.gov/hiv/dhap/eb/index.html).
-  link: https://www.cdc.gov/ncird/flu.html
+  description: Our funders and collaborators at the [CDC's Influenza Division](https://www.cdc.gov/ncird/divisions-offices/index.html#cdc_listing_res4-influenza-division-id), in particular the Influenza Applied Research and Modeling team at the [Epidemiology branch](https://www.cdc.gov/hiv/dhap/eb/index.html).
+  link: https://www.cdc.gov/ncird/divisions-offices/index.html#cdc_listing_res4-influenza-division-id
 - name: University of Massachusetts Amherst
   description: Our sister organization, the [Influenza Forecasting Center of Excellence](https://reichlab.io/) at University of Massachusetts Amherst.
   link: https://reichlab.io/

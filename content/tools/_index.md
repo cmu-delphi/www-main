@@ -32,7 +32,7 @@ Epidemiological time series visualizer.
 
 We host a forecast evaluation dashboard to compare the historical performance of the forecasts submitted to the [COVID-19 Forecast Hub](https://covid19forecasthub.org/).
 
-### [Flu Forecasting (FluSight)](https://www.cdc.gov/flu/weekly/flusight/index.html)
+### [Flu Forecasting (FluSight)](https://www.cdc.gov/flu-forecasting/about/index.html)
 
 We participate in the weekly Flu forecasting hub run by the CDC during the flu season.
 Our current system for generating forecasts can be found [here](https://github.com/cmu-delphi/flu-hosp-forecast/).
