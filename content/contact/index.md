@@ -43,7 +43,7 @@ options:
 - id: api-keys
   title: API Key Request or Removal
   icon: key-round
-  description: Request an [API key](https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html) to bypass rate limits for the Epidata API and help us understand your needs and usage.
+  description: Request an [API key](https://cmu-delphi.github.io/delphi-epidata/api/api_keys.html) to bypass Epidata API rate limits and inform initiatives that support users.
   links:
   - text: Request an API key
     url: https://api.delphi.cmu.edu/epidata/admin/registration_form

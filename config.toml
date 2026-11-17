@@ -134,18 +134,14 @@ relativeURLs = false
     weight = 20
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Report a Data Problem"
-    url = "https://forms.gle/WV4Ndhc3ftvkkgVCA"
+    name = "Report an Issue"
+    url = "/contact/#data-sources-and-issues"
     weight = 11
-    [menu.main.params]
-        external = true
 [[menu.main]]
     parent = "epidemic-signals"
-    name = "Suggest a New Data Source"
-    url = "https://forms.gle/cMG7v7uUrnLVszRu5"
+    name = "Suggest a Data Source"
+    url = "/contact/#data-sources-and-issues"
     weight = 12
-    [menu.main.params]
-        external = true
 # nowcasting-and-forecasting
 [[menu.main]]
     identifier = "nowcasting-and-forecasting"
