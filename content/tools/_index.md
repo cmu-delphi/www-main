@@ -36,7 +36,7 @@ We host a forecast evaluation dashboard to compare the historical performance of
 
 We participate in the weekly Flu forecasting hub run by the CDC during the flu season.
 Our current system for generating forecasts can be found [here](https://github.com/cmu-delphi/flu-hosp-forecast/).
-From these dozens of individual forecasts by various groups, the CDC publishes a weekly [ensemble prediction](https://www.cdc.gov/flu/weekly/flusight/flu-forecasts.htm).
+From these dozens of individual forecasts by various groups, the CDC publishes a weekly [ensemble prediction](https://www.cdc.gov/flu-forecasting/data-vis/current-week.html).
 
 ### [COVID-19 Forecasting](https://covid19forecasthub.org/)
 
