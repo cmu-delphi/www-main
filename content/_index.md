@@ -4,6 +4,11 @@ description: Developing the Theory and Practice of Epidemiological Forecasting
 layout: landing
 
 carousel:
+  - pre: Nowcasting & Evaluation
+    title: Real-Time Nowcasting and Evaluation for NSSP Emergency Department Visits
+    link: https://cmu-delphi.github.io/analysis-notebooks/nowcast_nssp/
+    alt: View NSSP Nowcast Evaluation Notebooks
+    image: forecast_evaluation_dashboard.jpg
   - pre: Tools
     title: Real-time Indicators of Infectious Disease Activity
     link: https://delphi.cmu.edu/epiportal/

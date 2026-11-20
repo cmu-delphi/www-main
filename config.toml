@@ -150,23 +150,37 @@ relativeURLs = false
     weight = 1
 [[menu.main]]
     parent = "nowcasting-and-forecasting"
+    name = "NSSP Nowcast Evaluations"
+    url = "https://cmu-delphi.github.io/analysis-notebooks/nowcast_nssp/"
+    weight = 1
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "nowcasting-and-forecasting"
+    name = "Delphi Analysis Notebooks"
+    url = "https://cmu-delphi.github.io/analysis-notebooks/"
+    weight = 2
+    [menu.main.params]
+        external = true
+[[menu.main]]
+    parent = "nowcasting-and-forecasting"
     name = "COVID-19 Forecasting"
     url = "https://covid19forecasthub.org/"
-    weight = 2
+    weight = 3
     [menu.main.params]
         external = true
 [[menu.main]]
     parent = "nowcasting-and-forecasting"
     name = "Flu Forecasting"
     url = "https://www.cdc.gov/flu-forecasting/about/index.html"
-    weight = 3
+    weight = 4
     [menu.main.params]
         external = true
 [[menu.main]]
     parent = "nowcasting-and-forecasting"
     name = "Forecast Evaluation"
     url = "/forecast-eval/"
-    weight = 4
+    weight = 5
     [menu.main.params]
         external = true
 

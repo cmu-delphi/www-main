@@ -26,7 +26,15 @@ A builder that allows you to customize the [Delphi Epidata Dashboard](/covidcast
 
 Epidemiological time series visualizer.
 
-## Forecasting
+## Nowcasting and Forecasting
+
+### [NSSP ED Visit Nowcast Evaluations](https://cmu-delphi.github.io/analysis-notebooks/nowcast_nssp/)
+
+Evaluation reports for real-time nowcasts of emergency department visit percentages for COVID-19, influenza, and RSV from the National Syndromic Surveillance Program (NSSP). Compares DelphiRF and AutoDelphiRF models against baseline reporting to predict final backfilled values in real time.
+
+### [Delphi Analysis Notebooks](https://cmu-delphi.github.io/analysis-notebooks/)
+
+A collection of reproducible exploratory analyses, indicator evaluations, and nowcast scorecards built with Delphi data tools.
 
 ### [COVID-19 Forecasting Evaluation](https://delphi.cmu.edu/forecast-eval/)
 
