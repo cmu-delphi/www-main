@@ -184,7 +184,7 @@ relativeURLs = false
 [[menu.main]]
     parent = "nowcasting-and-forecasting"
     name = "Flu Forecasting"
-    url = "https://www.cdc.gov/flu/weekly/flusight/index.html"
+    url = "https://www.cdc.gov/flu-forecasting/about/index.html"
     weight = 3
     [menu.main.params]
         external = true

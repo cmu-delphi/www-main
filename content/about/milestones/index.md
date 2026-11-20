@@ -74,6 +74,6 @@ layout: milestones
 
 * **2016.** We developed and deployed the [Epidata API](https://cmu-delphi.github.io/delphi-epidata/), which provides real-time access to epidemiological surveillance data.
 
-* **2013.** We began supporting the U.S. CDC’s Influenza Division in advancing and growing a [scientific community around influenza forecasting](https://www.cdc.gov/flu/weekly/flusight/index.html). We’ve been [perennial leaders in forecasting accuracy](https://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf) ever since.
+* **2013.** We began supporting the U.S. CDC’s Influenza Division in advancing and growing a [scientific community around influenza forecasting](https://www.cdc.gov/flu-forecasting/about/index.html). We’ve been [perennial leaders in forecasting accuracy](https://www.cs.cmu.edu/~roni/CDC%20Flu%20Challenge%202014-2018%20Results.pdf) ever since.
 
 
