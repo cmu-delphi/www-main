@@ -541,7 +541,7 @@ people:
   image: jiaping-olivia-liu.jpg
   affiliation: University of British Columbia
   team:
-  - core
+  - past
 - firstName: Maggie
   lastName: Liu
   image: maggie-liu.jpg
