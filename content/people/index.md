@@ -1169,6 +1169,12 @@ people:
   team:
   - past
   note: Contributor, June-August 2022
+- firstName: Justin
+  lastName: Zhang
+  image: justin-zhang.jpg
+  affiliation: University of British Columbia
+  team:
+  - core
 - firstName: Richard
   lastName: Zhuang
   image: richard-zhuang.jpg
