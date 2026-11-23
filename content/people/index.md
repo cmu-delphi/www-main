@@ -541,7 +541,7 @@ people:
   image: jiaping-olivia-liu.jpg
   affiliation: University of British Columbia
   team:
-  - core
+  - past
 - firstName: Maggie
   lastName: Liu
   image: maggie-liu.jpg
@@ -917,7 +917,13 @@ people:
   affiliation: Santa Clara University
   team:
   - past
-  note: Intern, Summer 2020  
+  note: Intern, Summer 2020
+- firstName: Tina
+  lastName: Su
+  image: tina-su.jpg
+  affiliation: University of British Columbia
+  team:
+  - core
 - firstName: Kean Ming
   lastName: Tan
   image: kean-ming-tan.jpg
@@ -1077,9 +1083,9 @@ people:
   firstName: Jeremy Chen
   lastName: Weiss
   image: jeremy-weiss-500x500-min.jpg
-  link: https://www.andrew.cmu.edu/user/jweiss2/
-  affiliation: CMU/Heinz College
-  description: is an Assistant Professor of Health Informatics at CMU and is a member of Delphi.
+  link: https://irp.nih.gov/pi/jeremy-weiss
+  affiliation: NIH/NLM
+  description: is an Investigator in the Computational Biology Research Branch at the National Library of Medicine and a former member of Delphi.
   team:
   - past
   - blog

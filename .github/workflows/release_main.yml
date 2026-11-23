@@ -32,6 +32,11 @@ jobs:
         with:
           version: ${{ steps.extract_version.outputs.version }}
           publish: true
+      - name: Verify release was created
+        if: steps.create_release.outputs.tag_name == ''
+        run: |
+          echo "::error::release-drafter did not return a tag_name, so it likely failed to create the release (e.g. tag v${{ steps.extract_version.outputs.version }} already exists). Bump the version in package.json and re-run."
+          exit 1
     outputs:
       version: ${{ steps.extract_version.outputs.version }}
       upload_url: ${{ steps.create_release.outputs.upload_url }}
@@ -71,6 +76,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           ref: dev
+          fetch-depth: 0
           ssh-key: ${{ secrets.CMU_DELPHI_DEPLOY_MACHINE_SSH }}
       - name: Reset dev branch
         run: |
