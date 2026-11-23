@@ -23,7 +23,11 @@ Download data from our API as a usable tibble in R!
 Python client for the [Delphi Epidata API](https://cmu-delphi.github.io/delphi-epidata/).
 Download data from our API as a usable Pandas dataframe in Python!
 
-## Forecasting
+## Forecasting and Modeling
+
+### [Delphi Analysis Notebooks](https://cmu-delphi.github.io/analysis-notebooks/)
+
+Reproducible indicator evaluations and modeling notebooks, including [nowcast evaluations for NSSP emergency department visits](https://cmu-delphi.github.io/analysis-notebooks/nowcast_nssp/) tracking COVID-19, influenza, and RSV.
 
 ### [Introduction to Epidemiological Forecasting: Delphi Tools, Data, and Lessons](https://cmu-delphi.github.io/delphi-tooling-book/)
 
